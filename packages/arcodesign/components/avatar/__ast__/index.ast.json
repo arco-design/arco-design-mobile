@@ -1,0 +1,658 @@
+{
+    "description": "头像展示组件，支持圆形和方形两种形状，支持图片文字头像，支持五种尺寸。",
+    "descriptionTags": {
+        "en": "Avatar component supports two shapes of circle and square, supports pictures or text avatars, with five sizes.",
+        "type": "数据展示",
+        "type_en": "Data Display",
+        "name": "头像",
+        "name_en": "Avatar"
+    },
+    "displayName": "Avatar",
+    "methods": [],
+    "props": {
+        "shape": {
+            "defaultValue": {
+                "value": "\"circle\""
+            },
+            "description": "形状\n@en Shapre",
+            "name": "shape",
+            "tags": {
+                "en": "Shapre",
+                "default": "\"circle\""
+            },
+            "descWithTags": "形状",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"circle\" | \"square\"",
+                "value": [
+                    {
+                        "value": "\"circle\""
+                    },
+                    {
+                        "value": "\"square\""
+                    }
+                ]
+            }
+        },
+        "size": {
+            "defaultValue": {
+                "value": "\"small\""
+            },
+            "description": "尺寸\n@en Size",
+            "name": "size",
+            "tags": {
+                "en": "Size",
+                "default": "\"small\""
+            },
+            "descWithTags": "尺寸",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"medium\" | \"large\" | \"small\" | \"smaller\" | \"ultra-small\"",
+                "value": [
+                    {
+                        "value": "\"medium\""
+                    },
+                    {
+                        "value": "\"large\""
+                    },
+                    {
+                        "value": "\"small\""
+                    },
+                    {
+                        "value": "\"smaller\""
+                    },
+                    {
+                        "value": "\"ultra-small\""
+                    }
+                ]
+            }
+        },
+        "src": {
+            "defaultValue": null,
+            "description": "图片头像的资源地址\n@en resource of avatar picture",
+            "name": "src",
+            "tags": {
+                "en": "resource of avatar picture"
+            },
+            "descWithTags": "图片头像的资源地址",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": true,
+            "type": {
+                "name": "string"
+            }
+        },
+        "imageProps": {
+            "defaultValue": null,
+            "description": "图片头像组件参数，透传给Image组件\n@en Image avatar component props, transparently passed to the Image component",
+            "name": "imageProps",
+            "tags": {
+                "en": "Image avatar component props, transparently passed to the Image component"
+            },
+            "descWithTags": "图片头像组件参数，透传给Image组件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "Partial<ImageProps & RefAttributes<ImageRef>>"
+            }
+        },
+        "decoration": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "图片头像上的装饰\n@en the decoration for image avatar",
+            "name": "decoration",
+            "tags": {
+                "en": "the decoration for image avatar",
+                "default": "null"
+            },
+            "descWithTags": "图片头像上的装饰",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "textAvatar": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "文字头像，中文建议取两个字，英文建议在三个字以下\n@en Text Avatar, two characters in Chinese, and three characters or less in English are recommended.",
+            "name": "textAvatar",
+            "tags": {
+                "en": "Text Avatar, two characters in Chinese, and three characters or less in English are recommended.",
+                "default": "\"\""
+            },
+            "descWithTags": "文字头像，中文建议取两个字，英文建议在三个字以下",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "avatarStyle": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "头像元素的自定义样式\n@en Custom style for avatar element",
+            "name": "avatarStyle",
+            "tags": {
+                "en": "Custom style for avatar element",
+                "default": "{}"
+            },
+            "descWithTags": "头像元素的自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "autoFixFontSize": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否自动根据头像尺寸调整字体大小\n@en Whether to automatically adjust the font size according to the avatar size",
+            "name": "autoFixFontSize",
+            "tags": {
+                "en": "Whether to automatically adjust the font size according to the avatar size",
+                "default": "true"
+            },
+            "descWithTags": "是否自动根据头像尺寸调整字体大小",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "autoFixFontOffset": {
+            "defaultValue": {
+                "value": "2"
+            },
+            "description": "自动调整文字头像大小时，文字距离头像容器左右的安全距离\n@en When automatically adjusting the size of the text head image, the safe distance between the text and the left and right of the avatar container",
+            "name": "autoFixFontOffset",
+            "tags": {
+                "en": "When automatically adjusting the size of the text head image, the safe distance between the text and the left and right of the avatar container",
+                "default": "2"
+            },
+            "descWithTags": "自动调整文字头像大小时，文字距离头像容器左右的安全距离",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "avatarName": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "头像旁的用户名信息\n@en Username information next to the avatar",
+            "name": "avatarName",
+            "tags": {
+                "en": "Username information next to the avatar",
+                "default": "\"\""
+            },
+            "descWithTags": "头像旁的用户名信息",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "avatarDesc": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "头像旁的辅助信息，需要和用户名一起出现\n@en Auxiliary information next to the avatar, which needs to appear together with the username",
+            "name": "avatarDesc",
+            "tags": {
+                "en": "Auxiliary information next to the avatar, which needs to appear together with the username",
+                "default": "\"\""
+            },
+            "descWithTags": "头像旁的辅助信息，需要和用户名一起出现",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "renderInfo": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "自定义头像描述信息\n@en Custom avatar description information",
+            "name": "renderInfo",
+            "tags": {
+                "en": "Custom avatar description information",
+                "default": "null"
+            },
+            "descWithTags": "自定义头像描述信息",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "defaultOverLap": {
+            "defaultValue": {
+                "value": "用户图标"
+            },
+            "description": "头像组件为空时默认的状态\n@en The default state when the avatar component is empty\n@default_en User Icon",
+            "name": "defaultOverLap",
+            "tags": {
+                "en": "The default state when the avatar component is empty",
+                "default": "用户图标",
+                "default_en": "User Icon"
+            },
+            "descWithTags": "头像组件为空时默认的状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "onClick": {
+            "defaultValue": {
+                "value": "() => {}"
+            },
+            "description": "点击头像的回调事件\n@en callback event when clicking the avatar",
+            "name": "onClick",
+            "tags": {
+                "en": "callback event when clicking the avatar",
+                "default": "() => {}"
+            },
+            "descWithTags": "点击头像的回调事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => void"
+            }
+        },
+        "onClickDecoration": {
+            "defaultValue": {
+                "value": "() => {}"
+            },
+            "description": "点击头像上的装饰\n@en callback when clicking on the decoration on the avatar",
+            "name": "onClickDecoration",
+            "tags": {
+                "en": "callback when clicking on the decoration on the avatar",
+                "default": "() => {}"
+            },
+            "descWithTags": "点击头像上的装饰",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => void"
+            }
+        },
+        "children": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "自定义组件内容\n@en Custom component content",
+            "name": "children",
+            "tags": {
+                "en": "Custom component content",
+                "default": "null"
+            },
+            "descWithTags": "自定义组件内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<AvatarRef>"
+            }
+        }
+    },
+    "deps": {
+        "AvatarRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "组件外层dom元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "组件外层dom元素"
+            }
+        }
+    },
+    "depComps": {
+        "Group": {
+            "description": "头像叠层",
+            "descriptionTags": {
+                "en": "Avatar group"
+            },
+            "displayName": "Group",
+            "methods": [],
+            "props": {
+                "isGroup": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "是否为头像组\n@en Whether it is an avatar group",
+                    "name": "isGroup",
+                    "tags": {
+                        "en": "Whether it is an avatar group",
+                        "default": "false"
+                    },
+                    "descWithTags": "是否为头像组",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                        "name": "AvatarGroupContextParams"
+                    },
+                    "required": true,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "shape": {
+                    "defaultValue": {
+                        "value": "\"circle\""
+                    },
+                    "description": "形状，优先级低于Avatar组件本身\n@en Shape, which has lower priority than the avatar component",
+                    "name": "shape",
+                    "tags": {
+                        "en": "Shape, which has lower priority than the avatar component",
+                        "default": "\"circle\""
+                    },
+                    "descWithTags": "形状，优先级低于Avatar组件本身",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                        "name": "AvatarGroupContextParams"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"circle\" | \"square\"",
+                        "value": [
+                            {
+                                "value": "\"circle\""
+                            },
+                            {
+                                "value": "\"square\""
+                            }
+                        ]
+                    }
+                },
+                "size": {
+                    "defaultValue": {
+                        "value": "\"medium\""
+                    },
+                    "description": "尺寸，优先级低于Avatar组件本身\n@en Size,  which has lower priority than the avatar component",
+                    "name": "size",
+                    "tags": {
+                        "en": "Size,  which has lower priority than the avatar component",
+                        "default": "\"medium\""
+                    },
+                    "descWithTags": "尺寸，优先级低于Avatar组件本身",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                        "name": "AvatarGroupContextParams"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"medium\" | \"large\" | \"small\" | \"smaller\" | \"ultra-small\"",
+                        "value": [
+                            {
+                                "value": "\"medium\""
+                            },
+                            {
+                                "value": "\"large\""
+                            },
+                            {
+                                "value": "\"small\""
+                            },
+                            {
+                                "value": "\"smaller\""
+                            },
+                            {
+                                "value": "\"ultra-small\""
+                            }
+                        ]
+                    }
+                },
+                "zIndexOrder": {
+                    "defaultValue": {
+                        "value": "\"desc\""
+                    },
+                    "description": "头像组叠层层级顺序，z-index值大小，desc - 降序，asc - 升序\n@en Avatar group stacking level order, that is, z-index value, desc - descending order, asc - ascending order",
+                    "name": "zIndexOrder",
+                    "tags": {
+                        "en": "Avatar group stacking level order, that is, z-index value, desc - descending order, asc - ascending order",
+                        "default": "\"desc\""
+                    },
+                    "descWithTags": "头像组叠层层级顺序，z-index值大小，desc - 降序，asc - 升序",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                        "name": "AvatarGroupContextParams"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"desc\" | \"asc\"",
+                        "value": [
+                            {
+                                "value": "\"desc\""
+                            },
+                            {
+                                "value": "\"asc\""
+                            }
+                        ]
+                    }
+                },
+                "children": {
+                    "defaultValue": {
+                        "value": "null"
+                    },
+                    "description": "自定义组件内容\n@en Custom component content",
+                    "name": "children",
+                    "tags": {
+                        "en": "Custom component content",
+                        "default": "null"
+                    },
+                    "descWithTags": "自定义组件内容",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "BaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<AvatarGroupRef>"
+                    }
+                }
+            },
+            "deps": {
+                "AvatarGroupRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "组件外层dom元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "组件外层dom元素"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "AvatarGroupContextParams",
+                "ref": "AvatarGroupRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "AvatarProps",
+        "ref": "AvatarRef"
+    },
+    "isDefaultExport": true
+}

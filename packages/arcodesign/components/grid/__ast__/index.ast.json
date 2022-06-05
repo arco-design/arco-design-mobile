@@ -1,0 +1,327 @@
+{
+    "description": "宫格可以在水平方向上把页面分隔成等宽度的区块，用于展示内容或进行页面导航。",
+    "descriptionTags": {
+        "en": "The grid can divide the page into equal-width blocks in the horizontal direction for displaying content or for page navigation.",
+        "type": "布局",
+        "type_en": "Layout",
+        "name": "宫格",
+        "name_en": "Grid"
+    },
+    "displayName": "Grid",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "data": {
+            "defaultValue": null,
+            "description": "传入的数据\n@en grid data",
+            "name": "data",
+            "tags": {
+                "en": "grid data"
+            },
+            "descWithTags": "传入的数据",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": true,
+            "type": {
+                "name": "GridData[]"
+            }
+        },
+        "columns": {
+            "defaultValue": {
+                "value": "3"
+            },
+            "description": "一行的列数\n@en number of columns",
+            "name": "columns",
+            "tags": {
+                "en": "number of columns",
+                "default": "3"
+            },
+            "descWithTags": "一行的列数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "border": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否有边框\n@en Whether there is a border",
+            "name": "border",
+            "tags": {
+                "en": "Whether there is a border",
+                "default": "false"
+            },
+            "descWithTags": "是否有边框",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "gutter": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "格子间的间距\n@en spacing between grids",
+            "name": "gutter",
+            "tags": {
+                "en": "spacing between grids",
+                "default": "0"
+            },
+            "descWithTags": "格子间的间距",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { x: number; y: number; }"
+            }
+        },
+        "shape": {
+            "defaultValue": {
+                "value": "\"square\""
+            },
+            "description": "格子的形状，可选值为 circle\n@en The shape of the grid, the optional value are circle and square",
+            "name": "shape",
+            "tags": {
+                "en": "The shape of the grid, the optional value are circle and square",
+                "default": "\"square\""
+            },
+            "descWithTags": "格子的形状，可选值为 circle",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "isSliding": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "溢出时是否支持滑动\n@en Whether to support swipe when overflowing",
+            "name": "isSliding",
+            "tags": {
+                "en": "Whether to support swipe when overflowing",
+                "default": "false"
+            },
+            "descWithTags": "溢出时是否支持滑动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "direction": {
+            "defaultValue": {
+                "value": "\"vertical\""
+            },
+            "description": "格子内容排列的方向，可选值为 horizontal\n@en The direction in which the grid content is arranged, the optional value are horizontal and vertical",
+            "name": "direction",
+            "tags": {
+                "en": "The direction in which the grid content is arranged, the optional value are horizontal and vertical",
+                "default": "\"vertical\""
+            },
+            "descWithTags": "格子内容排列的方向，可选值为 horizontal",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/grid/index.tsx",
+                "name": "GridProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<GridRef>"
+            }
+        }
+    },
+    "deps": {
+        "GridData": {
+            "img": {
+                "name": "img",
+                "required": true,
+                "description": "传入图标的资源地址\n@en The resource address of the input icon",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "The resource address of the input icon"
+                },
+                "descWithTags": "传入图标的资源地址"
+            },
+            "title": {
+                "name": "title",
+                "required": true,
+                "description": "传入的标题文字内容\n@en Title text content",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Title text content"
+                },
+                "descWithTags": "传入的标题文字内容"
+            },
+            "content": {
+                "name": "content",
+                "required": false,
+                "description": "传入的描述文字内容\n@en Description text",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Description text"
+                },
+                "descWithTags": "传入的描述文字内容"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义样式\n@en Custom classname",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname"
+                },
+                "descWithTags": "自定义样式"
+            },
+            "onClick": {
+                "name": "onClick",
+                "required": false,
+                "description": "点击后的回调函数\n@en Callback when clicking",
+                "defaultValue": null,
+                "type": {
+                    "name": "(item: GridData) => void"
+                },
+                "tags": {
+                    "en": "Callback when clicking"
+                },
+                "descWithTags": "点击后的回调函数"
+            },
+            "itemStyle": {
+                "name": "itemStyle",
+                "required": false,
+                "description": "每个格子自定义样式\n@en Custom style for each grid",
+                "defaultValue": null,
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom style for each grid"
+                },
+                "descWithTags": "每个格子自定义样式"
+            },
+            "renderGrid": {
+                "name": "renderGrid",
+                "required": false,
+                "description": "自定义单个 grid 的创建函数\n@en Customize the creation function of a single grid",
+                "defaultValue": null,
+                "type": {
+                    "name": "(item: GridData, colIndex: number, rowIndex: number) => ReactNode"
+                },
+                "tags": {
+                    "en": "Customize the creation function of a single grid"
+                },
+                "descWithTags": "自定义单个 grid 的创建函数"
+            },
+            "__index": {
+                "name": "__index",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "any"
+                },
+                "tags": {},
+                "descWithTags": ""
+            }
+        },
+        "GridRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "GridProps",
+        "ref": "GridRef"
+    },
+    "isDefaultExport": true
+}

@@ -1,0 +1,118 @@
+.arco-design-mobile-component {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height: 100%;
+    padding-left: 9%;
+    min-height: 800px;
+    background: #F7F8FA;
+    overflow: hidden;
+    .component-introduction {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 0 0 auto;
+        width: 32.84%;
+        margin-top: 200px;
+        margin-right: 3.47%;
+        .desc {
+            margin-top: 32px;
+            font-family: PingFang SC;
+            font-size: 16px;
+            line-height: 26px;
+            color: #4E5969;
+            text-align: left;
+        }
+        .arco-design-text-btn{
+            margin-top: 44px;
+            .right-arrow {
+                transform: scale(0.8889);
+                margin-left: 16px;
+                margin-top: 2px;
+            }
+        }
+    }
+    .mobile-component-box {
+        iframe {
+            width: 912px;
+            height: 1310px;
+            background-color: #F7F8FA;
+        }
+        &::-webkit-scrollbar {
+            display: none; /* Chrome Safari */
+          }
+    }
+    @media screen and (max-width: 1199px) {
+        padding-left: 0;
+        flex-direction: column;
+        align-items: center;
+
+        &.component-pc {
+            height: auto!important;
+        }
+        .component-introduction {
+            align-items: center;
+            margin-top: 80px;
+            margin-right: 0;
+            width: 448px;
+            .arco-design-text-btn {
+                margin-top: 32px;
+                margin-bottom: 24px;
+            }
+            .desc {
+                text-align: center;
+            }
+        }
+        .mobile-component-box {
+            width: 100%;
+            overflow-x: scroll!important;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .component-introduction {
+            align-items: center;
+            margin-top: 40px;
+            margin-right: 0;
+            width: auto;
+            width: 387px;
+            .desc {
+                margin: 22px 25px 24px 25px;
+                font-size: 14px;
+                line-height: 26px;
+                color: #4E5969;
+                text-align: left;
+            }
+            .arco-design-text-btn {
+                margin-top: 8px;
+                margin-bottom: 16px;
+            }
+        }
+        .mobile-component-box {
+            margin-left: -44px;
+            width: calc(100% + 44px);
+            iframe {
+                float: left;
+            }
+        }
+
+    }
+    &.component-mobile {
+        height: 100%!important;
+        min-height: auto;
+        .component-introduction {
+            width: auto;
+            .arco-design-text-btn {
+                display: none;
+            }
+        }
+        .components-group-pic {
+            width: 100%;
+        }
+
+        .mobile-component-box {
+            margin-top: 0;
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+}

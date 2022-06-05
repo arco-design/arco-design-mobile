@@ -1,0 +1,89 @@
+.arco-design-principle {
+    padding: 80px 9% 180px 9%;
+    .arco-design-mobile-title {
+        font-size: 36px;
+    }
+    .principle-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .principle-item {
+        display: inline-block;
+        margin-top: 36px;
+        padding: 75px 36px 77px 36px;
+        width: 22.60%;
+        vertical-align: top;
+        text-align: left;
+        background: #FFFFFF;
+        border: 1px solid #F2F3F5;
+        box-sizing: border-box;
+        border-radius: 12px;
+        img {
+            width: 40px;
+        }
+        .title {
+            margin-top: 32px;
+            font-family: PingFang SC;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 32px;
+            color: #1D2129;
+        }
+        .subtitle {
+            margin-top: 12px;
+            font-family: PingFang SC;
+            font-size: 14px;
+            line-height: 22px;
+            color: #4E5969;
+
+        }
+    }
+    @media screen and (max-width: 1199px) and (min-width: 768px) {
+        .principle-item {
+            width: calc(50% - 18px);
+        }
+    }
+    @media screen and (max-width: 768px) {
+        padding: 40px 16px 60px 16px;
+        .principle-group {
+            flex-direction: column;
+        }
+        .arco-design-mobile-title {
+            font-size: 20px;
+        }
+        .principle-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 15px 12px 17px 12px;
+            margin-right: 0;
+            width: auto;
+            background: #F7F8FA;
+            border: 0;
+            img {
+                margin-top: 4px;
+                width: 24px;
+            }
+            .title-wrapper {
+                margin-left: 10px;
+            }
+            .title {
+                margin-top: 0;
+                font-size: 18px;
+            }
+            .subtitle {
+                margin-top: 1px;
+                font-size: 14px;
+                line-height: 24px;
+            }
+            & + .principle-item {
+                margin-left: 0;
+                margin-top: 12px;
+            }
+
+        }
+
+    }
+}

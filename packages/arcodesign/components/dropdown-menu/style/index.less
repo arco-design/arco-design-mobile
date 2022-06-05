@@ -1,0 +1,60 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-dropdown-menu {
+    .@{prefix}-select{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .onepx-border-var(bottom, line-color);
+        &-item {
+            position: relative;
+            .use-var(padding, dropdown-menu-padding);
+            .use-var(font-size, dropdown-menu-font-size);
+            .use-var(line-height, dropdown-menu-line-height);
+            flex: 1;
+            display:flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            .use-var(color, dropdown-menu-color);
+            &.is-disabled {
+                .use-var(color, dropdown-menu-disabled-color);
+            }
+            &.is-selected {
+                .use-var(color, dropdown-menu-selected-color);
+            }
+            &-tip {
+                display: inline-block;
+                white-space: nowrap;
+                .use-var(color, dropdown-menu-tip-color);
+                .use-var(padding-right, dropdown-menu-tip-padding-right);
+            }
+            &-label {
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                &-text {
+                    flex: auto;
+                    display: inline-block;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    .use-var(max-width, dropdown-menu-label-max-width);
+                    text-overflow: ellipsis;
+                }
+            }
+            &-icon {
+                flex: none;
+                .use-var(color, dropdown-menu-icon-color);
+                .use-var(width, dropdown-menu-icon-size);
+                .use-var(height, dropdown-menu-icon-size);
+                .use-var(margin-left, dropdown-menu-icon-margin-left);
+                transform: rotate(0deg);
+                transition: transform .2s cubic-bezier(.34, .69, .1, 1);
+                &.is-show {
+                    .use-var(color, dropdown-menu-icon-selected-color);
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}

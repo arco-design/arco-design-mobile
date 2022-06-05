@@ -1,0 +1,104 @@
+@import '../../../style/mixin.less';
+
+
+.@{prefix}-pagination {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .use-var(padding, pagination-padding);
+    &-prev-field, &-next-field {
+        flex: 1;
+        display: flex;
+    }
+    &-prev-field {
+        justify-content: flex-start;
+        &.flex-center {
+            justify-content: flex-end;
+            .use-var(margin-right, pagination-center-field-gutter);
+        }
+    }
+    &-next-field {
+        justify-content: flex-end;
+        &.flex-center {
+            justify-content: flex-start;
+            .use-var(margin-left, pagination-center-field-gutter);
+        }
+    }
+
+    &-field {
+        cursor: pointer;
+        text-align: center;
+        font-size: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        .use-var(font-size, pagination-field-font-size);
+        .use-var(line-height, pagination-field-line-height);
+        .noselect();
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            &.next {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+    &-field.button {
+        .use-var(padding, pagination-field-button-padding);
+        .use-var(border-radius, pagination-field-button-border-radius);
+        .use-var(min-height, pagination-field-button-min-height);
+        .use-var(background, pagination-field-default-background);
+        .use-var(color, pagination-field-default-text-color);
+        &.primary {
+            .use-var(background, pagination-field-primary-background);
+            .use-var(color, pagination-field-primary-text-color);
+        }
+        .btn-text {
+            .use-var(font-size, pagination-field-btn-text-font-size);
+        }
+        .btn-icon + .btn-text,
+        .btn-text + .btn-icon {
+            .use-var(margin-left, pagination-field-btn-icon-text-gutter);
+        }
+        .btn-icon:first-child {
+            .use-var(margin-left, pagination-field-btn-icon-side-margin);
+        }
+        .btn-icon:last-child {
+            .use-var(margin-right, pagination-field-btn-icon-side-margin);
+        }
+    }
+    &.android &-field.button {
+        .btn-text {
+            .rem(padding-top, 2);
+        }
+    }
+    &-field.text {
+        .use-var(color, pagination-field-default-text-color);
+        &.primary {
+            .use-var(color, pagination-field-text-primary-text-color);
+        }
+        &.disabled {
+            background: none;
+        }
+    }
+    &-field.disabled {
+        .use-var(background, pagination-field-disabled-background);
+        .use-var(color, pagination-field-disabled-text-color);
+    }
+
+    &-item {
+        flex: 0 0 auto;
+        text-align: center;
+        .use-var(font-size, pagination-item-font-size);
+        .use-var(line-height, pagination-item-line-height);
+        .use-var(color, pagination-item-default-text-color);
+        .active {
+            .use-var(color, pagination-item-primary-text-color);
+        }
+    }
+}
+.@{prefix}-pagination-simple {
+    justify-content: center;
+}

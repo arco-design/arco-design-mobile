@@ -1,0 +1,25 @@
+@import '../../../../style/mixin.less';
+
+#demo-image-preview {
+    .rem(padding-bottom, 27);
+    .arcodesign-mobile-demo-content {
+        .rem(padding, 0, 12);
+        background: transparent;
+    }
+    .@{prefix}-cell {
+        .rem(border-radius, 8);
+        overflow: hidden;
+    }
+    .image-fit-demo {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .@{prefix}-image {
+            .rem(width, 109);
+            .rem(height, 109);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+    }
+}

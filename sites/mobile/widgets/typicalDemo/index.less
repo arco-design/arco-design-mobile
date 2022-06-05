@@ -1,0 +1,292 @@
+
+
+.typical-demo {
+    display: flex;
+    background: #F7F8FA;;
+    font-family: PingFang SC;
+    padding-top: 24px;
+    padding-bottom: 30px;
+    overflow: hidden;
+    .column-first {
+        padding-left: 60px;
+        padding-right: 21px;
+        &-unit {
+            position: relative;
+            margin-bottom: 42px;
+        }
+
+    }
+    .column-second {
+        padding-left: 21px;
+        padding-right: 60px;
+        &-unit {
+            position: relative;
+            margin-bottom: 42px;
+            height: 180px;
+        }
+    }
+    &-card {
+        margin-bottom: 42px;
+        padding: 16px;
+        width: 375px;
+        background: #FFFFFF;
+        border-radius: 20px;
+        box-shadow: 0px 20px 60px rgba(210, 216, 235, 0.3);
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-slider-box {
+        .arco-slider-popover {
+            margin-bottom: 8px!important;
+            &-content {
+                padding-bottom: 0;
+                background: transparent;
+                font-size: 14px;
+                line-height: 20px;
+                text-align: center;
+                color: #165DFF;
+            }
+            &-arrow {
+                border-top-color: transparent!important;
+            }
+        }
+        .arco-slider {
+            padding: 41px 0 47px 0;
+        }
+        .arco-slider-label.is-prefix {
+            font-size: 14px;
+            margin-right: 28px!important;
+        }
+        .arco-slider-label.is-suffix {
+            font-size: 14px;
+            margin-left: 28px!important;
+        }
+        .bottom-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .arco-button {
+                height: 44px;
+            }
+            .arco-button + .arco-button {
+                margin-left: 12px;
+            }
+        }
+    }
+    &-checkbox-box {
+        .arco-checkbox + .arco-checkbox {
+            margin-top: 20px;
+        }
+        .checkbox-text {
+            font-size: 16px!important;
+        }
+    }
+    &-btns-box {
+        .first-row, .second-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .arco-button:not(:last-child) {
+                margin-right: 12px;
+            }
+        }
+        .first-row {
+            margin-bottom: 16px;
+        }
+    }
+    &-list2-box {
+        padding-top: 0;
+        padding-bottom: 0;
+        .arco-cell {
+            margin-left: 0;
+            padding-right: 0;
+        }
+        .demo-cell-span {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            color: #1D2129;
+        }
+        .arco-avatar {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    &-list1-box {
+        .arco-cell {
+            margin-left: 0;
+            padding-right: 0;
+        }
+        .tag-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            .arco-tag {
+                flex: 1;
+                height: 36px;
+                .tag-text {
+                    font-size: 16px!important;
+                    line-height: 22px!important;
+                }
+            }
+            .arco-tag + .arco-tag {
+                margin-left: 16px;
+            }
+
+        }
+    }
+    &-cp-box {
+        padding: 24px 0 28px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 62.9%;
+        .arco-circle-progress {
+            .arco-circle-progress-text {
+                font-size: 24px;
+            }
+            svg {
+                animation: circleRotate 3s linear infinite;
+            }
+        }
+        @keyframes circleRotate{
+            from{
+                transform: rotate(0);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        .box-title {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 22px;
+            color: #86909C;
+        }
+        .box-desc {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 20px;
+            color: #C9CDD4;
+        }
+    }
+    &-avatar-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .avatar-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 16px;
+            height: 77px;
+            .size-text {
+                font-size: 12px;
+                line-height: 17px;
+                color: #939AA3;
+            }
+        }
+    }
+    &-collapse-box {
+        .arco-collapse-content-container {
+            min-height: 105px;
+            font-size: 14px!important;
+            line-height: 20px!important;
+        }
+        .arco-collapse-header {
+            font-size: 16px!important;
+            line-height: 22px!important;
+            margin-left: 0!important;
+        }
+    }
+    &-cd-box {
+        position: absolute;
+        top: 14px;
+        right: -31px;
+        width: fit-content;
+        .colon {
+            display: inline-block;
+            margin: 0 6px;
+            color: #165dff;
+        }
+
+        .block {
+            width: 25px;
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 500;
+            color: #165dff;
+            background: #e8f3ff;
+            border-radius: 2PX;
+            display: inline-block;
+            text-align: center;
+        }
+    }
+    &-rate-box {
+        position: absolute;
+        bottom: 0;
+        left: -38.2%;
+        width: 56.54% !important;
+        margin-bottom: 0;
+        .arco-rate-icon-wrap {
+            width: 36px;
+            height: 36px;
+            padding: 7px;
+        }
+        .rate-love {
+            .arco-rate-icon-wrap {
+                padding: 8px;
+                svg {
+                    shape-rendering: crispEdges;
+                }
+                &.active {
+                    color: #FFB400;
+                    animation: heartBeat .5s linear;
+                }
+            }
+            @keyframes heartBeat {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.2);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+    &-dialog-box {
+        padding: 0;
+        margin-left: 105px;
+        width: 270px!important;
+        border-radius: 20px!important;
+        overflow: hidden;
+        .arco-dialog-content {
+            width:100%;
+            border-radius: 20px!important;
+        }
+        .dialog-input-box-input {
+            margin-top: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+            line-height: 20px;
+            background-color: #F2F3F5;
+            width: 100%;
+            caret-color: #165dff;
+        }
+        .dialog-input-box-hint {
+
+            color: #86909c;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 18px
+        }
+    }
+}
+

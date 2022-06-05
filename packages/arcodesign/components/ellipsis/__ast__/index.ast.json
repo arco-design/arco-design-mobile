@@ -1,0 +1,304 @@
+{
+    "description": "文本缩略组件，支持多行缩略、富文本、自定义缩略符、尾字符过滤等。",
+    "descriptionTags": {
+        "en": "Text ellipsis component supports multi-line abbreviations, rich text, custom abbreviations, tail character filtering, etc.",
+        "type": "数据展示",
+        "type_en": "Data Display",
+        "name": "文本缩略",
+        "name_en": "Ellipsis"
+    },
+    "displayName": "Ellipsis",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "maxHeight": {
+            "defaultValue": null,
+            "description": "最大显示高度，单位 px，优先级高于 maxLine\n@en Maximum display height(unit: px), priority higher than maxLine",
+            "name": "maxHeight",
+            "tags": {
+                "en": "Maximum display height(unit: px), priority higher than maxLine"
+            },
+            "descWithTags": "最大显示高度，单位 px，优先级高于 maxLine",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "ellipsisNode": {
+            "defaultValue": {
+                "value": "\"...\""
+            },
+            "description": "自定义缩略符节点，文本缩略时插入文本尾部\n@en Customize the ellipsis node, insert at the end of the text when the text is omitted",
+            "name": "ellipsisNode",
+            "tags": {
+                "en": "Customize the ellipsis node, insert at the end of the text when the text is omitted",
+                "default": "\"...\""
+            },
+            "descWithTags": "自定义缩略符节点，文本缩略时插入文本尾部",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "collapseNode": {
+            "defaultValue": null,
+            "description": "自定义收起符节点，不为空且文本展开时插入文本尾部\n@en Customize the collapse node, when the value is not empty and the text is expanded, the node is  inserted at the end of the text",
+            "name": "collapseNode",
+            "tags": {
+                "en": "Customize the collapse node, when the value is not empty and the text is expanded, the node is  inserted at the end of the text"
+            },
+            "descWithTags": "自定义收起符节点，不为空且文本展开时插入文本尾部",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "endExcludes": {
+            "defaultValue": {
+                "value": "[]"
+            },
+            "description": "文本结尾处（缩略符之前）需要过滤掉的字符\n@en Characters to filter out at the end of the text (before the ellipsis)",
+            "name": "endExcludes",
+            "tags": {
+                "en": "Characters to filter out at the end of the text (before the ellipsis)",
+                "default": "[]"
+            },
+            "descWithTags": "文本结尾处（缩略符之前）需要过滤掉的字符",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string[]"
+            }
+        },
+        "reflowOnResize": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "容器大小变化时是否自适应，使用原生缩略时默认为 true\n@en Whether to adapt when the container size changes, the default is true when using native ellipsis",
+            "name": "reflowOnResize",
+            "tags": {
+                "en": "Whether to adapt when the container size changes, the default is true when using native ellipsis",
+                "default": "false"
+            },
+            "descWithTags": "容器大小变化时是否自适应，使用原生缩略时默认为 true",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onReflow": {
+            "defaultValue": null,
+            "description": "文本缩略处理的完成回调\n@en Callback when text omission processing is complete",
+            "name": "onReflow",
+            "tags": {
+                "en": "Callback when text omission processing is complete"
+            },
+            "descWithTags": "文本缩略处理的完成回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(ellipsis: boolean, text: string) => void"
+            }
+        },
+        "onEllipsisNodeClick": {
+            "defaultValue": null,
+            "description": "缩略节点点击事件\n@en Ellipsis node click event",
+            "name": "onEllipsisNodeClick",
+            "tags": {
+                "en": "Ellipsis node click event"
+            },
+            "descWithTags": "缩略节点点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onCollapseNodeClick": {
+            "defaultValue": null,
+            "description": "收起节点点击事件\n@en Collapse node click event",
+            "name": "onCollapseNodeClick",
+            "tags": {
+                "en": "Collapse node click event"
+            },
+            "descWithTags": "收起节点点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "text": {
+            "defaultValue": null,
+            "description": "需要缩略的文本内容\n@en Text content to be omitted",
+            "name": "text",
+            "tags": {
+                "en": "Text content to be omitted"
+            },
+            "descWithTags": "需要缩略的文本内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "BaseProps"
+            },
+            "required": true,
+            "type": {
+                "name": "string"
+            }
+        },
+        "ellipsis": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否开启缩略\n@en Whether to enable ellipsis",
+            "name": "ellipsis",
+            "tags": {
+                "en": "Whether to enable ellipsis",
+                "default": "true"
+            },
+            "descWithTags": "是否开启缩略",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "maxLine": {
+            "defaultValue": {
+                "value": "1"
+            },
+            "description": "最大显示行数\n@en Maximum number of displayed lines",
+            "name": "maxLine",
+            "tags": {
+                "en": "Maximum number of displayed lines",
+                "default": "1"
+            },
+            "descWithTags": "最大显示行数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "dangerouslyUseInnerHTML": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否使用 innerHTML 插入文本（警告：务必确保 text 安全可靠，否则易导致 XSS 漏洞）\n@en Whether to use innerHTML to insert text (warning: make sure the text is safe and reliable, otherwise it will easily lead to XSS vulnerabilities)",
+            "name": "dangerouslyUseInnerHTML",
+            "tags": {
+                "en": "Whether to use innerHTML to insert text (warning: make sure the text is safe and reliable, otherwise it will easily lead to XSS vulnerabilities)",
+                "default": "false"
+            },
+            "descWithTags": "是否使用 innerHTML 插入文本（警告：务必确保 text 安全可靠，否则易导致 XSS 漏洞）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<EllipsisRef>"
+            }
+        }
+    },
+    "deps": {
+        "EllipsisRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "reflow": {
+                "name": "reflow",
+                "required": true,
+                "description": "控制容器重新编排\n@en Control container to reflow",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Control container to reflow"
+                },
+                "descWithTags": "控制容器重新编排"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "EllipsisProps",
+        "ref": "EllipsisRef"
+    },
+    "isDefaultExport": true
+}

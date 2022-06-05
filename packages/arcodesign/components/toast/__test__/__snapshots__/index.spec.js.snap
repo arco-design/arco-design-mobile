@@ -1,0 +1,557 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toast demo test toast demo: custom.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Custom icon
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`toast demo test toast demo: direction.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Show from the top
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Show from the bottom
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`toast demo test toast demo: hotizontal.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Success tips
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Error tips
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Warning tips
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`toast demo test toast demo: index.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Basic usage
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Multiline prompt
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`toast demo test toast demo: loading.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Loading icon
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Loading icon + Text
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Loading progress
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`toast demo test toast demo: status.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Success tips
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Error tips
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Warning tips
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        />
+        <div
+          class="cell-arrow-icon"
+        >
+          <svg
+            class="arrow-icon-svg"
+            fill="none"
+            viewBox="0 0 8 14"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

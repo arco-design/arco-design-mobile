@@ -1,0 +1,30 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-masking {
+    &-mask,
+    &-content {
+        &.pre-mount:not([class*="-enter"]):not([class*="-exit"]),
+        &[class*="-exit-done"] {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+    &-mask {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: @full-screen-z-index;
+        .use-var(background, mask-background);
+    }
+    &-content {
+        position: fixed;
+        z-index: @full-screen-z-index + 1;
+        &.at-center {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

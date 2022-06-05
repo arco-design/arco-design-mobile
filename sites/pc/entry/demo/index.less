@@ -1,0 +1,113 @@
+@import '../../../../packages/arcodesign/style/mixin.less';
+
+.demo-comp-qrcode-popover {
+    margin-left: -1px;
+    margin-top: -12px;
+    .home-code-popover-content {
+        padding: 12px 12px 16px;
+        font-size: 13px;
+        line-height: 24px;
+    }
+    .code {
+        margin: 4px auto 0;
+    }
+}
+.demo-comp-qrcode {
+    color: #c2c7cc;
+    margin-left: 14px;
+    cursor: pointer;
+    &:hover {
+        color: @primary-color;
+    }
+}
+// 手机部分
+.mobile-iframe {
+    position: relative;
+    padding: 40px 42px 0 0;
+    pointer-events: none;
+    iframe {
+        position: sticky;
+        top: 116px;
+        pointer-events: auto;
+        width: 375px;
+        height: 667px;
+        border-radius: 12px;
+        border: 1px solid #e5e6e8;
+        box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.07);
+        box-sizing: border-box;
+    }
+}
+
+.ac-anchor-wrapper {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 180px;
+    height: 100vh;
+    padding: 110px 24px 24px;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: all 0.15s;
+
+    .arco-anchor {
+        width: 132px;
+
+        &-link-title {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        &-lineless {
+            height: 100%;
+            padding-bottom: 180px;
+        }
+        &-list {
+            height: 100%;
+            overflow: auto;
+        }
+    }
+}
+
+.ac-anchor-inner {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.ac-anchor-layout-holder {
+    width: 180px;
+    height: 100vh;
+    transition: all 0.15s;
+
+    &-close {
+        width: 0;
+        overflow: hidden;
+
+        .ac-anchor-wrapper {
+            right: -180px;
+        }
+    }
+}
+
+.ac-anchor-collapse-btn {
+    position: fixed !important;
+    top: 100px;
+    right: 112px;
+
+    svg {
+        vertical-align: -3px;
+        transform: rotate(180deg);
+    }
+
+    &-close {
+        width: 28px !important;
+        right: 0;
+        background-color: var(--color-bg-5) !important;
+        box-shadow: -1px 0 5px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 18px 0 0 18px !important;
+
+        svg {
+            margin-left: 2px;
+            transform: none;
+        }
+    }
+}

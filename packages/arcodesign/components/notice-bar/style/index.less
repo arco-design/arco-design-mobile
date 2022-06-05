@@ -1,0 +1,111 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-notice-bar {
+    .use-var(background, notice-bar-background);
+    .use-var(color, notice-bar-color);
+    .use-var(padding, notice-bar-wrapper-padding);
+    display: flex;
+    align-items: flex-start;
+    font-size: 0;
+
+    &.no-wrap &-content-inner {
+        white-space: nowrap;
+    }
+
+    &.ellipsis &-content-inner {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &.wrapable &-content-inner {
+        .use-var(line-height, notice-bar-line-height);
+        .use-var(padding, notice-bar-vertical-padding, "", 0);
+    }
+
+    &-left-part,
+    &-right-part,
+    &-close {
+        .use-var(padding, notice-bar-vertical-padding, "", 0);
+        .use-var(font-size, notice-bar-text-font-size);
+        .@{prefix}-icon {
+            float: left;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+
+    &-left-part {
+        .use-var(padding-right, notice-bar-horizontal-padding);
+    }
+
+    &-right-part,
+    &-close {
+        .use-var(padding-left, notice-bar-horizontal-padding);
+    }
+
+    &-content {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+
+        &-inner {
+            display: inline-block;
+            .use-var(font-size, notice-bar-text-font-size);
+            .use-var(line-height, notice-bar-single-line-height);
+
+            &.animate {
+                animation: marquee linear both;
+            }
+        }
+        .@{prefix}-carousel {
+            .use-var(height, notice-bar-single-line-height);
+            white-space: normal;
+            .@{prefix}-carousel-item {
+                .use-var(font-size, notice-bar-text-font-size);
+                .use-var(line-height, notice-bar-single-line-height);
+            }
+        }
+        .@{prefix}-carousel-indicator {
+            display: none;
+        }
+    }
+    .@{prefix}-icon {
+        .use-var(font-size, notice-bar-icon-font-size);
+        .use-var(line-height, notice-bar-line-height);
+        .use-var(height, notice-bar-line-height); // for svg
+    }
+
+    &-gradient {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        z-index: 1;
+        .use-var(width, notice-bar-gradient-width);
+        .use-var(background, notice-bar-gradient-background);
+
+        &.left {
+            left: 0;
+        }
+
+        &.right {
+            right: -2PX;
+            transform: rotate(180deg);
+        }
+    }
+
+    @keyframes marquee {
+
+        0% {
+            transform: translate3d(0, 0, 0);
+        }
+
+        100% {
+            transform: translate3d(-100%, 0, 0);
+        }
+    }
+}

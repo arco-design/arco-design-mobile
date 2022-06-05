@@ -1,0 +1,95 @@
+@import '../../../../packages/arcodesign/style/mixin.less';
+
+.arcodesign-pc-menu {
+    position: relative;
+    width: 260px;
+    box-sizing: border-box;
+    transition: all .15s;
+    border-right: 1px solid #e5e6eb;
+    opacity: 1;
+    min-height: 1000px;
+    flex-shrink: 0;
+    z-index: 1;
+    &-inner {
+        position: fixed;
+        top: 60px;
+        bottom: 0;
+        transition: left .15s;
+        left: -1px;
+        display: flex;
+        flex-direction: column;
+    }
+    &-header {
+        flex: 0 0 auto;
+        position: relative;
+        width: 100%;
+        padding: 20px 20px 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        text-align: center;
+        background: #FFF;
+        .arco-radio-button-inner {
+            width: 80px;
+            text-align: center;
+            font-size: 16px;
+            box-sizing: content-box;
+        }
+        .arco-radio-checked {
+            .arco-radio-button-inner {
+                color: @primary-color;
+            }
+        }
+    }
+    &-list {
+        flex: 1;
+        width: 260px;
+        padding-top: 20px;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        &:hover {
+            overflow-y: auto;
+        }
+        .arco-menu-light.arco-menu-vertical {
+            box-shadow: none;
+        }
+        .arco-menu {
+            padding-bottom: 30px;
+        }
+        .arco-menu-inner {
+            padding: 4px 12px;
+        }
+        .arco-menu-item {
+            color: #1A2234;
+            a {
+                display: block;
+            }
+        }
+        .arco-menu-item:hover,
+        .arco-menu-inline-header:hover {
+            background-color: #f7f8fa;
+            color: inherit;
+        }
+        .arco-menu-light .arco-menu-item.arco-menu-selected {
+            background-color: #f2f3f5;
+        }
+        .arco-menu-group {
+            .arco-menu-item.arco-menu-selected {
+                color: @primary-color;
+            }
+        }
+        .arco-menu-item .arco-badge-dot {
+            right: -4px;
+        }
+        .title-1>.arco-menu-group-title {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 24px;
+            line-height: 40px;
+            color: #1A2234;
+        }
+        .arco-menu-group:not(.title-1)>.arco-menu-group-title>span {
+            padding-left: 0!important;
+            color: #7A8499;
+        }
+    }
+}

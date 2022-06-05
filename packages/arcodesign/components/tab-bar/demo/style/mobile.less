@@ -1,0 +1,34 @@
+@import '../../../../style/mixin.less';
+#demo-tab-bar {
+    padding-bottom: 0;
+
+    .arcodesign-mobile-demo-content {
+        padding: 0;
+        overflow: hidden;
+    }
+    .tab-bar-badge {
+        margin-left: 0px;
+        .rem(margin-top,2);
+    }
+    .tab-bar-toast-content {
+        .rem(height,134);
+        display: flex;
+        flex-direction: column;
+        .tab-bar-notify-content {
+            .rem(height,84);
+            .@{prefix}-toast-wrapper {
+                position: static;
+            }
+            .@{prefix}-toast.all-border-box{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .@{prefix}-toast-wrapper.from-top{
+                padding: 0;
+            }
+        }
+    }
+}

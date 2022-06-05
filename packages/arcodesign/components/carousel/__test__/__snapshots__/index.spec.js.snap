@@ -1,0 +1,544 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`carousel demo test carousel demo: basic.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-center"
+  >
+    <i
+      class="indicator type-circle active"
+    />
+    <i
+      class="indicator type-circle"
+    />
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: change.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-center"
+  >
+    <i
+      class="indicator type-square active"
+    />
+    <i
+      class="indicator type-square"
+    />
+    <i
+      class="indicator type-square"
+    />
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: custom-width.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:900px;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:300px;padding-left:0;box-sizing:content-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:300px;padding-left:0;box-sizing:content-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:300px;padding-left:0;box-sizing:content-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-center"
+  >
+    <i
+      class="indicator type-square active"
+    />
+    <i
+      class="indicator type-square"
+    />
+    <i
+      class="indicator type-square"
+    />
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: indicator.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-end"
+  >
+    <span
+      class="radius-num-indicator"
+    >
+      1/3
+    </span>
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: lazy.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      />
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      />
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-center"
+  >
+    <i
+      class="indicator type-circle active"
+    />
+    <i
+      class="indicator type-circle"
+    />
+    <i
+      class="indicator type-circle"
+    />
+    <i
+      class="indicator type-circle"
+    />
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: list.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          class="carousel-item-img needsclick"
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+        />
+        <div
+          class="carousel-item-text"
+        >
+          First carousel
+        </div>
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          class="carousel-item-img needsclick"
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg"
+        />
+        <div
+          class="carousel-item-text"
+        >
+          Second carousel
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-end"
+  >
+    <i
+      class="indicator type-circle active"
+    />
+    <i
+      class="indicator type-circle"
+    />
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: offset-space.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-100%) translateZ(0);-webkit-transform:translateX(-100%) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(65px);-webkit-transform:translateX(65px);width:100%;padding-left:35px;padding-right:35px;box-sizing:border-box"
+      >
+        <div
+          class="arco-carousel-item-inner"
+          style="transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(0%) scale(0.8);-webkit-transform:translateX(0%) scale(0.8);transform-origin:100% center;-webkit-transform-origin:100% center"
+        >
+          <img
+            alt=""
+            src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+          />
+        </div>
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:35px;padding-right:35px;box-sizing:border-box"
+      >
+        <div
+          class="arco-carousel-item-inner"
+          style="transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(0%) scale(1);-webkit-transform:translateX(0%) scale(1);transform-origin:100% center;-webkit-transform-origin:100% center"
+        >
+          <img
+            alt=""
+            src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+          />
+        </div>
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(-65px);-webkit-transform:translateX(-65px);width:100%;padding-left:35px;padding-right:35px;box-sizing:border-box"
+      >
+        <div
+          class="arco-carousel-item-inner"
+          style="transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(0%) scale(0.8);-webkit-transform:translateX(0%) scale(0.8);transform-origin:0% center;-webkit-transform-origin:0% center"
+        >
+          <img
+            alt=""
+            src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-center"
+  >
+    <i
+      class="indicator type-square"
+    />
+    <i
+      class="indicator type-square active"
+    />
+    <i
+      class="indicator type-square"
+    />
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: outside.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-center inverse outside"
+  >
+    <i
+      class="indicator type-circle active"
+    />
+    <i
+      class="indicator type-circle"
+    />
+    <i
+      class="indicator type-circle"
+    />
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: vertical.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+    style="height:140px"
+  >
+    <div
+      class="arco-carousel-inner auto vertical"
+      style="transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateY(-0%) translateZ(0);-webkit-transform:translateY(-0%) translateZ(0);width:100%"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active vertical"
+        style="transform:translateY(0px);-webkit-transform:translateY(0px);height:140px;padding-top:0;padding-bottom:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item vertical ssr-float"
+        style="transform:translateY(0px);-webkit-transform:translateY(0px);height:140px;padding-top:0;padding-bottom:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item vertical ssr-float"
+        style="transform:translateY(0px);-webkit-transform:translateY(0px);height:140px;padding-top:0;padding-bottom:0;box-sizing:border-box"
+      >
+        <img
+          alt=""
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-center vertical ver-pos-left"
+  >
+    <i
+      class="indicator type-square active"
+    />
+    <i
+      class="indicator type-square"
+    />
+    <i
+      class="indicator type-square"
+    />
+  </div>
+</div>
+`;
+
+exports[`carousel demo test carousel demo: vertical-text.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+    style="height:22px"
+  >
+    <div
+      class="arco-carousel-inner auto vertical"
+      style="transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateY(-0%) translateZ(0);-webkit-transform:translateY(-0%) translateZ(0);width:100%"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active vertical"
+        style="transform:translateY(0px);-webkit-transform:translateY(0px);height:22px;padding-top:0;padding-bottom:0;box-sizing:border-box"
+      >
+        <div
+          class="vertical-text"
+        >
+          Carousel 1
+        </div>
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item vertical ssr-float"
+        style="transform:translateY(0px);-webkit-transform:translateY(0px);height:22px;padding-top:0;padding-bottom:0;box-sizing:border-box"
+      >
+        <div
+          class="vertical-text"
+        >
+          Carousel 2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

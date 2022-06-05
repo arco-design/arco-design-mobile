@@ -1,0 +1,13 @@
+components/
+tests/
+gulpfile.js
+jest.config.js
+rollup.lib.js
+*.func-info.json
+*.mixin-info.json
+pack-util.js
+
+tokens/*
+demo/*
+!tokens/app/arcodesign/
+!tokens/mixin/

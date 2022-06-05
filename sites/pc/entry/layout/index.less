@@ -1,0 +1,102 @@
+@import '../../../../packages/arcodesign/style/mixin.less';
+
+body {
+    height: 100%;
+}
+
+.arcodesign-pc-site {
+    height: 100%;
+    &-content-wrap {
+        position: relative;
+        display: flex;
+        height: 100%;
+    }
+    &-content {
+        position: relative;
+        display: flex;
+        padding-top: 60px;
+        min-height: 900px;
+        flex: 1;
+    }
+    .arcodesign-pc-menu-holder {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 12px;
+        height: 100vh;
+        background-color: #f7f8fa;
+        border-right: 1px solid #e5e6eb;
+        z-index: 1;
+    }
+    .arcodesign-pc-menu-collapse-btn {
+        position: fixed;
+        left: 247px;
+        z-index: 2;
+        background-color: #FFF!important;
+        color: #4e5969;
+        border: 1px solid #e5e6eb!important;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+        transition: all .15s;
+        svg {
+            vertical-align: -2px;
+        }
+        &:hover {
+            transform: scale(1.1, 1.1);
+        }
+        &-close {
+            left: 0;
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+#changelog {
+    .arco-timeline-item-content {
+        display: flex;
+    }
+    .arco-timeline-item-dot {
+        background: @primary-color;
+    }
+    .left {
+        min-width: 100px;
+        margin-right: 40px;
+        h2 {
+            margin: 0;
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 500;
+            color: #1A2233;
+        }
+        p {
+            font-size: 12px;
+            line-height: 20px;
+            color: #86909c;
+            margin: 0;
+        }
+    }
+    .right {
+        h3 {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #1A2234;
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+        ul {
+            padding-left: 20px;
+            li {
+                font-weight: 400;
+                height: 22px;
+                line-height: 22px;
+                color: #424E66;
+                line-height: 2;
+                word-wrap: break-word;
+                margin-bottom: 8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,253 @@
+{
+    "description": "加载中组件，分为四种类型，`circle`为环形，`arc`为弧线，`spin`为旋转，`dot`为圆点。所有类型均可定制颜色，环形和弧线类型可定制线圈半径及粗细，旋转和圆点类型可定制内部元素透明度。",
+    "descriptionTags": {
+        "en": "Loading component, divided into four types, `circle` is a ring, `arc` is an arc `spin` is a rotation, and `dot` is a dot. All types can be customized in color, ring and arc types can be customized with coil radius and thickness, and rotation and dot types can be customized with internal element transparency.",
+        "type": "反馈",
+        "type_en": "Feedback",
+        "name": "加载",
+        "name_en": "Loading"
+    },
+    "displayName": "Loading",
+    "methods": [],
+    "props": {
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "color": {
+            "defaultValue": null,
+            "description": "主颜色，如果想使用 css 控制主颜色，可使用公共 mixin `.set-loading-color(@color)`\n@en The main color, if you want to use css to control the main color, you can use the public mixin `.set-loading-color(@color)`",
+            "name": "color",
+            "tags": {
+                "en": "The main color, if you want to use css to control the main color, you can use the public mixin `.set-loading-color(@color)`"
+            },
+            "descWithTags": "主颜色，如果想使用 css 控制主颜色，可使用公共 mixin `.set-loading-color(@color)`",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "type": {
+            "defaultValue": {
+                "value": "\"dot\""
+            },
+            "description": "loading类型\n@en Loading type",
+            "name": "type",
+            "tags": {
+                "en": "Loading type",
+                "default": "\"dot\""
+            },
+            "descWithTags": "loading类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "LoadingType",
+                "value": [
+                    {
+                        "value": "\"spin\""
+                    },
+                    {
+                        "value": "\"circle\""
+                    },
+                    {
+                        "value": "\"arc\""
+                    },
+                    {
+                        "value": "\"dot\""
+                    }
+                ]
+            }
+        },
+        "list": {
+            "defaultValue": null,
+            "description": "当类型为`dot`或`spin`时有效，定义内部各元素的透明度\n@en Valid when the type is `dot` or `spin`, defines the transparency of each element inside",
+            "name": "list",
+            "tags": {
+                "en": "Valid when the type is `dot` or `spin`, defines the transparency of each element inside"
+            },
+            "descWithTags": "当类型为`dot`或`spin`时有效，定义内部各元素的透明度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number[]"
+            }
+        },
+        "duration": {
+            "defaultValue": {
+                "value": "1000"
+            },
+            "description": "一次loading周期的毫秒数\n@en A loading cycle in millisecond",
+            "name": "duration",
+            "tags": {
+                "en": "A loading cycle in millisecond",
+                "default": "1000"
+            },
+            "descWithTags": "一次loading周期的毫秒数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "svgKey": {
+            "defaultValue": null,
+            "description": "区分不同loading组件间的`<def>`内容\n@en Distinguish the `<def>` content of different svg",
+            "name": "svgKey",
+            "tags": {
+                "en": "Distinguish the `<def>` content of different svg"
+            },
+            "descWithTags": "区分不同loading组件间的`<def>`内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "radius": {
+            "defaultValue": {
+                "value": "9"
+            },
+            "description": "圆圈半径，类型为`circle`或`arc`时可用\n@en Circle radius, available when type is `circle` or `arc`",
+            "name": "radius",
+            "tags": {
+                "en": "Circle radius, available when type is `circle` or `arc`",
+                "default": "9"
+            },
+            "descWithTags": "圆圈半径，类型为`circle`或`arc`时可用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "stroke": {
+            "defaultValue": {
+                "value": "2"
+            },
+            "description": "圆圈描边宽度，类型为`circle`或`arc`或`spin`时可用\n@en Circle stroke width, available when type is `circle` or `arc` or `spin`",
+            "name": "stroke",
+            "tags": {
+                "en": "Circle stroke width, available when type is `circle` or `arc` or `spin`",
+                "default": "2"
+            },
+            "descWithTags": "圆圈描边宽度，类型为`circle`或`arc`或`spin`时可用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "filleted": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "边缘是否为圆角\n@en Whether the edges are rounded",
+            "name": "filleted",
+            "tags": {
+                "en": "Whether the edges are rounded",
+                "default": "true"
+            },
+            "descWithTags": "边缘是否为圆角",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/loading/index.tsx",
+                "name": "LoadingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<LoadingRef>"
+            }
+        }
+    },
+    "deps": {
+        "LoadingType": "\"spin\"|\"circle\"|\"arc\"|\"dot\"",
+        "LoadingRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "LoadingProps",
+        "ref": "LoadingRef"
+    },
+    "isDefaultExport": true
+}

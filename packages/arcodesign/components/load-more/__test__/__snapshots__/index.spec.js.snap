@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`load-more demo test load-more demo: index.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-cell-group all-border-box"
+  >
+    <div
+      class="cell-group-body bordered"
+    >
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-label"
+          >
+            <div
+              class="cell-title"
+            >
+              Content
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          />
+        </div>
+      </div>
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-label"
+          >
+            <div
+              class="cell-title"
+            >
+              Content
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          />
+        </div>
+      </div>
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-label"
+          >
+            <div
+              class="cell-title"
+            >
+              Content
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-load-more status-prepare "
+    style="padding-top:16px;padding-bottom:44px"
+  >
+    <div
+      class="load-more-text prepare"
+    >
+      上拉加载更多
+    </div>
+  </div>
+</div>
+`;

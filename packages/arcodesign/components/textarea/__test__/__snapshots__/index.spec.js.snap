@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`textarea demo test textarea demo: error-hint.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap textarea has-stat border-none pc"
+  >
+    <textarea
+      class="arco-textarea"
+      placeholder="Please enter the description of no more than 5 characters"
+      rows="1"
+    />
+    <span
+      class="statistic-text"
+    >
+      0/5
+    </span>
+  </div>
+</div>
+`;
+
+exports[`textarea demo test textarea demo: fix-height.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap textarea  border-none pc"
+  >
+    <textarea
+      class="arco-textarea"
+      placeholder="Please enter the description of no less than 10 characters"
+      style="height:55px"
+    />
+  </div>
+</div>
+`;
+
+exports[`textarea demo test textarea demo: index.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap textarea has-stat border-none pc"
+  >
+    <textarea
+      class="arco-textarea"
+      placeholder="Please enter the description of no less than 10 characters"
+    />
+    <span
+      class="statistic-text"
+    >
+      0/100
+    </span>
+  </div>
+</div>
+`;
+
+exports[`textarea demo test textarea demo: label.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap textarea has-stat border-none pc prefix"
+  >
+    <div
+      class="arco-input-prefix"
+    >
+      Message
+    </div>
+    <textarea
+      class="arco-textarea"
+      placeholder="Please enter the description of no less than 10 characters"
+      rows="2"
+    />
+    <span
+      class="statistic-text"
+    >
+      0/50
+    </span>
+  </div>
+</div>
+`;

@@ -1,0 +1,10 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-popup-swiper {
+    &.has-trans .@{prefix}-popup {
+        &-mask,
+        &-content {
+            .use-var(transition, popup-exit-transition);
+        }
+    }
+}

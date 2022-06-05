@@ -1,0 +1,240 @@
+{
+    "description": "在右上角展示徽标数字或小红点",
+    "descriptionTags": {
+        "en": "Display the badge number or small red dot in the upper right corner",
+        "type": "数据展示",
+        "type_en": "Data Display",
+        "name": "徽标",
+        "name_en": "Badge"
+    },
+    "displayName": "Badge",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "visible": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否展示徽标，visible切换时有动画过渡\n@en Whether to display the badge, there is an animation transition when the visible status switch",
+            "name": "visible",
+            "tags": {
+                "en": "Whether to display the badge, there is an animation transition when the visible status switch",
+                "default": "true"
+            },
+            "descWithTags": "是否展示徽标，visible切换时有动画过渡",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "text": {
+            "defaultValue": null,
+            "description": "徽标文案\n@en badge text",
+            "name": "text",
+            "tags": {
+                "en": "badge text"
+            },
+            "descWithTags": "徽标文案",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "dot": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "显示为一个小红点\n@en show as a red dot",
+            "name": "dot",
+            "tags": {
+                "en": "show as a red dot",
+                "default": "false"
+            },
+            "descWithTags": "显示为一个小红点",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "maxCount": {
+            "defaultValue": {
+                "value": "99"
+            },
+            "description": "最大完整展示数字，超出后将展示 +\n@en Maximum full impression number, it will be displayed \"+\" beyond the number",
+            "name": "maxCount",
+            "tags": {
+                "en": "Maximum full impression number, it will be displayed \"+\" beyond the number",
+                "default": "99"
+            },
+            "descWithTags": "最大完整展示数字，超出后将展示 +",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "内容\n@en Badge content",
+            "name": "children",
+            "tags": {
+                "en": "Badge content"
+            },
+            "descWithTags": "内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "absolute": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否置于右上角\n@en Whether the badge is placed in the upper right corner",
+            "name": "absolute",
+            "tags": {
+                "en": "Whether the badge is placed in the upper right corner",
+                "default": "false"
+            },
+            "descWithTags": "是否置于右上角",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "bordered": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否有白色边框\n@en Whether the badge has a white border",
+            "name": "bordered",
+            "tags": {
+                "en": "Whether the badge has a white border",
+                "default": "false"
+            },
+            "descWithTags": "是否有白色边框",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "timeout": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "动画持续时间(ms)\n@en Animation duration(ms)",
+            "name": "timeout",
+            "tags": {
+                "en": "Animation duration(ms)",
+                "default": "300"
+            },
+            "descWithTags": "动画持续时间(ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/badge/index.tsx",
+                "name": "BadgeProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { appear?: number; enter?: number; exit?: number; }"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<BadgeRef>"
+            }
+        }
+    },
+    "deps": {
+        "BadgeRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "BadgeProps",
+        "ref": "BadgeRef"
+    },
+    "isDefaultExport": true
+}

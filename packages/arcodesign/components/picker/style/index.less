@@ -1,0 +1,46 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-picker {
+
+    .@{prefix}-popup-content {
+        .use-var(box-shadow, picker-wrapper-shadow);
+        .use-var(border-top-left-radius, picker-wrapper-border-radius);
+        .use-var(border-top-right-radius, picker-wrapper-border-radius);
+    }
+
+    &-header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .use-var(background-color, picker-header-background);
+        .use-var(height, picker-header-height);
+        .use-var(border-top-left-radius, picker-wrapper-border-radius);
+        .use-var(border-top-right-radius, picker-wrapper-border-radius);
+
+        &-title {
+            flex: 1;
+            text-align: center;
+            .use-var(font-size, picker-title-font-size);
+            .use-var(padding, picker-title-padding);
+            .use-var(color, font-color);
+            .text-overflow();
+        }
+
+        &-btn {
+            position: absolute;
+            .use-var(font-size, picker-button-font-size);
+            .use-var(padding, picker-button-padding);
+
+            &.left {
+                left: 0;
+                .use-var(color, picker-left-btn-color);
+            }
+
+            &.right {
+                right: 0;
+                .use-var(color, picker-right-btn-color);
+            }
+        }
+    }
+}

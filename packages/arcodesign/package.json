@@ -1,0 +1,40 @@
+{
+    "name": "@arco-design/mobile-react",
+    "version": "2.18.6",
+    "description": "",
+    "main": "cjs/index.js",
+    "module": "esm/index.js",
+    "scripts": {
+        "prebuild": "node ../../scripts/build/pre-build.js",
+        "build": "rm -rf esm/* umd/* cjs/* && gulp build && npm run dist",
+        "dist": "rm -rf dist/* && cd ../../ && node packages/arcodesign/rollup.lib.js",
+        "prepublishOnly": "npm run build",
+        "build:bd": "npm run build",
+        "test": "jest"
+    },
+    "author": "taoyiyue@bytedance.com",
+    "license": "ISC",
+    "dependencies": {
+        "@arco-design/mobile-utils": "^2.9.3",
+        "@arco-design/transformable": "^1.0.0",
+        "es6-promise": "^4.2.8",
+        "lodash.throttle": "^4.1.1",
+        "resize-observer-polyfill": "^1.5.1"
+    },
+    "devDependencies": {
+        "babel-jest": "^25.3.0",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.2",
+        "enzyme-to-json": "^3.4.4",
+        "jest": "^25.3.0"
+    },
+    "peerDependencies": {
+        "react": ">=16.9.0",
+        "react-dom": ">=16.9.0",
+        "react-transition-group": ">=4.3.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "gitHead": "adeb4e9ed63ab85d5f0a3f7a4808da2fb5008a43"
+}

@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`progress demo test progress demo: custom-color.md renders correctly 1`] = `
+<div
+  class="arco-progress"
+>
+  <div
+    class="progress-wrapper"
+  >
+    <div
+      class="progress-track position-right filleted"
+    >
+      <div
+        class="progress-bar filleted"
+        style="background:#FF5722;width:0%;transition:;-webkit-transition:"
+      />
+    </div>
+    <div
+      class="text text-right"
+      style="color:#FF5722"
+    >
+      0%
+    </div>
+  </div>
+</div>
+`;
+
+exports[`progress demo test progress demo: custom-size.md renders correctly 1`] = `
+Array [
+  <div
+    class="progress-demo-custom-size"
+  >
+    <div
+      class="arco-progress"
+    >
+      <div
+        class="progress-wrapper"
+      >
+        <div
+          class="progress-track position-right filleted"
+          style="height:8px"
+        >
+          <div
+            class="progress-bar filleted"
+            style="width:0%;transition:;-webkit-transition:"
+          />
+        </div>
+        <div
+          class="text text-right"
+        >
+          0%
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="progress-demo-custom-size"
+  >
+    <div
+      class="arco-progress"
+    >
+      <div
+        class="progress-wrapper"
+      >
+        <div
+          class="progress-track position-right filleted"
+          style="height:4px"
+        >
+          <div
+            class="progress-bar filleted"
+            style="width:0%;transition:;-webkit-transition:"
+          />
+        </div>
+        <div
+          class="text text-right"
+        >
+          0%
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="progress-demo-custom-size"
+  >
+    <div
+      class="arco-progress"
+    >
+      <div
+        class="progress-wrapper"
+      >
+        <div
+          class="progress-track position-right filleted"
+          style="height:2px"
+        >
+          <div
+            class="progress-bar filleted"
+            style="width:0%;transition:;-webkit-transition:"
+          />
+        </div>
+        <div
+          class="text text-right"
+        >
+          0%
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`progress demo test progress demo: custom-style.md renders correctly 1`] = `
+<div
+  class="arco-progress"
+>
+  <div
+    class="progress-wrapper"
+  >
+    <div
+      class="progress-track position-follow filleted"
+    >
+      <div
+        class="progress-bar filleted"
+        style="width:0%;transition:;-webkit-transition:"
+      >
+        <div
+          class="wrapper"
+        >
+          <div
+            class="text-follow"
+          >
+            0%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`progress demo test progress demo: equivalent-progress.md renders correctly 1`] = `
+<div
+  class="arco-progress"
+>
+  <div
+    class="progress-wrapper"
+  >
+    <div
+      class="progress-track position-right filleted"
+    >
+      <div
+        class="progress-bar filleted"
+        style="width:0%;transition:;-webkit-transition:"
+      />
+    </div>
+    <div
+      class="text text-right"
+    >
+      0%
+    </div>
+  </div>
+</div>
+`;
+
+exports[`progress demo test progress demo: inactive.md renders correctly 1`] = `
+<div
+  class="arco-progress progress-disabled"
+>
+  <div
+    class="progress-wrapper"
+  >
+    <div
+      class="progress-track position-right filleted"
+    >
+      <div
+        class="progress-bar bar-disabled filleted"
+        style="width:0%;transition:;-webkit-transition:"
+      />
+    </div>
+    <div
+      class="text text-right text-disabled"
+    >
+      0%
+    </div>
+  </div>
+</div>
+`;
+
+exports[`progress demo test progress demo: index.md renders correctly 1`] = `
+<div
+  class="arco-progress progress-fixed"
+  style="position:relative;z-index:1"
+>
+  <div
+    class="progress-wrapper"
+  >
+    <div
+      class="progress-track position-right filleted nav-mode"
+    >
+      <div
+        class="progress-bar filleted"
+        style="width:0%;transition:;-webkit-transition:"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`progress demo test progress demo: inner.md renders correctly 1`] = `
+<div
+  class="arco-progress"
+>
+  <div
+    class="progress-wrapper"
+  >
+    <div
+      class="progress-track position-innerLeft filleted"
+    >
+      <div
+        class="progress-bar filleted"
+        style="width:0%;transition:;-webkit-transition:"
+      />
+    </div>
+    <div
+      class="text text-innerLeft"
+    >
+      0%
+    </div>
+  </div>
+</div>
+`;
+
+exports[`progress demo test progress demo: no-percentage.md renders correctly 1`] = `
+<div
+  class="arco-progress"
+>
+  <div
+    class="progress-wrapper"
+  >
+    <div
+      class="progress-track position-right filleted"
+    >
+      <div
+        class="progress-bar filleted"
+        style="width:0%;transition:;-webkit-transition:"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`progress demo test progress demo: normal.md renders correctly 1`] = `
+<div
+  class="arco-progress"
+>
+  <div
+    class="progress-wrapper"
+  >
+    <div
+      class="progress-track position-right filleted"
+    >
+      <div
+        class="progress-bar filleted"
+        style="width:0%;transition:;-webkit-transition:"
+      />
+    </div>
+    <div
+      class="text text-right"
+    >
+      0%
+    </div>
+  </div>
+</div>
+`;

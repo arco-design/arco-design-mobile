@@ -1,0 +1,755 @@
+{
+    "description": "折叠面板组件，支持手风琴模式。",
+    "descriptionTags": {
+        "en": "Collapse supports accordion mode.",
+        "type": "数据展示",
+        "type_en": "Data Display",
+        "name": "折叠面板",
+        "name_en": "Collapse"
+    },
+    "displayName": "Collapse",
+    "methods": [],
+    "props": {
+        "header": {
+            "defaultValue": null,
+            "description": "标题\n@en Title",
+            "name": "header",
+            "tags": {
+                "en": "Title"
+            },
+            "descWithTags": "标题",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "value": {
+            "defaultValue": null,
+            "description": "折叠面板的唯一标识\n@en Unique ID of the accordion panel",
+            "name": "value",
+            "tags": {
+                "en": "Unique ID of the accordion panel"
+            },
+            "descWithTags": "折叠面板的唯一标识",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseProps"
+            },
+            "required": true,
+            "type": {
+                "name": "string"
+            }
+        },
+        "icon": {
+            "defaultValue": null,
+            "description": "折叠面板的展开图标\n@en Expand icon for collapse panels",
+            "name": "icon",
+            "tags": {
+                "en": "Expand icon for collapse panels"
+            },
+            "descWithTags": "折叠面板的展开图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "hideIcon": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否隐藏图标\n@en whether to hide the icon",
+            "name": "hideIcon",
+            "tags": {
+                "en": "whether to hide the icon",
+                "default": "false"
+            },
+            "descWithTags": "是否隐藏图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否不可展开\n@en Whether it is not expandable",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether it is not expandable",
+                "default": "false"
+            },
+            "descWithTags": "是否不可展开",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "content": {
+            "defaultValue": null,
+            "description": "面板内容\n@en Panel content",
+            "name": "content",
+            "tags": {
+                "en": "Panel content"
+            },
+            "descWithTags": "面板内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseProps"
+            },
+            "required": true,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "active": {
+            "defaultValue": null,
+            "description": "是否展开\n@en whether to expand",
+            "name": "active",
+            "tags": {
+                "en": "whether to expand"
+            },
+            "descWithTags": "是否展开",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "defaultActive": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "默认展开情况\n@en Default expanded status",
+            "name": "defaultActive",
+            "tags": {
+                "en": "Default expanded status",
+                "default": "false"
+            },
+            "descWithTags": "默认展开情况",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "onCollapse": {
+            "defaultValue": null,
+            "description": "可选受控，展开折叠面板时触发\n@en Optional controlled, triggered when the collapse panel is expanded",
+            "name": "onCollapse",
+            "tags": {
+                "en": "Optional controlled, triggered when the collapse panel is expanded"
+            },
+            "descWithTags": "可选受控，展开折叠面板时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: string) => void"
+            }
+        },
+        "animationTimeout": {
+            "defaultValue": null,
+            "description": "动画时间\n@en Animation duration",
+            "name": "animationTimeout",
+            "tags": {
+                "en": "Animation duration"
+            },
+            "descWithTags": "动画时间",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "animationFunction": {
+            "defaultValue": null,
+            "description": "动画函数\n@en Animation function",
+            "name": "animationFunction",
+            "tags": {
+                "en": "Animation function"
+            },
+            "descWithTags": "动画函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                "name": "CollapseCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<CollapseRef>"
+            }
+        }
+    },
+    "deps": {
+        "CollapseRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "组件外层dom元素\n@en The outer DOM of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM of the component"
+                },
+                "descWithTags": "组件外层dom元素"
+            },
+            "head": {
+                "name": "head",
+                "required": true,
+                "description": "折叠面板头部元素\n@en Collapse panel header DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Collapse panel header DOM"
+                },
+                "descWithTags": "折叠面板头部元素"
+            },
+            "updateLayout": {
+                "name": "updateLayout",
+                "required": true,
+                "description": "手动更新组件布局(高度计算)\n@en Manually update component layout (height calculation)",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually update component layout (height calculation)"
+                },
+                "descWithTags": "手动更新组件布局(高度计算)"
+            }
+        }
+    },
+    "depComps": {
+        "Group": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "Group",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname"
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                        "name": "CollapseCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                        "name": "CollapseCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "onCollapse": {
+                    "defaultValue": null,
+                    "description": "可选受控，展开折叠面板时触发\n@en Optional controlled, triggered when the collapse panel is expanded",
+                    "name": "onCollapse",
+                    "tags": {
+                        "en": "Optional controlled, triggered when the collapse panel is expanded"
+                    },
+                    "descWithTags": "可选受控，展开折叠面板时触发",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                        "name": "CollapseCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(value: string) => void"
+                    }
+                },
+                "animationTimeout": {
+                    "defaultValue": null,
+                    "description": "动画时间\n@en Animation duration",
+                    "name": "animationTimeout",
+                    "tags": {
+                        "en": "Animation duration"
+                    },
+                    "descWithTags": "动画时间",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                        "name": "CollapseCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "animationFunction": {
+                    "defaultValue": null,
+                    "description": "动画函数\n@en Animation function",
+                    "name": "animationFunction",
+                    "tags": {
+                        "en": "Animation function"
+                    },
+                    "descWithTags": "动画函数",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/collapse/type.ts",
+                        "name": "CollapseCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "useAccordion": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "是否使用手风琴模式\n@en Whether to use accordion mode",
+                    "name": "useAccordion",
+                    "tags": {
+                        "en": "Whether to use accordion mode",
+                        "default": "false"
+                    },
+                    "descWithTags": "是否使用手风琴模式",
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "activeItems": {
+                    "defaultValue": null,
+                    "description": "可选受控，可传展开的item数组，或者每个item对应的状态\n@en Optional controlled, expandable item array, or the state corresponding to each item",
+                    "name": "activeItems",
+                    "tags": {
+                        "en": "Optional controlled, expandable item array, or the state corresponding to each item"
+                    },
+                    "descWithTags": "可选受控，可传展开的item数组，或者每个item对应的状态",
+                    "required": false,
+                    "type": {
+                        "name": "string[]"
+                    }
+                },
+                "defaultActiveItems": {
+                    "defaultValue": null,
+                    "description": "默认状态\n@en Default state",
+                    "name": "defaultActiveItems",
+                    "tags": {
+                        "en": "Default state"
+                    },
+                    "descWithTags": "默认状态",
+                    "required": false,
+                    "type": {
+                        "name": "string[]"
+                    }
+                },
+                "disabled": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "一键禁用\n@en Disable all",
+                    "name": "disabled",
+                    "tags": {
+                        "en": "Disable all",
+                        "default": "false"
+                    },
+                    "descWithTags": "一键禁用",
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "items": {
+                    "defaultValue": null,
+                    "description": "折叠面板数组\n@en array of collapse panels",
+                    "name": "items",
+                    "tags": {
+                        "en": "array of collapse panels"
+                    },
+                    "descWithTags": "折叠面板数组",
+                    "required": false,
+                    "type": {
+                        "name": "(CollapseProps & RefAttributes<CollapseRef>)[]"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "子元素，优先级高于items\n@en Children elements, which have higher priority than items",
+                    "name": "children",
+                    "tags": {
+                        "en": "Children elements, which have higher priority than items"
+                    },
+                    "descWithTags": "子元素，优先级高于items",
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "groupKey": {
+                    "defaultValue": null,
+                    "description": "区分不同 group，有group 嵌套时建议传入\n@en Distinguish different groups, it is recommended to pass in when groups are nested",
+                    "name": "groupKey",
+                    "tags": {
+                        "en": "Distinguish different groups, it is recommended to pass in when groups are nested"
+                    },
+                    "descWithTags": "区分不同 group，有group 嵌套时建议传入",
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<CollapseGroupRef>"
+                    }
+                }
+            },
+            "deps": {
+                "CollapseProps": {
+                    "header": {
+                        "name": "header",
+                        "required": false,
+                        "description": "标题\n@en Title",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "Title"
+                        },
+                        "descWithTags": "标题"
+                    },
+                    "value": {
+                        "name": "value",
+                        "required": true,
+                        "description": "折叠面板的唯一标识\n@en Unique ID of the accordion panel",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Unique ID of the accordion panel"
+                        },
+                        "descWithTags": "折叠面板的唯一标识"
+                    },
+                    "icon": {
+                        "name": "icon",
+                        "required": false,
+                        "description": "折叠面板的展开图标\n@en Expand icon for collapse panels",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "Expand icon for collapse panels"
+                        },
+                        "descWithTags": "折叠面板的展开图标"
+                    },
+                    "hideIcon": {
+                        "name": "hideIcon",
+                        "required": false,
+                        "description": "是否隐藏图标\n@en whether to hide the icon",
+                        "defaultValue": {
+                            "value": "false"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "whether to hide the icon",
+                            "default": "false"
+                        },
+                        "descWithTags": "是否隐藏图标"
+                    },
+                    "disabled": {
+                        "name": "disabled",
+                        "required": false,
+                        "description": "是否不可展开\n@en Whether it is not expandable",
+                        "defaultValue": {
+                            "value": "false"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether it is not expandable",
+                            "default": "false"
+                        },
+                        "descWithTags": "是否不可展开"
+                    },
+                    "content": {
+                        "name": "content",
+                        "required": true,
+                        "description": "面板内容\n@en Panel content",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "Panel content"
+                        },
+                        "descWithTags": "面板内容"
+                    },
+                    "active": {
+                        "name": "active",
+                        "required": false,
+                        "description": "是否展开\n@en whether to expand",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "whether to expand"
+                        },
+                        "descWithTags": "是否展开"
+                    },
+                    "defaultActive": {
+                        "name": "defaultActive",
+                        "required": false,
+                        "description": "默认展开情况\n@en Default expanded status",
+                        "defaultValue": {
+                            "value": "false"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Default expanded status",
+                            "default": "false"
+                        },
+                        "descWithTags": "默认展开情况"
+                    },
+                    "className": {
+                        "name": "className",
+                        "required": false,
+                        "description": "自定义类名\n@en Custom classname",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Custom classname"
+                        },
+                        "descWithTags": "自定义类名"
+                    },
+                    "style": {
+                        "name": "style",
+                        "required": false,
+                        "description": "自定义样式\n@en Custom stylesheet",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "CSSProperties"
+                        },
+                        "tags": {
+                            "en": "Custom stylesheet"
+                        },
+                        "descWithTags": "自定义样式"
+                    },
+                    "onCollapse": {
+                        "name": "onCollapse",
+                        "required": false,
+                        "description": "可选受控，展开折叠面板时触发\n@en Optional controlled, triggered when the collapse panel is expanded",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "(value: string) => void"
+                        },
+                        "tags": {
+                            "en": "Optional controlled, triggered when the collapse panel is expanded"
+                        },
+                        "descWithTags": "可选受控，展开折叠面板时触发"
+                    },
+                    "animationTimeout": {
+                        "name": "animationTimeout",
+                        "required": false,
+                        "description": "动画时间\n@en Animation duration",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "number"
+                        },
+                        "tags": {
+                            "en": "Animation duration"
+                        },
+                        "descWithTags": "动画时间"
+                    },
+                    "animationFunction": {
+                        "name": "animationFunction",
+                        "required": false,
+                        "description": "动画函数\n@en Animation function",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Animation function"
+                        },
+                        "descWithTags": "动画函数"
+                    }
+                },
+                "CollapseRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "组件外层dom元素\n@en The outer DOM of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM of the component"
+                        },
+                        "descWithTags": "组件外层dom元素"
+                    },
+                    "head": {
+                        "name": "head",
+                        "required": true,
+                        "description": "折叠面板头部元素\n@en Collapse panel header DOM",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "Collapse panel header DOM"
+                        },
+                        "descWithTags": "折叠面板头部元素"
+                    },
+                    "updateLayout": {
+                        "name": "updateLayout",
+                        "required": true,
+                        "description": "手动更新组件布局(高度计算)\n@en Manually update component layout (height calculation)",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "() => void"
+                        },
+                        "tags": {
+                            "en": "Manually update component layout (height calculation)"
+                        },
+                        "descWithTags": "手动更新组件布局(高度计算)"
+                    }
+                },
+                "CollapseGroupRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {},
+                        "descWithTags": ""
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "CollapseCommonProps",
+                "ref": "CollapseGroupRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "CollapseProps",
+        "ref": "CollapseRef"
+    },
+    "isDefaultExport": true
+}

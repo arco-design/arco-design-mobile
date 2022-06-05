@@ -1,0 +1,99 @@
+@import '~@arco-design/mobile-utils/style/mixin.less';
+@import './vars-switch.less';
+@import './pxtorem.less';
+
+.rem (@property; @values...) {
+    @{property}: ~`(function () {
+        var baseFontSize=@{base-font-size};
+        var sizeList = @{values};
+        if (!Array.isArray(sizeList)) {
+            sizeList = [sizeList];
+        }
+        return sizeList.map(function (item) {
+            return pxtorem(item);
+        }).join(' ');
+    }())`;
+}
+
+// for hack dark mode
+.use-dark-mode-query(@rules) {
+    & when (@use-dark-mode = 1) {
+        @media (prefers-color-scheme: dark) {
+            @rules();
+        }
+    }
+}
+
+.use-var(@property, @variables, @preValues: '', @nextValues: '') {
+    @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
+    & when (@use-css-vars = 1) {
+        @{property}: ~"@{preValues}" ~"var(--@{variables})" ~"@{nextValues}";
+    }
+}
+
+.hairline-var(@color, @direction: all) {
+    .hairline(@@color, @direction);
+    & when (@use-css-vars = 1) {
+        .hairline(var(~"--@{color}", @@color), @direction);
+    }
+}
+
+.text-medium-var(@color, @stroke: 0.3PX) {
+    .text-medium(@@color, @stroke);
+    & when (@use-css-vars = 1) {
+        .text-medium(var(~"--@{color}", @@color), @stroke);
+    }
+}
+
+.onepx-border-var(@direction, @borderColor, @borderRadius: 0, @borderWidth: 1PX, @borderStyle: solid) {
+    .onepx-border(@direction, @@borderColor, @borderRadius, @borderWidth, @borderStyle);
+    & when (@use-css-vars = 1) {
+        .onepx-border(@direction, var(~"--@{borderColor}", @@borderColor), @borderRadius, @borderWidth, @borderStyle);
+    }
+}
+
+.hairline-bottom-right-var(@color) {
+    .hairline-bottom-right(@@color);
+    & when (@use-css-vars = 1) {
+        .hairline-bottom-right(var(~"--@{color}", @@color));
+    }
+}
+
+.hairline-top-left-var(@color) {
+    .hairline-top-left(@@color);
+    & when (@use-css-vars = 1) {
+        .hairline-top-left(var(~"--@{color}", @@color));
+    }
+}
+
+.set-loading-color-var(@color) {
+    .set-loading-color(@@color);
+    & when (@use-css-vars = 1) {
+        .set-loading-color(var(~"--@{color}", @@color));
+    }
+}
+
+.set-font-size-var(@size, @scale: 0.9) {
+    & when not (@use-css-vars = 1) {
+        .set-font-size(@@size);
+    }
+    & when (@use-css-vars = 1) {
+        & when (@@size < 12PX) {
+            font-size: calc(var(~"--@{size}", @@size) / @scale);
+            transform: scale(@scale);
+        }
+        & when not (@@size < 12PX) {
+            font-size: var(~"--@{size}", @@size);
+        }
+    }
+}
+
+.set-content-box-width-var(@property, @width, @padding-left, @padding-right) {
+    & when not (@use-css-vars = 1) {
+        .set-content-box-width(@property, @@width, @@padding-left, @@padding-right);
+    }
+    & when (@use-css-vars = 1) {
+        @{property}: calc(var(~"--@{width}", @@width) - var(~"--@{padding-left}", @@padding-left) - var(~"--@{padding-right}", @@padding-right));
+    }
+}
+

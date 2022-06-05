@@ -1,0 +1,16 @@
+@import "../../../../style/mixin.less";
+
+#demo-textarea {
+
+    .arcodesign-mobile-demo-content {
+        padding: 0;
+        background: transparent;
+    }
+    .@{prefix}-input-container {
+        .use-var(background, background-color);
+
+        &:not(:first-of-type) {
+            .rem(margin-top, 8);
+        }
+    }
+}

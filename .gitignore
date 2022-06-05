@@ -1,0 +1,28 @@
+node_modules/
+.DS_Store
+*/.DS_Store
+npm-debug.log
+.idea/
+.vscode/
+.eslintcache
+sites/**/pages/
+umd/
+cjs/
+esm/
+dist/
+packages/arcodesign/tests/coverage
+packages/arcodesign/style/css
+yarn.lock
+# package-lock.json
+output/
+output_resource/
+.history
+*.func-info.json
+*.mixin-info.json
+
+# Emacs
+*~
+\#*\#
+.\#*
+.ignore
+

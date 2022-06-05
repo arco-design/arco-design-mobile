@@ -1,0 +1,330 @@
+{
+    "description": "通过滚动事件监测 children 是否进入视口或离开视口。",
+    "descriptionTags": {
+        "en": "Use scroll events to monitor whether children enter or leave the viewport.",
+        "type": "其他",
+        "type_en": "Others",
+        "name": "滚动视口监听",
+        "name_en": "ShowMonitor"
+    },
+    "displayName": "ShowMonitor",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "getScrollContainer": {
+            "defaultValue": {
+                "value": "() => window"
+            },
+            "description": "滚动视口选择器\n@en Scroll viewport selector",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "Scroll viewport selector",
+                "default": "() => window"
+            },
+            "descWithTags": "滚动视口选择器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | Window"
+            }
+        },
+        "throttle": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "节流粒度(ms)\n@en Throttle granularity(ms)",
+            "name": "throttle",
+            "tags": {
+                "en": "Throttle granularity(ms)",
+                "default": "300"
+            },
+            "descWithTags": "节流粒度(ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "listenResize": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否监听 resize\n@en Whether to monitor resize",
+            "name": "listenResize",
+            "tags": {
+                "en": "Whether to monitor resize",
+                "default": "true"
+            },
+            "descWithTags": "是否监听 resize",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "listenScroll": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否监听 scroll\n@en Whether to monitor scroll",
+            "name": "listenScroll",
+            "tags": {
+                "en": "Whether to monitor scroll",
+                "default": "true"
+            },
+            "descWithTags": "是否监听 scroll",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "once": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "只监听变化一次，为 true 时仅在进入视口时触发一次 onVisibleChange\n@en Only listen for changes once, if true, only trigger onVisibleChange once when entering the viewport",
+            "name": "once",
+            "tags": {
+                "en": "Only listen for changes once, if true, only trigger onVisibleChange once when entering the viewport",
+                "default": "false"
+            },
+            "descWithTags": "只监听变化一次，为 true 时仅在进入视口时触发一次 onVisibleChange",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "overflow": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否为局部滚动\n@en Whether it is a local scroll",
+            "name": "overflow",
+            "tags": {
+                "en": "Whether it is a local scroll",
+                "default": "false"
+            },
+            "descWithTags": "是否为局部滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "threshold": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "元素进入视口区域触发回调比例，[0-1]\n@en Threshold of callback triggered when element enters viewport area, [0-1]",
+            "name": "threshold",
+            "tags": {
+                "en": "Threshold of callback triggered when element enters viewport area, [0-1]",
+                "default": "0"
+            },
+            "descWithTags": "元素进入视口区域触发回调比例，[0-1]",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "offset": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "预加载提前量 [offsetTop, offsetRight, offsetBottom, offsetLeft]。\n如果类型为 number，等效为[number, number, number, number]；\n如果类型为 [number1, number2], 等效为[number1, 0, number2, 0]；\n支持 Intersection Observer 的浏览器需要搭配 getScrollContainer, 设置父级容器\n@en Preload advance amount [offsetTop, offsetRight, offsetBottom, offsetLeft].\n@en If the type is number, it is equivalent to [number, number, number, number];\n@en If the type is [number1, number2], it is equivalent to [number1, 0, number2, 0];\n@en Browsers that support Intersection Observer need to use getScrollContainer to set the parent container",
+            "name": "offset",
+            "tags": {
+                "en": "Preload advance amount [offsetTop, offsetRight, offsetBottom, offsetLeft].\nIf the type is number, it is equivalent to [number, number, number, number];\nIf the type is [number1, number2], it is equivalent to [number1, 0, number2, 0];\nBrowsers that support Intersection Observer need to use getScrollContainer to set the parent container",
+                "default": "0"
+            },
+            "descWithTags": "预加载提前量 [offsetTop, offsetRight, offsetBottom, offsetLeft]。\n如果类型为 number，等效为[number, number, number, number]；\n如果类型为 [number1, number2], 等效为[number1, 0, number2, 0]；\n支持 Intersection Observer 的浏览器需要搭配 getScrollContainer, 设置父级容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | [number, number] | [number, number, number, number]"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "子节点\n@en Children nodes",
+            "name": "children",
+            "tags": {
+                "en": "Children nodes"
+            },
+            "descWithTags": "子节点",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": true,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用监听\n@en Whether to disable monitoring",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to disable monitoring",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用监听",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onVisibleChange": {
+            "defaultValue": null,
+            "description": "进入或离开视口的回调函数\n@en Callback for entering or leaving the viewport",
+            "name": "onVisibleChange",
+            "tags": {
+                "en": "Callback for entering or leaving the viewport"
+            },
+            "descWithTags": "进入或离开视口的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": true,
+            "type": {
+                "name": "(visible: boolean, node: HTMLDivElement) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击组件的回调事件\n@en Callback when clicked",
+            "name": "onClick",
+            "tags": {
+                "en": "Callback when clicked"
+            },
+            "descWithTags": "点击组件的回调事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/show-monitor/index.tsx",
+                "name": "ShowMonitorProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<ShowMonitorRef>"
+            }
+        }
+    },
+    "deps": {
+        "ShowMonitorRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "checkVisible": {
+                "name": "checkVisible",
+                "required": true,
+                "description": "忽略元素前后状态，手动检查元素是否在视口内，触发onVisibleChange回调函数\n@en Ignore the state of the element before and after, manually check whether the element is in the viewport, trigger the onVisibleChange callback function",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => boolean"
+                },
+                "tags": {
+                    "en": "Ignore the state of the element before and after, manually check whether the element is in the viewport, trigger the onVisibleChange callback function"
+                },
+                "descWithTags": "忽略元素前后状态，手动检查元素是否在视口内，触发onVisibleChange回调函数"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "ShowMonitorProps",
+        "ref": "ShowMonitorRef"
+    },
+    "isDefaultExport": true
+}

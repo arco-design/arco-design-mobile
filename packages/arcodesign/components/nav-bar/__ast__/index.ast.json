@@ -1,0 +1,387 @@
+{
+    "description": "导航栏组件，支持吸顶和沉浸式，支持在指定滚动位置展示，支持根据滚动位置实时更新style。",
+    "descriptionTags": {
+        "en": "Navigation bar, supports ceiling and immersion, supports display at specified scroll position, and supports real-time update of style according to scroll position.",
+        "type": "导航",
+        "type_en": "Navigation",
+        "name": "导航栏",
+        "name_en": "NavBar"
+    },
+    "displayName": "NavBar",
+    "methods": [],
+    "props": {
+        "title": {
+            "defaultValue": null,
+            "description": "导航栏中间文字，带居中和溢出省略效果\n@en Navigation bar middle text, with centering and overflow omitting effects",
+            "name": "title",
+            "tags": {
+                "en": "Navigation bar middle text, with centering and overflow omitting effects"
+            },
+            "descWithTags": "导航栏中间文字，带居中和溢出省略效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "自定义导航栏主内容，当导航栏内容为Tabs等非居中文字样式时可用\n@en Customize the main content of the navigation bar, available when the content of the navigation bar is a non-centered text style such as Tabs",
+            "name": "children",
+            "tags": {
+                "en": "Customize the main content of the navigation bar, available when the content of the navigation bar is a non-centered text style such as Tabs"
+            },
+            "descWithTags": "自定义导航栏主内容，当导航栏内容为Tabs等非居中文字样式时可用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "leftContent": {
+            "defaultValue": {
+                "value": "返回按钮"
+            },
+            "description": "导航栏左侧内容\n@en Navigation bar left content\n@default_en Back button",
+            "name": "leftContent",
+            "tags": {
+                "en": "Navigation bar left content",
+                "default": "返回按钮",
+                "default_en": "Back button"
+            },
+            "descWithTags": "导航栏左侧内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "rightContent": {
+            "defaultValue": null,
+            "description": "导航栏右侧内容\n@en Content on the right side of the navigation bar",
+            "name": "rightContent",
+            "tags": {
+                "en": "Content on the right side of the navigation bar"
+            },
+            "descWithTags": "导航栏右侧内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式，背景和文字颜色可在此定义\n@en Custom stylesheet, background and text colors can be defined here",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet, background and text colors can be defined here"
+            },
+            "descWithTags": "自定义样式，背景和文字颜色可在此定义",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "wrapClass": {
+            "defaultValue": null,
+            "description": "最外层元素自定义类名\n@en Outermost element custom classname",
+            "name": "wrapClass",
+            "tags": {
+                "en": "Outermost element custom classname"
+            },
+            "descWithTags": "最外层元素自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "fixed": {
+            "defaultValue": null,
+            "description": "是否吸顶\n@en Whether to fix",
+            "name": "fixed",
+            "tags": {
+                "en": "Whether to fix"
+            },
+            "descWithTags": "是否吸顶",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "statusBarHeight": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "沉浸式状态栏高度\n@en Immersive status bar height",
+            "name": "statusBarHeight",
+            "tags": {
+                "en": "Immersive status bar height",
+                "default": "0"
+            },
+            "descWithTags": "沉浸式状态栏高度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "hasBottomLine": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否有底边框\n@en Whether there is a bottom border",
+            "name": "hasBottomLine",
+            "tags": {
+                "en": "Whether there is a bottom border",
+                "default": "true"
+            },
+            "descWithTags": "是否有底边框",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onClickLeft": {
+            "defaultValue": null,
+            "description": "点击左侧内容回调\n@en Callback when clicking the content on the left",
+            "name": "onClickLeft",
+            "tags": {
+                "en": "Callback when clicking the content on the left"
+            },
+            "descWithTags": "点击左侧内容回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "onClickRight": {
+            "defaultValue": null,
+            "description": "点击右侧内容回调\n@en Callback when clicking the content on the right",
+            "name": "onClickRight",
+            "tags": {
+                "en": "Callback when clicking the content on the right"
+            },
+            "descWithTags": "点击右侧内容回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "showOffset": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "展示nav-bar的offset值，当scrollTop值小于该值时，将隐藏主内容和右侧内容，左侧内容保留\n@en Display the offset value of nav-bar. When the scrollTop value is less than this value, the main content and the right content will be hidden, and the left content will remain",
+            "name": "showOffset",
+            "tags": {
+                "en": "Display the offset value of nav-bar. When the scrollTop value is less than this value, the main content and the right content will be hidden, and the left content will remain",
+                "default": "0"
+            },
+            "descWithTags": "展示nav-bar的offset值，当scrollTop值小于该值时，将隐藏主内容和右侧内容，左侧内容保留",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "onShowChange": {
+            "defaultValue": null,
+            "description": "设置showOffset后，当内容显示状态发生变化后触发\n@en After setting showOffset, triggered when the content display state changes",
+            "name": "onShowChange",
+            "tags": {
+                "en": "After setting showOffset, triggered when the content display state changes"
+            },
+            "descWithTags": "设置showOffset后，当内容显示状态发生变化后触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(show: boolean) => void"
+            }
+        },
+        "placeholder": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "设置fixed=true时，导航栏原本的位置是否要占住\n@en When fixed=true is set, whether the original position of the navigation bar should be occupied",
+            "name": "placeholder",
+            "tags": {
+                "en": "When fixed=true is set, whether the original position of the navigation bar should be occupied",
+                "default": "true"
+            },
+            "descWithTags": "设置fixed=true时，导航栏原本的位置是否要占住",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "extra": {
+            "defaultValue": null,
+            "description": "额外渲染元素，与inner平级\n@en Additional render elements, level with inner",
+            "name": "extra",
+            "tags": {
+                "en": "Additional render elements, level with inner"
+            },
+            "descWithTags": "额外渲染元素，与inner平级",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "getScrollContainer": {
+            "defaultValue": null,
+            "description": "自定义滚动元素，不传默认是window\n@en Custom scrolling element, default is window if not input",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "Custom scrolling element, default is window if not input"
+            },
+            "descWithTags": "自定义滚动元素，不传默认是window",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | Window"
+            }
+        },
+        "getComputedStyleByScroll": {
+            "defaultValue": null,
+            "description": "根据滚动offset值设置自定义style，设置该属性后将监听滚动容器的滚动事件\n@en Set a custom style according to the scroll offset value. After setting this property, the scroll event of the scroll container will be monitored.",
+            "name": "getComputedStyleByScroll",
+            "tags": {
+                "en": "Set a custom style according to the scroll offset value. After setting this property, the scroll event of the scroll container will be monitored."
+            },
+            "descWithTags": "根据滚动offset值设置自定义style，设置该属性后将监听滚动容器的滚动事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(offset: number) => CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<NavBarRef>"
+            }
+        }
+    },
+    "deps": {
+        "NavBarRef": {
+            "navBar": {
+                "name": "navBar",
+                "required": true,
+                "description": "@deprecated",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "deprecated": ""
+                },
+                "descWithTags": ""
+            },
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "NavBarProps",
+        "ref": "NavBarRef"
+    },
+    "isDefaultExport": true
+}

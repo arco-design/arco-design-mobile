@@ -1,0 +1,185 @@
+@import '../../../../packages/arcodesign/style/mixin.less';
+
+.arcodesign-pc-header {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    min-width: 1320px;
+    background: #FFF;
+    border-bottom: 1px solid #E5E6E8;
+    box-sizing: border-box;
+    &-logo {
+        display: flex;
+        align-items: center;
+        width: 260px;
+        height: 60px;
+        padding-left: 24px;
+        &-btn {
+            width: 32px;
+            height: 32px;
+            margin-right: 17px;
+        }
+        img {
+            max-height: 30px;
+        }
+    }
+    &-content {
+        position: relative;
+        display: flex;
+        flex: 1;
+
+    }
+    &-content-wrapper {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        box-sizing: border-box;
+    }
+    &-search {
+        display: flex;
+        align-items: center;
+        float: left;
+        height: 60px;
+        .arco-input {
+            width: 246px;
+            padding-left: 12px;
+            padding-right: 0;
+            border-radius: 0;
+            border: none;
+            background: 0 0;
+            &-inner-wrapper {
+                background-color: transparent;
+                border-color: transparent;
+                &:hover {
+                    background-color: #e5e6eb;
+                }
+                svg {
+                    color: #86909c;
+                }
+            }
+        }
+        .arco-input-inner-wrapper-focus.arco-input-inner-wrapper,
+        .arco-search-input-open .arco-input-inner-wrapper {
+            background-color: transparent;
+            border-color: rgb(#165dff);
+            svg {
+                color: #4e5969;
+            }
+        }
+        .arco-input-group-prefix {
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        .arco-input-group-wrapper {
+            background: #f2f3f5;
+        }
+    }
+    .highlight-word {
+        font-weight: bold;
+        color: #165dff;
+    }
+    .arcodesign-pc-search-title {
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 2px;
+    }
+    .arcodesign-pc-search-summary {
+        font-size: 12px;
+        color: #4e5969;
+        padding: 12px 20px 4px 20px;
+        font-weight: 400;
+    }
+    .arcodesign-pc-search-loading {
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 400;
+        color: #4e5969;
+    }
+    .arcodesign-pc-search-nodata {
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font-weight: 400;
+    }
+    &-nav-bar {
+        float: right;
+        height: 60px;
+        display: flex;
+        align-items: center;
+    }
+    .header-language-set {
+        height: 27px;
+        color: #424E66;
+        font-weight: 500;
+        padding: 0 8px;
+    }
+    &-tabs {
+        display: flex;
+        &-item {
+            display: flex;
+            padding: 0 14px;
+            align-items: center;
+            &-inner {
+                position: relative;
+                padding: 3px 8px;
+                font-weight: 500;
+                color: #424E66;
+                font-size: 14px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                &.active {
+                    color: @primary-color;
+                    cursor: default;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        left: 8px;
+                        right: 8px;
+                        bottom: -18px;
+                        height: 3px;
+                        background-color: @primary-color;
+                    }
+                }
+                &:hover {
+                    background-color: #f2f3f5;
+                }
+            }
+            &.language-item {
+                border-left: 1px solid #f1f1f1;
+                margin-left: 14px;
+            }
+            a {
+                display: contents;
+                color: @primary-color;
+            }
+            svg {
+                font-size: 22px;
+            }
+            .header-language-set {
+                svg {
+                    font-size: 12px;
+                }
+                span, svg {
+                    vertical-align: middle;
+                }
+            }
+            .placeholder {
+                width: 58px;
+                height: 22px;
+            }
+            &.gitlab {
+                color: @primary-color;
+            }
+        }
+    }
+}

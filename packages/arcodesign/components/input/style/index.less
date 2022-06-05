@@ -1,0 +1,107 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-input-container {
+    width: 100%;
+    .use-var(color, font-color);
+    position: relative;
+    .@{prefix}-input-label {
+        .use-var(min-width, input-label-min-width);
+    }
+}
+
+.@{prefix}-input-label {
+
+    &.required::before {
+        content: "* ";
+        .use-var(color, danger-color);
+    }
+    padding-top: 1PX;
+
+    .disabled & {
+        .use-var(color, input-disabled-color);
+    }
+}
+
+.@{prefix}-input-wrap {
+    position: relative;
+    .use-var(height, input-height);
+    .use-var(padding, input-horizontal-padding, 0);
+    display: flex;
+    align-items: center;
+
+    textarea,
+    input {
+        flex: 1;
+        background: transparent;
+
+        &:disabled {
+            .use-var(color, input-disabled-color);
+            // reset for ios
+            .use-var(-webkit-text-fill-color, input-disabled-color);
+            opacity: 1;
+        }
+    }
+
+    &.textarea {
+        height: auto;
+        align-items: flex-start;
+        .use-var(padding, textarea-padding);
+
+        &.has-stat {
+            .use-var(padding, textarea-has-stat-padding);
+        }
+    }
+
+    &.border {
+
+        &-all {
+            .hairline-var(line-color);
+        }
+
+        &-half {
+            .hairline-var(line-color, top);
+            .hairline-var(line-color, bottom);
+        }
+
+        &-bottom {
+            .hairline-var(line-color, bottom);
+        }
+    }
+}
+
+.@{prefix}-input-prefix, .@{prefix}-input-suffix, .@{prefix}-input-clear {
+    .use-var(font-size, input-text-font-size);
+    .use-var(line-height, input-text-line-height);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.@{prefix}-input-prefix {
+    .use-var(padding-right, input-label-gutter);
+}
+.@{prefix}-input-clear,
+.@{prefix}-input-suffix {
+    .use-var(padding-left, input-horizontal-padding);
+}
+.@{prefix}-input-clear {
+    .use-var(color, input-clear-icon-color);
+}
+
+.@{prefix}-input {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    .use-var(font-size, input-text-font-size);
+    .use-var(line-height, input-text-line-height);
+    .use-var(caret-color, input-caret-color);
+    .use-var(padding, input-vertical-padding, "", 0);
+    .use-var(color, font-color);
+
+    &::placeholder {
+        .use-var(color, input-placeholder-color);
+    }
+
+    &::-webkit-search-cancel-button {
+        display: none;
+    }
+}

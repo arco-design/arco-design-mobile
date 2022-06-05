@@ -1,0 +1,914 @@
+{
+    "description": "标签组件，支持标签和标签组。",
+    "descriptionTags": {
+        "en": "Tag component, supports tags and tag groups.",
+        "type": "数据展示",
+        "type_en": "Data Display",
+        "name": "标签",
+        "name_en": "Tag"
+    },
+    "displayName": "Tag",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "type": {
+            "defaultValue": {
+                "value": "\"primary\""
+            },
+            "description": "样式类型。primary表示基本类型，hollow表示空心类型，solid表示实心类型\n@en Style type. primary represents the basic type, hollow represents the hollow type, and solid represents the solid type",
+            "name": "type",
+            "tags": {
+                "en": "Style type. primary represents the basic type, hollow represents the hollow type, and solid represents the solid type",
+                "default": "\"primary\""
+            },
+            "descWithTags": "样式类型。primary表示基本类型，hollow表示空心类型，solid表示实心类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"primary\" | \"hollow\" | \"solid\"",
+                "value": [
+                    {
+                        "value": "\"primary\""
+                    },
+                    {
+                        "value": "\"hollow\""
+                    },
+                    {
+                        "value": "\"solid\""
+                    }
+                ]
+            }
+        },
+        "icon": {
+            "defaultValue": null,
+            "description": "图标内容\n@en Icon",
+            "name": "icon",
+            "tags": {
+                "en": "Icon"
+            },
+            "descWithTags": "图标内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "标签内部内容\n@en Children element of tag",
+            "name": "children",
+            "tags": {
+                "en": "Children element of tag"
+            },
+            "descWithTags": "标签内部内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "size": {
+            "defaultValue": {
+                "value": "\"medium\""
+            },
+            "description": "标签尺寸\n@en Tag size",
+            "name": "size",
+            "tags": {
+                "en": "Tag size",
+                "default": "\"medium\""
+            },
+            "descWithTags": "标签尺寸",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"medium\" | \"large\" | \"small\"",
+                "value": [
+                    {
+                        "value": "\"medium\""
+                    },
+                    {
+                        "value": "\"large\""
+                    },
+                    {
+                        "value": "\"small\""
+                    }
+                ]
+            }
+        },
+        "color": {
+            "defaultValue": null,
+            "description": "文字颜色\n@en Text color",
+            "name": "color",
+            "tags": {
+                "en": "Text color"
+            },
+            "descWithTags": "文字颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "bgColor": {
+            "defaultValue": null,
+            "description": "背景颜色\n@en Background color",
+            "name": "bgColor",
+            "tags": {
+                "en": "Background color"
+            },
+            "descWithTags": "背景颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "borderColor": {
+            "defaultValue": null,
+            "description": "边框颜色\n@en Border color",
+            "name": "borderColor",
+            "tags": {
+                "en": "Border color"
+            },
+            "descWithTags": "边框颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "borderStyle": {
+            "defaultValue": {
+                "value": "\"solid\""
+            },
+            "description": "边框样式\n@en Border style",
+            "name": "borderStyle",
+            "tags": {
+                "en": "Border style",
+                "default": "\"solid\""
+            },
+            "descWithTags": "边框样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"solid\" | \"none\" | \"dotted\" | \"dashed\"",
+                "value": [
+                    {
+                        "value": "\"solid\""
+                    },
+                    {
+                        "value": "\"none\""
+                    },
+                    {
+                        "value": "\"dotted\""
+                    },
+                    {
+                        "value": "\"dashed\""
+                    }
+                ]
+            }
+        },
+        "halfBorder": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否是0.5px边框\n@en Whether it is a 0.5px border",
+            "name": "halfBorder",
+            "tags": {
+                "en": "Whether it is a 0.5px border",
+                "default": "true"
+            },
+            "descWithTags": "是否是0.5px边框",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "closeable": {
+            "defaultValue": null,
+            "description": "是否有关闭按钮\n@en whether there is a close button",
+            "name": "closeable",
+            "tags": {
+                "en": "whether there is a close button"
+            },
+            "descWithTags": "是否有关闭按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "closeIcon": {
+            "defaultValue": null,
+            "description": "关闭按钮内容\n@en Close button content",
+            "name": "closeIcon",
+            "tags": {
+                "en": "Close button content"
+            },
+            "descWithTags": "关闭按钮内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "closeColor": {
+            "defaultValue": null,
+            "description": "关闭按钮颜色\n@en Close button color",
+            "name": "closeColor",
+            "tags": {
+                "en": "Close button color"
+            },
+            "descWithTags": "关闭按钮颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "filleted": {
+            "defaultValue": null,
+            "description": "是否圆角\n@en Whether it has rounded corners",
+            "name": "filleted",
+            "tags": {
+                "en": "Whether it has rounded corners"
+            },
+            "descWithTags": "是否圆角",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onClose": {
+            "defaultValue": null,
+            "description": "点击关闭按钮回调\n@en Callback when clicking the close button",
+            "name": "onClose",
+            "tags": {
+                "en": "Callback when clicking the close button"
+            },
+            "descWithTags": "点击关闭按钮回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击标签回调\n@en Callback when clicking the tag",
+            "name": "onClick",
+            "tags": {
+                "en": "Callback when clicking the tag"
+            },
+            "descWithTags": "点击标签回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                "name": "TagProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<TagRef>"
+            }
+        }
+    },
+    "deps": {
+        "TagRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {
+        "List": {
+            "description": "标签列表，支持动态编辑标签",
+            "descriptionTags": {
+                "en": "Tag list, support dynamic editing of tags"
+            },
+            "displayName": "List",
+            "methods": [],
+            "props": {
+                "list": {
+                    "defaultValue": null,
+                    "description": "标签列表\n@en Tag List",
+                    "name": "list",
+                    "tags": {
+                        "en": "Tag List"
+                    },
+                    "descWithTags": "标签列表",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": true,
+                    "type": {
+                        "name": "(TagProps & RefAttributes<TagRef>)[]"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname"
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "type": {
+                    "defaultValue": null,
+                    "description": "样式类型。primary表示基本类型，hollow表示空心类型，solid表示实心类型\n@en Style type, primary represents the basic type, hollow represents the hollow type, and solid represents the solid type",
+                    "name": "type",
+                    "tags": {
+                        "en": "Style type, primary represents the basic type, hollow represents the hollow type, and solid represents the solid type"
+                    },
+                    "descWithTags": "样式类型。primary表示基本类型，hollow表示空心类型，solid表示实心类型",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"primary\" | \"hollow\" | \"solid\"",
+                        "value": [
+                            {
+                                "value": "\"primary\""
+                            },
+                            {
+                                "value": "\"hollow\""
+                            },
+                            {
+                                "value": "\"solid\""
+                            }
+                        ]
+                    }
+                },
+                "showAddButton": {
+                    "defaultValue": {
+                        "value": "true"
+                    },
+                    "description": "是否展示添加标签按钮\n@en Whether to display the add tag button",
+                    "name": "showAddButton",
+                    "tags": {
+                        "en": "Whether to display the add tag button",
+                        "default": "true"
+                    },
+                    "descWithTags": "是否展示添加标签按钮",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "addArea": {
+                    "defaultValue": null,
+                    "description": "自定义添加标签按钮\n@en Customize the add tag button",
+                    "name": "addArea",
+                    "tags": {
+                        "en": "Customize the add tag button"
+                    },
+                    "descWithTags": "自定义添加标签按钮",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "horizontalPadding": {
+                    "defaultValue": null,
+                    "description": "标签横向间距\n@en Horizontal spacing of tags",
+                    "name": "horizontalPadding",
+                    "tags": {
+                        "en": "Horizontal spacing of tags"
+                    },
+                    "descWithTags": "标签横向间距",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactText"
+                    }
+                },
+                "verticalPadding": {
+                    "defaultValue": null,
+                    "description": "标签纵向间距\n@en Vertical spacing of tags",
+                    "name": "verticalPadding",
+                    "tags": {
+                        "en": "Vertical spacing of tags"
+                    },
+                    "descWithTags": "标签纵向间距",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactText"
+                    }
+                },
+                "onAdd": {
+                    "defaultValue": null,
+                    "description": "点击添加标签按钮回调\n@en Callback when clicking the add tag button",
+                    "name": "onAdd",
+                    "tags": {
+                        "en": "Callback when clicking the add tag button"
+                    },
+                    "descWithTags": "点击添加标签按钮回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+                    }
+                },
+                "onClose": {
+                    "defaultValue": null,
+                    "description": "点击标签关闭按钮回调\n@en Callback when clicking the close tag button",
+                    "name": "onClose",
+                    "tags": {
+                        "en": "Callback when clicking the close tag button"
+                    },
+                    "descWithTags": "点击标签关闭按钮回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tag/type.ts",
+                        "name": "TagListProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(index: number, e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<TagListRef>"
+                    }
+                }
+            },
+            "deps": {
+                "TagProps": {
+                    "className": {
+                        "name": "className",
+                        "required": false,
+                        "description": "自定义类名\n@en Custom classname",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Custom classname"
+                        },
+                        "descWithTags": "自定义类名"
+                    },
+                    "style": {
+                        "name": "style",
+                        "required": false,
+                        "description": "自定义样式\n@en Custom stylesheet",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "CSSProperties"
+                        },
+                        "tags": {
+                            "en": "Custom stylesheet"
+                        },
+                        "descWithTags": "自定义样式"
+                    },
+                    "type": {
+                        "name": "type",
+                        "required": false,
+                        "description": "样式类型。primary表示基本类型，hollow表示空心类型，solid表示实心类型\n@en Style type. primary represents the basic type, hollow represents the hollow type, and solid represents the solid type",
+                        "defaultValue": {
+                            "value": "\"primary\""
+                        },
+                        "type": {
+                            "name": "enum",
+                            "raw": "\"primary\" | \"hollow\" | \"solid\"",
+                            "value": [
+                                {
+                                    "value": "\"primary\""
+                                },
+                                {
+                                    "value": "\"hollow\""
+                                },
+                                {
+                                    "value": "\"solid\""
+                                }
+                            ]
+                        },
+                        "tags": {
+                            "en": "Style type. primary represents the basic type, hollow represents the hollow type, and solid represents the solid type",
+                            "default": "\"primary\""
+                        },
+                        "descWithTags": "样式类型。primary表示基本类型，hollow表示空心类型，solid表示实心类型"
+                    },
+                    "icon": {
+                        "name": "icon",
+                        "required": false,
+                        "description": "图标内容\n@en Icon",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "Icon"
+                        },
+                        "descWithTags": "图标内容"
+                    },
+                    "children": {
+                        "name": "children",
+                        "required": false,
+                        "description": "标签内部内容\n@en Children element of tag",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "Children element of tag"
+                        },
+                        "descWithTags": "标签内部内容"
+                    },
+                    "size": {
+                        "name": "size",
+                        "required": false,
+                        "description": "标签尺寸\n@en Tag size",
+                        "defaultValue": {
+                            "value": "\"medium\""
+                        },
+                        "type": {
+                            "name": "enum",
+                            "raw": "\"medium\" | \"large\" | \"small\"",
+                            "value": [
+                                {
+                                    "value": "\"medium\""
+                                },
+                                {
+                                    "value": "\"large\""
+                                },
+                                {
+                                    "value": "\"small\""
+                                }
+                            ]
+                        },
+                        "tags": {
+                            "en": "Tag size",
+                            "default": "\"medium\""
+                        },
+                        "descWithTags": "标签尺寸"
+                    },
+                    "color": {
+                        "name": "color",
+                        "required": false,
+                        "description": "文字颜色\n@en Text color",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Text color"
+                        },
+                        "descWithTags": "文字颜色"
+                    },
+                    "bgColor": {
+                        "name": "bgColor",
+                        "required": false,
+                        "description": "背景颜色\n@en Background color",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Background color"
+                        },
+                        "descWithTags": "背景颜色"
+                    },
+                    "borderColor": {
+                        "name": "borderColor",
+                        "required": false,
+                        "description": "边框颜色\n@en Border color",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Border color"
+                        },
+                        "descWithTags": "边框颜色"
+                    },
+                    "borderStyle": {
+                        "name": "borderStyle",
+                        "required": false,
+                        "description": "边框样式\n@en Border style",
+                        "defaultValue": {
+                            "value": "\"solid\""
+                        },
+                        "type": {
+                            "name": "enum",
+                            "raw": "\"solid\" | \"none\" | \"dotted\" | \"dashed\"",
+                            "value": [
+                                {
+                                    "value": "\"solid\""
+                                },
+                                {
+                                    "value": "\"none\""
+                                },
+                                {
+                                    "value": "\"dotted\""
+                                },
+                                {
+                                    "value": "\"dashed\""
+                                }
+                            ]
+                        },
+                        "tags": {
+                            "en": "Border style",
+                            "default": "\"solid\""
+                        },
+                        "descWithTags": "边框样式"
+                    },
+                    "halfBorder": {
+                        "name": "halfBorder",
+                        "required": false,
+                        "description": "是否是0.5px边框\n@en Whether it is a 0.5px border",
+                        "defaultValue": {
+                            "value": "true"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether it is a 0.5px border",
+                            "default": "true"
+                        },
+                        "descWithTags": "是否是0.5px边框"
+                    },
+                    "closeable": {
+                        "name": "closeable",
+                        "required": false,
+                        "description": "是否有关闭按钮\n@en whether there is a close button",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "whether there is a close button"
+                        },
+                        "descWithTags": "是否有关闭按钮"
+                    },
+                    "closeIcon": {
+                        "name": "closeIcon",
+                        "required": false,
+                        "description": "关闭按钮内容\n@en Close button content",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "Close button content"
+                        },
+                        "descWithTags": "关闭按钮内容"
+                    },
+                    "closeColor": {
+                        "name": "closeColor",
+                        "required": false,
+                        "description": "关闭按钮颜色\n@en Close button color",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Close button color"
+                        },
+                        "descWithTags": "关闭按钮颜色"
+                    },
+                    "filleted": {
+                        "name": "filleted",
+                        "required": false,
+                        "description": "是否圆角\n@en Whether it has rounded corners",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether it has rounded corners"
+                        },
+                        "descWithTags": "是否圆角"
+                    },
+                    "onClose": {
+                        "name": "onClose",
+                        "required": false,
+                        "description": "点击关闭按钮回调\n@en Callback when clicking the close button",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+                        },
+                        "tags": {
+                            "en": "Callback when clicking the close button"
+                        },
+                        "descWithTags": "点击关闭按钮回调"
+                    },
+                    "onClick": {
+                        "name": "onClick",
+                        "required": false,
+                        "description": "点击标签回调\n@en Callback when clicking the tag",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+                        },
+                        "tags": {
+                            "en": "Callback when clicking the tag"
+                        },
+                        "descWithTags": "点击标签回调"
+                    }
+                },
+                "TagRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层元素 DOM\n@en The outermost element DOM",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outermost element DOM"
+                        },
+                        "descWithTags": "最外层元素 DOM"
+                    }
+                },
+                "TagListRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层元素 DOM\n@en The outermost element DOM",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outermost element DOM"
+                        },
+                        "descWithTags": "最外层元素 DOM"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "TagListProps",
+                "ref": "TagListRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "TagProps",
+        "ref": "TagRef"
+    },
+    "isDefaultExport": true
+}

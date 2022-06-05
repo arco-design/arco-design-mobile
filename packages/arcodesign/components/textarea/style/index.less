@@ -1,0 +1,37 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-textarea {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    .use-var(font-size, textarea-font-size);
+    .use-var(line-height, textarea-line-height);
+    .use-var(caret-color, input-caret-color);
+
+    &::placeholder {
+        .use-var(color, input-placeholder-color);
+    }
+
+    &.fake-textarea {
+        position: fixed;
+        bottom: 100%;
+        left: 0;
+        visibility: hidden;
+    }
+}
+
+.@{prefix}-input-container {
+
+    .statistic-text {
+        position: absolute;
+        .rem(bottom, 16);
+        .rem(right, 16);
+        .use-var(font-size, textarea-statistic-font-size);
+        .use-var(color, textarea-statistic-color);
+
+        &.exceed {
+            .use-var(color, danger-color);
+        }
+    }
+}

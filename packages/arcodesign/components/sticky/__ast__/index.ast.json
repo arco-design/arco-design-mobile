@@ -1,0 +1,435 @@
+{
+    "description": "粘性布局组件，元素相对于窗口或指定容器的吸顶效果。",
+    "descriptionTags": {
+        "en": "Sticky layout component, The sticky-to-top effect of the element relative to the window or specified container",
+        "type": "布局",
+        "type_en": "Layout",
+        "name": "粘性布局",
+        "name_en": "Sticky"
+    },
+    "displayName": "Sticky",
+    "methods": [],
+    "props": {
+        "position": {
+            "defaultValue": {
+                "value": "\"top\""
+            },
+            "description": "吸附位置，top 表示吸顶，bottom 表示吸底，both 表示既吸顶又吸底\n@en Adsorption position, top means fixed top, bottom means fixed bottom, both means both top and bottom",
+            "name": "position",
+            "tags": {
+                "en": "Adsorption position, top means fixed top, bottom means fixed bottom, both means both top and bottom",
+                "default": "\"top\""
+            },
+            "descWithTags": "吸附位置，top 表示吸顶，bottom 表示吸底，both 表示既吸顶又吸底",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"top\" | \"bottom\" | \"both\"",
+                "value": [
+                    {
+                        "value": "\"top\""
+                    },
+                    {
+                        "value": "\"bottom\""
+                    },
+                    {
+                        "value": "\"both\""
+                    }
+                ]
+            }
+        },
+        "topOffset": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "当距离容器顶部距离为该值时吸顶\n@en Fixed top when the distance from the top of the container is this value",
+            "name": "topOffset",
+            "tags": {
+                "en": "Fixed top when the distance from the top of the container is this value",
+                "default": "0"
+            },
+            "descWithTags": "当距离容器顶部距离为该值时吸顶",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "bottomOffset": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "当距离容器底部距离为该值时吸底\n@en Fixed bottom when the distance from the bottom of the container is this value",
+            "name": "bottomOffset",
+            "tags": {
+                "en": "Fixed bottom when the distance from the bottom of the container is this value",
+                "default": "0"
+            },
+            "descWithTags": "当距离容器底部距离为该值时吸底",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "followOffset": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "当sticky元素需要跟随依附容器离开视口时距离依附容器边缘的距离\n@en The distance from the edge of the attached container when the sticky element needs to follow the attached container to leave the viewport",
+            "name": "followOffset",
+            "tags": {
+                "en": "The distance from the edge of the attached container when the sticky element needs to follow the attached container to leave the viewport",
+                "default": "0"
+            },
+            "descWithTags": "当sticky元素需要跟随依附容器离开视口时距离依附容器边缘的距离",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "组件内部内容\n@en Children elements of the component",
+            "name": "children",
+            "tags": {
+                "en": "Children elements of the component"
+            },
+            "descWithTags": "组件内部内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "zIndex": {
+            "defaultValue": {
+                "value": "100"
+            },
+            "description": "层级指数，z-index的值\n@en z-index",
+            "name": "zIndex",
+            "tags": {
+                "en": "z-index",
+                "default": "100"
+            },
+            "descWithTags": "层级指数，z-index的值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "portalWhenSticky": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "在处于sticky状态时是否portal\n@en Whether it is portal in sticky state",
+            "name": "portalWhenSticky",
+            "tags": {
+                "en": "Whether it is portal in sticky state",
+                "default": "false"
+            },
+            "descWithTags": "在处于sticky状态时是否portal",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "stickyStyle": {
+            "defaultValue": {
+                "value": "\"fixed\""
+            },
+            "description": "处于sticky状态时，元素固定样式。推荐用fixed，如果为absolute则需自行为滚动容器的父容器设置 position: relative\n@en When in the sticky state, the fixed style of the element. Fixed is recommended. If absolute, need to set position: relative for the parent container of the scrolling container.",
+            "name": "stickyStyle",
+            "tags": {
+                "en": "When in the sticky state, the fixed style of the element. Fixed is recommended. If absolute, need to set position: relative for the parent container of the scrolling container.",
+                "default": "\"fixed\""
+            },
+            "descWithTags": "处于sticky状态时，元素固定样式。推荐用fixed，如果为absolute则需自行为滚动容器的父容器设置 position: relative",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"fixed\" | \"absolute\"",
+                "value": [
+                    {
+                        "value": "\"fixed\""
+                    },
+                    {
+                        "value": "\"absolute\""
+                    }
+                ]
+            }
+        },
+        "stickyCssStyle": {
+            "defaultValue": null,
+            "description": "处于sticky状态时的自定义样式\n@en Custom style when in sticky state",
+            "name": "stickyCssStyle",
+            "tags": {
+                "en": "Custom style when in sticky state"
+            },
+            "descWithTags": "处于sticky状态时的自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "getPortalContainer": {
+            "defaultValue": {
+                "value": "() => document.body"
+            },
+            "description": "被portal时挂载的容器\n@en Container mounted when being portaled",
+            "name": "getPortalContainer",
+            "tags": {
+                "en": "Container mounted when being portaled",
+                "default": "() => document.body"
+            },
+            "descWithTags": "被portal时挂载的容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        },
+        "onStickyStateChange": {
+            "defaultValue": null,
+            "description": "吸顶状态切换时触发\npayload.isSticky: 当前是否为吸顶/吸底状态\npayload.wasSticky: 前一个状态是否为吸顶/吸底状态\n@en Triggered when the sticky state is switched\n@en isSticky: Whether it is currently in the top/bottom state\n@en Whether the previous state is the top/bottom state",
+            "name": "onStickyStateChange",
+            "tags": {
+                "en": "Triggered when the sticky state is switched\nisSticky: Whether it is currently in the top/bottom state\nWhether the previous state is the top/bottom state"
+            },
+            "descWithTags": "吸顶状态切换时触发\npayload.isSticky: 当前是否为吸顶/吸底状态\npayload.wasSticky: 前一个状态是否为吸顶/吸底状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(payload: StickyEventPayload) => void"
+            }
+        },
+        "onTopChange": {
+            "defaultValue": null,
+            "description": "滚动时top变化回调，参数为元素距离容器顶部减去topOffset的距离\n@en The top change callback when scrolling, the parameter is the distance of the element from the top of the container minus topOffset",
+            "name": "onTopChange",
+            "tags": {
+                "en": "The top change callback when scrolling, the parameter is the distance of the element from the top of the container minus topOffset"
+            },
+            "descWithTags": "滚动时top变化回调，参数为元素距离容器顶部减去topOffset的距离",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(top: number) => void"
+            }
+        },
+        "getContainer": {
+            "defaultValue": null,
+            "description": "指定sticky元素的依附容器，sticky元素不会超出容器，在容器离开视口时会跟随\n如果返回string则使用querySelector选取容器\n@en Specifies the attachment container of the sticky element. The sticky element will not exceed the container and will follow when the container leaves the viewport\n@en If a string is returned, use querySelector to select the container",
+            "name": "getContainer",
+            "tags": {
+                "en": "Specifies the attachment container of the sticky element. The sticky element will not exceed the container and will follow when the container leaves the viewport\nIf a string is returned, use querySelector to select the container"
+            },
+            "descWithTags": "指定sticky元素的依附容器，sticky元素不会超出容器，在容器离开视口时会跟随\n如果返回string则使用querySelector选取容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => string | HTMLElement"
+            }
+        },
+        "getScrollContainer": {
+            "defaultValue": {
+                "value": "() => window"
+            },
+            "description": "指定滚动容器，如果指定该值则relative属性始终认定为false；如果返回string则使用querySelector选取容器\n@en Specifies the scrolling container. If this value is specified, the relative property is always regarded as false; if a string is input, use querySelector to select the container",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "Specifies the scrolling container. If this value is specified, the relative property is always regarded as false; if a string is input, use querySelector to select the container",
+                "default": "() => window"
+            },
+            "descWithTags": "指定滚动容器，如果指定该值则relative属性始终认定为false；如果返回string则使用querySelector选取容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/sticky/index.tsx",
+                "name": "StickyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => string | HTMLElement | Window"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<StickyRef>"
+            }
+        }
+    },
+    "deps": {
+        "StickyEventPayload": {
+            "isSticky": {
+                "name": "isSticky",
+                "required": true,
+                "description": "当前是否为吸顶/吸底状态\n@en Whether it is currently in the top/bottom suction state",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether it is currently in the top/bottom suction state"
+                },
+                "descWithTags": "当前是否为吸顶/吸底状态"
+            },
+            "wasSticky": {
+                "name": "wasSticky",
+                "required": true,
+                "description": "前一个状态是否为吸顶/吸底状态\n@en Whether the previous state is ceiling / bottom suction state",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the previous state is ceiling / bottom suction state"
+                },
+                "descWithTags": "前一个状态是否为吸顶/吸底状态"
+            },
+            "isTopSticky": {
+                "name": "isTopSticky",
+                "required": true,
+                "description": "当前是否为吸顶状态",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {},
+                "descWithTags": "当前是否为吸顶状态"
+            },
+            "isBottomSticky": {
+                "name": "isBottomSticky",
+                "required": true,
+                "description": "当前是否为吸底状态",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {},
+                "descWithTags": "当前是否为吸底状态"
+            }
+        },
+        "StickyRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "recalculatePosition": {
+                "name": "recalculatePosition",
+                "required": true,
+                "description": "局部滚动模式下，如果容器外部还有嵌套滚动，可主动调用此方法，让 sticky 的元素主动更新 fixed 位置\n@en In the local scrolling mode, if there is nested scrolling outside the container, this method can be actively called to make the sticky element actively update the fixed position",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "In the local scrolling mode, if there is nested scrolling outside the container, this method can be actively called to make the sticky element actively update the fixed position"
+                },
+                "descWithTags": "局部滚动模式下，如果容器外部还有嵌套滚动，可主动调用此方法，让 sticky 的元素主动更新 fixed 位置"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "StickyProps",
+        "ref": "StickyRef"
+    },
+    "isDefaultExport": true
+}
