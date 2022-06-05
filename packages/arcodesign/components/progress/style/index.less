@@ -1,0 +1,114 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-progress {
+
+    &.progress-fixed {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        z-index: @full-screen-z-index + 1;;
+    }
+
+    .progress-wrapper {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        .progress-track {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            .use-var(background-color, progress-track-color);
+            .use-var(height, progress-track-height);
+
+            &.position-innerLeft {
+                .use-var(height, progress-inner-track-height);
+            }
+
+            &.nav-mode {
+                .use-var(background-color, progress-nav-track-color);
+                .use-var(height, progress-nav-track-height);
+            }
+        }
+
+        .progress-bar {
+            height: 100%;
+            position: relative;
+            .use-var(background-color, progress-primary-color);
+
+            .wrapper {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        .filleted {
+            border-radius: 100PX;
+        }
+
+        .text {
+            .use-var(font-size, progress-text-font-size);
+            .use-var(margin-left, progress-text-gutter);
+            .use-var(color, progress-primary-color);
+        }
+
+        .text-left {
+            margin-left: 0;
+            .use-var(margin-right, progress-text-gutter);
+        }
+
+        .text-innerLeft {
+            position: absolute;
+            z-index: 1;
+            .use-var(color, progress-text-inner-color);
+        }
+
+        .text-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            .use-var(color, progress-text-inner-color);
+        }
+
+        .text-follow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .use-var(width, progress-text-follow-width);
+            .use-var(height, progress-text-follow-height);
+            .use-var(border-radius, progress-text-follow-border-radius);
+            .use-var(font-size, progress-text-follow-font-size);
+            .use-var(color, progress-text-inner-color);
+            .use-var(background-color, progress-primary-color);
+        }
+
+        .track-color {
+            .use-var(background-color, progress-track-color); }
+
+        .color {
+            .use-var(stroke, progress-primary-color);
+            .use-var(color, progress-primary-color);
+        }
+
+        .bar-disabled {
+            .use-var(background-color, progress-disabled-color);
+        }
+
+        .text-disabled {
+            .use-var(color, progress-disabled-text-color);
+        }
+
+        .inner-disabled {
+            .use-var(color, progress-text-inner-color);
+
+            &.inner-block-disabled {
+                .use-var(background-color, progress-disabled-color);
+            }
+        }
+    }
+}

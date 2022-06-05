@@ -1,0 +1,102 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-loading {
+    .set-loading-color-var(loading-color);
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    @keyframes changDeg {
+
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    &.circle,
+    &.arc,
+    &.spin {
+        animation: changDeg 1s infinite linear;
+    }
+
+    &.circle {
+
+        .loading-circle-middle {
+            stop-opacity: .5;
+        }
+
+        .loading-circle-end {
+            stop-opacity: 0;
+        }
+    }
+
+    &.dot {
+
+        .dot-cell {
+            display: inline-block;
+            .use-var(width, loading-dot-size);
+            .use-var(height, loading-dot-size);
+            .use-var(margin-left, loading-dot-gutter);
+
+            &:first-of-type {
+                margin-left: 0;
+            }
+
+            &.filleted {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &.spin {
+        .rem(height, 22);
+        .rem(width, 22);
+        position: relative;
+
+        .spin-cell {
+            position: absolute;
+            .rem(left, 10);
+            .rem(top, 1);
+            display: inline-block;
+            .rem(height, 10);
+            .rem(padding-bottom, 4);
+            overflow: hidden;
+            transform-origin: 50% bottom;
+
+            &-inner {
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                transform: scale(.5);
+                transform-origin: top left;
+                .rem(height, 12);
+            }
+        }
+    }
+
+    &.arc {
+
+        .arc-bg {
+            .use-var(stroke, loading-arc-background-color);
+        }
+    }
+
+    &.line {
+        width: 100%;
+
+        .loading-line-start,
+        .loading-line-end {
+            .use-var(stop-color, loading-color);
+        }
+
+        .loading-line-start {
+            stop-opacity: 0;
+        }
+    }
+}

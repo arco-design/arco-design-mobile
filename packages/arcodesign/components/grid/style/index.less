@@ -1,0 +1,103 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-rows {
+        display: flex;
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            &-icon {
+                .use-var(width, grid-icon-width);
+                .use-var(height, grid-icon-height);
+            }
+
+            &-icon.circle {
+                border-radius: 50%;
+            }
+
+            &-text {
+                display: flex;
+                flex-direction: column;
+                .use-var(margin-top, grid-vertical-text-margin-top);
+                text-align: center;
+            }
+
+            &-title {
+                .use-var(font-size, grid-vertical-title-font-size);
+                .use-var(line-height, grid-vertical-title-line-height);
+            }
+
+            &-content {
+                .use-var(font-size, grid-vertical-content-font-size);
+                .use-var(line-height, grid-vertical-content-line-height);
+                .use-var(margin-top, grid-vertical-content-margin-top);
+                .use-var(color, sub-info-font-color);
+            }
+
+        }
+
+        &-item.horizontal {
+            flex-direction: row;
+
+            .@{prefix}-grid-rows-item {
+
+                &-text {
+                    .use-var(margin-left, grid-horizontal-text-margin-left);
+                    margin-top: 0;
+                    text-align: left;
+                }
+
+                &-content {
+                    .use-var(margin-top, grid-horizontal-content-margin-top);
+                }
+
+            }
+        }
+
+        &-item.border {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .vertical-border:after {
+                content: "";
+                width: 1px;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: scaleX(.5) translateY(-50%);
+                .use-var(height, grid-border-size);
+                .use-var(background-color, grid-border-color);
+            }
+
+            .horizontal-border:after {
+                content: "";
+                height: 1px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: scaleY(.5) translateX(-50%);
+                .use-var(width, grid-border-size);
+                .use-var(background-color, grid-border-color);
+            }
+        }
+    }
+}
+.@{prefix}-grid.sliding {
+    display: inline-block;
+    overflow-x: auto;
+}
+
+.@{prefix}-grid.sliding::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}

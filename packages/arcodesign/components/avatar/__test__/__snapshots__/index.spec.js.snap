@@ -1,0 +1,859 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`avatar demo test avatar demo: auto-font-size.md renders correctly 1`] = `
+<div
+  class="avatar-demo-box"
+>
+  <div
+    class="arco-avatar-wrapper small circle"
+  >
+    <div
+      class="arco-avatar small circle arco-text-avatar"
+    >
+      <span
+        class="arco-avatar-text"
+        style="transform:scale(1)"
+      >
+        Arco
+      </span>
+    </div>
+  </div>
+  <div
+    class="arco-avatar-wrapper avatar-left-margin small circle"
+  >
+    <div
+      class="arco-avatar small circle arco-text-avatar"
+      style="background-color:#FF7D00"
+    >
+      <span
+        class="arco-avatar-text"
+        style="transform:scale(1)"
+      >
+        ByteDancer
+      </span>
+    </div>
+  </div>
+  <div
+    class="arco-avatar-wrapper avatar-left-margin small square"
+  >
+    <div
+      class="arco-avatar small square arco-text-avatar"
+      style="background-color:#C9CDD4"
+    >
+      <span
+        class="arco-avatar-text"
+        style="transform:scale(1)"
+      >
+        Garth
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`] = `
+<div
+  style="margin:-16px 0"
+>
+  <div
+    class="arco-avatar-wrapper large circle with-info"
+  >
+    <div
+      class="arco-avatar large circle arco-image-avatar"
+    >
+      <div
+        class="arco-image all-border-box pc arco-avatar-img"
+      >
+        <div
+          class="image-content image-bottom-overlap"
+        >
+          <div
+            class="image-placeholder"
+          />
+        </div>
+        <div
+          class="image-container init animate"
+          style="transition-duration:200ms;-webkit-transition-duration:200ms"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-avatar-info"
+    >
+      <div
+        class="arco-avatar-name"
+      >
+        Username
+      </div>
+      <div
+        class="arco-avatar-desc"
+      >
+        Auxiliary information
+      </div>
+    </div>
+  </div>
+  <div
+    class="avatar-divider"
+  />
+  <div
+    class="arco-avatar-wrapper medium circle with-info"
+  >
+    <div
+      class="arco-avatar medium circle arco-image-avatar"
+    >
+      <div
+        class="arco-image all-border-box pc arco-avatar-img"
+      >
+        <div
+          class="image-content image-bottom-overlap"
+        >
+          <div
+            class="image-placeholder"
+          />
+        </div>
+        <div
+          class="image-container init animate"
+          style="transition-duration:200ms;-webkit-transition-duration:200ms"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-avatar-info"
+    >
+      <div
+        class="arco-avatar-name"
+      >
+        Username
+      </div>
+      <div
+        class="arco-avatar-desc"
+      >
+        Auxiliary information
+      </div>
+    </div>
+  </div>
+  <div
+    class="avatar-divider"
+  />
+  <div
+    class="arco-avatar-wrapper small circle with-info"
+  >
+    <div
+      class="arco-avatar small circle arco-image-avatar"
+    >
+      <div
+        class="arco-image all-border-box pc arco-avatar-img"
+      >
+        <div
+          class="image-content image-bottom-overlap"
+        >
+          <div
+            class="image-placeholder"
+          />
+        </div>
+        <div
+          class="image-container init animate"
+          style="transition-duration:200ms;-webkit-transition-duration:200ms"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-avatar-info"
+    >
+      <div
+        class="arco-avatar-name"
+      >
+        Username
+      </div>
+      <div
+        class="arco-avatar-desc"
+      >
+        Auxiliary information
+      </div>
+    </div>
+  </div>
+  <div
+    class="avatar-divider"
+  />
+  <div
+    class="arco-avatar-wrapper smaller circle with-info"
+  >
+    <div
+      class="arco-avatar smaller circle arco-image-avatar"
+    >
+      <div
+        class="arco-image all-border-box pc arco-avatar-img"
+      >
+        <div
+          class="image-content image-bottom-overlap"
+        >
+          <div
+            class="image-placeholder"
+          />
+        </div>
+        <div
+          class="image-container init animate"
+          style="transition-duration:200ms;-webkit-transition-duration:200ms"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-avatar-info"
+    >
+      <div
+        class="arco-avatar-name"
+      >
+        Username
+      </div>
+      <div
+        class="arco-avatar-desc"
+      >
+        Auxiliary information
+      </div>
+    </div>
+  </div>
+  <div
+    class="avatar-divider"
+  />
+  <div
+    class="arco-avatar-wrapper ultra-small circle with-info"
+  >
+    <div
+      class="arco-avatar ultra-small circle arco-image-avatar"
+    >
+      <div
+        class="arco-image all-border-box pc arco-avatar-img"
+      >
+        <div
+          class="image-content image-bottom-overlap"
+        >
+          <div
+            class="image-placeholder"
+          />
+        </div>
+        <div
+          class="image-container init animate"
+          style="transition-duration:200ms;-webkit-transition-duration:200ms"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-avatar-info"
+    >
+      <div
+        class="arco-avatar-name"
+      >
+        Username
+      </div>
+      <div
+        class="arco-avatar-desc"
+      >
+        Auxiliary information
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`avatar demo test avatar demo: custom.md renders correctly 1`] = `
+<div
+  class="avatar-demo-box"
+>
+  <div
+    class="arco-avatar-wrapper small circle"
+  >
+    <div
+      class="arco-avatar small circle arco-image-avatar"
+    >
+      <div
+        class="arco-image all-border-box pc arco-avatar-img"
+      >
+        <div
+          class="image-content image-bottom-overlap"
+        >
+          <div
+            class="image-placeholder"
+          />
+        </div>
+        <div
+          class="image-container init animate"
+          style="transition-duration:200ms;-webkit-transition-duration:200ms"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`avatar demo test avatar demo: default.md renders correctly 1`] = `
+<div
+  class="avatar-demo-box"
+>
+  <div
+    class="arco-avatar-wrapper small circle"
+  >
+    <div
+      class="arco-avatar small circle default-overlap"
+    >
+      <svg
+        class="arco-icon arco-icon-user-fill arco-avatar-default"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 10.833c2.301 0 5 1.786 5 5v2.5c0 .46-.373.834-.833.834H3.333a.833.833 0 01-.833-.834v-2.5c0-3.211 2.699-5 5-5h5zM10 1.25a4.167 4.167 0 110 8.333 4.167 4.167 0 010-8.333z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    class="arco-avatar-wrapper avatar-left-margin small square"
+  >
+    <div
+      class="arco-avatar small square default-overlap"
+    >
+      <svg
+        class="arco-icon arco-icon-user-fill arco-avatar-default"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 10.833c2.301 0 5 1.786 5 5v2.5c0 .46-.373.834-.833.834H3.333a.833.833 0 01-.833-.834v-2.5c0-3.211 2.699-5 5-5h5zM10 1.25a4.167 4.167 0 110 8.333 4.167 4.167 0 010-8.333z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`avatar demo test avatar demo: icon-avatar.md renders correctly 1`] = `
+<div
+  class="avatar-demo-box custom-icon"
+>
+  <div
+    class="arco-avatar-wrapper small circle"
+  >
+    <div
+      class="arco-avatar small circle"
+    >
+      <svg
+        class="arco-icon arco-icon-user-fill custom-avatar-icon"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 10.833c2.301 0 5 1.786 5 5v2.5c0 .46-.373.834-.833.834H3.333a.833.833 0 01-.833-.834v-2.5c0-3.211 2.699-5 5-5h5zM10 1.25a4.167 4.167 0 110 8.333 4.167 4.167 0 010-8.333z"
+          fill="currentColor"
+        />
+      </svg>
+      <div
+        class="arco-avatar-decoration"
+      >
+        <img
+          class="bottom-edit-icon"
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/avatar-edit.png"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`avatar demo test avatar demo: size.md renders correctly 1`] = `
+<div
+  class="avatar-demo-box"
+>
+  <div
+    class="avatar-size-demo-box"
+  >
+    <div
+      class="arco-avatar-wrapper large circle"
+    >
+      <div
+        class="arco-avatar large circle arco-image-avatar"
+      >
+        <div
+          class="arco-image all-border-box pc arco-avatar-img"
+        >
+          <div
+            class="image-content image-bottom-overlap"
+          >
+            <div
+              class="image-placeholder"
+            />
+          </div>
+          <div
+            class="image-container init animate"
+            style="transition-duration:200ms;-webkit-transition-duration:200ms"
+          />
+        </div>
+      </div>
+    </div>
+    <span
+      class="size-text"
+      style="margin-top:4px"
+    >
+      large
+    </span>
+  </div>
+  <div
+    class="avatar-size-demo-box avatar-left-margin"
+  >
+    <div
+      class="arco-avatar-wrapper medium circle"
+    >
+      <div
+        class="arco-avatar medium circle arco-image-avatar"
+      >
+        <div
+          class="arco-image all-border-box pc arco-avatar-img"
+        >
+          <div
+            class="image-content image-bottom-overlap"
+          >
+            <div
+              class="image-placeholder"
+            />
+          </div>
+          <div
+            class="image-container init animate"
+            style="transition-duration:200ms;-webkit-transition-duration:200ms"
+          />
+        </div>
+      </div>
+    </div>
+    <span
+      class="size-text"
+      style="margin-top:8px"
+    >
+      medium
+    </span>
+  </div>
+  <div
+    class="avatar-size-demo-box avatar-left-margin"
+  >
+    <div
+      class="arco-avatar-wrapper small circle"
+    >
+      <div
+        class="arco-avatar small circle arco-image-avatar"
+      >
+        <div
+          class="arco-image all-border-box pc arco-avatar-img"
+        >
+          <div
+            class="image-content image-bottom-overlap"
+          >
+            <div
+              class="image-placeholder"
+            />
+          </div>
+          <div
+            class="image-container init animate"
+            style="transition-duration:200ms;-webkit-transition-duration:200ms"
+          />
+        </div>
+      </div>
+    </div>
+    <span
+      class="size-text"
+      style="margin-top:12px"
+    >
+      small
+    </span>
+  </div>
+  <div
+    class="avatar-size-demo-box avatar-left-margin"
+  >
+    <div
+      class="arco-avatar-wrapper smaller circle"
+    >
+      <div
+        class="arco-avatar smaller circle arco-image-avatar"
+      >
+        <div
+          class="arco-image all-border-box pc arco-avatar-img"
+        >
+          <div
+            class="image-content image-bottom-overlap"
+          >
+            <div
+              class="image-placeholder"
+            />
+          </div>
+          <div
+            class="image-container init animate"
+            style="transition-duration:200ms;-webkit-transition-duration:200ms"
+          />
+        </div>
+      </div>
+    </div>
+    <span
+      class="size-text"
+      style="margin-top:16px"
+    >
+      smaller
+    </span>
+  </div>
+  <div
+    class="avatar-size-demo-box avatar-left-margin"
+  >
+    <div
+      class="arco-avatar-wrapper ultra-small circle"
+    >
+      <div
+        class="arco-avatar ultra-small circle arco-image-avatar"
+      >
+        <div
+          class="arco-image all-border-box pc arco-avatar-img"
+        >
+          <div
+            class="image-content image-bottom-overlap"
+          >
+            <div
+              class="image-placeholder"
+            />
+          </div>
+          <div
+            class="image-container init animate"
+            style="transition-duration:200ms;-webkit-transition-duration:200ms"
+          />
+        </div>
+      </div>
+    </div>
+    <span
+      class="size-text"
+      style="margin-top:20px"
+    >
+      ultra-small
+    </span>
+  </div>
+</div>
+`;
+
+exports[`avatar demo test avatar demo: text-avatar.md renders correctly 1`] = `
+<div
+  class="avatar-demo-box"
+>
+  <div
+    class="arco-avatar-wrapper small circle"
+  >
+    <div
+      class="arco-avatar small circle arco-text-avatar"
+    >
+      <span
+        class="arco-avatar-text"
+        style="transform:scale(1)"
+      >
+        Nietzsche
+      </span>
+    </div>
+  </div>
+  <div
+    class="arco-avatar-wrapper avatar-left-margin small circle"
+  >
+    <div
+      class="arco-avatar small circle arco-text-avatar"
+      style="background-color:#FF7D00"
+    >
+      <span
+        class="arco-avatar-text"
+        style="transform:scale(1)"
+      >
+        Z
+      </span>
+    </div>
+  </div>
+  <div
+    class="arco-avatar-wrapper avatar-left-margin small square"
+  >
+    <div
+      class="arco-avatar small square arco-text-avatar"
+      style="background-color:#C9CDD4"
+    >
+      <span
+        class="arco-avatar-text"
+        style="transform:scale(1)"
+      >
+        T
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`avatar demo test avatar demo: text-avatar-size.md renders correctly 1`] = `
+Array [
+  <div
+    class="avatar-demo-box"
+  >
+    <div
+      class="arco-avatar-wrapper large circle"
+    >
+      <div
+        class="arco-avatar large circle arco-text-avatar"
+      >
+        <span
+          class="arco-avatar-text"
+          style="transform:scale(1)"
+        >
+          Nietzsche
+        </span>
+      </div>
+    </div>
+    <div
+      class="arco-avatar-wrapper avatar-left-margin medium circle"
+    >
+      <div
+        class="arco-avatar medium circle arco-text-avatar"
+      >
+        <span
+          class="arco-avatar-text"
+          style="transform:scale(1)"
+        >
+          Nietzsche
+        </span>
+      </div>
+    </div>
+    <div
+      class="arco-avatar-wrapper avatar-left-margin small circle"
+    >
+      <div
+        class="arco-avatar small circle arco-text-avatar"
+      >
+        <span
+          class="arco-avatar-text"
+          style="transform:scale(1)"
+        >
+          Nietzsche
+        </span>
+      </div>
+    </div>
+    <div
+      class="arco-avatar-wrapper avatar-left-margin smaller circle"
+    >
+      <div
+        class="arco-avatar smaller circle arco-text-avatar"
+      >
+        <span
+          class="arco-avatar-text"
+          style="transform:scale(1)"
+        >
+          Nietzsche
+        </span>
+      </div>
+    </div>
+    <div
+      class="arco-avatar-wrapper avatar-left-margin ultra-small circle"
+    >
+      <div
+        class="arco-avatar ultra-small circle arco-text-avatar"
+      >
+        <span
+          class="arco-avatar-text"
+          style="transform:scale(1)"
+        >
+          Nietzsche
+        </span>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="avatar-group-demo"
+  >
+    <div
+      class="demo-sub-title"
+    >
+      Stacking in middle size
+    </div>
+    <div
+      class="arco-avatar-group group-small"
+    >
+      <div
+        class="arco-avatar-wrapper small circle"
+        style="z-index:5"
+      >
+        <div
+          class="arco-avatar small circle arco-text-avatar"
+          style="background-color:#7BC616"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            Nietzsche
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-avatar-wrapper small circle"
+        style="z-index:4"
+      >
+        <div
+          class="arco-avatar small circle arco-text-avatar"
+          style="background-color:#14C9C9"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            M
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-avatar-wrapper small circle"
+        style="z-index:3"
+      >
+        <div
+          class="arco-avatar small circle arco-text-avatar"
+          style="background-color:#168CFF"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            X
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-avatar-wrapper small circle"
+        style="z-index:2"
+      >
+        <div
+          class="arco-avatar small circle arco-text-avatar"
+          style="background-color:#FF7D00"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            Z
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-avatar-wrapper small circle"
+        style="z-index:1"
+      >
+        <div
+          class="arco-avatar small circle arco-text-avatar"
+          style="background-color:#FFC72E"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            JD
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="avatar-group-demo"
+  >
+    <div
+      class="demo-sub-title"
+    >
+      Stacking in small size
+    </div>
+    <div
+      class="arco-avatar-group group-ultra-small"
+    >
+      <div
+        class="arco-avatar-wrapper ultra-small circle"
+        style="z-index:1"
+      >
+        <div
+          class="arco-avatar ultra-small circle arco-text-avatar"
+          style="background-color:#7BC616"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            T
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-avatar-wrapper ultra-small circle"
+        style="z-index:2"
+      >
+        <div
+          class="arco-avatar ultra-small circle arco-text-avatar"
+          style="background-color:#14C9C9"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            M
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-avatar-wrapper ultra-small circle"
+        style="z-index:3"
+      >
+        <div
+          class="arco-avatar ultra-small circle arco-text-avatar"
+          style="background-color:#168CFF"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            X
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-avatar-wrapper ultra-small circle"
+        style="z-index:4"
+      >
+        <div
+          class="arco-avatar ultra-small circle arco-text-avatar"
+          style="background-color:#FF7D00"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            Z
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-avatar-wrapper ultra-small circle"
+        style="z-index:5"
+      >
+        <div
+          class="arco-avatar ultra-small circle arco-text-avatar"
+          style="background-color:#FFC72E"
+        >
+          <span
+            class="arco-avatar-text"
+            style="transform:scale(1)"
+          >
+            JD
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

@@ -1,0 +1,8 @@
+@import '../../../../style/mixin.less';
+
+#demo-tag {
+    .rem(padding-bottom, 25);
+    .@{prefix}-tag:not(:last-child) {
+        .rem(margin-right, 24);
+    }
+}

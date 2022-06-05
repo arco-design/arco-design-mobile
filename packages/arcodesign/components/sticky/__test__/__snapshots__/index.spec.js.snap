@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sticky demo test sticky demo: bottom.md renders correctly 1`] = `
+<div>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          Fixed bottom, global scrolling, 40px position relative to the bottom
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`sticky demo test sticky demo: index.md renders correctly 1`] = `
+<div>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          Global scrolling, positioned relative to the top 64px
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`sticky demo test sticky demo: offset.md renders correctly 1`] = `
+<div
+  id="container"
+>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          100px to the top, follows when the container leaves the viewport
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="demo-sticky-container"
+  >
+    Bottom of container
+  </div>
+</div>
+`;
+
+exports[`sticky demo test sticky demo: relative.md renders correctly 1`] = `
+<div
+  style="height:300px;overflow:scroll"
+>
+  <div
+    class="demo-sticky-container"
+    style="height:200px"
+  >
+    My normal content
+  </div>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          Relative scroll content
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="demo-sticky-container"
+    style="height:500px"
+  >
+    My normal content
+  </div>
+</div>
+`;

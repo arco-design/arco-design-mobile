@@ -1,0 +1,238 @@
+@import "../../../style/mixin.less";
+@import "./menu.less";
+
+.full() {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.@{prefix}-popover {
+    position: relative;
+    display: inline-flex;
+
+    .popover-child-inner {
+        font-size: 0;
+        line-height: 1;
+    }
+}
+
+.@{prefix}-popover-mask {
+    .full-screen();
+    .use-var(background, popover-mask-background);
+    z-index: @full-screen-z-index;
+}
+
+.@{prefix}-popover-inner {
+    box-sizing: border-box;
+    position: absolute;
+    width: max-content;
+    z-index: @full-screen-z-index + 10;
+    right: 0;
+    background-color: transparent;
+    visibility: hidden;
+    will-change: transform;
+    .use-var(transition, popover-inner-transition);
+    .use-var(color, popover-content-color);
+
+    &.with-shadow {
+
+        .popover-bg {
+            .use-var(box-shadow, popover-inner-background-shadow);
+        }
+
+        .popover-arrow {
+
+            &.topRight,
+            &.topCenter,
+            &.topLeft {
+                .use-var(box-shadow, popover-inner-top-arrow-shadow);
+            }
+
+            &.bottomRight,
+            &.bottomCenter,
+            &.bottomLeft {
+                .use-var(box-shadow, popover-inner-bottom-arrow-shadow);
+            }
+        }
+    }
+
+    &.show {
+        visibility: visible;
+    }
+
+    .popover-content {
+        position: relative;
+        z-index: 1;
+        .full();
+        .use-var(border-radius, popover-inner-border-radius);
+    }
+
+    .popover-bg {
+        position: absolute;
+        .full();
+        .use-var(border-radius, popover-inner-border-radius);
+        .use-var(background-color, popover-background-color);
+        .use-var(opacity, popover-inner-opacity);
+    }
+
+    .content-text {
+        white-space: normal;
+        word-break: break-all;
+        text-align: left;
+        .use-var(font-size, popover-content-font-size);
+        .use-var(line-height, popover-content-line-height);
+        .use-var(padding, popover-content-padding);
+    }
+
+    &.with-suffix {
+
+        .popover-content {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .icon-divider {
+        width: 1PX;
+        .use-var(height, popover-icon-divider-height);
+        .hairline-var(popover-icon-divider-color, left);
+    }
+
+    .text-close-icon {
+        display: inline-flex;
+        .use-var(font-size, popover-icon-size);
+        .use-var(padding, popover-icon-padding);
+    }
+
+    .text-suffix {
+        .use-var(padding, popover-text-suffix-padding);
+        flex: 0 0 auto;
+    }
+
+    .popover-arrow {
+        position: absolute;
+        transform: rotate(45deg);
+        .use-var(width, popover-arrow-size);
+        .use-var(height, popover-arrow-size);
+        .use-var(background-color, popover-background-color);
+
+        &.topRight,
+        &.topCenter,
+        &.topLeft {
+
+            &,
+            .popover-arrow-content {
+                .use-var(border-bottom-right-radius, popover-arrow-border-radius);
+            }
+        }
+
+        &.bottomRight,
+        &.bottomCenter,
+        &.bottomLeft {
+
+            &,
+            .popover-arrow-content {
+                .use-var(border-top-left-radius, popover-arrow-border-radius);
+            }
+        }
+
+        &.topRight,
+        &.topCenter,
+        &.topLeft {
+            transform: translateY(50%) rotate(45deg);
+        }
+
+        &.topRight {
+            bottom: 0;
+            right: 0;
+        }
+
+        &.topCenter,
+        &.topLeft {
+            bottom: 0;
+            left: 0;
+        }
+
+        &.bottomRight,
+        &.bottomCenter,
+        &.bottomLeft {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        &.bottomRight {
+            top: 0;
+            right: 0;
+        }
+
+        &.bottomCenter,
+        &.bottomLeft {
+            top: 0;
+            left: 0;
+        }
+    }
+
+    // 白色主题
+
+    &.white-theme {
+        .use-var(color, popover-content-white-theme-color);
+
+        .popover-bg {
+            .use-var(background-color, popover-white-theme-background-color);
+            .use-var(opacity, popover-inner-white-theme-opacity);
+        }
+
+        .popover-arrow {
+            .use-var(background-color, popover-white-theme-background-color);
+            // FIXME: 因为onepx-border进行缩放会影响popover计算定位，所以增加一个子元素，在子元素上绘制border
+        }
+
+        .popover-arrow-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: inherit;
+        }
+    }
+
+    // 带border的白色主题
+
+    &.white-theme.bordered {
+
+        .popover-bg {
+            .hairline-var(popover-content-white-theme-border-color);
+        }
+
+        .popover-arrow-content {
+            .use-var(border-color, popover-content-white-theme-border-color);
+        }
+
+        .popover-arrow {
+
+            &.topRight,
+            &.topCenter,
+            &.topLeft {
+
+                .popover-arrow-content {
+                    .hairline-bottom-right-var(popover-content-white-theme-border-color);
+                }
+            }
+
+            &.bottomRight,
+            &.bottomCenter,
+            &.bottomLeft {
+
+                .popover-arrow-content {
+                    .hairline-top-left-var(popover-content-white-theme-border-color);
+                }
+            }
+        }
+    }
+}
+
+// 全局模式
+.global-mode.@{prefix}-popover-inner {
+    position: fixed;
+}
+

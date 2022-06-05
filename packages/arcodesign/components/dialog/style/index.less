@@ -1,0 +1,262 @@
+@import "../../../style/mixin.less";
+
+@keyframes fade-scale-on {
+
+    0% {
+        opacity: 0; transform: scale(.5); }
+
+    100% {
+        opacity: 1; transform: scale(1); }
+}
+
+@keyframes fade-scale-off {
+
+    0% {
+        opacity: 1; transform: scale(1); }
+
+    100% {
+        opacity: 0; transform: scale(.5); }
+}
+
+.@{prefix}-fade-scale-enter-active {
+    animation: fade-scale-on .45s cubic-bezier(.2, 1.23, .25, 1) forwards;
+}
+
+.@{prefix}-fade-scale-exit-active {
+    animation: fade-scale-off .15s cubic-bezier(.48, .04, .52, .96) forwards;
+}
+
+.@{prefix}-dialog {
+
+    &-mask,
+    &-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &-mask {
+        z-index: @full-screen-z-index;
+        .use-var(background, dialog-mask-background);
+    }
+
+    &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: @full-screen-z-index + 1;
+        pointer-events: none;
+    }
+
+    &-content {
+        position: relative;
+        .use-var(width, dialog-content-width);
+        pointer-events: visible;
+
+        &.android {
+            .use-var(width, dialog-content-android-width);
+        }
+    }
+
+    &-container.pre-mount &-content,
+    &-container[class*="-exit-done"] &-content {
+        pointer-events: none;
+    }
+
+    &-part {
+        .use-var(background, dialog-content-background);
+
+        &.android {
+
+            &:first-of-type {
+                .use-var(border-top-left-radius, dialog-content-android-border-radius);
+                .use-var(border-top-right-radius, dialog-content-android-border-radius);
+            }
+
+            &:last-of-type {
+                .use-var(border-bottom-left-radius, dialog-content-android-border-radius);
+                .use-var(border-bottom-right-radius, dialog-content-android-border-radius);
+            }
+        }
+
+        &.ios {
+
+            &:first-of-type {
+                .use-var(border-top-left-radius, dialog-content-border-radius);
+                .use-var(border-top-right-radius, dialog-content-border-radius);
+            }
+
+            &:last-of-type {
+                .use-var(border-bottom-left-radius, dialog-content-border-radius);
+                .use-var(border-bottom-right-radius, dialog-content-border-radius);
+            }
+        }
+    }
+
+    &-header {
+        position: relative;
+
+        &.ios {
+            text-align: center;
+            .use-var(padding-top, dialog-ios-vertical-padding);
+            .use-var(padding-left, dialog-ios-horizontal-padding);
+            .use-var(padding-right, dialog-ios-horizontal-padding);
+            .use-var(font-size, dialog-header-ios-font-size);
+            .use-var(line-height, dialog-header-ios-line-height);
+            .text-medium-var(dialog-header-ios-color);
+
+            &.only-title {
+                .use-var(padding-bottom, dialog-ios-vertical-padding);
+            }
+        }
+
+        &.android {
+            .use-var(color, dialog-header-android-color);
+        }
+    }
+
+    &-body {
+
+        &.ios {
+            .use-var(padding-top, dialog-ios-header-body-gutter);
+            .use-var(padding-left, dialog-ios-horizontal-padding);
+            .use-var(padding-right, dialog-ios-horizontal-padding);
+            .use-var(padding-bottom, dialog-ios-vertical-padding);
+            .use-var(color, dialog-body-ios-color);
+            .use-var(font-size, dialog-body-ios-font-size);
+            .use-var(line-height, dialog-body-ios-line-height);
+
+            &.sub-title {
+                .use-var(padding-top, dialog-ios-vertical-padding);
+            }
+        }
+
+        &.android {
+            .use-var(padding-top, dialog-android-header-body-gutter);
+            .use-var(padding-left, dialog-android-horizontal-padding);
+            .use-var(padding-right, dialog-android-horizontal-padding);
+            .use-var(color, dialog-body-android-color);
+            .use-var(font-size, dialog-body-android-font-size);
+            .use-var(line-height, dialog-body-android-line-height);
+        }
+    }
+
+    &-header,
+    &-body {
+
+        &.left {
+            text-align: left;
+        }
+
+        &.center {
+            text-align: center;
+        }
+
+        &.right {
+            text-align: right;
+        }
+    }
+
+    &-header,
+    &-body.sub-title {
+
+        &.android {
+            .use-var(padding-top, dialog-android-vertical-padding);
+            .use-var(padding-left, dialog-android-horizontal-padding);
+            .use-var(padding-right, dialog-android-horizontal-padding);
+            .use-var(font-size, dialog-header-android-font-size);
+            .use-var(line-height, dialog-header-android-line-height);
+        }
+
+        &.ios {
+            .use-var(color, dialog-header-ios-color);
+        }
+    }
+
+    &-footer {
+        display: flex;
+        align-items: center;
+
+        &.android {
+            .use-var(padding-left, dialog-android-horizontal-padding);
+            .use-var(padding-right, dialog-android-horizontal-padding);
+            .use-var(padding-top, dialog-android-body-footer-gutter);
+            .use-var(padding-bottom, dialog-android-vertical-padding);
+            justify-content: flex-end;
+            text-align: right;
+
+            .dialog-footer-button {
+                .use-var(color, dialog-footer-android-color);
+                .use-var(font-size, dialog-footer-android-font-size);
+                .use-var(line-height, dialog-footer-android-line-height);
+
+                &:not(:last-child) {
+                    .use-var(margin-right, dialog-footer-android-button-gutter);
+                }
+            }
+        }
+
+        &.ios {
+            overflow: hidden;
+
+            .dialog-footer-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .use-var(height, dialog-footer-ios-height);
+                .use-var(font-size, dialog-footer-ios-font-size);
+                .use-var(color, dialog-footer-ios-color);
+            }
+
+            &:not(.collapsed):not(.type-button) {
+                .onepx-border-var(top, line-color);
+
+                .dialog-footer-button {
+                    flex: 1;
+
+                    &:not(:last-child) {
+                        .onepx-border-var(right, line-color);
+                    }
+                }
+            }
+
+            &.collapsed {
+                flex-direction: column;
+
+                .dialog-footer-button {
+                    width: 100%;
+                    .onepx-border-var(top, line-color);
+                }
+            }
+
+            &.type-button {
+                flex-direction: column;
+                .use-var(padding-left, dialog-ios-horizontal-padding);
+                .use-var(padding-right, dialog-ios-horizontal-padding);
+                .use-var(padding-bottom, dialog-ios-vertical-padding);
+
+                .dialog-footer-button {
+                    width: 100%;
+                    .use-var(border-radius, dialog-button-footer-border-radius);
+                    .use-var(height, dialog-button-footer-height);
+
+                    &:first-child {
+                        .use-var(color, dialog-button-footer-primary-color);
+                        .use-var(background, dialog-button-footer-primary-background);
+                    }
+
+                    &:not(:first-child) {
+                        .use-var(color, dialog-button-footer-color);
+                        .use-var(margin-top, dialog-button-footer-gutter);
+                    }
+
+                    &:last-child {
+                        .rem(margin-bottom, -7);
+                    }
+                }
+            }
+        }
+    }
+}

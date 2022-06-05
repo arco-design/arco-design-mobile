@@ -1,0 +1,1217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`steps demo test steps demo: custom-icon.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-steps all-border-box demo-svg horizontal pc"
+  >
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-custom-icon finish-custom-icon-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-subway "
+          height="1em"
+          viewBox="-0.98 0 10.96 10.96"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M.82 10.9a.24.24 0 01-.35 0l-.31-.39a.24.24 0 010-.35l2.1-1.66H.5A.5.5 0 010 8V.5A.5.5 0 01.5 0h8a.5.5 0 01.5.5V8a.5.5 0 01-.5.5H6.82l2.06 1.62a.26.26 0 010 .35l-.31.39a.24.24 0 01-.35 0L5.2 8.5H3.88zM8 5.5H1v2h7zM3 6v1H2V6zm4 0v1H6V6zm1-5H1v3.5h7z"
+              data-name="图层 1"
+              fill="currentColor"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Start
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-custom-icon process-custom-icon-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-gift "
+          height="1em"
+          viewBox="0 -0.065 11 11"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M8.5 2.37c.14-.65.06-1.17-.2-1.32s-1.3.3-1.91 1.32H4.68C4.06 1.37 3.2.85 2.8 1c-.26.15-.34.64-.21 1.25v.07zm-3.5 3H2v4.5h3zm4 0H6v4.5h3zm-4-2H1v1h4zm5 0H6v1h4zm-9.5-1h1.05A2 2 0 012.27.19c1-.58 2.38.23 3.26 1.66C6.42.42 7.81-.39 8.8.19a2 2 0 01.72 2.18h1a.5.5 0 01.5.5v2a.5.5 0 01-.5.5H10v5a.5.5 0 01-.5.5h-8a.5.5 0 01-.5-.5v-5H.5a.5.5 0 01-.5-.5v-2a.5.5 0 01.5-.5z"
+              data-name="图层 1"
+              fill="currentColor"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title process-title-color-with-config"
+        >
+          In progress
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-custom-icon wait-custom-icon-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-shop "
+          height="1em"
+          viewBox="-0.19 0 10.5 10.5"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M9.09 0a.52.52 0 01.51.43l.48 2.5a2.15 2.15 0 01-.56 1.91v5a.65.65 0 01-.65.66H1.25a.65.65 0 01-.65-.66v-5A2.15 2.15 0 010 2.93L.52.43A.52.52 0 011 0zM6.46 5.05a2.36 2.36 0 01-2.8 0 2.63 2.63 0 01-1.49.46 1.81 1.81 0 01-.4 0h-.12v4h6.82v-4h-.12a1.81 1.81 0 01-.4 0 2.63 2.63 0 01-1.49-.46zm2.19-4H1.47l-.4 2.08A1.11 1.11 0 002 4.44a.75.75 0 00.21 0 1.53 1.53 0 00.89-.27l.62-.43.6.45a1.34 1.34 0 001.56 0l.6-.45.62.43a1.53 1.53 0 00.9.29.75.75 0 00.21 0 1.11 1.11 0 00.89-1.31zM7.42 2.1a.27.27 0 01.27.26v.53a.27.27 0 01-.27.26H2.7a.26.26 0 01-.26-.26v-.53a.26.26 0 01.26-.26z"
+              data-name="图层 1"
+              fill="currentColor"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Step 3
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-custom-icon wait-custom-icon-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-shopping "
+          height="1em"
+          viewBox="-1 0 11 11"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M4.5 0a2.75 2.75 0 012.75 2.75v.75h1.43a.38.38 0 01.19 0 .47.47 0 01.1.1.38.38 0 010 .19v6.86a.38.38 0 010 .19l-.1.1a.38.38 0 01-.19 0H.32a.38.38 0 01-.19 0l-.1-.1a.38.38 0 010-.19V3.82a.38.38 0 010-.19l.1-.1a.38.38 0 01.19 0h1.43v-.78A2.75 2.75 0 014.5 0zM8 4.5h-.75v.75a2.09 2.09 0 010 .25h-1a2.11 2.11 0 000-.25V4.5h-3.5v.75a2.11 2.11 0 000 .25h-1a2.09 2.09 0 010-.25V4.5H1V10h7zM4.5 1a1.75 1.75 0 00-1.75 1.75v.75h3.5v-.75A1.75 1.75 0 004.5 1z"
+              data-name="图层 1"
+              fill="currentColor"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Finish
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="divide"
+  />
+  <div
+    class="arco-steps all-border-box  horizontal pc"
+  >
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-custom-icon finish-custom-icon-bg-color-with-config"
+      >
+        <img
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/arco-design/5.svg"
+        />
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Order completed
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-custom-icon finish-custom-icon-bg-color-with-config"
+      >
+        <img
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/arco-design/6.svg"
+        />
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Pending payment
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-custom-icon process-custom-icon-bg-color-with-config"
+      >
+        <img
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/arco-design/7.svg"
+        />
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title process-title-color-with-config"
+        >
+          In transport
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-custom-icon wait-custom-icon-bg-color-with-config"
+      >
+        <img
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/arco-design/8.svg"
+        />
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Taking delivery
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps demo test steps demo: custom-style.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-steps all-border-box  horizontal pc"
+  >
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-check-bold "
+          height="1em"
+          viewBox="0 -0.97 10.07 10.07"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M9.22.12a.49.49 0 00-.7.06L3.86 5.69 1.4 3.57a.51.51 0 00-.71.06l-.57.66A.49.49 0 00.17 5L3 7.38v.07l.69.55a.53.53 0 00.71 0l.6-.71a.22.22 0 000-.08l5-5.82a.51.51 0 00-.11-.71z"
+              data-name="图层 1"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Start
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-check-bold "
+          height="1em"
+          viewBox="0 -0.97 10.07 10.07"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M9.22.12a.49.49 0 00-.7.06L3.86 5.69 1.4 3.57a.51.51 0 00-.71.06l-.57.66A.49.49 0 00.17 5L3 7.38v.07l.69.55a.53.53 0 00.71 0l.6-.71a.22.22 0 000-.08l5-5.82a.51.51 0 00-.11-.71z"
+              data-name="图层 1"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Step 2
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon process-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title process-title-color-with-config"
+        >
+          In progress
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          4
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Finish
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps demo test steps demo: horizontal.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-steps all-border-box  horizontal pc"
+  >
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-check-bold "
+          height="1em"
+          viewBox="0 -0.97 10.07 10.07"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M9.22.12a.49.49 0 00-.7.06L3.86 5.69 1.4 3.57a.51.51 0 00-.71.06l-.57.66A.49.49 0 00.17 5L3 7.38v.07l.69.55a.53.53 0 00.71 0l.6-.71a.22.22 0 000-.08l5-5.82a.51.51 0 00-.11-.71z"
+              data-name="图层 1"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Start
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon process-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title process-title-color-with-config"
+        >
+          In progress
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Step 3
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          4
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Finish
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps demo test steps demo: horizontal-desc.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-steps all-border-box  horizontal pc"
+  >
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-check-bold "
+          height="1em"
+          viewBox="0 -0.97 10.07 10.07"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M9.22.12a.49.49 0 00-.7.06L3.86 5.69 1.4 3.57a.51.51 0 00-.71.06l-.57.66A.49.49 0 00.17 5L3 7.38v.07l.69.55a.53.53 0 00.71 0l.6-.71a.22.22 0 000-.08l5-5.82a.51.51 0 00-.11-.71z"
+              data-name="图层 1"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Start
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon process-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title process-title-color-with-config"
+        >
+          In progress
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Step 3
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          4
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Finish
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps demo test steps demo: horizontal-dot.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-steps all-border-box  horizontal pc"
+  >
+    <div
+      class="arco-steps-item finish horizontal dot"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process horizontal dot"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon process-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal dot"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal dot"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal dot"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps demo test steps demo: horizontal-error.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-steps all-border-box  horizontal pc"
+  >
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-check-bold "
+          height="1em"
+          viewBox="0 -0.97 10.07 10.07"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M9.22.12a.49.49 0 00-.7.06L3.86 5.69 1.4 3.57a.51.51 0 00-.71.06l-.57.66A.49.49 0 00.17 5L3 7.38v.07l.69.55a.53.53 0 00.71 0l.6-.71a.22.22 0 000-.08l5-5.82a.51.51 0 00-.11-.71z"
+              data-name="图层 1"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Start
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item error horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail error-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon error-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-close-bold "
+          height="1em"
+          viewBox="0 0 6.92 6.92"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M6.16.15l.62.62a.5.5 0 010 .7l-2 2 2 2a.51.51 0 010 .71l-.62.62a.51.51 0 01-.71 0l-2-2-2 2a.5.5 0 01-.7 0l-.6-.64a.5.5 0 010-.71l2-2-2-2a.48.48 0 010-.7l.62-.6a.48.48 0 01.7 0l2 2 2-2a.5.5 0 01.69 0z"
+              data-name="图层 1"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title error-title-color-with-config"
+        >
+          Error
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Step 3
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          4
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Finish
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps demo test steps demo: horizontal-spec.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-steps all-border-box  horizontal pc"
+  >
+    <div
+      class="arco-steps-item finish horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-check-bold "
+          height="1em"
+          viewBox="0 -0.97 10.07 10.07"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M9.22.12a.49.49 0 00-.7.06L3.86 5.69 1.4 3.57a.51.51 0 00-.71.06l-.57.66A.49.49 0 00.17 5L3 7.38v.07l.69.55a.53.53 0 00.71 0l.6-.71a.22.22 0 000-.08l5-5.82a.51.51 0 00-.11-.71z"
+              data-name="图层 1"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon process-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          2
+        </span>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          3
+        </span>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait horizontal number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          4
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps demo test steps demo: vertical.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-steps all-border-box  vertical pc"
+  >
+    <div
+      class="arco-steps-item finish vertical number"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <svg
+          class="arco-icon arco-icon-check-bold "
+          height="1em"
+          viewBox="0 -0.97 10.07 10.07"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            data-name="图层 2"
+          >
+            <path
+              d="M9.22.12a.49.49 0 00-.7.06L3.86 5.69 1.4 3.57a.51.51 0 00-.71.06l-.57.66A.49.49 0 00.17 5L3 7.38v.07l.69.55a.53.53 0 00.71 0l.6-.71a.22.22 0 000-.08l5-5.82a.51.51 0 00-.11-.71z"
+              data-name="图层 1"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Start
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process vertical number"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon process-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title process-title-color-with-config"
+        >
+          Step 2
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait vertical number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Step 3
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait vertical number"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-num"
+        >
+          4
+        </span>
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Finish
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="divide"
+  />
+  <div
+    class="arco-steps all-border-box  vertical pc"
+  >
+    <div
+      class="arco-steps-item finish vertical dot"
+    >
+      <div
+        class="arco-steps-item-tail finish-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon finish-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title finish-title-color-with-config"
+        >
+          Start
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item process vertical dot"
+    >
+      <div
+        class="arco-steps-item-tail process-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon process-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title process-title-color-with-config"
+        >
+          Step 2
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait vertical dot"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Step 3
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-steps-item wait vertical dot"
+    >
+      <div
+        class="arco-steps-item-tail wait-tail-color-with-config"
+      />
+      <div
+        class="arco-steps-item-icon wait-bg-color-with-config"
+      >
+        <span
+          class="arco-steps-item-icon-dot"
+        />
+      </div>
+      <div
+        class="arco-steps-item-content"
+      >
+        <div
+          class="arco-steps-item-title wait-title-color-with-config"
+        >
+          Finish
+        </div>
+        <div
+          class="arco-steps-item-description"
+        >
+          Details
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

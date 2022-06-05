@@ -1,0 +1,255 @@
+{
+    "description": "全局数据控制组件，用于替换全局数据。",
+    "descriptionTags": {
+        "en": "Global data control component, used to replace global data.",
+        "type": "其他",
+        "type_en": "Others",
+        "name": "全局配置",
+        "name_en": "ContextProvider"
+    },
+    "displayName": "ContextProvider",
+    "methods": [],
+    "props": {
+        "prefixCls": {
+            "defaultValue": {
+                "value": "\"arco\""
+            },
+            "description": "组件类名前缀\n@en Component classname prefix",
+            "name": "prefixCls",
+            "tags": {
+                "en": "Component classname prefix",
+                "default": "\"arco\""
+            },
+            "descWithTags": "组件类名前缀",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "system": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "手动控制当前所在系统，传入后将直接使用传入的值，ssr场景需指定系统初始值时适用\n@en Manually control the current system, and the incoming value will be used directly after being passed in. It is applicable when the initial value of the system needs to be specified in the ssr scenario.",
+            "name": "system",
+            "tags": {
+                "en": "Manually control the current system, and the incoming value will be used directly after being passed in. It is applicable when the initial value of the system needs to be specified in the ssr scenario.",
+                "default": "\"\""
+            },
+            "descWithTags": "手动控制当前所在系统，传入后将直接使用传入的值，ssr场景需指定系统初始值时适用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"\" | \"pc\" | \"android\" | \"ios\"",
+                "value": [
+                    {
+                        "value": "\"\""
+                    },
+                    {
+                        "value": "\"pc\""
+                    },
+                    {
+                        "value": "\"android\""
+                    },
+                    {
+                        "value": "\"ios\""
+                    }
+                ]
+            }
+        },
+        "useDarkMode": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否使用暗黑模式\n@en Whether to use dark mode",
+            "name": "useDarkMode",
+            "tags": {
+                "en": "Whether to use dark mode",
+                "default": "false"
+            },
+            "descWithTags": "是否使用暗黑模式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "isDarkMode": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否处于暗黑模式，指定后以指定的值为准\n@en Whether it is in dark mode",
+            "name": "isDarkMode",
+            "tags": {
+                "en": "Whether it is in dark mode",
+                "default": "false"
+            },
+            "descWithTags": "是否处于暗黑模式，指定后以指定的值为准",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "theme": {
+            "defaultValue": null,
+            "description": "主题变量，传入后将在线替换css变量，需设置less变量 @use-css-vars: 1\n@en Theme variable. The css variable will be replaced online after input. The less variable needs to be set\n@use-css-vars : 1",
+            "name": "theme",
+            "tags": {
+                "en": "Theme variable. The css variable will be replaced online after input. The less variable needs to be set",
+                "use-css-vars": ": 1"
+            },
+            "descWithTags": "主题变量，传入后将在线替换css变量，需设置less变量 @use-css-vars: 1",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "Record<string, string>"
+            }
+        },
+        "locale": {
+            "defaultValue": null,
+            "description": "国际化语言包配置\n@en Internationalized language configuration",
+            "name": "locale",
+            "tags": {
+                "en": "Internationalized language configuration"
+            },
+            "descWithTags": "国际化语言包配置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "ILocale"
+            }
+        }
+    },
+    "deps": {
+        "ILocale": {
+            "locale": {
+                "name": "locale",
+                "required": true,
+                "description": "语言类型\n@en Language Type",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Language Type"
+                },
+                "descWithTags": "语言类型"
+            },
+            "LoadMore": {
+                "name": "LoadMore",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ loadMoreText: string; loadingText: string; prepareText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Picker": {
+                "name": "Picker",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ okText: string; cancelText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Tag": {
+                "name": "Tag",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ addTag: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Dialog": {
+                "name": "Dialog",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ okText: string; cancelText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "SwipeLoad": {
+                "name": "SwipeLoad",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ normalText: string; activeText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "PullRefresh": {
+                "name": "PullRefresh",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ loadingText: string; pullingText: string; finishText: string; loosingText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "DropdownMenu": {
+                "name": "DropdownMenu",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ select: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Pagination": {
+                "name": "Pagination",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ previousPage: string; nextPage: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "ContextProviderProps",
+        "ref": ""
+    },
+    "isDefaultExport": true
+}

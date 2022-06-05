@@ -1,0 +1,146 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-switch {
+    position: relative;
+    display: inline-block;
+    .use-var(transition, switch-inner-transition);
+    @keyframes changDeg {
+
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    &.type-android {
+        .use-var(width, switch-android-width);
+        .use-var(height, switch-android-height);
+        .use-var(padding, switch-android-padding);
+        padding-bottom: 0;
+        .use-var(background-color, switch-android-background);
+
+        &.fully {
+            .use-var(border-radius, switch-android-fully-border-radius);
+        }
+
+        &.semi {
+            .use-var(border-radius, switch-android-semi-border-radius);
+        }
+
+        &.checked {
+            .use-var(background-color, switch-android-checked-background);
+            .@{prefix}-switch-text {
+                right: auto;
+                .use-var(left, switch-android-text-gap-size);
+            }
+            .@{prefix}-switch-inner {
+                .use-var(transform, switch-android-checked-inner-transform);
+            }
+        }
+        .@{prefix}-switch-inner {
+            .use-var(width, switch-android-inner-diameter-size);
+            .use-var(height, switch-android-inner-diameter-size);
+            .use-var(box-shadow, switch-android-inner-box-shadow);
+        }
+
+        &.disabled {
+
+            &.checked {
+                .use-var(background-color, switch-android-disabled-checked-background);
+            }
+
+            &:not(.checked) {
+                .use-var(background-color, switch-android-disabled-background);
+            }
+        }
+        .@{prefix}-switch-text {
+            .use-var(font-size, switch-android-text-font-size);
+            .use-var(right, switch-android-text-gap-size);
+        }
+    }
+
+    &.type-ios {
+        .use-var(width, switch-ios-width);
+        .use-var(height, switch-ios-height);
+        .use-var(padding, switch-ios-padding);
+        padding-bottom: 0;
+        .use-var(background-color, switch-ios-background);
+
+        &.fully {
+            .use-var(border-radius, switch-ios-fully-border-radius);
+        }
+
+        &.semi {
+            .use-var(border-radius, switch-ios-semi-border-radius);
+        }
+
+        &.checked {
+            .use-var(background-color, switch-ios-checked-background);
+            .@{prefix}-switch-text {
+                right: auto;
+                .use-var(left, switch-ios-text-gap-size);
+            }
+            .@{prefix}-switch-inner {
+                .use-var(transform, switch-ios-checked-inner-transform);
+                .use-var(box-shadow, switch-ios-inner-box-shadow);
+            }
+        }
+
+        &.disabled.checked {
+            .use-var(opacity, switch-ios-disabled-checked-opacity);
+        }
+        .@{prefix}-switch-text {
+            .use-var(font-size, switch-ios-text-font-size);
+            .use-var(right, switch-ios-text-gap-size);
+        }
+        .@{prefix}-switch-inner {
+            .use-var(width, switch-ios-inner-diameter-size);
+            .use-var(height, switch-ios-inner-diameter-size);
+            .onepx-border-var(all, switch-ios-inner-border-color, 50%);
+        }
+
+        &.disabled {
+
+            &.checked {
+                .use-var(background-color, switch-ios-disabled-checked-background);
+            }
+
+            &:not(.checked) {
+                .use-var(background-color, switch-ios-disabled-background);
+            }
+        }
+    }
+
+    &-text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        .use-var(color, switch-text-color);
+    }
+
+    &.checked &-text {
+        .use-var(color, switch-text-checked-color);
+    }
+
+    &-inner {
+        position: relative;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .use-var(background-color, switch-inner-background);
+        .use-var(transition, switch-inner-transition);
+
+        .fully & {
+            .use-var(border-radius, switch-inner-fully-border-radius);
+        }
+
+        .semi & {
+            .use-var(border-radius, switch-inner-semi-border-radius);
+        }
+    }
+}

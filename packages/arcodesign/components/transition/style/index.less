@@ -1,0 +1,28 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-fade {
+
+    &-enter {
+        opacity: 0;
+    }
+
+    &-enter-active {
+        opacity: 1;
+        transition-property: opacity;
+        .use-var(transition-duration, transition-fade-duration);
+    }
+
+    &-exit {
+        opacity: 1;
+    }
+
+    &-exit-active {
+        opacity: 0;
+        transition-property: opacity;
+        .use-var(transition-duration, transition-fade-duration);
+    }
+
+    &-exit-done {
+        display: none;
+    }
+}

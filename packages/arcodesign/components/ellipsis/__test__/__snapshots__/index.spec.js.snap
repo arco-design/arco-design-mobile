@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ellipsis demo test ellipsis demo: custom-ellipsis.md renders correctly 1`] = `
+<div
+  class="arco-ellipsis"
+>
+  <div
+    class="arco-ellipsis-js"
+  >
+    <span
+      class="arco-ellipsis-js-content"
+    />
+    <span
+      class="arco-ellipsis-js-content-ellipsis"
+    >
+      <span>
+        ...
+        <span
+          class="demo-link"
+        >
+          Expand
+        </span>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ellipsis demo test ellipsis demo: end-exclude.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-ellipsis"
+  >
+    <div
+      class="arco-ellipsis-js"
+    >
+      <span
+        class="arco-ellipsis-js-content"
+      />
+      <span
+        class="arco-ellipsis-js-content-ellipsis"
+      >
+        ...
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ellipsis demo test ellipsis demo: normal.md renders correctly 1`] = `
+<div
+  class="arco-ellipsis"
+>
+  <div
+    class="arco-ellipsis-native ellipsis"
+    style="-webkit-line-clamp:2"
+  >
+    <span>
+      This was long before digital audio: this was done with razor blades. Today, it's called sampling, and the influence of these bands is felt in nearly all branches of modern pop music.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ellipsis demo test ellipsis demo: reflow-yourself.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-ellipsis"
+  >
+    <div
+      class="arco-ellipsis-js"
+    >
+      <span
+        class="arco-ellipsis-js-content"
+      />
+      <span
+        class="arco-ellipsis-js-content-ellipsis"
+      >
+        ...
+      </span>
+    </div>
+  </div>
+  <button
+    class="arco-button type-primary size-large is-semi pc"
+    style="margin-top:32px"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      Click to trigger reflow
+    </div>
+  </button>
+</div>
+`;
+
+exports[`ellipsis demo test ellipsis demo: rich-text.md renders correctly 1`] = `
+<div
+  class="arco-ellipsis"
+>
+  <div
+    class="arco-ellipsis-native ellipsis"
+    style="-webkit-line-clamp:2"
+  >
+    <span>
+      This wasn't the first time ''natural'' sounds had been used in 
+      <a
+        class="demo-link-line"
+      >
+        musical compositions
+      </a>
+      ; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing.
+    </span>
+  </div>
+</div>
+`;

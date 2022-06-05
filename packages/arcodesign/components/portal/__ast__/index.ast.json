@@ -1,0 +1,58 @@
+{
+    "description": "React.createPortal的简单封装。",
+    "descriptionTags": {
+        "en": "Simple wrapper for React.createPortal",
+        "type": "其他",
+        "type_en": "Others",
+        "name": "自定义挂载",
+        "name_en": "Portal"
+    },
+    "displayName": "Portal",
+    "methods": [],
+    "props": {
+        "children": {
+            "defaultValue": null,
+            "description": "被挂载的内容\n@en Content to be mounted",
+            "name": "children",
+            "tags": {
+                "en": "Content to be mounted"
+            },
+            "descWithTags": "被挂载的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/portal/index.tsx",
+                "name": "PortalProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "getContainer": {
+            "defaultValue": {
+                "value": "() => document.body"
+            },
+            "description": "容器获取函数\n@en Container getter function",
+            "name": "getContainer",
+            "tags": {
+                "en": "Container getter function",
+                "default": "() => document.body"
+            },
+            "descWithTags": "容器获取函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/portal/index.tsx",
+                "name": "PortalProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        }
+    },
+    "deps": {},
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "PortalProps",
+        "ref": ""
+    },
+    "isDefaultExport": true
+}

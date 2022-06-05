@@ -1,0 +1,349 @@
+{
+    "description": "可自定义换行或滚动效果，支持循环滚动。",
+    "descriptionTags": {
+        "en": "Line wrapping or scrolling effects can be customized, and circular scrolling is supported.",
+        "type": "数据展示",
+        "type_en": "Data Display",
+        "name": "通知栏",
+        "name_en": "NoticeBar"
+    },
+    "displayName": "NoticeBar",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式，背景颜色和文字颜色可直接在这里指定`background`和`color`\n@en Custom stylesheet, background color and text color can be directly specified here `background` and `color`",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet, background color and text color can be directly specified here `background` and `color`"
+            },
+            "descWithTags": "自定义样式，背景颜色和文字颜色可直接在这里指定`background`和`color`",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "通知内容文字，如需垂直滚动效果可传入一个Carousel\n@en Notification content text, if need vertical scrolling effect, you can input a Carousel",
+            "name": "children",
+            "tags": {
+                "en": "Notification content text, if need vertical scrolling effect, you can input a Carousel"
+            },
+            "descWithTags": "通知内容文字，如需垂直滚动效果可传入一个Carousel",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "leftContent": {
+            "defaultValue": null,
+            "description": "左侧内容\n@en Content on the left",
+            "name": "leftContent",
+            "tags": {
+                "en": "Content on the left"
+            },
+            "descWithTags": "左侧内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "rightContent": {
+            "defaultValue": null,
+            "description": "右侧内容\n@en Content on the right",
+            "name": "rightContent",
+            "tags": {
+                "en": "Content on the right"
+            },
+            "descWithTags": "右侧内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "marquee": {
+            "defaultValue": {
+                "value": "\"overflow\""
+            },
+            "description": "通知文字处理方式，为`overflow`则文字超出容器长度时才滚动，为`none`则文字始终不滚动，为`always`则文字始终滚动\n@en The text processing method of the notification. When it is `overflow`, the text will only scroll when the length of the container exceeds the length of the container. If it is `none`, the text will never scroll, and if it is `always`, the text will always scroll.",
+            "name": "marquee",
+            "tags": {
+                "en": "The text processing method of the notification. When it is `overflow`, the text will only scroll when the length of the container exceeds the length of the container. If it is `none`, the text will never scroll, and if it is `always`, the text will always scroll.",
+                "default": "\"overflow\""
+            },
+            "descWithTags": "通知文字处理方式，为`overflow`则文字超出容器长度时才滚动，为`none`则文字始终不滚动，为`always`则文字始终滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"overflow\" | \"none\" | \"always\"",
+                "value": [
+                    {
+                        "value": "\"overflow\""
+                    },
+                    {
+                        "value": "\"none\""
+                    },
+                    {
+                        "value": "\"always\""
+                    }
+                ]
+            }
+        },
+        "closeable": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否可关闭\n@en Closeable",
+            "name": "closeable",
+            "tags": {
+                "en": "Closeable",
+                "default": "true"
+            },
+            "descWithTags": "是否可关闭",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "closeIcon": {
+            "defaultValue": {
+                "value": "\\<IconClose /\\>"
+            },
+            "description": "自定义关闭图标\n@en Custom close icon",
+            "name": "closeIcon",
+            "tags": {
+                "en": "Custom close icon",
+                "default": "\\<IconClose /\\>"
+            },
+            "descWithTags": "自定义关闭图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "wrapable": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否需要换行，当 marquee=none 且 wrapable=false 时，文字超出会有溢出省略(ellipsis)效果\n@en Whether line wrapping is required, when marquee=none and wrapable=false, there will be overflow ellipsis effect when the text exceeds",
+            "name": "wrapable",
+            "tags": {
+                "en": "Whether line wrapping is required, when marquee=none and wrapable=false, there will be overflow ellipsis effect when the text exceeds",
+                "default": "true"
+            },
+            "descWithTags": "是否需要换行，当 marquee=none 且 wrapable=false 时，文字超出会有溢出省略(ellipsis)效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "speed": {
+            "defaultValue": {
+                "value": "50"
+            },
+            "description": "文字滚动速度，单位是px/s\n@en Text scrolling speed in px/s",
+            "name": "speed",
+            "tags": {
+                "en": "Text scrolling speed in px/s",
+                "default": "50"
+            },
+            "descWithTags": "文字滚动速度，单位是px/s",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "delay": {
+            "defaultValue": {
+                "value": "1000"
+            },
+            "description": "文字开始滚动之前的延迟(ms)\n@en Delay before text starts scrolling (ms)",
+            "name": "delay",
+            "tags": {
+                "en": "Delay before text starts scrolling (ms)",
+                "default": "1000"
+            },
+            "descWithTags": "文字开始滚动之前的延迟(ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "autoSetGradientStyle": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否根据`style`属性中自定义的背景色自动设置渐变背景色\n@en Whether to automatically set the gradient background color based on the custom background color in the `style` attribute",
+            "name": "autoSetGradientStyle",
+            "tags": {
+                "en": "Whether to automatically set the gradient background color based on the custom background color in the `style` attribute",
+                "default": "true"
+            },
+            "descWithTags": "是否根据`style`属性中自定义的背景色自动设置渐变背景色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击通知栏事件\n@en Click on notification bar event",
+            "name": "onClick",
+            "tags": {
+                "en": "Click on notification bar event"
+            },
+            "descWithTags": "点击通知栏事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+            }
+        },
+        "onClose": {
+            "defaultValue": null,
+            "description": "点击关闭按钮回调\n@en Callback when clicking close button",
+            "name": "onClose",
+            "tags": {
+                "en": "Callback when clicking close button"
+            },
+            "descWithTags": "点击关闭按钮回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notice-bar/index.tsx",
+                "name": "NoticeBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<NoticeBarRef>"
+            }
+        }
+    },
+    "deps": {
+        "NoticeBarRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "close": {
+                "name": "close",
+                "required": true,
+                "description": "手动关闭通知栏，即移除当前组件\n@en Manually close the notification bar, that is, remove the current component",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually close the notification bar, that is, remove the current component"
+                },
+                "descWithTags": "手动关闭通知栏，即移除当前组件"
+            },
+            "updateData": {
+                "name": "updateData",
+                "required": true,
+                "description": "手动更新组件布局\n@en Manually update the component layout",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually update the component layout"
+                },
+                "descWithTags": "手动更新组件布局"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "NoticeBarProps",
+        "ref": "NoticeBarRef"
+    },
+    "isDefaultExport": true
+}

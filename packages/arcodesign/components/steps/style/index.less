@@ -1,0 +1,206 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-steps {
+    display: flex;
+    .use-var(padding, steps-padding);
+
+    &-item {
+        position: relative;
+        display: flex;
+        flex: 1;
+
+        &.horizontal {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &.vertical {
+            align-items: flex-start;
+        }
+
+        &:last-child &-tail:after {
+            display: none;
+        }
+
+        &-tail {
+            position: absolute;
+
+            .horizontal & {
+                width: 100%;
+                .rem(top, 9);
+                left: 50%;
+                .use-var(padding, steps-tail-horizontal-padding);
+
+                &:after {
+                    content: "";
+                    display: inline-block;
+                    width: 100%;
+                    .use-var(height, steps-tail-standard-size);
+                    .use-var(background, steps-tail-standard-background);
+                    .rem(border-radius, 2);
+                }
+            }
+
+            .vertical & {
+                height: 100%;
+                .rem(top, 9);
+                .rem(left, 7.5);
+                .use-var(padding, steps-tail-vertical-padding);
+
+                &:after {
+                    content: "";
+                    display: inline-block;
+                    height: 100%;
+                    .use-var(width, steps-tail-standard-size);
+                    .use-var(background, steps-tail-standard-background);
+                    .rem(border-radius, 2);
+                }
+            }
+
+            .finish &:after {
+                .use-var(background, steps-tail-finish-background);
+            }
+        }
+
+        &-custom-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .use-var(width, steps-custom-icon-width);
+            .use-var(height, steps-custom-icon-height);
+        }
+
+        &-icon {
+            display: inline-block;
+            border-radius: 50%;
+            .use-var(width, steps-icon-width);
+            .use-var(height, steps-icon-height);
+            text-align: center;
+
+            .number.finish & {
+                .use-var(background, steps-finish-icon-num-background);
+            }
+
+            .number.process & {
+                .use-var(background, steps-process-icon-num-background);
+            }
+
+            .number.wait & {
+                .use-var(background, steps-wait-icon-num-background);
+            }
+
+            .number.error & {
+                .use-var(background, steps-error-icon-num-background);
+            }
+
+            svg {
+                position: relative;
+                .use-var(font-size, steps-icon-svg-standard-font-size);
+                top: 50%;
+                transform: translateY(-50%);
+
+                .finish & {
+                    .use-var(color, steps-finish-icon-svg-color);
+                }
+
+                .error & {
+                    .use-var(color, steps-error-icon-svg-color);
+                    .use-var(font-size, steps-error-icon-svg-font-size);
+                }
+            }
+
+            &-num {
+                .use-var(font-size, steps-icon-num-font-size);
+                .use-var(line-height, steps-icon-num-line-height);
+                .use-var(color, steps-icon-num-color);
+                .text-medium-var(steps-icon-num-color);
+
+                .process & {
+                    .use-var(color, steps-process-icon-num-color);
+                }
+            }
+
+            &-dot {
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+                display: inline-block;
+                .use-var(width, steps-dot-width);
+                .use-var(height, steps-dot-height);
+                border-radius: 50%;
+                .use-var(border-width, steps-dot-border-width);
+                border-style: solid;
+
+                .finish & {
+                    .use-var(border-color, steps-finish-dot-border-color);
+                }
+
+                .wait & {
+                    .use-var(border-color, steps-wait-dot-border-color);
+                }
+
+                .process & {
+                    border: none;
+                    .use-var(background, steps-process-dot-background);
+                }
+            }
+        }
+
+        &-content {
+            text-align: center;
+
+            .horizontal & {
+                .use-var(margin-top, steps-horizontal-content-margin-top);
+            }
+
+            .vertical & {
+                .use-var(margin-left, steps-vertical-content-margin-left);
+                text-align: left;
+                flex: 1;
+                .use-var(padding-bottom, steps-vertical-content-padding-bottom);
+            }
+        }
+
+        &-title {
+            .use-var(font-size, steps-title-font-size);
+            .use-var(line-height, steps-title-line-height);
+
+            .finish & {
+                .use-var(color, steps-finish-title-color);
+            }
+
+            .error & {
+                .use-var(color, steps-error-title-color);
+            }
+
+            .process & {
+                .use-var(color, steps-process-title-color);
+                font-weight: 500;
+            }
+
+            .wait & {
+                .use-var(color, steps-wait-title-color);
+            }
+        }
+
+        &-description {
+            .use-var(font-size, steps-description-font-size);
+            .use-var(line-height, steps-description-line-height);
+            .use-var(color, steps-description-color);
+
+            .wait & {
+                .use-var(color, steps-wait-description-color);
+            }
+
+            .vertical & {
+                .use-var(margin-top, steps-description-margin-top);
+            }
+        }
+    }
+
+    &.vertical {
+        flex-direction: column;
+        .use-var(padding-bottom, steps-vertical-padding-bottom);
+        .use-var(padding-left, steps-vertical-padding-left);
+    }
+}

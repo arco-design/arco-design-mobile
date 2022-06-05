@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+html {
+    height: 100%;
+}
+body {
+    position: relative;
+    min-height: 100%;
+    background: #ffffff;
+    touch-action: manipulation;
+    font-family: nun-regular, -apple-system, PingFang SC, Helvetica Neue;
+}
+ul, ol, li {
+    list-style: none;
+}
+img, button {
+    border: 0;
+    outline: 0;
+}
+a {
+    text-decoration: none !important;
+    outline: 0;
+    &:hover,
+    &:active,
+    &:visited {
+        color: inherit;
+    }
+}
+table, tr, td {
+    border-collapse: collapse;
+}
+input {
+    outline: 0;
+}
+code, kbd, pre, samp {
+    font-family: Menlo, Consolas;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .2s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@font-face {
+    font-family: nun-semibold;
+    src: url('https://sf1-cdn-tos.huoshanstatic.com/obj/arco-mobile/arco-design/nun-semibold.ttf');
+}
+
+@font-face {
+    font-family: nun-regular;
+    src: url('https://sf1-cdn-tos.huoshanstatic.com/obj/arco-mobile/arco-design/nun-regular.ttf');
+}

@@ -1,0 +1,52 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-circle-progress {
+    position: relative;
+
+    &-text {
+        position: absolute;
+        .use-var(font-size, circle-progress-font-size);
+    }
+
+    &-text-center {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &-text-bottom {
+        .rem(bottom, -20);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .track-color {
+        .use-var(stroke, circle-progress-track-color);
+    }
+
+    .color {
+        .use-var(stroke, circle-progress-primary-color);
+        .use-var(color, circle-progress-primary-color);
+    }
+
+    .mini {
+        .use-var(stroke, circle-progress-mini-track-color);
+    }
+
+    .disabled {
+        .use-var(color, circle-progress-disabled-color);
+        .use-var(stroke, circle-progress-disabled-color);
+    }
+
+    .linear-gradient-start {
+        .use-var(stop-color, circle-progress-linear-gradient-start-color);
+    }
+
+    .linear-gradient-text {
+        .use-var(color, circle-progress-linear-gradient-text-color);
+    }
+
+    .linear-gradient-end {
+        .use-var(stop-color, circle-progress-linear-gradient-end-color);
+    }
+}

@@ -1,0 +1,620 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`input demo test input demo: disabled.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc disabled"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Title Text
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        disabled=""
+        placeholder=""
+        type="text"
+        value="Input disabled"
+      />
+    </div>
+  </div>,
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Title Text
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        placeholder="Please enter nickname"
+        readonly=""
+        style="color:#86909C"
+        type="text"
+        value="Input readonly"
+      />
+    </div>
+  </div>,
+]
+`;
+
+exports[`input demo test input demo: error.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label required"
+        >
+          Nickname
+        </div>
+      </div>
+      <input
+        class="arco-input demo-input-red-placeholder"
+        placeholder="Please enter nickname"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label required"
+        >
+          Email
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        placeholder="Please input your email"
+        type="text"
+        value="xxx"
+      />
+    </div>
+    <div
+      class="demo-input-error-hint"
+    >
+      <svg
+        fill="none"
+        height="12"
+        viewBox="0 0 12 12"
+        width="12"
+      >
+        <circle
+          cx="6"
+          cy="6"
+          fill="#F53F3F"
+          r="6"
+        />
+        <path
+          d="M2.5 6C2.5 5.58579 2.83579 5.25 3.25 5.25H8.75C9.16421 5.25 9.5 5.58579 9.5 6C9.5 6.41421 9.16421 6.75 8.75 6.75H3.25C2.83579 6.75 2.5 6.41421 2.5 6Z"
+          fill="white"
+        />
+      </svg>
+      <span>
+        Email format error
+      </span>
+    </div>
+  </div>,
+]
+`;
+
+exports[`input demo test input demo: group.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Name
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-input-container all-border-box "
+          >
+            <div
+              class="arco-input-wrap text border-none pc"
+            >
+              <input
+                class="arco-input"
+                placeholder="Please enter name"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Phone
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-input-container all-border-box "
+          >
+            <div
+              class="arco-input-wrap text border-none pc"
+            >
+              <input
+                class="arco-input"
+                placeholder="Please enter the phone number"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Email
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-input-container all-border-box "
+          >
+            <div
+              class="arco-input-wrap text border-none pc"
+            >
+              <input
+                class="arco-input"
+                placeholder="Please input your email"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Remark
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-input-container all-border-box "
+          >
+            <div
+              class="arco-input-wrap text border-none pc"
+            >
+              <input
+                class="arco-input"
+                placeholder="Please enter remark"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`input demo test input demo: icon.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap text border-none pc"
+  >
+    <div
+      class="arco-input-prefix"
+    >
+      <div
+        class="arco-input-label"
+      >
+        <div
+          class="demo-input-icon"
+        >
+          <svg
+            class="arco-icon arco-icon-user "
+            height="1em"
+            style="margin-right:10px;font-size:20px;color:#4E5969;vertical-align:middle"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 192a106.688 106.688 0 000 213.333A106.688 106.688 0 00512 192zM320 298.667a192 192 0 11384 0 192 192 0 01-384 0zM398.293 640C320.64 640 256 703.936 256 785.067v68.266h512v-68.266C768 703.936 703.36 640 625.707 640H398.293zM170.667 785.067c0-127.254 101.973-230.4 227.626-230.4h227.414c125.653 0 227.626 103.146 227.626 230.4v115.2c0 21.205-17.066 38.4-37.973 38.4H208.64c-20.907 0-37.973-17.195-37.973-38.4v-115.2z"
+              fill="currentColor"
+            />
+          </svg>
+          Username
+        </div>
+      </div>
+    </div>
+    <input
+      class="arco-input"
+      placeholder="please enter username"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`input demo test input demo: index.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Four characters
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        placeholder="Please enter a nickname"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Nickname
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        placeholder="Please enter nickname"
+        type="text"
+        value=""
+      />
+      <div
+        class="arco-input-clear"
+      >
+        <svg
+          class="arco-icon arco-icon-clear "
+          height="1em"
+          viewBox="0 0 18 18"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 1.1C4.7 1.1 1.1 4.7 1.1 9s3.5 7.9 7.9 7.9 7.9-3.5 7.9-7.9S13.3 1.1 9 1.1zm3.4 10.2c.2.2.2.5 0 .7l-.5.5c-.2.2-.5.2-.7 0L9 10.3l-2.2 2.2c-.2.2-.5.2-.7 0l-.6-.5c-.2-.2-.2-.5 0-.7l2.2-2.2-2.2-2.3c-.2-.2-.2-.5 0-.7l.5-.5c.2-.2.5-.2.7 0l2.2 2.2 2.2-2.2c.2-.2.5-.2.7 0l.5.5c.2.2.2.5 0 .7L10.1 9l2.3 2.3z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Nickname
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        placeholder="Please enter nickname"
+        style="text-align:right"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+]
+`;
+
+exports[`input demo test input demo: input-button.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box demo-input-btn-input"
+>
+  <div
+    class="arco-input-wrap tel border-none pc suffix"
+  >
+    <div
+      class="arco-input-prefix"
+    >
+      <div
+        class="arco-input-label"
+      >
+        Verification code
+      </div>
+    </div>
+    <input
+      class="arco-input"
+      placeholder="Please enter verification code"
+      type="tel"
+      value=""
+    />
+    <div
+      class="arco-input-suffix"
+    >
+      <div
+        class="demo-input-btn-wrap"
+      >
+        <button
+          class="arco-button type-primary size-medium is-round pc inline"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            Send
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`input demo test input demo: max.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Title Text
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        maxlength="10"
+        placeholder="Up to 10 characters, truncated over long"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap text border-none pc suffix"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Title Text
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        placeholder="Up to 10 characters, extra long tips"
+        type="text"
+        value=""
+      />
+      <div
+        class="arco-input-suffix"
+      >
+        <div
+          class="demo-input-maxlength "
+        >
+          0/10
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`input demo test input demo: number.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap tel border-none pc prefix"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="demo-input-money"
+        >
+          ¥
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        placeholder="0.00"
+        type="tel"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap tel border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Tel
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        maxlength="13"
+        placeholder="Please enter the phone number"
+        type="tel"
+        value=""
+      />
+    </div>
+  </div>,
+  <div
+    class="arco-input-container all-border-box "
+  >
+    <div
+      class="arco-input-wrap password border-none pc"
+    >
+      <div
+        class="arco-input-prefix"
+      >
+        <div
+          class="arco-input-label"
+        >
+          Password
+        </div>
+      </div>
+      <input
+        class="arco-input"
+        placeholder="Please enter password"
+        type="password"
+        value=""
+      />
+    </div>
+  </div>,
+]
+`;
+
+exports[`input demo test input demo: vertical.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="demo-input-title"
+  >
+    Title
+  </div>
+  <div
+    class="arco-input-wrap text border-none pc"
+  >
+    <input
+      class="arco-input"
+      placeholder="please enter username"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

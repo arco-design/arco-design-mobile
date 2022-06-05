@@ -1,0 +1,152 @@
+@import '../../../packages/arcodesign/style/mixin.less';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f8fA;
+    font-family: -apple-system, PingFang SC, Helvetica Neue;
+    &.white-body {
+        background-color: #ffffff;
+    }
+}
+
+body,
+.arcodesign-mobile-home-wrapper,
+.arcodesign-mobile-demo-wrapper {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.arcodesign-mobile-home-wrapper,
+.arcodesign-mobile-demo-wrapper {
+    width: 100%;
+    font-size: 0;
+    .demo-content {
+        box-sizing: border-box;
+    }
+    .status-bar {
+        height: 20px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        background: #FFF url(../static/images/statusbar.png) no-repeat center center;
+        background-size: contain;
+        & + .demo-content {
+            .arcodesign-mobile-demo-nav {
+                height: 64px;
+            }
+            .arcodesign-mobile-demo-nav-inner {
+                padding-top: 20px;
+            }
+        }
+    }
+}
+.arcodesign-mobile-demo-nav {
+    height: 44px;
+    width: 100%;
+    &-inner {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background-color: #ffffff;
+        color: #1d2129;
+        width: inherit;
+        height: inherit;
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 44px;
+        .onepx-border(bottom, rgb(237, 237, 237));
+    }
+}
+
+.arcodesign-demo-logo {
+    .rem(padding, 52, 30, 40);
+    img {
+        .rem(height, 70);
+    }
+}
+
+.arcodesign-demo-menu {
+    .rem(padding, 0, 16, 28);
+    .use-var(color, font-color);
+    .menu-wrap-title {
+        .rem(font-size, 14);
+        .rem(line-height, 20);
+        .rem(margin-bottom, 12);
+        .rem(padding-left, 16);
+        position: relative;
+        color: #939aa3;
+        &::before {
+            content: " ";
+            display: inline-block;
+            width: 2px;
+            .rem(height, 12);
+            border-radius: 2px;
+            .use-var(background, primary-color);
+            .rem(margin, 0, 6, 0, 8);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .menu-item {
+        .rem(padding, 12, 16);
+        .rem(font-size, 16);
+        .rem(line-height, 22);
+        position: relative;
+        background: #f7f8fA;
+        cursor: pointer;
+        .rem(border-radius, 8);
+        &:not(:last-child) {
+            .rem(margin-bottom, 8);
+        }
+        .arrow {
+            position: absolute;
+            .rem(right, 12);
+            top: 50%;
+            transform: translateY(-50%);
+            color: #c9cdd4;
+        }
+    }
+}
+
+.arcodesign-mobile-title {
+    .rem(padding, 32, 16, 8);
+    .rem(font-size, 14);
+    color: #939AA3;
+    font-weight: normal;
+    .arcodesign-mobile-demo-nav + & {
+        .rem(padding-top, 8);
+    }
+}
+
+.arcodesign-mobile-demo-content {
+    .rem(padding, 16);
+    background-color: #ffffff;
+}
+
+.demo-content {
+    padding-bottom: 24px;
+}
+
+.arrow-back {
+    .rem(width, 44);
+    .rem(height, 44);
+    position: fixed;
+    left: 0;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1d2129;
+    .rem(font-size, 20);
+    cursor: pointer;
+}

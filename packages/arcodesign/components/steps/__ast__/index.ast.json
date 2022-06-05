@@ -1,0 +1,486 @@
+{
+    "description": "显示一个任务的进度; 或者引导用户完成某个复杂任务。",
+    "descriptionTags": {
+        "en": "Display the progress of a task, or guide users to complete a complex task.",
+        "name": "步骤条",
+        "name_en": "Steps",
+        "type": "数据展示",
+        "type_en": "Data Display"
+    },
+    "displayName": "Steps",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式，如果想用 css 控制 icon 颜色，可使用公共 mixin '.set-steps-color(@color)'\n@en Custom stylesheet. If want to use CSS to control icon color, use public mixin ' set-steps-color(\n@color )'",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet. If want to use CSS to control icon color, use public mixin ' set-steps-color(",
+                "color": ")'"
+            },
+            "descWithTags": "自定义样式，如果想用 css 控制 icon 颜色，可使用公共 mixin '.set-steps-color(@color)'",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "direction": {
+            "defaultValue": {
+                "value": "horizontal"
+            },
+            "description": "步骤条方向\n@en Step bar direction",
+            "name": "direction",
+            "tags": {
+                "en": "Step bar direction",
+                "default": "horizontal"
+            },
+            "descWithTags": "步骤条方向",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"vertical\" | \"horizontal\"",
+                "value": [
+                    {
+                        "value": "\"vertical\""
+                    },
+                    {
+                        "value": "\"horizontal\""
+                    }
+                ]
+            }
+        },
+        "current": {
+            "defaultValue": null,
+            "description": "指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 status 属性覆盖状态，传入则受控\n@en Specify the current step, counting from 0. In the step children elements, the status can be overwritten through the status, and it is controlled if it is input",
+            "name": "current",
+            "tags": {
+                "en": "Specify the current step, counting from 0. In the step children elements, the status can be overwritten through the status, and it is controlled if it is input"
+            },
+            "descWithTags": "指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 status 属性覆盖状态，传入则受控",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "iconType": {
+            "defaultValue": {
+                "value": "number"
+            },
+            "description": "步骤图标类型。在子 Step 元素中，可以通过 icon 属性覆盖图标\n@en Steps icon type. In the children step elements , the icons can be overridden by the property icon",
+            "name": "iconType",
+            "tags": {
+                "en": "Steps icon type. In the children step elements , the icons can be overridden by the property icon",
+                "default": "number"
+            },
+            "descWithTags": "步骤图标类型。在子 Step 元素中，可以通过 icon 属性覆盖图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"number\" | \"dot\"",
+                "value": [
+                    {
+                        "value": "\"number\""
+                    },
+                    {
+                        "value": "\"dot\""
+                    }
+                ]
+            }
+        },
+        "status": {
+            "defaultValue": {
+                "value": "process"
+            },
+            "description": "当前步骤的节点状态\n@en Status of the current step",
+            "name": "status",
+            "tags": {
+                "en": "Status of the current step",
+                "default": "process"
+            },
+            "descWithTags": "当前步骤的节点状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"finish\" | \"error\" | \"wait\" | \"process\"",
+                "value": [
+                    {
+                        "value": "\"finish\""
+                    },
+                    {
+                        "value": "\"error\""
+                    },
+                    {
+                        "value": "\"wait\""
+                    },
+                    {
+                        "value": "\"process\""
+                    }
+                ]
+            }
+        },
+        "defaultIndex": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "初始 step index\n@en Default step index",
+            "name": "defaultIndex",
+            "tags": {
+                "en": "Default step index",
+                "default": "0"
+            },
+            "descWithTags": "初始 step index",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "items": {
+            "defaultValue": null,
+            "description": "步骤条自定义数据，优先级高于 Children Step 子元素\n@en Custom data of step bar, which takes precedence over children elements of steps component",
+            "name": "items",
+            "tags": {
+                "en": "Custom data of step bar, which takes precedence over children elements of steps component"
+            },
+            "descWithTags": "步骤条自定义数据，优先级高于 Children Step 子元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "StepProps[]"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击步骤触事件\n@en Callback when clicking the step",
+            "name": "onClick",
+            "tags": {
+                "en": "Callback when clicking the step"
+            },
+            "descWithTags": "点击步骤触事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(current: number) => void"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "step 变化回调\n@en Callback when step changes",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when step changes"
+            },
+            "descWithTags": "step 变化回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: number) => void"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "子元素，优先级低于 items\n@en Child element, with priority lower than items",
+            "name": "children",
+            "tags": {
+                "en": "Child element, with priority lower than items"
+            },
+            "descWithTags": "子元素，优先级低于 items",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                "name": "StepsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<StepsRef>"
+            }
+        }
+    },
+    "deps": {
+        "StepProps": {
+            "title": {
+                "name": "title",
+                "required": false,
+                "description": "步骤标题\n@en Step title",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Step title"
+                },
+                "descWithTags": "步骤标题"
+            },
+            "description": {
+                "name": "description",
+                "required": false,
+                "description": "步骤说明文字\n@en Step description",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Step description"
+                },
+                "descWithTags": "步骤说明文字"
+            },
+            "icon": {
+                "name": "icon",
+                "required": false,
+                "description": "自定义步骤图标\n@en Custom step Icon",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Custom step Icon"
+                },
+                "descWithTags": "自定义步骤图标"
+            },
+            "status": {
+                "name": "status",
+                "required": false,
+                "description": "指定步骤状态，不配置该项时，会根据 Steps 的 current 属性自动指定状态\n@en Specify the step status. When this item is not input, the status will be automatically specified according to the current property of steps",
+                "defaultValue": null,
+                "type": {
+                    "name": "enum",
+                    "raw": "\"finish\" | \"error\" | \"wait\" | \"process\"",
+                    "value": [
+                        {
+                            "value": "\"finish\""
+                        },
+                        {
+                            "value": "\"error\""
+                        },
+                        {
+                            "value": "\"wait\""
+                        },
+                        {
+                            "value": "\"process\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Specify the step status. When this item is not input, the status will be automatically specified according to the current property of steps"
+                },
+                "descWithTags": "指定步骤状态，不配置该项时，会根据 Steps 的 current 属性自动指定状态"
+            }
+        },
+        "StepsRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {
+        "Step": {
+            "description": "",
+            "descriptionTags": {
+                "type": "utils",
+                "name": "componentUtils"
+            },
+            "displayName": "Step",
+            "methods": [],
+            "props": {
+                "title": {
+                    "defaultValue": null,
+                    "description": "步骤标题\n@en Step title",
+                    "name": "title",
+                    "tags": {
+                        "en": "Step title"
+                    },
+                    "descWithTags": "步骤标题",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                        "name": "StepProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "description": {
+                    "defaultValue": null,
+                    "description": "步骤说明文字\n@en Step description",
+                    "name": "description",
+                    "tags": {
+                        "en": "Step description"
+                    },
+                    "descWithTags": "步骤说明文字",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                        "name": "StepProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "icon": {
+                    "defaultValue": null,
+                    "description": "自定义步骤图标\n@en Custom step Icon",
+                    "name": "icon",
+                    "tags": {
+                        "en": "Custom step Icon"
+                    },
+                    "descWithTags": "自定义步骤图标",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                        "name": "StepProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "status": {
+                    "defaultValue": null,
+                    "description": "指定步骤状态，不配置该项时，会根据 Steps 的 current 属性自动指定状态\n@en Specify the step status. When this item is not input, the status will be automatically specified according to the current property of steps",
+                    "name": "status",
+                    "tags": {
+                        "en": "Specify the step status. When this item is not input, the status will be automatically specified according to the current property of steps"
+                    },
+                    "descWithTags": "指定步骤状态，不配置该项时，会根据 Steps 的 current 属性自动指定状态",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/steps/type.ts",
+                        "name": "StepProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"finish\" | \"error\" | \"wait\" | \"process\"",
+                        "value": [
+                            {
+                                "value": "\"finish\""
+                            },
+                            {
+                                "value": "\"error\""
+                            },
+                            {
+                                "value": "\"wait\""
+                            },
+                            {
+                                "value": "\"process\""
+                            }
+                        ]
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<StepRef>"
+                    }
+                }
+            },
+            "deps": {
+                "StepRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "Step 最外层元素 DOM\n@en Outermost element DOM of the Step",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "Outermost element DOM of the Step"
+                        },
+                        "descWithTags": "Step 最外层元素 DOM"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "StepProps",
+                "ref": "StepRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "StepsProps",
+        "ref": "StepsRef"
+    },
+    "isDefaultExport": true
+}

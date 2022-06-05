@@ -1,0 +1,57 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-action-sheet {
+    .use-var(color, font-color);
+
+    &-header {
+        .use-var(padding, action-sheet-header-padding);
+        text-align: center;
+        .onepx-border-var(bottom, line-color);
+    }
+
+    &-title {
+        .use-var(font-size, action-sheet-title-font-size);
+        .text-medium-var(font-color);
+    }
+
+    &-sub-title {
+        .use-var(color, sub-info-font-color);
+        .use-var(font-size, action-sheet-sub-title-font-size);
+    }
+
+    &-title + &-sub-title {
+        .rem(margin-top, 4);
+    }
+
+    &-content {
+        .use-var(border-top-left-radius, action-sheet-border-radius);
+        .use-var(border-top-right-radius, action-sheet-border-radius);
+    }
+
+    &-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .use-var(height, action-sheet-item-height);
+        .use-var(font-size, action-sheet-item-font-size);
+        .noselect();
+
+        &:not(:last-child) {
+            .onepx-border-var(bottom, line-color);
+        }
+
+        &.disabled {
+            .use-var(color, disabled-color);
+        }
+
+        &.danger {
+            .use-var(color, danger-color);
+        }
+
+        &.cancel-item {
+            border-top-style: solid;
+            .use-var(border-top-color, action-sheet-cancel-border-color);
+            .use-var(border-top-width, action-sheet-cancel-border-width);
+        }
+    }
+}

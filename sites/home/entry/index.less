@@ -1,0 +1,256 @@
+@import '../../pc/static/style/public.less';
+
+.home-secondary-btn-popover {
+    margin-top: -2px;
+}
+
+.arco-design-mobile-home {
+    font-size: 0;
+    margin: 0 auto;
+    text-align: center;
+    overflow-x: hidden;
+    .arco-design-mobile-title {
+        font-family: PingFang SC;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 53px;
+        color: #1D2129;
+        text-align: left;
+    }
+    .arco-design-mobile-subtitle {
+        margin-top: 8px;
+        font-family: PingFang SC;
+        font-size: 16px;
+        line-height: 24px;
+        color: #86909C;
+        text-align: left;
+    }
+    .arco-design-mobile-resources {
+        padding: 80px 9% 100px 9%;
+        .resources-group {
+            margin: 0 auto;
+            padding-top: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+        }
+        .resource-item {
+            width: 45%;
+            padding: 40px  4.17%;
+            position: relative;
+            background: #F7F8FA;
+            border-radius: 8px;
+            &:hover {
+                background: #F2F3F5;
+            }
+            &:first-child {
+                margin-right: 20px;
+            }
+        }
+        .resource-logo {
+            width: 61px;
+            margin-right: 28px;
+            vertical-align: middle;
+        }
+        .resource-text {
+            display: inline-block;
+            vertical-align: middle;
+            .title {
+                display: flex;
+                align-items: center;
+                font-family: PingFang SC;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 32px;
+                .resource-icon {
+                    margin-left: 15px;
+                    width: 18px;
+                    color: #000;
+                    &.icon-in {
+                        margin-left: 18px;
+                        width: 8px;
+                    }
+                }
+            }
+            .desc {
+                margin-top: 12px;
+                font-size: 14px;
+                line-height: 22px;
+                color: #4E5969;
+            }
+            .small-screen-desc {
+                display: none;
+            }
+        }
+
+    }
+    .arco-design-text-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: PingFang SC;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        color: #165DFF;
+        cursor: pointer;
+    }
+    @media screen and (max-width: 1199px) and (min-width: 768px) {
+        .arco-design-mobile-title, .arco-design-mobile-subtitle {
+            text-align: center;
+        }
+        .arco-design-mobile-resources {
+            .resource-item {
+                width: 100%;
+            }
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .arco-design-mobile {
+            &-title, &-subtitle {
+                text-align: center;
+            }
+            &-title {
+                font-size: 20px;
+                line-height: 28px;
+            }
+            &-subtitle {
+                margin-top: 8px;
+                font-size: 12px;
+                line-height: 20px;
+
+            }
+        }
+        .arco-design-mobile-resources {
+            padding: 64px 16px 60px 16px;
+            .resources-group {
+                padding-top: 30px;
+
+            }
+            .resource-item:first-child {
+                .resource-logo {
+                    width: 52px;
+                    margin-right: 8px;
+                }
+                margin-right: 0;
+                padding: 18px;
+                width: 100%;
+                background: #191919;
+                .title {
+                    font-size: 18px;
+                    line-height: 24px;
+                    color: #FFFFFF;
+                    .resource-icon {
+                        color: #FFFFFF;
+                    }
+                }
+                .desc {
+                    margin-top: 6px;
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: #C9CDD4;
+                }
+                .default-desc {
+                    display: none;
+                }
+                .small-screen-desc {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.modal-fade {
+    &-enter {
+        opacity: 0;
+    }
+    &-enter-active {
+        opacity: 1;
+        transition: opacity 300ms;
+    }
+    &-exit {
+        opacity: 1;
+    }
+    &-exit-active {
+        opacity: 0;
+        transition: opacity 300ms;
+    }
+    &-exit-done {
+        display: none;
+    }
+}
+
+.arco-design-home-modal {
+    &, & .mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .mask {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .content {
+        position: absolute;
+        background: #ffffff;
+        width: 240px;
+        height: 310px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        text-align: center;
+        .hint {
+            font-size: 18px;
+            line-height: 1.5;
+            padding: 28px 0 10px;
+        }
+        .code {
+            width: 200px;
+        }
+    }
+}
+.code-img-modal {
+    width: 87.2%;
+    padding: 50px 44px 48px 44px;
+    .arco-modal-header {
+        display: none;
+    }
+    .code-img-modal-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .arco-design-mobile-title {
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            color: #1D2129;
+        }
+        .arco-design-mobile-subtitle {
+            margin-top: 8px;
+            font-size: 16px;
+            line-height: 22px;
+            text-align: center;
+            color: #4E5969;
+        }
+        .arco-design-mobile-tip {
+            margin-top: 30px;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: center;
+            color: #86909C;
+        }
+        .code-img {
+            width: 93.31%;
+            height: 93.31%;
+        }
+    }
+}
+.arco-modal-mask {
+    background: rgba(0, 0, 0, 0.56);
+}

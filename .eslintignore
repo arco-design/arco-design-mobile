@@ -1,0 +1,15 @@
+scripts/
+*jest.config.js
+node_modules/
+esm/
+umd/
+cjs/
+lib/
+dist/
+tests/
+tools/
+tokens/
+__test__/
+*.md
+iconCompTpl.tsx
+sites/pc/static/js/

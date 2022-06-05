@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collapse demo test collapse demo: children.md renders correctly 1`] = `
+<div
+  class="arco-collapse-group"
+>
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      Title 1
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        <div
+          class="arco-collapse-group"
+        >
+          <div
+            class="arco-collapse-item"
+          >
+            <div
+              class="arco-collapse-header"
+            >
+              Subtitle
+              <div
+                class="arco-collapse-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+                  height="1em"
+                  style="transform:rotate(0deg)"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="arco-collapse-content"
+            >
+              <div
+                class="arco-collapse-content-container"
+              >
+                here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      Title 2
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`collapse demo test collapse demo: group.md renders correctly 1`] = `
+<div
+  class="arco-collapse-group"
+>
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      Title 1
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      Title 2
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      Title 3
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`collapse demo test collapse demo: index.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      Title 1
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(180deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      />
+    </div>
+  </div>,
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      Title 2
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+      </div>
+    </div>
+  </div>,
+  <div
+    class="arco-collapse-item disabled"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      Disabled
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`collapse demo test collapse demo: style-header.md renders correctly 1`] = `
+<div
+  class="arco-collapse-group"
+>
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      <div
+        style="display:flex;align-items:center"
+      >
+        <svg
+          class="arco-icon arco-icon-notice "
+          fill="currentColor"
+          height="1em"
+          style="margin-right:8px"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M618.667 853.333A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248V704h64a21.333 21.333 0 0121.334 21.333V768a21.333 21.333 0 01-21.334 21.333H106.667A21.333 21.333 0 0185.333 768v-42.667A21.333 21.333 0 01106.667 704h64V459.008c0-164.181 108.8-302.123 256-341.248V85.333A21.333 21.333 0 01448 64h128zm-64 128c-141.376 0-256 119.595-256 267.136V704h512V459.136C768 311.595 653.376 192 512 192z"
+          />
+        </svg>
+        Title 1
+      </div>
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-collapse-item"
+  >
+    <div
+      class="arco-collapse-header"
+    >
+      <div
+        style="display:flex;align-items:center"
+      >
+        Title 2
+        <svg
+          class="arco-icon arco-icon-question-circle "
+          fill="currentColor"
+          height="1em"
+          style="color:#86909C;margin:-1px 0 0 5px"
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M7.982.68a7.312 7.312 0 110 14.625 7.312 7.312 0 010-14.625zm0 1.33a5.983 5.983 0 100 11.965 5.983 5.983 0 000-11.966zm.333 8.641c.183 0 .332.15.332.333v.664a.332.332 0 01-.332.333H7.65a.332.332 0 01-.332-.333v-.664c0-.184.148-.333.332-.333h.665zm-.427-6.647c.79 0 1.447.19 1.97.574.522.382.784.95.784 1.7 0 .461-.114.85-.341 1.165-.133.191-.389.436-.766.733l-.373.293c-.202.16-.337.345-.403.558a1.8 1.8 0 00-.048.323.332.332 0 01-.331.304h-.744a.332.332 0 01-.331-.363c.043-.463.088-.755.137-.878.091-.229.325-.492.703-.79l.383-.302c.126-.096.774-.553.774-.957 0-.405-.07-.553-.273-.775-.203-.222-.66-.294-1.073-.294-.405 0-.752.108-.922.38a1.921 1.921 0 00-.189.4 1.388 1.388 0 00-.048.204.332.332 0 01-.328.276h-.782a.332.332 0 01-.33-.37c.008-.074.017-.136.025-.185.13-.722.458-1.253.985-1.592.413-.27.92-.404 1.521-.404z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="arco-collapse-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
+          height="1em"
+          style="transform:rotate(0deg)"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-collapse-content"
+    >
+      <div
+        class="arco-collapse-content-container"
+      >
+        here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is content area, here is the content area
+      </div>
+    </div>
+  </div>
+</div>
+`;

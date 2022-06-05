@@ -1,0 +1,323 @@
+{
+    "description": "开关组件，支持点击和滑动触发开关动作。",
+    "descriptionTags": {
+        "en": "A switch component that supports click and slide trigger switch actions.",
+        "type": "数据输入",
+        "type_en": "Data Entry",
+        "name": "开关",
+        "name_en": "Switch"
+    },
+    "displayName": "Switch",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "platform": {
+            "defaultValue": {
+                "value": "跟随当前所在系统"
+            },
+            "description": "组件的平台特有样式, 可选值为 android, ios\n@en The platform-specific style of the component, the optional values are android, ios\n@default_en Follow the current system",
+            "name": "platform",
+            "tags": {
+                "en": "The platform-specific style of the component, the optional values are android, ios",
+                "default": "跟随当前所在系统",
+                "default_en": "Follow the current system"
+            },
+            "descWithTags": "组件的平台特有样式, 可选值为 android, ios",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "checked": {
+            "defaultValue": null,
+            "description": "是否设置为打开状态 有checked时defaultChecked不会使用\n@en Whether it is set to open, defaultChecked will not be used when there is checked",
+            "name": "checked",
+            "tags": {
+                "en": "Whether it is set to open, defaultChecked will not be used when there is checked"
+            },
+            "descWithTags": "是否设置为打开状态 有checked时defaultChecked不会使用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "defaultChecked": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "默认的初始状态\n@en Default initial state",
+            "name": "defaultChecked",
+            "tags": {
+                "en": "Default initial state",
+                "default": "false"
+            },
+            "descWithTags": "默认的初始状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "text": {
+            "defaultValue": null,
+            "description": "开关文案\n@en Switch text",
+            "name": "text",
+            "tags": {
+                "en": "Switch text"
+            },
+            "descWithTags": "开关文案",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "SwitchText"
+            }
+        },
+        "shape": {
+            "defaultValue": {
+                "value": "\"fully\""
+            },
+            "description": "圆角样式， fully - 全圆角，semi - 直角\n@en Rounded style, fully - full rounded, semi - right angle",
+            "name": "shape",
+            "tags": {
+                "en": "Rounded style, fully - full rounded, semi - right angle",
+                "default": "\"fully\""
+            },
+            "descWithTags": "圆角样式， fully - 全圆角，semi - 直角",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"fully\" | \"semi\"",
+                "value": [
+                    {
+                        "value": "\"fully\""
+                    },
+                    {
+                        "value": "\"semi\""
+                    }
+                ]
+            }
+        },
+        "innerArea": {
+            "defaultValue": null,
+            "description": "内部区域元素\n@en Inner area element",
+            "name": "innerArea",
+            "tags": {
+                "en": "Inner area element"
+            },
+            "descWithTags": "内部区域元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否设置为禁用状态\n@en Whether it is set to disabled state",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether it is set to disabled state",
+                "default": "false"
+            },
+            "descWithTags": "是否设置为禁用状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "状态改变时触发的回调函数\n@en Callback when the status changes",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when the status changes"
+            },
+            "descWithTags": "状态改变时触发的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(checked: boolean) => void"
+            }
+        },
+        "onTouchStart": {
+            "defaultValue": null,
+            "description": "touchStart事件回调\n@en TouchStart event",
+            "name": "onTouchStart",
+            "tags": {
+                "en": "TouchStart event"
+            },
+            "descWithTags": "touchStart事件回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent<HTMLDivElement>) => void"
+            }
+        },
+        "onTouchEnd": {
+            "defaultValue": null,
+            "description": "touchEnd事件回调\n@en TouchEnd event",
+            "name": "onTouchEnd",
+            "tags": {
+                "en": "TouchEnd event"
+            },
+            "descWithTags": "touchEnd事件回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent<HTMLDivElement>) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "click事件回调\n@en Click event",
+            "name": "onClick",
+            "tags": {
+                "en": "Click event"
+            },
+            "descWithTags": "click事件回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/switch/index.tsx",
+                "name": "SwitchProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<SwitchRef>"
+            }
+        }
+    },
+    "deps": {
+        "SwitchText": {
+            "on": {
+                "name": "on",
+                "required": true,
+                "description": "打开时的展示文案\n@en Text when opened",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Text when opened"
+                },
+                "descWithTags": "打开时的展示文案"
+            },
+            "off": {
+                "name": "off",
+                "required": true,
+                "description": "关闭时的展示文案\n@en Text when closed",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Text when closed"
+                },
+                "descWithTags": "关闭时的展示文案"
+            }
+        },
+        "SwitchRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "SwitchProps",
+        "ref": "SwitchRef"
+    },
+    "isDefaultExport": true
+}

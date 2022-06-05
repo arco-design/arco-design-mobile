@@ -1,0 +1,59 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-rate {
+    display: inline-flex;
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+
+    &-icon-wrap {
+        .use-var(padding, rate-icon-offset);
+        .use-var(font-size, rate-icon-size);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    &-icon-wrap,
+    &-icon {
+
+        &.active,
+        &.half-active {
+            .use-var(color, rate-icon-active-color);
+
+            &.disabled {
+                .use-var(color, rate-icon-disabled-active-color);
+            }
+        }
+
+        &.normal {
+            .use-var(color, rate-icon-normal-color);
+        }
+    }
+
+    &-icon {
+
+        &.half-active {
+            position: absolute;
+            z-index: 1;
+        }
+    }
+
+    &-icon-click-half {
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        z-index: 2;
+
+        &.left {
+            left: 0;
+        }
+
+        &.right {
+            right: 0;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+        "module": "es6",
+        "target": "es5",
+        "declaration": true,
+        "lib": ["es5", "dom"]
+    },
+    "include": [
+        "packages/arcodesign/components/**/*.ts",
+        "packages/arcodesign/components/**/*.tsx",
+        "packages/common-widgets/**/*.ts",
+        "sites/**/*.d.ts"
+    ],
+    "exclude": ["node_modules"]
+}

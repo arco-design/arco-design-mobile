@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pull-refresh demo test pull-refresh demo: index.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+      >
+        <div
+          class="arco-tab-cell vertical line-divide pc active no-shrink"
+        >
+          Basic
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink"
+        >
+          Disabled
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink"
+        >
+          iOS
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink last"
+        >
+          Customize
+        </div>
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:400%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane mode-swipe"
+    >
+      <div
+        class="arco-pull-refresh all-border-box is-android is-disabled"
+      >
+        <div
+          class="arco-pull-refresh-place"
+        >
+          <div
+            class="arco-pull-refresh-label"
+          >
+            <div
+              class="arco-pull-refresh-label-text"
+            >
+              <span>
+                下拉即可刷新
+              </span>
+            </div>
+          </div>
+          <div
+            class="arco-pull-refresh-content"
+          >
+            Try to pull down
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane mode-swipe"
+    />
+    <div
+      class="arco-tab-pane mode-swipe"
+    />
+    <div
+      class="arco-tab-pane mode-swipe"
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,105 @@
+{
+    "description": "react-transition-group/CSSTransition 的简单封装。",
+    "descriptionTags": {
+        "en": "Simple wrapper for react-transition-group/CSSTransition.",
+        "type": "其他",
+        "type_en": "Others",
+        "name": "动画过渡",
+        "name_en": "Transition"
+    },
+    "displayName": "Transition",
+    "methods": [],
+    "props": {
+        "children": {
+            "defaultValue": null,
+            "description": "待执行动画内容\n@en Animation content to be executed",
+            "name": "children",
+            "tags": {
+                "en": "Animation content to be executed"
+            },
+            "descWithTags": "待执行动画内容",
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "type": {
+            "defaultValue": null,
+            "description": "待执行动画css类名\n@en Css classname of the animation to be executed",
+            "name": "type",
+            "tags": {
+                "en": "Css classname of the animation to be executed"
+            },
+            "descWithTags": "待执行动画css类名",
+            "required": true,
+            "type": {
+                "name": "string"
+            }
+        },
+        "in": {
+            "defaultValue": null,
+            "description": "内容是否可见\n@en Whether the content is visible",
+            "name": "in",
+            "tags": {
+                "en": "Whether the content is visible"
+            },
+            "descWithTags": "内容是否可见",
+            "required": true,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "timeout": {
+            "defaultValue": null,
+            "description": "执行动画时间\n@en Execute animation time",
+            "name": "timeout",
+            "tags": {
+                "en": "Execute animation time"
+            },
+            "descWithTags": "执行动画时间",
+            "required": true,
+            "type": {
+                "name": "number | { appear?: number; enter?: number; exit?: number; }"
+            }
+        },
+        "mountOnEnter": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否在打开时再加载内容\n@en Whether to reload content when it is opened",
+            "name": "mountOnEnter",
+            "tags": {
+                "en": "Whether to reload content when it is opened",
+                "default": "true"
+            },
+            "descWithTags": "是否在打开时再加载内容",
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "unmountOnExit": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否在退出时卸载内容\n@en Whether to unmount content on exit",
+            "name": "unmountOnExit",
+            "tags": {
+                "en": "Whether to unmount content on exit",
+                "default": "true"
+            },
+            "descWithTags": "是否在退出时卸载内容",
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        }
+    },
+    "deps": {},
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "__type",
+        "ref": ""
+    },
+    "isDefaultExport": true
+}

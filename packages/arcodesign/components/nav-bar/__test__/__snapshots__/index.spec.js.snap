@@ -1,0 +1,595 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nav-bar demo test nav-bar demo: index.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-nav-bar"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-wrapper"
+      style="padding-top:"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <div
+            class="c-svg-arrow nav-bar-back"
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+                fill="currentColor"
+                id="path-1_1_"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Title
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-right"
+        >
+          <span
+            style="color:#165DFF"
+          >
+            More
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="gap-line"
+  />,
+  <div
+    class="arco-nav-bar"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-wrapper"
+      style="padding-top:"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <div
+            class="c-svg-arrow nav-bar-back"
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+                fill="currentColor"
+                id="path-1_1_"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Title
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="gap-line"
+  />,
+  <div
+    class="arco-nav-bar"
+    style="padding-top:;color:white;background:#165dff"
+  >
+    <div
+      class="arco-nav-bar-wrapper"
+      style="padding-top:"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <div
+            class="c-svg-arrow nav-bar-back"
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+                fill="currentColor"
+                id="path-1_1_"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Message
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-right"
+        >
+          <svg
+            class="arco-icon arco-icon-more "
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 48 48"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M35 21h6v6h-6zM7 21h6v6H7zm14 0h6v6h-6z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`nav-bar demo test nav-bar demo: index2.md renders correctly 1`] = `
+<div
+  class="arco-nav-bar"
+  style="padding-top:"
+>
+  <div
+    class="arco-nav-bar-wrapper"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-inner all-border-box"
+    >
+      <div
+        class="arco-nav-bar-title"
+      >
+        <div
+          class="arco-nav-bar-title-text"
+        >
+          Title
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`nav-bar demo test nav-bar demo: index3.md renders correctly 1`] = `
+Array [
+  <div
+    class="gap-line"
+  />,
+  <div
+    class="arco-nav-bar"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-wrapper"
+      style="padding-top:"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <div
+            class="c-svg-arrow nav-bar-back"
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+                fill="currentColor"
+                id="path-1_1_"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Title
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="gap-line"
+  />,
+  <div
+    class="arco-nav-bar"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-wrapper"
+      style="padding-top:"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <div
+            class="c-svg-arrow nav-bar-back"
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+                fill="currentColor"
+                id="path-1_1_"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Title
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-right"
+        >
+          <div
+            style="display:flex;align-items:center"
+          >
+            <span
+              style="margin-right:16px"
+            >
+              Edit
+            </span>
+            <svg
+              class="arco-icon arco-icon-more "
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 48 48"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M35 21h6v6h-6zM7 21h6v6H7zm14 0h6v6h-6z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="gap-line"
+  />,
+  <div
+    class="arco-nav-bar"
+    style="padding-top:;background:url(https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/navbar-demo-bg.png);color:white"
+  >
+    <div
+      class="immersive-navbar arco-nav-bar-wrapper arco-nav-bar-wrapper-border"
+      style="padding-top:10px"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <div
+            class="c-svg-arrow nav-bar-back"
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+                fill="currentColor"
+                id="path-1_1_"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            I am Immersive Navbar Title
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`nav-bar demo test nav-bar demo: index4.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-nav-bar"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-wrapper"
+      style="padding-top:"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <svg
+            class="arco-icon arco-icon-close "
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Title
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="gap-line"
+  />,
+  <div
+    class="arco-nav-bar"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-wrapper"
+      style="padding-top:"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <div
+            class="c-svg-arrow nav-bar-back"
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+                fill="currentColor"
+                id="path-1_1_"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Title
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-right"
+        >
+          <svg
+            class="arco-icon arco-icon-search "
+            height="1em"
+            style="font-size:18px"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M469.333 106.667C669.632 106.667 832 269.035 832 469.333c0 75.712-23.19 146.006-62.87 204.16l144.683 144.683a21.333 21.333 0 010 30.165l-36.202 36.203a21.333 21.333 0 01-30.166 0L706.56 743.68A361.259 361.259 0 01469.333 832c-200.298 0-362.666-162.368-362.666-362.667s162.368-362.666 362.666-362.666zm0 89.6c-150.826 0-273.066 122.24-273.066 273.066S318.507 742.4 469.333 742.4 742.4 620.16 742.4 469.333 620.16 196.267 469.333 196.267z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`nav-bar demo test nav-bar demo: index5.md renders correctly 1`] = `
+<div
+  class="arco-nav-bar"
+  style="padding-top:"
+>
+  <div
+    class="arco-nav-bar-wrapper"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-inner all-border-box"
+    >
+      <div
+        class="arco-nav-bar-left"
+      >
+        <div
+          class="c-svg-arrow nav-bar-back"
+        >
+          <svg
+            height="100%"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+              fill="currentColor"
+              id="path-1_1_"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        style="width:100%;padding:1px 46px"
+      >
+        <div
+          class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+        >
+          <div
+            class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+          >
+            <div
+              class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+            >
+              <div
+                class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+              >
+                <div
+                  class="arco-tab-cell vertical line-divide pc active no-shrink"
+                >
+                  Option 1
+                </div>
+                <div
+                  class="arco-tab-cell vertical line-divide pc no-shrink"
+                >
+                  Option 2
+                </div>
+                <div
+                  class="arco-tab-cell vertical line-divide pc no-shrink last"
+                >
+                  Option 3
+                </div>
+                <div
+                  class="arco-tab-cell-underline"
+                >
+                  <div
+                    class="arco-tab-cell-underline-inner vertical"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="arco-tab-pane-container vertical mode-swipe"
+            style="width:0%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+          />
+        </div>
+      </div>
+      <div
+        class="arco-nav-bar-right"
+      >
+        <svg
+          class="arco-icon arco-icon-more "
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 48 48"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M35 21h6v6h-6zM7 21h6v6H7zm14 0h6v6h-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`nav-bar demo test nav-bar demo: index6.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-nav-bar"
+    style="padding-top:"
+  >
+    <div
+      class="arco-nav-bar-wrapper"
+      style="padding-top:"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          Cancel
+        </div>
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Message
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-right"
+        >
+          <span
+            style="background:#165DFF;border-radius:26px;width:60px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#FFF"
+          >
+            Finish
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="gap-line"
+  />,
+]
+`;

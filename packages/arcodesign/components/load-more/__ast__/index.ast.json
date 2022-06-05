@@ -1,0 +1,465 @@
+{
+    "description": "上拉加载组件，支持`scroll`和`click`两种触发加载方式，支持滚动监听。支持受控与不受控两种形式。<br>如果引入组件后发现仅触发了初始的`getData`，请确认是否在`getData`方法内没有调用`callback`移除 loading 状态，且未设置`blockWhenLoading`属性为 false。",
+    "descriptionTags": {
+        "en": "Pull-up loading component, supports `scroll` and `click` two trigger loading methods, supports scroll monitoring. Both controlled and uncontrolled forms are supported. <br>If only the initial `getData` is triggered after the component is introduced, please make sure that the `callback` is not called in the `getData` method to remove the loading state, and the `blockWhenLoading` property is not set to false.",
+        "type": "反馈",
+        "type_en": "Feedback",
+        "name": "加载更多",
+        "name_en": "LoadMore"
+    },
+    "displayName": "LoadMore",
+    "methods": [],
+    "props": {
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "beforeReadyArea": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "组件加载但尚未启用状态下的内容\n@en Content when the component is loaded but not yet enabled",
+            "name": "beforeReadyArea",
+            "tags": {
+                "en": "Content when the component is loaded but not yet enabled",
+                "default": "null"
+            },
+            "descWithTags": "组件加载但尚未启用状态下的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "loadingArea": {
+            "defaultValue": {
+                "value": "\"正在努力加载中...\""
+            },
+            "description": "加载中状态下的内容\n@en Content in loading state\n@default_en \"Trying to load...\"",
+            "name": "loadingArea",
+            "tags": {
+                "en": "Content in loading state",
+                "default": "\"正在努力加载中...\"",
+                "default_en": "\"Trying to load...\""
+            },
+            "descWithTags": "加载中状态下的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "noMoreArea": {
+            "defaultValue": {
+                "value": "\"没有更多数据了\""
+            },
+            "description": "无更多数据状态下的内容\n@en Content with no more data\n@default_en \"No more data\"",
+            "name": "noMoreArea",
+            "tags": {
+                "en": "Content with no more data",
+                "default": "\"没有更多数据了\"",
+                "default_en": "\"No more data\""
+            },
+            "descWithTags": "无更多数据状态下的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "prepareArea": {
+            "defaultValue": {
+                "value": "\"上拉/点击加载更多\""
+            },
+            "description": "准备加载状态下的内容\n@en Content in ready-to-load state\n@default_en \"Pull up to load more\" or \"Click to load more\"",
+            "name": "prepareArea",
+            "tags": {
+                "en": "Content in ready-to-load state",
+                "default": "\"上拉/点击加载更多\"",
+                "default_en": "\"Pull up to load more\" or \"Click to load more\""
+            },
+            "descWithTags": "准备加载状态下的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "retryArea": {
+            "defaultValue": {
+                "value": "\"加载失败，点击重试\""
+            },
+            "description": "加载重试状态下的内容\n@en Load content in retry state\n@default_en \"failed to load, click to retry\"",
+            "name": "retryArea",
+            "tags": {
+                "en": "Load content in retry state",
+                "default": "\"加载失败，点击重试\"",
+                "default_en": "\"failed to load, click to retry\""
+            },
+            "descWithTags": "加载重试状态下的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "defaultStatus": {
+            "defaultValue": {
+                "value": "\"prepare\""
+            },
+            "description": "组件加载初始状态，传入 \"before-ready\" 则先加载组件但不请求数据\n@en The component is loaded in the initial state. Inputing in \"before-ready\" will load the component first without requesting data",
+            "name": "defaultStatus",
+            "tags": {
+                "en": "The component is loaded in the initial state. Inputing in \"before-ready\" will load the component first without requesting data",
+                "default": "\"prepare\""
+            },
+            "descWithTags": "组件加载初始状态，传入 \"before-ready\" 则先加载组件但不请求数据",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"before-ready\" | \"prepare\"",
+                "value": [
+                    {
+                        "value": "\"before-ready\""
+                    },
+                    {
+                        "value": "\"prepare\""
+                    }
+                ]
+            }
+        },
+        "status": {
+            "defaultValue": null,
+            "description": "当前状态，传入则受控\n@en Current state, the component is controlledc  when it is input",
+            "name": "status",
+            "tags": {
+                "en": "Current state, the component is controlledc  when it is input"
+            },
+            "descWithTags": "当前状态，传入则受控",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "LoadMoreStatus",
+                "value": [
+                    {
+                        "value": "\"before-ready\""
+                    },
+                    {
+                        "value": "\"prepare\""
+                    },
+                    {
+                        "value": "\"loading\""
+                    },
+                    {
+                        "value": "\"nomore\""
+                    },
+                    {
+                        "value": "\"retry\""
+                    }
+                ]
+            }
+        },
+        "getScrollContainer": {
+            "defaultValue": {
+                "value": "() => window"
+            },
+            "description": "待计算滚动容器\n@en Scrolling container to be calculated",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "Scrolling container to be calculated",
+                "default": "() => window"
+            },
+            "descWithTags": "待计算滚动容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | Window"
+            }
+        },
+        "trigger": {
+            "defaultValue": {
+                "value": "\"scroll\""
+            },
+            "description": "触发loading的时机，当为click时，点击后将触发getData\n@en The timing of triggering loading, when it is click, getData will be triggered after clicking",
+            "name": "trigger",
+            "tags": {
+                "en": "The timing of triggering loading, when it is click, getData will be triggered after clicking",
+                "default": "\"scroll\""
+            },
+            "descWithTags": "触发loading的时机，当为click时，点击后将触发getData",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"scroll\" | \"click\"",
+                "value": [
+                    {
+                        "value": "\"scroll\""
+                    },
+                    {
+                        "value": "\"click\""
+                    }
+                ]
+            }
+        },
+        "threshold": {
+            "defaultValue": {
+                "value": "200"
+            },
+            "description": "滚动到离列表底部多远的位置触发getData，触发状态时机为'scroll'时有效\n@en Scroll to how far from the bottom of the list to trigger getData, valid when the trigger state timing is 'scroll'",
+            "name": "threshold",
+            "tags": {
+                "en": "Scroll to how far from the bottom of the list to trigger getData, valid when the trigger state timing is 'scroll'",
+                "default": "200"
+            },
+            "descWithTags": "滚动到离列表底部多远的位置触发getData，触发状态时机为'scroll'时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "getData": {
+            "defaultValue": null,
+            "description": "请求数据方法，可在异步任务结束后根据任务结果调用callback修改loadmore内部状态\n@en The request data method, after the asynchronous task ends, the callback can be called according to the task result to modify the internal state of loadmore",
+            "name": "getData",
+            "tags": {
+                "en": "The request data method, after the asynchronous task ends, the callback can be called according to the task result to modify the internal state of loadmore"
+            },
+            "descWithTags": "请求数据方法，可在异步任务结束后根据任务结果调用callback修改loadmore内部状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(callback: (status: LoadMoreStatus) => void) => void"
+            }
+        },
+        "throttle": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "节流粒度\n@en Throttle granularity",
+            "name": "throttle",
+            "tags": {
+                "en": "Throttle granularity",
+                "default": "0"
+            },
+            "descWithTags": "节流粒度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "blockWhenLoading": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否在loading状态下不触发getData\n@en Whether to not trigger getData in the loading state",
+            "name": "blockWhenLoading",
+            "tags": {
+                "en": "Whether to not trigger getData in the loading state",
+                "default": "true"
+            },
+            "descWithTags": "是否在loading状态下不触发getData",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "getDataAtFirst": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "刚加载好组件时是否自动先请求一次，trigger=scroll时有效\n@en Whether to automatically request once when the component is just loaded, valid when trigger=scroll",
+            "name": "getDataAtFirst",
+            "tags": {
+                "en": "Whether to automatically request once when the component is just loaded, valid when trigger=scroll",
+                "default": "true"
+            },
+            "descWithTags": "刚加载好组件时是否自动先请求一次，trigger=scroll时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onStatusChange": {
+            "defaultValue": null,
+            "description": "状态改变时回调\n@en Callback when state changes",
+            "name": "onStatusChange",
+            "tags": {
+                "en": "Callback when state changes"
+            },
+            "descWithTags": "状态改变时回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(status: LoadMoreStatus, scene?: string) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "组件被点击时回调\n@en Callback when the component is clicked",
+            "name": "onClick",
+            "tags": {
+                "en": "Callback when the component is clicked"
+            },
+            "descWithTags": "组件被点击时回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+            }
+        },
+        "onEndReached": {
+            "defaultValue": null,
+            "description": "滚动到(底部 - threshold)距离时触发\n@en Callback when scrolling to (bottom - threshold) distance",
+            "name": "onEndReached",
+            "tags": {
+                "en": "Callback when scrolling to (bottom - threshold) distance"
+            },
+            "descWithTags": "滚动到(底部 - threshold)距离时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<LoadMoreRef>"
+            }
+        }
+    },
+    "deps": {
+        "LoadMoreStatus": "\"before-ready\"|\"prepare\"|\"loading\"|\"nomore\"|\"retry\"",
+        "LoadMoreRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "changeStatus": {
+                "name": "changeStatus",
+                "required": true,
+                "description": "手动更改组件状态\n@en Change component state manually",
+                "defaultValue": null,
+                "type": {
+                    "name": "(status: LoadMoreStatus, scene?: string) => void"
+                },
+                "tags": {
+                    "en": "Change component state manually"
+                },
+                "descWithTags": "手动更改组件状态"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "LoadMoreProps",
+        "ref": "LoadMoreRef"
+    },
+    "isDefaultExport": true
+}

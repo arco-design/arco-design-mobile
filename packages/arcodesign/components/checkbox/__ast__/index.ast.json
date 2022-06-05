@@ -1,0 +1,1031 @@
+{
+    "description": "复选框，可用状态下点击切换选择，支持禁用，支持复选项组。",
+    "descriptionTags": {
+        "en": "Checkbox, click to switch selection when available, support disabled status, support checkbox group.",
+        "name": "复选框",
+        "name_en": "Checkbox",
+        "type": "数据输入",
+        "type_en": "Data Entry"
+    },
+    "displayName": "Checkbox",
+    "methods": [],
+    "props": {
+        "label": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "选项的文字说明，传入children时此属性无效\n@en The text description of the option, invalid when the component has children",
+            "name": "label",
+            "tags": {
+                "en": "The text description of the option, invalid when the component has children",
+                "default": "\"\""
+            },
+            "descWithTags": "选项的文字说明，传入children时此属性无效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "value": {
+            "defaultValue": null,
+            "description": "Checkbox的值\n@en Checkbox value",
+            "name": "value",
+            "tags": {
+                "en": "Checkbox value"
+            },
+            "descWithTags": "Checkbox的值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxProps"
+            },
+            "required": true,
+            "type": {
+                "name": "ValueType"
+            }
+        },
+        "defaultCheck": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "默认选中状态\n@en Default selected status",
+            "name": "defaultCheck",
+            "tags": {
+                "en": "Default selected status",
+                "default": "false"
+            },
+            "descWithTags": "默认选中状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "checked": {
+            "defaultValue": null,
+            "description": "是否选中，传值即为受控模式\n@en Whether it is selected or not, the component is in the controlled mode when the property is set",
+            "name": "checked",
+            "tags": {
+                "en": "Whether it is selected or not, the component is in the controlled mode when the property is set"
+            },
+            "descWithTags": "是否选中，传值即为受控模式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onChange": {
+            "defaultValue": {
+                "value": "() => {}"
+            },
+            "description": "复选框选中状态回调函数\n@en Callback when the checkbox status changes",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when the checkbox status changes",
+                "default": "() => {}"
+            },
+            "descWithTags": "复选框选中状态回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(checked: boolean, value: ValueType, e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "shape": {
+            "defaultValue": {
+                "value": "'circle'"
+            },
+            "description": "图标的形状\n@en Icon shape",
+            "name": "shape",
+            "tags": {
+                "en": "Icon shape",
+                "default": "'circle'"
+            },
+            "descWithTags": "图标的形状",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"circle\" | \"square\"",
+                "value": [
+                    {
+                        "value": "\"circle\""
+                    },
+                    {
+                        "value": "\"square\""
+                    }
+                ]
+            }
+        },
+        "layout": {
+            "defaultValue": {
+                "value": "'inline'"
+            },
+            "description": "排版样式(内联|块级|图标靠右两端对齐)\n@en Typography style (inline | block level | justified with right icon)",
+            "name": "layout",
+            "tags": {
+                "en": "Typography style (inline | block level | justified with right icon)",
+                "default": "'inline'"
+            },
+            "descWithTags": "排版样式(内联|块级|图标靠右两端对齐)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"inline\" | \"block\" | \"justify\"",
+                "value": [
+                    {
+                        "value": "\"inline\""
+                    },
+                    {
+                        "value": "\"block\""
+                    },
+                    {
+                        "value": "\"justify\""
+                    }
+                ]
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用\n@en Whether to disable",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to disable",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "icons": {
+            "defaultValue": {
+                "value": "Default icon"
+            },
+            "description": "自定义图标合集，传 null 表示无图标\n@en Custom icon collection, input null to indicate no icon",
+            "name": "icons",
+            "tags": {
+                "en": "Custom icon collection, input null to indicate no icon",
+                "default": "Default icon"
+            },
+            "descWithTags": "自定义图标合集，传 null 表示无图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "IconType"
+            }
+        },
+        "isRadio": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否为Radio组件，不推荐使用，仅用于支持Radio组件\n@en Whether it is a Radio component. It is deprecated, only used to support Radio component",
+            "name": "isRadio",
+            "tags": {
+                "en": "Whether it is a Radio component. It is deprecated, only used to support Radio component",
+                "default": "false"
+            },
+            "descWithTags": "是否为Radio组件，不推荐使用，仅用于支持Radio组件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                "name": "CheckboxCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "children": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "自定义组件内容\n@en Custom component content",
+            "name": "children",
+            "tags": {
+                "en": "Custom component content",
+                "default": "null"
+            },
+            "descWithTags": "自定义组件内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<CheckboxRef>"
+            }
+        }
+    },
+    "deps": {
+        "ValueType": "string|number",
+        "IconType": {
+            "normal": {
+                "name": "normal",
+                "required": false,
+                "description": "未选中\n@en unselected",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "unselected"
+                },
+                "descWithTags": "未选中"
+            },
+            "active": {
+                "name": "active",
+                "required": false,
+                "description": "选中态\n@en selected",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "selected"
+                },
+                "descWithTags": "选中态"
+            },
+            "disabled": {
+                "name": "disabled",
+                "required": false,
+                "description": "禁用态\n@en disabled",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "disabled"
+                },
+                "descWithTags": "禁用态"
+            },
+            "activeDisabled": {
+                "name": "activeDisabled",
+                "required": false,
+                "description": "禁用选中态\n@en active but disabled",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "active but disabled"
+                },
+                "descWithTags": "禁用选中态"
+            }
+        },
+        "CheckboxRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "组件外层dom元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "组件外层dom元素"
+            }
+        }
+    },
+    "depComps": {
+        "Group": {
+            "description": "复选项组",
+            "descriptionTags": {
+                "en": "Checkbox group"
+            },
+            "displayName": "Group",
+            "methods": [],
+            "props": {
+                "options": {
+                    "defaultValue": null,
+                    "description": "复选框组可选项, 传入children后此值无效\n@en Checkbox group options, invalid after inputing children",
+                    "name": "options",
+                    "tags": {
+                        "en": "Checkbox group options, invalid after inputing children"
+                    },
+                    "descWithTags": "复选框组可选项, 传入children后此值无效",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(CheckboxProps<ValueType> & RefAttributes<CheckboxRef>)[]"
+                    }
+                },
+                "value": {
+                    "defaultValue": null,
+                    "description": "受控模式，复选框选中的选项值\n@en Checkbox value in controlled mode",
+                    "name": "value",
+                    "tags": {
+                        "en": "Checkbox value in controlled mode"
+                    },
+                    "descWithTags": "受控模式，复选框选中的选项值",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ValueType[]"
+                    }
+                },
+                "defaultValue": {
+                    "defaultValue": {
+                        "value": "[]"
+                    },
+                    "description": "默认选中项\n@en Default selected option",
+                    "name": "defaultValue",
+                    "tags": {
+                        "en": "Default selected option",
+                        "default": "[]"
+                    },
+                    "descWithTags": "默认选中项",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ValueType[]"
+                    }
+                },
+                "min": {
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "description": "最小可选值数量\n@en Minimum number of options",
+                    "name": "min",
+                    "tags": {
+                        "en": "Minimum number of options",
+                        "default": "0"
+                    },
+                    "descWithTags": "最小可选值数量",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "max": {
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "description": "最大可选值数量，0表示没有限制\n@en Maximum number of options, 0 means no limit",
+                    "name": "max",
+                    "tags": {
+                        "en": "Maximum number of options, 0 means no limit",
+                        "default": "0"
+                    },
+                    "descWithTags": "最大可选值数量，0表示没有限制",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "onChange": {
+                    "defaultValue": {
+                        "value": "() => {}"
+                    },
+                    "description": "点击复选框值变化回调\n@en Callback when the checkbox value changes",
+                    "name": "onChange",
+                    "tags": {
+                        "en": "Callback when the checkbox value changes",
+                        "default": "() => {}"
+                    },
+                    "descWithTags": "点击复选框值变化回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(value: ValueType[]) => void"
+                    }
+                },
+                "shape": {
+                    "defaultValue": {
+                        "value": "'circle'"
+                    },
+                    "description": "图标的形状\n@en Icon shape",
+                    "name": "shape",
+                    "tags": {
+                        "en": "Icon shape",
+                        "default": "'circle'"
+                    },
+                    "descWithTags": "图标的形状",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"circle\" | \"square\"",
+                        "value": [
+                            {
+                                "value": "\"circle\""
+                            },
+                            {
+                                "value": "\"square\""
+                            }
+                        ]
+                    }
+                },
+                "layout": {
+                    "defaultValue": {
+                        "value": "'inline'"
+                    },
+                    "description": "排版样式(内联|块级|图标靠右两端对齐)\n@en Typography style (inline | block level | justified with right icon)",
+                    "name": "layout",
+                    "tags": {
+                        "en": "Typography style (inline | block level | justified with right icon)",
+                        "default": "'inline'"
+                    },
+                    "descWithTags": "排版样式(内联|块级|图标靠右两端对齐)",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"inline\" | \"block\" | \"justify\"",
+                        "value": [
+                            {
+                                "value": "\"inline\""
+                            },
+                            {
+                                "value": "\"block\""
+                            },
+                            {
+                                "value": "\"justify\""
+                            }
+                        ]
+                    }
+                },
+                "disabled": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "是否禁用\n@en Whether to disable",
+                    "name": "disabled",
+                    "tags": {
+                        "en": "Whether to disable",
+                        "default": "false"
+                    },
+                    "descWithTags": "是否禁用",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "icons": {
+                    "defaultValue": {
+                        "value": "Default icon"
+                    },
+                    "description": "自定义图标合集，传 null 表示无图标\n@en Custom icon collection, input null to indicate no icon",
+                    "name": "icons",
+                    "tags": {
+                        "en": "Custom icon collection, input null to indicate no icon",
+                        "default": "Default icon"
+                    },
+                    "descWithTags": "自定义图标合集，传 null 表示无图标",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "IconType"
+                    }
+                },
+                "isRadio": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "是否为Radio组件，不推荐使用，仅用于支持Radio组件\n@en Whether it is a Radio component. It is deprecated, only used to support Radio component",
+                    "name": "isRadio",
+                    "tags": {
+                        "en": "Whether it is a Radio component. It is deprecated, only used to support Radio component",
+                        "default": "false"
+                    },
+                    "descWithTags": "是否为Radio组件，不推荐使用，仅用于支持Radio组件",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/checkbox/type.ts",
+                        "name": "CheckboxCommonProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "children": {
+                    "defaultValue": {
+                        "value": "null"
+                    },
+                    "description": "自定义组件内容\n@en Custom component content",
+                    "name": "children",
+                    "tags": {
+                        "en": "Custom component content",
+                        "default": "null"
+                    },
+                    "descWithTags": "自定义组件内容",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "BaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<CheckboxGroupRef>"
+                    }
+                }
+            },
+            "deps": {
+                "CheckboxProps": {
+                    "T": {
+                        "name": "T",
+                        "required": true,
+                        "description": "",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "any"
+                        },
+                        "tags": {},
+                        "descWithTags": ""
+                    },
+                    "label": {
+                        "name": "label",
+                        "required": false,
+                        "description": "选项的文字说明，传入children时此属性无效\n@en The text description of the option, invalid when the component has children",
+                        "defaultValue": {
+                            "value": "\"\""
+                        },
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "The text description of the option, invalid when the component has children",
+                            "default": "\"\""
+                        },
+                        "descWithTags": "选项的文字说明，传入children时此属性无效"
+                    },
+                    "value": {
+                        "name": "value",
+                        "required": true,
+                        "description": "Checkbox的值\n@en Checkbox value",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ValueType"
+                        },
+                        "tags": {
+                            "en": "Checkbox value"
+                        },
+                        "descWithTags": "Checkbox的值"
+                    },
+                    "defaultCheck": {
+                        "name": "defaultCheck",
+                        "required": false,
+                        "description": "默认选中状态\n@en Default selected status",
+                        "defaultValue": {
+                            "value": "false"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Default selected status",
+                            "default": "false"
+                        },
+                        "descWithTags": "默认选中状态"
+                    },
+                    "checked": {
+                        "name": "checked",
+                        "required": false,
+                        "description": "是否选中，传值即为受控模式\n@en Whether it is selected or not, the component is in the controlled mode when the property is set",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether it is selected or not, the component is in the controlled mode when the property is set"
+                        },
+                        "descWithTags": "是否选中，传值即为受控模式"
+                    },
+                    "onChange": {
+                        "name": "onChange",
+                        "required": false,
+                        "description": "复选框选中状态回调函数\n@en Callback when the checkbox status changes",
+                        "defaultValue": {
+                            "value": "() => {}"
+                        },
+                        "type": {
+                            "name": "(checked: boolean, value: ValueType, e: MouseEvent<Element, MouseEvent>) => void"
+                        },
+                        "tags": {
+                            "en": "Callback when the checkbox status changes",
+                            "default": "() => {}"
+                        },
+                        "descWithTags": "复选框选中状态回调函数"
+                    },
+                    "shape": {
+                        "name": "shape",
+                        "required": false,
+                        "description": "图标的形状\n@en Icon shape",
+                        "defaultValue": {
+                            "value": "'circle'"
+                        },
+                        "type": {
+                            "name": "enum",
+                            "raw": "\"circle\" | \"square\"",
+                            "value": [
+                                {
+                                    "value": "\"circle\""
+                                },
+                                {
+                                    "value": "\"square\""
+                                }
+                            ]
+                        },
+                        "tags": {
+                            "en": "Icon shape",
+                            "default": "'circle'"
+                        },
+                        "descWithTags": "图标的形状"
+                    },
+                    "layout": {
+                        "name": "layout",
+                        "required": false,
+                        "description": "排版样式(内联|块级|图标靠右两端对齐)\n@en Typography style (inline | block level | justified with right icon)",
+                        "defaultValue": {
+                            "value": "'inline'"
+                        },
+                        "type": {
+                            "name": "enum",
+                            "raw": "\"inline\" | \"block\" | \"justify\"",
+                            "value": [
+                                {
+                                    "value": "\"inline\""
+                                },
+                                {
+                                    "value": "\"block\""
+                                },
+                                {
+                                    "value": "\"justify\""
+                                }
+                            ]
+                        },
+                        "tags": {
+                            "en": "Typography style (inline | block level | justified with right icon)",
+                            "default": "'inline'"
+                        },
+                        "descWithTags": "排版样式(内联|块级|图标靠右两端对齐)"
+                    },
+                    "disabled": {
+                        "name": "disabled",
+                        "required": false,
+                        "description": "是否禁用\n@en Whether to disable",
+                        "defaultValue": {
+                            "value": "false"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether to disable",
+                            "default": "false"
+                        },
+                        "descWithTags": "是否禁用"
+                    },
+                    "icons": {
+                        "name": "icons",
+                        "required": false,
+                        "description": "自定义图标合集，传 null 表示无图标\n@en Custom icon collection, input null to indicate no icon",
+                        "defaultValue": {
+                            "value": "Default icon"
+                        },
+                        "type": {
+                            "name": "IconType"
+                        },
+                        "tags": {
+                            "en": "Custom icon collection, input null to indicate no icon",
+                            "default": "Default icon"
+                        },
+                        "descWithTags": "自定义图标合集，传 null 表示无图标"
+                    },
+                    "isRadio": {
+                        "name": "isRadio",
+                        "required": false,
+                        "description": "是否为Radio组件，不推荐使用，仅用于支持Radio组件\n@en Whether it is a Radio component. It is deprecated, only used to support Radio component",
+                        "defaultValue": {
+                            "value": "false"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether it is a Radio component. It is deprecated, only used to support Radio component",
+                            "default": "false"
+                        },
+                        "descWithTags": "是否为Radio组件，不推荐使用，仅用于支持Radio组件"
+                    },
+                    "children": {
+                        "name": "children",
+                        "required": false,
+                        "description": "自定义组件内容\n@en Custom component content",
+                        "defaultValue": {
+                            "value": "null"
+                        },
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "Custom component content",
+                            "default": "null"
+                        },
+                        "descWithTags": "自定义组件内容"
+                    },
+                    "className": {
+                        "name": "className",
+                        "required": false,
+                        "description": "自定义类名\n@en Custom classname",
+                        "defaultValue": {
+                            "value": "\"\""
+                        },
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Custom classname",
+                            "default": "\"\""
+                        },
+                        "descWithTags": "自定义类名"
+                    },
+                    "style": {
+                        "name": "style",
+                        "required": false,
+                        "description": "自定义样式\n@en Custom stylesheet",
+                        "defaultValue": {
+                            "value": "{}"
+                        },
+                        "type": {
+                            "name": "CSSProperties"
+                        },
+                        "tags": {
+                            "en": "Custom stylesheet",
+                            "default": "{}"
+                        },
+                        "descWithTags": "自定义样式"
+                    }
+                },
+                "ValueType": "string|number",
+                "IconType": {
+                    "normal": {
+                        "name": "normal",
+                        "required": false,
+                        "description": "未选中\n@en unselected",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "unselected"
+                        },
+                        "descWithTags": "未选中"
+                    },
+                    "active": {
+                        "name": "active",
+                        "required": false,
+                        "description": "选中态\n@en selected",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "selected"
+                        },
+                        "descWithTags": "选中态"
+                    },
+                    "disabled": {
+                        "name": "disabled",
+                        "required": false,
+                        "description": "禁用态\n@en disabled",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "disabled"
+                        },
+                        "descWithTags": "禁用态"
+                    },
+                    "activeDisabled": {
+                        "name": "activeDisabled",
+                        "required": false,
+                        "description": "禁用选中态\n@en active but disabled",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "active but disabled"
+                        },
+                        "descWithTags": "禁用选中态"
+                    }
+                },
+                "CheckboxRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "组件外层dom元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "组件外层dom元素"
+                    }
+                },
+                "CheckboxGroupRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "组件外层dom元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "组件外层dom元素"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "CheckboxGroupProps",
+                "ref": "CheckboxGroupRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "CheckboxProps",
+        "ref": "CheckboxRef"
+    },
+    "isDefaultExport": true
+}

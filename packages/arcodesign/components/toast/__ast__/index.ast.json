@@ -1,0 +1,631 @@
+{
+    "description": "轻提示组件，支持各个场景下调用方法。",
+    "descriptionTags": {
+        "en": "The toast component, supports calling methods in various scenarios.",
+        "type": "反馈",
+        "type_en": "Feedback",
+        "name": "轻提示",
+        "name_en": "Toast"
+    },
+    "displayName": "Toast",
+    "methods": [
+        {
+            "description": "展示常规提示框",
+            "docblock": "展示常规提示框\n@desc {en} Show regular toast\n@param config Configuration\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "Configuration",
+                        "type": "string | ToastProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: ToastProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Show regular toast"
+                }
+            },
+            "modifiers": [],
+            "name": "toast",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        },
+        {
+            "description": "展示常规提示框，同 Toast.toast",
+            "docblock": "展示常规提示框，同 Toast.toast\n@desc {en} Show regular toast, the same as Toast.toast\n@param config Configuration\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "Configuration",
+                        "type": "string | ToastProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: ToastProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Show regular toast, the same as Toast.toast"
+                }
+            },
+            "modifiers": [],
+            "name": "info",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        },
+        {
+            "description": "展示成功提示框(含成功icon)",
+            "docblock": "展示成功提示框(含成功icon)\n@desc {en} Show success prompt toast (including success icon)\n@param config Configuration\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "Configuration",
+                        "type": "string | ToastProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: ToastProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Show success prompt toast (including success icon)"
+                }
+            },
+            "modifiers": [],
+            "name": "success",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        },
+        {
+            "description": "展示错误提示框(含错误icon)",
+            "docblock": "展示错误提示框(含错误icon)\n@desc {en} Display error prompt toast (including error icon)\n@param config Configuration\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "Configuration",
+                        "type": "string | ToastProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: ToastProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Display error prompt toast (including error icon)"
+                }
+            },
+            "modifiers": [],
+            "name": "error",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        },
+        {
+            "description": "展示加载中提示框(含加载中icon)",
+            "docblock": "展示加载中提示框(含加载中icon)\n@desc {en} Display loading prompt toast (including loading icon)\n@param config Configuration\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "Configuration",
+                        "type": "string | ToastProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: ToastProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Display loading prompt toast (including loading icon)"
+                }
+            },
+            "modifiers": [],
+            "name": "loading",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        },
+        {
+            "description": "展示警告提示框(含警告icon)",
+            "docblock": "展示警告提示框(含警告icon)\n@desc {en} Display warning prompt toast (including warning icon)\n@param config Configuration\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "Configuration",
+                        "type": "string | ToastProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: ToastProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Display warning prompt toast (including warning icon)"
+                }
+            },
+            "modifiers": [],
+            "name": "warn",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        }
+    ],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "content": {
+            "defaultValue": null,
+            "description": "提示内容\n@en Tip content",
+            "name": "content",
+            "tags": {
+                "en": "Tip content"
+            },
+            "descWithTags": "提示内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "duration": {
+            "defaultValue": {
+                "value": "3000"
+            },
+            "description": "自动关闭的延时（单位: ms），设置为0则不会自动关闭\n@en Duration of automatic shutdown (unit: ms), if set to 0, it will not automatically shutdown",
+            "name": "duration",
+            "tags": {
+                "en": "Duration of automatic shutdown (unit: ms), if set to 0, it will not automatically shutdown",
+                "default": "3000"
+            },
+            "descWithTags": "自动关闭的延时（单位: ms），设置为0则不会自动关闭",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "icon": {
+            "defaultValue": null,
+            "description": "自定义图标\n@en Custom icon",
+            "name": "icon",
+            "tags": {
+                "en": "Custom icon"
+            },
+            "descWithTags": "自定义图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "layout": {
+            "defaultValue": {
+                "value": "\"vertical\""
+            },
+            "description": "内容排列布局\n@en Content layout",
+            "name": "layout",
+            "tags": {
+                "en": "Content layout",
+                "default": "\"vertical\""
+            },
+            "descWithTags": "内容排列布局",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"vertical\" | \"horizontal\"",
+                "value": [
+                    {
+                        "value": "\"vertical\""
+                    },
+                    {
+                        "value": "\"horizontal\""
+                    }
+                ]
+            }
+        },
+        "transitionDuration": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "打开关闭动画执行时长（单位: ms）\n@en Open and close animation duration (unit: ms)",
+            "name": "transitionDuration",
+            "tags": {
+                "en": "Open and close animation duration (unit: ms)",
+                "default": "300"
+            },
+            "descWithTags": "打开关闭动画执行时长（单位: ms）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "close": {
+            "defaultValue": null,
+            "description": "关闭函数\n@en Close function",
+            "name": "close",
+            "tags": {
+                "en": "Close function"
+            },
+            "descWithTags": "关闭函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onClose": {
+            "defaultValue": null,
+            "description": "关闭后的回调函数\n@en Callback after closing",
+            "name": "onClose",
+            "tags": {
+                "en": "Callback after closing"
+            },
+            "descWithTags": "关闭后的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "loading": {
+            "defaultValue": null,
+            "description": "是否为加载态\n@en Whether it is in the loading state",
+            "name": "loading",
+            "tags": {
+                "en": "Whether it is in the loading state"
+            },
+            "descWithTags": "是否为加载态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "loadingIcon": {
+            "defaultValue": null,
+            "description": "加载图标，传入Icon组件type属性或node\n@en Loading icon, input the type or node of icon component",
+            "name": "loadingIcon",
+            "tags": {
+                "en": "Loading icon, input the type or node of icon component"
+            },
+            "descWithTags": "加载图标，传入Icon组件type属性或node",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "loadingInner": {
+            "defaultValue": null,
+            "description": "加载图标内部元素，仅在 loading 为 true 时生效\n@en Inner element of loading icon, only takes effect when loading is true",
+            "name": "loadingInner",
+            "tags": {
+                "en": "Inner element of loading icon, only takes effect when loading is true"
+            },
+            "descWithTags": "加载图标内部元素，仅在 loading 为 true 时生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "disableBodyTouch": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁止toast以外区域的交互\n@en Whether to prohibit interaction in areas other than toast",
+            "name": "disableBodyTouch",
+            "tags": {
+                "en": "Whether to prohibit interaction in areas other than toast",
+                "default": "false"
+            },
+            "descWithTags": "是否禁止toast以外区域的交互",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "visible": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否显示toast\n@en Whether to show toast",
+            "name": "visible",
+            "tags": {
+                "en": "Whether to show toast",
+                "default": "false"
+            },
+            "descWithTags": "是否显示toast",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "getContainer": {
+            "defaultValue": null,
+            "description": "获取挂载容器\n@en Get mounted container",
+            "name": "getContainer",
+            "tags": {
+                "en": "Get mounted container"
+            },
+            "descWithTags": "获取挂载容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        },
+        "type": {
+            "defaultValue": {
+                "value": "\"info\""
+            },
+            "description": "toast展示信息类型，不同类型对应不同图标，info表示纯文字信息无图标\n@en toast displays information types, different types correspond to different icons, info means plain text information without icons",
+            "name": "type",
+            "tags": {
+                "en": "toast displays information types, different types correspond to different icons, info means plain text information without icons",
+                "default": "\"info\""
+            },
+            "descWithTags": "toast展示信息类型，不同类型对应不同图标，info表示纯文字信息无图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"info\" | \"success\" | \"error\" | \"warn\"",
+                "value": [
+                    {
+                        "value": "\"info\""
+                    },
+                    {
+                        "value": "\"success\""
+                    },
+                    {
+                        "value": "\"error\""
+                    },
+                    {
+                        "value": "\"warn\""
+                    }
+                ]
+            }
+        },
+        "direction": {
+            "defaultValue": {
+                "value": "\"center\""
+            },
+            "description": "toast出现位置\n@en The direction where the toast appears",
+            "name": "direction",
+            "tags": {
+                "en": "The direction where the toast appears",
+                "default": "\"center\""
+            },
+            "descWithTags": "toast出现位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"center\" | \"top\" | \"bottom\"",
+                "value": [
+                    {
+                        "value": "\"center\""
+                    },
+                    {
+                        "value": "\"top\""
+                    },
+                    {
+                        "value": "\"bottom\""
+                    }
+                ]
+            }
+        },
+        "typeIconMap": {
+            "defaultValue": null,
+            "description": "自定义不同类型对应的不同图标\n@en Customize different icons corresponding to different types",
+            "name": "typeIconMap",
+            "tags": {
+                "en": "Customize different icons corresponding to different types"
+            },
+            "descWithTags": "自定义不同类型对应的不同图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "Partial<Record<ToastType, ReactNode>>"
+            }
+        },
+        "initialBodyOverflow": {
+            "defaultValue": {
+                "value": "第一个全屏组件（弹窗、toast等）打开时页面overflow值"
+            },
+            "description": "页面初始 overflow 状态，即关闭toast时 overflow 应该还原的状态\n@en The initial overflow state of the page, that is, the state of overflow should be restored when toast is closed\n@default_en The page overflow value when the first fullscreen component (popup, toast, etc.) is opened",
+            "name": "initialBodyOverflow",
+            "tags": {
+                "en": "The initial overflow state of the page, that is, the state of overflow should be restored when toast is closed",
+                "default": "第一个全屏组件（弹窗、toast等）打开时页面overflow值",
+                "default_en": "The page overflow value when the first fullscreen component (popup, toast, etc.) is opened"
+            },
+            "descWithTags": "页面初始 overflow 状态，即关闭toast时 overflow 应该还原的状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/toast/index.tsx",
+                "name": "ToastProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<ToastRef>"
+            }
+        }
+    },
+    "deps": {
+        "ToastType": "\"success\"|\"error\"|\"warn\"",
+        "ToastRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "ToastProps",
+        "ref": "ToastRef"
+    },
+    "isDefaultExport": true
+}

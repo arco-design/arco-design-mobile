@@ -1,0 +1,507 @@
+{
+    "description": "滑动型输入器，展示当前值和可选范围。",
+    "descriptionTags": {
+        "en": "Slide input component, displays the current value and optional range.",
+        "name": "滑动输入条",
+        "name_en": "Slider",
+        "type": "数据输入",
+        "type_en": "Data Entry"
+    },
+    "displayName": "Slider",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用\n@en Disabled",
+            "name": "disabled",
+            "tags": {
+                "en": "Disabled",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "useRange": {
+            "defaultValue": {
+                "value": "根据 传入初始参数判断，没有则为 false"
+            },
+            "description": "使用范围选择\n@en Use range selection\n@default_en Judging by the incoming initial parameters, false if not",
+            "name": "useRange",
+            "tags": {
+                "en": "Use range selection",
+                "default": "根据 传入初始参数判断，没有则为 false",
+                "default_en": "Judging by the incoming initial parameters, false if not"
+            },
+            "descWithTags": "使用范围选择",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "useAnimation": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "非点击状态使用动画\n@en Use animation for non-click state",
+            "name": "useAnimation",
+            "tags": {
+                "en": "Use animation for non-click state",
+                "default": "true"
+            },
+            "descWithTags": "非点击状态使用动画",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "min": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "最小值\n@en Minimum value",
+            "name": "min",
+            "tags": {
+                "en": "Minimum value",
+                "default": "0"
+            },
+            "descWithTags": "最小值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "max": {
+            "defaultValue": {
+                "value": "100"
+            },
+            "description": "最大值\n@en Maximum value",
+            "name": "max",
+            "tags": {
+                "en": "Maximum value",
+                "default": "100"
+            },
+            "descWithTags": "最大值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "defaultValue": {
+            "defaultValue": null,
+            "description": "默认初始值\n@en Default initial value",
+            "name": "defaultValue",
+            "tags": {
+                "en": "Default initial value"
+            },
+            "descWithTags": "默认初始值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | [number, number]"
+            }
+        },
+        "value": {
+            "defaultValue": null,
+            "description": "基础值，组件受控\n@en Value, component will be controlled",
+            "name": "value",
+            "tags": {
+                "en": "Value, component will be controlled"
+            },
+            "descWithTags": "基础值，组件受控",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | [number, number]"
+            }
+        },
+        "step": {
+            "defaultValue": {
+                "value": "1"
+            },
+            "description": "最小单位\n@en Step",
+            "name": "step",
+            "tags": {
+                "en": "Step",
+                "default": "1"
+            },
+            "descWithTags": "最小单位",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "type": {
+            "defaultValue": {
+                "value": "\"horizontal\""
+            },
+            "description": "组件方向\n@en Component direction",
+            "name": "type",
+            "tags": {
+                "en": "Component direction",
+                "default": "\"horizontal\""
+            },
+            "descWithTags": "组件方向",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"horizontal\" | \"vertical\"",
+                "value": [
+                    {
+                        "value": "\"horizontal\""
+                    },
+                    {
+                        "value": "\"vertical\""
+                    }
+                ]
+            }
+        },
+        "showTooltip": {
+            "defaultValue": {
+                "value": "\"auto\""
+            },
+            "description": "是否展示气泡\n@en Whether to show tooltips",
+            "name": "showTooltip",
+            "tags": {
+                "en": "Whether to show tooltips",
+                "default": "\"auto\""
+            },
+            "descWithTags": "是否展示气泡",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"auto\" | \"always\" | \"never\"",
+                "value": [
+                    {
+                        "value": "\"auto\""
+                    },
+                    {
+                        "value": "\"always\""
+                    },
+                    {
+                        "value": "\"never\""
+                    }
+                ]
+            }
+        },
+        "marks": {
+            "defaultValue": null,
+            "description": "滑动条节点配置\n@en Slider node configuration",
+            "name": "marks",
+            "tags": {
+                "en": "Slider node configuration"
+            },
+            "descWithTags": "滑动条节点配置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | number[] | Record<string, ReactNode>"
+            }
+        },
+        "showMarks": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否展示标签底部文案\n@en Whether to display the bottom mark text",
+            "name": "showMarks",
+            "tags": {
+                "en": "Whether to display the bottom mark text",
+                "default": "false"
+            },
+            "descWithTags": "是否展示标签底部文案",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "useMarkOnly": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否只可用标志的值，覆盖 step\n@en Whether only the value of the mark is available, overriding step",
+            "name": "useMarkOnly",
+            "tags": {
+                "en": "Whether only the value of the mark is available, overriding step",
+                "default": "false"
+            },
+            "descWithTags": "是否只可用标志的值，覆盖 step",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "prefixLabel": {
+            "defaultValue": null,
+            "description": "前缀 icon 或者 文案\n@en prefix icon or label",
+            "name": "prefixLabel",
+            "tags": {
+                "en": "prefix icon or label"
+            },
+            "descWithTags": "前缀 icon 或者 文案",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode | ((value: number | [...]) => ReactNode)"
+            }
+        },
+        "suffixLabel": {
+            "defaultValue": null,
+            "description": "后缀 icon 或者 文案\n@en Suffix icon or label",
+            "name": "suffixLabel",
+            "tags": {
+                "en": "Suffix icon or label"
+            },
+            "descWithTags": "后缀 icon 或者 文案",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode | ((value: number | [...]) => ReactNode)"
+            }
+        },
+        "size": {
+            "defaultValue": {
+                "value": "2"
+            },
+            "description": "组件横条粗细，单位 px\n@en Slider bar thickness (unit: px)",
+            "name": "size",
+            "tags": {
+                "en": "Slider bar thickness (unit: px)",
+                "default": "2"
+            },
+            "descWithTags": "组件横条粗细，单位 px",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "draggableTrackOnly": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "只允许拖动滑块 默认 false\n@en Only allow dragging of sliders,  the default is false",
+            "name": "draggableTrackOnly",
+            "tags": {
+                "en": "Only allow dragging of sliders,  the default is false",
+                "default": "false"
+            },
+            "descWithTags": "只允许拖动滑块 默认 false",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "formatTooltip": {
+            "defaultValue": null,
+            "description": "自定义气泡内容\n@en Custom tooltip content",
+            "name": "formatTooltip",
+            "tags": {
+                "en": "Custom tooltip content"
+            },
+            "descWithTags": "自定义气泡内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: number) => ReactNode"
+            }
+        },
+        "onAfterChange": {
+            "defaultValue": null,
+            "description": "修改后事件，时机同 touchend\n@en Callback after value changes, the timing is the same as touchend",
+            "name": "onAfterChange",
+            "tags": {
+                "en": "Callback after value changes, the timing is the same as touchend"
+            },
+            "descWithTags": "修改后事件，时机同 touchend",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: number | [number, number]) => void"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "实时修改事件\n@en Callback when value changes in real time",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when value changes in real time"
+            },
+            "descWithTags": "实时修改事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: number | [number, number]) => void"
+            }
+        },
+        "renderThumb": {
+            "defaultValue": null,
+            "description": "自定义滑块\n@en Custom slider",
+            "name": "renderThumb",
+            "tags": {
+                "en": "Custom slider"
+            },
+            "descWithTags": "自定义滑块",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/slider/index.tsx",
+                "name": "SliderProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: number) => ReactNode"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<SliderRef>"
+            }
+        }
+    },
+    "deps": {
+        "SliderRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "SliderProps",
+        "ref": "SliderRef"
+    },
+    "isDefaultExport": true
+}

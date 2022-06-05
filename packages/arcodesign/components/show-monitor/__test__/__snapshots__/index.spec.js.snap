@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`show-monitor demo test show-monitor demo: disabled.md renders correctly 1`] = `
+<div
+  class="arco-show-monitor"
+>
+  <div
+    class="show-monitor-content"
+  >
+    Arco
+  </div>
+</div>
+`;
+
+exports[`show-monitor demo test show-monitor demo: offset.md renders correctly 1`] = `
+<div
+  class="arco-show-monitor"
+>
+  <div
+    class="show-monitor-content"
+  >
+    Arco
+  </div>
+</div>
+`;
+
+exports[`show-monitor demo test show-monitor demo: once.md renders correctly 1`] = `
+<div
+  class="arco-show-monitor"
+>
+  <div
+    class="show-monitor-content"
+  >
+    Arco
+  </div>
+</div>
+`;
+
+exports[`show-monitor demo test show-monitor demo: overflow.md renders correctly 1`] = `
+<div
+  class="show-monitor-demo-1-wrapper"
+>
+  <div
+    class="show-monitor-demo-title"
+  >
+    Please swipe within the grey area
+  </div>
+  <div
+    class="show-monitor-demo-scroller"
+  >
+    <div
+      class="show-monitor-demo-scroller-inner"
+    >
+      <div
+        class="arco-show-monitor"
+      >
+        <div
+          class="show-monitor-content"
+        >
+          Arco
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

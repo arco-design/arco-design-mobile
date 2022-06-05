@@ -1,0 +1,992 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkbox demo test checkbox demo: custom-icon.md renders correctly 1`] = `
+Array [
+  <div
+    style="margin-bottom:16px"
+  >
+    <div
+      class="arco-checkbox shape-circle inline"
+      style="width:50%"
+    >
+      <div
+        class="checkbox-icon checked"
+      >
+        <svg
+          class="arco-icon arco-icon-square-checked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1.1 5.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="checkbox-text"
+      >
+        Custom shape
+      </div>
+    </div>
+    <div
+      class="custom-color arco-checkbox shape-circle inline"
+      style="width:50%"
+    >
+      <div
+        class="checkbox-icon checked"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-checked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="checkbox-text"
+      >
+        Custom color
+      </div>
+    </div>
+  </div>,
+  <div>
+    <div
+      class="custom-size arco-checkbox shape-circle inline"
+      style="width:50%"
+    >
+      <div
+        class="checkbox-icon checked"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-checked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="checkbox-text"
+      >
+        Custom size
+      </div>
+    </div>
+    <div
+      class="arco-checkbox shape-circle inline"
+      style="width:50%"
+    >
+      <div
+        class="checkbox-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-check "
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M16.702 4.47a.5.5 0 00-.705.06L8.33 13.596 3.82 9.724a.5.5 0 00-.705.054l-.652.758a.5.5 0 00.054.706L7.361 15.4a.5.5 0 00.054.053l.526.445.22.188a.5.5 0 00.722-.047l8.641-10.218a.5.5 0 00-.059-.705l-.763-.645z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="checkbox-text"
+      >
+        Custom icon
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`checkbox demo test checkbox demo: default.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-checkbox shape-circle inline"
+    style="width:50%"
+  >
+    <div
+      class="checkbox-icon"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-unchecked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option content
+    </div>
+  </div>
+  <div
+    class="arco-checkbox shape-circle inline"
+    style="width:50%"
+  >
+    <div
+      class="checkbox-icon checked"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-checked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option content
+    </div>
+  </div>
+</div>
+`;
+
+exports[`checkbox demo test checkbox demo: disabled.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-checkbox shape-circle disabled inline"
+    style="width:50%"
+  >
+    <div
+      class="checkbox-icon disabled"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-disabled "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.375 10a8.375 8.375 0 11-16.75 0 8.375 8.375 0 0116.75 0z"
+          stroke="#E5E6EB"
+          stroke-width="1.25"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Unchecked but disabled
+    </div>
+  </div>,
+  <div
+    class="arco-checkbox shape-circle disabled inline"
+    style="width:50%"
+  >
+    <div
+      class="checkbox-icon disabled checked"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-checked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Checked but disabled
+    </div>
+  </div>,
+]
+`;
+
+exports[`checkbox demo test checkbox demo: group.md renders correctly 1`] = `
+<div
+  class="arco-checkbox-group"
+>
+  <div
+    class="arco-checkbox shape-circle block"
+    style="height:42px"
+  >
+    <div
+      class="checkbox-icon"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-unchecked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option content 1
+    </div>
+  </div>
+  <div
+    class="arco-checkbox shape-circle block"
+    style="height:42px"
+  >
+    <div
+      class="checkbox-icon checked"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-checked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option content 2
+    </div>
+  </div>
+  <div
+    class="arco-checkbox shape-circle block"
+    style="height:42px"
+  >
+    <div
+      class="checkbox-icon"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-unchecked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option content 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`checkbox demo test checkbox demo: group-left.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box demo-checkbox-cell-group"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-checkbox-group"
+    >
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-content "
+          >
+            <div
+              class="arco-checkbox shape-circle block"
+              style="height:54px"
+            >
+              <div
+                class="checkbox-icon checked"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-checked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                class="checkbox-text"
+              >
+                Option content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-content "
+          >
+            <div
+              class="arco-checkbox shape-circle block"
+              style="height:54px"
+            >
+              <div
+                class="checkbox-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-unchecked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="checkbox-text"
+              >
+                Option content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-content "
+          >
+            <div
+              class="arco-checkbox shape-circle block"
+              style="height:54px"
+            >
+              <div
+                class="checkbox-icon checked"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-checked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                class="checkbox-text"
+              >
+                Option content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-content "
+          >
+            <div
+              class="arco-checkbox shape-circle block"
+              style="height:54px"
+            >
+              <div
+                class="checkbox-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-unchecked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="checkbox-text"
+              >
+                Option content
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`checkbox demo test checkbox demo: group-right.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box demo-checkbox-cell-group"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-checkbox-group"
+    >
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-content "
+          >
+            <div
+              class="arco-checkbox shape-circle justify"
+              style="height:54px"
+            >
+              <div
+                class="checkbox-text"
+              >
+                Option content
+              </div>
+              <div
+                class="checkbox-icon checked"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-checked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-content "
+          >
+            <div
+              class="arco-checkbox shape-circle justify"
+              style="height:54px"
+            >
+              <div
+                class="checkbox-text"
+              >
+                Option content
+              </div>
+              <div
+                class="checkbox-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-unchecked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-content "
+          >
+            <div
+              class="arco-checkbox shape-circle justify"
+              style="height:54px"
+            >
+              <div
+                class="checkbox-text"
+              >
+                Option content
+              </div>
+              <div
+                class="checkbox-icon checked"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-checked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-cell all-border-box bordered"
+      >
+        <div
+          class="arco-cell-inner"
+        >
+          <div
+            class="cell-content "
+          >
+            <div
+              class="arco-checkbox shape-circle justify"
+              style="height:54px"
+            >
+              <div
+                class="checkbox-text"
+              >
+                Option content
+              </div>
+              <div
+                class="checkbox-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-unchecked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`checkbox demo test checkbox demo: horizontal.md renders correctly 1`] = `
+<div
+  class="arco-checkbox-group"
+  style="line-height:1.5;display:flex;justify-content:space-between"
+>
+  <div
+    class="arco-checkbox shape-circle inline"
+  >
+    <div
+      class="checkbox-icon"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-unchecked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option 1
+    </div>
+  </div>
+  <div
+    class="arco-checkbox shape-circle inline"
+  >
+    <div
+      class="checkbox-icon checked"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-checked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option 2
+    </div>
+  </div>
+  <div
+    class="arco-checkbox shape-circle disabled inline"
+  >
+    <div
+      class="checkbox-icon disabled checked"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-checked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`checkbox demo test checkbox demo: max-select.md renders correctly 1`] = `
+<div
+  class="arco-checkbox-group"
+>
+  <div
+    class="arco-checkbox shape-circle block"
+    style="height:42px"
+  >
+    <div
+      class="checkbox-icon"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-unchecked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option content 1
+    </div>
+  </div>
+  <div
+    class="arco-checkbox shape-circle block"
+    style="height:42px"
+  >
+    <div
+      class="checkbox-icon checked"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-checked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option content 2
+    </div>
+  </div>
+  <div
+    class="arco-checkbox shape-circle block"
+    style="height:42px"
+  >
+    <div
+      class="checkbox-icon checked"
+    >
+      <svg
+        class="arco-icon arco-icon-circle-checked "
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="checkbox-text"
+    >
+      Option content 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`checkbox demo test checkbox demo: select-all.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-checkbox-group"
+  >
+    <div
+      class="arco-checkbox shape-circle block"
+      style="height:42px"
+    >
+      <div
+        class="checkbox-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-unchecked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="checkbox-text"
+      >
+        Option content 1
+      </div>
+    </div>
+    <div
+      class="arco-checkbox shape-circle block"
+      style="height:42px"
+    >
+      <div
+        class="checkbox-icon checked"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-checked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="checkbox-text"
+      >
+        Option content 2
+      </div>
+    </div>
+    <div
+      class="arco-checkbox shape-circle block"
+      style="height:42px"
+    >
+      <div
+        class="checkbox-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-unchecked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="checkbox-text"
+      >
+        Option content 3
+      </div>
+    </div>
+    <div
+      class="arco-checkbox shape-circle block"
+      style="height:42px"
+    >
+      <div
+        class="checkbox-icon checked"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-checked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="checkbox-text"
+      >
+        Option content 4
+      </div>
+    </div>
+  </div>,
+  <button
+    class="arco-button type-primary size-medium is-semi pc inline"
+    style="margin:16px 16px 0 0"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      Select all
+    </div>
+  </button>,
+  <button
+    class="arco-button type-default size-medium is-semi pc inline"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      Reversely select
+    </div>
+  </button>,
+]
+`;

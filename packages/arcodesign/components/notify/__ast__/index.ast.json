@@ -1,0 +1,401 @@
+{
+    "description": "主动操作后显示的反馈信息横条，可采用方法调用或者组件调用的方式",
+    "descriptionTags": {
+        "en": "The feedback information bar displayed after active operation can be called by method or by component.",
+        "type": "反馈",
+        "type_en": "Feedback",
+        "name": "消息通知",
+        "name_en": "Notify"
+    },
+    "displayName": "Notify",
+    "methods": [
+        {
+            "description": "展示常规通知",
+            "docblock": "展示常规通知\n@desc {en} Show regular notification\n@param config\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "",
+                        "type": "string | NotifyProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: NotifyProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Show regular notification"
+                }
+            },
+            "modifiers": [],
+            "name": "info",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<NotifyProps & RefAttributes<NotifyRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"ref\" | \"className\" | \"style\" | \"transitionDuration\" | \"duration\" | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        },
+        {
+            "description": "展示成功通知",
+            "docblock": "展示成功通知\n@desc {en} Show success notification\n@param config\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "",
+                        "type": "string | NotifyProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: NotifyProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Show success notification"
+                }
+            },
+            "modifiers": [],
+            "name": "success",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<NotifyProps & RefAttributes<NotifyRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"ref\" | \"className\" | \"style\" | \"transitionDuration\" | \"duration\" | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        },
+        {
+            "description": "展示错误的通知",
+            "docblock": "展示错误的通知\n@desc {en} Show error notification\n@param config\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "",
+                        "type": "string | NotifyProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: NotifyProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Show error notification"
+                }
+            },
+            "modifiers": [],
+            "name": "error",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<NotifyProps & RefAttributes<NotifyRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"ref\" | \"className\" | \"style\" | \"transitionDuration\" | \"duration\" | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        },
+        {
+            "description": "展示警告的通知",
+            "docblock": "展示警告的通知\n@desc {en} Show warning notification\n@param config\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "",
+                        "type": "string | NotifyProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ update: (config: NotifyProps) => void; close: () => void }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Show warning notification"
+                }
+            },
+            "modifiers": [],
+            "name": "warn",
+            "params": [
+                {
+                    "description": null,
+                    "name": "originConfig",
+                    "type": {
+                        "name": "string | Pick<NotifyProps & RefAttributes<NotifyRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"ref\" | \"className\" | \"style\" | \"transitionDuration\" | \"duration\" | \"key\">"
+                    }
+                }
+            ],
+            "returns": null
+        }
+    ],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom style",
+            "name": "style",
+            "tags": {
+                "en": "Custom style"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "content": {
+            "defaultValue": null,
+            "description": "需要展示的内容\n@en Notification content",
+            "name": "content",
+            "tags": {
+                "en": "Notification content"
+            },
+            "descWithTags": "需要展示的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "type": {
+            "defaultValue": null,
+            "description": "通知类型\n@en Notification type",
+            "name": "type",
+            "tags": {
+                "en": "Notification type"
+            },
+            "descWithTags": "通知类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "NotifyType",
+                "value": [
+                    {
+                        "value": "\"success\""
+                    },
+                    {
+                        "value": "\"error\""
+                    },
+                    {
+                        "value": "\"warn\""
+                    },
+                    {
+                        "value": "\"info\""
+                    }
+                ]
+            }
+        },
+        "visible": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否显示通知\n@en Whether to show notification",
+            "name": "visible",
+            "tags": {
+                "en": "Whether to show notification",
+                "default": "false"
+            },
+            "descWithTags": "是否显示通知",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "close": {
+            "defaultValue": null,
+            "description": "控制通知关闭的事件\n@en Close function",
+            "name": "close",
+            "tags": {
+                "en": "Close function"
+            },
+            "descWithTags": "控制通知关闭的事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onClose": {
+            "defaultValue": null,
+            "description": "通知关闭时的回调函数\n@en Callback after closing",
+            "name": "onClose",
+            "tags": {
+                "en": "Callback after closing"
+            },
+            "descWithTags": "通知关闭时的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "getContainer": {
+            "defaultValue": null,
+            "description": "将通知放入某个模块\n@en Get mounted container",
+            "name": "getContainer",
+            "tags": {
+                "en": "Get mounted container"
+            },
+            "descWithTags": "将通知放入某个模块",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        },
+        "transitionDuration": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "动画的执行时间 (单位ms)\n@en Animation execution time (unit: ms)",
+            "name": "transitionDuration",
+            "tags": {
+                "en": "Animation execution time (unit: ms)",
+                "default": "300"
+            },
+            "descWithTags": "动画的执行时间 (单位ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "duration": {
+            "defaultValue": {
+                "value": "3000"
+            },
+            "description": "通知自动关闭时延 (单位ms) 设置为0时不会自动关闭\n@en The delay of notification automatic closing (unit: ms). Will not automatically close when it is set to 0",
+            "name": "duration",
+            "tags": {
+                "en": "The delay of notification automatic closing (unit: ms). Will not automatically close when it is set to 0",
+                "default": "3000"
+            },
+            "descWithTags": "通知自动关闭时延 (单位ms) 设置为0时不会自动关闭",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/notify/type.ts",
+                "name": "NotifyProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<NotifyRef>"
+            }
+        }
+    },
+    "deps": {
+        "NotifyType": "\"success\"|\"error\"|\"warn\"|\"info\"",
+        "NotifyRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层dom元素\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层dom元素"
+            },
+            "updateLayout": {
+                "name": "updateLayout",
+                "required": true,
+                "description": "更新元素布局\n@en Update DOM layout",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Update DOM layout"
+                },
+                "descWithTags": "更新元素布局"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "NotifyProps",
+        "ref": "NotifyRef"
+    },
+    "isDefaultExport": true
+}

@@ -1,0 +1,98 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-image-preview,
+.image-preview-lock-modal {
+    .full-screen();
+    z-index: @full-screen-z-index;
+}
+
+.image-preview-lock-modal {
+    transform: translateZ(2PX);
+}
+
+.@{prefix}-image-preview {
+    .use-var(background, image-preview-mask-background);
+
+    &.noselect {
+        -webkit-touch-callout: none;
+        .noselect();
+    }
+
+    .preview-image-wrap {
+        width: 100%;
+        height: 100%;
+    }
+    .@{prefix}-carousel-wrap,
+    .@{prefix}-carousel,
+    .@{prefix}-carousel-inner {
+        height: 100%;
+    }
+
+    .carousel-item {
+        overflow: hidden;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .preview-image {
+        width: 100%;
+        height: 100%;
+        will-change: transform;
+
+        &.preview-hidden {
+            pointer-events: none;
+
+            .image-container {
+                visibility: hidden;
+            }
+        }
+
+        .image-bottom-overlap {
+            overflow: visible;
+        }
+    }
+}
+
+.image-preview-indicator {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: @full-screen-z-index + 3;
+    position: fixed;
+    box-sizing: border-box;
+    .use-var(font-size, image-preview-indicator-font-size);
+    .use-var(color, mask-content-color);
+    .use-var(padding, image-preview-indicator-padding);
+    .use-var(background, image-preview-indicator-background);
+}
+
+.image-preview-fake-rect {
+    .full-screen();
+    opacity: 0;
+}
+
+.image-preview-fake-trans-image {
+    position: fixed;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    .use-var(transition, image-preview-thumb-transition);
+    will-change: transform;
+    pointer-events: none;
+    z-index: @full-screen-z-index + 1;
+}
+
+.image-preview-loading-area {
+    .full-screen();
+    z-index: @full-screen-z-index + 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+
+    .loading-icon {
+        .set-loading-color-var(mask-content-color);
+    }
+}

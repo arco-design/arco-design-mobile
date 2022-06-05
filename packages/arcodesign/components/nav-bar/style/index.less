@@ -1,0 +1,112 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-nav-bar {
+    position: relative;
+    width: 100%;
+    box-sizing: content-box;
+    .use-var(color, nav-bar-font-color);
+    .use-var(background, nav-bar-background);
+
+    &&-fixed {
+        .use-var(height, nav-bar-height);
+    }
+
+    &&-float {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: @full-screen-z-index;
+    }
+
+    &&-float:not(&-hide) &-wrapper-fixed {
+        // 部分安卓4机型在有两层fixed时会疯狂抖动，因此外层fixed时内层不再fixed
+        // 辣鸡安卓4机型在设置为absolute的时候快速回到顶部时又有残影，所以在hide状态还是fixed
+        position: absolute;
+    }
+
+    &&-hide {
+        .@{prefix}-nav-bar-title, .@{prefix}-nav-bar-right {
+            visibility: hidden;
+        }
+    }
+
+    &&-hide &-wrapper-border::after {
+        border-color: transparent;
+    }
+
+    &-wrapper {
+        background: inherit;
+        .use-var(height, nav-bar-height);
+        box-sizing: content-box;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        transition: all .1s linear;
+
+        &&-border {
+            .onepx-border-var(bottom, nav-bar-bottom-border-color);
+        }
+
+        &&-fixed {
+            // onepx-border mixin 会加上position relative，暗黑模式下优先级会高于这条优先级，所以加上important声明
+            position: fixed !important;
+            top: 0;
+            left: 0;
+            z-index: @fixed-z-index;
+        }
+    }
+
+    &-inner {
+        position: relative;
+        height: 100%;
+    }
+
+    &-left,
+    &-title,
+    &-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-left,
+    &-right {
+        .text-overflow();
+        .use-var(font-size, nav-bar-two-sides-font-size);
+        .use-var(padding, nav-bar-two-sides-padding);
+        position: absolute;
+        top: 0;
+        height: 100%;
+        color: inherit;
+    }
+
+    &-left {
+        left: 0;
+    }
+
+    &-title {
+        .use-var(font-size, nav-bar-title-font-size);
+        .use-var(padding, nav-bar-title-padding);
+        width: 100%;
+        height: 100%;
+        color: inherit;
+        text-align: center;
+
+        &-text {
+            .use-var(font-size, nav-bar-title-text-font-size);
+            .text-overflow();
+            .noselect();
+            font-weight: bold;
+        }
+    }
+
+    &-right {
+        right: 0;
+    }
+
+    .nav-bar-back {
+        .use-var(height, nav-bar-back-icon-height);
+        font-size: 0;
+    }
+}

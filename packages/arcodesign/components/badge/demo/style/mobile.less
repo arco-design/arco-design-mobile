@@ -1,0 +1,67 @@
+@import "../../../../style/mixin.less";
+
+#demo-badge {
+    .use-var(color, font-color);
+    .rem(padding-bottom, 40);
+
+    .arcodesign-mobile-demo-content {
+        position: relative;
+        padding: 0;
+    }
+
+    .demo-icon {
+        font-size: 16PX;
+        padding: 2PX 1.5PX 3PX 2PX;
+    }
+
+    #demo-order-1 {
+        background: transparent;
+    }
+
+    .badge-demo-item-wrap {
+        .rem(padding, 16, 0);
+        .rem(margin-top, 22);
+
+        &:nth-child(1) {
+            margin-top: 0;
+        }
+        .use-var(background, background-color);
+    }
+
+    .badge-demo-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .badge-demo-rectangle {
+        .rem(width, 32);
+        .rem(height, 32);
+        background: #bedaff;
+        border-radius: 2PX;
+        position: relative;
+    }
+
+    .badge-demo-item-text {
+        .rem(font-size, 14);
+        .rem(line-height, 20);
+        .rem(margin-top, 8);
+        text-align: center;
+    }
+
+    .badge-demo-cell-label {
+        .rem(font-size, 16);
+        .rem(line-height, 22);
+        .use-var(color, cell-label-color);
+    }
+
+    .badge-demo-avatar-wrap {
+        .rem(padding, 30);
+    }
+
+    .badge-demo-avatar-box {
+        position: relative;
+        display: inline-block;
+    }
+}

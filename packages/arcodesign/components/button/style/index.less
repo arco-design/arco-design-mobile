@@ -1,0 +1,136 @@
+@import '../../../style/mixin.less';
+
+@size-map: huge, large, medium, small, mini;
+
+@type-map: primary, default, ghost;
+
+.button-has-border(@color) {
+    .use-var(border, @color, 1PX solid);
+    &.half-border:not(.has-custom-border) {
+        border-width: 0;
+        .hairline-var(@color);
+    }
+}
+
+.button-no-border() {
+    border-width: 0;
+    box-shadow: none;
+}
+
+.button-text-size(@font-size) {
+    .btn-icon,
+    i,
+    .btn-text,
+    svg {
+        .use-var(font-size, @font-size);
+    }
+}
+
+.button-size-height(@height) {
+    .use-var(height, @height);
+    &.is-round {
+        .use-var(border-radius, @height);
+    }
+    &.is-square {
+        .rem(border-radius, 0);
+    }
+}
+
+.@{prefix}-button {
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 0;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    .use-var(border-radius, button-radius);
+    .button-has-border(button-border-color);
+    .noselect();
+
+    &.inline {
+        width: auto;
+        display: inline-block;
+    }
+
+    .set-button-type(length(@type-map));
+
+    .set-button-size(length(@size-map));
+
+    &.android .btn-text {
+        .rem(padding-top, 2);
+    }
+
+    .btn-icon {
+        vertical-align: middle;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-text {
+        .rem(font-size, 15);
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .btn-text.has-icon {
+        .rem(margin-left, 4);
+    }
+
+    .loading-icon {
+        display: inline-block;
+        vertical-align: middle;
+
+        & + .btn-text {
+            .rem(margin-left, 8);
+        }
+    }
+}
+
+
+.set-button-type(@index) when (@index > 0) {
+    @type: extract(@type-map, @index);
+
+    &.type-@{type} {
+        .button-has-border('button-@{type}-background');
+        .use-var(background, 'button-@{type}-background');
+        .use-var(color, 'button-@{type}-text-color');
+        .set-loading-color-var('button-@{type}-text-color');
+        &.disabled {
+            &.ios,
+            &.android {
+                .button-no-border();
+            }
+            .use-var(background, 'button-@{type}-disabled-background');
+            .use-var(color, 'button-@{type}-disabled-text-color')
+        }
+        &.active {
+            .use-var(background, 'button-@{type}-clicked-background');
+            .button-has-border('button-@{type}-clicked-background');
+        }
+    }
+
+    &.type-ghost {
+        &, &.active {
+            .button-has-border(button-ghost-text-color);
+        }
+        &.disabled {
+            &.ios, &.android {
+                .button-has-border(button-ghost-disabled-text-color);
+            }
+        }
+    }
+
+    .set-button-type(@index - 1);
+}
+
+.set-button-size(@index) when (@index > 0) {
+    @size: extract(@size-map, @index);
+
+    &.size-@{size} {
+        .use-var(padding, "button-@{size}-padding");
+        .button-size-height("button-@{size}-height");
+        .button-text-size("button-@{size}-text-size");
+    }
+
+    .set-button-size(@index - 1);
+}
