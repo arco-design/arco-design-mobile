@@ -1,0 +1,14 @@
+@import '../../../../style/mixin.less';
+
+#demo-switch {
+    .rem(padding-bottom, 36);
+    .arcodesign-mobile-demo-content {
+        padding: 0;
+    }
+    .demo-3,
+    .demo-4 {
+        &.checked {
+            .use-var(background, primary-color);
+        }
+    }
+}

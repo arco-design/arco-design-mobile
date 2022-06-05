@@ -1,0 +1,543 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`popover demo test popover demo: base.md renders correctly 1`] = `
+<div
+  class="popover-base-demo-wrapper"
+>
+  <div
+    class="base-item"
+  >
+    <div
+      class="arco-popover white-theme follow-mode"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button type-primary size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            白色
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="base-item"
+  >
+    <div
+      class="arco-popover black-theme follow-mode"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button type-primary size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            黑色
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo test popover demo: custom.md renders correctly 1`] = `
+<div
+  class="custom-demo-wrapper"
+>
+  <div
+    class="arco-popover custom-popover black-theme follow-mode"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          特殊气泡样式
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
+<div
+  class="direction-demo-wrapper"
+>
+  <div
+    class="direction-item"
+  >
+    <div
+      class="arco-popover black-theme follow-mode"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button type-primary size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            左上
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="direction-item"
+  >
+    <div
+      class="arco-popover black-theme follow-mode"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button type-primary size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            右上
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="direction-item"
+  >
+    <div
+      class="arco-popover black-theme follow-mode"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button type-primary size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            左下
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="direction-item"
+  >
+    <div
+      class="arco-popover black-theme follow-mode"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button type-primary size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            右下
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="direction-item"
+  >
+    <div
+      class="arco-popover black-theme follow-mode"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button type-primary size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            顶部居中
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="direction-item"
+  >
+    <div
+      class="arco-popover black-theme follow-mode"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button type-primary size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="btn-icon"
+          />
+          <div
+            class="btn-text"
+          >
+            底部居中
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo test popover demo: menu.md renders correctly 1`] = `
+<div
+  class="menu-demo-wrapper"
+>
+  <div
+    class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
+    style="margin-right:66px"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          白色
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          黑色
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo test popover demo: menu-with-click-status.md renders correctly 1`] = `
+<div
+  class="menu-demo-wrapper"
+>
+  <div
+    class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
+    style="margin-right:66px"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          白色
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          黑色
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo test popover demo: menu-with-disabled-status.md renders correctly 1`] = `
+<div
+  class="menu-demo-wrapper"
+>
+  <div
+    class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
+    style="margin-right:66px"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          白色
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          黑色
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo test popover demo: menu-with-icon.md renders correctly 1`] = `
+<div
+  class="menu-demo-wrapper"
+>
+  <div
+    class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
+    style="margin-right:66px"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        style="padding:0"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          竖向菜单
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        style="padding:0"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          横向菜单
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo test popover demo: suffix.md renders correctly 1`] = `
+<div
+  class="suffix-demo-wrapper"
+>
+  <div
+    class="arco-popover black-theme follow-mode"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          关闭操作
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="arco-popover black-theme follow-mode"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          操作按钮
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="arco-popover black-theme follow-mode"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          操作文字
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo test popover demo: white-theme-mask.md renders correctly 1`] = `
+<div
+  class="white-theme-mask-demo-wrapper"
+>
+  <div
+    class="arco-popover white-theme global-mode bordered"
+  >
+    <div
+      class="popover-child-inner"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          白色气泡带遮罩
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;

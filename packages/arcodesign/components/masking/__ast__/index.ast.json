@@ -1,0 +1,658 @@
+{
+    "description": "通用模态弹窗，内部内容自定义。默认做了防滚动穿透处理，如果弹层内容中需要滚动，则需将滚动容器传入`getScrollContainer`属性以在未滚动到顶部或底部时释放滚动。",
+    "descriptionTags": {
+        "en": "Generic modal popup with custom internal content. By default, anti-scroll penetration processing is performed. If scrolling is required in the content of the bullet layer, need to pass the scroll container to the `getScrollContainer` to release scrolling when it is not scrolled to the top or bottom.",
+        "type": "反馈",
+        "type_en": "Feedback",
+        "name": "模态弹窗",
+        "name_en": "Masking"
+    },
+    "displayName": "Masking",
+    "methods": [
+        {
+            "description": "打开模态弹窗",
+            "docblock": "打开模态弹窗\n@desc {en} Open a Masking\n@param config Configuration\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "config",
+                        "description": "Configuration",
+                        "type": "MaskingProps",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "{ close: () => void; update: (newConfig: MaskingProps) => void; }",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Open a Masking"
+                }
+            },
+            "modifiers": [],
+            "name": "open",
+            "params": [
+                {
+                    "description": null,
+                    "name": "config",
+                    "type": {
+                        "name": "Config"
+                    }
+                }
+            ],
+            "returns": null
+        }
+    ],
+    "props": {
+        "contentAtCenter": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "弹窗内容是否居中\n@en Whether the content of the popup window is centered",
+            "name": "contentAtCenter",
+            "tags": {
+                "en": "Whether the content of the popup window is centered",
+                "default": "false"
+            },
+            "descWithTags": "弹窗内容是否居中",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "maskClass": {
+            "defaultValue": null,
+            "description": "自定义蒙层类名\n@en Custom mask classname",
+            "name": "maskClass",
+            "tags": {
+                "en": "Custom mask classname"
+            },
+            "descWithTags": "自定义蒙层类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "maskStyle": {
+            "defaultValue": null,
+            "description": "自定义蒙层样式\n@en Custom mask stylesheet",
+            "name": "maskStyle",
+            "tags": {
+                "en": "Custom mask stylesheet"
+            },
+            "descWithTags": "自定义蒙层样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "contentClass": {
+            "defaultValue": null,
+            "description": "自定义内容类名\n@en Custom content classname",
+            "name": "contentClass",
+            "tags": {
+                "en": "Custom content classname"
+            },
+            "descWithTags": "自定义内容类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "contentStyle": {
+            "defaultValue": null,
+            "description": "自定义内容样式\n@en Custom content stylesheet",
+            "name": "contentStyle",
+            "tags": {
+                "en": "Custom content stylesheet"
+            },
+            "descWithTags": "自定义内容样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "visible": {
+            "defaultValue": null,
+            "description": "是否展示菜单（受控）\n@en Whether to display the menu (controlled)",
+            "name": "visible",
+            "tags": {
+                "en": "Whether to display the menu (controlled)"
+            },
+            "descWithTags": "是否展示菜单（受控）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": true,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "close": {
+            "defaultValue": null,
+            "description": "关闭菜单方法\n@en Close menu method",
+            "name": "close",
+            "tags": {
+                "en": "Close menu method"
+            },
+            "descWithTags": "关闭菜单方法",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": true,
+            "type": {
+                "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => void"
+            }
+        },
+        "maskTransitionType": {
+            "defaultValue": {
+                "value": "\"fade\""
+            },
+            "description": "蒙层过渡动画类名\n@en Mask transition animation classname",
+            "name": "maskTransitionType",
+            "tags": {
+                "en": "Mask transition animation classname",
+                "default": "\"fade\""
+            },
+            "descWithTags": "蒙层过渡动画类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "contentTransitionType": {
+            "defaultValue": {
+                "value": "\"fade\""
+            },
+            "description": "内容过渡动画类名\n@en Content transition animation classname",
+            "name": "contentTransitionType",
+            "tags": {
+                "en": "Content transition animation classname",
+                "default": "\"fade\""
+            },
+            "descWithTags": "内容过渡动画类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "菜单内部内容\n@en Contents of menu",
+            "name": "children",
+            "tags": {
+                "en": "Contents of menu"
+            },
+            "descWithTags": "菜单内部内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "maskTransitionTimeout": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "蒙层动画时长\n@en Mask animation duration",
+            "name": "maskTransitionTimeout",
+            "tags": {
+                "en": "Mask animation duration",
+                "default": "300"
+            },
+            "descWithTags": "蒙层动画时长",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { appear?: number; enter?: number; exit?: number; }"
+            }
+        },
+        "contentTransitionTimeout": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "内容动画时长\n@en Content animation duration",
+            "name": "contentTransitionTimeout",
+            "tags": {
+                "en": "Content animation duration",
+                "default": "300"
+            },
+            "descWithTags": "内容动画时长",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { appear?: number; enter?: number; exit?: number; }"
+            }
+        },
+        "maskClosable": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "点击蒙层是否关闭菜单\n@en Whether to click the mask to close the menu",
+            "name": "maskClosable",
+            "tags": {
+                "en": "Whether to click the mask to close the menu",
+                "default": "true"
+            },
+            "descWithTags": "点击蒙层是否关闭菜单",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "animatingClosable": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "执行进场动画时点击蒙层是否可关闭菜单\n@en Whether the menu can be closed by clicking on the mask when performing the entry animation",
+            "name": "animatingClosable",
+            "tags": {
+                "en": "Whether the menu can be closed by clicking on the mask when performing the entry animation",
+                "default": "false"
+            },
+            "descWithTags": "执行进场动画时点击蒙层是否可关闭菜单",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "mountOnEnter": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否在打开菜单时再加载内容\n@en Whether to reload content when the menu is opened",
+            "name": "mountOnEnter",
+            "tags": {
+                "en": "Whether to reload content when the menu is opened",
+                "default": "true"
+            },
+            "descWithTags": "是否在打开菜单时再加载内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "unmountOnExit": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否在退出时卸载内容\n@en Whether to unmount content on exit",
+            "name": "unmountOnExit",
+            "tags": {
+                "en": "Whether to unmount content on exit",
+                "default": "true"
+            },
+            "descWithTags": "是否在退出时卸载内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "orientationDirection": {
+            "defaultValue": {
+                "value": "\"top\""
+            },
+            "description": "transform方向，用于通过transform模拟横屏的情况\n@en The transform direction, used to simulate the situation of horizontal screen through transform",
+            "name": "orientationDirection",
+            "tags": {
+                "en": "The transform direction, used to simulate the situation of horizontal screen through transform",
+                "default": "\"top\""
+            },
+            "descWithTags": "transform方向，用于通过transform模拟横屏的情况",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"top\" | \"bottom\" | \"left\" | \"right\"",
+                "value": [
+                    {
+                        "value": "\"top\""
+                    },
+                    {
+                        "value": "\"bottom\""
+                    },
+                    {
+                        "value": "\"left\""
+                    },
+                    {
+                        "value": "\"right\""
+                    }
+                ]
+            }
+        },
+        "preventBodyScroll": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "弹窗打开时是否禁止body的滚动\n@en Whether to prohibit the scrolling of the body when the popup is opened",
+            "name": "preventBodyScroll",
+            "tags": {
+                "en": "Whether to prohibit the scrolling of the body when the popup is opened",
+                "default": "true"
+            },
+            "descWithTags": "弹窗打开时是否禁止body的滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "initialBodyOverflow": {
+            "defaultValue": {
+                "value": "第一个全屏组件（弹窗、toast等）打开时页面overflow值"
+            },
+            "description": "页面初始 overflow 状态，即关闭弹窗时 overflow 应该还原的状态\n@en The initial overflow state of the page, that is, the state in which overflow should be restored when the popup is closed\n@default_en The page overflow value when the first fullscreen component (popup, toast, etc.) is opened",
+            "name": "initialBodyOverflow",
+            "tags": {
+                "en": "The initial overflow state of the page, that is, the state in which overflow should be restored when the popup is closed",
+                "default": "第一个全屏组件（弹窗、toast等）打开时页面overflow值",
+                "default_en": "The page overflow value when the first fullscreen component (popup, toast, etc.) is opened"
+            },
+            "descWithTags": "页面初始 overflow 状态，即关闭弹窗时 overflow 应该还原的状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "gestureOutOfControl": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用滚动容器手势判断，禁用后交给业务方自己判断\n@en Whether to disable the scrolling container gesture judgment, leave it to users to judge",
+            "name": "gestureOutOfControl",
+            "tags": {
+                "en": "Whether to disable the scrolling container gesture judgment, leave it to users to judge",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用滚动容器手势判断，禁用后交给业务方自己判断",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onClose": {
+            "defaultValue": null,
+            "description": "关闭后回调（动画执行完毕）\n@en Callback after closing (animation is completed)",
+            "name": "onClose",
+            "tags": {
+                "en": "Callback after closing (animation is completed)"
+            },
+            "descWithTags": "关闭后回调（动画执行完毕）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(scene?: string) => void"
+            }
+        },
+        "onOpen": {
+            "defaultValue": null,
+            "description": "打开后回调（动画执行完毕）\n@en Callback after opening (animation is completed)",
+            "name": "onOpen",
+            "tags": {
+                "en": "Callback after opening (animation is completed)"
+            },
+            "descWithTags": "打开后回调（动画执行完毕）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onMaskClick": {
+            "defaultValue": null,
+            "description": "点击蒙层回调，maskClosable=false时也会触发\n@en Callback when clicking the mask , also triggered when maskClosable=false",
+            "name": "onMaskClick",
+            "tags": {
+                "en": "Callback when clicking the mask , also triggered when maskClosable=false"
+            },
+            "descWithTags": "点击蒙层回调，maskClosable=false时也会触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onTouchMove": {
+            "defaultValue": null,
+            "description": "弹窗的touchmove回调\n@en Touch event callbacks for masking",
+            "name": "onTouchMove",
+            "tags": {
+                "en": "Touch event callbacks for masking"
+            },
+            "descWithTags": "弹窗的touchmove回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent, prevented: boolean, direction: \"x\" | \"y\") => void"
+            }
+        },
+        "onPreventTouchMove": {
+            "defaultValue": null,
+            "description": "非滚动区域或滚动到顶部及底部时的触摸事件回调\n@en Touch event callbacks for non-scrolling areas or when scrolling to the top and bottom",
+            "name": "onPreventTouchMove",
+            "tags": {
+                "en": "Touch event callbacks for non-scrolling areas or when scrolling to the top and bottom"
+            },
+            "descWithTags": "非滚动区域或滚动到顶部及底部时的触摸事件回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent, direction: \"x\" | \"y\") => void"
+            }
+        },
+        "getContainer": {
+            "defaultValue": null,
+            "description": "获取挂载容器\n@en Get mounted container",
+            "name": "getContainer",
+            "tags": {
+                "en": "Get mounted container"
+            },
+            "descWithTags": "获取挂载容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        },
+        "getScrollContainer": {
+            "defaultValue": null,
+            "description": "内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动\n@en Container of inner scroll area in content, scroll is released when not scrolled to the top or bottom in this container",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "Container of inner scroll area in content, scroll is released when not scrolled to the top or bottom in this container"
+            },
+            "descWithTags": "内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | HTMLElement[]"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<MaskingRef>"
+            }
+        }
+    },
+    "deps": {
+        "MaskingRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "mask": {
+                "name": "mask",
+                "required": true,
+                "description": "蒙层 DOM\n@en Mask DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Mask DOM"
+                },
+                "descWithTags": "蒙层 DOM"
+            },
+            "content": {
+                "name": "content",
+                "required": true,
+                "description": "内容 DOM\n@en Content DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Content DOM"
+                },
+                "descWithTags": "内容 DOM"
+            },
+            "setCloseScene": {
+                "name": "setCloseScene",
+                "required": true,
+                "description": "在关闭弹窗前修改 onClose 的 scene 参数值\n@en Modify the scene of onClose before closing the popup",
+                "defaultValue": null,
+                "type": {
+                    "name": "(scene: string) => void"
+                },
+                "tags": {
+                    "en": "Modify the scene of onClose before closing the popup"
+                },
+                "descWithTags": "在关闭弹窗前修改 onClose 的 scene 参数值"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "MaskingProps",
+        "ref": "MaskingRef"
+    },
+    "isDefaultExport": true
+}

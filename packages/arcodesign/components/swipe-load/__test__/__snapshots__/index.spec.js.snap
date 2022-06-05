@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`swipe-load demo test swipe-load demo: carousel-label.md renders correctly 1`] = `
+<div
+  class="arco-carousel-wrap"
+>
+  <div
+    class="arco-carousel"
+  >
+    <div
+      class="arco-carousel-inner auto"
+      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+    >
+      <div
+        class="arco-carousel-item carousel-item normal-item active"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <div
+          style="height:120px;background-color:#94BFFF"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      >
+        <div
+          style="height:120px;background-color:#BEDAFF"
+        />
+      </div>
+      <div
+        class="arco-carousel-item carousel-item normal-item ssr-float"
+        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+      />
+    </div>
+  </div>
+  <div
+    class="arco-carousel-indicator pos-center"
+  >
+    <i
+      class="indicator type-square active"
+    />
+    <i
+      class="indicator type-square"
+    />
+    <i
+      class="indicator type-square"
+    />
+  </div>
+</div>
+`;
+
+exports[`swipe-load demo test swipe-load demo: custom-label.md renders correctly 1`] = `
+<div
+  class="arco-swipe-load "
+>
+  <div
+    class="arco-list-area"
+  >
+    <div
+      class="list-container"
+      style="overflow-x:auto"
+    >
+      <div
+        class="course-list"
+      >
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-custom-loading-area"
+    style="position:absolute;right:-100px"
+  >
+    <div
+      class="mylabel-start "
+    />
+  </div>
+</div>
+`;
+
+exports[`swipe-load demo test swipe-load demo: default-label.md renders correctly 1`] = `
+<div
+  class="arco-swipe-load "
+>
+  <div
+    class="arco-list-area"
+  >
+    <div
+      class="list-container"
+      style="overflow-x:auto"
+    >
+      <div
+        class="course-list"
+      >
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+        <div
+          class="list-item"
+          style="width:96px"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-loading-area"
+    style="width:80px;height:80px;position:absolute;right:-80px"
+  >
+    <div
+      class="arco-loading-label"
+    />
+  </div>
+</div>
+`;
+
+exports[`swipe-load demo test swipe-load demo: list-elements.md renders correctly 1`] = `
+<div
+  class="arco-swipe-load "
+>
+  <div
+    class="arco-list-area"
+  >
+    <div
+      class="list-item-color"
+      style="min-width:96px"
+    />
+    <div
+      class="list-item-color"
+      style="min-width:96px"
+    />
+    <div
+      class="list-item-color"
+      style="min-width:96px"
+    />
+    <div
+      class="list-item-color"
+      style="min-width:96px"
+    />
+    <div
+      class="list-item-color"
+      style="min-width:96px"
+    />
+  </div>
+  <div
+    class="arco-loading-area"
+    style="width:80px;height:80px;position:absolute;right:-80px"
+  >
+    <div
+      class="arco-loading-label"
+    />
+  </div>
+</div>
+`;
+
+exports[`swipe-load demo test swipe-load demo: single-element.md renders correctly 1`] = `
+<div
+  class="arco-swipe-load "
+>
+  <div
+    class="arco-list-area"
+  >
+    <div
+      class="single-element"
+    />
+  </div>
+  <div
+    class="arco-custom-loading-area"
+    style="position:absolute;right:-100px"
+  >
+    <div
+      class="mylabel-single"
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,315 @@
+@import "../static/style/public.less";
+@import "../static/style/prism.css";
+@import "../../../packages/arcodesign/style/mixin.less";
+
+.arcodesign-pc-site-wrap {
+    height: 100%;
+
+    .arco-resource .demo-nav-intro {
+        min-height: auto;
+    }
+    // 示例简介
+
+    .demo-nav-intro,
+    .demo-doc-intro {
+        min-height: 194px;
+        padding: 36px 56px 20px;
+        width: 100%;
+
+        .demo-comp-type {
+            line-height: 20px;
+            color: #424e66;
+
+            .separator {
+                color: #c9cdd4;
+                padding: 0 5px;
+                font-weight: 900;
+            }
+
+            strong {
+                color: #1a2234;
+                font-weight: 600;
+            }
+        }
+
+        .demo-comp-name,
+        .demo-doc-name {
+            margin: 20px 0 0;
+            font-size: 36px;
+            font-weight: 500;
+            color: #1a2234;
+        }
+
+        .demo-comp-desc,
+        .demo-doc-desc {
+            color: #424e66;
+            margin-top: 12px;
+            line-height: 20px;
+        }
+
+        .demo-comp-desc,
+        .demo-doc-desc,
+        .demo-comp-name,
+        .demo-doc-name {
+            font-family: nun-semibold;
+
+            code {
+                font-family: nun-semibold;
+            }
+        }
+    }
+    // 开发指南主体部分
+
+    .demo-doc-description {
+        padding: 0 43px 140px 56px;
+        color: #1d252f;
+        width: 100%;
+        flex: 1;
+
+        h1,
+        h2 {
+            margin: 24px 0 16px;
+        }
+
+        h3 {
+            margin: 12px 0;
+        }
+
+        p,
+        ul {
+            margin: 12px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .demo-code-content {
+            font-family: Menlo,Consolas;
+            font-size: 12px;
+            color: #4e5969;
+            background-color: #f2f3f5;
+            border-radius: 3px;
+            line-height: 1.45;
+            padding: 24px;
+            margin: 16px 0;
+
+            .demo-code {
+                white-space: pre-wrap;
+            }
+        }
+    }
+
+    .pc-site-wrapper {
+        flex: 1;
+
+        a {
+            color: @primary-color;
+        }
+    }
+    // 组件主体部分
+
+    .pc-site-content {
+        padding: 0 43px 140px 56px;
+        color: #1d252f;
+        width: 100%;
+
+        .demo-code-wrapper {
+
+            .demo-code-title {
+                font-size: 20px;
+                margin-bottom: 12px;
+                font-weight: 500;
+            }
+
+            .demo-code-desc {
+                line-height: 1.5;
+                color: #424e66;
+            }
+
+            .demo-code-content {
+                position: relative;
+                overflow: hidden;
+                max-height: 240px;
+                border: 1px solid #e5e6e8;
+                margin-top: 24px;
+                border-radius: 2px;
+                background: #f7f8fa;
+
+                .demo-code {
+                    color: #4e5969;
+                    width: 100%;
+                    display: block;
+                    word-break: normal;
+                    padding: 22px 48px 28px;
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    font-size: 13px;
+                    line-height: 22px;
+                    font-family: Menlo,Consolas;
+                    box-sizing: border-box;
+                    white-space: pre-wrap;
+                }
+            }
+        }
+
+        .demo-props,
+        .token-page-table-wrap {
+            padding-top: 24px;
+
+            .demo-attr {
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 28px;
+                color: #1a2234;
+                margin-top: 24px;
+            }
+
+            .demo-desc {
+                margin-top: 12px;
+                font-size: 14px;
+                color: #424e66;
+            }
+            // 属性说明的表格
+
+            table {
+                text-align: left;
+                width: 100%;
+                border-radius: 0 0 2px 2px;
+                border: 1px solid #e5e6e8;
+                color: #1a2234;
+                font-size: 13px;
+                margin-top: 24px;
+
+                thead {
+                    background-color: #f2f3f5;
+
+                    th {
+                        font-weight: 500;
+                        white-space: nowrap;
+                        border-bottom: 1px solid #e5e6e8;
+
+                        &:not(:last-of-type) {
+                            border-right: 1px solid #e5e6e8;
+                        }
+                    }
+                }
+
+                tbody {
+                    background-color: #fff;
+
+                    tr {
+                        border-bottom: 1px solid #e5e6e8;
+                    }
+                }
+
+                th,
+                td {
+                    padding: 11px 24px;
+                    max-width: 300px;
+                }
+
+                th {
+
+                    &.props-names {
+                        width: 22%;
+                    }
+
+                    &.props-type {
+                        width: 28%;
+
+                        &:last-child {
+                            width: 50%;
+                        }
+                    }
+                }
+
+                td.special {
+                    color: @primary-color;
+                }
+            }
+            // ts类型代码块
+
+            pre {
+                background: #f7f8fa;
+                border: 1px solid #e5e6e8;
+                padding: 12px 20px;
+                overflow: auto;
+                margin-top: 24px;
+            }
+
+            code {
+                line-height: 22px;
+                font-size: 13px;
+                font-family: Menlo,Consolas;
+                white-space: pre-wrap;
+                word-break: normal;
+            }
+        }
+
+        p > code {
+            background: #f2f3f5;
+            border-radius: 2px;
+            font-size: 12px;
+            line-height: 14px;
+            color: #424e66;
+            padding: 3px 8px;
+            margin: 0 4px;
+        }
+        // 示例标题、示例属性说明标题
+
+        .demo-title {
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: bold;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .demo-desc code,
+        td code {
+            // 描述文字中的内嵌code
+            background-color: #f5f6f7;
+            padding: 0 8px;
+            font-size: 13px;
+            display: inline-block;
+            line-height: 22px;
+            color: #606a78;
+            margin: 0 2px;
+            border-radius: 2px;
+        }
+
+        td code {
+            margin-bottom: 2px;
+        }
+        // 示例代码的容器
+
+        .demo-content {
+            background-color: #fafbfc;
+            padding: 24px 28px;
+            border-radius: 0 0 2px 2px;
+
+            pre {
+                overflow-x: auto;
+            }
+        }
+
+        .demo-desc + .demo-content {
+            margin-top: -2px;
+        }
+
+        .demo-title + .demo-desc {
+            padding-top: 0;
+            margin-top: -16px;
+        }
+    }
+}
+
+.arco-menu-group .arco-menu-group-title {
+
+    .arco-menu-indent {
+        width: 0;
+    }
+}

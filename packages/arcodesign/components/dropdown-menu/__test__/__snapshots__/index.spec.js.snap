@@ -1,0 +1,508 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dropdown-menu demo test dropdown-menu demo: cascade-options.md renders correctly 1`] = `
+<div
+  class="arco-dropdown-menu all-border-box "
+>
+  <div
+    class="arco-select"
+  >
+    <div
+      class="arco-select-item"
+      data-idx="0"
+    >
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          北京市
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-select-item"
+      data-idx="1"
+    >
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          海淀区
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`dropdown-menu demo test dropdown-menu demo: controled-dropdown.md renders correctly 1`] = `
+<div
+  class="arco-dropdown-menu all-border-box "
+>
+  <div
+    class="arco-select"
+  >
+    <div
+      class="arco-select-item"
+      data-idx="0"
+    >
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          西瓜视频
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-select-item"
+      data-idx="1"
+    >
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          全部展现位置
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`dropdown-menu demo test dropdown-menu demo: custom-direction.md renders correctly 1`] = `
+<div
+  class="arco-dropdown-menu all-border-box "
+>
+  <div
+    class="arco-select"
+  >
+    <div
+      class="arco-select-item"
+      data-idx="0"
+    >
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          请选择
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-select-item"
+      data-idx="1"
+    >
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          请选择
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`dropdown-menu demo test dropdown-menu demo: diffrent-options.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-dropdown-menu all-border-box "
+  >
+    <div
+      class="arco-select"
+    >
+      <div
+        class="arco-select-item"
+        data-idx="0"
+      >
+        <div
+          class="arco-select-item-label"
+        >
+          <div
+            class="arco-select-item-label-text"
+          >
+            海淀区
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div />
+    </div>
+  </div>,
+  <div
+    class="arco-dropdown-menu all-border-box "
+  >
+    <div
+      class="arco-select"
+    >
+      <div
+        class="arco-select-item"
+        data-idx="0"
+      >
+        <div
+          class="arco-select-item-label"
+        >
+          <div
+            class="arco-select-item-label-text"
+          >
+            海淀区
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="arco-select-item"
+        data-idx="1"
+      >
+        <div
+          class="arco-select-item-label"
+        >
+          <div
+            class="arco-select-item-label-text"
+          >
+            低楼层
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div />
+    </div>
+  </div>,
+  <div
+    class="arco-dropdown-menu all-border-box "
+  >
+    <div
+      class="arco-select"
+    >
+      <div
+        class="arco-select-item"
+        data-idx="0"
+      >
+        <div
+          class="arco-select-item-label"
+        >
+          <div
+            class="arco-select-item-label-text"
+          >
+            丰台区
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="arco-select-item"
+        data-idx="1"
+      >
+        <div
+          class="arco-select-item-label"
+        >
+          <div
+            class="arco-select-item-label-text"
+          >
+            低楼层
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div />
+    </div>
+  </div>,
+]
+`;
+
+exports[`dropdown-menu demo test dropdown-menu demo: named-select.md renders correctly 1`] = `
+<div
+  class="arco-dropdown-menu all-border-box "
+>
+  <div
+    class="arco-select"
+  >
+    <div
+      class="arco-select-item"
+      data-idx="0"
+    >
+      <span
+        class="arco-select-item-tip"
+      >
+        平台
+      </span>
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          今日头条
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-select-item"
+      data-idx="1"
+    >
+      <span
+        class="arco-select-item-tip"
+      >
+        位置
+      </span>
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          全部展现位置
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`dropdown-menu demo test dropdown-menu demo: selected-options.md renders correctly 1`] = `
+<div
+  class="arco-dropdown-menu all-border-box "
+>
+  <div
+    class="arco-select"
+  >
+    <div
+      class="arco-select-item"
+      data-idx="0"
+    >
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          懂车帝
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-select-item"
+      data-idx="1"
+    >
+      <div
+        class="arco-select-item-label"
+      >
+        <div
+          class="arco-select-item-label-text"
+        >
+          推荐
+        </div>
+        <svg
+          class="arco-icon arco-icon-tri-down arco-select-item-icon"
+          fill="currentColor"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs />
+          <path
+            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div />
+  </div>
+</div>
+`;

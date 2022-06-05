@@ -1,0 +1,1011 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tabs demo test tabs demo: basic.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+      >
+        <div
+          class="arco-tab-cell vertical line-divide pc active no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink last"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:300%;transform:translateX(0px);-webkit-transform:translateX(0px);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: card.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box demo-tabs-card"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-card pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-card"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-card shown"
+      >
+        <div
+          class="arco-tab-cell vertical card pc active no-shrink"
+        >
+          标签页 1
+        </div>
+        <div
+          class="arco-tab-cell vertical card pc no-shrink"
+        >
+          标签页 2
+        </div>
+        <div
+          class="arco-tab-cell vertical card pc no-shrink last"
+        >
+          标签页 3
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:300%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: caterpillar.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
+      >
+        <div
+          class="arco-tab-cell vertical line pc active no-shrink"
+          style="margin-left:22px"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink last"
+        >
+          示例
+        </div>
+        <div
+          class="fake-padding"
+          style="width:22px;height:100%"
+        />
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner custom-animate vertical"
+            style="border-radius:6px"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:600%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: click.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+      >
+        <div
+          class="arco-tab-cell vertical line-divide pc active no-shrink"
+        >
+          示例一
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink"
+        >
+          示例二
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink last"
+        >
+          示例三
+        </div>
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:300%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: custom-bar.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box demo-tab-custom-bar"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-tag-divide pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-tag-divide"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-tag-divide shown"
+      >
+        <div
+          class="arco-tab-cell vertical tag-divide pc active no-shrink custom"
+          style="margin-right:45px;margin-left:22px"
+        >
+          <div
+            class="custom-bar-item active"
+          >
+            <div
+              class="title"
+            >
+              示例
+            </div>
+            <div
+              class="desc"
+            >
+              描述文案
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-tab-cell vertical tag-divide pc no-shrink custom"
+          style="margin-right:45px"
+        >
+          <div
+            class="custom-bar-item "
+          >
+            <div
+              class="title"
+            >
+              示例
+            </div>
+            <div
+              class="desc"
+            >
+              描述文案
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-tab-cell vertical tag-divide pc no-shrink last custom"
+        >
+          <div
+            class="custom-bar-item "
+          >
+            <div
+              class="title"
+            >
+              示例
+            </div>
+            <div
+              class="desc"
+            >
+              描述文案
+            </div>
+          </div>
+        </div>
+        <div
+          class="fake-padding"
+          style="width:22px;height:100%"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:300%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: duration.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+      >
+        <div
+          class="arco-tab-cell vertical line-divide pc active no-shrink"
+        >
+          示例一
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink"
+        >
+          示例二
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink"
+        >
+          示例三
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink last"
+        >
+          示例四
+        </div>
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:400%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: extra.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
+      >
+        <div
+          class="arco-tab-cell vertical line pc active no-shrink"
+          style="margin-right:42px;margin-left:22px"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+          style="margin-right:42px"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+          style="margin-right:42px"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+          style="margin-right:42px"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+          style="margin-right:42px"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink last"
+        >
+          示例
+        </div>
+        <div
+          class="fake-padding"
+          style="width:64px;height:100%"
+        />
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner vertical"
+          />
+        </div>
+      </div>
+      <div
+        class="demo-tabs-add-extra"
+      >
+        <svg
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+        >
+          <rect
+            fill="#86909C"
+            height="12"
+            rx="0.5"
+            width="2"
+            x="7"
+            y="2"
+          />
+          <rect
+            fill="#86909C"
+            height="12"
+            rx="0.5"
+            transform="rotate(90 14 7)"
+            width="2"
+            x="14"
+            y="7"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:600%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: scroll.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line has-divider"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
+      >
+        <div
+          class="arco-tab-cell vertical line pc active no-shrink"
+          style="margin-left:22px"
+        >
+          示例一
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          示例二
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          示例三
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          示例四
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink last"
+        >
+          示例五
+        </div>
+        <div
+          class="fake-padding"
+          style="width:22px;height:100%"
+        />
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-scroll demo-tab-pane-scroll mode-scroll-vertical"
+    style="height:150px;overflow-y:auto"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-scroll-content"
+      >
+        <p>
+          示例内容一
+        </p>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-scroll-content"
+      >
+        <p>
+          示例内容二
+        </p>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-scroll-content"
+      >
+        <p>
+          示例内容三
+        </p>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-scroll-content"
+      >
+        <p>
+          示例内容四
+        </p>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-scroll-content"
+      >
+        <p>
+          示例内容五
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: sticky.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <div
+        class="arco-tab-cell-container-wrap vertical type-line pc"
+      >
+        <div
+          class="arco-tab-cell-container-inner vertical pos-top type-line"
+        >
+          <div
+            class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
+          >
+            <div
+              class="arco-tab-cell vertical line pc active no-shrink"
+              style="margin-left:22px"
+            >
+              示例一
+            </div>
+            <div
+              class="arco-tab-cell vertical line pc no-shrink"
+            >
+              示例二
+            </div>
+            <div
+              class="arco-tab-cell vertical line pc no-shrink"
+            >
+              示例三
+            </div>
+            <div
+              class="arco-tab-cell vertical line pc no-shrink"
+            >
+              示例四
+            </div>
+            <div
+              class="arco-tab-cell vertical line pc no-shrink"
+            >
+              很长的第一个示例
+            </div>
+            <div
+              class="arco-tab-cell vertical line pc no-shrink last"
+            >
+              很长的第二个示例
+            </div>
+            <div
+              class="fake-padding"
+              style="width:22px;height:100%"
+            />
+            <div
+              class="arco-tab-cell-underline"
+            >
+              <div
+                class="arco-tab-cell-underline-inner vertical"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:600%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: tag.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-tag pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-tag"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-start type-tag shown"
+      >
+        <div
+          class="arco-tab-cell vertical tag pc active no-shrink"
+          style="margin-left:16px"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag pc no-shrink last"
+        >
+          示例
+        </div>
+        <div
+          class="fake-padding"
+          style="width:16px;height:100%"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:900%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: tag-divide.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-tag-divide pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-tag-divide"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-tag-divide shown"
+      >
+        <div
+          class="arco-tab-cell vertical tag-divide pc active no-shrink"
+          style="margin-left:16px"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag-divide pc no-shrink"
+        >
+          示例
+        </div>
+        <div
+          class="arco-tab-cell vertical tag-divide pc no-shrink last"
+        >
+          示例
+        </div>
+        <div
+          class="fake-padding"
+          style="width:16px;height:100%"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:300%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        内容区域
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane"
+    />
+    <div
+      class="arco-tab-pane"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: vertical.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-tabs arco-tabs-left arco-tabs-horizontal all-border-box"
+  >
+    <div
+      class="arco-tab-cell-container-wrap horizontal type-line pc"
+    >
+      <div
+        class="arco-tab-cell-container-inner horizontal pos-left type-line"
+      >
+        <div
+          class="arco-tab-cell-container horizontal pos-left arrange-center type-line shown"
+        >
+          <div
+            class="arco-tab-cell horizontal line pc active no-shrink"
+          >
+            <span>
+              示例一
+            </span>
+          </div>
+          <div
+            class="arco-tab-cell horizontal line pc no-shrink"
+          >
+            <span>
+              示例二
+            </span>
+          </div>
+          <div
+            class="arco-tab-cell horizontal line pc no-shrink"
+          >
+            <span>
+              示例三
+            </span>
+          </div>
+          <div
+            class="arco-tab-cell horizontal line pc no-shrink last"
+          >
+            <span>
+              示例四
+            </span>
+          </div>
+          <div
+            class="arco-tab-cell-underline"
+          >
+            <div
+              class="arco-tab-cell-underline-inner horizontal"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane-container horizontal mode-swipe"
+      style="height:400%;transform:translateY(0px) translateZ(0);-webkit-transform:translateY(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+    >
+      <div
+        class="arco-tab-pane"
+      >
+        <div />
+      </div>
+      <div
+        class="arco-tab-pane"
+      />
+      <div
+        class="arco-tab-pane"
+      />
+      <div
+        class="arco-tab-pane"
+      />
+    </div>
+  </div>
+</div>
+`;

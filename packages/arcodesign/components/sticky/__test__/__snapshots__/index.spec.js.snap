@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sticky demo test sticky demo: bottom.md renders correctly 1`] = `
+<div>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          吸底，全局滚动，相对于底部40px定位
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`sticky demo test sticky demo: index.md renders correctly 1`] = `
+<div>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          全局滚动，相对于顶部64px定位
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`sticky demo test sticky demo: offset.md renders correctly 1`] = `
+<div
+  id="container"
+>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          相对顶部100px，容器离开视口时会跟随
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="demo-sticky-container"
+  >
+    容器底部
+  </div>
+</div>
+`;
+
+exports[`sticky demo test sticky demo: relative.md renders correctly 1`] = `
+<div
+  style="height:300px;overflow:scroll"
+>
+  <div
+    class="demo-sticky-container"
+    style="height:200px"
+  >
+    我的普通内容
+  </div>
+  <div>
+    <div />
+    <div
+      class="arco-sticky"
+    >
+      <button
+        class="arco-button type-primary size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="btn-icon"
+        />
+        <div
+          class="btn-text"
+        >
+          相对滚动内容
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    class="demo-sticky-container"
+    style="height:500px"
+  >
+    我的普通内容
+  </div>
+</div>
+`;

@@ -1,0 +1,86 @@
+{
+    "components":{
+        "ch": "组件",
+        "en": "Components"
+    },
+    "developmentGuide": {
+        "ch": "开发指南",
+        "en": "development guide"
+    },
+    "changelog": {
+        "ch": "更新日志",
+        "en": "Changelog"
+    },
+    "changelogDesc": {
+        "ch": "这里会有详细的发版记录，版本号严格遵循 Semver 规范。",
+        "en": "There will be detailed release records here, and the version number will strictly follow the Semver specification."
+    },
+    "others": {
+        "ch": "其他",
+        "en": "Others"
+    },
+    "type": {
+        "ch": "类型",
+        "en": "Type"
+    },
+    "defaultValue": {
+        "ch": "默认值",
+        "en": "DefaultValue"
+    },
+    "theme": {
+        "ch": "主题",
+        "en": "theme"
+    },
+    "owningComponent": {
+        "ch": "所属组件",
+        "en": "owning component"
+    },
+    "darkMode": {
+        "ch": "（暗黑模式）",
+        "en": " (dark mode)"
+    },
+    "variableName": {
+        "ch": "变量名称",
+        "en": "Variable Name"
+    },
+    "variableDesc": {
+        "ch": "变量描述",
+        "en": "Variable Description"
+    },
+    "variable": {
+        "ch": "变量值",
+        "en": "Variable"
+    },
+    "formerName": {
+        "ch": "曾用名",
+        "en": "Former Name"
+    },
+    "manualIntroduction": {
+        "ch": "手动引入：",
+        "en": "Import manually: "
+    },
+    "demandIntroduction": {
+        "ch": "按需引入（需配置`babel-plugin-import`，见“快速上手”）：",
+        "en": "Import on demand (need to configure `babel-plugin-import`, see \"Quick Start\"):"
+    },
+    "variableDescription": {
+        "ch": "变量说明",
+        "en": "Variable Description"
+    },
+    "developmentResource": {
+        "ch": "开发资源",
+        "en": "Development Resource"
+    },
+    "variableDescParagraph": {
+        "ch": "这里列出了组件库中所有主题的所有变量及其说明。",
+        "en": "All variables and their descriptions for all themes in the component library are listed here."
+    },
+    "copySuccess": {
+        "ch": "复制成功",
+        "en": "is copied successfully"
+    },
+    "global": {
+        "ch": "全局",
+        "en": "global"
+    }
+}

@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`count-down demo test count-down demo: async.md renders correctly 1`] = `
+<div
+  class="arco-count-down "
+>
+  04:36:09
+</div>
+`;
+
+exports[`count-down demo test count-down demo: base.md renders correctly 1`] = `
+<div
+  class="arco-count-down "
+>
+  04:36:09
+</div>
+`;
+
+exports[`count-down demo test count-down demo: control.md renders correctly 1`] = `
+<div
+  class="count-down-demo-control"
+>
+  <div
+    class="arco-count-down count-down"
+  >
+    04:36:09
+  </div>
+  <div
+    class="btn-wrap"
+  >
+    <button
+      class="arco-button type-primary size-large is-semi pc"
+      type="button"
+    >
+      <div
+        class="btn-icon"
+      />
+      <div
+        class="btn-text"
+      >
+        重置
+      </div>
+    </button>
+    <button
+      class="arco-button type-primary size-large is-semi pc"
+      type="button"
+    >
+      <div
+        class="btn-icon"
+      />
+      <div
+        class="btn-text"
+      >
+        开始
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`count-down demo test count-down demo: defineFormat.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-count-down "
+  >
+    02 天 04 时 36 分 09 秒
+  </div>
+</div>
+`;
+
+exports[`count-down demo test count-down demo: defineStyle.md renders correctly 1`] = `
+<div
+  class="count-down-demo-define-style"
+>
+  <div
+    class="arco-count-down "
+  >
+    <span
+      class="block"
+    >
+      04
+    </span>
+    <span
+      class="colon"
+    >
+      :
+    </span>
+    <span
+      class="block"
+    >
+      36
+    </span>
+    <span
+      class="colon"
+    >
+      :
+    </span>
+    <span
+      class="block"
+    >
+      09
+    </span>
+  </div>
+</div>
+`;
+
+exports[`count-down demo test count-down demo: millsecond.md renders correctly 1`] = `
+<div
+  class="arco-count-down "
+>
+  04:36:09.000
+</div>
+`;
+
+exports[`count-down demo test count-down demo: server.md renders correctly 1`] = `
+<div
+  class="arco-count-down "
+>
+  04:36:09
+</div>
+`;

@@ -1,0 +1,445 @@
+{
+    "description": "按钮用于开始一个即时操作。",
+    "descriptionTags": {
+        "en": "Using for starting an immediate action",
+        "type": "通用",
+        "type_en": "General",
+        "name": "按钮",
+        "name_en": "Button"
+    },
+    "displayName": "Button",
+    "methods": [],
+    "props": {
+        "type": {
+            "defaultValue": {
+                "value": "\"primary\""
+            },
+            "description": "样式类型\n@en Style type",
+            "name": "type",
+            "tags": {
+                "en": "Style type",
+                "default": "\"primary\""
+            },
+            "descWithTags": "样式类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"primary\" | \"ghost\" | \"default\"",
+                "value": [
+                    {
+                        "value": "\"primary\""
+                    },
+                    {
+                        "value": "\"ghost\""
+                    },
+                    {
+                        "value": "\"default\""
+                    }
+                ]
+            }
+        },
+        "size": {
+            "defaultValue": {
+                "value": "\"large\""
+            },
+            "description": "尺寸\n@en Size",
+            "name": "size",
+            "tags": {
+                "en": "Size",
+                "default": "\"large\""
+            },
+            "descWithTags": "尺寸",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"mini\" | \"small\" | \"medium\" | \"large\" | \"huge\"",
+                "value": [
+                    {
+                        "value": "\"mini\""
+                    },
+                    {
+                        "value": "\"small\""
+                    },
+                    {
+                        "value": "\"medium\""
+                    },
+                    {
+                        "value": "\"large\""
+                    },
+                    {
+                        "value": "\"huge\""
+                    }
+                ]
+            }
+        },
+        "inline": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否为内联样式\n@en Whether it's inline style",
+            "name": "inline",
+            "tags": {
+                "en": "Whether it's inline style",
+                "default": "false"
+            },
+            "descWithTags": "是否为内联样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "loading": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否处于加载中状态\n@en Whether it's in loading status",
+            "name": "loading",
+            "tags": {
+                "en": "Whether it's in loading status",
+                "default": "false"
+            },
+            "descWithTags": "是否处于加载中状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用\n@en Whether to disable",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to disable",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "halfBorder": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "border是否为0.5px\n@en Whether the border is 0.5px",
+            "name": "halfBorder",
+            "tags": {
+                "en": "Whether the border is 0.5px",
+                "default": "false"
+            },
+            "descWithTags": "border是否为0.5px",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "icon": {
+            "defaultValue": null,
+            "description": "图标名，传入Icon组件\n@en icon, input icon component",
+            "name": "icon",
+            "tags": {
+                "en": "icon, input icon component"
+            },
+            "descWithTags": "图标名，传入Icon组件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "showTextWhenLoading": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "加载中是否展示文字\n@en Whether to show text when loading",
+            "name": "showTextWhenLoading",
+            "tags": {
+                "en": "Whether to show text when loading",
+                "default": "true"
+            },
+            "descWithTags": "加载中是否展示文字",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "needActive": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否需要点击态\n@en Whether it needs active status",
+            "name": "needActive",
+            "tags": {
+                "en": "Whether it needs active status",
+                "default": "true"
+            },
+            "descWithTags": "是否需要点击态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "shape": {
+            "defaultValue": {
+                "value": "\"semi\""
+            },
+            "description": "按钮形状\n@en Button shape",
+            "name": "shape",
+            "tags": {
+                "en": "Button shape",
+                "default": "\"semi\""
+            },
+            "descWithTags": "按钮形状",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"round\" | \"semi\" | \"square\"",
+                "value": [
+                    {
+                        "value": "\"round\""
+                    },
+                    {
+                        "value": "\"semi\""
+                    },
+                    {
+                        "value": "\"square\""
+                    }
+                ]
+            }
+        },
+        "color": {
+            "defaultValue": null,
+            "description": "自定义字体颜色\n@en Custom font color",
+            "name": "color",
+            "tags": {
+                "en": "Custom font color"
+            },
+            "descWithTags": "自定义字体颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ButtonColorStatus"
+            }
+        },
+        "bgColor": {
+            "defaultValue": null,
+            "description": "自定义背景颜色\n@en Custom background color",
+            "name": "bgColor",
+            "tags": {
+                "en": "Custom background color"
+            },
+            "descWithTags": "自定义背景颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ButtonColorStatus"
+            }
+        },
+        "borderColor": {
+            "defaultValue": null,
+            "description": "自定义边框颜色\n@en Custom border color",
+            "name": "borderColor",
+            "tags": {
+                "en": "Custom border color"
+            },
+            "descWithTags": "自定义边框颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ButtonColorStatus"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "loadingIcon": {
+            "defaultValue": null,
+            "description": "加载图标，传入Icon组件type属性或node\n@en Loading icon, input the icon component or its type",
+            "name": "loadingIcon",
+            "tags": {
+                "en": "Loading icon, input the icon component or its type"
+            },
+            "descWithTags": "加载图标，传入Icon组件type属性或node",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "子元素\n@en Children element",
+            "name": "children",
+            "tags": {
+                "en": "Children element"
+            },
+            "descWithTags": "子元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击按钮的回调函数\n@en Callback function when clicking button",
+            "name": "onClick",
+            "tags": {
+                "en": "Callback function when clicking button"
+            },
+            "descWithTags": "点击按钮的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "onClickDisabled": {
+            "defaultValue": null,
+            "description": "禁用状态下点击按钮的回调函数\n@en Callback function when disabling button",
+            "name": "onClickDisabled",
+            "tags": {
+                "en": "Callback function when disabling button"
+            },
+            "descWithTags": "禁用状态下点击按钮的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<ButtonRef>"
+            }
+        }
+    },
+    "deps": {
+        "ButtonColorStatus": "string|{ normal: string; active: string; disabled: string; }",
+        "ButtonRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLButtonElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "ButtonProps",
+        "ref": "ButtonRef"
+    },
+    "isDefaultExport": true
+}

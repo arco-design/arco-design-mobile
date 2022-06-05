@@ -1,0 +1,1199 @@
+{
+    "description": "轮播组件，支持自定义轮播索引样式及滑块宽度。**需要注意的是，如果正使用`fastclick`，需要为 touchstart 的 target 添加`needsclick`类**（<a href=\"https://github.com/ftlabs/fastclick#ignore-certain-elements-with-needsclick\" target=\"_blank\">详情戳这里</a>），以规避`fastclick`逻辑与组件内部的手势冲突。（如果使用了`list`属性则无需额外添加）",
+    "descriptionTags": {
+        "en": "Carousel component, supports custom carousel index style and slider width. **Note that if you are using `fastclick`, you need to add a `needsclick` class to the touchstart target ** (<a href=\"https://github.com/ftlabs/fastclick#ignore-certain-elements- with-needsclick\" target=\"_blank\">click here for details</a>) to avoid `fastclick` logic conflicts with gestures inside the component. (no need to add if `list` is set)",
+        "type": "数据展示",
+        "type_en": "Data Display",
+        "name": "轮播图",
+        "name_en": "Carousel"
+    },
+    "displayName": "Carousel",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "样式类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "样式类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "wrapStyle": {
+            "defaultValue": null,
+            "description": "最外层容器自定义样式\n@en Outermost container custom stylesheet",
+            "name": "wrapStyle",
+            "tags": {
+                "en": "Outermost container custom stylesheet"
+            },
+            "descWithTags": "最外层容器自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "内层轮播容器自定义样式\n@en Inner carousel container custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Inner carousel container custom stylesheet"
+            },
+            "descWithTags": "内层轮播容器自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "轮播内部内容\n@en Carousel internal content",
+            "name": "children",
+            "tags": {
+                "en": "Carousel internal content"
+            },
+            "descWithTags": "轮播内部内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "list": {
+            "defaultValue": null,
+            "description": "轮播图片列表，省略子元素的简写，传入图片url数组，也可通过`text`指定图片底部的蒙层文字内容\n@en Carousel image list, omit the shorthand of children elements, input the image url array, or specify the content of the masked text at the bottom of the image through `text`",
+            "name": "list",
+            "tags": {
+                "en": "Carousel image list, omit the shorthand of children elements, input the image url array, or specify the content of the masked text at the bottom of the image through `text`"
+            },
+            "descWithTags": "轮播图片列表，省略子元素的简写，传入图片url数组，也可通过`text`指定图片底部的蒙层文字内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CarouselListItem[]"
+            }
+        },
+        "animateDuration": {
+            "defaultValue": {
+                "value": "500"
+            },
+            "description": "自动切换轮播滑块时，动画的执行时间(ms)\n@en Animation duration(ms) when the carousel slider is automatically toggled,",
+            "name": "animateDuration",
+            "tags": {
+                "en": "Animation duration(ms) when the carousel slider is automatically toggled,",
+                "default": "500"
+            },
+            "descWithTags": "自动切换轮播滑块时，动画的执行时间(ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "animateDurationSlide": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "手动切换轮播滑块时，当手指释放后，动画的执行时间(ms)\n@en Animation duration(ms) after the finger is released When manually switching the carousel slider",
+            "name": "animateDurationSlide",
+            "tags": {
+                "en": "Animation duration(ms) after the finger is released When manually switching the carousel slider",
+                "default": "300"
+            },
+            "descWithTags": "手动切换轮播滑块时，当手指释放后，动画的执行时间(ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "loop": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否开启循环轮播，当指定轮播滑块宽度时该属性不生效\n@en Whether to enable circular rotation, it does not take effect when the slider width is specified",
+            "name": "loop",
+            "tags": {
+                "en": "Whether to enable circular rotation, it does not take effect when the slider width is specified",
+                "default": "true"
+            },
+            "descWithTags": "是否开启循环轮播，当指定轮播滑块宽度时该属性不生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "autoPlay": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否开启自动播放\n@en Whether to enable autoplay",
+            "name": "autoPlay",
+            "tags": {
+                "en": "Whether to enable autoplay",
+                "default": "true"
+            },
+            "descWithTags": "是否开启自动播放",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "swipeable": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否响应手势滑动\n@en Whether to respond to gesture swipe",
+            "name": "swipeable",
+            "tags": {
+                "en": "Whether to respond to gesture swipe",
+                "default": "true"
+            },
+            "descWithTags": "是否响应手势滑动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "stayDuration": {
+            "defaultValue": {
+                "value": "4000"
+            },
+            "description": "开启自动播放时，每一个滑块的停留时间(ms)\n@en The stay duration of each slider when autoplay is turned on",
+            "name": "stayDuration",
+            "tags": {
+                "en": "The stay duration of each slider when autoplay is turned on",
+                "default": "4000"
+            },
+            "descWithTags": "开启自动播放时，每一个滑块的停留时间(ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "boxWidth": {
+            "defaultValue": null,
+            "description": "指定容器宽度，默认为基于父容器100%\n@en Width of the box, the default value is 100% based on the parent container",
+            "name": "boxWidth",
+            "tags": {
+                "en": "Width of the box, the default value is 100% based on the parent container"
+            },
+            "descWithTags": "指定容器宽度，默认为基于父容器100%",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "boxHeight": {
+            "defaultValue": null,
+            "description": "指定容器高度，默认为自适应高度；当设置`vertical=true`时，该属性为必填\n@en Height of the box. The property is required when vertical is true",
+            "name": "boxHeight",
+            "tags": {
+                "en": "Height of the box. The property is required when vertical is true"
+            },
+            "descWithTags": "指定容器高度，默认为自适应高度；当设置`vertical=true`时，该属性为必填",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "baseBoxWidth": {
+            "defaultValue": null,
+            "description": "指定初始容器宽度，常用于ssr首屏初始化，水平轮播时可用\n@en Initial box width, commonly used for ssr first screen initialization, available when horizontal rotation",
+            "name": "baseBoxWidth",
+            "tags": {
+                "en": "Initial box width, commonly used for ssr first screen initialization, available when horizontal rotation"
+            },
+            "descWithTags": "指定初始容器宽度，常用于ssr首屏初始化，水平轮播时可用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "baseBoxHeight": {
+            "defaultValue": null,
+            "description": "指定初始容器宽度，常用于ssr首屏初始化，垂直轮播时可用\n@en Initial box height, commonly used for ssr first screen initialization, available when vertical rotation",
+            "name": "baseBoxHeight",
+            "tags": {
+                "en": "Initial box height, commonly used for ssr first screen initialization, available when vertical rotation"
+            },
+            "descWithTags": "指定初始容器宽度，常用于ssr首屏初始化，垂直轮播时可用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "width": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "指定轮播滑块宽度，为0或不传时为默认的父容器宽度\n@en Width of the carousel slider, the default value is parent container width if it is 0 or not input",
+            "name": "width",
+            "tags": {
+                "en": "Width of the carousel slider, the default value is parent container width if it is 0 or not input",
+                "default": "0"
+            },
+            "descWithTags": "指定轮播滑块宽度，为0或不传时为默认的父容器宽度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "height": {
+            "defaultValue": null,
+            "description": "指定轮播滑块高度，如不指定则为自适应高度\n@en Height of the carousel slider, it will be adaptive if not input",
+            "name": "height",
+            "tags": {
+                "en": "Height of the carousel slider, it will be adaptive if not input"
+            },
+            "descWithTags": "指定轮播滑块高度，如不指定则为自适应高度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "initialIndex": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "默认选中的滑块索引\n@en Default selected slider index",
+            "name": "initialIndex",
+            "tags": {
+                "en": "Default selected slider index",
+                "default": "0"
+            },
+            "descWithTags": "默认选中的滑块索引",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "renderIndicator": {
+            "defaultValue": null,
+            "description": "自定义轮播索引\n@en Custom indicator",
+            "name": "renderIndicator",
+            "tags": {
+                "en": "Custom indicator"
+            },
+            "descWithTags": "自定义轮播索引",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(currentIndex: number, total: number, lastIndex: number) => ReactNode"
+            }
+        },
+        "indicatorPos": {
+            "defaultValue": {
+                "value": "\"center\""
+            },
+            "description": "轮播索引位置\n@en Position of the indicator",
+            "name": "indicatorPos",
+            "tags": {
+                "en": "Position of the indicator",
+                "default": "\"center\""
+            },
+            "descWithTags": "轮播索引位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"start\" | \"center\" | \"end\"",
+                "value": [
+                    {
+                        "value": "\"start\""
+                    },
+                    {
+                        "value": "\"center\""
+                    },
+                    {
+                        "value": "\"end\""
+                    }
+                ]
+            }
+        },
+        "indicatorVerticalPos": {
+            "defaultValue": {
+                "value": "\"left\""
+            },
+            "description": "垂直轮播索引横向位置\n@en Horizontal position of the vertical indicator",
+            "name": "indicatorVerticalPos",
+            "tags": {
+                "en": "Horizontal position of the vertical indicator",
+                "default": "\"left\""
+            },
+            "descWithTags": "垂直轮播索引横向位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"left\" | \"right\"",
+                "value": [
+                    {
+                        "value": "\"left\""
+                    },
+                    {
+                        "value": "\"right\""
+                    }
+                ]
+            }
+        },
+        "indicatorOutside": {
+            "defaultValue": null,
+            "description": "轮播索引是否放轮播图外面\n@en Whether the indicator is placed outside the carousel",
+            "name": "indicatorOutside",
+            "tags": {
+                "en": "Whether the indicator is placed outside the carousel"
+            },
+            "descWithTags": "轮播索引是否放轮播图外面",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "showIndicator": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否展示轮播索引\n@en Whether to show the indicator",
+            "name": "showIndicator",
+            "tags": {
+                "en": "Whether to show the indicator",
+                "default": "true"
+            },
+            "descWithTags": "是否展示轮播索引",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "hideSingleIndicator": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "children 只有一个时隐藏轮播索引\n@en Whether to hide the indicator if just one child",
+            "name": "hideSingleIndicator",
+            "tags": {
+                "en": "Whether to hide the indicator if just one child",
+                "default": "true"
+            },
+            "descWithTags": "children 只有一个时隐藏轮播索引",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "indicatorType": {
+            "defaultValue": {
+                "value": "\"square\""
+            },
+            "description": "轮播索引样式类型\n@en the style type of the indicator",
+            "name": "indicatorType",
+            "tags": {
+                "en": "the style type of the indicator",
+                "default": "\"square\""
+            },
+            "descWithTags": "轮播索引样式类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"square\" | \"circle\"",
+                "value": [
+                    {
+                        "value": "\"square\""
+                    },
+                    {
+                        "value": "\"circle\""
+                    }
+                ]
+            }
+        },
+        "indicatorClass": {
+            "defaultValue": null,
+            "description": "轮播索引类名\n@en Indicator classname",
+            "name": "indicatorClass",
+            "tags": {
+                "en": "Indicator classname"
+            },
+            "descWithTags": "轮播索引类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "indicatorInverse": {
+            "defaultValue": null,
+            "description": "轮播索引是否反色，默认根据索引是否放在外面决定\n@en Whether the carousel indicator is inverse color, the default is determined according to whether the indicator is placed outside",
+            "name": "indicatorInverse",
+            "tags": {
+                "en": "Whether the carousel indicator is inverse color, the default is determined according to whether the indicator is placed outside"
+            },
+            "descWithTags": "轮播索引是否反色，默认根据索引是否放在外面决定",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "spaceBetween": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "子元素间距\n@en Children elements spacing",
+            "name": "spaceBetween",
+            "tags": {
+                "en": "Children elements spacing",
+                "default": "0"
+            },
+            "descWithTags": "子元素间距",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "offsetBetween": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "前后两端露出距离，设置值时不能循环轮播\n@en The exposed distance of the front and rear. When the value is set, the carousel cannot be rotated.",
+            "name": "offsetBetween",
+            "tags": {
+                "en": "The exposed distance of the front and rear. When the value is set, the carousel cannot be rotated.",
+                "default": "0"
+            },
+            "descWithTags": "前后两端露出距离，设置值时不能循环轮播",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { left?: number; right?: number; }"
+            }
+        },
+        "currentIndex": {
+            "defaultValue": null,
+            "description": "手动控制当前展示元素\n@en Manually control the current display element",
+            "name": "currentIndex",
+            "tags": {
+                "en": "Manually control the current display element"
+            },
+            "descWithTags": "手动控制当前展示元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "autoHeight": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "容器高度自适应\n@en Whether the container height is adaptive",
+            "name": "autoHeight",
+            "tags": {
+                "en": "Whether the container height is adaptive",
+                "default": "false"
+            },
+            "descWithTags": "容器高度自适应",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "percentToChange": {
+            "defaultValue": {
+                "value": "0.3"
+            },
+            "description": "滑动切换距离阈值(宽度比例)，范围为[0, 1]，如果该属性和`distanceToChange`属性均设置，则实际计算结果更大的生效\n@en Sliding switching distance threshold (width ratio), the range is [0, 1]. If the property and the `distanceToChange` property are both set, the actual calculation result will take effect with a larger value.",
+            "name": "percentToChange",
+            "tags": {
+                "en": "Sliding switching distance threshold (width ratio), the range is [0, 1]. If the property and the `distanceToChange` property are both set, the actual calculation result will take effect with a larger value.",
+                "default": "0.3"
+            },
+            "descWithTags": "滑动切换距离阈值(宽度比例)，范围为[0, 1]，如果该属性和`distanceToChange`属性均设置，则实际计算结果更大的生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "distanceToChange": {
+            "defaultValue": {
+                "value": "10"
+            },
+            "description": "滑动切换距离阈值(固定px宽度)，如果该属性和`percentToChange`属性均设置，则实际计算结果更大的生效\n@en Sliding switching distance threshold (fixed px width), if both this property and the `percentToChange` property are set, the actual calculation result will take effect with a larger one",
+            "name": "distanceToChange",
+            "tags": {
+                "en": "Sliding switching distance threshold (fixed px width), if both this property and the `percentToChange` property are set, the actual calculation result will take effect with a larger one",
+                "default": "10"
+            },
+            "descWithTags": "滑动切换距离阈值(固定px宽度)，如果该属性和`percentToChange`属性均设置，则实际计算结果更大的生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "speedToChange": {
+            "defaultValue": {
+                "value": "200"
+            },
+            "description": "滑动切换速度阈值(手指从按下到抬起之间的滑动速度，单位为px/s)，与滑动切换距离阈值同时设置时，满足其中一个即生效\n@en The sliding switching speed threshold (the sliding speed of the finger from pressing to lifting, in px/s), when it is set at the same time as the sliding switching distance threshold, it will take effect if one of them is satisfied.",
+            "name": "speedToChange",
+            "tags": {
+                "en": "The sliding switching speed threshold (the sliding speed of the finger from pressing to lifting, in px/s), when it is set at the same time as the sliding switching distance threshold, it will take effect if one of them is satisfied.",
+                "default": "200"
+            },
+            "descWithTags": "滑动切换速度阈值(手指从按下到抬起之间的滑动速度，单位为px/s)，与滑动切换距离阈值同时设置时，满足其中一个即生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "vertical": {
+            "defaultValue": null,
+            "description": "是否垂直轮播，设置后`boxHeight`属性必填\n@en Whether to rotate vertically, the `boxHeight` property is required after setting",
+            "name": "vertical",
+            "tags": {
+                "en": "Whether to rotate vertically, the `boxHeight` property is required after setting"
+            },
+            "descWithTags": "是否垂直轮播，设置后`boxHeight`属性必填",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "lazyloadCount": {
+            "defaultValue": null,
+            "description": "只加载当前页相邻的n个内容，为0时会销毁所有相邻内容，不传则加载所有内容\n@en Only load the n sliders adjacent to the current slider. If it is 0, all adjacent content will be destroyed. If not input, all sliders will be loaded.",
+            "name": "lazyloadCount",
+            "tags": {
+                "en": "Only load the n sliders adjacent to the current slider. If it is 0, all adjacent content will be destroyed. If not input, all sliders will be loaded."
+            },
+            "descWithTags": "只加载当前页相邻的n个内容，为0时会销毁所有相邻内容，不传则加载所有内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "stopTouchThreshold": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "触发onTouchStopped的最小阈值\n@en Minimum threshold to trigger onTouchStopped",
+            "name": "stopTouchThreshold",
+            "tags": {
+                "en": "Minimum threshold to trigger onTouchStopped",
+                "default": "0"
+            },
+            "descWithTags": "触发onTouchStopped的最小阈值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "bounceWhenNoLoop": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "当不可循环时，是否开启滑动到最前或最后时的回弹效果\n@en When it is not loopable, whether to enable the rebound effect when sliding to the front or the end",
+            "name": "bounceWhenNoLoop",
+            "tags": {
+                "en": "When it is not loopable, whether to enable the rebound effect when sliding to the front or the end",
+                "default": "false"
+            },
+            "descWithTags": "当不可循环时，是否开启滑动到最前或最后时的回弹效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "bounceDampRate": {
+            "defaultValue": {
+                "value": "3"
+            },
+            "description": "当开启最前或最后时的回弹效果时的阻尼系数\n@en The damping coefficient when the front or rear rebound effect is turned on",
+            "name": "bounceDampRate",
+            "tags": {
+                "en": "The damping coefficient when the front or rear rebound effect is turned on",
+                "default": "3"
+            },
+            "descWithTags": "当开启最前或最后时的回弹效果时的阻尼系数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "inactiveScale": {
+            "defaultValue": null,
+            "description": "非active的滑块的大小比例，[0, 1]的小数，设置后切换时将有放大效果\n@en The size ratio of the inactive slider, the value range is [0, 1]. After setting, it will have a magnification effect when switching.",
+            "name": "inactiveScale",
+            "tags": {
+                "en": "The size ratio of the inactive slider, the value range is [0, 1]. After setting, it will have a magnification effect when switching."
+            },
+            "descWithTags": "非active的滑块的大小比例，[0, 1]的小数，设置后切换时将有放大效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "stopPropagation": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "触摸事件是否需要 stopPropagation\n@en Whether the touch event requires stopPropagation",
+            "name": "stopPropagation",
+            "tags": {
+                "en": "Whether the touch event requires stopPropagation",
+                "default": "true"
+            },
+            "descWithTags": "触摸事件是否需要 stopPropagation",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "fakeItem": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否需要fake首尾item，用于offsetBetween不等于0时循环轮播的衔接\n@en Whether to fake the first and last items, which is used for the connection of the circular rotation when the offsetBetween is not equal to 0",
+            "name": "fakeItem",
+            "tags": {
+                "en": "Whether to fake the first and last items, which is used for the connection of the circular rotation when the offsetBetween is not equal to 0",
+                "default": "false"
+            },
+            "descWithTags": "是否需要fake首尾item，用于offsetBetween不等于0时循环轮播的衔接",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "allowEndBlank": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "滑动到最后时是否允许留白，仅在loop=false且设置了width时有效",
+            "name": "allowEndBlank",
+            "tags": {
+                "default": "false"
+            },
+            "descWithTags": "滑动到最后时是否允许留白，仅在loop=false且设置了width时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "distanceProcessor": {
+            "defaultValue": {
+                "value": "(posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)"
+            },
+            "description": "自定义手指滑动跟手的距离计算方式，posDis表示touchmove的距离，wrapSize表示容器在滑动方向的尺寸，childSize表示滑块在滑动方向的尺寸",
+            "name": "distanceProcessor",
+            "tags": {
+                "default": "(posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)"
+            },
+            "descWithTags": "自定义手指滑动跟手的距离计算方式，posDis表示touchmove的距离，wrapSize表示容器在滑动方向的尺寸，childSize表示滑块在滑动方向的尺寸",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(posDis: number, wrapSize: number, childSize: number) => number"
+            }
+        },
+        "getInnerScrollContainer": {
+            "defaultValue": null,
+            "description": "组件内部的滚动容器，用于豁免滑动事件响应\n@en The scroll container inside the component, used to exempt the sliding event response",
+            "name": "getInnerScrollContainer",
+            "tags": {
+                "en": "The scroll container inside the component, used to exempt the sliding event response"
+            },
+            "descWithTags": "组件内部的滚动容器，用于豁免滑动事件响应",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | HTMLElement[]"
+            }
+        },
+        "onTouchStopped": {
+            "defaultValue": null,
+            "description": "当轮播不支持循环且滑到最前面或最后面，还想再滑动时触发\n@en Triggered when the carousel does not support looping and slides to the front or back, but want to slide again",
+            "name": "onTouchStopped",
+            "tags": {
+                "en": "Triggered when the carousel does not support looping and slides to the front or back, but want to slide again"
+            },
+            "descWithTags": "当轮播不支持循环且滑到最前面或最后面，还想再滑动时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(direction: 1 | -1) => void"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "轮播滑块切换时触发\n@en Triggered when the carousel slider is toggled",
+            "name": "onChange",
+            "tags": {
+                "en": "Triggered when the carousel slider is toggled"
+            },
+            "descWithTags": "轮播滑块切换时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: number) => void"
+            }
+        },
+        "onAfterChange": {
+            "defaultValue": null,
+            "description": "轮播滑块切换，动画完成后触发\n@en Triggered after the carousel slider toggle animation is complete",
+            "name": "onAfterChange",
+            "tags": {
+                "en": "Triggered after the carousel slider toggle animation is complete"
+            },
+            "descWithTags": "轮播滑块切换，动画完成后触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: number, oldIndex: number) => void"
+            }
+        },
+        "onTouchStart": {
+            "defaultValue": null,
+            "description": "轮播内容touchstart事件\n@en Carousel content touchstart event",
+            "name": "onTouchStart",
+            "tags": {
+                "en": "Carousel content touchstart event"
+            },
+            "descWithTags": "轮播内容touchstart事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent, total: number, index: number) => boolean | void"
+            }
+        },
+        "onTouchMove": {
+            "defaultValue": null,
+            "description": "轮播内容touchmove事件\n@en Carousel content touchmove event",
+            "name": "onTouchMove",
+            "tags": {
+                "en": "Carousel content touchmove event"
+            },
+            "descWithTags": "轮播内容touchmove事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent, total: number, index: number) => boolean | void"
+            }
+        },
+        "onTouchEnd": {
+            "defaultValue": null,
+            "description": "轮播内容touchend / touchcancel事件\n@en Carousel content touchend / touchcancel event",
+            "name": "onTouchEnd",
+            "tags": {
+                "en": "Carousel content touchend / touchcancel event"
+            },
+            "descWithTags": "轮播内容touchend / touchcancel事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent, total: number, index: number) => boolean | void"
+            }
+        },
+        "onTransitionStart": {
+            "defaultValue": null,
+            "description": "轮播切换动画开始时回调\n@en Callback when the carousel transition animation starts",
+            "name": "onTransitionStart",
+            "tags": {
+                "en": "Callback when the carousel transition animation starts"
+            },
+            "descWithTags": "轮播切换动画开始时回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onTransitionEnd": {
+            "defaultValue": null,
+            "description": "轮播切换动画结束时回调\n@en Callback when the carousel transition animation ends",
+            "name": "onTransitionEnd",
+            "tags": {
+                "en": "Callback when the carousel transition animation ends"
+            },
+            "descWithTags": "轮播切换动画结束时回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onDistanceChange": {
+            "defaultValue": null,
+            "description": "轮播左右滑动时回调，用于监听滑动距离以做滑动同步交互\n@en Callback when the carousel slides left and right, used to monitor the sliding distance for sliding synchronization interaction",
+            "name": "onDistanceChange",
+            "tags": {
+                "en": "Callback when the carousel slides left and right, used to monitor the sliding distance for sliding synchronization interaction"
+            },
+            "descWithTags": "轮播左右滑动时回调，用于监听滑动距离以做滑动同步交互",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(distance: number, wrapSize: number, activeIndex: number) => void"
+            }
+        },
+        "onPageVisibleChange": {
+            "defaultValue": null,
+            "description": "自定义页面展示隐藏监听，默认在document监听visibilitychange事件，返回function用于在组件卸载时移除监听\n@en Custom page visibility listener. By default, the visibilitychange event is monitored in the document. The return function is used to remove the listener when the component is unloaded.",
+            "name": "onPageVisibleChange",
+            "tags": {
+                "en": "Custom page visibility listener. By default, the visibilitychange event is monitored in the document. The return function is used to remove the listener when the component is unloaded."
+            },
+            "descWithTags": "自定义页面展示隐藏监听，默认在document监听visibilitychange事件，返回function用于在组件卸载时移除监听",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(updateWhenVisible: () => void, updateWhenInvisible: () => void) => () => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<CarouselRef>"
+            }
+        }
+    },
+    "deps": {
+        "CarouselListItem": {
+            "src": {
+                "name": "src",
+                "required": true,
+                "description": "图片链接\n@en image resource",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "image resource"
+                },
+                "descWithTags": "图片链接"
+            },
+            "text": {
+                "name": "text",
+                "required": false,
+                "description": "图片底部固定的文字\n@en Fixed text at the bottom of the image",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Fixed text at the bottom of the image"
+                },
+                "descWithTags": "图片底部固定的文字"
+            },
+            "onClick": {
+                "name": "onClick",
+                "required": false,
+                "description": "点击图片回调\n@en Callback function for clicking the image",
+                "defaultValue": null,
+                "type": {
+                    "name": "(e: MouseEvent<HTMLImageElement, MouseEvent>) => void"
+                },
+                "tags": {
+                    "en": "Callback function for clicking the image"
+                },
+                "descWithTags": "点击图片回调"
+            }
+        },
+        "CarouselRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "wrap": {
+                "name": "wrap",
+                "required": true,
+                "description": "轮播图子项包裹容器 DOM，承载了 touch 相关事件\n@en Wrapper DOM of carousel slider items, carry touch related events",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Wrapper DOM of carousel slider items, carry touch related events"
+                },
+                "descWithTags": "轮播图子项包裹容器 DOM，承载了 touch 相关事件"
+            },
+            "items": {
+                "name": "items",
+                "required": true,
+                "description": "轮播图每个子项的 DOM\n@en Carousel slider DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement[]"
+                },
+                "tags": {
+                    "en": "Carousel slider DOM"
+                },
+                "descWithTags": "轮播图每个子项的 DOM"
+            },
+            "noLoop": {
+                "name": "noLoop",
+                "required": true,
+                "description": "在某些条件下内部会禁用循环轮播，这里表示循环是否被禁用\n@en The loop rotation is disabled internally under certain conditions, here indicates whether the loop is disabled",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "The loop rotation is disabled internally under certain conditions, here indicates whether the loop is disabled"
+                },
+                "descWithTags": "在某些条件下内部会禁用循环轮播，这里表示循环是否被禁用"
+            },
+            "updateData": {
+                "name": "updateData",
+                "required": true,
+                "description": "手动重新计算布局\n@en Recalculate the layout manually",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Recalculate the layout manually"
+                },
+                "descWithTags": "手动重新计算布局"
+            },
+            "changeIndex": {
+                "name": "changeIndex",
+                "required": true,
+                "description": "手动更新当前选中索引，rightNow 表示是否立刻跳转到目标索引，否则执行过渡动画到目标索引\n@en Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index",
+                "defaultValue": null,
+                "type": {
+                    "name": "(newIndex: number, rightNow?: boolean) => void"
+                },
+                "tags": {
+                    "en": "Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index"
+                },
+                "descWithTags": "手动更新当前选中索引，rightNow 表示是否立刻跳转到目标索引，否则执行过渡动画到目标索引"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "CarouselProps",
+        "ref": "CarouselRef"
+    },
+    "isDefaultExport": true
+}

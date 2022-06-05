@@ -1,0 +1,440 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loading demo test loading demo: custom-color.md renders correctly 1`] = `
+<div
+  class="loading-demo-basic"
+>
+  <div
+    class="arco-loading all-border-box arc"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+  >
+    <svg
+      viewBox="0 0 20 20"
+    >
+      <circle
+        class="arc-bg"
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke-width="2"
+      />
+      <circle
+        class="arc-line stroke-color-with-config"
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke-dasharray="14.137166941154069 42.411500823462205"
+        stroke-dashoffset="14.137166941154069"
+        stroke-linecap="round"
+        stroke-width="2"
+        style="stroke:#ff5722"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-loading all-border-box circle"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+  >
+    <svg
+      viewBox="0 0 20 20"
+    >
+      <defs>
+        <linearGradient
+          id="grad1-custom"
+          x1="0%"
+          x2="100%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            class="loading-circle-middle stop-color-with-config"
+            offset="0%"
+            style="stop-color:#ff5722"
+          />
+          <stop
+            class="loading-circle-start stop-color-with-config"
+            offset="100%"
+            style="stop-color:#ff5722"
+          />
+        </linearGradient>
+        <linearGradient
+          id="grad2-custom"
+          x1="0%"
+          x2="100%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            class="loading-circle-middle stop-color-with-config"
+            offset="0%"
+            style="stop-color:#ff5722"
+          />
+          <stop
+            class="loading-circle-end stop-color-with-config"
+            offset="100%"
+            style="stop-color:#ff5722"
+          />
+        </linearGradient>
+      </defs>
+      <circle
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke="url(#grad1-custom)"
+        stroke-dasharray="28.274333882308138"
+        stroke-dashoffset="28.274333882308138"
+        stroke-width="2"
+      />
+      <circle
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke="url(#grad2-custom)"
+        stroke-dasharray="28.274333882308138"
+        stroke-width="2"
+      />
+      <circle
+        class="loading-circle-filleted fill-color-with-config"
+        cx="19"
+        cy="10"
+        r="1"
+        style="fill:#ff5722"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-loading all-border-box spin"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms"
+  />
+  <div
+    class="arco-loading all-border-box dot"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms"
+  />
+</div>
+`;
+
+exports[`loading demo test loading demo: custom-size.md renders correctly 1`] = `
+<div
+  class="loading-demo-basic"
+>
+  <div
+    class="arco-loading all-border-box arc"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:16px;height:16px"
+  >
+    <svg
+      viewBox="0 0 16 16"
+    >
+      <circle
+        class="arc-bg"
+        cx="8"
+        cy="8"
+        fill="none"
+        r="7"
+        stroke-width="2"
+      />
+      <circle
+        class="arc-line stroke-color-with-config"
+        cx="8"
+        cy="8"
+        fill="none"
+        r="7"
+        stroke-dasharray="10.995574287564276 32.98672286269283"
+        stroke-dashoffset="10.995574287564276"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-loading all-border-box circle"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:31px;height:31px"
+  >
+    <svg
+      viewBox="0 0 31 31"
+    >
+      <defs>
+        <linearGradient
+          id="grad1-"
+          x1="0%"
+          x2="100%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            class="loading-circle-middle stop-color-with-config"
+            offset="0%"
+          />
+          <stop
+            class="loading-circle-start stop-color-with-config"
+            offset="100%"
+          />
+        </linearGradient>
+        <linearGradient
+          id="grad2-"
+          x1="0%"
+          x2="100%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            class="loading-circle-middle stop-color-with-config"
+            offset="0%"
+          />
+          <stop
+            class="loading-circle-end stop-color-with-config"
+            offset="100%"
+          />
+        </linearGradient>
+      </defs>
+      <circle
+        cx="15.5"
+        cy="15.5"
+        fill="none"
+        r="15"
+        stroke="url(#grad1-)"
+        stroke-dasharray="47.12388980384689"
+        stroke-dashoffset="47.12388980384689"
+        stroke-width="1"
+      />
+      <circle
+        cx="15.5"
+        cy="15.5"
+        fill="none"
+        r="15"
+        stroke="url(#grad2-)"
+        stroke-dasharray="47.12388980384689"
+        stroke-width="1"
+      />
+      <circle
+        class="loading-circle-filleted fill-color-with-config"
+        cx="30.5"
+        cy="15.5"
+        r="0.5"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-loading all-border-box spin"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms"
+  />
+</div>
+`;
+
+exports[`loading demo test loading demo: filleted.md renders correctly 1`] = `
+<div
+  class="loading-demo-basic"
+>
+  <div
+    class="arco-loading all-border-box arc"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+  >
+    <svg
+      viewBox="0 0 20 20"
+    >
+      <circle
+        class="arc-bg"
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke-width="2"
+      />
+      <circle
+        class="arc-line stroke-color-with-config"
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke-dasharray="14.137166941154069 42.411500823462205"
+        stroke-dashoffset="14.137166941154069"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-loading all-border-box circle"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+  >
+    <svg
+      viewBox="0 0 20 20"
+    >
+      <defs>
+        <linearGradient
+          id="grad1-"
+          x1="0%"
+          x2="100%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            class="loading-circle-middle stop-color-with-config"
+            offset="0%"
+          />
+          <stop
+            class="loading-circle-start stop-color-with-config"
+            offset="100%"
+          />
+        </linearGradient>
+        <linearGradient
+          id="grad2-"
+          x1="0%"
+          x2="100%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            class="loading-circle-middle stop-color-with-config"
+            offset="0%"
+          />
+          <stop
+            class="loading-circle-end stop-color-with-config"
+            offset="100%"
+          />
+        </linearGradient>
+      </defs>
+      <circle
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke="url(#grad1-)"
+        stroke-dasharray="28.274333882308138"
+        stroke-dashoffset="28.274333882308138"
+        stroke-width="2"
+      />
+      <circle
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke="url(#grad2-)"
+        stroke-dasharray="28.274333882308138"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-loading all-border-box spin"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms"
+  />
+  <div
+    class="arco-loading all-border-box dot"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms"
+  />
+</div>
+`;
+
+exports[`loading demo test loading demo: index.md renders correctly 1`] = `
+<div
+  class="loading-demo-basic"
+>
+  <div
+    class="arco-loading all-border-box arc"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+  >
+    <svg
+      viewBox="0 0 20 20"
+    >
+      <circle
+        class="arc-bg"
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke-width="2"
+      />
+      <circle
+        class="arc-line stroke-color-with-config"
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke-dasharray="14.137166941154069 42.411500823462205"
+        stroke-dashoffset="14.137166941154069"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-loading all-border-box circle"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+  >
+    <svg
+      viewBox="0 0 20 20"
+    >
+      <defs>
+        <linearGradient
+          id="grad1-"
+          x1="0%"
+          x2="100%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            class="loading-circle-middle stop-color-with-config"
+            offset="0%"
+          />
+          <stop
+            class="loading-circle-start stop-color-with-config"
+            offset="100%"
+          />
+        </linearGradient>
+        <linearGradient
+          id="grad2-"
+          x1="0%"
+          x2="100%"
+          y1="0%"
+          y2="0%"
+        >
+          <stop
+            class="loading-circle-middle stop-color-with-config"
+            offset="0%"
+          />
+          <stop
+            class="loading-circle-end stop-color-with-config"
+            offset="100%"
+          />
+        </linearGradient>
+      </defs>
+      <circle
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke="url(#grad1-)"
+        stroke-dasharray="28.274333882308138"
+        stroke-dashoffset="28.274333882308138"
+        stroke-width="2"
+      />
+      <circle
+        cx="10"
+        cy="10"
+        fill="none"
+        r="9"
+        stroke="url(#grad2-)"
+        stroke-dasharray="28.274333882308138"
+        stroke-width="2"
+      />
+      <circle
+        class="loading-circle-filleted fill-color-with-config"
+        cx="19"
+        cy="10"
+        r="1"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-loading all-border-box spin"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms"
+  />
+  <div
+    class="arco-loading all-border-box dot"
+    style="animation-duration:1000ms;-webkit-animation-duration:1000ms"
+  />
+</div>
+`;

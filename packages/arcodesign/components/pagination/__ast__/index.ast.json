@@ -1,0 +1,408 @@
+{
+    "description": "用于数据分页，为完全受控组件",
+    "descriptionTags": {
+        "en": "The pagination component is used for data paging and is a fully controlled component.",
+        "type": "导航",
+        "type_en": "Navigation",
+        "name": "分页器",
+        "name_en": "Pagination"
+    },
+    "displayName": "Pagination",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom style",
+            "name": "style",
+            "tags": {
+                "en": "Custom style"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "type": {
+            "defaultValue": {
+                "value": "\"button\""
+            },
+            "description": "分页器翻页区域样式类型，button表示按钮式分页器，text表示文本式分页器，none表示仅保留页码不含翻页区域\n@en The style type of the page turning area of the pagination, and none means that only the page number is kept without the page turning area",
+            "name": "type",
+            "tags": {
+                "en": "The style type of the page turning area of the pagination, and none means that only the page number is kept without the page turning area",
+                "default": "\"button\""
+            },
+            "descWithTags": "分页器翻页区域样式类型，button表示按钮式分页器，text表示文本式分页器，none表示仅保留页码不含翻页区域",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"button\" | \"text\" | \"none\"",
+                "value": [
+                    {
+                        "value": "\"button\""
+                    },
+                    {
+                        "value": "\"text\""
+                    },
+                    {
+                        "value": "\"none\""
+                    }
+                ]
+            }
+        },
+        "icon": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否需要展示图标\n@en Whether to show the icon",
+            "name": "icon",
+            "tags": {
+                "en": "Whether to show the icon",
+                "default": "false"
+            },
+            "descWithTags": "是否需要展示图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode | [...]"
+            }
+        },
+        "justify": {
+            "defaultValue": {
+                "value": "\"side\""
+            },
+            "description": "翻页按钮水平位置，side表示两端对齐，center表示居中对齐\n@en The horizontal position of the page turning button, side means both ends are aligned, center means center alignment",
+            "name": "justify",
+            "tags": {
+                "en": "The horizontal position of the page turning button, side means both ends are aligned, center means center alignment",
+                "default": "\"side\""
+            },
+            "descWithTags": "翻页按钮水平位置，side表示两端对齐，center表示居中对齐",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"center\" | \"side\"",
+                "value": [
+                    {
+                        "value": "\"center\""
+                    },
+                    {
+                        "value": "\"side\""
+                    }
+                ]
+            }
+        },
+        "current": {
+            "defaultValue": {
+                "value": "1"
+            },
+            "description": "当前页码\n@en Current page",
+            "name": "current",
+            "tags": {
+                "en": "Current page",
+                "default": "1"
+            },
+            "descWithTags": "当前页码",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "pageSize": {
+            "defaultValue": {
+                "value": "10"
+            },
+            "description": "每页条数\n@en Number of items per page",
+            "name": "pageSize",
+            "tags": {
+                "en": "Number of items per page",
+                "default": "10"
+            },
+            "descWithTags": "每页条数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "total": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "数据总条数\n@en Total number of data source",
+            "name": "total",
+            "tags": {
+                "en": "Total number of data source",
+                "default": "0"
+            },
+            "descWithTags": "数据总条数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "hideOnOnePage": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "只有一页时是否隐藏分页器\n@en Whether to hide the pager when there is only one page",
+            "name": "hideOnOnePage",
+            "tags": {
+                "en": "Whether to hide the pager when there is only one page",
+                "default": "false"
+            },
+            "descWithTags": "只有一页时是否隐藏分页器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "nextFieldType": {
+            "defaultValue": {
+                "value": "\"default\""
+            },
+            "description": "下一页样式，primary表示高亮\n@en Style of next page button, primary means highlight",
+            "name": "nextFieldType",
+            "tags": {
+                "en": "Style of next page button, primary means highlight",
+                "default": "\"default\""
+            },
+            "descWithTags": "下一页样式，primary表示高亮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"default\" | \"primary\"",
+                "value": [
+                    {
+                        "value": "\"default\""
+                    },
+                    {
+                        "value": "\"primary\""
+                    }
+                ]
+            }
+        },
+        "prevFieldText": {
+            "defaultValue": {
+                "value": "\"上一页\""
+            },
+            "description": "上一页文本\n@en Previous page text",
+            "name": "prevFieldText",
+            "tags": {
+                "en": "Previous page text",
+                "default": "\"上一页\""
+            },
+            "descWithTags": "上一页文本",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "nextFieldText": {
+            "defaultValue": {
+                "value": "\"下一页\""
+            },
+            "description": "下一页文本\n@en Next page text",
+            "name": "nextFieldText",
+            "tags": {
+                "en": "Next page text",
+                "default": "\"下一页\""
+            },
+            "descWithTags": "下一页文本",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "renderPrevField": {
+            "defaultValue": null,
+            "description": "渲染前翻页按钮\n@en Custom render previous page button",
+            "name": "renderPrevField",
+            "tags": {
+                "en": "Custom render previous page button"
+            },
+            "descWithTags": "渲染前翻页按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(data: IPaginationDataParams) => ReactNode"
+            }
+        },
+        "renderNextField": {
+            "defaultValue": null,
+            "description": "渲染后翻页按钮\n@en Custom render next page button",
+            "name": "renderNextField",
+            "tags": {
+                "en": "Custom render next page button"
+            },
+            "descWithTags": "渲染后翻页按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(data: IPaginationDataParams) => ReactNode"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "点击前/后翻页按钮时调用\n@en Callback called when the previous/next page button is clicked",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback called when the previous/next page button is clicked"
+            },
+            "descWithTags": "点击前/后翻页按钮时调用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pagination/index.tsx",
+                "name": "PaginationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(data: IPaginationDataParams) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<PaginationRef>"
+            }
+        }
+    },
+    "deps": {
+        "IPaginationDataParams": {
+            "current": {
+                "name": "current",
+                "required": true,
+                "description": "当前页\n@en Current page",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Current page"
+                },
+                "descWithTags": "当前页"
+            },
+            "pageSize": {
+                "name": "pageSize",
+                "required": true,
+                "description": "每页条数\n@en Number of items per page",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Number of items per page"
+                },
+                "descWithTags": "每页条数"
+            },
+            "pageNum": {
+                "name": "pageNum",
+                "required": true,
+                "description": "总页数\n@en Total number of pages",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Total number of pages"
+                },
+                "descWithTags": "总页数"
+            }
+        },
+        "PaginationRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "PaginationProps",
+        "ref": "PaginationRef"
+    },
+    "isDefaultExport": true
+}

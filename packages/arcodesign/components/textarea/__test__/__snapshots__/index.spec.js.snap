@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`textarea demo test textarea demo: error-hint.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap textarea has-stat border-none pc"
+  >
+    <textarea
+      class="arco-textarea"
+      placeholder="请输入不超过5个字的描述"
+      rows="1"
+    />
+    <span
+      class="statistic-text"
+    >
+      0/5
+    </span>
+  </div>
+</div>
+`;
+
+exports[`textarea demo test textarea demo: fix-height.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap textarea  border-none pc"
+  >
+    <textarea
+      class="arco-textarea"
+      placeholder="请输入不少于10个字的描述"
+      style="height:55px"
+    />
+  </div>
+</div>
+`;
+
+exports[`textarea demo test textarea demo: index.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap textarea has-stat border-none pc"
+  >
+    <textarea
+      class="arco-textarea"
+      placeholder="请输入不少于10个字的描述"
+    />
+    <span
+      class="statistic-text"
+    >
+      0/100
+    </span>
+  </div>
+</div>
+`;
+
+exports[`textarea demo test textarea demo: label.md renders correctly 1`] = `
+<div
+  class="arco-input-container all-border-box "
+>
+  <div
+    class="arco-input-wrap textarea has-stat border-none pc prefix"
+  >
+    <div
+      class="arco-input-prefix"
+    >
+      留言
+    </div>
+    <textarea
+      class="arco-textarea"
+      placeholder="请输入不少于10个字的描述"
+      rows="2"
+    />
+    <span
+      class="statistic-text"
+    >
+      0/50
+    </span>
+  </div>
+</div>
+`;

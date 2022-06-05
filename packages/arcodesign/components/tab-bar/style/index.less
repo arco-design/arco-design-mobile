@@ -1,0 +1,59 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-tab-bar {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow: hidden;
+    .use-var(font-size, tab-bar-font-size);
+    .use-var(min-height, tab-bar-height);
+    &-fixed{
+        position: fixed;
+        bottom: 0;
+    }
+
+    &-item{
+        display: flex;
+        flex: 1 1;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .use-var(color,tab-bar-color);
+        &-title{
+           color: inherit;
+           .use-var(line-height, tab-bar-title-line-height);
+           .use-var(font-size,tab-bar-font-size);
+           .use-var(margin,tab-bar-title-margin);
+        }
+        &-children{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &-only-title{
+            .use-var(line-height, tab-bar-only-title-line-height);
+            .use-var(font-size, tab-bar-only-title-font-size);
+            margin: 0;
+        }
+        &-active{
+            .use-var(color, tab-bar-active-color);
+        }
+        .@{prefix}-extra-wrap{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .use-var(font-size, tab-bar-icon-size);
+            color: inherit;
+        }
+        .@{prefix}-tab-bar-item-icon{
+            display: flex;
+            .use-var(font-size, tab-bar-icon-size);
+            color: inherit;
+            .use-var(margin, tab-bar-item-icon-margin);
+        }
+    }
+}
+
+

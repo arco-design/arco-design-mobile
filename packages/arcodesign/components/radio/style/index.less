@@ -1,0 +1,53 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-radio {
+    display: inline-flex;
+    align-items: center;
+
+    .radio-icon {
+        display: inline-flex;
+        align-items: center;
+        .use-var(font-size, checkbox-icon-font-size);
+        .use-var(color, checkbox-icon-color);
+
+        &.checked {
+            .use-var(color, checkbox-icon-checked-color);
+        }
+
+        &.disabled {
+            .use-var(color, checkbox-icon-disabled-color);
+        }
+
+        &.checked.disabled {
+            .use-var(color, checkbox-icon-checked-disabled-color);
+        }
+    }
+
+    .radio-text {
+        .use-var(font-size, checkbox-text-font-size);
+        .use-var(color, font-color);
+    }
+
+    .radio-icon + .radio-text {
+        .use-var(margin-left, checkbox-icon-margin-right);
+    }
+
+    &.disabled .radio-text {
+        .use-var(opacity, checkbox-text-disabled-opacity);
+    }
+
+    &.block {
+        width: 100%;
+    }
+
+    &.justify {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.@{prefix}-radio-group {
+    .@{prefix}-radio:not(:last-child, .block) {
+        .use-var(margin-right, checkbox-group-gutter);
+    }
+}

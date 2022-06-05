@@ -1,0 +1,27 @@
+@import '../../../../style/mixin.less';
+
+#demo-notify {
+    .rem(padding-bottom, 109);
+    .arcodesign-mobile-demo-content {
+        padding: 0;
+        background: transparent;
+        .rem(margin, 0, 12);
+        .rem(border-radius, 8);
+        overflow: hidden;
+    }
+    .notify-last-div + .arcodesign-mobile-title {
+        .rem(padding-top, 8);
+    }
+    .notify-custom-content {
+        .rem(border-radius, 18);
+        .rem(padding, 0, 16);
+        .rem(height, 36);
+        color: inherit;
+        border: 0.5px solid #e5e6eb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .rem(font-size, 14);
+        .rem(margin, 10, 0);
+    }
+}

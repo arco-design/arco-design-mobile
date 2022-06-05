@@ -1,0 +1,93 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-toast {
+
+    &-wrapper {
+        .full-screen();
+        z-index: @full-screen-z-index + 1;
+        display: flex;
+        justify-content: center;
+        .use-var(padding, toast-safe-padding);
+
+        &.no-event {
+            pointer-events: none;
+        }
+
+        &.from-center {
+            align-items: center;
+        }
+
+        &.from-top {
+            align-items: flex-start;
+            .use-var(padding-top, toast-from-top-position);
+        }
+
+        &.from-bottom {
+            align-items: flex-end;
+            .use-var(padding-bottom, toast-from-bottom-position);
+        }
+    }
+
+    &-inner {
+        .use-var(background, toast-background);
+        .use-var(color, toast-text-color);
+        .use-var(font-size, toast-font-size);
+        .use-var(line-height, toast-line-height);
+        .use-var(border-radius, toast-border-radius);
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: initial;
+
+        &.horizontal {
+            flex-direction: row;
+            .use-var(padding, toast-horizontal-padding);
+            .@{prefix}-icon {
+                flex: 0 0 auto;
+                .use-var(font-size, toast-horizontal-icon-size);
+            }
+            .@{prefix}-toast-loading-wrapper + .@{prefix}-toast-content,
+            .@{prefix}-icon + .@{prefix}-toast-content {
+                .use-var(margin-left, toast-horizontal-icon-content-gutter);
+            }
+        }
+
+        &.vertical {
+            .use-var(padding, toast-vertical-padding);
+            .@{prefix}-icon {
+                .use-var(font-size, toast-vertical-icon-size);
+            }
+            .@{prefix}-toast-loading-wrapper + .@{prefix}-toast-content,
+            .@{prefix}-icon + .@{prefix}-toast-content {
+                .use-var(margin-top, toast-vertical-icon-content-gutter);
+            }
+        }
+        .@{prefix}-loading {
+            .set-loading-color-var(mask-content-color);
+
+            &.arc .arc-bg {
+                .use-var(stroke, toast-loading-arc-background-color);
+            }
+        }
+    }
+
+    &-loading-wrapper {
+        display: flex;
+        position: relative;
+    }
+
+    &-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .use-var(font-size, toast-loading-inner-font-size);
+    }
+
+    &-content {
+        width: 100%;
+        text-align: center;
+        white-space: pre-line;
+    }
+}

@@ -1,0 +1,398 @@
+{
+    "description": "选择器视图组件，不含弹窗，方便使用方灵活定制选择器。",
+    "descriptionTags": {
+        "en": "The picker view component, not has contain popup, which is convenient for the user to flexibly customize the picker.",
+        "type": "数据输入",
+        "type_en": "Data Entry",
+        "name": "选择器视图",
+        "name_en": "PickerView"
+    },
+    "displayName": "PickerView",
+    "methods": [],
+    "props": {
+        "data": {
+            "defaultValue": null,
+            "description": "数据源，非级联时data数组的长度决定picker列数，级联时以cols决定 pick列数\n@en Data source, the length of the data list determines the number of picker columns when not cascading, and the number of picker columns is determined by cols when cascading",
+            "name": "data",
+            "tags": {
+                "en": "Data source, the length of the data list determines the number of picker columns when not cascading, and the number of picker columns is determined by cols when cascading"
+            },
+            "descWithTags": "数据源，非级联时data数组的长度决定picker列数，级联时以cols决定 pick列数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": true,
+            "type": {
+                "name": "PickerData[] | PickerData[][] | ValueType[][]"
+            }
+        },
+        "cascade": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否联动\n@en Whether to cascade",
+            "name": "cascade",
+            "tags": {
+                "en": "Whether to cascade",
+                "default": "true"
+            },
+            "descWithTags": "是否联动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "cols": {
+            "defaultValue": {
+                "value": "3"
+            },
+            "description": "列数(最大为5；cascade=true时才使用)\n@en Number of columns (maximum 5; only used when cascade=true)",
+            "name": "cols",
+            "tags": {
+                "en": "Number of columns (maximum 5; only used when cascade=true)",
+                "default": "3"
+            },
+            "descWithTags": "列数(最大为5；cascade=true时才使用)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "rows": {
+            "defaultValue": {
+                "value": "5"
+            },
+            "description": "行数(一列可选项的行数)，必须是奇数，最小为3个\n@en The number of rows (the number of rows in a column of optional items), must be an odd number, the minimum is 3",
+            "name": "rows",
+            "tags": {
+                "en": "The number of rows (the number of rows in a column of optional items), must be an odd number, the minimum is 3",
+                "default": "5"
+            },
+            "descWithTags": "行数(一列可选项的行数)，必须是奇数，最小为3个",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否不可用\n@en Disabled",
+            "name": "disabled",
+            "tags": {
+                "en": "Disabled",
+                "default": "false"
+            },
+            "descWithTags": "是否不可用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "value": {
+            "defaultValue": null,
+            "description": "值, 格式是[value1, value2, value3], 对应数据源的相应级层value\n@en Value, the format is [value1, value2, value3], corresponding to the corresponding level value of the data source",
+            "name": "value",
+            "tags": {
+                "en": "Value, the format is [value1, value2, value3], corresponding to the corresponding level value of the data source"
+            },
+            "descWithTags": "值, 格式是[value1, value2, value3], 对应数据源的相应级层value",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": true,
+            "type": {
+                "name": "ValueType[]"
+            }
+        },
+        "onPickerChange": {
+            "defaultValue": null,
+            "description": "每列数据选择变化后的回调函数\n@en The callback function after each column data selection changes",
+            "name": "onPickerChange",
+            "tags": {
+                "en": "The callback function after each column data selection changes"
+            },
+            "descWithTags": "每列数据选择变化后的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: ValueType[], index: number) => void"
+            }
+        },
+        "itemStyle": {
+            "defaultValue": null,
+            "description": "每列样式\n@en Stylesheet per column",
+            "name": "itemStyle",
+            "tags": {
+                "en": "Stylesheet per column"
+            },
+            "descWithTags": "每列样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "clickable": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否可通过点击操作选择内容\n@en Whether content can be selected by clicking",
+            "name": "clickable",
+            "tags": {
+                "en": "Whether content can be selected by clicking",
+                "default": "true"
+            },
+            "descWithTags": "是否可通过点击操作选择内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "hideEmptyCols": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否隐藏无数据的空列，常用于级联选择\n@en Whether to hide empty columns without data, often used for cascading selection",
+            "name": "hideEmptyCols",
+            "tags": {
+                "en": "Whether to hide empty columns without data, often used for cascading selection",
+                "default": "false"
+            },
+            "descWithTags": "是否隐藏无数据的空列，常用于级联选择",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "touchToStop": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否通过长按停止滑动，传入数字 x 表示触摸超过 x 毫秒算长按，传 true 表示 x=100，长按事件与 click 事件互斥\n@en Whether to stop sliding by long-pressing, inputing the number x means that the touch exceeds x milliseconds to count as long-pressing, inputing true means that x=100, the long-press event and the click event are mutually exclusive",
+            "name": "touchToStop",
+            "tags": {
+                "en": "Whether to stop sliding by long-pressing, inputing the number x means that the touch exceeds x milliseconds to count as long-pressing, inputing true means that x=100, the long-press event and the click event are mutually exclusive",
+                "default": "false"
+            },
+            "descWithTags": "是否通过长按停止滑动，传入数字 x 表示触摸超过 x 毫秒算长按，传 true 表示 x=100，长按事件与 click 事件互斥",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
+                "name": "PickerViewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | boolean"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<PickerViewRef>"
+            }
+        }
+    },
+    "deps": {
+        "PickerData": {
+            "value": {
+                "name": "value",
+                "required": true,
+                "description": "每一列展示的每项文案对应的值\n@en The value for each item displayed in each column",
+                "defaultValue": null,
+                "type": {
+                    "name": "ValueType"
+                },
+                "tags": {
+                    "en": "The value for each item displayed in each column"
+                },
+                "descWithTags": "每一列展示的每项文案对应的值"
+            },
+            "label": {
+                "name": "label",
+                "required": true,
+                "description": "每一列展示的文案\n@en Text displayed in each column",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Text displayed in each column"
+                },
+                "descWithTags": "每一列展示的文案"
+            },
+            "children": {
+                "name": "children",
+                "required": false,
+                "description": "级联状态下，该列对应的下一列数据\n@en In the cascade state, the next column of data corresponding to this column",
+                "defaultValue": null,
+                "type": {
+                    "name": "PickerData[]"
+                },
+                "tags": {
+                    "en": "In the cascade state, the next column of data corresponding to this column"
+                },
+                "descWithTags": "级联状态下，该列对应的下一列数据"
+            }
+        },
+        "ValueType": "string|number",
+        "PickerViewRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "getCellMovingStatus": {
+                "name": "getCellMovingStatus",
+                "required": true,
+                "description": "每一列的滑动状态\n@en Sliding state of each column",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => PickerCellMovingStatus[]"
+                },
+                "tags": {
+                    "en": "Sliding state of each column"
+                },
+                "descWithTags": "每一列的滑动状态"
+            },
+            "getAllColumnValues": {
+                "name": "getAllColumnValues",
+                "required": true,
+                "description": "获取所有列的值\n@en Get all column values",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => ValueType[]"
+                },
+                "tags": {
+                    "en": "Get all column values"
+                },
+                "descWithTags": "获取所有列的值"
+            },
+            "getColumnValue": {
+                "name": "getColumnValue",
+                "required": true,
+                "description": "获取第 n 列的值\n@en Get the value of the nth column",
+                "defaultValue": null,
+                "type": {
+                    "name": "(index: number) => ValueType"
+                },
+                "tags": {
+                    "en": "Get the value of the nth column"
+                },
+                "descWithTags": "获取第 n 列的值"
+            },
+            "updateLayout": {
+                "name": "updateLayout",
+                "required": true,
+                "description": "手动更新元素布局\n@en Manually update the element layout",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually update the element layout"
+                },
+                "descWithTags": "手动更新元素布局"
+            },
+            "resetValue": {
+                "name": "resetValue",
+                "required": true,
+                "description": "重置选择器的值为传入的`value`值\n@en Reset the selector's value to the input value `value`",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Reset the selector's value to the input value `value`"
+                },
+                "descWithTags": "重置选择器的值为传入的`value`值"
+            },
+            "scrollToCurrentIndex": {
+                "name": "scrollToCurrentIndex",
+                "required": true,
+                "description": "直接跳到当前最近一行（调用时将中断滚动）\n@en Jump directly to the current most recent line (will break scrolling when called)",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Jump directly to the current most recent line (will break scrolling when called)"
+                },
+                "descWithTags": "直接跳到当前最近一行（调用时将中断滚动）"
+            }
+        },
+        "PickerCellMovingStatus": "\"normal\"|\"moving\"|\"scrolling\""
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "PickerViewProps",
+        "ref": "PickerViewRef"
+    },
+    "isDefaultExport": true
+}

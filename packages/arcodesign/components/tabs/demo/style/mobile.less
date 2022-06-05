@@ -1,0 +1,89 @@
+@import "../../../../style/mixin.less";
+
+#demo-tabs {
+
+    .arcodesign-mobile-demo-content {
+        padding: 0;
+    }
+
+    .demo-tab-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .rem(font-size, 15);
+        .rem(height, 80);
+        .use-var(color, sub-info-font-color);
+    }
+
+    .demo-tab-scroll-content {
+        .rem(padding, 22);
+        .rem(height, 100);
+        .rem(font-size, 15);
+        .use-var(color, sub-info-font-color);
+    }
+
+    .demo-tabs-add-extra {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: linear-gradient(270deg, #fff 66.04%, rgba(255, 255, 255, 0) 105%);
+        .rem(width, 64);
+        .rem(font-size, 13);
+        .rem(padding-right, 14);
+        .use-var(color, sub-info-font-color);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-weight: bold;
+    }
+
+    .demo-tab-custom-bar {
+        .@{prefix}-tab-cell-container-wrap {
+            .rem(height, 76);
+        }
+
+        .custom-bar-item {
+            width: 100%;
+            background: transparent;
+
+            .title {
+                .rem(font-size, 16);
+                .rem(line-height, 22);
+
+                &.active {
+                    .use-var(background, primary-color);
+                    font-weight: bold;
+                }
+            }
+
+            .desc {
+                .rem(font-size, 14);
+                .rem(line-height, 28);
+                width: 100%;
+                .rem(margin-top, 2);
+                .use-var(background, tabs-tab-bar-tag-background);
+                .use-var(color, sub-info-font-color);
+                .rem(border-radius, 20);
+            }
+
+            &.active {
+
+                .title {
+                    .use-var(color, primary-color);
+                    font-weight: bold;
+                }
+
+                .desc {
+                    .use-var(background, tabs-tab-bar-tag-active-background);
+                    .use-var(color, tabs-tab-bar-tag-active-text-color);
+                }
+            }
+        }
+    }
+
+    .demo-tabs-card {
+        .rem(padding, 16, 0);
+        .rem(margin, 0, 16);
+    }
+}

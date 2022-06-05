@@ -1,0 +1,427 @@
+{
+    "description": "向左滑动到达屏幕边缘后，超过一定距离时触发加载，常用于横划展示少量的元素，滑动到底后跳转至另外界面的场景",
+    "descriptionTags": {
+        "en": "After swiping to the left to reach the edge of the screen, the loading is triggered when the distance exceeds a certain distance. It is often used to display a small number of elements horizontally, and then jump to another interface after swiping to the end.",
+        "type": "反馈",
+        "type_en": "FeedBack",
+        "name": "左滑加载",
+        "name_en": "SwipeLoad"
+    },
+    "displayName": "SwipeLoad",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用组件\n@en whether to be disabled",
+            "name": "disabled",
+            "tags": {
+                "en": "whether to be disabled",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用组件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "maxElementOffset": {
+            "defaultValue": {
+                "value": "56"
+            },
+            "description": "页面元素允许划动的最大距离\n@en The maximum distance the page element is allowed to swipe",
+            "name": "maxElementOffset",
+            "tags": {
+                "en": "The maximum distance the page element is allowed to swipe",
+                "default": "56"
+            },
+            "descWithTags": "页面元素允许划动的最大距离",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "maxLabelOffset": {
+            "defaultValue": {
+                "value": "40"
+            },
+            "description": "label移动的最大距离\n@en The maximum distance the label moves",
+            "name": "maxLabelOffset",
+            "tags": {
+                "en": "The maximum distance the label moves",
+                "default": "40"
+            },
+            "descWithTags": "label移动的最大距离",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "minConfirmOffset": {
+            "defaultValue": {
+                "value": "30"
+            },
+            "description": "页面允许触发的临界值(通常小于maxLabelOffset)\n@en The threshold value at which the page is allowed to trigger (usually less than maxLabelOffset)",
+            "name": "minConfirmOffset",
+            "tags": {
+                "en": "The threshold value at which the page is allowed to trigger (usually less than maxLabelOffset)",
+                "default": "30"
+            },
+            "descWithTags": "页面允许触发的临界值(通常小于maxLabelOffset)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "onConfirm": {
+            "defaultValue": null,
+            "description": "释放触发的函数(跳转，加载等)\n@en Callback when releasing(jump, load, etc.)",
+            "name": "onConfirm",
+            "tags": {
+                "en": "Callback when releasing(jump, load, etc.)"
+            },
+            "descWithTags": "释放触发的函数(跳转，加载等)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": true,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "circleSize": {
+            "defaultValue": {
+                "value": "80"
+            },
+            "description": "圆形的直径\n@en Diameter of circle",
+            "name": "circleSize",
+            "tags": {
+                "en": "Diameter of circle",
+                "default": "80"
+            },
+            "descWithTags": "圆形的直径",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "labelAnimationDuration": {
+            "defaultValue": {
+                "value": "250"
+            },
+            "description": "恢复动效时长(ms)\n@en Resume animation duration (ms)",
+            "name": "labelAnimationDuration",
+            "tags": {
+                "en": "Resume animation duration (ms)",
+                "default": "250"
+            },
+            "descWithTags": "恢复动效时长(ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "labelAnimationFunction": {
+            "defaultValue": {
+                "value": "\"cubic-bezier(0.14, 1, 0.34, 1)\""
+            },
+            "description": "恢复动效函数\n@en Resume animation function (ms)",
+            "name": "labelAnimationFunction",
+            "tags": {
+                "en": "Resume animation function (ms)",
+                "default": "\"cubic-bezier(0.14, 1, 0.34, 1)\""
+            },
+            "descWithTags": "恢复动效函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "damping": {
+            "defaultValue": {
+                "value": "[0.013312, 1.636345]"
+            },
+            "description": "阻尼动效参数，使用函数x = X/(aX+b)，其中X代表当前滑动距离，传入的值代表[a, b]\n@en Damping animation parameter, use the function x = X/(aX+b), where X represents the current sliding distance, and the incoming value represents [a, b]",
+            "name": "damping",
+            "tags": {
+                "en": "Damping animation parameter, use the function x = X/(aX+b), where X represents the current sliding distance, and the incoming value represents [a, b]",
+                "default": "[0.013312, 1.636345]"
+            },
+            "descWithTags": "阻尼动效参数，使用函数x = X/(aX+b)，其中X代表当前滑动距离，传入的值代表[a, b]",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "[number, number]"
+            }
+        },
+        "getScrollContainer": {
+            "defaultValue": null,
+            "description": "得到滚动容器\n@en Scroll container",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "Scroll container"
+            },
+            "descWithTags": "得到滚动容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        },
+        "normalText": {
+            "defaultValue": {
+                "value": "\"更多\""
+            },
+            "description": "标签初始文案\n@en Label initial text\n@default_en \"More\"",
+            "name": "normalText",
+            "tags": {
+                "en": "Label initial text",
+                "default": "\"更多\"",
+                "default_en": "\"More\""
+            },
+            "descWithTags": "标签初始文案",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "activeText": {
+            "defaultValue": {
+                "value": "\"释放查看\""
+            },
+            "description": "触发跳转文案\n@en Text when triggering jump\n@default_en \"Release to view\"",
+            "name": "activeText",
+            "tags": {
+                "en": "Text when triggering jump",
+                "default": "\"释放查看\"",
+                "default_en": "\"Release to view\""
+            },
+            "descWithTags": "触发跳转文案",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "onTouchStart": {
+            "defaultValue": null,
+            "description": "抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突\n@en Throw the outer touchstart event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc.",
+            "name": "onTouchStart",
+            "tags": {
+                "en": "Throw the outer touchstart event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc."
+            },
+            "descWithTags": "抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e?: TouchEvent) => void"
+            }
+        },
+        "onTouchMove": {
+            "defaultValue": null,
+            "description": "抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突\n@en Throws the outer touchmove event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc.",
+            "name": "onTouchMove",
+            "tags": {
+                "en": "Throws the outer touchmove event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc."
+            },
+            "descWithTags": "抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e?: TouchEvent) => void"
+            }
+        },
+        "onTouchEnd": {
+            "defaultValue": null,
+            "description": "抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突\n@en Throws the outer touchend event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc.",
+            "name": "onTouchEnd",
+            "tags": {
+                "en": "Throws the outer touchend event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc."
+            },
+            "descWithTags": "抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e?: TouchEvent) => void"
+            }
+        },
+        "onTouchCancel": {
+            "defaultValue": null,
+            "description": "抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突\n@en Throws the outer touchcancel event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc.",
+            "name": "onTouchCancel",
+            "tags": {
+                "en": "Throws the outer touchcancel event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc."
+            },
+            "descWithTags": "抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e?: TouchEvent) => void"
+            }
+        },
+        "renderLabel": {
+            "defaultValue": null,
+            "description": "用户自定义标签样式\n@en User-defined label style",
+            "name": "renderLabel",
+            "tags": {
+                "en": "User-defined label style"
+            },
+            "descWithTags": "用户自定义标签样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(offset?: number) => ReactNode"
+            }
+        },
+        "initPos": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "标签的初始位置 自定义必传\n@en The initial position of the label, required when customized",
+            "name": "initPos",
+            "tags": {
+                "en": "The initial position of the label, required when customized",
+                "default": "0"
+            },
+            "descWithTags": "标签的初始位置 自定义必传",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "子元素\n@en Children elements",
+            "name": "children",
+            "tags": {
+                "en": "Children elements"
+            },
+            "descWithTags": "子元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-load/type.tsx",
+                "name": "SwipeLoadProps"
+            },
+            "required": true,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<SwipeLoadRef>"
+            }
+        }
+    },
+    "deps": {
+        "SwipeLoadRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "SwipeLoadProps",
+        "ref": "SwipeLoadRef"
+    },
+    "isDefaultExport": true
+}

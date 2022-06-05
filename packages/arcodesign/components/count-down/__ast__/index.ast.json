@@ -1,0 +1,323 @@
+{
+    "description": "倒计时组件",
+    "descriptionTags": {
+        "en": "Countdown Component",
+        "name": "倒计时",
+        "name_en": "CountDown",
+        "type": "数据展示",
+        "type_en": "Data Display"
+    },
+    "displayName": "CountDown",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "time": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "倒计时时长，单位毫秒\n@en Countdown time in milliseconds",
+            "name": "time",
+            "tags": {
+                "en": "Countdown time in milliseconds",
+                "default": "0"
+            },
+            "descWithTags": "倒计时时长，单位毫秒",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | TimeDataType"
+            }
+        },
+        "format": {
+            "defaultValue": {
+                "value": "HH:mm:ss"
+            },
+            "description": "自定义格式\nD:天数 DD:天数（个位数补0）\nH:小时 HH:小时（个位数补0）\nm:分钟 mm:分钟（个位数补0）\ns:秒数 ss:秒数（个位数补0）\nS:毫秒（1 位）SS:毫秒（2 位）SSS:毫秒（3 位）\n@en Custom format\nD: Days DD: Days (1 digit with 0)\nH: Hours HH: Hours (1 digit with 0)\nm: Minutes mm: Minutes (1 digit with 0)\ns: Seconds ss: Seconds (1 digit with 0)\nS: Milliseconds (1 digit) SS: Milliseconds (2 digits) SSS: Milliseconds (3 digits)",
+            "name": "format",
+            "tags": {
+                "en": "Custom format\nD: Days DD: Days (1 digit with 0)\nH: Hours HH: Hours (1 digit with 0)\nm: Minutes mm: Minutes (1 digit with 0)\ns: Seconds ss: Seconds (1 digit with 0)\nS: Milliseconds (1 digit) SS: Milliseconds (2 digits) SSS: Milliseconds (3 digits)",
+                "default": "HH:mm:ss"
+            },
+            "descWithTags": "自定义格式\nD:天数 DD:天数（个位数补0）\nH:小时 HH:小时（个位数补0）\nm:分钟 mm:分钟（个位数补0）\ns:秒数 ss:秒数（个位数补0）\nS:毫秒（1 位）SS:毫秒（2 位）SSS:毫秒（3 位）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "autoStart": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否自动开始倒计时\n@en Whether to automatically start the countdown",
+            "name": "autoStart",
+            "tags": {
+                "en": "Whether to automatically start the countdown",
+                "default": "true"
+            },
+            "descWithTags": "是否自动开始倒计时",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "millisecond": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否开启毫秒级渲染\n@en Whether to enable millisecond rendering",
+            "name": "millisecond",
+            "tags": {
+                "en": "Whether to enable millisecond rendering",
+                "default": "false"
+            },
+            "descWithTags": "是否开启毫秒级渲染",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onFinish": {
+            "defaultValue": null,
+            "description": "倒计时结束时触发\n@en Callback when the countdown ends",
+            "name": "onFinish",
+            "tags": {
+                "en": "Callback when the countdown ends"
+            },
+            "descWithTags": "倒计时结束时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "倒计时变化时触发\n@en Callback when the countdown changes",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when the countdown changes"
+            },
+            "descWithTags": "倒计时变化时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(val: TimeDataType, ts: number) => void"
+            }
+        },
+        "renderChild": {
+            "defaultValue": null,
+            "description": "自定义内容\n@en Custom content",
+            "name": "renderChild",
+            "tags": {
+                "en": "Custom content"
+            },
+            "descWithTags": "自定义内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/count-down/type.ts",
+                "name": "CountDownProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(val: TimeDataType) => ReactNode"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<CountDownRef>"
+            }
+        }
+    },
+    "deps": {
+        "TimeDataType": {
+            "days": {
+                "name": "days",
+                "required": true,
+                "description": "天数\n@en Days",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Days"
+                },
+                "descWithTags": "天数"
+            },
+            "hours": {
+                "name": "hours",
+                "required": true,
+                "description": "小时\n@en Hour",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Hour"
+                },
+                "descWithTags": "小时"
+            },
+            "minutes": {
+                "name": "minutes",
+                "required": true,
+                "description": "分钟\n@en minute",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "minute"
+                },
+                "descWithTags": "分钟"
+            },
+            "seconds": {
+                "name": "seconds",
+                "required": true,
+                "description": "秒数\n@en second",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "second"
+                },
+                "descWithTags": "秒数"
+            },
+            "milliseconds": {
+                "name": "milliseconds",
+                "required": true,
+                "description": "毫秒\n@en millisecond",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "millisecond"
+                },
+                "descWithTags": "毫秒"
+            }
+        },
+        "CountDownRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "start": {
+                "name": "start",
+                "required": true,
+                "description": "开始\n@en Start",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Start"
+                },
+                "descWithTags": "开始"
+            },
+            "pause": {
+                "name": "pause",
+                "required": true,
+                "description": "暂停\n@en Pause",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Pause"
+                },
+                "descWithTags": "暂停"
+            },
+            "reset": {
+                "name": "reset",
+                "required": true,
+                "description": "重置\n@en Reset",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Reset"
+                },
+                "descWithTags": "重置"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "CountDownProps",
+        "ref": "CountDownRef"
+    },
+    "isDefaultExport": true
+}

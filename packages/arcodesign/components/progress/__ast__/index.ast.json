@@ -1,0 +1,421 @@
+{
+    "description": "进度条组件，可根据外界传递进来的百分比进行进度展示",
+    "descriptionTags": {
+        "en": "Progress bar, which can display progress according to the percentage passed in from the outside",
+        "type": "反馈",
+        "type_en": "Feedback",
+        "name": "进度条",
+        "name_en": "Progress"
+    },
+    "displayName": "Progress",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "percentPosition": {
+            "defaultValue": {
+                "value": "\"center\""
+            },
+            "description": "文字显示位置\n@en Text display position",
+            "name": "percentPosition",
+            "tags": {
+                "en": "Text display position",
+                "default": "\"center\""
+            },
+            "descWithTags": "文字显示位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "PercentPosition",
+                "value": [
+                    {
+                        "value": "\"left\""
+                    },
+                    {
+                        "value": "\"innerLeft\""
+                    },
+                    {
+                        "value": "\"right\""
+                    },
+                    {
+                        "value": "\"follow\""
+                    }
+                ]
+            }
+        },
+        "showPercent": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否显示进度条内部文字\n@en Whether to display the text inside the progress bar",
+            "name": "showPercent",
+            "tags": {
+                "en": "Whether to display the text inside the progress bar",
+                "default": "true"
+            },
+            "descWithTags": "是否显示进度条内部文字",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "percentage": {
+            "defaultValue": null,
+            "description": "进度环百分比\n@en Progress percentage",
+            "name": "percentage",
+            "tags": {
+                "en": "Progress percentage"
+            },
+            "descWithTags": "进度环百分比",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": true,
+            "type": {
+                "name": "number"
+            }
+        },
+        "renderPercent": {
+            "defaultValue": null,
+            "description": "进度条内部文字显示（一个函数，返回ReactNode类型，回调参数为当前进度百分比）\n@en The text display inside the progress bar (a function that returns the ReactNode type, and the callback parameter is the current progress percentage)",
+            "name": "renderPercent",
+            "tags": {
+                "en": "The text display inside the progress bar (a function that returns the ReactNode type, and the callback parameter is the current progress percentage)"
+            },
+            "descWithTags": "进度条内部文字显示（一个函数，返回ReactNode类型，回调参数为当前进度百分比）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(percentage: number) => ReactNode"
+            }
+        },
+        "trackColor": {
+            "defaultValue": null,
+            "description": "轨道颜色\n@en Track color",
+            "name": "trackColor",
+            "tags": {
+                "en": "Track color"
+            },
+            "descWithTags": "轨道颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "progressColor": {
+            "defaultValue": null,
+            "description": "进度条颜色\n@en Progress bar color",
+            "name": "progressColor",
+            "tags": {
+                "en": "Progress bar color"
+            },
+            "descWithTags": "进度条颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否置灰\n@en Whether to be disabled",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to be disabled",
+                "default": "false"
+            },
+            "descWithTags": "是否置灰",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "trackStroke": {
+            "defaultValue": {
+                "value": "一般默认为4，percentPosition=innerLeft 时为18，mode=nav时为2"
+            },
+            "description": "轨道粗细\n@en Track thickness\n@default_en Generally the default is 4, when percentPosition=innerLeft is 18, when mode=nav is 2",
+            "name": "trackStroke",
+            "tags": {
+                "en": "Track thickness",
+                "default": "一般默认为4，percentPosition=innerLeft 时为18，mode=nav时为2",
+                "default_en": "Generally the default is 4, when percentPosition=innerLeft is 18, when mode=nav is 2"
+            },
+            "descWithTags": "轨道粗细",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "progressStroke": {
+            "defaultValue": {
+                "value": "继承 trackStroke 值"
+            },
+            "description": "进度条粗细\n@en progress bar thickness\n@default_en Inherit trackStroke value",
+            "name": "progressStroke",
+            "tags": {
+                "en": "progress bar thickness",
+                "default": "继承 trackStroke 值",
+                "default_en": "Inherit trackStroke value"
+            },
+            "descWithTags": "进度条粗细",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "duration": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "每增加step步长所需的毫秒数\n@en The number of milliseconds required to increase the step size",
+            "name": "duration",
+            "tags": {
+                "en": "The number of milliseconds required to increase the step size",
+                "default": "300"
+            },
+            "descWithTags": "每增加step步长所需的毫秒数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "step": {
+            "defaultValue": {
+                "value": "1"
+            },
+            "description": "步长（增加步长，以step增长）\n@en Step size (increase the step size, grow by step)",
+            "name": "step",
+            "tags": {
+                "en": "Step size (increase the step size, grow by step)",
+                "default": "1"
+            },
+            "descWithTags": "步长（增加步长，以step增长）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "filleted": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "进度条是否两端圆角\n@en Whether the progress bar has rounded corners at both ends",
+            "name": "filleted",
+            "tags": {
+                "en": "Whether the progress bar has rounded corners at both ends",
+                "default": "true"
+            },
+            "descWithTags": "进度条是否两端圆角",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "mountedTransition": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "初始化percentage时是否以动画形式过渡到目的值\n@en Whether to animate the transition to the destination value when initializing percentage",
+            "name": "mountedTransition",
+            "tags": {
+                "en": "Whether to animate the transition to the destination value when initializing percentage",
+                "default": "true"
+            },
+            "descWithTags": "初始化percentage时是否以动画形式过渡到目的值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "mountedBezier": {
+            "defaultValue": {
+                "value": "[0.34, 0.69, 0.1, 1]"
+            },
+            "description": "初始化时动画的贝塞尔曲线\n@en Animated bezier curves at initialization",
+            "name": "mountedBezier",
+            "tags": {
+                "en": "Animated bezier curves at initialization",
+                "default": "[0.34, 0.69, 0.1, 1]"
+            },
+            "descWithTags": "初始化时动画的贝塞尔曲线",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "BezierType"
+            }
+        },
+        "mode": {
+            "defaultValue": {
+                "value": "\"base\""
+            },
+            "description": "模式可选为nav或者base模式\n@en The mode can be selected as nav or base mode",
+            "name": "mode",
+            "tags": {
+                "en": "The mode can be selected as nav or base mode",
+                "default": "\"base\""
+            },
+            "descWithTags": "模式可选为nav或者base模式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"nav\" | \"base\"",
+                "value": [
+                    {
+                        "value": "\"nav\""
+                    },
+                    {
+                        "value": "\"base\""
+                    }
+                ]
+            }
+        },
+        "top": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "距离屏幕顶部的距离（只有当mode为\"nav\"才有效）\n@en The distance from the top of the screen (only valid when mode is \"nav\")",
+            "name": "top",
+            "tags": {
+                "en": "The distance from the top of the screen (only valid when mode is \"nav\")",
+                "default": "0"
+            },
+            "descWithTags": "距离屏幕顶部的距离（只有当mode为\"nav\"才有效）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/progress/index.tsx",
+                "name": "ProgressProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<ProgressRef>"
+            }
+        }
+    },
+    "deps": {
+        "PercentPosition": "\"left\"|\"innerLeft\"|\"right\"|\"follow\"",
+        "ProgressRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "ProgressProps",
+        "ref": "ProgressRef"
+    },
+    "isDefaultExport": true
+}

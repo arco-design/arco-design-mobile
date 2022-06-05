@@ -1,0 +1,952 @@
+{
+    "description": "下拉面板，展示供选择的选择项",
+    "descriptionTags": {
+        "en": "Dropdown panel, showing options to choose from",
+        "type": "导航",
+        "type_en": "Navigation",
+        "name": "下拉面板",
+        "name_en": "Dropdown"
+    },
+    "displayName": "Dropdown",
+    "methods": [],
+    "props": {
+        "showDropdown": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否展开下拉框\n@en Whether to expand the dropdown box",
+            "name": "showDropdown",
+            "tags": {
+                "en": "Whether to expand the dropdown box",
+                "default": "false"
+            },
+            "descWithTags": "是否展开下拉框",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownBasicProps"
+            },
+            "required": true,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "options": {
+            "defaultValue": {
+                "value": "[]"
+            },
+            "description": "展示的选项,优先级低于dropdownNode\n@en Displayed options, lower priority than dropdownNode",
+            "name": "options",
+            "tags": {
+                "en": "Displayed options, lower priority than dropdownNode",
+                "default": "[]"
+            },
+            "descWithTags": "展示的选项,优先级低于dropdownNode",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "OptionsItem[]"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "自定义下拉框元素\n@en Custom dropdown element",
+            "name": "children",
+            "tags": {
+                "en": "Custom dropdown element"
+            },
+            "descWithTags": "自定义下拉框元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "onCancel": {
+            "defaultValue": null,
+            "description": "取消选择\n@en Cancel selection",
+            "name": "onCancel",
+            "tags": {
+                "en": "Cancel selection"
+            },
+            "descWithTags": "取消选择",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownBasicProps"
+            },
+            "required": true,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "extraNode": {
+            "defaultValue": null,
+            "description": "下拉框底部元素\n@en Dropdown bottom element",
+            "name": "extraNode",
+            "tags": {
+                "en": "Dropdown bottom element"
+            },
+            "descWithTags": "下拉框底部元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "top": {
+            "defaultValue": null,
+            "description": "定位下拉框出现的位置\n@en Position where the dropDown box appears",
+            "name": "top",
+            "tags": {
+                "en": "Position where the dropDown box appears"
+            },
+            "descWithTags": "定位下拉框出现的位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "bottom": {
+            "defaultValue": null,
+            "description": "向上展开时下拉框出现的位置\n@en Position Where the drop-down box appears when expanding upwards",
+            "name": "bottom",
+            "tags": {
+                "en": "Position Where the drop-down box appears when expanding upwards"
+            },
+            "descWithTags": "向上展开时下拉框出现的位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "direction": {
+            "defaultValue": {
+                "value": "\"down\""
+            },
+            "description": "展开方向\n@en Expand direction",
+            "name": "direction",
+            "tags": {
+                "en": "Expand direction",
+                "default": "\"down\""
+            },
+            "descWithTags": "展开方向",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"up\" | \"down\"",
+                "value": [
+                    {
+                        "value": "\"up\""
+                    },
+                    {
+                        "value": "\"down\""
+                    }
+                ]
+            }
+        },
+        "height": {
+            "defaultValue": null,
+            "description": "受控模式，下拉框高度\n@en Dropdown box height in controlled mode",
+            "name": "height",
+            "tags": {
+                "en": "Dropdown box height in controlled mode"
+            },
+            "descWithTags": "受控模式，下拉框高度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "maxHeight": {
+            "defaultValue": {
+                "value": "500"
+            },
+            "description": "下拉框最大的高度\n@en The maximum height of the dropdown",
+            "name": "maxHeight",
+            "tags": {
+                "en": "The maximum height of the dropdown",
+                "default": "500"
+            },
+            "descWithTags": "下拉框最大的高度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "clickOtherToClose": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "点击其他区域是否取消选择\n@en Click on other areas to cancel the selection",
+            "name": "clickOtherToClose",
+            "tags": {
+                "en": "Click on other areas to cancel the selection",
+                "default": "true"
+            },
+            "descWithTags": "点击其他区域是否取消选择",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "touchToClose": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否在触发touchstart时就取消选择，否则在click之后再取消选择\n@en Whether to cancel the selection when touchstart is triggered, otherwise cancel the selection after the click",
+            "name": "touchToClose",
+            "tags": {
+                "en": "Whether to cancel the selection when touchstart is triggered, otherwise cancel the selection after the click",
+                "default": "true"
+            },
+            "descWithTags": "是否在触发touchstart时就取消选择，否则在click之后再取消选择",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "dropdownAnimationTimeout": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "展开收起动画的时间\n@en Expand and collapse animation duration",
+            "name": "dropdownAnimationTimeout",
+            "tags": {
+                "en": "Expand and collapse animation duration",
+                "default": "300"
+            },
+            "descWithTags": "展开收起动画的时间",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "dropdownAnimationFunction": {
+            "defaultValue": {
+                "value": "\"cubic-bezier(0.32, 0.96, 0.6, 1)\""
+            },
+            "description": "展开收起动画曲线函数\n@en Expand and collapse animation curve function",
+            "name": "dropdownAnimationFunction",
+            "tags": {
+                "en": "Expand and collapse animation curve function",
+                "default": "\"cubic-bezier(0.32, 0.96, 0.6, 1)\""
+            },
+            "descWithTags": "展开收起动画曲线函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "showMask": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否展示遮罩层\n@en Whether to show the mask layer",
+            "name": "showMask",
+            "tags": {
+                "en": "Whether to show the mask layer",
+                "default": "true"
+            },
+            "descWithTags": "是否展示遮罩层",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "maskAnimationTimeout": {
+            "defaultValue": {
+                "value": "500"
+            },
+            "description": "蒙层动画时长\n@en Mask animation duration",
+            "name": "maskAnimationTimeout",
+            "tags": {
+                "en": "Mask animation duration",
+                "default": "500"
+            },
+            "descWithTags": "蒙层动画时长",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "maskAnimationFunction": {
+            "defaultValue": {
+                "value": "\"cubic-bezier(0.32, 0.96, 0.6, 1)\""
+            },
+            "description": "蒙层动画函数\n@en Mask animation function",
+            "name": "maskAnimationFunction",
+            "tags": {
+                "en": "Mask animation function",
+                "default": "\"cubic-bezier(0.32, 0.96, 0.6, 1)\""
+            },
+            "descWithTags": "蒙层动画函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "useColumn": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "使用多列标签样式，传 true 为 4 列，传数字为指定 n 列\n@en Use multi-column label style, input true, it's 4 columns, and input number n, it will be n columns",
+            "name": "useColumn",
+            "tags": {
+                "en": "Use multi-column label style, input true, it's 4 columns, and input number n, it will be n columns",
+                "default": "false"
+            },
+            "descWithTags": "使用多列标签样式，传 true 为 4 列，传数字为指定 n 列",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | boolean"
+            }
+        },
+        "mountOnEnter": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否在打开下拉框时再加载内容\n@en Whether to reload the content when the dropdown box is opened",
+            "name": "mountOnEnter",
+            "tags": {
+                "en": "Whether to reload the content when the dropdown box is opened",
+                "default": "true"
+            },
+            "descWithTags": "是否在打开下拉框时再加载内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "unmountOnExit": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否在退出时卸载内容\n@en Whether to unmount content on exit",
+            "name": "unmountOnExit",
+            "tags": {
+                "en": "Whether to unmount content on exit",
+                "default": "true"
+            },
+            "descWithTags": "是否在退出时卸载内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "preventBodyScroll": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "弹窗打开时是否禁止body的滚动\n@en Whether to prohibit the scrolling of the body when the dropdown box is opened",
+            "name": "preventBodyScroll",
+            "tags": {
+                "en": "Whether to prohibit the scrolling of the body when the dropdown box is opened",
+                "default": "true"
+            },
+            "descWithTags": "弹窗打开时是否禁止body的滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "initialBodyOverflow": {
+            "defaultValue": {
+                "value": "第一个全屏组件（弹窗、toast等）打开时页面overflow值"
+            },
+            "description": "页面初始 overflow 状态，即关闭弹窗时 overflow 应该还原的状态\n@en The initial overflow state of the page, that is, the state in which overflow should be restored when the dropdown box is closed\n@default_en The page overflow value when the first fullscreen component (popup, toast, etc.) is opened",
+            "name": "initialBodyOverflow",
+            "tags": {
+                "en": "The initial overflow state of the page, that is, the state in which overflow should be restored when the dropdown box is closed",
+                "default": "第一个全屏组件（弹窗、toast等）打开时页面overflow值",
+                "default_en": "The page overflow value when the first fullscreen component (popup, toast, etc.) is opened"
+            },
+            "descWithTags": "页面初始 overflow 状态，即关闭弹窗时 overflow 应该还原的状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "getAnchorElement": {
+            "defaultValue": {
+                "value": "当前DOM所在位置的父元素"
+            },
+            "description": "用于定位的元素，优先级低于top/bottom\n@en Element used for positioning, with lower priority than top/bottom\n@default_en The parent element of the current DOM",
+            "name": "getAnchorElement",
+            "tags": {
+                "en": "Element used for positioning, with lower priority than top/bottom",
+                "default": "当前DOM所在位置的父元素",
+                "default_en": "The parent element of the current DOM"
+            },
+            "descWithTags": "用于定位的元素，优先级低于top/bottom",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        },
+        "isStopTouchEl": {
+            "defaultValue": null,
+            "description": "点击某元素时是否阻止关闭面板, 优先级高于`getStopTouchElement`，当 clickOtherToClose=true 时有效\n@en Whether to prevent the panel from closing when an element is clicked, the priority is higher than `getStopTouchElement`, valid when clickOtherToClose=true",
+            "name": "isStopTouchEl",
+            "tags": {
+                "en": "Whether to prevent the panel from closing when an element is clicked, the priority is higher than `getStopTouchElement`, valid when clickOtherToClose=true"
+            },
+            "descWithTags": "点击某元素时是否阻止关闭面板, 优先级高于`getStopTouchElement`，当 clickOtherToClose=true 时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(el: HTMLElement) => boolean"
+            }
+        },
+        "getStopTouchElements": {
+            "defaultValue": {
+                "value": "当前组件的父元素"
+            },
+            "description": "可阻止关闭面板的元素，当 clickOtherToClose=true 时有效\n@en Element that prevents the panel from closing, valid when clickOtherToClose=true\n@default_en The parent element of the current component",
+            "name": "getStopTouchElements",
+            "tags": {
+                "en": "Element that prevents the panel from closing, valid when clickOtherToClose=true",
+                "default": "当前组件的父元素",
+                "default_en": "The parent element of the current component"
+            },
+            "descWithTags": "可阻止关闭面板的元素，当 clickOtherToClose=true 时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement[]"
+            }
+        },
+        "getScrollContainer": {
+            "defaultValue": null,
+            "description": "内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动\n@en Content inner scroll container, scrolling will be releases when it is not scrolled to the top or bottom",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "Content inner scroll container, scrolling will be releases when it is not scrolled to the top or bottom"
+            },
+            "descWithTags": "内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | HTMLElement[]"
+            }
+        },
+        "getPortalContainer": {
+            "defaultValue": null,
+            "description": "获取挂载容器\n@en Get mounted container",
+            "name": "getPortalContainer",
+            "tags": {
+                "en": "Get mounted container"
+            },
+            "descWithTags": "获取挂载容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        },
+        "multiple": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否支持多选\n@en Whether to support multiple selection",
+            "name": "multiple",
+            "tags": {
+                "en": "Whether to support multiple selection",
+                "default": "false"
+            },
+            "descWithTags": "是否支持多选",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "SingleOptionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "defaultSelectedValue": {
+            "defaultValue": null,
+            "description": "默认选中值\n@en Default checked value",
+            "name": "defaultSelectedValue",
+            "tags": {
+                "en": "Default checked value"
+            },
+            "descWithTags": "默认选中值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "SingleOptionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | number[]"
+            }
+        },
+        "selectedValue": {
+            "defaultValue": null,
+            "description": "当前选择的选项标识\n@en The currently selected option value",
+            "name": "selectedValue",
+            "tags": {
+                "en": "The currently selected option value"
+            },
+            "descWithTags": "当前选择的选项标识",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "SingleOptionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | number[]"
+            }
+        },
+        "onOptionClick": {
+            "defaultValue": null,
+            "description": "点击选项时触发的回调函数\n@en Callback when clicking option",
+            "name": "onOptionClick",
+            "tags": {
+                "en": "Callback when clicking option"
+            },
+            "descWithTags": "点击选项时触发的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "SingleOptionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "((val: number, op: OptionsItem) => void) | ((selected: boolean, val: number, op: OptionsItem) => void)"
+            }
+        },
+        "onOptionChange": {
+            "defaultValue": null,
+            "description": "当选项改变时触发的回调函数\n@en Callback when the option changes",
+            "name": "onOptionChange",
+            "tags": {
+                "en": "Callback when the option changes"
+            },
+            "descWithTags": "当选项改变时触发的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "SingleOptionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "((val: number, op: OptionsItem) => void) | ((vals: number[], op: OptionsItem) => void)"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<DropdownRef>"
+            }
+        }
+    },
+    "deps": {
+        "OptionsItem": {
+            "label": {
+                "name": "label",
+                "required": true,
+                "description": "选项名称\n@en option label",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "option label"
+                },
+                "descWithTags": "选项名称"
+            },
+            "value": {
+                "name": "value",
+                "required": true,
+                "description": "选项标识\n@en option value",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "option value"
+                },
+                "descWithTags": "选项标识"
+            },
+            "disabled": {
+                "name": "disabled",
+                "required": false,
+                "description": "选项是否可用，默认false表示可用\n@en Whether the option is available, the default false means available",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the option is available, the default false means available"
+                },
+                "descWithTags": "选项是否可用，默认false表示可用"
+            }
+        },
+        "DropdownRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {
+        "Options": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "Options",
+            "methods": [],
+            "props": {
+                "options": {
+                    "defaultValue": null,
+                    "description": "展示的选项列表\n@en Displayed list of options",
+                    "name": "options",
+                    "tags": {
+                        "en": "Displayed list of options"
+                    },
+                    "descWithTags": "展示的选项列表",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                        "name": "DropdownOptionsBasicProps"
+                    },
+                    "required": true,
+                    "type": {
+                        "name": "OptionsItem[]"
+                    }
+                },
+                "useColumn": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "使用多列标签样式，传 true 为 4 列，传数字为指定 n 列\n@en Use multi-column label style, input true, it's 4 columns, and input number n, it will be n columns",
+                    "name": "useColumn",
+                    "tags": {
+                        "en": "Use multi-column label style, input true, it's 4 columns, and input number n, it will be n columns",
+                        "default": "false"
+                    },
+                    "descWithTags": "使用多列标签样式，传 true 为 4 列，传数字为指定 n 列",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                        "name": "DropdownOptionsBasicProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number | boolean"
+                    }
+                },
+                "multiple": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "是否支持多选\n@en Whether to support multiple selection",
+                    "name": "multiple",
+                    "tags": {
+                        "en": "Whether to support multiple selection",
+                        "default": "false"
+                    },
+                    "descWithTags": "是否支持多选",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                        "name": "SingleOptionProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "defaultSelectedValue": {
+                    "defaultValue": null,
+                    "description": "默认选中值\n@en Default checked value",
+                    "name": "defaultSelectedValue",
+                    "tags": {
+                        "en": "Default checked value"
+                    },
+                    "descWithTags": "默认选中值",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                        "name": "SingleOptionProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number | number[]"
+                    }
+                },
+                "selectedValue": {
+                    "defaultValue": null,
+                    "description": "当前选择的选项标识\n@en The currently selected option value",
+                    "name": "selectedValue",
+                    "tags": {
+                        "en": "The currently selected option value"
+                    },
+                    "descWithTags": "当前选择的选项标识",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                        "name": "SingleOptionProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number | number[]"
+                    }
+                },
+                "onOptionClick": {
+                    "defaultValue": null,
+                    "description": "点击选项时触发的回调函数\n@en Callback when clicking option",
+                    "name": "onOptionClick",
+                    "tags": {
+                        "en": "Callback when clicking option"
+                    },
+                    "descWithTags": "点击选项时触发的回调函数",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                        "name": "SingleOptionProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "((val: number, op: OptionsItem) => void) | ((selected: boolean, val: number, op: OptionsItem) => void)"
+                    }
+                },
+                "onOptionChange": {
+                    "defaultValue": null,
+                    "description": "当选项改变时触发的回调函数\n@en Callback when the option changes",
+                    "name": "onOptionChange",
+                    "tags": {
+                        "en": "Callback when the option changes"
+                    },
+                    "descWithTags": "当选项改变时触发的回调函数",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                        "name": "SingleOptionProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "((val: number, op: OptionsItem) => void) | ((vals: number[], op: OptionsItem) => void)"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<DropdownOptionsRef>"
+                    }
+                }
+            },
+            "deps": {
+                "OptionsItem": {
+                    "label": {
+                        "name": "label",
+                        "required": true,
+                        "description": "选项名称\n@en option label",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "option label"
+                        },
+                        "descWithTags": "选项名称"
+                    },
+                    "value": {
+                        "name": "value",
+                        "required": true,
+                        "description": "选项标识\n@en option value",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "number"
+                        },
+                        "tags": {
+                            "en": "option value"
+                        },
+                        "descWithTags": "选项标识"
+                    },
+                    "disabled": {
+                        "name": "disabled",
+                        "required": false,
+                        "description": "选项是否可用，默认false表示可用\n@en Whether the option is available, the default false means available",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether the option is available, the default false means available"
+                        },
+                        "descWithTags": "选项是否可用，默认false表示可用"
+                    }
+                },
+                "DropdownOptionsRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层元素 DOM\n@en The outermost element DOM",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outermost element DOM"
+                        },
+                        "descWithTags": "最外层元素 DOM"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "DropdownOptionsBasicProps",
+                "ref": "DropdownOptionsRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "DropdownBasicProps",
+        "ref": "DropdownRef"
+    },
+    "isDefaultExport": true
+}

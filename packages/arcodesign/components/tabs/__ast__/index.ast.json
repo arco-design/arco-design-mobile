@@ -1,0 +1,2441 @@
+{
+    "description": "用于让用户在不同的视图中进行切换。为优化移动端渲染性能，如有替换DOM、发请求更新数据等操作，请在`onAfterChange`而非`onChange`回调中进行。",
+    "descriptionTags": {
+        "en": "Used to let the user switch between different views. In order to optimize the rendering performance of the mobile terminal, if you need to replace the DOM, send a request to update data, etc., please do it in the `onAfterChange` instead of the `onChange` callback.",
+        "type": "导航",
+        "type_en": "Navigation",
+        "name": "选项卡",
+        "name_en": "Tabs"
+    },
+    "displayName": "Tabs",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "tabs": {
+            "defaultValue": null,
+            "description": "TabBar内容数组，除必填项外也可附加其他数据\n@en Array of TabBar content, additional data can be appended in addition to the required fields",
+            "name": "tabs",
+            "tags": {
+                "en": "Array of TabBar content, additional data can be appended in addition to the required fields"
+            },
+            "descWithTags": "TabBar内容数组，除必填项外也可附加其他数据",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": true,
+            "type": {
+                "name": "TabData[]"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "TabPane内容\n@en TabPane content",
+            "name": "children",
+            "tags": {
+                "en": "TabPane content"
+            },
+            "descWithTags": "TabPane内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "activeTab": {
+            "defaultValue": null,
+            "description": "当前活动tab index，传入则为受控\n@en Currently active tab index, controlled if inputting value",
+            "name": "activeTab",
+            "tags": {
+                "en": "Currently active tab index, controlled if inputting value"
+            },
+            "descWithTags": "当前活动tab index，传入则为受控",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "defaultActiveTab": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "初始tab index值\n@en initial tab index value",
+            "name": "defaultActiveTab",
+            "tags": {
+                "en": "initial tab index value",
+                "default": "0"
+            },
+            "descWithTags": "初始tab index值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "disabled": {
+            "defaultValue": null,
+            "description": "是否禁用切换，包括点击TabBar切换和滑动切换\n@en Whether to disable switching, including clicking TabBar switching and sliding switching",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to disable switching, including clicking TabBar switching and sliding switching"
+            },
+            "descWithTags": "是否禁用切换，包括点击TabBar切换和滑动切换",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "tabBarPosition": {
+            "defaultValue": {
+                "value": "\"top\""
+            },
+            "description": "TabBar位置\n@en Tabbar position",
+            "name": "tabBarPosition",
+            "tags": {
+                "en": "Tabbar position",
+                "default": "\"top\""
+            },
+            "descWithTags": "TabBar位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"top\" | \"bottom\" | \"left\" | \"right\"",
+                "value": [
+                    {
+                        "value": "\"top\""
+                    },
+                    {
+                        "value": "\"bottom\""
+                    },
+                    {
+                        "value": "\"left\""
+                    },
+                    {
+                        "value": "\"right\""
+                    }
+                ]
+            }
+        },
+        "tabBarArrange": {
+            "defaultValue": {
+                "value": "\"center\""
+            },
+            "description": "TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右\n@en Tabbar arrangement, tabBar is valid when it is in the top or bottom position, start is left, center is centered, and end is right",
+            "name": "tabBarArrange",
+            "tags": {
+                "en": "Tabbar arrangement, tabBar is valid when it is in the top or bottom position, start is left, center is centered, and end is right",
+                "default": "\"center\""
+            },
+            "descWithTags": "TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"start\" | \"center\" | \"end\"",
+                "value": [
+                    {
+                        "value": "\"start\""
+                    },
+                    {
+                        "value": "\"center\""
+                    },
+                    {
+                        "value": "\"end\""
+                    }
+                ]
+            }
+        },
+        "tabBarScroll": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否TabBar超出屏幕时靠左滚动排列\n@en Whether to scroll to the left when the TabBar exceeds the screen",
+            "name": "tabBarScroll",
+            "tags": {
+                "en": "Whether to scroll to the left when the TabBar exceeds the screen",
+                "default": "true"
+            },
+            "descWithTags": "是否TabBar超出屏幕时靠左滚动排列",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "tabBarFixed": {
+            "defaultValue": null,
+            "description": "TabBar是否顶部固定\n@en Whether the TabBar is fixed on the top",
+            "name": "tabBarFixed",
+            "tags": {
+                "en": "Whether the TabBar is fixed on the top"
+            },
+            "descWithTags": "TabBar是否顶部固定",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "tabBarExtra": {
+            "defaultValue": null,
+            "description": "tabBar额外渲染内容\n@en TabBar extra render content",
+            "name": "tabBarExtra",
+            "tags": {
+                "en": "TabBar extra render content"
+            },
+            "descWithTags": "tabBar额外渲染内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "tabBarScrollBezier": {
+            "defaultValue": {
+                "value": "[0.34, 0.69, 0.1, 1]"
+            },
+            "description": "tabBar滚动时变化的bezier曲线值\n@en The bezier curve value that changes when the tabBar is scrolled",
+            "name": "tabBarScrollBezier",
+            "tags": {
+                "en": "The bezier curve value that changes when the tabBar is scrolled",
+                "default": "[0.34, 0.69, 0.1, 1]"
+            },
+            "descWithTags": "tabBar滚动时变化的bezier曲线值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "[number, number, number, number]"
+            }
+        },
+        "tabBarScrollDuration": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "tabBar滚动过渡时长，单位ms\n@en TabBar scrolling transition duration, in ms",
+            "name": "tabBarScrollDuration",
+            "tags": {
+                "en": "TabBar scrolling transition duration, in ms",
+                "default": "300"
+            },
+            "descWithTags": "tabBar滚动过渡时长，单位ms",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "tabBarScrollChance": {
+            "defaultValue": {
+                "value": "\"jump\""
+            },
+            "description": "tabBar滚动时机，`jump`表示在跳转tab时，`after-jump`表示跳转动画执行后，`none`表示切换tab后不自动滚动\n@en TabBar scrolling timing, `jump` means when the tab is jumped, `after-jump` means after the jump animation is executed, `none` means do not scroll automatically after switching tabs",
+            "name": "tabBarScrollChance",
+            "tags": {
+                "en": "TabBar scrolling timing, `jump` means when the tab is jumped, `after-jump` means after the jump animation is executed, `none` means do not scroll automatically after switching tabs",
+                "default": "\"jump\""
+            },
+            "descWithTags": "tabBar滚动时机，`jump`表示在跳转tab时，`after-jump`表示跳转动画执行后，`none`表示切换tab后不自动滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"jump\" | \"after-jump\" | \"none\"",
+                "value": [
+                    {
+                        "value": "\"jump\""
+                    },
+                    {
+                        "value": "\"after-jump\""
+                    },
+                    {
+                        "value": "\"none\""
+                    }
+                ]
+            }
+        },
+        "tabBarHasDivider": {
+            "defaultValue": null,
+            "description": "tabBar是否有分割线\n@en Whether the tabBar has a dividing line",
+            "name": "tabBarHasDivider",
+            "tags": {
+                "en": "Whether the tabBar has a dividing line"
+            },
+            "descWithTags": "tabBar是否有分割线",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "tabBarResetWhenScroll": {
+            "defaultValue": {
+                "value": "\"touchmove\""
+            },
+            "description": "在竖向滚动tabPane时，自动重设tabBar滚动位置的时机\n@en When scrolling the tabPane vertically, the timing of automatically resetting the scroll position of the tabBar",
+            "name": "tabBarResetWhenScroll",
+            "tags": {
+                "en": "When scrolling the tabPane vertically, the timing of automatically resetting the scroll position of the tabBar",
+                "default": "\"touchmove\""
+            },
+            "descWithTags": "在竖向滚动tabPane时，自动重设tabBar滚动位置的时机",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"none\" | \"touchmove\" | \"touchend\"",
+                "value": [
+                    {
+                        "value": "\"none\""
+                    },
+                    {
+                        "value": "\"touchmove\""
+                    },
+                    {
+                        "value": "\"touchend\""
+                    }
+                ]
+            }
+        },
+        "type": {
+            "defaultValue": {
+                "value": "line"
+            },
+            "description": "页签的样式，line为顺次排布，line-divide为等分间距排布，card为分段器式排布\n@en The style of the tabs, line is arranged in sequence, line-divide is arranged at equal intervals, and card is arranged by segmenter",
+            "name": "type",
+            "tags": {
+                "en": "The style of the tabs, line is arranged in sequence, line-divide is arranged at equal intervals, and card is arranged by segmenter",
+                "default": "line"
+            },
+            "descWithTags": "页签的样式，line为顺次排布，line-divide为等分间距排布，card为分段器式排布",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"line\" | \"line-divide\" | \"card\" | \"tag\" | \"tag-divide\"",
+                "value": [
+                    {
+                        "value": "\"line\""
+                    },
+                    {
+                        "value": "\"line-divide\""
+                    },
+                    {
+                        "value": "\"card\""
+                    },
+                    {
+                        "value": "\"tag\""
+                    },
+                    {
+                        "value": "\"tag-divide\""
+                    }
+                ]
+            }
+        },
+        "swipeable": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否允许滑动\n@en Whether to allow sliding",
+            "name": "swipeable",
+            "tags": {
+                "en": "Whether to allow sliding",
+                "default": "true"
+            },
+            "descWithTags": "是否允许滑动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "duration": {
+            "defaultValue": {
+                "value": "240"
+            },
+            "description": "TabBar下划线滑动动画切换时间，单位ms\n@en The time of the TabBar underline sliding animation switching, in ms",
+            "name": "duration",
+            "tags": {
+                "en": "The time of the TabBar underline sliding animation switching, in ms",
+                "default": "240"
+            },
+            "descWithTags": "TabBar下划线滑动动画切换时间，单位ms",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "fullScreen": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否为全屏(100%)布局",
+            "name": "fullScreen",
+            "tags": {
+                "default": "false"
+            },
+            "descWithTags": "是否为全屏(100%)布局",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "autoHeight": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "容器高度自适应，仅在mode=swipe且是垂直布局时生效",
+            "name": "autoHeight",
+            "tags": {
+                "default": "false"
+            },
+            "descWithTags": "容器高度自适应，仅在mode=swipe且是垂直布局时生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "transitionDuration": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "swipe模式下表示手指抬起后到动画结束时间，scroll模式下表示点击tab后滚动过渡时间，单位ms\n@en In swipe mode, it means the time from when the finger is lifted to the end of the animation. In scroll mode, it means the scroll transition time after clicking the tab, in ms",
+            "name": "transitionDuration",
+            "tags": {
+                "en": "In swipe mode, it means the time from when the finger is lifted to the end of the animation. In scroll mode, it means the scroll transition time after clicking the tab, in ms",
+                "default": "300"
+            },
+            "descWithTags": "swipe模式下表示手指抬起后到动画结束时间，scroll模式下表示点击tab后滚动过渡时间，单位ms",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "useCaterpillar": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否使用毛毛虫效果\n@en Whether to use the caterpillar effect",
+            "name": "useCaterpillar",
+            "tags": {
+                "en": "Whether to use the caterpillar effect",
+                "default": "false"
+            },
+            "descWithTags": "是否使用毛毛虫效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "caterpillarProperty": {
+            "defaultValue": {
+                "value": "\"scale\""
+            },
+            "description": "使用毛毛虫效果时，执行动画更改的属性，`scale`表示更改 transform: scale 值，`size`表示更改宽高值。一般在避免border-radius被scale拉伸的情况会使用`size`，但需注意其性能不如`scale`\n@en When using the caterpillar effect, the properties that perform animation changes, `scale` means changing the transform: scale value, `size` means changing the width and height values. Generally, `size` is used to avoid border-radius being stretched by scale, but it should be noted that its performance is not as good as `scale`",
+            "name": "caterpillarProperty",
+            "tags": {
+                "en": "When using the caterpillar effect, the properties that perform animation changes, `scale` means changing the transform: scale value, `size` means changing the width and height values. Generally, `size` is used to avoid border-radius being stretched by scale, but it should be noted that its performance is not as good as `scale`",
+                "default": "\"scale\""
+            },
+            "descWithTags": "使用毛毛虫效果时，执行动画更改的属性，`scale`表示更改 transform: scale 值，`size`表示更改宽高值。一般在避免border-radius被scale拉伸的情况会使用`size`，但需注意其性能不如`scale`",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"scale\" | \"size\"",
+                "value": [
+                    {
+                        "value": "\"scale\""
+                    },
+                    {
+                        "value": "\"size\""
+                    }
+                ]
+            }
+        },
+        "caterpillarMaxScale": {
+            "defaultValue": {
+                "value": "2"
+            },
+            "description": "毛毛虫效果开启时，TabBar下划线最长延展倍数（相对于自身长度）\n@en When the caterpillar effect is enabled, the longest extension multiple of the TabBar underline (relative to its own length)",
+            "name": "caterpillarMaxScale",
+            "tags": {
+                "en": "When the caterpillar effect is enabled, the longest extension multiple of the TabBar underline (relative to its own length)",
+                "default": "2"
+            },
+            "descWithTags": "毛毛虫效果开启时，TabBar下划线最长延展倍数（相对于自身长度）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "percentToChangeTab": {
+            "defaultValue": {
+                "value": "0.3"
+            },
+            "description": "滑动切换距离阈值(宽度比例)，范围为[0, 1]，如果该属性和`distanceToChangeTab`属性均设置，则实际计算结果更大的生效\n@en Sliding switching distance threshold (width ratio), the range is [0, 1]. If this property and the `distanceToChangeTab` property are both set, the larger actual calculation result will take effect",
+            "name": "percentToChangeTab",
+            "tags": {
+                "en": "Sliding switching distance threshold (width ratio), the range is [0, 1]. If this property and the `distanceToChangeTab` property are both set, the larger actual calculation result will take effect",
+                "default": "0.3"
+            },
+            "descWithTags": "滑动切换距离阈值(宽度比例)，范围为[0, 1]，如果该属性和`distanceToChangeTab`属性均设置，则实际计算结果更大的生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "distanceToChangeTab": {
+            "defaultValue": {
+                "value": "10"
+            },
+            "description": "滑动切换距离阈值(固定px宽度)，如果该属性和`percentToChangeTab`属性均设置，则实际计算结果更大的生效\n@en The sliding switching distance threshold (fixed px width), if both this property and the `percentToChangeTab` property are set, the actual calculation result will take effect with a larger one",
+            "name": "distanceToChangeTab",
+            "tags": {
+                "en": "The sliding switching distance threshold (fixed px width), if both this property and the `percentToChangeTab` property are set, the actual calculation result will take effect with a larger one",
+                "default": "10"
+            },
+            "descWithTags": "滑动切换距离阈值(固定px宽度)，如果该属性和`percentToChangeTab`属性均设置，则实际计算结果更大的生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "speedToChangeTab": {
+            "defaultValue": {
+                "value": "200"
+            },
+            "description": "滑动切换速度阈值(手指从按下到抬起之间的滑动速度，单位为px/s)，与滑动切换距离阈值同时设置时，满足其中一个即生效\n@en The sliding switching speed threshold (the sliding speed of the finger from pressing to lifting, in px/s), when it is set at the same time as the sliding switching distance threshold, it will take effect if one of them is satisfied.",
+            "name": "speedToChangeTab",
+            "tags": {
+                "en": "The sliding switching speed threshold (the sliding speed of the finger from pressing to lifting, in px/s), when it is set at the same time as the sliding switching distance threshold, it will take effect if one of them is satisfied.",
+                "default": "200"
+            },
+            "descWithTags": "滑动切换速度阈值(手指从按下到抬起之间的滑动速度，单位为px/s)，与滑动切换距离阈值同时设置时，满足其中一个即生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "disableClickTransition": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "点击tab切换时禁用动画\n@en Disable animation when tab switch is clicked",
+            "name": "disableClickTransition",
+            "tags": {
+                "en": "Disable animation when tab switch is clicked",
+                "default": "true"
+            },
+            "descWithTags": "点击tab切换时禁用动画",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "lazyloadCount": {
+            "defaultValue": null,
+            "description": "只加载当前页相邻的n个内容，为0时会隐藏/销毁所有相邻内容，不传则加载所有内容，在mode=swipe时生效\n@en Only load the n content adjacent to the current page. When it is 0, all adjacent content will be hidden/destroyed. If not input, all content will be loaded. It will take effect when mode=swipe",
+            "name": "lazyloadCount",
+            "tags": {
+                "en": "Only load the n content adjacent to the current page. When it is 0, all adjacent content will be hidden/destroyed. If not input, all content will be loaded. It will take effect when mode=swipe"
+            },
+            "descWithTags": "只加载当前页相邻的n个内容，为0时会隐藏/销毁所有相邻内容，不传则加载所有内容，在mode=swipe时生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "hideContentStyle": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "当开启懒加载时，针对不在懒加载范围内的内容设置样式，传入null则销毁内容\n@en When lazy loading is enabled, set the style for the content that is not within the scope of lazy loading, and pass in null to destroy the content",
+            "name": "hideContentStyle",
+            "tags": {
+                "en": "When lazy loading is enabled, set the style for the content that is not within the scope of lazy loading, and pass in null to destroy the content",
+                "default": "null"
+            },
+            "descWithTags": "当开启懒加载时，针对不在懒加载范围内的内容设置样式，传入null则销毁内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "renderHideContent": {
+            "defaultValue": null,
+            "description": "自行渲染不在懒加载范围内的pane，其中参数pane代表第index个tab原本要渲染的内容\n@en Render the pane that is not within the scope of lazy loading by itself, where the parameter pane represents the content to be rendered by the index-th tab",
+            "name": "renderHideContent",
+            "tags": {
+                "en": "Render the pane that is not within the scope of lazy loading by itself, where the parameter pane represents the content to be rendered by the index-th tab"
+            },
+            "descWithTags": "自行渲染不在懒加载范围内的pane，其中参数pane代表第index个tab原本要渲染的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: number, pane: ReactNode) => ReactNode"
+            }
+        },
+        "hideTabBarBeforeMounted": {
+            "defaultValue": null,
+            "description": "在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果\n@en Whether to hide the TabBar before the component is loaded to prevent redundant scrolling effects when overflowing",
+            "name": "hideTabBarBeforeMounted",
+            "tags": {
+                "en": "Whether to hide the TabBar before the component is loaded to prevent redundant scrolling effects when overflowing"
+            },
+            "descWithTags": "在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "overflowThreshold": {
+            "defaultValue": {
+                "value": "5"
+            },
+            "description": "TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化\n@en When the number of TabBars is greater than or equal to the number of TabBars, it is considered to overflow, which is used for ssr first screen rendering optimization before dom loading is completed",
+            "name": "overflowThreshold",
+            "tags": {
+                "en": "When the number of TabBars is greater than or equal to the number of TabBars, it is considered to overflow, which is used for ssr first screen rendering optimization before dom loading is completed",
+                "default": "5"
+            },
+            "descWithTags": "TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "showUnderline": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否展示下划线\n@en Whether to display underline",
+            "name": "showUnderline",
+            "tags": {
+                "en": "Whether to display underline",
+                "default": "true"
+            },
+            "descWithTags": "是否展示下划线",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "stopTouchThreshold": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "触发onTouchStopped的最小阈值\n@en Minimum threshold to trigger onTouchStopped",
+            "name": "stopTouchThreshold",
+            "tags": {
+                "en": "Minimum threshold to trigger onTouchStopped",
+                "default": "0"
+            },
+            "descWithTags": "触发onTouchStopped的最小阈值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "touchSideDisableThreshold": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "距离屏幕边缘多远开始向右滑动时禁用tabs滑动事件\n@en The distance from the edge of the screen to disable the tabs swipe event when you start swiping right",
+            "name": "touchSideDisableThreshold",
+            "tags": {
+                "en": "The distance from the edge of the screen to disable the tabs swipe event when you start swiping right",
+                "default": "0"
+            },
+            "descWithTags": "距离屏幕边缘多远开始向右滑动时禁用tabs滑动事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "stopPropagation": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "swipe 模式下，触摸事件是否需要 stopPropagation\n@en In swipe mode, whether the touch event need stopPropagation",
+            "name": "stopPropagation",
+            "tags": {
+                "en": "In swipe mode, whether the touch event need stopPropagation",
+                "default": "true"
+            },
+            "descWithTags": "swipe 模式下，触摸事件是否需要 stopPropagation",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "getInnerScrollContainer": {
+            "defaultValue": null,
+            "description": "swipe 模式下，组件内部的滚动容器，用于豁免滑动事件响应\n@en In swipe mode, the scroll container inside the component is used to exempt the swipe event response",
+            "name": "getInnerScrollContainer",
+            "tags": {
+                "en": "In swipe mode, the scroll container inside the component is used to exempt the swipe event response"
+            },
+            "descWithTags": "swipe 模式下，组件内部的滚动容器，用于豁免滑动事件响应",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | HTMLElement[]"
+            }
+        },
+        "mode": {
+            "defaultValue": {
+                "value": "\"swipe\""
+            },
+            "description": "tabs切换模式，swipe为滑动模式，scroll为滚动监听模式\n@en Tabs switching mode, swipe is sliding mode, scroll is scroll listening mode",
+            "name": "mode",
+            "tags": {
+                "en": "Tabs switching mode, swipe is sliding mode, scroll is scroll listening mode",
+                "default": "\"swipe\""
+            },
+            "descWithTags": "tabs切换模式，swipe为滑动模式，scroll为滚动监听模式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"swipe\" | \"scroll\"",
+                "value": [
+                    {
+                        "value": "\"swipe\""
+                    },
+                    {
+                        "value": "\"scroll\""
+                    }
+                ]
+            }
+        },
+        "getScrollContainer": {
+            "defaultValue": null,
+            "description": "滚动模式下的滚动容器，用于监听滚动事件，mode=scroll 时有效\n@en The scroll container in scroll mode, used to listen to scroll events, valid when mode=scroll",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "The scroll container in scroll mode, used to listen to scroll events, valid when mode=scroll"
+            },
+            "descWithTags": "滚动模式下的滚动容器，用于监听滚动事件，mode=scroll 时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | Window"
+            }
+        },
+        "scrollThrottle": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "滚动模式下的节流粒度，mode=scroll 时有效\n@en Throttling granularity in scroll mode, valid when mode=scroll",
+            "name": "scrollThrottle",
+            "tags": {
+                "en": "Throttling granularity in scroll mode, valid when mode=scroll",
+                "default": "300"
+            },
+            "descWithTags": "滚动模式下的节流粒度，mode=scroll 时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "scrollOffset": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "滚动模式下判断tab切换的偏移量，正数为向下偏移，负数为向上偏移，mode=scroll 时有效\n@en Determine the offset of tab switching in scroll mode, a positive number is a downward offset, a negative number is an upward offset, valid when mode=scroll",
+            "name": "scrollOffset",
+            "tags": {
+                "en": "Determine the offset of tab switching in scroll mode, a positive number is a downward offset, a negative number is an upward offset, valid when mode=scroll",
+                "default": "0"
+            },
+            "descWithTags": "滚动模式下判断tab切换的偏移量，正数为向下偏移，负数为向上偏移，mode=scroll 时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "scrollWhenMounted": {
+            "defaultValue": {
+                "value": "当初始index不为0时会自动滚动，为0时则不会自动滚动"
+            },
+            "description": "滚动模式下，在组件初始加载时是否需要自动滚动到当前所选位置，mode=scroll 时有效\n@en In scroll mode, whether to automatically scroll to the currently selected position when the component is initially loaded, valid when mode=scroll\n@default_en When the initial index is not 0, it will scroll automatically, when it is 0, it will not scroll automatically",
+            "name": "scrollWhenMounted",
+            "tags": {
+                "en": "In scroll mode, whether to automatically scroll to the currently selected position when the component is initially loaded, valid when mode=scroll",
+                "default": "当初始index不为0时会自动滚动，为0时则不会自动滚动",
+                "default_en": "When the initial index is not 0, it will scroll automatically, when it is 0, it will not scroll automatically"
+            },
+            "descWithTags": "滚动模式下，在组件初始加载时是否需要自动滚动到当前所选位置，mode=scroll 时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "goLastWhenScrollBottom": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "当滚动到最底部时，如果最后一个pane尚未到达底部，是否强行选中，mode=scroll 时有效\n@en When scrolling to the bottom, if the last pane has not reached the bottom, whether to force the selection, valid when mode=scroll",
+            "name": "goLastWhenScrollBottom",
+            "tags": {
+                "en": "When scrolling to the bottom, if the last pane has not reached the bottom, whether to force the selection, valid when mode=scroll",
+                "default": "true"
+            },
+            "descWithTags": "当滚动到最底部时，如果最后一个pane尚未到达底部，是否强行选中，mode=scroll 时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "scrollVertical": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否监听垂直方向的滚动，否则监听水平方向滚动\n@en Whether to monitor vertical scrolling, otherwise monitor horizontal scrolling",
+            "name": "scrollVertical",
+            "tags": {
+                "en": "Whether to monitor vertical scrolling, otherwise monitor horizontal scrolling",
+                "default": "true"
+            },
+            "descWithTags": "是否监听垂直方向的滚动，否则监听水平方向滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "tabBarClass": {
+            "defaultValue": null,
+            "description": "TabBar外层容器自定义类名\n@en Custom classname of TabBar outer container",
+            "name": "tabBarClass",
+            "tags": {
+                "en": "Custom classname of TabBar outer container"
+            },
+            "descWithTags": "TabBar外层容器自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "tabPaneClass": {
+            "defaultValue": null,
+            "description": "TabPane外层容器自定义类名\n@en Custom classname of TabPane outer container",
+            "name": "tabPaneClass",
+            "tags": {
+                "en": "Custom classname of TabPane outer container"
+            },
+            "descWithTags": "TabPane外层容器自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "tabBarStyle": {
+            "defaultValue": null,
+            "description": "TabBar外层容器自定义样式\n@en Custom style of TabBar outer container",
+            "name": "tabBarStyle",
+            "tags": {
+                "en": "Custom style of TabBar outer container"
+            },
+            "descWithTags": "TabBar外层容器自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "tabPaneStyle": {
+            "defaultValue": null,
+            "description": "TabPane外层容器自定义样式\n@en Custom style of TabPane outer container",
+            "name": "tabPaneStyle",
+            "tags": {
+                "en": "Custom style of TabPane outer container"
+            },
+            "descWithTags": "TabPane外层容器自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "tabPaneExtra": {
+            "defaultValue": null,
+            "description": "TabPane额外渲染元素，需绝对定位\n@en Extra rendering elements of TabPane, which shoule be absolute positioning",
+            "name": "tabPaneExtra",
+            "tags": {
+                "en": "Extra rendering elements of TabPane, which shoule be absolute positioning"
+            },
+            "descWithTags": "TabPane额外渲染元素，需绝对定位",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "translateZ": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "TabPane和TabBar开启translateZ\n@en Whether TabPane and TabBar open translateZ",
+            "name": "translateZ",
+            "tags": {
+                "en": "Whether TabPane and TabBar open translateZ",
+                "default": "true"
+            },
+            "descWithTags": "TabPane和TabBar开启translateZ",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "onTouchStopped": {
+            "defaultValue": null,
+            "description": "当滑到第一页或最后一页，还想再滑动时触发\n@en Triggered when swiping to the first or last page and want to swipe again",
+            "name": "onTouchStopped",
+            "tags": {
+                "en": "Triggered when swiping to the first or last page and want to swipe again"
+            },
+            "descWithTags": "当滑到第一页或最后一页，还想再滑动时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(direction: 1 | -1) => void"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "tab变化回调\n@en Callback when tab changes",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when tab changes"
+            },
+            "descWithTags": "tab变化回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(tab: TabData, index: number, from?: string) => void"
+            }
+        },
+        "onAfterChange": {
+            "defaultValue": null,
+            "description": "tab变化且动画执行完毕后回调\n@en Callback when the tab changes and the animation is completed",
+            "name": "onAfterChange",
+            "tags": {
+                "en": "Callback when the tab changes and the animation is completed"
+            },
+            "descWithTags": "tab变化且动画执行完毕后回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(tab: TabData, index: number, from?: string) => void"
+            }
+        },
+        "onTabClick": {
+            "defaultValue": null,
+            "description": "TabBar点击的事件\n@en Callback when TabBar is clicked",
+            "name": "onTabClick",
+            "tags": {
+                "en": "Callback when TabBar is clicked"
+            },
+            "descWithTags": "TabBar点击的事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(tab: TabData, index: number, e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+            }
+        },
+        "onTabBarOverflowChange": {
+            "defaultValue": null,
+            "description": "TabBar超出屏幕状态切换回调\n@en Calllback when TabBar is out of screen",
+            "name": "onTabBarOverflowChange",
+            "tags": {
+                "en": "Calllback when TabBar is out of screen"
+            },
+            "descWithTags": "TabBar超出屏幕状态切换回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(overflow: boolean) => void"
+            }
+        },
+        "onTouchStart": {
+            "defaultValue": null,
+            "description": "TabPane touchstart事件\n@en Touchstart event of TabPane",
+            "name": "onTouchStart",
+            "tags": {
+                "en": "Touchstart event of TabPane"
+            },
+            "descWithTags": "TabPane touchstart事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent, index: number) => boolean | void"
+            }
+        },
+        "onTouchMove": {
+            "defaultValue": null,
+            "description": "TabPane touchmove事件\n@en Touchmove event of TabPane",
+            "name": "onTouchMove",
+            "tags": {
+                "en": "Touchmove event of TabPane"
+            },
+            "descWithTags": "TabPane touchmove事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent, index: number) => boolean | void"
+            }
+        },
+        "onTouchEnd": {
+            "defaultValue": null,
+            "description": "TabPane touchend / touchcancel事件\n@en Touchend / touchcancel event of TabPane",
+            "name": "onTouchEnd",
+            "tags": {
+                "en": "Touchend / touchcancel event of TabPane"
+            },
+            "descWithTags": "TabPane touchend / touchcancel事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent, index: number) => boolean | void"
+            }
+        },
+        "onTabBarScroll": {
+            "defaultValue": null,
+            "description": "TabBar在溢出滚动时回调\n@en Callback when TabBar is on overflow scrolling",
+            "name": "onTabBarScroll",
+            "tags": {
+                "en": "Callback when TabBar is on overflow scrolling"
+            },
+            "descWithTags": "TabBar在溢出滚动时回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: UIEvent<HTMLDivElement, UIEvent>) => void"
+            }
+        },
+        "onDistanceChange": {
+            "defaultValue": null,
+            "description": "tabs 左右滑动时回调，用于监听滑动距离以做滑动同步交互\n@en Callback when tabs slides left and right, used to monitor the sliding distance for sliding synchronization interaction",
+            "name": "onDistanceChange",
+            "tags": {
+                "en": "Callback when tabs slides left and right, used to monitor the sliding distance for sliding synchronization interaction"
+            },
+            "descWithTags": "tabs 左右滑动时回调，用于监听滑动距离以做滑动同步交互",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(distance: number, wrapWidth: number, activeIndex: number) => void"
+            }
+        },
+        "onScroll": {
+            "defaultValue": null,
+            "description": "mode=scroll 时，触发滚动容器滚动回调\n@en When mode=scroll, trigger the scroll container scroll callback",
+            "name": "onScroll",
+            "tags": {
+                "en": "When mode=scroll, trigger the scroll container scroll callback"
+            },
+            "descWithTags": "mode=scroll 时，触发滚动容器滚动回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "renderUnderline": {
+            "defaultValue": null,
+            "description": "自行渲染TabBar的下划线\n@en Render the underline of the TabBar",
+            "name": "renderUnderline",
+            "tags": {
+                "en": "Render the underline of the TabBar"
+            },
+            "descWithTags": "自行渲染TabBar的下划线",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(underlineStyle: UnderlineStyle, showLine: boolean, lineRef: MutableRefObject<HTMLElement>) => ReactNode"
+            }
+        },
+        "renderTabBar": {
+            "defaultValue": null,
+            "description": "自行渲染TabBar，常用于与Sticky配合使用\n@en Render the TabBar custom, often used in conjunction with Sticky",
+            "name": "renderTabBar",
+            "tags": {
+                "en": "Render the TabBar custom, often used in conjunction with Sticky"
+            },
+            "descWithTags": "自行渲染TabBar，常用于与Sticky配合使用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(TabBar: ReactNode, TabBarProps: TabCellProps) => ReactNode"
+            }
+        },
+        "renderTabBarItem": {
+            "defaultValue": null,
+            "description": "自行渲染TabBar的每一个item\n@en Render each item of the TabBar custom",
+            "name": "renderTabBarItem",
+            "tags": {
+                "en": "Render each item of the TabBar custom"
+            },
+            "descWithTags": "自行渲染TabBar的每一个item",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(tab: TabData, index: number, extra: { active: boolean; }) => ReactNode"
+            }
+        },
+        "renderTabBarInner": {
+            "defaultValue": null,
+            "description": "自行渲染TabBar内部内容，当需要给 .@{prefix}-tab-cell 外层再嵌套一层dom时使用\n@en Render the inner content of the TabBar custom, used when need to nest another layer of DOM outside the .\n@ {prefix}-tab-cell",
+            "name": "renderTabBarInner",
+            "tags": {
+                "en": "Render the inner content of the TabBar custom, used when need to nest another layer of DOM outside the .",
+                "": "{prefix}-tab-cell"
+            },
+            "descWithTags": "自行渲染TabBar内部内容，当需要给 .@{prefix}-tab-cell 外层再嵌套一层dom时使用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(Inner: ReactNode) => ReactNode"
+            }
+        },
+        "tabBarGutter": {
+            "defaultValue": null,
+            "description": "tabBar间隙，type=line时有效\n@en TabBar gutter, valid when type=line",
+            "name": "tabBarGutter",
+            "tags": {
+                "en": "TabBar gutter, valid when type=line"
+            },
+            "descWithTags": "tabBar间隙，type=line时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "tabBarPadding": {
+            "defaultValue": null,
+            "description": "TabBar两侧留白宽度，type=line时有效\n@en The width of the blank space on both sides of the TabBar, valid when type=line",
+            "name": "tabBarPadding",
+            "tags": {
+                "en": "The width of the blank space on both sides of the TabBar, valid when type=line"
+            },
+            "descWithTags": "TabBar两侧留白宽度，type=line时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string | number | { left?: ReactText; right?: ReactText; }"
+            }
+        },
+        "underlineSize": {
+            "defaultValue": null,
+            "description": "TabBar下划线长度\n@en TabBar underline length",
+            "name": "underlineSize",
+            "tags": {
+                "en": "TabBar underline length"
+            },
+            "descWithTags": "TabBar下划线长度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "underlineThick": {
+            "defaultValue": null,
+            "description": "TabBar下划线厚度\n@en TabBar underline thickness",
+            "name": "underlineThick",
+            "tags": {
+                "en": "TabBar underline thickness"
+            },
+            "descWithTags": "TabBar下划线厚度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "underlineInnerStyle": {
+            "defaultValue": null,
+            "description": "TabBar下划线内部样式，作用于 tab-cell-underline-inner\n@en Tabbar underline inner style, applied to tab-cell-underline-inner",
+            "name": "underlineInnerStyle",
+            "tags": {
+                "en": "Tabbar underline inner style, applied to tab-cell-underline-inner"
+            },
+            "descWithTags": "TabBar下划线内部样式，作用于 tab-cell-underline-inner",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<TabsRef>"
+            }
+        }
+    },
+    "deps": {
+        "TabData": "string|{ [x: string]: any; title: ReactNode; }",
+        "UnderlineStyle": {
+            "outer": {
+                "name": "outer",
+                "required": false,
+                "description": "下划线外层样式，控制线的相对位置\n@en Underline outer style, controls the relative position of the line",
+                "defaultValue": null,
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Underline outer style, controls the relative position of the line"
+                },
+                "descWithTags": "下划线外层样式，控制线的相对位置"
+            },
+            "inner": {
+                "name": "inner",
+                "required": false,
+                "description": "下划线内层样式，控制线本身的宽高及缩放效果\n@en Underline inner layer style, control the width and height of the line itself and the zoom effect",
+                "defaultValue": null,
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Underline inner layer style, control the width and height of the line itself and the zoom effect"
+                },
+                "descWithTags": "下划线内层样式，控制线本身的宽高及缩放效果"
+            }
+        },
+        "TabCellProps": {
+            "prefixCls": {
+                "name": "prefixCls",
+                "required": false,
+                "description": "类前缀\n@en prefix classname",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "prefix classname"
+                },
+                "descWithTags": "类前缀"
+            },
+            "activeIndex": {
+                "name": "activeIndex",
+                "required": true,
+                "description": "当前选中 Tab\n@en Currently selected Tab",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Currently selected Tab"
+                },
+                "descWithTags": "当前选中 Tab"
+            },
+            "activeIndexRef": {
+                "name": "activeIndexRef",
+                "required": true,
+                "description": "当前选中 Tab ref\n@en Currently selected Tab ref",
+                "defaultValue": null,
+                "type": {
+                    "name": "MutableRefObject<number>"
+                },
+                "tags": {
+                    "en": "Currently selected Tab ref"
+                },
+                "descWithTags": "当前选中 Tab ref"
+            },
+            "tabDirection": {
+                "name": "tabDirection",
+                "required": true,
+                "description": "Tab 布局方向，横向 or 竖向\n@en Tab layout direction, horizontal or vertical",
+                "defaultValue": null,
+                "type": {
+                    "name": "enum",
+                    "raw": "\"horizontal\" | \"vertical\"",
+                    "value": [
+                        {
+                            "value": "\"horizontal\""
+                        },
+                        {
+                            "value": "\"vertical\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Tab layout direction, horizontal or vertical"
+                },
+                "descWithTags": "Tab 布局方向，横向 or 竖向"
+            },
+            "changeIndex": {
+                "name": "changeIndex",
+                "required": true,
+                "description": "修改选中 Tab\n@en Modify selected Tab",
+                "defaultValue": null,
+                "type": {
+                    "name": "(newIndex: number, from?: string) => void"
+                },
+                "tags": {
+                    "en": "Modify selected Tab"
+                },
+                "descWithTags": "修改选中 Tab"
+            },
+            "wrapWidth": {
+                "name": "wrapWidth",
+                "required": true,
+                "description": "外层容器宽度\n@en Wrapper container width",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Wrapper container width"
+                },
+                "descWithTags": "外层容器宽度"
+            },
+            "wrapHeight": {
+                "name": "wrapHeight",
+                "required": true,
+                "description": "外层容器高度\n@en Wrapper container height",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Wrapper container height"
+                },
+                "descWithTags": "外层容器高度"
+            },
+            "cellTrans": {
+                "name": "cellTrans",
+                "required": true,
+                "description": "TabBar是否启用过渡效果\n@en Whether the TabBar enables transition effects",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the TabBar enables transition effects"
+                },
+                "descWithTags": "TabBar是否启用过渡效果"
+            },
+            "distance": {
+                "name": "distance",
+                "required": true,
+                "description": "手指滑动距离\n@en Finger sliding distance",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Finger sliding distance"
+                },
+                "descWithTags": "手指滑动距离"
+            },
+            "jumpingDis": {
+                "name": "jumpingDis",
+                "required": true,
+                "description": "下划线已滑动的距离\n@en The distance the underline has been swiped",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "The distance the underline has been swiped"
+                },
+                "descWithTags": "下划线已滑动的距离"
+            },
+            "tabs": {
+                "name": "tabs",
+                "required": true,
+                "description": "TabBar内容数组，除必填项外也可附加其他数据\n@en Array of TabBar content, additional data can be appended in addition to the required fields",
+                "defaultValue": null,
+                "type": {
+                    "name": "TabData[]"
+                },
+                "tags": {
+                    "en": "Array of TabBar content, additional data can be appended in addition to the required fields"
+                },
+                "descWithTags": "TabBar内容数组，除必填项外也可附加其他数据"
+            },
+            "disabled": {
+                "name": "disabled",
+                "required": false,
+                "description": "是否禁用切换，包括点击TabBar切换和滑动切换\n@en Whether to disable switching, including clicking TabBar switching and sliding switching",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to disable switching, including clicking TabBar switching and sliding switching"
+                },
+                "descWithTags": "是否禁用切换，包括点击TabBar切换和滑动切换"
+            },
+            "tabBarPosition": {
+                "name": "tabBarPosition",
+                "required": false,
+                "description": "TabBar位置\n@en Tabbar position",
+                "defaultValue": {
+                    "value": "\"top\""
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"top\" | \"bottom\" | \"left\" | \"right\"",
+                    "value": [
+                        {
+                            "value": "\"top\""
+                        },
+                        {
+                            "value": "\"bottom\""
+                        },
+                        {
+                            "value": "\"left\""
+                        },
+                        {
+                            "value": "\"right\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Tabbar position",
+                    "default": "\"top\""
+                },
+                "descWithTags": "TabBar位置"
+            },
+            "tabBarArrange": {
+                "name": "tabBarArrange",
+                "required": false,
+                "description": "TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右\n@en Tabbar arrangement, tabBar is valid when it is in the top or bottom position, start is left, center is centered, and end is right",
+                "defaultValue": {
+                    "value": "\"center\""
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"start\" | \"center\" | \"end\"",
+                    "value": [
+                        {
+                            "value": "\"start\""
+                        },
+                        {
+                            "value": "\"center\""
+                        },
+                        {
+                            "value": "\"end\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Tabbar arrangement, tabBar is valid when it is in the top or bottom position, start is left, center is centered, and end is right",
+                    "default": "\"center\""
+                },
+                "descWithTags": "TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右"
+            },
+            "tabBarScroll": {
+                "name": "tabBarScroll",
+                "required": false,
+                "description": "是否TabBar超出屏幕时靠左滚动排列\n@en Whether to scroll to the left when the TabBar exceeds the screen",
+                "defaultValue": {
+                    "value": "true"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to scroll to the left when the TabBar exceeds the screen",
+                    "default": "true"
+                },
+                "descWithTags": "是否TabBar超出屏幕时靠左滚动排列"
+            },
+            "tabBarFixed": {
+                "name": "tabBarFixed",
+                "required": false,
+                "description": "TabBar是否顶部固定\n@en Whether the TabBar is fixed on the top",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the TabBar is fixed on the top"
+                },
+                "descWithTags": "TabBar是否顶部固定"
+            },
+            "tabBarExtra": {
+                "name": "tabBarExtra",
+                "required": false,
+                "description": "tabBar额外渲染内容\n@en TabBar extra render content",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "TabBar extra render content"
+                },
+                "descWithTags": "tabBar额外渲染内容"
+            },
+            "tabBarScrollBezier": {
+                "name": "tabBarScrollBezier",
+                "required": false,
+                "description": "tabBar滚动时变化的bezier曲线值\n@en The bezier curve value that changes when the tabBar is scrolled",
+                "defaultValue": {
+                    "value": "[0.34, 0.69, 0.1, 1]"
+                },
+                "type": {
+                    "name": "[number, number, number, number]"
+                },
+                "tags": {
+                    "en": "The bezier curve value that changes when the tabBar is scrolled",
+                    "default": "[0.34, 0.69, 0.1, 1]"
+                },
+                "descWithTags": "tabBar滚动时变化的bezier曲线值"
+            },
+            "tabBarScrollDuration": {
+                "name": "tabBarScrollDuration",
+                "required": false,
+                "description": "tabBar滚动过渡时长，单位ms\n@en TabBar scrolling transition duration, in ms",
+                "defaultValue": {
+                    "value": "300"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "TabBar scrolling transition duration, in ms",
+                    "default": "300"
+                },
+                "descWithTags": "tabBar滚动过渡时长，单位ms"
+            },
+            "tabBarScrollChance": {
+                "name": "tabBarScrollChance",
+                "required": false,
+                "description": "tabBar滚动时机，`jump`表示在跳转tab时，`after-jump`表示跳转动画执行后，`none`表示切换tab后不自动滚动\n@en TabBar scrolling timing, `jump` means when the tab is jumped, `after-jump` means after the jump animation is executed, `none` means do not scroll automatically after switching tabs",
+                "defaultValue": {
+                    "value": "\"jump\""
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"jump\" | \"after-jump\" | \"none\"",
+                    "value": [
+                        {
+                            "value": "\"jump\""
+                        },
+                        {
+                            "value": "\"after-jump\""
+                        },
+                        {
+                            "value": "\"none\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "TabBar scrolling timing, `jump` means when the tab is jumped, `after-jump` means after the jump animation is executed, `none` means do not scroll automatically after switching tabs",
+                    "default": "\"jump\""
+                },
+                "descWithTags": "tabBar滚动时机，`jump`表示在跳转tab时，`after-jump`表示跳转动画执行后，`none`表示切换tab后不自动滚动"
+            },
+            "tabBarHasDivider": {
+                "name": "tabBarHasDivider",
+                "required": false,
+                "description": "tabBar是否有分割线\n@en Whether the tabBar has a dividing line",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the tabBar has a dividing line"
+                },
+                "descWithTags": "tabBar是否有分割线"
+            },
+            "type": {
+                "name": "type",
+                "required": false,
+                "description": "页签的样式，line为顺次排布，line-divide为等分间距排布，card为分段器式排布\n@en The style of the tabs, line is arranged in sequence, line-divide is arranged at equal intervals, and card is arranged by segmenter",
+                "defaultValue": {
+                    "value": "line"
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"line\" | \"line-divide\" | \"card\" | \"tag\" | \"tag-divide\"",
+                    "value": [
+                        {
+                            "value": "\"line\""
+                        },
+                        {
+                            "value": "\"line-divide\""
+                        },
+                        {
+                            "value": "\"card\""
+                        },
+                        {
+                            "value": "\"tag\""
+                        },
+                        {
+                            "value": "\"tag-divide\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "The style of the tabs, line is arranged in sequence, line-divide is arranged at equal intervals, and card is arranged by segmenter",
+                    "default": "line"
+                },
+                "descWithTags": "页签的样式，line为顺次排布，line-divide为等分间距排布，card为分段器式排布"
+            },
+            "duration": {
+                "name": "duration",
+                "required": false,
+                "description": "TabBar下划线滑动动画切换时间，单位ms\n@en The time of the TabBar underline sliding animation switching, in ms",
+                "defaultValue": {
+                    "value": "240"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "The time of the TabBar underline sliding animation switching, in ms",
+                    "default": "240"
+                },
+                "descWithTags": "TabBar下划线滑动动画切换时间，单位ms"
+            },
+            "transitionDuration": {
+                "name": "transitionDuration",
+                "required": false,
+                "description": "swipe模式下表示手指抬起后到动画结束时间，scroll模式下表示点击tab后滚动过渡时间，单位ms\n@en In swipe mode, it means the time from when the finger is lifted to the end of the animation. In scroll mode, it means the scroll transition time after clicking the tab, in ms",
+                "defaultValue": {
+                    "value": "300"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "In swipe mode, it means the time from when the finger is lifted to the end of the animation. In scroll mode, it means the scroll transition time after clicking the tab, in ms",
+                    "default": "300"
+                },
+                "descWithTags": "swipe模式下表示手指抬起后到动画结束时间，scroll模式下表示点击tab后滚动过渡时间，单位ms"
+            },
+            "useCaterpillar": {
+                "name": "useCaterpillar",
+                "required": false,
+                "description": "是否使用毛毛虫效果\n@en Whether to use the caterpillar effect",
+                "defaultValue": {
+                    "value": "false"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to use the caterpillar effect",
+                    "default": "false"
+                },
+                "descWithTags": "是否使用毛毛虫效果"
+            },
+            "caterpillarProperty": {
+                "name": "caterpillarProperty",
+                "required": false,
+                "description": "使用毛毛虫效果时，执行动画更改的属性，`scale`表示更改 transform: scale 值，`size`表示更改宽高值。一般在避免border-radius被scale拉伸的情况会使用`size`，但需注意其性能不如`scale`\n@en When using the caterpillar effect, the properties that perform animation changes, `scale` means changing the transform: scale value, `size` means changing the width and height values. Generally, `size` is used to avoid border-radius being stretched by scale, but it should be noted that its performance is not as good as `scale`",
+                "defaultValue": {
+                    "value": "\"scale\""
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"scale\" | \"size\"",
+                    "value": [
+                        {
+                            "value": "\"scale\""
+                        },
+                        {
+                            "value": "\"size\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "When using the caterpillar effect, the properties that perform animation changes, `scale` means changing the transform: scale value, `size` means changing the width and height values. Generally, `size` is used to avoid border-radius being stretched by scale, but it should be noted that its performance is not as good as `scale`",
+                    "default": "\"scale\""
+                },
+                "descWithTags": "使用毛毛虫效果时，执行动画更改的属性，`scale`表示更改 transform: scale 值，`size`表示更改宽高值。一般在避免border-radius被scale拉伸的情况会使用`size`，但需注意其性能不如`scale`"
+            },
+            "caterpillarMaxScale": {
+                "name": "caterpillarMaxScale",
+                "required": false,
+                "description": "毛毛虫效果开启时，TabBar下划线最长延展倍数（相对于自身长度）\n@en When the caterpillar effect is enabled, the longest extension multiple of the TabBar underline (relative to its own length)",
+                "defaultValue": {
+                    "value": "2"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "When the caterpillar effect is enabled, the longest extension multiple of the TabBar underline (relative to its own length)",
+                    "default": "2"
+                },
+                "descWithTags": "毛毛虫效果开启时，TabBar下划线最长延展倍数（相对于自身长度）"
+            },
+            "hideTabBarBeforeMounted": {
+                "name": "hideTabBarBeforeMounted",
+                "required": false,
+                "description": "在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果\n@en Whether to hide the TabBar before the component is loaded to prevent redundant scrolling effects when overflowing",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to hide the TabBar before the component is loaded to prevent redundant scrolling effects when overflowing"
+                },
+                "descWithTags": "在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果"
+            },
+            "overflowThreshold": {
+                "name": "overflowThreshold",
+                "required": false,
+                "description": "TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化\n@en When the number of TabBars is greater than or equal to the number of TabBars, it is considered to overflow, which is used for ssr first screen rendering optimization before dom loading is completed",
+                "defaultValue": {
+                    "value": "5"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "When the number of TabBars is greater than or equal to the number of TabBars, it is considered to overflow, which is used for ssr first screen rendering optimization before dom loading is completed",
+                    "default": "5"
+                },
+                "descWithTags": "TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化"
+            },
+            "showUnderline": {
+                "name": "showUnderline",
+                "required": false,
+                "description": "是否展示下划线\n@en Whether to display underline",
+                "defaultValue": {
+                    "value": "true"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to display underline",
+                    "default": "true"
+                },
+                "descWithTags": "是否展示下划线"
+            },
+            "mode": {
+                "name": "mode",
+                "required": false,
+                "description": "tabs切换模式，swipe为滑动模式，scroll为滚动监听模式\n@en Tabs switching mode, swipe is sliding mode, scroll is scroll listening mode",
+                "defaultValue": {
+                    "value": "\"swipe\""
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"swipe\" | \"scroll\"",
+                    "value": [
+                        {
+                            "value": "\"swipe\""
+                        },
+                        {
+                            "value": "\"scroll\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Tabs switching mode, swipe is sliding mode, scroll is scroll listening mode",
+                    "default": "\"swipe\""
+                },
+                "descWithTags": "tabs切换模式，swipe为滑动模式，scroll为滚动监听模式"
+            },
+            "tabBarClass": {
+                "name": "tabBarClass",
+                "required": false,
+                "description": "TabBar外层容器自定义类名\n@en Custom classname of TabBar outer container",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname of TabBar outer container"
+                },
+                "descWithTags": "TabBar外层容器自定义类名"
+            },
+            "tabBarStyle": {
+                "name": "tabBarStyle",
+                "required": false,
+                "description": "TabBar外层容器自定义样式\n@en Custom style of TabBar outer container",
+                "defaultValue": null,
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom style of TabBar outer container"
+                },
+                "descWithTags": "TabBar外层容器自定义样式"
+            },
+            "translateZ": {
+                "name": "translateZ",
+                "required": false,
+                "description": "TabPane和TabBar开启translateZ\n@en Whether TabPane and TabBar open translateZ",
+                "defaultValue": {
+                    "value": "true"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether TabPane and TabBar open translateZ",
+                    "default": "true"
+                },
+                "descWithTags": "TabPane和TabBar开启translateZ"
+            },
+            "onTabClick": {
+                "name": "onTabClick",
+                "required": false,
+                "description": "TabBar点击的事件\n@en Callback when TabBar is clicked",
+                "defaultValue": null,
+                "type": {
+                    "name": "(tab: TabData, index: number, e: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+                },
+                "tags": {
+                    "en": "Callback when TabBar is clicked"
+                },
+                "descWithTags": "TabBar点击的事件"
+            },
+            "onTabBarOverflowChange": {
+                "name": "onTabBarOverflowChange",
+                "required": false,
+                "description": "TabBar超出屏幕状态切换回调\n@en Calllback when TabBar is out of screen",
+                "defaultValue": null,
+                "type": {
+                    "name": "(overflow: boolean) => void"
+                },
+                "tags": {
+                    "en": "Calllback when TabBar is out of screen"
+                },
+                "descWithTags": "TabBar超出屏幕状态切换回调"
+            },
+            "onTabBarScroll": {
+                "name": "onTabBarScroll",
+                "required": false,
+                "description": "TabBar在溢出滚动时回调\n@en Callback when TabBar is on overflow scrolling",
+                "defaultValue": null,
+                "type": {
+                    "name": "(e: UIEvent<HTMLDivElement, UIEvent>) => void"
+                },
+                "tags": {
+                    "en": "Callback when TabBar is on overflow scrolling"
+                },
+                "descWithTags": "TabBar在溢出滚动时回调"
+            },
+            "renderUnderline": {
+                "name": "renderUnderline",
+                "required": false,
+                "description": "自行渲染TabBar的下划线\n@en Render the underline of the TabBar",
+                "defaultValue": null,
+                "type": {
+                    "name": "(underlineStyle: UnderlineStyle, showLine: boolean, lineRef: MutableRefObject<HTMLElement>) => ReactNode"
+                },
+                "tags": {
+                    "en": "Render the underline of the TabBar"
+                },
+                "descWithTags": "自行渲染TabBar的下划线"
+            },
+            "renderTabBarItem": {
+                "name": "renderTabBarItem",
+                "required": false,
+                "description": "自行渲染TabBar的每一个item\n@en Render each item of the TabBar custom",
+                "defaultValue": null,
+                "type": {
+                    "name": "(tab: TabData, index: number, extra: { active: boolean; }) => ReactNode"
+                },
+                "tags": {
+                    "en": "Render each item of the TabBar custom"
+                },
+                "descWithTags": "自行渲染TabBar的每一个item"
+            },
+            "renderTabBarInner": {
+                "name": "renderTabBarInner",
+                "required": false,
+                "description": "自行渲染TabBar内部内容，当需要给 .@{prefix}-tab-cell 外层再嵌套一层dom时使用\n@en Render the inner content of the TabBar custom, used when need to nest another layer of DOM outside the .\n@ {prefix}-tab-cell",
+                "defaultValue": null,
+                "type": {
+                    "name": "(Inner: ReactNode) => ReactNode"
+                },
+                "tags": {
+                    "en": "Render the inner content of the TabBar custom, used when need to nest another layer of DOM outside the .",
+                    "": "{prefix}-tab-cell"
+                },
+                "descWithTags": "自行渲染TabBar内部内容，当需要给 .@{prefix}-tab-cell 外层再嵌套一层dom时使用"
+            },
+            "tabBarGutter": {
+                "name": "tabBarGutter",
+                "required": false,
+                "description": "tabBar间隙，type=line时有效\n@en TabBar gutter, valid when type=line",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "TabBar gutter, valid when type=line"
+                },
+                "descWithTags": "tabBar间隙，type=line时有效"
+            },
+            "tabBarPadding": {
+                "name": "tabBarPadding",
+                "required": false,
+                "description": "TabBar两侧留白宽度，type=line时有效\n@en The width of the blank space on both sides of the TabBar, valid when type=line",
+                "defaultValue": null,
+                "type": {
+                    "name": "string | number | { left?: ReactText; right?: ReactText; }"
+                },
+                "tags": {
+                    "en": "The width of the blank space on both sides of the TabBar, valid when type=line"
+                },
+                "descWithTags": "TabBar两侧留白宽度，type=line时有效"
+            },
+            "underlineSize": {
+                "name": "underlineSize",
+                "required": false,
+                "description": "TabBar下划线长度\n@en TabBar underline length",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "TabBar underline length"
+                },
+                "descWithTags": "TabBar下划线长度"
+            },
+            "underlineThick": {
+                "name": "underlineThick",
+                "required": false,
+                "description": "TabBar下划线厚度\n@en TabBar underline thickness",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "TabBar underline thickness"
+                },
+                "descWithTags": "TabBar下划线厚度"
+            },
+            "underlineInnerStyle": {
+                "name": "underlineInnerStyle",
+                "required": false,
+                "description": "TabBar下划线内部样式，作用于 tab-cell-underline-inner\n@en Tabbar underline inner style, applied to tab-cell-underline-inner",
+                "defaultValue": null,
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Tabbar underline inner style, applied to tab-cell-underline-inner"
+                },
+                "descWithTags": "TabBar下划线内部样式，作用于 tab-cell-underline-inner"
+            }
+        },
+        "TabsRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "bar": {
+                "name": "bar",
+                "required": true,
+                "description": "TabBar 内部子组件 Ref\n@en Ref of TabBar inner component",
+                "defaultValue": null,
+                "type": {
+                    "name": "TabCellRef"
+                },
+                "tags": {
+                    "en": "Ref of TabBar inner component"
+                },
+                "descWithTags": "TabBar 内部子组件 Ref"
+            },
+            "pane": {
+                "name": "pane",
+                "required": true,
+                "description": "Tab Pane 内部子组件 Ref\n@en Ref of TabPane inner component",
+                "defaultValue": null,
+                "type": {
+                    "name": "TabPaneRef"
+                },
+                "tags": {
+                    "en": "Ref of TabPane inner component"
+                },
+                "descWithTags": "Tab Pane 内部子组件 Ref"
+            },
+            "barOverflow": {
+                "name": "barOverflow",
+                "required": true,
+                "description": "当前 TabBar 宽度是否已溢出\n@en Whether the current TabBar width has overflowed",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the current TabBar width has overflowed"
+                },
+                "descWithTags": "当前 TabBar 宽度是否已溢出"
+            },
+            "updateLayout": {
+                "name": "updateLayout",
+                "required": true,
+                "description": "手动更新 Tabs 布局\n@en Manually update the Tabs layout",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually update the Tabs layout"
+                },
+                "descWithTags": "手动更新 Tabs 布局"
+            },
+            "changeIndex": {
+                "name": "changeIndex",
+                "required": true,
+                "description": "非受控模式下手动切换 tab\n@en Manually switch tabs in uncontrolled mode",
+                "defaultValue": null,
+                "type": {
+                    "name": "(index: number, rightNow?: boolean) => void"
+                },
+                "tags": {
+                    "en": "Manually switch tabs in uncontrolled mode"
+                },
+                "descWithTags": "非受控模式下手动切换 tab"
+            },
+            "scrollToIndex": {
+                "name": "scrollToIndex",
+                "required": true,
+                "description": "滚动到指定 Tab，仅滚动监听模式下可用\n@en Scroll to the specified Tab, only available in scroll monitor mode",
+                "defaultValue": null,
+                "type": {
+                    "name": "(index: number, rightNow?: boolean) => void"
+                },
+                "tags": {
+                    "en": "Scroll to the specified Tab, only available in scroll monitor mode"
+                },
+                "descWithTags": "滚动到指定 Tab，仅滚动监听模式下可用"
+            }
+        },
+        "TabCellRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "外层元素 DOM\n@en Outer element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Outer element DOM"
+                },
+                "descWithTags": "外层元素 DOM"
+            },
+            "hasOverflow": {
+                "name": "hasOverflow",
+                "required": true,
+                "description": "当前 TabBar 宽度是否已溢出\n@en Whether the current TabBar width has overflowed",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the current TabBar width has overflowed"
+                },
+                "descWithTags": "当前 TabBar 宽度是否已溢出"
+            },
+            "scrollTo": {
+                "name": "scrollTo",
+                "required": true,
+                "description": "滚动 bar 到指定位置，tabs 上下布局时是以 x 轴滚动，左右布局时以 y 轴滚动\n@en Scroll the bar to the specified position, the tabs are scrolled on the x-axis when the tabs are laid out up and down, and the y-axis is scrolled when the tabs are laid out left and right",
+                "defaultValue": null,
+                "type": {
+                    "name": "(position: number, rightNow?: boolean) => void"
+                },
+                "tags": {
+                    "en": "Scroll the bar to the specified position, the tabs are scrolled on the x-axis when the tabs are laid out up and down, and the y-axis is scrolled when the tabs are laid out left and right"
+                },
+                "descWithTags": "滚动 bar 到指定位置，tabs 上下布局时是以 x 轴滚动，左右布局时以 y 轴滚动"
+            },
+            "scrollToCenter": {
+                "name": "scrollToCenter",
+                "required": true,
+                "description": "滚动 bar 使当前选中item到屏幕中间\n@en Scroll the bar to bring the currently selected item to the middle of the screen",
+                "defaultValue": null,
+                "type": {
+                    "name": "(rightNow?: boolean) => void"
+                },
+                "tags": {
+                    "en": "Scroll the bar to bring the currently selected item to the middle of the screen"
+                },
+                "descWithTags": "滚动 bar 使当前选中item到屏幕中间"
+            },
+            "setCaterpillarAnimate": {
+                "name": "setCaterpillarAnimate",
+                "required": true,
+                "description": "触发毛毛虫动画\n@en Trigger caterpillar animation",
+                "defaultValue": null,
+                "type": {
+                    "name": "(ratio?: number) => void"
+                },
+                "tags": {
+                    "en": "Trigger caterpillar animation"
+                },
+                "descWithTags": "触发毛毛虫动画"
+            },
+            "resetUnderlineStyle": {
+                "name": "resetUnderlineStyle",
+                "required": true,
+                "description": "重新计算下划线样式\n@en Recalculate underline style",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Recalculate underline style"
+                },
+                "descWithTags": "重新计算下划线样式"
+            }
+        },
+        "TabPaneRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "外层元素 DOM\n@en Outer element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Outer element DOM"
+                },
+                "descWithTags": "外层元素 DOM"
+            },
+            "getTransition": {
+                "name": "getTransition",
+                "required": true,
+                "description": "获取当前 transitionDuration\n@en Get the current transitionDuration",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => number"
+                },
+                "tags": {
+                    "en": "Get the current transitionDuration"
+                },
+                "descWithTags": "获取当前 transitionDuration"
+            },
+            "scrollToIndex": {
+                "name": "scrollToIndex",
+                "required": true,
+                "description": "滚动到指定 Tab，仅滚动监听模式下可用\n@en Scroll to the specified Tab, only available in scroll monitor mode",
+                "defaultValue": null,
+                "type": {
+                    "name": "(index: number, rightNow?: boolean) => void"
+                },
+                "tags": {
+                    "en": "Scroll to the specified Tab, only available in scroll monitor mode"
+                },
+                "descWithTags": "滚动到指定 Tab，仅滚动监听模式下可用"
+            },
+            "setCurrentHeight": {
+                "name": "setCurrentHeight",
+                "required": true,
+                "description": "autoHeight=true时，更新当前tabpane高度",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {},
+                "descWithTags": "autoHeight=true时，更新当前tabpane高度"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "TabsProps",
+        "ref": "TabsRef"
+    },
+    "isDefaultExport": true
+}

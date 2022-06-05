@@ -1,0 +1,26 @@
+@import '../../../../style/mixin.less';
+
+#demo-slider {
+    .slider-custom {
+        &-yellow {
+            .@{prefix}-slider-line.is-activated {
+                background: #ffb400;
+            }
+        }
+        &-thumb-two {
+            padding: 2px 8px;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            line-height: 20px;
+            .use-var(background, primary-color);
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        &-marks {
+            .@{prefix}-slider-marks-item-label {
+                white-space: nowrap;
+            }
+        }
+    }
+}

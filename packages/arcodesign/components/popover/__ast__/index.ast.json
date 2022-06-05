@@ -1,0 +1,2180 @@
+{
+    "description": "气泡卡片，支持六个方向，小箭头在各个方向均基于挂载的子元素居中放置，支持受控和非受控模式。",
+    "descriptionTags": {
+        "en": "Bubble card, supports six directions, small arrows are centered in each direction based on the mounted sub-elements, and supports controlled and uncontrolled modes.",
+        "name": "气泡卡片",
+        "name_en": "Popover",
+        "type": "数据展示",
+        "type_en": "Data Display"
+    },
+    "displayName": "Popover",
+    "methods": [],
+    "props": {
+        "children": {
+            "defaultValue": null,
+            "description": "气泡载体，组件会监听其变化以重新计算布局，建议用 useMemo 包裹\n@en Bubble carrier, the component will listen to its changes to recalculate the layout, it is recommended to wrap it with useMemo",
+            "name": "children",
+            "tags": {
+                "en": "Bubble carrier, the component will listen to its changes to recalculate the layout, it is recommended to wrap it with useMemo"
+            },
+            "descWithTags": "气泡载体，组件会监听其变化以重新计算布局，建议用 useMemo 包裹",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "innerPopoverClassName": {
+            "defaultValue": {
+                "value": "''"
+            },
+            "description": "自定义气泡类名\n@en Custom popover classname",
+            "name": "innerPopoverClassName",
+            "tags": {
+                "en": "Custom popover classname",
+                "default": "''"
+            },
+            "descWithTags": "自定义气泡类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "visible": {
+            "defaultValue": null,
+            "description": "是否显示气泡，受控模式\n@en Whether to show bubbles, controlled mode",
+            "name": "visible",
+            "tags": {
+                "en": "Whether to show bubbles, controlled mode"
+            },
+            "descWithTags": "是否显示气泡，受控模式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "content": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "气泡内容，组件会监听其变化以重新计算布局，建议用 useMemo 包裹\n@en Popover content, the component will listen to its changes to recalculate the layout, it is recommended to wrap it with useMemo",
+            "name": "content",
+            "tags": {
+                "en": "Popover content, the component will listen to its changes to recalculate the layout, it is recommended to wrap it with useMemo",
+                "default": "null"
+            },
+            "descWithTags": "气泡内容，组件会监听其变化以重新计算布局，建议用 useMemo 包裹",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "direction": {
+            "defaultValue": {
+                "value": "'topRight'"
+            },
+            "description": "气泡展示的位置\n@en Where the popover is displayed",
+            "name": "direction",
+            "tags": {
+                "en": "Where the popover is displayed",
+                "default": "'topRight'"
+            },
+            "descWithTags": "气泡展示的位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "Direction",
+                "value": [
+                    {
+                        "value": "\"topLeft\""
+                    },
+                    {
+                        "value": "\"topCenter\""
+                    },
+                    {
+                        "value": "\"topRight\""
+                    },
+                    {
+                        "value": "\"bottomLeft\""
+                    },
+                    {
+                        "value": "\"bottomCenter\""
+                    },
+                    {
+                        "value": "\"bottomRight\""
+                    }
+                ]
+            }
+        },
+        "duration": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "自动关闭场景下的停留时长，单位毫秒，为0则表示不自动关闭\n@en The length of stay in the auto-off scenario, in milliseconds, 0 means no auto-off",
+            "name": "duration",
+            "tags": {
+                "en": "The length of stay in the auto-off scenario, in milliseconds, 0 means no auto-off",
+                "default": "0"
+            },
+            "descWithTags": "自动关闭场景下的停留时长，单位毫秒，为0则表示不自动关闭",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "transitionTimeout": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "动画时长，单位毫秒\n@en Animation duration, in milliseconds",
+            "name": "transitionTimeout",
+            "tags": {
+                "en": "Animation duration, in milliseconds",
+                "default": "300"
+            },
+            "descWithTags": "动画时长，单位毫秒",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { appear?: number; enter?: number; exit?: number; }"
+            }
+        },
+        "minWidth": {
+            "defaultValue": {
+                "value": "'10px'"
+            },
+            "description": "气泡最小宽度\n@en Minimum bubble width",
+            "name": "minWidth",
+            "tags": {
+                "en": "Minimum bubble width",
+                "default": "'10px'"
+            },
+            "descWithTags": "气泡最小宽度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "maxWidth": {
+            "defaultValue": {
+                "value": "'90vw'"
+            },
+            "description": "气泡最大宽度\n@en The maximum width of the popover",
+            "name": "maxWidth",
+            "tags": {
+                "en": "The maximum width of the popover",
+                "default": "'90vw'"
+            },
+            "descWithTags": "气泡最大宽度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "transitionName": {
+            "defaultValue": {
+                "value": "'fade'"
+            },
+            "description": "气泡过渡动画类名，修改类名需自行实现动画\n@en Popover transition animation classname, modify the class name to realize the animation by yourself",
+            "name": "transitionName",
+            "tags": {
+                "en": "Popover transition animation classname, modify the class name to realize the animation by yourself",
+                "default": "'fade'"
+            },
+            "descWithTags": "气泡过渡动画类名，修改类名需自行实现动画",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "verticalOffset": {
+            "defaultValue": {
+                "value": "10"
+            },
+            "description": "气泡垂直方向上相对于子元素的偏移量，单位为px\n@en The vertical offset of the popover relative to the child element, in px",
+            "name": "verticalOffset",
+            "tags": {
+                "en": "The vertical offset of the popover relative to the child element, in px",
+                "default": "10"
+            },
+            "descWithTags": "气泡垂直方向上相对于子元素的偏移量，单位为px",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "horizontalOffset": {
+            "defaultValue": {
+                "value": "8"
+            },
+            "description": "气泡水平方向上相对于子元素的偏移量，单位为px\n@en The offset of the popover in the horizontal direction relative to the child element, in px",
+            "name": "horizontalOffset",
+            "tags": {
+                "en": "The offset of the popover in the horizontal direction relative to the child element, in px",
+                "default": "8"
+            },
+            "descWithTags": "气泡水平方向上相对于子元素的偏移量，单位为px",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "useAutoDirection": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "气泡边界自适应，开启时会在气泡左右边界留出安全距离，气泡与视窗上下边界小于安全距离时改变气泡的垂直方向，使其在视窗中漏出\n@en The bubble boundary is self-adaptive. When turned on, it will leave a safe distance between the left and right boundaries of the bubble. When the upper and lower boundaries of the bubble and the window are smaller than the safe distance, the vertical direction of the bubble will be changed to make it leak out of the window.",
+            "name": "useAutoDirection",
+            "tags": {
+                "en": "The bubble boundary is self-adaptive. When turned on, it will leave a safe distance between the left and right boundaries of the bubble. When the upper and lower boundaries of the bubble and the window are smaller than the safe distance, the vertical direction of the bubble will be changed to make it leak out of the window.",
+                "default": "true"
+            },
+            "descWithTags": "气泡边界自适应，开启时会在气泡左右边界留出安全距离，气泡与视窗上下边界小于安全距离时改变气泡的垂直方向，使其在视窗中漏出",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | { horizontal: boolean; vertical: boolean; }"
+            }
+        },
+        "edgeOffset": {
+            "defaultValue": {
+                "value": "14"
+            },
+            "description": "气泡距离边界的安全距离，单位为px\n@en The safe distance of the bubble from the border, in px",
+            "name": "edgeOffset",
+            "tags": {
+                "en": "The safe distance of the bubble from the border, in px",
+                "default": "14"
+            },
+            "descWithTags": "气泡距离边界的安全距离，单位为px",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | EdgeOffset"
+            }
+        },
+        "verticalScrollThrottle": {
+            "defaultValue": {
+                "value": "100"
+            },
+            "description": "滚动容器的滚动事件节流粒度，单位ms\n@en The scroll event throttle granularity of the scroll container, in ms",
+            "name": "verticalScrollThrottle",
+            "tags": {
+                "en": "The scroll event throttle granularity of the scroll container, in ms",
+                "default": "100"
+            },
+            "descWithTags": "滚动容器的滚动事件节流粒度，单位ms",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "arrowWidth": {
+            "defaultValue": {
+                "value": "9"
+            },
+            "description": "气泡尖角大小，单位为px\n@en The size of the popover tip, in px",
+            "name": "arrowWidth",
+            "tags": {
+                "en": "The size of the popover tip, in px",
+                "default": "9"
+            },
+            "descWithTags": "气泡尖角大小，单位为px",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "preventBodyClick": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "气泡出现后，是否屏蔽非内部元素的点击事件，点击非内部元素后只做隐藏气泡操作\n@en After the popover appears, whether to block the click event of the non-internal element, and only do the hidden popover operation after clicking the non-internal element",
+            "name": "preventBodyClick",
+            "tags": {
+                "en": "After the popover appears, whether to block the click event of the non-internal element, and only do the hidden popover operation after clicking the non-internal element",
+                "default": "true"
+            },
+            "descWithTags": "气泡出现后，是否屏蔽非内部元素的点击事件，点击非内部元素后只做隐藏气泡操作",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "clickOtherToClose": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "点击非子元素和气泡元素是否关闭气泡\n@en Whether to close the popover on click of non-child elements and popover elements",
+            "name": "clickOtherToClose",
+            "tags": {
+                "en": "Whether to close the popover on click of non-child elements and popover elements",
+                "default": "true"
+            },
+            "descWithTags": "点击非子元素和气泡元素是否关闭气泡",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "clickSelfToClose": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "点击气泡和子元素是否关闭气泡\n@en Whether to close the popover on click on the popover and child elements",
+            "name": "clickSelfToClose",
+            "tags": {
+                "en": "Whether to close the popover on click on the popover and child elements",
+                "default": "true"
+            },
+            "descWithTags": "点击气泡和子元素是否关闭气泡",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "touchOtherToClose": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "触碰非子元素和气泡元素是否关闭气泡\n@en Whether to close the popover by touching non-child elements and popover elements",
+            "name": "touchOtherToClose",
+            "tags": {
+                "en": "Whether to close the popover by touching non-child elements and popover elements",
+                "default": "false"
+            },
+            "descWithTags": "触碰非子元素和气泡元素是否关闭气泡",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "touchSelfToClose": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "触碰气泡和子元素是否关闭气泡\n@en Whether to close the popover by touching non-child elements and popover elements",
+            "name": "touchSelfToClose",
+            "tags": {
+                "en": "Whether to close the popover by touching non-child elements and popover elements",
+                "default": "false"
+            },
+            "descWithTags": "触碰气泡和子元素是否关闭气泡",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "touchToClose": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "触碰页面是否关闭气泡，是touchOtherToClose和touchSelfToClose的默认值\n@en Whether to close the bubble by touching the page, it is the default value of touchOtherToClose and touchSelfToClose",
+            "name": "touchToClose",
+            "tags": {
+                "en": "Whether to close the bubble by touching the page, it is the default value of touchOtherToClose and touchSelfToClose",
+                "default": "false"
+            },
+            "descWithTags": "触碰页面是否关闭气泡，是touchOtherToClose和touchSelfToClose的默认值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "theme": {
+            "defaultValue": {
+                "value": "'black'"
+            },
+            "description": "气泡的主题，black主题是黑底白字，white主题是白底黑字\n@en Popover theme, black theme is white text on black background, white theme is black text on white background",
+            "name": "theme",
+            "tags": {
+                "en": "Popover theme, black theme is white text on black background, white theme is black text on white background",
+                "default": "'black'"
+            },
+            "descWithTags": "气泡的主题，black主题是黑底白字，white主题是白底黑字",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"black\" | \"white\"",
+                "value": [
+                    {
+                        "value": "\"black\""
+                    },
+                    {
+                        "value": "\"white\""
+                    }
+                ]
+            }
+        },
+        "needShadow": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "气泡内容是否需要阴影\n@en Whether the popover content need a shadow",
+            "name": "needShadow",
+            "tags": {
+                "en": "Whether the popover content need a shadow",
+                "default": "false"
+            },
+            "descWithTags": "气泡内容是否需要阴影",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "bordered": {
+            "defaultValue": {
+                "value": "白色主题默认有边框，黑色主题没有"
+            },
+            "description": "气泡是否有border\n@en Whether the bubble has a border\n@default_en White theme have borders by default, the black theme do not",
+            "name": "bordered",
+            "tags": {
+                "en": "Whether the bubble has a border",
+                "default": "白色主题默认有边框，黑色主题没有",
+                "default_en": "White theme have borders by default, the black theme do not"
+            },
+            "descWithTags": "气泡是否有border",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "defaultVisible": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "气泡是否可见的默认值，非受控模式\n@en The default value of whether the popover is visible, uncontrolled mode",
+            "name": "defaultVisible",
+            "tags": {
+                "en": "The default value of whether the popover is visible, uncontrolled mode",
+                "default": "false"
+            },
+            "descWithTags": "气泡是否可见的默认值，非受控模式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "showCloseIcon": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否展示关闭按钮\n@en Whether to show the close button",
+            "name": "showCloseIcon",
+            "tags": {
+                "en": "Whether to show the close button",
+                "default": "false"
+            },
+            "descWithTags": "是否展示关闭按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "textSuffix": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "文字气泡后置元素，如操作按钮等\n@en Post elements of text bubbles, such as action buttons, etc.",
+            "name": "textSuffix",
+            "tags": {
+                "en": "Post elements of text bubbles, such as action buttons, etc.",
+                "default": "null"
+            },
+            "descWithTags": "文字气泡后置元素，如操作按钮等",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "mode": {
+            "defaultValue": {
+                "value": "'follow'"
+            },
+            "description": "气泡挂载位置，follow模式挂载在当前子元素下，global模式挂载在body上\n@en Popover mount location, follow mode is mounted under the current child element, global mode is mounted on the body",
+            "name": "mode",
+            "tags": {
+                "en": "Popover mount location, follow mode is mounted under the current child element, global mode is mounted on the body",
+                "default": "'follow'"
+            },
+            "descWithTags": "气泡挂载位置，follow模式挂载在当前子元素下，global模式挂载在body上",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"follow\" | \"global\"",
+                "value": [
+                    {
+                        "value": "\"follow\""
+                    },
+                    {
+                        "value": "\"global\""
+                    }
+                ]
+            }
+        },
+        "showMask": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否展示蒙层\n@en Whether to show the mask",
+            "name": "showMask",
+            "tags": {
+                "en": "Whether to show the mask",
+                "default": "false"
+            },
+            "descWithTags": "是否展示蒙层",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "maskTransitionTimeout": {
+            "defaultValue": {
+                "value": "{ enter: 450, exit: 240 }"
+            },
+            "description": "蒙层动画时长\n@en Mask animation duration",
+            "name": "maskTransitionTimeout",
+            "tags": {
+                "en": "Mask animation duration",
+                "default": "{ enter: 450, exit: 240 }"
+            },
+            "descWithTags": "蒙层动画时长",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { appear?: number; enter?: number; exit?: number; }"
+            }
+        },
+        "renderArrow": {
+            "defaultValue": null,
+            "description": "自定义箭头渲染\n@en Customize arrow rendering",
+            "name": "renderArrow",
+            "tags": {
+                "en": "Customize arrow rendering"
+            },
+            "descWithTags": "自定义箭头渲染",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(options: { arrowWidth?: number; arrowLeft: number; direction: Direction; }) => ReactNode"
+            }
+        },
+        "onChange": {
+            "defaultValue": {
+                "value": "() => void"
+            },
+            "description": "状态发生改变的回调事件\n@en Callback event for state change",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback event for state change",
+                "default": "() => void"
+            },
+            "descWithTags": "状态发生改变的回调事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(visible: boolean) => void"
+            }
+        },
+        "onClickCloseIcon": {
+            "defaultValue": {
+                "value": "() => void"
+            },
+            "description": "点击关闭icon的回调\n@en Callback when clicking to close the icon",
+            "name": "onClickCloseIcon",
+            "tags": {
+                "en": "Callback when clicking to close the icon",
+                "default": "() => void"
+            },
+            "descWithTags": "点击关闭icon的回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onClickTextSuffix": {
+            "defaultValue": {
+                "value": "() => void"
+            },
+            "description": "点击文字气泡后置元素回调\n@en Callback after clicking the suffix element of text popover",
+            "name": "onClickTextSuffix",
+            "tags": {
+                "en": "Callback after clicking the suffix element of text popover",
+                "default": "() => void"
+            },
+            "descWithTags": "点击文字气泡后置元素回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onClickMask": {
+            "defaultValue": {
+                "value": "() => void"
+            },
+            "description": "点击蒙层回调\n@en Callback when clicking the mask",
+            "name": "onClickMask",
+            "tags": {
+                "en": "Callback when clicking the mask",
+                "default": "() => void"
+            },
+            "descWithTags": "点击蒙层回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "getVerticalScrollContainer": {
+            "defaultValue": {
+                "value": "() => document"
+            },
+            "description": "获取页面垂直方向的滚动容器\n@en Get the scroll container in the vertical direction of the page",
+            "name": "getVerticalScrollContainer",
+            "tags": {
+                "en": "Get the scroll container in the vertical direction of the page",
+                "default": "() => document"
+            },
+            "descWithTags": "获取页面垂直方向的滚动容器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                "name": "DefaultPopoverProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement"
+            }
+        },
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<PopoverRef>"
+            }
+        }
+    },
+    "deps": {
+        "Direction": "\"topLeft\"|\"topCenter\"|\"topRight\"|\"bottomLeft\"|\"bottomCenter\"|\"bottomRight\"",
+        "EdgeOffset": {
+            "top": {
+                "name": "top",
+                "required": false,
+                "description": "上\n@en Top",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Top"
+                },
+                "descWithTags": "上"
+            },
+            "right": {
+                "name": "right",
+                "required": false,
+                "description": "右\n@en Right",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Right"
+                },
+                "descWithTags": "右"
+            },
+            "bottom": {
+                "name": "bottom",
+                "required": false,
+                "description": "下\n@en Bottom",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Bottom"
+                },
+                "descWithTags": "下"
+            },
+            "left": {
+                "name": "left",
+                "required": false,
+                "description": "左\n@en Left",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Left"
+                },
+                "descWithTags": "左"
+            }
+        },
+        "PopoverRef": {
+            "child": {
+                "name": "child",
+                "required": true,
+                "description": "气泡包裹子元素dom",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {},
+                "descWithTags": "气泡包裹子元素dom"
+            },
+            "innerPopover": {
+                "name": "innerPopover",
+                "required": true,
+                "description": "气泡组件 ref",
+                "defaultValue": null,
+                "type": {
+                    "name": "PopoverInnerRef"
+                },
+                "tags": {},
+                "descWithTags": "气泡组件 ref"
+            },
+            "innerPopoverDom": {
+                "name": "innerPopoverDom",
+                "required": true,
+                "description": "气泡元素dom\n@en Popover element dom",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Popover element dom"
+                },
+                "descWithTags": "气泡元素dom"
+            },
+            "updatePosition": {
+                "name": "updatePosition",
+                "required": true,
+                "description": "手动更新气泡的位置\n@en Manually update the position of the bubble",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually update the position of the bubble"
+                },
+                "descWithTags": "手动更新气泡的位置"
+            },
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "组件外层dom元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "组件外层dom元素"
+            }
+        },
+        "PopoverInnerRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "组件容器dom\n@en Component container dom",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Component container dom"
+                },
+                "descWithTags": "组件容器dom"
+            },
+            "content": {
+                "name": "content",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {},
+                "descWithTags": ""
+            }
+        }
+    },
+    "depComps": {
+        "Menu": {
+            "description": "气泡菜单",
+            "descriptionTags": {
+                "en": "Bubble menu"
+            },
+            "displayName": "Menu",
+            "methods": [],
+            "props": {
+                "menu": {
+                    "defaultValue": null,
+                    "description": "菜单项列表\n@en List of menu items",
+                    "name": "menu",
+                    "tags": {
+                        "en": "List of menu items"
+                    },
+                    "descWithTags": "菜单项列表",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "PopoverMenuProps"
+                    },
+                    "required": true,
+                    "type": {
+                        "name": "(string | PopoverMenuItem)[]"
+                    }
+                },
+                "menuLayout": {
+                    "defaultValue": {
+                        "value": "'vertical'"
+                    },
+                    "description": "菜单排列顺序，默认为竖向菜单，支持横向菜单和竖向菜单，横向菜单一行最多可放4个菜单\n@en Menu arrangement order, the default is vertical menu, supports horizontal menu and vertical menu, horizontal menu can put up to 4 menus in a row",
+                    "name": "menuLayout",
+                    "tags": {
+                        "en": "Menu arrangement order, the default is vertical menu, supports horizontal menu and vertical menu, horizontal menu can put up to 4 menus in a row",
+                        "default": "'vertical'"
+                    },
+                    "descWithTags": "菜单排列顺序，默认为竖向菜单，支持横向菜单和竖向菜单，横向菜单一行最多可放4个菜单",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "PopoverMenuProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"vertical\" | \"horizontal\"",
+                        "value": [
+                            {
+                                "value": "\"vertical\""
+                            },
+                            {
+                                "value": "\"horizontal\""
+                            }
+                        ]
+                    }
+                },
+                "useClickStatus": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "菜单项是否有点击态\n@en Whether the menu item is clickable",
+                    "name": "useClickStatus",
+                    "tags": {
+                        "en": "Whether the menu item is clickable",
+                        "default": "false"
+                    },
+                    "descWithTags": "菜单项是否有点击态",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "PopoverMenuProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "clickStatusDuration": {
+                    "defaultValue": {
+                        "value": "300"
+                    },
+                    "description": "菜单项点击态持续时长，单位毫秒\n@en The duration of the menu item click state, in milliseconds",
+                    "name": "clickStatusDuration",
+                    "tags": {
+                        "en": "The duration of the menu item click state, in milliseconds",
+                        "default": "300"
+                    },
+                    "descWithTags": "菜单项点击态持续时长，单位毫秒",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "PopoverMenuProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "onSelect": {
+                    "defaultValue": {
+                        "value": "() => {}"
+                    },
+                    "description": "选择可用菜单项的回调\n@en Callback for selecting available menu items",
+                    "name": "onSelect",
+                    "tags": {
+                        "en": "Callback for selecting available menu items",
+                        "default": "() => {}"
+                    },
+                    "descWithTags": "选择可用菜单项的回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "PopoverMenuProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(value: string, item: string | PopoverMenuItem) => void"
+                    }
+                },
+                "onClickMenuItem": {
+                    "defaultValue": {
+                        "value": "() => {}"
+                    },
+                    "description": "点击所有菜单项回调\n@en Callback when clicking all menu items",
+                    "name": "onClickMenuItem",
+                    "tags": {
+                        "en": "Callback when clicking all menu items",
+                        "default": "() => {}"
+                    },
+                    "descWithTags": "点击所有菜单项回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "PopoverMenuProps"
+                    },
+                    "required": true,
+                    "type": {
+                        "name": "(value: string, item: string | PopoverMenuItem) => void"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "气泡载体，组件会监听其变化以重新计算布局，建议用 useMemo 包裹\n@en Bubble carrier, the component will listen to its changes to recalculate the layout, it is recommended to wrap it with useMemo",
+                    "name": "children",
+                    "tags": {
+                        "en": "Bubble carrier, the component will listen to its changes to recalculate the layout, it is recommended to wrap it with useMemo"
+                    },
+                    "descWithTags": "气泡载体，组件会监听其变化以重新计算布局，建议用 useMemo 包裹",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "innerPopoverClassName": {
+                    "defaultValue": {
+                        "value": "''"
+                    },
+                    "description": "自定义气泡类名\n@en Custom popover classname",
+                    "name": "innerPopoverClassName",
+                    "tags": {
+                        "en": "Custom popover classname",
+                        "default": "''"
+                    },
+                    "descWithTags": "自定义气泡类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "visible": {
+                    "defaultValue": null,
+                    "description": "是否显示气泡，受控模式\n@en Whether to show bubbles, controlled mode",
+                    "name": "visible",
+                    "tags": {
+                        "en": "Whether to show bubbles, controlled mode"
+                    },
+                    "descWithTags": "是否显示气泡，受控模式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "content": {
+                    "defaultValue": {
+                        "value": "null"
+                    },
+                    "description": "气泡内容，组件会监听其变化以重新计算布局，建议用 useMemo 包裹\n@en Popover content, the component will listen to its changes to recalculate the layout, it is recommended to wrap it with useMemo",
+                    "name": "content",
+                    "tags": {
+                        "en": "Popover content, the component will listen to its changes to recalculate the layout, it is recommended to wrap it with useMemo",
+                        "default": "null"
+                    },
+                    "descWithTags": "气泡内容，组件会监听其变化以重新计算布局，建议用 useMemo 包裹",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "direction": {
+                    "defaultValue": {
+                        "value": "'topRight'"
+                    },
+                    "description": "气泡展示的位置\n@en Where the popover is displayed",
+                    "name": "direction",
+                    "tags": {
+                        "en": "Where the popover is displayed",
+                        "default": "'topRight'"
+                    },
+                    "descWithTags": "气泡展示的位置",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "Direction",
+                        "value": [
+                            {
+                                "value": "\"topLeft\""
+                            },
+                            {
+                                "value": "\"topCenter\""
+                            },
+                            {
+                                "value": "\"topRight\""
+                            },
+                            {
+                                "value": "\"bottomLeft\""
+                            },
+                            {
+                                "value": "\"bottomCenter\""
+                            },
+                            {
+                                "value": "\"bottomRight\""
+                            }
+                        ]
+                    }
+                },
+                "duration": {
+                    "defaultValue": {
+                        "value": "0"
+                    },
+                    "description": "自动关闭场景下的停留时长，单位毫秒，为0则表示不自动关闭\n@en The length of stay in the auto-off scenario, in milliseconds, 0 means no auto-off",
+                    "name": "duration",
+                    "tags": {
+                        "en": "The length of stay in the auto-off scenario, in milliseconds, 0 means no auto-off",
+                        "default": "0"
+                    },
+                    "descWithTags": "自动关闭场景下的停留时长，单位毫秒，为0则表示不自动关闭",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "transitionTimeout": {
+                    "defaultValue": {
+                        "value": "300"
+                    },
+                    "description": "动画时长，单位毫秒\n@en Animation duration, in milliseconds",
+                    "name": "transitionTimeout",
+                    "tags": {
+                        "en": "Animation duration, in milliseconds",
+                        "default": "300"
+                    },
+                    "descWithTags": "动画时长，单位毫秒",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number | { appear?: number; enter?: number; exit?: number; }"
+                    }
+                },
+                "minWidth": {
+                    "defaultValue": {
+                        "value": "'10px'"
+                    },
+                    "description": "气泡最小宽度\n@en Minimum bubble width",
+                    "name": "minWidth",
+                    "tags": {
+                        "en": "Minimum bubble width",
+                        "default": "'10px'"
+                    },
+                    "descWithTags": "气泡最小宽度",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "maxWidth": {
+                    "defaultValue": {
+                        "value": "'90vw'"
+                    },
+                    "description": "气泡最大宽度\n@en The maximum width of the popover",
+                    "name": "maxWidth",
+                    "tags": {
+                        "en": "The maximum width of the popover",
+                        "default": "'90vw'"
+                    },
+                    "descWithTags": "气泡最大宽度",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "transitionName": {
+                    "defaultValue": {
+                        "value": "'fade'"
+                    },
+                    "description": "气泡过渡动画类名，修改类名需自行实现动画\n@en Popover transition animation classname, modify the class name to realize the animation by yourself",
+                    "name": "transitionName",
+                    "tags": {
+                        "en": "Popover transition animation classname, modify the class name to realize the animation by yourself",
+                        "default": "'fade'"
+                    },
+                    "descWithTags": "气泡过渡动画类名，修改类名需自行实现动画",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "verticalOffset": {
+                    "defaultValue": {
+                        "value": "10"
+                    },
+                    "description": "气泡垂直方向上相对于子元素的偏移量，单位为px\n@en The vertical offset of the popover relative to the child element, in px",
+                    "name": "verticalOffset",
+                    "tags": {
+                        "en": "The vertical offset of the popover relative to the child element, in px",
+                        "default": "10"
+                    },
+                    "descWithTags": "气泡垂直方向上相对于子元素的偏移量，单位为px",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "horizontalOffset": {
+                    "defaultValue": {
+                        "value": "8"
+                    },
+                    "description": "气泡水平方向上相对于子元素的偏移量，单位为px\n@en The offset of the popover in the horizontal direction relative to the child element, in px",
+                    "name": "horizontalOffset",
+                    "tags": {
+                        "en": "The offset of the popover in the horizontal direction relative to the child element, in px",
+                        "default": "8"
+                    },
+                    "descWithTags": "气泡水平方向上相对于子元素的偏移量，单位为px",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "useAutoDirection": {
+                    "defaultValue": {
+                        "value": "true"
+                    },
+                    "description": "气泡边界自适应，开启时会在气泡左右边界留出安全距离，气泡与视窗上下边界小于安全距离时改变气泡的垂直方向，使其在视窗中漏出\n@en The bubble boundary is self-adaptive. When turned on, it will leave a safe distance between the left and right boundaries of the bubble. When the upper and lower boundaries of the bubble and the window are smaller than the safe distance, the vertical direction of the bubble will be changed to make it leak out of the window.",
+                    "name": "useAutoDirection",
+                    "tags": {
+                        "en": "The bubble boundary is self-adaptive. When turned on, it will leave a safe distance between the left and right boundaries of the bubble. When the upper and lower boundaries of the bubble and the window are smaller than the safe distance, the vertical direction of the bubble will be changed to make it leak out of the window.",
+                        "default": "true"
+                    },
+                    "descWithTags": "气泡边界自适应，开启时会在气泡左右边界留出安全距离，气泡与视窗上下边界小于安全距离时改变气泡的垂直方向，使其在视窗中漏出",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean | { horizontal: boolean; vertical: boolean; }"
+                    }
+                },
+                "edgeOffset": {
+                    "defaultValue": {
+                        "value": "14"
+                    },
+                    "description": "气泡距离边界的安全距离，单位为px\n@en The safe distance of the bubble from the border, in px",
+                    "name": "edgeOffset",
+                    "tags": {
+                        "en": "The safe distance of the bubble from the border, in px",
+                        "default": "14"
+                    },
+                    "descWithTags": "气泡距离边界的安全距离，单位为px",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number | EdgeOffset"
+                    }
+                },
+                "verticalScrollThrottle": {
+                    "defaultValue": {
+                        "value": "100"
+                    },
+                    "description": "滚动容器的滚动事件节流粒度，单位ms\n@en The scroll event throttle granularity of the scroll container, in ms",
+                    "name": "verticalScrollThrottle",
+                    "tags": {
+                        "en": "The scroll event throttle granularity of the scroll container, in ms",
+                        "default": "100"
+                    },
+                    "descWithTags": "滚动容器的滚动事件节流粒度，单位ms",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "arrowWidth": {
+                    "defaultValue": {
+                        "value": "9"
+                    },
+                    "description": "气泡尖角大小，单位为px\n@en The size of the popover tip, in px",
+                    "name": "arrowWidth",
+                    "tags": {
+                        "en": "The size of the popover tip, in px",
+                        "default": "9"
+                    },
+                    "descWithTags": "气泡尖角大小，单位为px",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "preventBodyClick": {
+                    "defaultValue": {
+                        "value": "true"
+                    },
+                    "description": "气泡出现后，是否屏蔽非内部元素的点击事件，点击非内部元素后只做隐藏气泡操作\n@en After the popover appears, whether to block the click event of the non-internal element, and only do the hidden popover operation after clicking the non-internal element",
+                    "name": "preventBodyClick",
+                    "tags": {
+                        "en": "After the popover appears, whether to block the click event of the non-internal element, and only do the hidden popover operation after clicking the non-internal element",
+                        "default": "true"
+                    },
+                    "descWithTags": "气泡出现后，是否屏蔽非内部元素的点击事件，点击非内部元素后只做隐藏气泡操作",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "clickOtherToClose": {
+                    "defaultValue": {
+                        "value": "true"
+                    },
+                    "description": "点击非子元素和气泡元素是否关闭气泡\n@en Whether to close the popover on click of non-child elements and popover elements",
+                    "name": "clickOtherToClose",
+                    "tags": {
+                        "en": "Whether to close the popover on click of non-child elements and popover elements",
+                        "default": "true"
+                    },
+                    "descWithTags": "点击非子元素和气泡元素是否关闭气泡",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "clickSelfToClose": {
+                    "defaultValue": {
+                        "value": "true"
+                    },
+                    "description": "点击气泡和子元素是否关闭气泡\n@en Whether to close the popover on click on the popover and child elements",
+                    "name": "clickSelfToClose",
+                    "tags": {
+                        "en": "Whether to close the popover on click on the popover and child elements",
+                        "default": "true"
+                    },
+                    "descWithTags": "点击气泡和子元素是否关闭气泡",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "touchOtherToClose": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "触碰非子元素和气泡元素是否关闭气泡\n@en Whether to close the popover by touching non-child elements and popover elements",
+                    "name": "touchOtherToClose",
+                    "tags": {
+                        "en": "Whether to close the popover by touching non-child elements and popover elements",
+                        "default": "false"
+                    },
+                    "descWithTags": "触碰非子元素和气泡元素是否关闭气泡",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "touchSelfToClose": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "触碰气泡和子元素是否关闭气泡\n@en Whether to close the popover by touching non-child elements and popover elements",
+                    "name": "touchSelfToClose",
+                    "tags": {
+                        "en": "Whether to close the popover by touching non-child elements and popover elements",
+                        "default": "false"
+                    },
+                    "descWithTags": "触碰气泡和子元素是否关闭气泡",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "touchToClose": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "触碰页面是否关闭气泡，是touchOtherToClose和touchSelfToClose的默认值\n@en Whether to close the bubble by touching the page, it is the default value of touchOtherToClose and touchSelfToClose",
+                    "name": "touchToClose",
+                    "tags": {
+                        "en": "Whether to close the bubble by touching the page, it is the default value of touchOtherToClose and touchSelfToClose",
+                        "default": "false"
+                    },
+                    "descWithTags": "触碰页面是否关闭气泡，是touchOtherToClose和touchSelfToClose的默认值",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "theme": {
+                    "defaultValue": {
+                        "value": "'black'"
+                    },
+                    "description": "气泡的主题，black主题是黑底白字，white主题是白底黑字\n@en Popover theme, black theme is white text on black background, white theme is black text on white background",
+                    "name": "theme",
+                    "tags": {
+                        "en": "Popover theme, black theme is white text on black background, white theme is black text on white background",
+                        "default": "'black'"
+                    },
+                    "descWithTags": "气泡的主题，black主题是黑底白字，white主题是白底黑字",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"black\" | \"white\"",
+                        "value": [
+                            {
+                                "value": "\"black\""
+                            },
+                            {
+                                "value": "\"white\""
+                            }
+                        ]
+                    }
+                },
+                "needShadow": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "气泡内容是否需要阴影\n@en Whether the popover content need a shadow",
+                    "name": "needShadow",
+                    "tags": {
+                        "en": "Whether the popover content need a shadow",
+                        "default": "false"
+                    },
+                    "descWithTags": "气泡内容是否需要阴影",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "bordered": {
+                    "defaultValue": {
+                        "value": "白色主题默认有边框，黑色主题没有"
+                    },
+                    "description": "气泡是否有border\n@en Whether the bubble has a border\n@default_en White theme have borders by default, the black theme do not",
+                    "name": "bordered",
+                    "tags": {
+                        "en": "Whether the bubble has a border",
+                        "default": "白色主题默认有边框，黑色主题没有",
+                        "default_en": "White theme have borders by default, the black theme do not"
+                    },
+                    "descWithTags": "气泡是否有border",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "defaultVisible": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "气泡是否可见的默认值，非受控模式\n@en The default value of whether the popover is visible, uncontrolled mode",
+                    "name": "defaultVisible",
+                    "tags": {
+                        "en": "The default value of whether the popover is visible, uncontrolled mode",
+                        "default": "false"
+                    },
+                    "descWithTags": "气泡是否可见的默认值，非受控模式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "showCloseIcon": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "是否展示关闭按钮\n@en Whether to show the close button",
+                    "name": "showCloseIcon",
+                    "tags": {
+                        "en": "Whether to show the close button",
+                        "default": "false"
+                    },
+                    "descWithTags": "是否展示关闭按钮",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "textSuffix": {
+                    "defaultValue": {
+                        "value": "null"
+                    },
+                    "description": "文字气泡后置元素，如操作按钮等\n@en Post elements of text bubbles, such as action buttons, etc.",
+                    "name": "textSuffix",
+                    "tags": {
+                        "en": "Post elements of text bubbles, such as action buttons, etc.",
+                        "default": "null"
+                    },
+                    "descWithTags": "文字气泡后置元素，如操作按钮等",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "mode": {
+                    "defaultValue": {
+                        "value": "'follow'"
+                    },
+                    "description": "气泡挂载位置，follow模式挂载在当前子元素下，global模式挂载在body上\n@en Popover mount location, follow mode is mounted under the current child element, global mode is mounted on the body",
+                    "name": "mode",
+                    "tags": {
+                        "en": "Popover mount location, follow mode is mounted under the current child element, global mode is mounted on the body",
+                        "default": "'follow'"
+                    },
+                    "descWithTags": "气泡挂载位置，follow模式挂载在当前子元素下，global模式挂载在body上",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "\"follow\" | \"global\"",
+                        "value": [
+                            {
+                                "value": "\"follow\""
+                            },
+                            {
+                                "value": "\"global\""
+                            }
+                        ]
+                    }
+                },
+                "showMask": {
+                    "defaultValue": {
+                        "value": "false"
+                    },
+                    "description": "是否展示蒙层\n@en Whether to show the mask",
+                    "name": "showMask",
+                    "tags": {
+                        "en": "Whether to show the mask",
+                        "default": "false"
+                    },
+                    "descWithTags": "是否展示蒙层",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "boolean"
+                    }
+                },
+                "maskTransitionTimeout": {
+                    "defaultValue": {
+                        "value": "{ enter: 450, exit: 240 }"
+                    },
+                    "description": "蒙层动画时长\n@en Mask animation duration",
+                    "name": "maskTransitionTimeout",
+                    "tags": {
+                        "en": "Mask animation duration",
+                        "default": "{ enter: 450, exit: 240 }"
+                    },
+                    "descWithTags": "蒙层动画时长",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number | { appear?: number; enter?: number; exit?: number; }"
+                    }
+                },
+                "renderArrow": {
+                    "defaultValue": null,
+                    "description": "自定义箭头渲染\n@en Customize arrow rendering",
+                    "name": "renderArrow",
+                    "tags": {
+                        "en": "Customize arrow rendering"
+                    },
+                    "descWithTags": "自定义箭头渲染",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(options: { arrowWidth?: number; arrowLeft: number; direction: Direction; }) => ReactNode"
+                    }
+                },
+                "onChange": {
+                    "defaultValue": {
+                        "value": "() => void"
+                    },
+                    "description": "状态发生改变的回调事件\n@en Callback event for state change",
+                    "name": "onChange",
+                    "tags": {
+                        "en": "Callback event for state change",
+                        "default": "() => void"
+                    },
+                    "descWithTags": "状态发生改变的回调事件",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(visible: boolean) => void"
+                    }
+                },
+                "onClickCloseIcon": {
+                    "defaultValue": {
+                        "value": "() => void"
+                    },
+                    "description": "点击关闭icon的回调\n@en Callback when clicking to close the icon",
+                    "name": "onClickCloseIcon",
+                    "tags": {
+                        "en": "Callback when clicking to close the icon",
+                        "default": "() => void"
+                    },
+                    "descWithTags": "点击关闭icon的回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "() => void"
+                    }
+                },
+                "onClickTextSuffix": {
+                    "defaultValue": {
+                        "value": "() => void"
+                    },
+                    "description": "点击文字气泡后置元素回调\n@en Callback after clicking the suffix element of text popover",
+                    "name": "onClickTextSuffix",
+                    "tags": {
+                        "en": "Callback after clicking the suffix element of text popover",
+                        "default": "() => void"
+                    },
+                    "descWithTags": "点击文字气泡后置元素回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "() => void"
+                    }
+                },
+                "onClickMask": {
+                    "defaultValue": {
+                        "value": "() => void"
+                    },
+                    "description": "点击蒙层回调\n@en Callback when clicking the mask",
+                    "name": "onClickMask",
+                    "tags": {
+                        "en": "Callback when clicking the mask",
+                        "default": "() => void"
+                    },
+                    "descWithTags": "点击蒙层回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "() => void"
+                    }
+                },
+                "getVerticalScrollContainer": {
+                    "defaultValue": {
+                        "value": "() => document"
+                    },
+                    "description": "获取页面垂直方向的滚动容器\n@en Get the scroll container in the vertical direction of the page",
+                    "name": "getVerticalScrollContainer",
+                    "tags": {
+                        "en": "Get the scroll container in the vertical direction of the page",
+                        "default": "() => document"
+                    },
+                    "descWithTags": "获取页面垂直方向的滚动容器",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/popover/type.ts",
+                        "name": "DefaultPopoverProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "() => HTMLElement"
+                    }
+                },
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<PopoverRef>"
+                    }
+                }
+            },
+            "deps": {
+                "PopoverMenuItem": {
+                    "text": {
+                        "name": "text",
+                        "required": true,
+                        "description": "菜单项文本\n@en Menu item text",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "Menu item text"
+                        },
+                        "descWithTags": "菜单项文本"
+                    },
+                    "value": {
+                        "name": "value",
+                        "required": false,
+                        "description": "菜单项值\n@en Menu item value",
+                        "defaultValue": {
+                            "value": "text"
+                        },
+                        "type": {
+                            "name": "string"
+                        },
+                        "tags": {
+                            "en": "Menu item value",
+                            "default": "text"
+                        },
+                        "descWithTags": "菜单项值"
+                    },
+                    "icon": {
+                        "name": "icon",
+                        "required": false,
+                        "description": "菜单项的icon组件\n@en The icon component of the menu item",
+                        "defaultValue": {
+                            "value": "null"
+                        },
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "The icon component of the menu item",
+                            "default": "null"
+                        },
+                        "descWithTags": "菜单项的icon组件"
+                    },
+                    "disabled": {
+                        "name": "disabled",
+                        "required": false,
+                        "description": "是否禁用菜单项\n@en Whether to disable the menu item",
+                        "defaultValue": {
+                            "value": "false"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether to disable the menu item",
+                            "default": "false"
+                        },
+                        "descWithTags": "是否禁用菜单项"
+                    },
+                    "__index": {
+                        "name": "__index",
+                        "required": true,
+                        "description": "",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "any"
+                        },
+                        "tags": {},
+                        "descWithTags": ""
+                    }
+                },
+                "Direction": "\"topLeft\"|\"topCenter\"|\"topRight\"|\"bottomLeft\"|\"bottomCenter\"|\"bottomRight\"",
+                "EdgeOffset": {
+                    "top": {
+                        "name": "top",
+                        "required": false,
+                        "description": "上\n@en Top",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "number"
+                        },
+                        "tags": {
+                            "en": "Top"
+                        },
+                        "descWithTags": "上"
+                    },
+                    "right": {
+                        "name": "right",
+                        "required": false,
+                        "description": "右\n@en Right",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "number"
+                        },
+                        "tags": {
+                            "en": "Right"
+                        },
+                        "descWithTags": "右"
+                    },
+                    "bottom": {
+                        "name": "bottom",
+                        "required": false,
+                        "description": "下\n@en Bottom",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "number"
+                        },
+                        "tags": {
+                            "en": "Bottom"
+                        },
+                        "descWithTags": "下"
+                    },
+                    "left": {
+                        "name": "left",
+                        "required": false,
+                        "description": "左\n@en Left",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "number"
+                        },
+                        "tags": {
+                            "en": "Left"
+                        },
+                        "descWithTags": "左"
+                    }
+                },
+                "PopoverRef": {
+                    "child": {
+                        "name": "child",
+                        "required": true,
+                        "description": "气泡包裹子元素dom",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {},
+                        "descWithTags": "气泡包裹子元素dom"
+                    },
+                    "innerPopover": {
+                        "name": "innerPopover",
+                        "required": true,
+                        "description": "气泡组件 ref",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "PopoverInnerRef"
+                        },
+                        "tags": {},
+                        "descWithTags": "气泡组件 ref"
+                    },
+                    "innerPopoverDom": {
+                        "name": "innerPopoverDom",
+                        "required": true,
+                        "description": "气泡元素dom\n@en Popover element dom",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "Popover element dom"
+                        },
+                        "descWithTags": "气泡元素dom"
+                    },
+                    "updatePosition": {
+                        "name": "updatePosition",
+                        "required": true,
+                        "description": "手动更新气泡的位置\n@en Manually update the position of the bubble",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "() => void"
+                        },
+                        "tags": {
+                            "en": "Manually update the position of the bubble"
+                        },
+                        "descWithTags": "手动更新气泡的位置"
+                    },
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "组件外层dom元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "组件外层dom元素"
+                    }
+                },
+                "PopoverInnerRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "组件容器dom\n@en Component container dom",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "Component container dom"
+                        },
+                        "descWithTags": "组件容器dom"
+                    },
+                    "content": {
+                        "name": "content",
+                        "required": true,
+                        "description": "",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {},
+                        "descWithTags": ""
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "PopoverMenuProps",
+                "ref": "PopoverRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "",
+        "ref": "PopoverRef"
+    },
+    "isDefaultExport": true
+}

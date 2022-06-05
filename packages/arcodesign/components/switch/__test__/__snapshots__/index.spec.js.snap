@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`switch demo test switch demo: index.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            IOS 开/关
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-switch all-border-box type-ios system-pc fully checked"
+          >
+            <div
+              class="arco-switch-inner"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            IOS 开/禁用
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-switch all-border-box type-ios system-pc fully checked disabled"
+          >
+            <div
+              class="arco-switch-inner"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            IOS 关/禁用
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-switch all-border-box type-ios system-pc fully disabled"
+          >
+            <div
+              class="arco-switch-inner"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`switch demo test switch demo: index2.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Android 开/关
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-switch all-border-box type-android system-pc fully checked"
+          >
+            <div
+              class="arco-switch-inner"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Android 开/禁用
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-switch all-border-box type-android system-pc fully checked disabled"
+          >
+            <div
+              class="arco-switch-inner"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            Android 关/禁用
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-switch all-border-box type-android system-pc fully disabled"
+          >
+            <div
+              class="arco-switch-inner"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`switch demo test switch demo: index3.md renders correctly 1`] = `
+<div
+  class="arco-cell all-border-box without-group"
+>
+  <div
+    class="arco-cell-inner"
+  >
+    <div
+      class="cell-label"
+    >
+      <div
+        class="cell-title"
+      >
+        加载状态
+      </div>
+    </div>
+    <div
+      class="cell-content has-label"
+    >
+      <div
+        class="arco-switch all-border-box demo-3 type-ios system-pc fully checked"
+      >
+        <div
+          class="arco-switch-inner"
+        >
+          <div
+            class="arco-loading all-border-box circle"
+            style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:14px;height:14px"
+          >
+            <svg
+              viewBox="0 0 14 14"
+            >
+              <defs>
+                <linearGradient
+                  id="grad1-"
+                  x1="0%"
+                  x2="100%"
+                  y1="0%"
+                  y2="0%"
+                >
+                  <stop
+                    class="loading-circle-middle stop-color-with-config"
+                    offset="0%"
+                  />
+                  <stop
+                    class="loading-circle-start stop-color-with-config"
+                    offset="100%"
+                  />
+                </linearGradient>
+                <linearGradient
+                  id="grad2-"
+                  x1="0%"
+                  x2="100%"
+                  y1="0%"
+                  y2="0%"
+                >
+                  <stop
+                    class="loading-circle-middle stop-color-with-config"
+                    offset="0%"
+                  />
+                  <stop
+                    class="loading-circle-end stop-color-with-config"
+                    offset="100%"
+                  />
+                </linearGradient>
+              </defs>
+              <circle
+                cx="7"
+                cy="7"
+                fill="none"
+                r="6"
+                stroke="url(#grad1-)"
+                stroke-dasharray="18.84955592153876"
+                stroke-dashoffset="18.84955592153876"
+                stroke-width="2"
+              />
+              <circle
+                cx="7"
+                cy="7"
+                fill="none"
+                r="6"
+                stroke="url(#grad2-)"
+                stroke-dasharray="18.84955592153876"
+                stroke-width="2"
+              />
+              <circle
+                class="loading-circle-filleted fill-color-with-config"
+                cx="13"
+                cy="7"
+                r="1"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`switch demo test switch demo: index4.md renders correctly 1`] = `
+<div
+  class="arco-cell all-border-box without-group"
+>
+  <div
+    class="arco-cell-inner"
+  >
+    <div
+      class="cell-label"
+    >
+      <div
+        class="cell-title"
+      >
+        开/关
+      </div>
+    </div>
+    <div
+      class="cell-content has-label"
+    >
+      <div
+        class="arco-switch all-border-box demo-4 type-ios system-pc fully"
+      >
+        <span
+          class="arco-switch-text"
+        >
+          关
+        </span>
+        <div
+          class="arco-switch-inner"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`switch demo test switch demo: index5.md renders correctly 1`] = `
+<div
+  class="arco-cell all-border-box without-group"
+>
+  <div
+    class="arco-cell-inner"
+  >
+    <div
+      class="cell-label"
+    >
+      <div
+        class="cell-title"
+      >
+        Android 直角
+      </div>
+    </div>
+    <div
+      class="cell-content has-label"
+    >
+      <div
+        class="arco-switch all-border-box type-android system-pc semi"
+      >
+        <div
+          class="arco-switch-inner"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`switch demo test switch demo: index6.md renders correctly 1`] = `
+<div
+  class="arco-cell all-border-box without-group"
+>
+  <div
+    class="arco-cell-inner"
+  >
+    <div
+      class="cell-label"
+    >
+      <div
+        class="cell-title"
+      >
+        异步控制，二次确认
+      </div>
+    </div>
+    <div
+      class="cell-content has-label"
+    >
+      <div
+        class="arco-switch all-border-box type-ios system-pc fully"
+      >
+        <div
+          class="arco-switch-inner"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

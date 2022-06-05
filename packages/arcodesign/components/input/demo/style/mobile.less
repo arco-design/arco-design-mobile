@@ -1,0 +1,75 @@
+@import "../../../../style/mixin.less";
+
+#demo-input {
+    .rem(padding-bottom, 45);
+
+    .arcodesign-mobile-demo-content {
+        padding: 0;
+        background: transparent;
+    }
+    .@{prefix}-input-container {
+        .use-var(background, background-color);
+
+        &:not(:first-of-type) {
+            .rem(margin-top, 8);
+        }
+    }
+
+    .demo-input-maxlength {
+        .rem(font-size, 14);
+        color: #86909c;
+
+        &.error {
+            color: #f53f3f;
+        }
+    }
+
+    .demo-input-red-placeholder {
+        caret-color: #f53f3f;
+
+        &::placeholder {
+            color: #f53f3f;
+        }
+    }
+
+    .demo-input-error-hint {
+        .rem(font-size, 12);
+        color: #f53f3f;
+        .rem(padding, 0, 0, 16, 104);
+        .rem(margin-top, -8);
+
+        svg,
+        span {
+            vertical-align: middle;
+        }
+
+        svg {
+            .rem(margin-right, 4);
+        }
+    }
+
+    .demo-input-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    .demo-input-title {
+        .rem(font-size, 13);
+        .rem(line-height, 18);
+        .rem(margin-bottom, -8);
+        .rem(padding, 16, 0, 0, 16);
+    }
+    .demo-input-btn-input .@{prefix}-input-wrap {
+        height: auto;
+    }
+
+    .demo-input-btn-wrap {
+        .rem(padding, 11, 0);
+    }
+
+    .demo-input-money {
+        .rem(font-size, 20);
+        font-weight: bold;
+        .rem(margin-right, -12);
+    }
+}

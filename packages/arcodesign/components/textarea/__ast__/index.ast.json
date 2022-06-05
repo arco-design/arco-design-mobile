@@ -1,0 +1,885 @@
+{
+    "description": "多行文本输入框组件，支持自适应内容高度。",
+    "descriptionTags": {
+        "en": "A multi-line textarea, supports adaptive content height.",
+        "type": "数据输入",
+        "type_en": "Data Entry",
+        "name": "多行文本框",
+        "name_en": "Textarea"
+    },
+    "displayName": "Textarea",
+    "methods": [],
+    "props": {
+        "rows": {
+            "defaultValue": null,
+            "description": "文本域默认行数\n@en Default number of lines in the text field",
+            "name": "rows",
+            "tags": {
+                "en": "Default number of lines in the text field"
+            },
+            "descWithTags": "文本域默认行数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "autosize": {
+            "defaultValue": null,
+            "description": "自适应内容高度\n@en Adaptive content height",
+            "name": "autosize",
+            "tags": {
+                "en": "Adaptive content height"
+            },
+            "descWithTags": "自适应内容高度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "textareaClass": {
+            "defaultValue": null,
+            "description": "文本域dom自定义类名\n@en Custom classname of text field dom",
+            "name": "textareaClass",
+            "tags": {
+                "en": "Custom classname of text field dom"
+            },
+            "descWithTags": "文本域dom自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "textareaStyle": {
+            "defaultValue": null,
+            "description": "文本域dom自定义样式\n@en Custom stylesheet of text field dom",
+            "name": "textareaStyle",
+            "tags": {
+                "en": "Custom stylesheet of text field dom"
+            },
+            "descWithTags": "文本域dom自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "cloneNodeWhenAutosize": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "autosize=true 时，是否通过 cloneNode 计算新高度\n@en When autosize=true, whether to calculate the new height through cloneNode",
+            "name": "cloneNodeWhenAutosize",
+            "tags": {
+                "en": "When autosize=true, whether to calculate the new height through cloneNode",
+                "default": "false"
+            },
+            "descWithTags": "autosize=true 时，是否通过 cloneNode 计算新高度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "showStatistics": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否展示字数统计\n@en Whether to display word count",
+            "name": "showStatistics",
+            "tags": {
+                "en": "Whether to display word count",
+                "default": "true"
+            },
+            "descWithTags": "是否展示字数统计",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "statisticsMaxlength": {
+            "defaultValue": null,
+            "description": "字数统计时的最大输入长度\n@en Maximum input length for word count",
+            "name": "statisticsMaxlength",
+            "tags": {
+                "en": "Maximum input length for word count"
+            },
+            "descWithTags": "字数统计时的最大输入长度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "statisticsLengthCaculator": {
+            "defaultValue": null,
+            "description": "自定义统计字数方法\n@en Customize word count method",
+            "name": "statisticsLengthCaculator",
+            "tags": {
+                "en": "Customize word count method"
+            },
+            "descWithTags": "自定义统计字数方法",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: string) => number"
+            }
+        },
+        "onErrStatusChange": {
+            "defaultValue": null,
+            "description": "字数统计错误状态切换回调，仅当状态发生改变时触发\n@en Callback when the error state of word count switches, triggered only when the state changes",
+            "name": "onErrStatusChange",
+            "tags": {
+                "en": "Callback when the error state of word count switches, triggered only when the state changes"
+            },
+            "descWithTags": "字数统计错误状态切换回调，仅当状态发生改变时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(hasError: boolean) => void"
+            }
+        },
+        "onErrValueChange": {
+            "defaultValue": null,
+            "description": "字数统计错误状态回调，当值有改变时就会触发\n@en Callback when word count is in error status, triggered when the value changes",
+            "name": "onErrValueChange",
+            "tags": {
+                "en": "Callback when word count is in error status, triggered when the value changes"
+            },
+            "descWithTags": "字数统计错误状态回调，当值有改变时就会触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(hasError: boolean, currentLength: number, maxLength?: number) => void"
+            }
+        },
+        "renderStatistics": {
+            "defaultValue": null,
+            "description": "自定义字数统计内容\n@en Custom word count content",
+            "name": "renderStatistics",
+            "tags": {
+                "en": "Custom word count content"
+            },
+            "descWithTags": "自定义字数统计内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(currentLength: number, maxLength: number) => ReactNode"
+            }
+        },
+        "nativeProps": {
+            "defaultValue": null,
+            "description": "其他未列出的原生属性，优先级低于已列出的组件属性\n@en Other unlisted native properties, lower priority than listed component properties",
+            "name": "nativeProps",
+            "tags": {
+                "en": "Other unlisted native properties, lower priority than listed component properties"
+            },
+            "descWithTags": "其他未列出的原生属性，优先级低于已列出的组件属性",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/textarea/index.tsx",
+                "name": "TextareaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "TextareaHTMLAttributes<HTMLTextAreaElement>"
+            }
+        },
+        "id": {
+            "defaultValue": null,
+            "description": "输入框的id\n@en Input id",
+            "name": "id",
+            "tags": {
+                "en": "Input id"
+            },
+            "descWithTags": "输入框的id",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "name": {
+            "defaultValue": null,
+            "description": "输入框的name\n@en Input name",
+            "name": "name",
+            "tags": {
+                "en": "Input name"
+            },
+            "descWithTags": "输入框的name",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "value": {
+            "defaultValue": null,
+            "description": "绑定值，传入即受控\n@en Binding value, if input, the component is controlled",
+            "name": "value",
+            "tags": {
+                "en": "Binding value, if input, the component is controlled"
+            },
+            "descWithTags": "绑定值，传入即受控",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "defaultValue": {
+            "defaultValue": null,
+            "description": "默认值\n@en Default value",
+            "name": "defaultValue",
+            "tags": {
+                "en": "Default value"
+            },
+            "descWithTags": "默认值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "maxLength": {
+            "defaultValue": null,
+            "description": "最大输入长度\n@en Maximum input length",
+            "name": "maxLength",
+            "tags": {
+                "en": "Maximum input length"
+            },
+            "descWithTags": "最大输入长度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "border": {
+            "defaultValue": {
+                "value": "\"half\""
+            },
+            "description": "边框展示类型\n@en Border display type",
+            "name": "border",
+            "tags": {
+                "en": "Border display type",
+                "default": "\"half\""
+            },
+            "descWithTags": "边框展示类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"all\" | \"half\" | \"bottom\" | \"none\"",
+                "value": [
+                    {
+                        "value": "\"all\""
+                    },
+                    {
+                        "value": "\"half\""
+                    },
+                    {
+                        "value": "\"bottom\""
+                    },
+                    {
+                        "value": "\"none\""
+                    }
+                ]
+            }
+        },
+        "placeholder": {
+            "defaultValue": null,
+            "description": "占位文本\n@en Placeholder text",
+            "name": "placeholder",
+            "tags": {
+                "en": "Placeholder text"
+            },
+            "descWithTags": "占位文本",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "disabled": {
+            "defaultValue": null,
+            "description": "输入框是否禁用\n@en Whether the input box is disabled",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether the input box is disabled"
+            },
+            "descWithTags": "输入框是否禁用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "readOnly": {
+            "defaultValue": null,
+            "description": "是否只读\n@en Read-only",
+            "name": "readOnly",
+            "tags": {
+                "en": "Read-only"
+            },
+            "descWithTags": "是否只读",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "autoFocus": {
+            "defaultValue": null,
+            "description": "是否自动获取焦点\n@en Whether to automatically get the focus",
+            "name": "autoFocus",
+            "tags": {
+                "en": "Whether to automatically get the focus"
+            },
+            "descWithTags": "是否自动获取焦点",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "label": {
+            "defaultValue": null,
+            "description": "输入框左侧文本\n@en text to the left of the input box",
+            "name": "label",
+            "tags": {
+                "en": "text to the left of the input box"
+            },
+            "descWithTags": "输入框左侧文本",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "required": {
+            "defaultValue": null,
+            "description": "是否必填项\n@en Whether it is required",
+            "name": "required",
+            "tags": {
+                "en": "Whether it is required"
+            },
+            "descWithTags": "是否必填项",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "validator": {
+            "defaultValue": null,
+            "description": "正则验证，不符合验证的不允许输入\n@en Regular validation, input is not allowed if it does not meet the validation",
+            "name": "validator",
+            "tags": {
+                "en": "Regular validation, input is not allowed if it does not meet the validation"
+            },
+            "descWithTags": "正则验证，不符合验证的不允许输入",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "RegExp | ((value: string) => boolean)"
+            }
+        },
+        "prepend": {
+            "defaultValue": null,
+            "description": "输入框头部内容，在输入框外部\n@en The content of the header of the input box, outside the input box",
+            "name": "prepend",
+            "tags": {
+                "en": "The content of the header of the input box, outside the input box"
+            },
+            "descWithTags": "输入框头部内容，在输入框外部",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "append": {
+            "defaultValue": null,
+            "description": "输入框尾部内容，在输入框外部\n@en The content at the end of the input box, outside the input box",
+            "name": "append",
+            "tags": {
+                "en": "The content at the end of the input box, outside the input box"
+            },
+            "descWithTags": "输入框尾部内容，在输入框外部",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "blurBeforeFocus": {
+            "defaultValue": null,
+            "description": "在聚焦之前blur掉，即切换不同input时会重新弹起键盘，常用于input type切换时重新加载键盘，安卓上有效\n@en Blur before focusing, that is, the keyboard will be re-bounced when switching between different inputs. It is often used to reload the keyboard when the input type is switched. It is valid on Android.",
+            "name": "blurBeforeFocus",
+            "tags": {
+                "en": "Blur before focusing, that is, the keyboard will be re-bounced when switching between different inputs. It is often used to reload the keyboard when the input type is switched. It is valid on Android."
+            },
+            "descWithTags": "在聚焦之前blur掉，即切换不同input时会重新弹起键盘，常用于input type切换时重新加载键盘，安卓上有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "clearable": {
+            "defaultValue": null,
+            "description": "是否有清除按钮\n@en whether there is a clear button",
+            "name": "clearable",
+            "tags": {
+                "en": "whether there is a clear button"
+            },
+            "descWithTags": "是否有清除按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "clearShowType": {
+            "defaultValue": {
+                "value": "\"focus\""
+            },
+            "description": "清除按钮展示时机：focus - 聚焦时展示 value - 有值则展示 always - 始终展示\n@en Clear button display timing: focus - display when focused, value - display when there is value, always - always display",
+            "name": "clearShowType",
+            "tags": {
+                "en": "Clear button display timing: focus - display when focused, value - display when there is value, always - always display",
+                "default": "\"focus\""
+            },
+            "descWithTags": "清除按钮展示时机：focus - 聚焦时展示 value - 有值则展示 always - 始终展示",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"focus\" | \"value\" | \"always\"",
+                "value": [
+                    {
+                        "value": "\"focus\""
+                    },
+                    {
+                        "value": "\"value\""
+                    },
+                    {
+                        "value": "\"always\""
+                    }
+                ]
+            }
+        },
+        "clearIcon": {
+            "defaultValue": {
+                "value": "\\<IconClear className=\"clear-icon\" /\\>"
+            },
+            "description": "清除按钮类型，也可自定义\n@en Clear button type, also customizable",
+            "name": "clearIcon",
+            "tags": {
+                "en": "Clear button type, also customizable",
+                "default": "\\<IconClear className=\"clear-icon\" /\\>"
+            },
+            "descWithTags": "清除按钮类型，也可自定义",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "onClear": {
+            "defaultValue": null,
+            "description": "按下清除按钮回调\n@en Callback when clear button is pressed",
+            "name": "onClear",
+            "tags": {
+                "en": "Callback when clear button is pressed"
+            },
+            "descWithTags": "按下清除按钮回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => void"
+            }
+        },
+        "prefix": {
+            "defaultValue": null,
+            "description": "输入框前置内容，在输入框内部，也可自定义\n@en The prefix of the input box, inside the input box, can also be customized",
+            "name": "prefix",
+            "tags": {
+                "en": "The prefix of the input box, inside the input box, can also be customized"
+            },
+            "descWithTags": "输入框前置内容，在输入框内部，也可自定义",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "suffix": {
+            "defaultValue": null,
+            "description": "输入框后置内容，在输入框内部，也可自定义\n@en The suffix content of the input box, inside the input box, can also be customized",
+            "name": "suffix",
+            "tags": {
+                "en": "The suffix content of the input box, inside the input box, can also be customized"
+            },
+            "descWithTags": "输入框后置内容，在输入框内部，也可自定义",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "数据改变时触发（失去焦点时）\n@en Fired when the data changes (when bluring the focus)",
+            "name": "onChange",
+            "tags": {
+                "en": "Fired when the data changes (when bluring the focus)"
+            },
+            "descWithTags": "数据改变时触发（失去焦点时）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: ChangeEvent<HTMLTextAreaElement>, value: string) => void"
+            }
+        },
+        "onInput": {
+            "defaultValue": null,
+            "description": "数据改变时触发\n@en Callback when data changes",
+            "name": "onInput",
+            "tags": {
+                "en": "Callback when data changes"
+            },
+            "descWithTags": "数据改变时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: ChangeEvent<HTMLTextAreaElement>, value: string) => void"
+            }
+        },
+        "onFocus": {
+            "defaultValue": null,
+            "description": "输入框聚焦时触发\n@en Callback when the input box is focused",
+            "name": "onFocus",
+            "tags": {
+                "en": "Callback when the input box is focused"
+            },
+            "descWithTags": "输入框聚焦时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: FocusEvent<HTMLTextAreaElement, Element>) => void"
+            }
+        },
+        "onBlur": {
+            "defaultValue": null,
+            "description": "输入框失去焦点时触发\n@en Callback when the input box is blured",
+            "name": "onBlur",
+            "tags": {
+                "en": "Callback when the input box is blured"
+            },
+            "descWithTags": "输入框失去焦点时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: FocusEvent<HTMLTextAreaElement, Element>) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击输入框事件\n@en Callback when clicking the input box",
+            "name": "onClick",
+            "tags": {
+                "en": "Callback when clicking the input box"
+            },
+            "descWithTags": "点击输入框事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLTextAreaElement, MouseEvent>) => void"
+            }
+        },
+        "onKeyUp": {
+            "defaultValue": null,
+            "description": "原生的keyup事件\n@en Native keyup event",
+            "name": "onKeyUp",
+            "tags": {
+                "en": "Native keyup event"
+            },
+            "descWithTags": "原生的keyup事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: KeyboardEvent<HTMLTextAreaElement>) => void"
+            }
+        },
+        "onKeyDown": {
+            "defaultValue": null,
+            "description": "原生的keydown事件\n@en Native keydown event",
+            "name": "onKeyDown",
+            "tags": {
+                "en": "Native keydown event"
+            },
+            "descWithTags": "原生的keydown事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: KeyboardEvent<HTMLTextAreaElement>) => void"
+            }
+        },
+        "onKeyPress": {
+            "defaultValue": null,
+            "description": "原生的keypress事件\n@en Native keypress event",
+            "name": "onKeyPress",
+            "tags": {
+                "en": "Native keypress event"
+            },
+            "descWithTags": "原生的keypress事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: KeyboardEvent<HTMLTextAreaElement>) => void"
+            }
+        },
+        "onPressEnter": {
+            "defaultValue": null,
+            "description": "按下回车键时触发\n@en Callback when the enter key is pressed",
+            "name": "onPressEnter",
+            "tags": {
+                "en": "Callback when the enter key is pressed"
+            },
+            "descWithTags": "按下回车键时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: KeyboardEvent<HTMLTextAreaElement>) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<TextareaRef>"
+            }
+        }
+    },
+    "deps": {
+        "TextareaRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "textarea": {
+                "name": "textarea",
+                "required": true,
+                "description": "原生文本框 DOM\n@en Native textarea DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLTextAreaElement"
+                },
+                "tags": {
+                    "en": "Native textarea DOM"
+                },
+                "descWithTags": "原生文本框 DOM"
+            },
+            "resize": {
+                "name": "resize",
+                "required": true,
+                "description": "手动 resize 输入框，autosize=true 时生效\n@en Manually resize the input box, it takes effect when autosize=true",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually resize the input box, it takes effect when autosize=true"
+                },
+                "descWithTags": "手动 resize 输入框，autosize=true 时生效"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "TextareaProps",
+        "ref": "TextareaRef"
+    },
+    "isDefaultExport": true
+}

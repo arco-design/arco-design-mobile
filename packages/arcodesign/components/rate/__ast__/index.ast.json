@@ -1,0 +1,325 @@
+{
+    "description": "评分组件，支持受控模式",
+    "descriptionTags": {
+        "en": "Rate component, supports controlled mode",
+        "type": "数据输入",
+        "type_en": "Data Entry",
+        "name": "评分",
+        "name_en": "Rate"
+    },
+    "displayName": "Rate",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "defaultValue": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "默认评分\n@en Default value",
+            "name": "defaultValue",
+            "tags": {
+                "en": "Default value",
+                "default": "0"
+            },
+            "descWithTags": "默认评分",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "value": {
+            "defaultValue": null,
+            "description": "当前评分(受控)\n@en Current value (Controlled)",
+            "name": "value",
+            "tags": {
+                "en": "Current value (Controlled)"
+            },
+            "descWithTags": "当前评分(受控)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "count": {
+            "defaultValue": {
+                "value": "5"
+            },
+            "description": "图标数量\n@en Number of icons",
+            "name": "count",
+            "tags": {
+                "en": "Number of icons",
+                "default": "5"
+            },
+            "descWithTags": "图标数量",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "step": {
+            "defaultValue": {
+                "value": "1"
+            },
+            "description": "每个图标的分值\n@en Points for each icon",
+            "name": "step",
+            "tags": {
+                "en": "Points for each icon",
+                "default": "1"
+            },
+            "descWithTags": "每个图标的分值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "color": {
+            "defaultValue": null,
+            "description": "选中时颜色\n@en Color when selected",
+            "name": "color",
+            "tags": {
+                "en": "Color when selected"
+            },
+            "descWithTags": "选中时颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "normalColor": {
+            "defaultValue": null,
+            "description": "未选中时颜色\n@en Color when unselected",
+            "name": "normalColor",
+            "tags": {
+                "en": "Color when unselected"
+            },
+            "descWithTags": "未选中时颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "disabledColor": {
+            "defaultValue": null,
+            "description": "禁用时颜色\n@en Color when disabled",
+            "name": "disabledColor",
+            "tags": {
+                "en": "Color when disabled"
+            },
+            "descWithTags": "禁用时颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "allowHalf": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否允许半选\n@en Whether to allow semi-selection",
+            "name": "allowHalf",
+            "tags": {
+                "en": "Whether to allow semi-selection",
+                "default": "false"
+            },
+            "descWithTags": "是否允许半选",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否为禁用状态\n@en Whether to be disable",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to be disable",
+                "default": "false"
+            },
+            "descWithTags": "是否为禁用状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "size": {
+            "defaultValue": null,
+            "description": "自定义图标大小\n@en Custom icon size",
+            "name": "size",
+            "tags": {
+                "en": "Custom icon size"
+            },
+            "descWithTags": "自定义图标大小",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "offset": {
+            "defaultValue": null,
+            "description": "自定义图标间距(点击热区包含间距)\n@en Custom icon spacing (click hotspot includes spacing)",
+            "name": "offset",
+            "tags": {
+                "en": "Custom icon spacing (click hotspot includes spacing)"
+            },
+            "descWithTags": "自定义图标间距(点击热区包含间距)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "icons": {
+            "defaultValue": null,
+            "description": "自定义图标\n@en Custom icons",
+            "name": "icons",
+            "tags": {
+                "en": "Custom icons"
+            },
+            "descWithTags": "自定义图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "{ normal: RateIconType; active: RateIconType; halfActive?: RateIconType; }"
+            }
+        },
+        "onChange": {
+            "defaultValue": {
+                "value": "(value) => void"
+            },
+            "description": "当前分值变化触发的事件\n@en Callback when the current value changes",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when the current value changes",
+                "default": "(value) => void"
+            },
+            "descWithTags": "当前分值变化触发的事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/rate/index.tsx",
+                "name": "RateProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: number) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<RateRef>"
+            }
+        }
+    },
+    "deps": {
+        "RateRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "RateProps",
+        "ref": "RateRef"
+    },
+    "isDefaultExport": true
+}

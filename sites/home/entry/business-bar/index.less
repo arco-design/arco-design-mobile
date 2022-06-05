@@ -1,0 +1,142 @@
+.arco-mobile-business-bar {
+    width: 100%;
+    padding: 80px 9% 32px 9%;
+    &-title {
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: PingFang SC;
+        font-size: 13px;
+        line-height: 13px;
+        color: #86909C;
+    }
+    .business-icon-group {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        &-rows {
+            flex-direction: column;
+        }
+        &-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            &:nth-child(2) {
+                margin-top: 24px;
+            }
+            .icon-img-wrapper {
+                flex: 1;
+                justify-content:center;
+            }
+        }
+        &-wrapper {
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            &::-webkit-scrollbar {
+                width: 0 !important;
+                display: none;
+            }
+        }
+        .icon-img-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 42px;
+
+        }
+        .icon-img {
+            &.icon-toutiao {
+                height: 26.74px;
+            }
+            &.icon-pipixia {
+                height: 26.47px;
+            }
+            &.icon-xigua {
+                height: 26.18px;
+            }
+            &.icon-fanqie {
+                height: 29.15px;
+            }
+            &.icon-dongchedi {
+                height: 23px;
+            }
+            &.icon-toutiao_search {
+                height: 20.97px;
+            }
+            &.icon-douyin_store {
+                height: 26px;
+            }
+            &.icon-douyin {
+                height: 30.35px;
+            }
+        }
+        .placeholder {
+            width: 94px;
+            height: 26px;
+            background: rgba(0, 0, 0, 0.08);
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 26px;
+            text-align: center;
+            color: #000;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        padding-top: 40px;
+        .business-icon-group .icon-img-wrapper {
+            position: relative;
+            justify-content: center;
+            flex: 1;
+            height: 33px;
+            .icon-img {
+                transform: scale(0.767);
+                justify-content: center;
+            }
+            &:first-child {
+                justify-content: flex-start;
+                .icon-img {
+                    transform-origin: left center;
+                }
+                .fade-out {
+                    position: absolute;
+                    // top: 50%;
+                    left: 0;
+
+                }
+            }
+            &:last-child {
+                justify-content: flex-end;
+
+                .icon-img {
+                    transform-origin: right center;
+                }
+                .fade-out {
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    animation: fadeIn 2s forwards alternate-reverse;
+    position: absolute;
+}
+.fade-in {
+    animation: fadeIn 2s;
+}

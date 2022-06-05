@@ -1,0 +1,206 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`picker-view demo test picker-view demo: cascader.md renders correctly 1`] = `
+<div
+  class="arco-picker-view all-border-box "
+  style="height:0px"
+>
+  <div
+    class="arco-picker-multi"
+    style="line-height:0px"
+  >
+    <div
+      class="arco-picker-column"
+    >
+      <div
+        class="arco-picker-column-item-wrap"
+        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
+      >
+        <div
+          class="arco-picker-column-item selected"
+          style="height:0px"
+        >
+          北京市
+        </div>
+        <div
+          class="arco-picker-column-item selected-neighbor-1"
+          style="height:0px"
+        >
+          辽宁省
+        </div>
+        <div
+          class="arco-picker-column-item selected-neighbor-2"
+          style="height:0px"
+        >
+          云南省
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-picker-column"
+    >
+      <div
+        class="arco-picker-column-item-wrap"
+        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
+      >
+        <div
+          class="arco-picker-column-item selected"
+          style="height:0px"
+        >
+          北京市
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-picker-column"
+    >
+      <div
+        class="arco-picker-column-item-wrap"
+        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
+      >
+        <div
+          class="arco-picker-column-item selected"
+          style="height:0px"
+        >
+          朝阳区
+        </div>
+        <div
+          class="arco-picker-column-item selected-neighbor-1"
+          style="height:0px"
+        >
+          海淀区
+        </div>
+        <div
+          class="arco-picker-column-item selected-neighbor-2"
+          style="height:0px"
+        >
+          东城区
+        </div>
+        <div
+          class="arco-picker-column-item"
+          style="height:0px"
+        >
+          西城区
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-picker-selection"
+  >
+    <div
+      class="arco-picker-selection-mask arco-picker-selection-mask-top"
+    />
+    <div
+      class="arco-picker-selection-bar"
+    />
+    <div
+      class="arco-picker-selection-mask arco-picker-selection-mask-bottom"
+    />
+  </div>
+</div>
+`;
+
+exports[`picker-view demo test picker-view demo: index.md renders correctly 1`] = `
+<div
+  class="arco-picker-view all-border-box "
+  style="height:0px"
+>
+  <div
+    class="arco-picker-multi"
+    style="line-height:0px"
+  >
+    <div
+      class="arco-picker-column"
+    >
+      <div
+        class="arco-picker-column-item-wrap"
+        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
+      >
+        <div
+          class="arco-picker-column-item selected"
+          style="height:0px"
+        >
+          周一
+        </div>
+        <div
+          class="arco-picker-column-item selected-neighbor-1"
+          style="height:0px"
+        >
+          周二
+        </div>
+        <div
+          class="arco-picker-column-item selected-neighbor-2"
+          style="height:0px"
+        >
+          周三
+        </div>
+        <div
+          class="arco-picker-column-item"
+          style="height:0px"
+        >
+          周四
+        </div>
+        <div
+          class="arco-picker-column-item"
+          style="height:0px"
+        >
+          周五
+        </div>
+        <div
+          class="arco-picker-column-item"
+          style="height:0px"
+        >
+          周六
+        </div>
+        <div
+          class="arco-picker-column-item"
+          style="height:0px"
+        >
+          周日
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-picker-column"
+    >
+      <div
+        class="arco-picker-column-item-wrap"
+        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
+      >
+        <div
+          class="arco-picker-column-item selected"
+          style="height:0px"
+        >
+          上午
+        </div>
+        <div
+          class="arco-picker-column-item selected-neighbor-1"
+          style="height:0px"
+        >
+          下午
+        </div>
+        <div
+          class="arco-picker-column-item selected-neighbor-2"
+          style="height:0px"
+        >
+          晚上
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-picker-selection"
+  >
+    <div
+      class="arco-picker-selection-mask arco-picker-selection-mask-top"
+    />
+    <div
+      class="arco-picker-selection-bar"
+    />
+    <div
+      class="arco-picker-selection-mask arco-picker-selection-mask-bottom"
+    />
+  </div>
+</div>
+`;

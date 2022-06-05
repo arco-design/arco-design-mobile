@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dropdown demo test dropdown demo: column.md renders correctly 1`] = `
+<div>
+  <button
+    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      点击展开下拉框
+    </div>
+  </button>
+  <div />
+</div>
+`;
+
+exports[`dropdown demo test dropdown demo: custom-direction.md renders correctly 1`] = `
+<div>
+  <button
+    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      点击展开下拉框
+    </div>
+  </button>
+  <div />
+</div>
+`;
+
+exports[`dropdown demo test dropdown demo: custom-node.md renders correctly 1`] = `
+<div>
+  <button
+    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      点击展开下拉框
+    </div>
+  </button>
+  <div />
+</div>
+`;
+
+exports[`dropdown demo test dropdown demo: custom-options.md renders correctly 1`] = `
+<div>
+  <button
+    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      点击展开下拉框
+    </div>
+  </button>
+  <div />
+</div>
+`;
+
+exports[`dropdown demo test dropdown demo: index.md renders correctly 1`] = `
+<div>
+  <button
+    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      点击展开下拉框
+    </div>
+  </button>
+  <div />
+</div>
+`;

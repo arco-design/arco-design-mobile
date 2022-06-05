@@ -1,0 +1,370 @@
+{
+    "description": "下拉刷新数据组件。",
+    "descriptionTags": {
+        "en": "PullRefresh component that pulls down to refresh data.",
+        "name": "下拉刷新",
+        "name_en": "PullRefresh",
+        "type": "其他",
+        "type_en": "Others"
+    },
+    "displayName": "PullRefresh",
+    "methods": [],
+    "props": {
+        "type": {
+            "defaultValue": {
+                "value": "跟随系统"
+            },
+            "description": "分成两种类型\n@en Divided into two types\n@default_en follow the system",
+            "name": "type",
+            "tags": {
+                "en": "Divided into two types",
+                "default": "跟随系统",
+                "default_en": "follow the system"
+            },
+            "descWithTags": "分成两种类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/index.tsx",
+                "name": "PullRefreshProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"ios\" | \"android\"",
+                "value": [
+                    {
+                        "value": "\"ios\""
+                    },
+                    {
+                        "value": "\"android\""
+                    }
+                ]
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "子元素",
+            "name": "children",
+            "tags": {},
+            "descWithTags": "子元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": true,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "样式类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "样式类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用\n@en Whether to be disabled",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to be disabled",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "finishDelay": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "加载完成后，展示加载完成的时间(ms)\n@en After the loading is completed, the time to display the loading completion (ms)",
+            "name": "finishDelay",
+            "tags": {
+                "en": "After the loading is completed, the time to display the loading completion (ms)",
+                "default": "300"
+            },
+            "descWithTags": "加载完成后，展示加载完成的时间(ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "loosingText": {
+            "defaultValue": null,
+            "description": "下拉到可释放时的展示元素（type 为 ios 失效）\n@en Displayed element when pulled down to releasable (Invalid in type iOS)",
+            "name": "loosingText",
+            "tags": {
+                "en": "Displayed element when pulled down to releasable (Invalid in type iOS)"
+            },
+            "descWithTags": "下拉到可释放时的展示元素（type 为 ios 失效）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "loadingText": {
+            "defaultValue": null,
+            "description": "加载中的展示元素\n@en Loading displayed element",
+            "name": "loadingText",
+            "tags": {
+                "en": "Loading displayed element"
+            },
+            "descWithTags": "加载中的展示元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "pullingText": {
+            "defaultValue": null,
+            "description": "下拉时的展示元素\n@en Displayed element when pulling down",
+            "name": "pullingText",
+            "tags": {
+                "en": "Displayed element when pulling down"
+            },
+            "descWithTags": "下拉时的展示元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "finishText": {
+            "defaultValue": null,
+            "description": "加载完成的展示元素\n@en Loaded displayed element",
+            "name": "finishText",
+            "tags": {
+                "en": "Loaded displayed element"
+            },
+            "descWithTags": "加载完成的展示元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "initialText": {
+            "defaultValue": {
+                "value": "pullingText属性值"
+            },
+            "description": "初始状态还未下拉时的展示元素\n@en The display element in the initial state when  has not been pulled down\n@defalt_en pullingText value",
+            "name": "initialText",
+            "tags": {
+                "en": "The display element in the initial state when  has not been pulled down",
+                "default": "pullingText属性值",
+                "defalt_en": "pullingText value"
+            },
+            "descWithTags": "初始状态还未下拉时的展示元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "dampRate": {
+            "defaultValue": {
+                "value": "4"
+            },
+            "description": "阻尼系数（type 为 ios 失效）\n@en\n@en Damping coefficient (Invalid in type iOS)",
+            "name": "dampRate",
+            "tags": {
+                "en": "Damping coefficient (Invalid in type iOS)",
+                "default": "4"
+            },
+            "descWithTags": "阻尼系数（type 为 ios 失效）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "onRefresh": {
+            "defaultValue": null,
+            "description": "刷新触发事件\n@en Callback when refreshing",
+            "name": "onRefresh",
+            "tags": {
+                "en": "Callback when refreshing"
+            },
+            "descWithTags": "刷新触发事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => Promise<void>"
+            }
+        },
+        "useHideAsNestedScroll": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "惯性滑动时隐藏展示元素\n@en Whether to hide the display element during inertial sliding",
+            "name": "useHideAsNestedScroll",
+            "tags": {
+                "en": "Whether to hide the display element during inertial sliding",
+                "default": "true"
+            },
+            "descWithTags": "惯性滑动时隐藏展示元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "loosingMinHeight": {
+            "defaultValue": {
+                "value": "loosingText 的高度"
+            },
+            "description": "释放可刷线的最小距离(px)\n@en Minimum distance to release brushable lines (px)\n@default_en loosingText Height",
+            "name": "loosingMinHeight",
+            "tags": {
+                "en": "Minimum distance to release brushable lines (px)",
+                "default": "loosingText 的高度",
+                "default_en": "loosingText Height"
+            },
+            "descWithTags": "释放可刷线的最小距离(px)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "allowPullWhenNotTop": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "未滚到顶部时向下滑动也允许触发下拉刷新，可能影响ios回弹动画效果\n@en Swiping down when not scrolling to the top also allows a pull-down refresh to be triggered, which may affect the ios bounce animation effect",
+            "name": "allowPullWhenNotTop",
+            "tags": {
+                "en": "Swiping down when not scrolling to the top also allows a pull-down refresh to be triggered, which may affect the ios bounce animation effect",
+                "default": "false"
+            },
+            "descWithTags": "未滚到顶部时向下滑动也允许触发下拉刷新，可能影响ios回弹动画效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<PullRefreshRef>"
+            }
+        }
+    },
+    "deps": {
+        "PullRefreshRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "refresh": {
+                "name": "refresh",
+                "required": true,
+                "description": "主动触发刷新，执行完成动画后异步返回\n@en Actively trigger the refresh, and return asynchronously after the animation is completed",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => Promise<void>"
+                },
+                "tags": {
+                    "en": "Actively trigger the refresh, and return asynchronously after the animation is completed"
+                },
+                "descWithTags": "主动触发刷新，执行完成动画后异步返回"
+            },
+            "updateIOSHeight": {
+                "name": "updateIOSHeight",
+                "required": true,
+                "description": "手动更新 IOS 容器自动高度\n@en Manually update IOS container height",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually update IOS container height"
+                },
+                "descWithTags": "手动更新 IOS 容器自动高度"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "PullRefreshProps",
+        "ref": "PullRefreshRef"
+    },
+    "isDefaultExport": true
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@arco-design/mobile-utils",
+  "version": "2.7.1",
+  "description": "",
+  "main": "umd/index.js",
+  "module": "esm/index.js",
+  "scripts": {
+    "build": "rm -rf esm umd cjs; gulp build",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "taoyiyue@bytedance.com",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "gitHead": "b86aaac815cd6d79ec85e31eedfc4f99686883b3"
+}

@@ -1,0 +1,13 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-ellipsis {
+    .use-var(font-size, ellipsis-default-text-size);
+
+    &-native.ellipsis {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        -webkit-box-orient: vertical;
+    }
+}

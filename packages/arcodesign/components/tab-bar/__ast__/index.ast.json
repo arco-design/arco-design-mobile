@@ -1,0 +1,505 @@
+{
+    "description": "标签栏组件，Tabs 的简化版，仅支持标签切换",
+    "descriptionTags": {
+        "en": "TabBar component, a simplified version of Tabs, only supports tab switching.",
+        "type": "导航",
+        "type_en": "Navigation",
+        "name": "标签栏",
+        "name_en": "TabBar"
+    },
+    "displayName": "TabBar",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom style",
+            "name": "style",
+            "tags": {
+                "en": "Custom style",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "children": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "内部标签内容\n@en Inner Content",
+            "name": "children",
+            "tags": {
+                "en": "Inner Content",
+                "default": "null"
+            },
+            "descWithTags": "内部标签内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "activeIndex": {
+            "defaultValue": null,
+            "description": "选中标签的索引值\n@en The index value of the selected label",
+            "name": "activeIndex",
+            "tags": {
+                "en": "The index value of the selected label"
+            },
+            "descWithTags": "选中标签的索引值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "defaultActiveIndex": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "默认选中的索引值\n@en The index value of the default selected label",
+            "name": "defaultActiveIndex",
+            "tags": {
+                "en": "The index value of the default selected label",
+                "default": "0"
+            },
+            "descWithTags": "默认选中的索引值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "切换标签时的回调函数\n@en Callback when switching tabs",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when switching tabs"
+            },
+            "descWithTags": "切换标签时的回调函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: number) => void"
+            }
+        },
+        "dataSource": {
+            "defaultValue": null,
+            "description": "数据源，传了 dataSource 则 TabBar.TabBarItem 失效\n@en Data source, if it is passed, TabBar.TabBarItem will be invalid",
+            "name": "dataSource",
+            "tags": {
+                "en": "Data source, if it is passed, TabBar.TabBarItem will be invalid"
+            },
+            "descWithTags": "数据源，传了 dataSource 则 TabBar.TabBarItem 失效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(TabBarItemProps & RefAttributes<TabBarItemRef>)[]"
+            }
+        },
+        "activeCustomStyle": {
+            "defaultValue": null,
+            "description": "当前选中标签的样式\n@en The style of the currently selected label",
+            "name": "activeCustomStyle",
+            "tags": {
+                "en": "The style of the currently selected label"
+            },
+            "descWithTags": "当前选中标签的样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "fixed": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否固定在底部\n@en Whether it is fixed at the bottom",
+            "name": "fixed",
+            "tags": {
+                "en": "Whether it is fixed at the bottom",
+                "default": "true"
+            },
+            "descWithTags": "是否固定在底部",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                "name": "TabBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<TabBarRef>"
+            }
+        }
+    },
+    "deps": {
+        "TabBarItemProps": {
+            "title": {
+                "name": "title",
+                "required": false,
+                "description": "标题\n@en Title",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode | ((active: boolean) => ReactNode)"
+                },
+                "tags": {
+                    "en": "Title"
+                },
+                "descWithTags": "标题"
+            },
+            "extra": {
+                "name": "extra",
+                "required": false,
+                "description": "附加元素 (如徽标)\n@en Additional elements (such as badge)",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode | ((active: boolean) => ReactNode)"
+                },
+                "tags": {
+                    "en": "Additional elements (such as badge)"
+                },
+                "descWithTags": "附加元素 (如徽标)"
+            },
+            "icon": {
+                "name": "icon",
+                "required": false,
+                "description": "图标\n@en Icon",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode | ((active: boolean) => ReactNode)"
+                },
+                "tags": {
+                    "en": "Icon"
+                },
+                "descWithTags": "图标"
+            },
+            "child": {
+                "name": "child",
+                "required": false,
+                "description": "自定义内容\n@en Custom content",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode | ((active: boolean) => ReactNode)"
+                },
+                "tags": {
+                    "en": "Custom content"
+                },
+                "descWithTags": "自定义内容"
+            },
+            "onClick": {
+                "name": "onClick",
+                "required": false,
+                "description": "点击事件\n@en Click event",
+                "defaultValue": null,
+                "type": {
+                    "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+                },
+                "tags": {
+                    "en": "Click event"
+                },
+                "descWithTags": "点击事件"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "TabBarItemRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        },
+        "TabBarRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {
+        "Item": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "Item",
+            "methods": [],
+            "props": {
+                "title": {
+                    "defaultValue": null,
+                    "description": "标题\n@en Title",
+                    "name": "title",
+                    "tags": {
+                        "en": "Title"
+                    },
+                    "descWithTags": "标题",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                        "name": "TabBarItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode | ((active: boolean) => ReactNode)"
+                    }
+                },
+                "extra": {
+                    "defaultValue": null,
+                    "description": "附加元素 (如徽标)\n@en Additional elements (such as badge)",
+                    "name": "extra",
+                    "tags": {
+                        "en": "Additional elements (such as badge)"
+                    },
+                    "descWithTags": "附加元素 (如徽标)",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                        "name": "TabBarItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode | ((active: boolean) => ReactNode)"
+                    }
+                },
+                "icon": {
+                    "defaultValue": null,
+                    "description": "图标\n@en Icon",
+                    "name": "icon",
+                    "tags": {
+                        "en": "Icon"
+                    },
+                    "descWithTags": "图标",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                        "name": "TabBarItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode | ((active: boolean) => ReactNode)"
+                    }
+                },
+                "child": {
+                    "defaultValue": null,
+                    "description": "自定义内容\n@en Custom content",
+                    "name": "child",
+                    "tags": {
+                        "en": "Custom content"
+                    },
+                    "descWithTags": "自定义内容",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                        "name": "TabBarItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode | ((active: boolean) => ReactNode)"
+                    }
+                },
+                "onClick": {
+                    "defaultValue": null,
+                    "description": "点击事件\n@en Click event",
+                    "name": "onClick",
+                    "tags": {
+                        "en": "Click event"
+                    },
+                    "descWithTags": "点击事件",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/tab-bar/type.ts",
+                        "name": "TabBarItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+                    }
+                },
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<TabBarItemRef>"
+                    }
+                }
+            },
+            "deps": {
+                "TabBarItemRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层元素 DOM\n@en The outermost element DOM",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outermost element DOM"
+                        },
+                        "descWithTags": "最外层元素 DOM"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "TabBarItemProps",
+                "ref": "TabBarItemRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "TabBarProps",
+        "ref": "TabBarRef"
+    },
+    "isDefaultExport": true
+}

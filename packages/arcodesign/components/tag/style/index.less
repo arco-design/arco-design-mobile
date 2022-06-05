@@ -1,0 +1,133 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-tag {
+    display: inline-flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: none;
+    .use-var(border-radius, tag-border-radius);
+    .use-var(font-size, tag-font-size);
+    border-width: 1PX;
+    border-style: solid;
+
+    &.size-small {
+        .use-var(height, tag-small-size-height);
+        .use-var(padding, tag-small-size-padding, 0);
+
+        .tag-text {
+            transform: scale(.8333);
+            .rem(margin-left, -2);
+            .rem(margin-right, -2);
+        }
+    }
+
+    &.size-medium {
+        .use-var(height, tag-medium-size-height);
+        .use-var(padding, tag-medium-size-padding, 0);
+    }
+
+    &.size-large {
+        .use-var(height, tag-large-size-height);
+        .use-var(padding, tag-large-size-padding, 0);
+    }
+
+    &.filleted {
+        .use-var(padding, tag-filleted-padding, 0);
+        border-radius: 100px;
+    }
+
+    &.half-border:not(&-solid) {
+
+        &:not(.filleted) {
+            .onepx-border(all, inherit, @tag-border-radius, 1PX, inherit);
+            // bugfix: 一些情况border-style会和border-width合并为border属性
+            // border-style: inherit时合并后为 border: 1PX inherit 语法有问题 这里复写一下
+
+            &::after {
+                border: inherit;
+                border-width: 1PX;
+            }
+        }
+
+        &.filleted {
+            .onepx-border(all, inherit, 100px, 1PX, inherit);
+
+            &::after {
+                border: inherit;
+                border-width: 1PX;
+            }
+        }
+    }
+
+    .tag-text {
+        vertical-align: middle;
+        font-size: inherit;
+    }
+    .@{prefix}-icon:not(.tag-close-icon) {
+        vertical-align: middle;
+        .use-var(margin-right, tag-icon-margin-right);
+        .use-var(font-size, tag-icon-font-size);
+    }
+
+    .tag-close-wrap {
+        font-size: 0;
+    }
+
+    .tag-close-icon {
+        vertical-align: middle;
+        .use-var(margin-left, tag-icon-close-margin-left);
+        .use-var(font-size, tag-icon-font-size);
+    }
+
+    &.android {
+
+        .tag-text {
+            .rem(padding-top, 1);
+        }
+    }
+
+    &&-primary {
+        .use-var(color, tag-primary-color);
+        .use-var(background, tag-primary-background-color);
+        .use-var(border-color, tag-primary-border-color);
+    }
+
+    &&-hollow {
+        .use-var(color, tag-hollow-color);
+        background: transparent;
+        .use-var(border-color, tag-hollow-border-color);
+    }
+
+    &&-solid {
+        .use-var(color, tag-solid-color);
+        .use-var(background, tag-solid-background-color);
+        border-width: 0;
+    }
+}
+
+.@{prefix}-tag-list {
+    margin-bottom: -1 * @tag-list-vertical-gutter;
+    .@{prefix}-tag {
+        vertical-align: top;
+
+        &:not(:last-child) {
+            .use-var(margin-right, tag-list-horizontal-gutter);
+        }
+        .use-var(margin-bottom, tag-list-vertical-gutter);
+    }
+
+    .tag-list-add-wrap {
+        font-size: 0;
+        display: inline-block;
+    }
+
+    .tag-list-add {
+        .use-var(margin-bottom, tag-list-vertical-gutter);
+        .use-var(border-color, tag-list-add-border-color);
+        .use-var(background, tag-list-add-background);
+        .use-var(color, tag-list-add-color);
+    }
+}

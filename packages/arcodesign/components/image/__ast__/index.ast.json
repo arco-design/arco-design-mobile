@@ -1,0 +1,661 @@
+{
+    "description": "增强版的 img 标签，提供多种图片填充模式，支持图片加载中提示、加载失败提示。",
+    "descriptionTags": {
+        "en": "Enhanced img tag, provides a variety of image filling modes, and supports image loading prompts and loading failure prompts.",
+        "type": "数据展示",
+        "type_en": "Data Display",
+        "name": "图片",
+        "name_en": "Image"
+    },
+    "displayName": "Image",
+    "methods": [],
+    "props": {
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "status": {
+            "defaultValue": {
+                "value": "\"init\""
+            },
+            "description": "指定图片状态，staticLabel=false时有效\n@en The specified image state, valid when staticLabel=false",
+            "name": "status",
+            "tags": {
+                "en": "The specified image state, valid when staticLabel=false",
+                "default": "\"init\""
+            },
+            "descWithTags": "指定图片状态，staticLabel=false时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "ImageStatus",
+                "value": [
+                    {
+                        "value": "\"loading\""
+                    },
+                    {
+                        "value": "\"loaded\""
+                    },
+                    {
+                        "value": "\"init\""
+                    },
+                    {
+                        "value": "\"error\""
+                    }
+                ]
+            }
+        },
+        "src": {
+            "defaultValue": null,
+            "description": "图片链接\n@\n@en Image resource",
+            "name": "src",
+            "tags": {
+                "": "",
+                "en": "Image resource"
+            },
+            "descWithTags": "图片链接",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": true,
+            "type": {
+                "name": "string"
+            }
+        },
+        "width": {
+            "defaultValue": null,
+            "description": "容器宽度，传数值，默认单位为px，传字符串则接受传入的单位\n@en Container width, when number is input, the default unit is px, if a string is input, the unit is accepted",
+            "name": "width",
+            "tags": {
+                "en": "Container width, when number is input, the default unit is px, if a string is input, the unit is accepted"
+            },
+            "descWithTags": "容器宽度，传数值，默认单位为px，传字符串则接受传入的单位",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "height": {
+            "defaultValue": null,
+            "description": "容器高度，传数值，默认单位为px，传字符串则接受传入的单位\n@en Container height, when number is input, the default unit is px, if a string is input, the unit is accepted",
+            "name": "height",
+            "tags": {
+                "en": "Container height, when number is input, the default unit is px, if a string is input, the unit is accepted"
+            },
+            "descWithTags": "容器高度，传数值，默认单位为px，传字符串则接受传入的单位",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "alt": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "替代文本\n@en Alternative text",
+            "name": "alt",
+            "tags": {
+                "en": "Alternative text",
+                "default": "\"\""
+            },
+            "descWithTags": "替代文本",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "fit": {
+            "defaultValue": {
+                "value": "\"fill\""
+            },
+            "description": "图片填充模式(object-fit)，传preview-*为预览模式，预览模式仅staticLabel=false时有效\n@en Image fill mode (object-fit), preview-* is preview mode, preview mode is only valid when staticLabel=false",
+            "name": "fit",
+            "tags": {
+                "en": "Image fill mode (object-fit), preview-* is preview mode, preview mode is only valid when staticLabel=false",
+                "default": "\"fill\""
+            },
+            "descWithTags": "图片填充模式(object-fit)，传preview-*为预览模式，预览模式仅staticLabel=false时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"unset\" | \"contain\" | \"cover\" | \"fill\" | \"none\" | \"scale-down\" | \"preview-y\" | \"preview-x\"",
+                "value": [
+                    {
+                        "value": "\"-moz-initial\""
+                    },
+                    {
+                        "value": "\"inherit\""
+                    },
+                    {
+                        "value": "\"initial\""
+                    },
+                    {
+                        "value": "\"revert\""
+                    },
+                    {
+                        "value": "\"unset\""
+                    },
+                    {
+                        "value": "\"contain\""
+                    },
+                    {
+                        "value": "\"cover\""
+                    },
+                    {
+                        "value": "\"fill\""
+                    },
+                    {
+                        "value": "\"none\""
+                    },
+                    {
+                        "value": "\"scale-down\""
+                    },
+                    {
+                        "value": "\"preview-y\""
+                    },
+                    {
+                        "value": "\"preview-x\""
+                    }
+                ]
+            }
+        },
+        "position": {
+            "defaultValue": {
+                "value": "\"center\""
+            },
+            "description": "图片填充位置(object-position)\n@en Image fill position(object-position)",
+            "name": "position",
+            "tags": {
+                "en": "Image fill position(object-position)",
+                "default": "\"center\""
+            },
+            "descWithTags": "图片填充位置(object-position)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ObjectPosition<ReactText>"
+            }
+        },
+        "radius": {
+            "defaultValue": null,
+            "description": "图片圆角\n@en Image border radius",
+            "name": "radius",
+            "tags": {
+                "en": "Image border radius"
+            },
+            "descWithTags": "图片圆角",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "bordered": {
+            "defaultValue": null,
+            "description": "是否加边框\n@en Whether to add a border",
+            "name": "bordered",
+            "tags": {
+                "en": "Whether to add a border"
+            },
+            "descWithTags": "是否加边框",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "loadingArea": {
+            "defaultValue": null,
+            "description": "自定义展示加载中内容，staticLabel=false时有效\n@en Custom display loading content, valid when staticLabel=false",
+            "name": "loadingArea",
+            "tags": {
+                "en": "Custom display loading content, valid when staticLabel=false"
+            },
+            "descWithTags": "自定义展示加载中内容，staticLabel=false时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "errorArea": {
+            "defaultValue": null,
+            "description": "自定义展示加载失败内容，staticLabel=false时有效\n@en Custom display failed to load content, valid when staticLabel=false",
+            "name": "errorArea",
+            "tags": {
+                "en": "Custom display failed to load content, valid when staticLabel=false"
+            },
+            "descWithTags": "自定义展示加载失败内容，staticLabel=false时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "showLoading": {
+            "defaultValue": null,
+            "description": "是否展示图片加载中提示，staticLabel=false时有效\n@en Whether to display the image loading prompt, valid when staticLabel=false",
+            "name": "showLoading",
+            "tags": {
+                "en": "Whether to display the image loading prompt, valid when staticLabel=false"
+            },
+            "descWithTags": "是否展示图片加载中提示，staticLabel=false时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "showError": {
+            "defaultValue": null,
+            "description": "是否展示图片加载失败提示，staticLabel=false时有效\n@en Whether to display the image loading failure prompt, valid when staticLabel=false",
+            "name": "showError",
+            "tags": {
+                "en": "Whether to display the image loading failure prompt, valid when staticLabel=false"
+            },
+            "descWithTags": "是否展示图片加载失败提示，staticLabel=false时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "animateDuration": {
+            "defaultValue": {
+                "value": "200"
+            },
+            "description": "加载完时展现动画时长，staticLabel=false时有效\n@en Display animation duration when loading is complete, valid when staticLabel=false",
+            "name": "animateDuration",
+            "tags": {
+                "en": "Display animation duration when loading is complete, valid when staticLabel=false",
+                "default": "200"
+            },
+            "descWithTags": "加载完时展现动画时长，staticLabel=false时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "retryTime": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "失败时自动重试次数\n@en Number of automatic retries on failure",
+            "name": "retryTime",
+            "tags": {
+                "en": "Number of automatic retries on failure",
+                "default": "0"
+            },
+            "descWithTags": "失败时自动重试次数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "forceHttps": {
+            "defaultValue": null,
+            "description": "是否强制使用https\n@en Whether to force the use of https",
+            "name": "forceHttps",
+            "tags": {
+                "en": "Whether to force the use of https"
+            },
+            "descWithTags": "是否强制使用https",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "boxWidth": {
+            "defaultValue": null,
+            "description": "预览模式下，父容器宽度\n@en In preview mode, the width of the parent container",
+            "name": "boxWidth",
+            "tags": {
+                "en": "In preview mode, the width of the parent container"
+            },
+            "descWithTags": "预览模式下，父容器宽度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "boxHeight": {
+            "defaultValue": null,
+            "description": "预览模式下，父容器高度\n@en In preview mode, the height of the parent container",
+            "name": "boxHeight",
+            "tags": {
+                "en": "In preview mode, the height of the parent container"
+            },
+            "descWithTags": "预览模式下，父容器高度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "topOverlap": {
+            "defaultValue": null,
+            "description": "图片顶层内容\n@en Top-level content of the image",
+            "name": "topOverlap",
+            "tags": {
+                "en": "Top-level content of the image"
+            },
+            "descWithTags": "图片顶层内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "bottomOverlap": {
+            "defaultValue": null,
+            "description": "图片底层内容（placeholder），默认是灰色兜底，传null可移除\n@en The bottom content of the image (placeholder), the default is gray bottom, input null to remove",
+            "name": "bottomOverlap",
+            "tags": {
+                "en": "The bottom content of the image (placeholder), the default is gray bottom, input null to remove"
+            },
+            "descWithTags": "图片底层内容（placeholder），默认是灰色兜底，传null可移除",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "showImage": {
+            "defaultValue": null,
+            "description": "手动控制是否加载图片\n@en Manually control whether to load images",
+            "name": "showImage",
+            "tags": {
+                "en": "Manually control whether to load images"
+            },
+            "descWithTags": "手动控制是否加载图片",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "staticLabel": {
+            "defaultValue": null,
+            "description": "是否直接渲染<img>标签，不走加载图片流程\n@en Whether to render the <img> tag directly without going through the image loading process",
+            "name": "staticLabel",
+            "tags": {
+                "en": "Whether to render the <img> tag directly without going through the image loading process"
+            },
+            "descWithTags": "是否直接渲染<img>标签，不走加载图片流程",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "nativeProps": {
+            "defaultValue": null,
+            "description": "img标签原生属性，优先级低于单独设置\n@en Img tag native attributes, the priority is lower than the separate setting",
+            "name": "nativeProps",
+            "tags": {
+                "en": "Img tag native attributes, the priority is lower than the separate setting"
+            },
+            "descWithTags": "img标签原生属性，优先级低于单独设置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "切换status时触发的回调",
+            "name": "onChange",
+            "tags": {},
+            "descWithTags": "切换status时触发的回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(status: string) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击图片时触发的回调\n@en Callback when clicking image",
+            "name": "onClick",
+            "tags": {
+                "en": "Callback when clicking image"
+            },
+            "descWithTags": "点击图片时触发的回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => void"
+            }
+        },
+        "onLoad": {
+            "defaultValue": null,
+            "description": "图片加载完毕时触发的回调\n@en Callback when the image is loaded",
+            "name": "onLoad",
+            "tags": {
+                "en": "Callback when the image is loaded"
+            },
+            "descWithTags": "图片加载完毕时触发的回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: Event, image: HTMLImageElement) => void"
+            }
+        },
+        "onError": {
+            "defaultValue": null,
+            "description": "图片加载失败时触发的回调，如果有自动重试则在重试最终失败后触发\n@en Callback when the image fails to load, triggered after the retry finally fails if there is an automatic retry",
+            "name": "onError",
+            "tags": {
+                "en": "Callback when the image fails to load, triggered after the retry finally fails if there is an automatic retry"
+            },
+            "descWithTags": "图片加载失败时触发的回调，如果有自动重试则在重试最终失败后触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: string | Event) => void"
+            }
+        },
+        "onAutoRetry": {
+            "defaultValue": null,
+            "description": "图片加载失败时自动重试触发的回调\n@en Callback triggered by automatic retry when image loading fails",
+            "name": "onAutoRetry",
+            "tags": {
+                "en": "Callback triggered by automatic retry when image loading fails"
+            },
+            "descWithTags": "图片加载失败时自动重试触发的回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
+                "name": "ImageProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: string | Event) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<ImageRef>"
+            }
+        }
+    },
+    "deps": {
+        "ImageStatus": "\"loading\"|\"loaded\"|\"init\"|\"error\"",
+        "ObjectPosition": "string|number|string & {}",
+        "ImageRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "image": {
+                "name": "image",
+                "required": true,
+                "description": "原生图片元素 DOM\n@en Native image element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLImageElement"
+                },
+                "tags": {
+                    "en": "Native image element DOM"
+                },
+                "descWithTags": "原生图片元素 DOM"
+            },
+            "retry": {
+                "name": "retry",
+                "required": true,
+                "description": "手动重试图片加载\n@en Manually retry image loading",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually retry image loading"
+                },
+                "descWithTags": "手动重试图片加载"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "ImageProps",
+        "ref": "ImageRef"
+    },
+    "isDefaultExport": true
+}

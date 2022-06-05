@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ellipsis demo test ellipsis demo: custom-ellipsis.md renders correctly 1`] = `
+<div
+  class="arco-ellipsis"
+>
+  <div
+    class="arco-ellipsis-js"
+  >
+    <span
+      class="arco-ellipsis-js-content"
+    />
+    <span
+      class="arco-ellipsis-js-content-ellipsis"
+    >
+      <span>
+        ...
+        <span
+          class="demo-link"
+        >
+          展开
+        </span>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ellipsis demo test ellipsis demo: end-exclude.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-ellipsis"
+  >
+    <div
+      class="arco-ellipsis-js"
+    >
+      <span
+        class="arco-ellipsis-js-content"
+      />
+      <span
+        class="arco-ellipsis-js-content-ellipsis"
+      >
+        ...
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ellipsis demo test ellipsis demo: normal.md renders correctly 1`] = `
+<div
+  class="arco-ellipsis"
+>
+  <div
+    class="arco-ellipsis-native ellipsis"
+    style="-webkit-line-clamp:2"
+  >
+    <span>
+      Arco Design Mobile 组件库体系由“一个核心库 + 多个业务库”的模式组成。如果待使用业务已在现有的业务组件库列表内，推荐使用或共建对应的业务组件库；如果无特定业务或暂无对应业务组件库但着急使用，可以使用核心基础库。
+    </span>
+  </div>
+</div>
+`;
+
+exports[`ellipsis demo test ellipsis demo: reflow-yourself.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-ellipsis"
+  >
+    <div
+      class="arco-ellipsis-js"
+    >
+      <span
+        class="arco-ellipsis-js-content"
+      />
+      <span
+        class="arco-ellipsis-js-content-ellipsis"
+      >
+        ...
+      </span>
+    </div>
+  </div>
+  <button
+    class="arco-button type-primary size-large is-semi pc"
+    style="margin-top:32px"
+    type="button"
+  >
+    <div
+      class="btn-icon"
+    />
+    <div
+      class="btn-text"
+    >
+      点击触发重排
+    </div>
+  </button>
+</div>
+`;
+
+exports[`ellipsis demo test ellipsis demo: rich-text.md renders correctly 1`] = `
+<div
+  class="arco-ellipsis"
+>
+  <div
+    class="arco-ellipsis-native ellipsis"
+    style="-webkit-line-clamp:2"
+  >
+    <span>
+      <a
+        class="demo-link-line"
+      >
+        Arco Design Mobile
+      </a>
+       组件库体系由“一个核心库 + 多个业务库”的模式组成。如果待使用业务已在现有的业务组件库列表内，推荐使用或共建对应的业务组件库；如果无特定业务或暂无对应业务组件库但着急使用，可以使用核心基础库。
+    </span>
+  </div>
+</div>
+`;
