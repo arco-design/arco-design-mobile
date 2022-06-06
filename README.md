@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://arco.design" target="_blank">
+  <a href="https://arco.design/mobile/react" target="_blank">
     <img alt="Arco Design Logo" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
   </a>
 </div>
@@ -11,7 +11,7 @@
 
 A comprehensive React UI components library based on the [Arco Design](https://arco.design/mobile/react) system.
 
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design/blob/main/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design-mobile/blob/master/LICENSE)
 
 </div>
 
@@ -65,11 +65,9 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 # Useful Links
 
-* [Documentation website](https://arco.design/)
-* [Components documentation](https://arco.design/react/components/overview)
-* [Dark mode](https://arco.design/react/docs/dark)
-* [Theme customization](https://arco.design/react/docs/theme)
-* [Figma component library](https://www.figma.com/file/M66cTiLXHa4SVyZIlfY5Pb/arco-Design-System?node-id=7945%3A44563)
+* [Documentation website](https://arco.design/mobile/react)
+* [Components documentation](https://arco.design/mobile/react/arco-home-page/pc/)
+* [Figma component library](https://www.figma.com/file/hXylPuOK09Lm2GpS8IsTrh/Arco-Design-Mobile)
 * [Awesome Arco](https://github.com/arco-design/awesome-arco)
 
 # Browser Support
@@ -82,7 +80,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 Developers interested in contributing should read the [Code of Conduct](./CODE_OF_CONDUCT.md) and the [Contributing Guide](./CONTRIBUTING.md).
 
-Thank you to all the people who already contributed to ArcoDesign!
+Thank you to all the people who already contributed to Arco Design Mobile!
 
 # License
 
