@@ -75,7 +75,7 @@ import '@arco-design/mobile-react/esm/style';
 
 ## 部分引入（推荐）
 
-推荐使用 `babel-plugin-import` 引入（该插件更多灵活配置**<a href="https://www.npmjs.com/package/babel-plugin-import" target="_blank">戳这里</a>**）：
+推荐使用 `babel-plugin-import` 引入（该插件更多灵活配置 **<a href="https://www.npmjs.com/package/babel-plugin-import" target="_blank">戳这里</a>** ）：
 
 ```
 npm install babel-plugin-import -D
