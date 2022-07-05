@@ -10,12 +10,7 @@ import React, {
     useMemo,
 } from 'react';
 import lodashThrottle from 'lodash.throttle';
-import {
-    cls,
-    nextTick,
-    scrollWithAnimation,
-    getScrollContainerRect,
-} from '@arco-design/mobile-utils';
+import { cls, scrollWithAnimation, getScrollContainerRect } from '@arco-design/mobile-utils';
 import { TabsProps } from '.';
 import { getStyleWithVendor } from '../_helpers';
 
@@ -182,11 +177,9 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
 
     useEffect(() => {
         const container = getScrollContainer?.() || window;
-        nextTick(() => {
-            if (container && mode === 'scroll') {
-                container.addEventListener('scroll', scrollHandler);
-            }
-        });
+        if (container && mode === 'scroll') {
+            container.addEventListener('scroll', scrollHandler);
+        }
         return () => {
             if (container && mode === 'scroll') {
                 container.removeEventListener('scroll', scrollHandler);

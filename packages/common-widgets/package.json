@@ -10,9 +10,6 @@
     },
     "author": "taoyiyue@bytedance.com",
     "license": "ISC",
-    "devDependencies": {
-      "gulp": "^4.0.2"
-    },
     "publishConfig": {
       "access": "public"
     },

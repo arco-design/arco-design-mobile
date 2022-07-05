@@ -10,7 +10,10 @@ function generateComponents(compSrcPath, compPagePath, language) {
     const compNames = fs.readdirSync(path.join(compSrcPath)).filter(name => {
         return fs.lstatSync(path.join(compSrcPath, name)).isDirectory();
     });
-    const npmVersion = childProcess.execSync('npm show @arco-design/mobile-react version').toString().trim();
+    let npmVersion = '0.0.0';
+    try {
+        npmVersion = childProcess.execSync('npm show @arco-design/mobile-react version').toString().trim();
+    } catch (e) {}
     const suffix = language in languageUtils.lang2SuffixMap ? languageUtils.lang2SuffixMap[language] : '';
     const mdSuffix = suffix ? `.${suffix}`: suffix;
     const tsxFileSuffix = suffix ? `-${suffix}`: suffix;
