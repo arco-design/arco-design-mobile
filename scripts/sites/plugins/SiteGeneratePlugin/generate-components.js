@@ -1,19 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-const utils = require('../../../utils');
 const childProcess = require('child_process');
+const utils = require('../../../utils');
 const languageUtils = require('../../../utils/language');
 const localeMap = require('../../../utils/language.json');
 const { renderDemoSource, renderNavIntro, renderReadmeTable } = require('./helpers');
 
-function generateComponents(compSrcPath, compPagePath, language) {
+function generateComponents(compSrcPath, compPagePath, language, latestVersion) {
     const compNames = fs.readdirSync(path.join(compSrcPath)).filter(name => {
         return fs.lstatSync(path.join(compSrcPath, name)).isDirectory();
     });
-    let npmVersion = '0.0.0';
-    try {
-        npmVersion = childProcess.execSync('npm show @arco-design/mobile-react version').toString().trim();
-    } catch (e) {}
     const suffix = language in languageUtils.lang2SuffixMap ? languageUtils.lang2SuffixMap[language] : '';
     const mdSuffix = suffix ? `.${suffix}`: suffix;
     const tsxFileSuffix = suffix ? `-${suffix}`: suffix;
@@ -22,7 +18,6 @@ function generateComponents(compSrcPath, compPagePath, language) {
     let compDocsStr = `    'icon': ${importName},\n`;
 
     const compRoutes = {};
-
 
     compNames.forEach(comp => {
         if(comp === 'locale') {
@@ -80,7 +75,7 @@ function generateComponents(compSrcPath, compPagePath, language) {
                 order,
                 source: `<Code codeSource="${encodeURIComponent(
                     codeSource
-                )}" version="${npmVersion}" compKey="${comp}" demoKey="demo-${comp}" name="${title}" code={<div className="demo-code-wrapper" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
+                )}" version="${latestVersion}" compKey="${comp}" demoKey="demo-${comp}" name="${title}" code={<div className="demo-code-wrapper" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
                     source,
                 )} }} />} language={language || LanguageSupport.CH} />`,
             });

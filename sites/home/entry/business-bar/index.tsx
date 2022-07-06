@@ -92,7 +92,7 @@ export default function BusinessBar() {
                     {logo ? (
                         <img
                             className={`icon-img ${logo ? `icon-${logo}` : ''} fade-in`}
-                            src={`https://sf1-cdn-tos.huoshanstatic.com/obj/arco-mobile/_home_/logo_${logo}.svg`}
+                            src={`https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_home_/logo_${logo}.svg`}
                         />
                     ) : (
                         <div className="placeholder">{name}</div>
@@ -100,7 +100,7 @@ export default function BusinessBar() {
                     {logo ? (
                         <img
                             className={`icon-img ${logo ? `icon-${logo}` : ''} fade-out`}
-                            src={`https://sf1-cdn-tos.huoshanstatic.com/obj/arco-mobile/_home_/logo_${preLogo}.svg`}
+                            src={`https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_home_/logo_${preLogo}.svg`}
                         />
                     ) : (
                         <div className="placeholder">{preName}</div>
@@ -113,7 +113,7 @@ export default function BusinessBar() {
                 {logo ? (
                     <img
                         className={`icon-img ${logo ? `icon-${logo}` : ''}`}
-                        src={`https://sf1-cdn-tos.huoshanstatic.com/obj/arco-mobile/_home_/logo_${logo}.svg`}
+                        src={`https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_home_/logo_${logo}.svg`}
                     />
                 ) : (
                     <div className="placeholder">{name}</div>

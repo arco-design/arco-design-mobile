@@ -1,14 +1,16 @@
 const path = require('path');
+const axios = require('axios');
 const rootPath = path.resolve(__dirname, '../../../../');
 const generateToken = require('../../../../packages/arcodesign/tokens/scripts/generate/generate');
 const { generateSite } = require('./generate-site');
 const generateIcon = require('./generate-icon');
 
-class DemoGeneratePlugin {
+class SiteGeneratePlugin {
     constructor(options) {
         this.options = options || {
             languages: ['ch', 'en']
         };
+        this.initial = true;
     }
     generateTokens() {
         try {
@@ -23,11 +25,28 @@ class DemoGeneratePlugin {
         }
     }
     apply(compiler) {
-        compiler.hooks.afterPlugins.tap('afterPlugins', () => {
-            console.log('>>> Compile started. Generating sites...');
-            this.options.tokenInfo = this.generateTokens();
-            generateSite(this.options);
-            generateIcon(this.options);
+        compiler.hooks.beforeCompile.tapAsync('beforeCompile', (_, callback) => {
+            if (this.initial) {
+                this.initial = false;
+                let latestVersion = '0.0.0';
+                axios.get('https://registry.npmjs.org/@arco-design/mobile-react')
+                    .then(data => {
+                        latestVersion = Object.keys(data.data.versions).pop();
+                    })
+                    .catch(_ => {
+                        console.log('fetch npm version failed');
+                    })
+                    .finally(() => {
+                        console.log('>>> Compile started. Generating sites...');
+                        this.options.tokenInfo = this.generateTokens();
+                        this.options.latestVersion = latestVersion;
+                        generateSite(this.options);
+                        generateIcon(this.options);
+                        callback();
+                    });
+            } else {
+                callback();
+            }
         });
         compiler.hooks.watchRun.tap('WatchRun', (comp) => {
             const changedTimes = comp.watchFileSystem.watcher.mtimes;
@@ -47,4 +66,4 @@ class DemoGeneratePlugin {
     }
 }
 
-module.exports = DemoGeneratePlugin;
+module.exports = SiteGeneratePlugin;

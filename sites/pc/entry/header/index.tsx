@@ -9,7 +9,7 @@ import { localeMap } from '../../../utils/locale';
 import './index.less';
 
 const { Option } = AutoComplete;
-const logo = 'https://sf1-cdn-tos.huoshanstatic.com/obj/arco-mobile/arco-design/arco-logo.svg';
+const logo = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/arco-design/arco-logo.svg';
 
 const headerMenu = (language: LanguageSupport) => [
     {
