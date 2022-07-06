@@ -13,6 +13,7 @@
     "build": "lerna run build",
     "eslint": "eslint packages/ sites/ --fix",
     "test": "jest --config packages/arcodesign/jest.config.js",
+    "prepub": "node scripts/publish/pre-publish.js",
     "pub": "lerna publish --no-git-reset --registry=https://registry.npmjs.org/",
     "postpub": "node scripts/publish/post-publish.js",
     "postinstall": "npm run init && lerna run build --scope @arco-design/mobile-utils",
