@@ -5,7 +5,7 @@
     "main": "cjs/index.js",
     "module": "esm/index.js",
     "scripts": {
-      "build": "rm -rf esm umd cjs; gulp build",
+      "build": "rimraf esm umd cjs; gulp build",
       "prepublishOnly": "npm run build"
     },
     "author": "taoyiyue@bytedance.com",

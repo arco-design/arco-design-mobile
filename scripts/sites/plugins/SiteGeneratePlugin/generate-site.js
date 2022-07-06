@@ -21,9 +21,9 @@ function generateSite({
     const guidePagePath = path.join(rootPath, guidePageFolder);
     const resourcePagePath = path.join(rootPath, resourcePageFolder);
     // 更新内容
-    childProcess.execSync(`rm -rf ${compPagePath} && mkdir -p ${compPagePath}`);
-    childProcess.execSync(`rm -rf ${guidePagePath} && mkdir -p ${guidePagePath}`);
-    childProcess.execSync(`rm -rf ${resourcePagePath} && mkdir -p ${resourcePagePath}`);
+    childProcess.execSync(`rimraf ${compPagePath} && make-dir ${compPagePath}`);
+    childProcess.execSync(`rimraf ${guidePagePath} && make-dir ${guidePagePath}`);
+    childProcess.execSync(`rimraf ${resourcePagePath} && make-dir ${resourcePagePath}`);
 
     generateGuide(guidePagePath, srcPath, tokenInfo, path.resolve('sites/pc/static/md'), languages);
     languages.map(lang => {

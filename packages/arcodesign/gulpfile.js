@@ -89,13 +89,13 @@ function moveCss() {
             ['esm', 'umd', 'cjs'].forEach(type => {
                 const filePath = path.join('_temp_style_', file);
                 const newPath = path.join(type, path.dirname(file), 'css');
-                childProcess.execSync(`mkdir -p ${newPath} && cp ${filePath} ${newPath}`);
+                childProcess.execSync(`make-dir ${newPath} && cp ${filePath} ${newPath}`);
             });
         });
-        childProcess.execSync('rm -rf _temp_style_');
+        childProcess.execSync('rimraf _temp_style_');
     } catch (e) {
         console.error(e);
-        childProcess.execSync('rm -rf _temp_style_');
+        childProcess.execSync('rimraf _temp_style_');
     }
     return Promise.resolve();
 }
@@ -121,13 +121,13 @@ function moveCssEntry() {
             ['esm', 'umd', 'cjs'].forEach(type => {
                 const filePath = path.join('_temp_style_entry_', type, file);
                 const newPath = path.join(type, path.dirname(file), 'css');
-                childProcess.execSync(`mkdir -p ${newPath} && cp ${filePath} ${newPath}`);
+                childProcess.execSync(`make-dir ${newPath} && cp ${filePath} ${newPath}`);
             });
         });
-        childProcess.execSync('rm -rf _temp_style_entry_');
+        childProcess.execSync('rimraf _temp_style_entry_');
     } catch (e) {
         console.error(e);
-        childProcess.execSync('rm -rf _temp_style_entry_');
+        childProcess.execSync('rimraf _temp_style_entry_');
     }
     return Promise.resolve();
 }

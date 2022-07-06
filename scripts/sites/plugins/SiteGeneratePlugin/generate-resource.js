@@ -31,7 +31,7 @@ function generateResource(resourcePagePath, docPath) {
     const utilsSourceOutput = path.join(resourcePagePath, 'utils');
     const mixinSourceOutput = path.join(resourcePagePath, 'mixin');
     childProcess.execSync(
-        `rm -rf ${resourcePagePath} && mkdir -p ${hooksSourceOutput} && mkdir -p ${utilsSourceOutput} && mkdir -p ${mixinSourceOutput}`,
+        `rimraf ${resourcePagePath} && make-dir ${hooksSourceOutput} && make-dir ${utilsSourceOutput} && make-dir ${mixinSourceOutput}`,
     );
     const hooksSource = fs.readdirSync(hooksSourceMdPath);
     const utilsSource = fs.readdirSync(utilsSourceMdPath);
@@ -210,7 +210,7 @@ export default function Demo() {
         }
     });
     try {
-        childProcess.execSync(`mkdir -p ${outputFolder}`);
+        childProcess.execSync(`make-dir ${outputFolder}`);
         mdFileStr +=
             pageStr +
             `

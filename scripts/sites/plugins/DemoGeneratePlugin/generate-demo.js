@@ -27,7 +27,7 @@ function renderSource(
         const filename = `_${utils.getCompName(demoName)}`;
         const content = `import React from 'react';
 ${code.replace(reg, `../../../${compFolder}`).replace(/\/esm\//g, '/')}`;
-        child_process.execSync(`mkdir -p ${sitePath}/${comp}`);
+        child_process.execSync(`make-dir ${sitePath}/${comp}`);
         fs.writeFile(path.join(docPath, `${filename}.js`), content, () => {
             console.log(`>>> Write demo file finished: ${comp}/${filename}`);
         });
@@ -306,7 +306,7 @@ function generateDemo(options = {
     const { siteFolder = 'sites/pages', languages = ['ch', 'en'], ...restParams} = options;
     const depsCompSet = new Set();
     const sitePath = path.join(rootPath, siteFolder);
-    child_process.execSync(`rm -rf ${sitePath}`);
+    child_process.execSync(`rimraf ${sitePath}`);
     languages.map(lang => generateSiteDemo({...restParams, depsCompSet, siteFolder, language: lang}));
     generateRootDemo(options, depsCompSet);
 }
