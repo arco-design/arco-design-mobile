@@ -23,13 +23,15 @@
 
 # 特性
 
-## 全面
-
-60 多个高质量组件，开箱即用。
-
-## TypeScript 友好
-
-所有组件都使用 TypeScript 编写，天然的类型友好。
+- 基于 TypeScript 提供 50+ 开箱即用的组件
+- 简洁克制的 UI 设计 & 精确到像素的还原
+- 追求极致的手指交互效果
+- 重要组件线上大流量验证
+- 细粒度且灵活的属性配置
+- 支持服务端渲染
+- 支持国际化
+- 支持按需引入
+- 支持主题配置
 
 # 安装
 
@@ -71,13 +73,13 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 # 浏览器兼容性
 
-| [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/08095282566ac4e0fd98f89aed934b65.png~tplv-uwbnlip3yd-png.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/40ad73571879dd8d9fd3fd524e0e45a4.png~tplv-uwbnlip3yd-png.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/4f59d35f6d6837b042c8badd95871b1d.png~tplv-uwbnlip3yd-png.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/eee2667f837a9c2ed531805850bf43ec.png~tplv-uwbnlip3yd-png.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3240334d3967dd263c8f4cdd2d93c525.png~tplv-uwbnlip3yd-png.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/f2454685df95a1a557a61861c5bec256.png~tplv-uwbnlip3yd-png.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Electron |
-| --------- | --------- | --------- | --------- | --------- | --------- |
-| Edge 16| 31| 49 | 31 | 36 | last 2 versions |
+| <img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/eee2667f837a9c2ed531805850bf43ec.png~tplv-uwbnlip3yd-png.png" alt="Safari" width="24px" height="24px" /><br/>Safari on iOS | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/1022px-Android_robot.svg.png" alt="Opera" width="20px" height="24px" /><br/>Android Webview |
+| --------- | --------- |
+| 9 | 4.4 |
 
 # 参与贡献
 
-贡献之前请先阅读 [行为准则](./CODE_OF_CONDUCT.md) 和 [贡献指南](./CONTRIBUTING.md).
+贡献之前请先阅读 [行为准则](./CODE_OF_CONDUCT.md) 和 [贡献指南](./CONTRIBUTING.zh-CN.md).
 
 感谢所有为 Arco Design Mobile 做过贡献的人!
 

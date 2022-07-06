@@ -8,7 +8,6 @@ import Demo from './demo';
 import Home from './home';
 import readmeDocs from '../pages/guide';
 import { LanguageSupport } from '../../utils/language';
-import { initSlardar } from '../../utils/slardar';
 import './index.less';
 
 export const HistoryContext = createContext<any>(null);
@@ -16,7 +15,6 @@ export const HistoryContext = createContext<any>(null);
 function CompGenerator(children, history) {
     return <HistoryContext.Provider value={history}>{children}</HistoryContext.Provider>;
 }
-initSlardar();
 ReactDOM.render(
     <div className="arcodesign-pc-site-wrap">
         <HashRouter>

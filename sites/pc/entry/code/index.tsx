@@ -4,7 +4,6 @@ import { LanguageSupport } from '../../../utils/language';
 
 import { CodeInfo, getCodePenData } from './codeBox';
 import { localeMap } from '../../../utils/locale';
-import { clickReportSlardar } from '../../../utils/slardar';
 import Sandbox from './sandbox';
 import './index.less';
 
@@ -30,27 +29,15 @@ export default function Code(props: IDocProps) {
     };
 
     function handleClickSpreadBtn() {
-        clickReportSlardar({
-            click_content: 'expand',
-            component_name: compKey,
-        });
         setShowAll(!showAll);
     }
 
     function handleClickCopyBtn() {
-        clickReportSlardar({
-            click_content: 'copy',
-            component_name: compKey,
-        });
         window.copyToClipboard(decodeURIComponent(props.codeSource));
         Message.success(localeMap.CopySuccess[language]);
     }
 
     function toCodePen() {
-        clickReportSlardar({
-            click_content: 'codePen',
-            component_name: compKey,
-        });
         if (!demoDomRef || !demoDomRef.current) {
             return;
         }
