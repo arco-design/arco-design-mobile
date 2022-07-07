@@ -54,7 +54,7 @@ function getCdnBaseUrl(file, version) {
         const rootPath = path.resolve(__dirname, '../..');
         const packageJsonPath = path.resolve(arcoPackage, 'package.json');
         const widgetsPackagePath = path.resolve(widgetsPackage, 'package.json');
-        childProcess.execSync(`cd ${rootPath} && ${res.map(readmePath => ` git add ${readmePath} `).join('&&')} && git add ${packageJsonPath} && git add ${widgetsPackagePath} && git push origin main`, {
+        childProcess.execSync(`cd ${rootPath} && ${res.map(readmePath => ` git add ${readmePath} `).join('&&')} && git add ${packageJsonPath} && git add ${widgetsPackagePath} && git commit -m "build: update readme" && git push origin main`, {
             stdio: 'inherit'
         });
         console.log(`\n 更新 README CDN 地址成功`);
