@@ -1,17 +1,17 @@
 {
-    "name": "@arco-design/mobile-utils",
-    "version": "2.9.3",
-    "description": "",
-    "main": "cjs/index.js",
-    "module": "esm/index.js",
-    "scripts": {
-      "build": "rm -rf esm umd cjs; gulp build",
-      "prepublishOnly": "npm run build"
-    },
-    "author": "taoyiyue@bytedance.com",
-    "license": "ISC",
-    "publishConfig": {
-      "access": "public"
-    },
-    "gitHead": "adeb4e9ed63ab85d5f0a3f7a4808da2fb5008a43"
-  }
+  "name": "@arco-design/mobile-utils",
+  "version": "2.10.0",
+  "description": "",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "scripts": {
+    "build": "rm -rf esm umd cjs; gulp build",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "taoyiyue@bytedance.com",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "adeb4e9ed63ab85d5f0a3f7a4808da2fb5008a43"
+}
