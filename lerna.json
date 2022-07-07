@@ -4,9 +4,6 @@
       "conventionalCommits": true,
       "message": "build: release version",
       "yes": true
-    },
-    "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
     }
   },
   "packages": [
