@@ -40,10 +40,6 @@ function setRootPixel(base, sketch, max) {
                     || sketchWidth;
         }
         var htmlFontSizePx = clientWidth / sketchWidth * rem2px;
-        /* 兼容移动端页面在pc站上的显示，
-            media query后固定body的宽度，这时候以浏览器宽度来计算html的font-size就会使页面样式错乱
-        */
-
         htmlFontSizePx = Math.min(htmlFontSizePx, maxFontSize);
         window.ROOT_FONT_SIZE = htmlFontSizePx;
         document.documentElement.style.fontSize = "".concat(htmlFontSizePx / getDefaultFontSize() * 100, "%");

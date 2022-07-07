@@ -125,5 +125,8 @@
     "react-router-dom": "^5.1.2",
     "react-transition-group": "^4.3.0",
     "rollup-plugin-terser": "^7.0.2"
+  },
+  "resolutions": {
+    "@types/react": "^16"
   }
 }
