@@ -39,7 +39,7 @@ function generateIconDemoByLang(language) {
                 dirName.startsWith('Icon'),
         )
         .reduce((pre, cur) => {
-            iconMap += `    {${cur}: <${cur} />},\n`;
+            iconMap += `    {${cur}: <${cur} useCurrentColor={false} />},\n`;
             return (pre += `import ${cur} from '../../../../../packages/arcodesign/components/icon/${cur}';\n`);
         }, '');
 

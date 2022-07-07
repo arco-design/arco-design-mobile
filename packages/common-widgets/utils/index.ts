@@ -4,7 +4,6 @@
  */
 
 export { default as cls } from './classnames';
-export * from './frame-throttle';
 export * from './dom';
 export * from './is';
 export * from './type';

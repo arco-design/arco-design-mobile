@@ -246,6 +246,7 @@ export function usePopupScroll(
             const node = e.target as HTMLElement | null;
             const { dom: touchingDom, inScrollIndexes: touchingIndexes } = touchingRef.current;
             // target一样就取缓存结果，不取dom判断了
+            // @en If the target is the same, the cached result is taken, and the dom judgment is not taken.
             const inScrollIndexes =
                 touchingDom === node ? touchingIndexes : judgeInScroll(node, scroll);
             const distanceX = touchMoveX - touchStartXRef.current;
@@ -285,6 +286,7 @@ export function usePopupScroll(
                     needPrevents.push(false);
                 }
                 // 满足一个不prevent的条件就停止prevent，否则prevent
+                // @en Stop prevent if a non-prevent condition is met, otherwise prevent.
                 if (needPrevents.indexOf(false) < 0) {
                     preventCallbackRef.current?.(e, direc);
                     e.cancelable && e.preventDefault();
@@ -403,11 +405,13 @@ export function usePreventBodyScroll(
             return () => {};
         }
         // 如果一开始就是visible=true则加上样式
+        // @en If it is visible=true at the beginning, add the style.
         if (visible) {
             addFullScreen();
         }
         return () => {
             // 如果这里visible为true，则说明即将隐藏组件或在展示时卸载组件
+            // @en If visible here is true, it means that the component is about to be hidden or unloaded when displayed.
             if (visible) {
                 removeFullScreen();
             }
