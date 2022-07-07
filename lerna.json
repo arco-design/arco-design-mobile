@@ -4,9 +4,6 @@
       "conventionalCommits": true,
       "message": "build: [ci skip] publish npm",
       "yes": true
-    },
-    "bootstrap": {
-      "npmClientArgs": ["--no-package-lock"]
     }
   },
   "packages": [
