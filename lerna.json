@@ -2,7 +2,7 @@
   "command": {
     "publish": {
       "conventionalCommits": true,
-      "message": "build: [ci skip] publish npm",
+      "message": "build: release version",
       "yes": true
     },
     "bootstrap": {

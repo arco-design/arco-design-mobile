@@ -128,7 +128,7 @@ describe('Tabs', () => {
         // wrapper.setProps({ onScroll });
         scrollToIndex(0);
         // wrapper.update();
-        // expect(onScroll.mock.calls).toHaveLength(1); // TODO
+        // expect(onScroll.mock.calls).toHaveLength(1);
     });
 
     it('should switch tabs by swiping correctly', () => {

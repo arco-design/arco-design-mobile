@@ -107,7 +107,6 @@ export function scrollParent(node: HTMLElement): HTMLElement | Document | null {
 
         const style = window.getComputedStyle(parent);
         const { position } = style;
-        // const overflow = style.overflow || '';
         const overflowX = style.overflowX || '';
         const overflowY = style.overflowY || '';
 
@@ -115,11 +114,7 @@ export function scrollParent(node: HTMLElement): HTMLElement | Document | null {
             parent = parent.parentNode as HTMLElement;
             continue;
         }
-        if (
-            overflowList.indexOf(overflowY) > -1 ||
-            overflowList.indexOf(overflowX) > -1
-            // && overflowList.indexOf(overflow) > -1
-        ) {
+        if (overflowList.indexOf(overflowY) > -1 || overflowList.indexOf(overflowX) > -1) {
             return parent;
         }
 
