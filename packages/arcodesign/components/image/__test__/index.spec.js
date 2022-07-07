@@ -13,7 +13,7 @@ describe('Image', () => {
         const wrapper = mount(
             <Image
                 staticLabel
-                src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/1c578279490742fe805ecd9356ab0722"
+                src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
             />,
         );
         expect(wrapper.find('img').length).toBe(1);
@@ -23,7 +23,7 @@ describe('Image', () => {
             <Image
                 fit="contain"
                 staticLabel
-                src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/1c578279490742fe805ecd9356ab0722"
+                src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
             />,
         );
         expect(wrapper.find('img').props().style.objectFit).toBe('contain');
@@ -33,7 +33,7 @@ describe('Image', () => {
             <Image
                 status="loading"
                 showLoading={true}
-                src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/1c578279490742fe805ecd9356ab0722"
+                src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
             />,
         );
         expect(wrapper.find('svg').length).toBe(1);
@@ -44,7 +44,7 @@ describe('Image', () => {
                 status="error"
                 showError={true}
                 errorArea={<div>加载失败</div>}
-                src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/1c578279490742fe805ecd9356ab0722"
+                src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
             />,
         );
         expect(wrapper.text()).toEqual('加载失败');

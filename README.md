@@ -74,7 +74,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 # Browser Support
 
-| <img src="https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/eee2667f837a9c2ed531805850bf43ec.png~tplv-uwbnlip3yd-png.png" alt="Safari" width="24px" height="24px" /><br/>Safari on iOS | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/1022px-Android_robot.svg.png" alt="Opera" width="20px" height="24px" /><br/>Android Webview |
+| <img src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/browser-ios.png" alt="Safari" width="24px" height="24px" /><br/>Safari on iOS | <img src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/browser-android.png" alt="Opera" width="20px" height="24px" /><br/>Android Webview |
 | --------- | --------- |
 | 9 | 4.4 |
 

@@ -5,7 +5,7 @@ import mountTest from '../../../tests/mountTest';
 import Avatar from '..';
 import { defaultContext } from '../../context-provider';
 
-const demoAvatarSrc = 'https://p1.toutiaoimg.com/origin/pgc-image/00430579b2fd4f7f9878de90faa60617';
+const demoAvatarSrc = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/small_image_5.jpg';
 const prefix = `${defaultContext.prefixCls}-avatar`;
 
 demoTest('avatar');

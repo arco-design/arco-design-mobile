@@ -33,9 +33,9 @@ const TestDemo = (props = {}) => {
                 }}
                 close={() => setOpenIndex(-1)}
                 images={[
-                    { src: 'https://p9-tt-ipv6.byteimg.com/origin/pgc-image/756cfa3a513c483dbe97d597f1ad02fe' },
-                    { src: 'https://p1-tt-ipv6.byteimg.com/origin/pgc-image/ab648820b6ce4a5fa7a66ed6efe92ef2' },
-                    { src: 'https://p6-tt-ipv6.byteimg.com/origin/pgc-image/2ffee7f86e1b4ade8bd574483ecb3fa0' },
+                    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg' },
+                    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
+                    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg' },
                 ]}
                 {...restProps}
             />
@@ -97,8 +97,8 @@ describe('ImagePreview', () => {
         const wrapper = mount(<TestDemo
             staticLabel={true}
             images={[{
-                src: 'https://p1-tt-ipv6.byteimg.com/origin/pgc-image/ab648820b6ce4a5fa7a66ed6efe92ef2',
-                fallbackSrc: 'https://p9-tt-ipv6.byteimg.com/medium/pgc-image/756cfa3a513c483dbe97d597f1ad02fe',
+                src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
+                fallbackSrc: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
             }]}
             getThumbBounds={() => ({ top: 100, bottom: 200, left: 20, right: 120, width: 100, height: 100 })}
         />);

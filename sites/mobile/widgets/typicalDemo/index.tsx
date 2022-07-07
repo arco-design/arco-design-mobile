@@ -12,12 +12,9 @@ import TagDemo from './boxes/tags';
 import CollapseDemo from './boxes/collapse-list';
 import CheckboxDemo from './boxes/checkbox';
 import RateDemo from './boxes/rate';
-// import NavbarDemo from './boxes/nav-bar';
 import DialogDemo from './boxes/dialog-box';
-import './index.less';
 import { GlobalContext } from './setting';
-
-
+import './index.less';
 
 interface ITypicalDemoProps {
     language?: LanguageSupport;
@@ -30,28 +27,27 @@ export default function TypicalDemo({ language = LanguageSupport.CH }: ITypicalD
     return (
         <GlobalContext.Provider value={{ language }}>
             <div className="typical-demo arcodesign-mobile-demo-wrapper">
-            <div className='column-first'>
-                <SliderDemo />
-                <div className='column-first-unit'>
-                    <CircleProgressDemo />
-                    <CountdownDemo />
+                <div className="column-first">
+                    <SliderDemo />
+                    <div className="column-first-unit">
+                        <CircleProgressDemo />
+                        <CountdownDemo />
+                    </div>
+                    <BtnsDemo />
+                    <List2Demo />
+                    <TagDemo />
                 </div>
-                <BtnsDemo />
-                <List2Demo />
-                <TagDemo />
-            </div>
-            <div className='column-second'>
-                <CheckboxDemo />
-                <div className='column-second-unit'>
-                    <RateDemo />
-                    <DialogDemo />
-                    {/* <NavbarDemo /> */}
+                <div className="column-second">
+                    <CheckboxDemo />
+                    <div className="column-second-unit">
+                        <RateDemo />
+                        <DialogDemo />
+                    </div>
+                    <List1Demo />
+                    <AvatarDemo />
+                    <CollapseDemo />
                 </div>
-                <List1Demo />
-                <AvatarDemo />
-                <CollapseDemo />
             </div>
-        </div>
         </GlobalContext.Provider>
     );
 }

@@ -9,9 +9,9 @@ export default function ImagePreviewDemo() {
     const [openIndex, setOpenIndex] = React.useState(-1);
     const imagesRef = React.useRef([]);
     const thumbs = [
-        "https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg",
-        "https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg",
-        "https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg",
+        'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
+        'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg',
+        'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg',
     ];
     return (<div className="image-fit-demo">
         {thumbs.map((thumb, index)=> (
