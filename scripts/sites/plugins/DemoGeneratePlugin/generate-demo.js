@@ -1,6 +1,6 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
-const marked = require('marked');
+const { marked } = require('marked');
 const child_process = require('child_process');
 const utils = require('../../../utils');
 const languageUtils = require('../../../utils/language');
@@ -27,9 +27,10 @@ function renderSource(
         const filename = `_${utils.getCompName(demoName)}`;
         const content = `import React from 'react';
 ${code.replace(reg, `../../../${compFolder}`).replace(/\/esm\//g, '/')}`;
-        child_process.execSync(`mkdir -p ${sitePath}/${comp}`);
+
+        fs.mkdirpSync(`${sitePath}/${comp}`);
         fs.writeFile(path.join(docPath, `${filename}.js`), content, () => {
-            console.log(`>>> Write demo file finished: ${comp}/${filename}`);
+            // console.log(`>>> Write demo file finished: ${comp}/${filename}`);
         });
 
         const res = [...code.matchAll(/import {([^}]+)} from '@arco-design\/mobile-react';/g)];
@@ -94,7 +95,8 @@ function generateRootDemo({
     filterComp = [],
 } = {}, depsCompSet) {
     const compFolder = srcFolder + '/components';
-    child_process.execSync(`rm -f ${compFolder}/index.ts && rm -f ${compFolder}/style.ts`);
+    fs.removeSync(`${compFolder}/index.ts`);
+    fs.removeSync(`${compFolder}/style.ts`);
     const normalizeFilterComp = Array.isArray(filterComp)
         ? [...filterComp]
         : [];
@@ -160,14 +162,14 @@ function generateSiteDemo({
     const normalizeFilterComp = Array.isArray(filterComp)
         ? [...filterComp]
         : [];
-        const sitePath = path.join(rootPath, siteFolder);
+    const sitePath = path.join(rootPath, siteFolder);
     const compPath = path.join(rootPath, compFolder);
     const compNames = fs.readdirSync(path.join(compPath)).filter(name => {
         return fs.lstatSync(path.join(compPath, name)).isDirectory();
     });
     const suffix = language in languageUtils.lang2SuffixMap ? languageUtils.lang2SuffixMap[language] : '';
-    const mdSuffix = suffix ? `.${suffix}`: suffix;
-    const tsxFileSuffix = suffix ? `-${suffix}`: suffix;
+    const mdSuffix = suffix ? `.${suffix}` : suffix;
+    const tsxFileSuffix = suffix ? `-${suffix}` : suffix;
     const demoCompSet = new Set();
     let compDocsImportStr = '';
     let compDocsStr = '';
@@ -271,7 +273,7 @@ export default function Demo() {
             demoCompSet.add(comp);
         }
         fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), entry, () => {
-            console.log(`>>> Write demo file finished: ` + comp);
+            // console.log(`>>> Write demo file finished: ` + comp);
         });
     });
 
@@ -303,12 +305,17 @@ function generateDemo(options = {
     filterComp: [],
     languages: ['ch', 'en']
 }) {
-    const { siteFolder = 'sites/pages', languages = ['ch', 'en'], ...restParams} = options;
+    const { siteFolder = 'sites/pages', languages = ['ch', 'en'], ...restParams } = options;
     const depsCompSet = new Set();
     const sitePath = path.join(rootPath, siteFolder);
-    child_process.execSync(`rm -rf ${sitePath}`);
-    languages.map(lang => generateSiteDemo({...restParams, depsCompSet, siteFolder, language: lang}));
+    console.log(`>>> Start generate demo files...`);
+    fs.removeSync(sitePath);
+    console.log(`>>> Clean demo files finished.`);
+    console.log(`>>> Start generate demo entry files...`);
+    languages.map(lang => generateSiteDemo({ ...restParams, depsCompSet, siteFolder, language: lang }));
+    console.log(`>>> Generate demo entry files finished.`);
     generateRootDemo(options, depsCompSet);
+    console.log(`>>> Generate demo files finished.`);
 }
 
 module.exports = generateDemo;

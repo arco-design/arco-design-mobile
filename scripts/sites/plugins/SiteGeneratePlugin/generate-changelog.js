@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const utils = require('../../../utils');
 const localeMap = require('../../../utils/language.json');
 
@@ -56,7 +56,7 @@ function generateChangelog(filePath, outputPath, language = 'ch') {
 import React from 'react';
 import { Timeline } from 'arco';
 
-const TimelineItem = Timeline.Item;
+${changelogContentMap.length ? 'const TimelineItem = Timeline.Item;' : ''}
 
 export default function ChangelogFile() {
     return (
@@ -64,7 +64,7 @@ export default function ChangelogFile() {
             <div className="demo-doc-intro">
                 <p className="demo-doc-type">${utils.getUpperPhase(localeMap.developmentGuide[language])}</p>
                 <h1 className="demo-doc-name">${localeMap.changelog[language]}</h1>
-                <p className="demo-doc-desc">${localeMap.changelogDesc[language]}。</p>
+                <p className="demo-doc-desc">${localeMap.changelogDesc[language]}</p>
             </div>
             <div
                 className="demo-doc-description"

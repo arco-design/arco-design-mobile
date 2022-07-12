@@ -45,6 +45,9 @@ $ npm run build
 
 # 执行组件单元测试
 $ npm run test
+
+# 新增一个组件
+$ npm run add -- new-comp
 ```
 
 ## Commit 指南

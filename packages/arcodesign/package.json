@@ -6,8 +6,8 @@
     "module": "esm/index.js",
     "scripts": {
         "prebuild": "node ../../scripts/build/pre-build.js",
-        "build": "rm -rf esm/* umd/* cjs/* && gulp build && npm run dist",
-        "dist": "rm -rf dist/* && cd ../../ && node packages/arcodesign/rollup.lib.js",
+        "build": "rimraf esm/* umd/* cjs/* && gulp build && npm run dist",
+        "dist": "rimraf dist/* && cd ../../ && node packages/arcodesign/rollup.lib.js",
         "prepublishOnly": "npm run build",
         "build:bd": "npm run build",
         "test": "jest"

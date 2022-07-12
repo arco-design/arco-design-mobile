@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const generateChangelog = require('./generate-changelog');
 const generateTokenPage = require('./generate-token-page');

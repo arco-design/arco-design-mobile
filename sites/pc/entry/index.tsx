@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import demoDocs from '../pages/components';
 import enDemoDocs from '../pages/components/index-en-US';
-// import resourceDoc from '../pages/resource';
 import Demo from './demo';
 import Home from './home';
 import readmeDocs from '../pages/guide';
@@ -87,43 +86,6 @@ ReactDOM.render(
                     }}
                     exact
                 />
-                {/* <Route
-                    path="/resource/:name"
-                    render={({ history, match }) => {
-                        const { name } = match.params;
-                        const Comp = resourceDoc[name];
-                        return Comp
-                            ? CompGenerator(
-                                  <Demo
-                                      type="readme"
-                                      name={name}
-                                      doc={<Comp />}
-                                      showQRCode={false}
-                                  />,
-                                  history,
-                              )
-                            : null;
-                    }}
-                />
-                <Route
-                    path="/en-US/resource/:name"
-                    render={({ history, match }) => {
-                        const { name } = match.params;
-                        const Comp = resourceDoc[`${name}-en-US`];
-                        return Comp
-                            ? CompGenerator(
-                                  <Demo
-                                      type="readme"
-                                      name={name}
-                                      doc={<Comp />}
-                                      showQRCode={false}
-                                      language={LanguageSupport.EN}
-                                  />,
-                                  history,
-                              )
-                            : null;
-                    }}
-                /> */}
                 <Route
                     path="/en-US"
                     render={({ history }) =>

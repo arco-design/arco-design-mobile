@@ -10,7 +10,7 @@ const utils = require('../utils');
 const baseConfig = require('./webpack.common.js');
 const sitePath = path.resolve(__dirname, '../../sites');
 
-const filterComp = process.env.FILTER_COMP.split(' ')
+const filterComp = (process.env.FILTER_COMP || '').split(' ')
     .filter(e => e)
     .map(utils.getFolderName);
 
