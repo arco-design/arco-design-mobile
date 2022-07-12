@@ -1,0 +1,28 @@
+name: build_size
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  report-size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: install
+        run: npm install
+
+      - name: report-compressed-size
+        uses: preactjs/compressed-size-action@v2
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          build-script: 'build'
+          pattern: './packages/arcodesign/{cjs,dist,esm,umd}/**/*.{js,css}'

@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const rootPath = path.resolve(__dirname, '../../');
 const { execSync } = require('child_process');
@@ -104,7 +104,8 @@ function generateToken({ appName = 'arcodesign', outputFilter } = {}) {
     }
     const coreTokenContent = fs.readFileSync(path.join(rootPath, 'src/arcodesign/default/index.js'), 'utf-8');
     const tokenOutputRootPath = path.join(rootPath, 'app', appName);
-    execSync(`rm -rf ${tokenOutputRootPath} && mkdir -p ${tokenOutputRootPath}`);
+    fs.removeSync(tokenOutputRootPath);
+    fs.mkdirpSync(tokenOutputRootPath);
     const themes = fs.readdirSync(tokenRootPath).filter(name => {
         return fs.lstatSync(path.join(tokenRootPath, name)).isDirectory();
     });
@@ -115,7 +116,7 @@ function generateToken({ appName = 'arcodesign', outputFilter } = {}) {
         themeEntry.push(`exports.${theme} = require('./${theme}').default;`);
         const tokenPath = path.join(tokenRootPath, theme);
         const tokenOutputPath = path.join(tokenOutputRootPath, theme);
-        execSync(`mkdir -p ${tokenOutputPath}`);
+        fs.mkdirpSync(tokenOutputPath);
         const tokenFile = path.join(tokenPath, 'index.js');
         const tokenContent = fs.readFileSync(tokenFile, 'utf-8');
         delete require.cache[tokenFile];

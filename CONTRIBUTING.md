@@ -45,6 +45,9 @@ $ npm run build
 
 # run the complete test suite
 $ npm run test
+
+# add a new component
+$ npm run add -- new-comp
 ```
 
 ## Commit Guidelines

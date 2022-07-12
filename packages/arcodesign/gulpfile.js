@@ -8,6 +8,7 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const replace = require('gulp-replace');
 const NpmImportPlugin = require('less-plugin-npm-import');
+const fs = require('fs-extra');
 const { changeBabelModule } = require('./pack-util');
 
 const dts = ts.createProject('../../tsconfig.json', { emitDeclarationOnly: true });
@@ -89,13 +90,14 @@ function moveCss() {
             ['esm', 'umd', 'cjs'].forEach(type => {
                 const filePath = path.join('_temp_style_', file);
                 const newPath = path.join(type, path.dirname(file), 'css');
-                childProcess.execSync(`mkdir -p ${newPath} && cp ${filePath} ${newPath}`);
+                fs.mkdirpSync(newPath);
+                fs.copySync(filePath, path.join(newPath, path.basename(file)));
             });
         });
-        childProcess.execSync('rm -rf _temp_style_');
+        fs.removeSync('_temp_style_');
     } catch (e) {
         console.error(e);
-        childProcess.execSync('rm -rf _temp_style_');
+        fs.removeSync('_temp_style_');
     }
     return Promise.resolve();
 }
@@ -121,13 +123,14 @@ function moveCssEntry() {
             ['esm', 'umd', 'cjs'].forEach(type => {
                 const filePath = path.join('_temp_style_entry_', type, file);
                 const newPath = path.join(type, path.dirname(file), 'css');
-                childProcess.execSync(`mkdir -p ${newPath} && cp ${filePath} ${newPath}`);
+                fs.mkdirpSync(newPath);
+                fs.copySync(filePath, path.join(newPath, path.basename(file)));
             });
         });
-        childProcess.execSync('rm -rf _temp_style_entry_');
+        fs.removeSync('_temp_style_entry_');
     } catch (e) {
         console.error(e);
-        childProcess.execSync('rm -rf _temp_style_entry_');
+        fs.removeSync('_temp_style_entry_');
     }
     return Promise.resolve();
 }

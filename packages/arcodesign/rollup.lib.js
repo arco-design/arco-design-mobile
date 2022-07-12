@@ -11,7 +11,7 @@ const ReplacePlugin = require('@rollup/plugin-replace');
 const PostcssPlugin = require('rollup-plugin-postcss');
 const { terser: TerserPlugin } = require('rollup-plugin-terser');
 const NpmImportPlugin = require('less-plugin-npm-import');
-const childProcess = require('child_process');
+const fs = require('fs-extra');
 const { changeBabelModule } = require('./pack-util');
 
 const babelConfig = changeBabelModule(false);
@@ -129,5 +129,6 @@ function buildCss(uglify) {
     await Promise.all([buildJs(), buildCss(), buildJs(true), buildCss(true)]).catch(e => {
         console.error(e);
     });
-    childProcess.execSync(`rm -f ${path.resolve(__dirname, 'dist/style*.js')}`);
+    fs.removeSync(path.resolve(__dirname, 'dist/style.js'));
+    fs.removeSync(path.resolve(__dirname, 'dist/style.min.js'));
 })();

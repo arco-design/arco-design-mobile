@@ -1,5 +1,5 @@
-const marked = require('marked');
-const fs = require('fs');
+const { marked } = require('marked');
+const fs = require('fs-extra');
 const path = require('path');
 const utils = require('../../../utils');
 const rootPath = path.resolve(__dirname, '../../../../');

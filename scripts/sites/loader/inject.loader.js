@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
 const { validate } = require('schema-utils');
 
 function replaceAll(origin, target, source) {

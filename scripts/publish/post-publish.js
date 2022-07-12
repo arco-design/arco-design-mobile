@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs-extra');
 const childProcess = require('child_process');
 const axios = require('axios');
 

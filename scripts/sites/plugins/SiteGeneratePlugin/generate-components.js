@@ -1,7 +1,7 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
-const childProcess = require('child_process');
 const utils = require('../../../utils');
+const childProcess = require('child_process');
 const languageUtils = require('../../../utils/language');
 const localeMap = require('../../../utils/language.json');
 const { renderDemoSource, renderNavIntro, renderReadmeTable } = require('./helpers');
@@ -11,8 +11,8 @@ function generateComponents(compSrcPath, compPagePath, language, latestVersion) 
         return fs.lstatSync(path.join(compSrcPath, name)).isDirectory();
     });
     const suffix = language in languageUtils.lang2SuffixMap ? languageUtils.lang2SuffixMap[language] : '';
-    const mdSuffix = suffix ? `.${suffix}`: suffix;
-    const tsxFileSuffix = suffix ? `-${suffix}`: suffix;
+    const mdSuffix = suffix ? `.${suffix}` : suffix;
+    const tsxFileSuffix = suffix ? `-${suffix}` : suffix;
     const importName = utils.getCompName(`icon${tsxFileSuffix}`);
     let compDocsImportStr = `import ${importName} from './icon${tsxFileSuffix ? `/index${tsxFileSuffix}` : ''}';\n`;
     let compDocsStr = `    'icon': ${importName},\n`;
@@ -20,7 +20,7 @@ function generateComponents(compSrcPath, compPagePath, language, latestVersion) 
     const compRoutes = {};
 
     compNames.forEach(comp => {
-        if(comp === 'locale') {
+        if (comp === 'locale') {
             return;
         }
         // 内部工具js不处理
@@ -101,7 +101,7 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
     );
 }
 `;
-        childProcess.execSync(`mkdir -p ${docPath}`);
+        fs.mkdirpSync(docPath);
         fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), entry, () => {
             console.log(`>>> Write sites file finished: ` + comp);
         });

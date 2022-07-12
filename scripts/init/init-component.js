@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const child_process = require('child_process');
 const utils = require('../utils');
@@ -47,7 +47,8 @@ function copyFile() {
         console.error('组件已存在，换个名字吧~');
         return;
     }
-    child_process.execSync(`mkdir -p ${compPathName}/${compName} && cp -r scripts/init/_template_/* ${compPathName}/${compName}`);
+    fs.mkdirpSync(`${compPathName}/${compName}`);
+    fs.copySync('scripts/init/_template_', `${compPathName}/${compName}`);
     changeFile(newCompPath, compName);
 }
 

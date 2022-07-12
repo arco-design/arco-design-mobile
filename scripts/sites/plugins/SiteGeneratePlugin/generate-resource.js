@@ -1,8 +1,8 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const childProcess = require('child_process');
 const { renderNavIntro, renderReadmeTable } = require('./helpers');
-const marked = require('marked');
+const { marked } = require('marked');
 const prism = require('../../../../sites/pc/static/js/prism');
 const utils = require('../../../utils');
 const languageUtils = require('../../../utils/language');
@@ -30,9 +30,10 @@ function generateResource(resourcePagePath, docPath) {
     const hooksSourceOutput = path.join(resourcePagePath, 'hooks');
     const utilsSourceOutput = path.join(resourcePagePath, 'utils');
     const mixinSourceOutput = path.join(resourcePagePath, 'mixin');
-    childProcess.execSync(
-        `rm -rf ${resourcePagePath} && mkdir -p ${hooksSourceOutput} && mkdir -p ${utilsSourceOutput} && mkdir -p ${mixinSourceOutput}`,
-    );
+    fs.removeSync(resourcePagePath)
+    fs.mkdirpSync(hooksSourceOutput);
+    fs.mkdirpSync(utilsSourceOutput);
+    fs.mkdirpSync(mixinSourceOutput);
     const hooksSource = fs.readdirSync(hooksSourceMdPath);
     const utilsSource = fs.readdirSync(utilsSourceMdPath);
     const mixinSource = fs.readdirSync(mixinSourceMdPath);
@@ -210,7 +211,7 @@ export default function Demo() {
         }
     });
     try {
-        childProcess.execSync(`mkdir -p ${outputFolder}`);
+        fs.mkdirpSync(outputFolder);
         mdFileStr +=
             pageStr +
             `

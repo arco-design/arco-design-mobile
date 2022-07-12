@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const childProcess = require('child_process');
 const languageUtils = require('../../../utils/language');
@@ -108,7 +108,7 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
 
     const docPath = path.join(rootPath, 'sites/pc/pages/components', 'icon');
 
-    childProcess.execSync(`mkdir -p ${docPath}`);
+    fs.mkdirpSync(docPath);
     fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), demoCode, () => {
         console.log(`>>> Write IconComp Success`);
     });
