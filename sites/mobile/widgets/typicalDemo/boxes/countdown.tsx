@@ -10,7 +10,7 @@ export default function CountDownDemo() {
         <div className="typical-demo-card typical-demo-cd-box">
             <CountDown
                 time={16569e3}
-                renderChild={(timeData) => (
+                renderChild={timeData => (
                     <>
                         <span className="block">{padZero(timeData.hours)}</span>
                         <span className="colon">:</span>

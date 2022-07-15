@@ -2,7 +2,7 @@ import React, { useContext, ReactNode } from 'react';
 import Transition from '../transition';
 import { GlobalContext } from '../context-provider';
 
-export const Popover = ({
+export function Popover({
     visible,
     content,
     children,
@@ -10,7 +10,7 @@ export const Popover = ({
     visible: boolean;
     content: ReactNode;
     children: ReactNode;
-}) => {
+}) {
     const { prefixCls = '' } = useContext(GlobalContext);
 
     return (
@@ -24,4 +24,4 @@ export const Popover = ({
             {children}
         </div>
     );
-};
+}

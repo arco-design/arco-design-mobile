@@ -2,6 +2,7 @@ import { cls } from '@arco-design/mobile-utils';
 import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { ContextLayout } from '../context-provider';
 import { getStyleWithVendor, useProgress } from '../_helpers';
+
 type PercentPosition = 'left' | 'innerLeft' | 'right' | 'follow';
 export type BezierType = [number, number, number, number];
 export interface ProgressProps {
@@ -176,7 +177,8 @@ const Progress = forwardRef((props: ProgressProps, ref: Ref<ProgressRef>) => {
                     {currentPercentage}%
                 </div>
             );
-        } else if (position === percentPosition) {
+        }
+        if (position === percentPosition) {
             return (
                 <div
                     style={{ color: progressColor }}

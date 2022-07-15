@@ -27,7 +27,8 @@ const Step = forwardRef((props: StepProps, ref: Ref<StepRef | null>) => {
         if (status) return status;
         if (current! < index) {
             return 'wait';
-        } else if (current! === index) {
+        }
+        if (current! === index) {
             return 'process';
         }
         return 'finish';

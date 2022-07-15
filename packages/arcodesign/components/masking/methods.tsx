@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { appendElementById, removeElement, nextTick } from '@arco-design/mobile-utils';
+
 export interface OpenBaseProps {
     // 从config继承的属性
     unmountOnExit?: boolean;

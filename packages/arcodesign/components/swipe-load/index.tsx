@@ -7,8 +7,8 @@ import React, {
     useState,
     useContext,
 } from 'react';
-import { ContextLayout, GlobalContext } from '../context-provider';
 import { cls, fingerDisToLabelDis, defaultLocale } from '@arco-design/mobile-utils';
+import { ContextLayout, GlobalContext } from '../context-provider';
 import { SwipeLoadProps, SwipeLoadRef } from './type';
 import { useAddListener } from '../_helpers/hooks';
 

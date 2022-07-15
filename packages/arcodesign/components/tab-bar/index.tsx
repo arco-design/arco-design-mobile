@@ -1,6 +1,7 @@
 import { componentWrapper } from '@arco-design/mobile-utils';
 import { Item } from './item';
 import { componentGenerator } from './tab-bar';
+
 export * from './type';
 
 const TabBar = componentGenerator(Item);

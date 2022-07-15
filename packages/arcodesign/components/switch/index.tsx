@@ -211,9 +211,7 @@ const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
                             {switchChecked ? text.off || '' : text.on || ''}
                         </span>
                     ) : null}
-                    <div className={`${prefixCls}-switch-inner`}>
-                        {innerArea ? innerArea : null}
-                    </div>
+                    <div className={`${prefixCls}-switch-inner`}>{innerArea || null}</div>
                 </div>
             )}
         </ContextLayout>

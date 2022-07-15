@@ -13,3 +13,5 @@ __test__/
 *.md
 iconCompTpl.tsx
 sites/pc/static/js/
+sites/pc/pages/
+sites/pages/
