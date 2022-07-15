@@ -1,8 +1,7 @@
-
-import React, { useContext } from "react";
-import { Tag } from "../../../../../packages/arcodesign/components";
-import { localeMap } from "../../locale";
-import { GlobalContext } from "../setting";
+import React, { useContext } from 'react';
+import { Tag } from '../../../../../packages/arcodesign/components';
+import { localeMap } from '../../locale';
+import { GlobalContext } from '../setting';
 
 export default function TagDemo() {
     const list = [1, 1, 1];
@@ -14,7 +13,7 @@ export default function TagDemo() {
     ];
 
     return (
-        <div className='typical-demo-card typical-demo-tags-box'>
+        <div className="typical-demo-card typical-demo-tags-box">
             <Tag.List
                 list={list.map((_, index) => ({
                     closeable: true,

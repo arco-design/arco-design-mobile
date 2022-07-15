@@ -24,11 +24,14 @@
 
         &-tail {
             position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             .horizontal & {
                 width: 100%;
-                .rem(top, 9);
                 left: 50%;
+                .use-var(height, steps-icon-height);
                 .use-var(padding, steps-tail-horizontal-padding);
 
                 &:after {
@@ -43,8 +46,8 @@
 
             .vertical & {
                 height: 100%;
+                .use-var(width, steps-icon-width);
                 .rem(top, 9);
-                .rem(left, 7.5);
                 .use-var(padding, steps-tail-vertical-padding);
 
                 &:after {
@@ -71,11 +74,12 @@
         }
 
         &-icon {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
             .use-var(width, steps-icon-width);
             .use-var(height, steps-icon-height);
-            text-align: center;
 
             .number.finish & {
                 .use-var(background, steps-finish-icon-num-background);
@@ -94,10 +98,7 @@
             }
 
             svg {
-                position: relative;
                 .use-var(font-size, steps-icon-svg-standard-font-size);
-                top: 50%;
-                transform: translateY(-50%);
 
                 .finish & {
                     .use-var(color, steps-finish-icon-svg-color);
@@ -122,8 +123,6 @@
 
             &-dot {
                 position: relative;
-                top: 50%;
-                transform: translateY(-50%);
                 display: inline-block;
                 .use-var(width, steps-dot-width);
                 .use-var(height, steps-dot-height);

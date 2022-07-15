@@ -3,6 +3,7 @@ import { unParseTime, parseFormat } from './util';
 import { useCountDown } from './hooks';
 import { ContextLayout } from '../context-provider';
 import { CountDownProps, CountDownRef } from './type';
+
 export * from './type';
 
 /**

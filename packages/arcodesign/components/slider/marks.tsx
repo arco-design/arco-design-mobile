@@ -1,9 +1,9 @@
 import React, { useContext, CSSProperties, useCallback, ReactNode } from 'react';
+import { cls } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
 import { SliderContext } from './hooks';
-import { cls } from '@arco-design/mobile-utils';
 
-const Marks = ({
+function Marks({
     runTimeConfig,
     className = '',
     style = {},
@@ -11,7 +11,7 @@ const Marks = ({
     runTimeConfig: Array<{ value: number; activated: boolean; label: ReactNode }>;
     className?: string;
     style?: CSSProperties;
-}) => {
+}) {
     const { prefixCls = '' } = useContext(GlobalContext);
     const { type, showMarks, max, min } = useContext(SliderContext);
     const isHorizontal = /^horizontal/g.test(type);
@@ -44,6 +44,6 @@ const Marks = ({
             ))}
         </div>
     );
-};
+}
 
 export default Marks;

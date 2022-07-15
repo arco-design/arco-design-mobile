@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref, useContext, useImperativeHandle, useRef } from 'react';
+import { cls } from '@arco-design/mobile-utils';
 import { TabBarItemProps, TabBarItemRef } from './type';
 import { ContextLayout } from '../context-provider';
-import { cls } from '@arco-design/mobile-utils';
 import { TabBarContext } from './tab-bar';
 
 export const Item = forwardRef((props: TabBarItemProps, ref: Ref<TabBarItemRef>) => {

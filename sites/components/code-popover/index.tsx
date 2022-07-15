@@ -25,9 +25,9 @@ export default function CodePopover(props: PropsWithChildren<CodePopoverProps>) 
 
     useEffect(() => {
         if (url) {
-            QRCode.toDataURL(url, { margin: 1 }, (err, url) => {
+            QRCode.toDataURL(url, { margin: 1 }, (err, newUrl) => {
                 err && console.error(err);
-                setCodeUrl(url || '');
+                setCodeUrl(newUrl || '');
             });
         }
     }, [url]);

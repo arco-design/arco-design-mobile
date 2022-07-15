@@ -17,7 +17,7 @@ export default function List1Demo() {
                 showTooltip="always"
                 value={value}
                 onChange={val => setValue(val as [number, number])}
-                formatTooltip={value => `${value} ${localeMap.SliderUnit[language]}`}
+                formatTooltip={val => `${val} ${localeMap.SliderUnit[language]}`}
             />
             <div className="bottom-btn">
                 <Button type="default" onClick={() => setValue([0, 10])}>

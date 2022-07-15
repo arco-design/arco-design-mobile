@@ -1,9 +1,10 @@
 import React, { createContext } from 'react';
-import { SliderProps } from '../';
+import { SliderProps } from '..';
 
-export const baseRenderThumb = (prefixCls: string) => () => {
-    return <div className={`${prefixCls}-slider-thumb`} />;
-};
+export const baseRenderThumb = (prefixCls: string) =>
+    function () {
+        return <div className={`${prefixCls}-slider-thumb`} />;
+    };
 
 export type LinePosition = {
     length: number;
