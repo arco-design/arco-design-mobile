@@ -54,9 +54,9 @@ lessOptions: {
 
 可通过 `<script>` 标签引入 CDN 形式资源，注意需先引入 peerDependencies 的 CDN 资源。
 
-React & ReactDOM：**<a href="https://reactjs.org/docs/cdn-links.html" target="_blank">戳这里获取</a>**
+React & ReactDOM： **<a href="https://reactjs.org/docs/cdn-links.html" target="_blank">戳这里获取</a>**
 
-React Transition Group：**<a href="https://reactcommunity.org/react-transition-group/" target="_blank">戳这里获取</a>**
+React Transition Group： **<a href="https://reactcommunity.org/react-transition-group/" target="_blank">戳这里获取</a>**
 
 ```
 <link ref="stylesheet" href="https://unpkg.com/browse/@arco-design/mobile-react@2.19.0/dist/style.min.css">

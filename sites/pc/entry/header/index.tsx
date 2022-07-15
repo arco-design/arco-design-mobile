@@ -173,7 +173,9 @@ export default function Header(props: IHeaderProps) {
     return (
         <div className="arcodesign-pc-header">
             <div className="arcodesign-pc-header-logo">
-                <img src={logo} className="arcodesign-pc-header-logo-pic" />
+                <a href={getUrlsByLanguage(language).HOME}>
+                    <img src={logo} className="arcodesign-pc-header-logo-pic" />
+                </a>
             </div>
             <div className="arcodesign-pc-header-content" ref={contentDom}>
                 <div className="arcodesign-pc-header-content-wrapper">
