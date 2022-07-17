@@ -11,6 +11,13 @@
 
 A comprehensive React UI components library based on the [Arco Design](https://arco.design/mobile/react) system.
 
+![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=sass&logoColor=ffffff)
+![](https://img.shields.io/badge/-Typescript-blue?logo=typescript&logoColor=white)
+![](https://img.shields.io/badge/-React.js-blue?logo=react&logoColor=white)
+
+    
+![](https://img.shields.io/npm/v/@arco-design/mobile-react.svg?style=flat-square)
+![](https://img.shields.io/npm/dm/@arco-design/mobile-react.svg?style=flat-square)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design-mobile/blob/main/LICENSE)
 
 </div>
