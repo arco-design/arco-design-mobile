@@ -47,10 +47,10 @@ export type TransitionProps = Omit<CSSTransitionProps, 'timeout'> & {
  */
 export default function Transition(props: TransitionProps) {
     const {
-        children,
+        children = <div />,
         type,
         in: transIn,
-        timeout,
+        timeout = 1000,
         mountOnEnter = true,
         unmountOnExit = true,
         ...restProps
