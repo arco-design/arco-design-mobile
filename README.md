@@ -15,7 +15,7 @@ A comprehensive React UI components library based on the [Arco Design](https://a
 ![](https://img.shields.io/badge/-Typescript-blue?logo=typescript&logoColor=white)
 ![](https://img.shields.io/badge/-React.js-blue?logo=react&logoColor=white)
 
-    
+
 ![](https://img.shields.io/npm/v/@arco-design/mobile-react.svg?style=flat-square)
 ![](https://img.shields.io/npm/dm/@arco-design/mobile-react.svg?style=flat-square)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design-mobile/blob/main/LICENSE)
@@ -94,3 +94,5 @@ Thank you to all the people who already contributed to Arco Design Mobile!
 # License
 
 This project is [MIT licensed](./LICENSE).
+
+[![Star History Chart](https://api.star-history.com/svg?repos=arco-design/arco-design-mobile&type=Date)](https://star-history.com/#arco-design/arco-design-mobile&Date)
