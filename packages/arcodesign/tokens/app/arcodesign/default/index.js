@@ -529,6 +529,7 @@ var tokens = {
   "steps-padding": "0.32rem 0",
   "steps-tail-horizontal-padding": "0 0.36rem",
   "steps-tail-vertical-padding": "0.28rem 0",
+  "steps-tail-vertical-top": "0.18rem",
   "steps-tail-standard-size": "1PX",
   "steps-tail-standard-background": "#e5e6eb",
   "steps-tail-finish-background": "#165dff",
@@ -555,8 +556,6 @@ var tokens = {
   "steps-wait-description-color": "#86909c",
   "steps-icon-width": "18PX",
   "steps-icon-height": "18PX",
-  "steps-custom-icon-width": "20PX",
-  "steps-custom-icon-height": "20PX",
   "steps-dot-width": "8PX",
   "steps-dot-height": "8PX",
   "steps-dot-border-width": "1.5PX",
@@ -657,7 +656,23 @@ var tokens = {
   "action-sheet-cancel-border-width": "0.16rem",
   "action-sheet-header-padding": "0.32rem",
   "action-sheet-title-font-size": "0.32rem",
-  "action-sheet-sub-title-font-size": "0.28rem"
+  "action-sheet-sub-title-font-size": "0.28rem",
+  "image-picker-font-size": "0.28rem",
+  "image-picker-disabled-opacity": "0.7",
+  "image-picker-border-radius": "0.04rem",
+  "image-picker-add-background": "#f7f8fa",
+  "image-picker-add-icon-font-size": "0.6rem",
+  "image-picker-add-icon-color": "#d8d8d8",
+  "image-picker-add-text-font-size": "0.24rem",
+  "image-picker-add-text-color": "#86909c",
+  "image-picker-error-color": "#ffffff",
+  "image-picker-error-background": "rgba(0, 0, 0, 0.5)",
+  "image-picker-close-color": "#ffffff",
+  "image-picker-close-font-size": "0.24rem",
+  "image-picker-close-width": "0.36rem",
+  "image-picker-close-height": "0.36rem",
+  "image-picker-close-background": "rgba(0, 0, 0, 0.3)",
+  "image-picker-close-border-radius": "0 0.04rem"
 };
 var _default = tokens;
 exports["default"] = _default;

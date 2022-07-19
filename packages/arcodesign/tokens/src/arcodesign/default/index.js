@@ -2656,6 +2656,11 @@ function getCompTokens() {
          */
         stepsTailVerticalPadding: `${getRem(14)} 0`,
         /**
+         * steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半
+         * @en Left and right spacing of the vertical dividing line of Steps
+         */
+        stepsTailVerticalTop: getRem(9),
+        /**
          * steps 步骤分割线默认粗细
          * @en Steps dividing line thickness
          */
@@ -2785,16 +2790,6 @@ function getCompTokens() {
          * @en Steps icon height
          */
         stepsIconHeight: '18PX',
-        /**
-         * steps 步骤自定义图标宽度
-         * @en Steps custom icon width
-         */
-        stepsCustomIconWidth: '20PX',
-        /**
-         * steps 步骤自定义图标高度
-         * @en Steps custom icon height
-         */
-        stepsCustomIconHeight: '20PX',
         /**
          * steps 迷你版圆点宽度
          * @en Dot width of mini Steps
@@ -3299,6 +3294,22 @@ function getCompTokens() {
          * @en ActionSheet subtitle font size
          */
         actionSheetSubTitleFontSize: getRem(14),
+        imagePickerFontSize: getRem(14),
+        imagePickerDisabledOpacity: '0.7',
+        imagePickerBorderRadius: getRem(2),
+        imagePickerAddBackground: '#f7f8fa',
+        imagePickerAddIconFontSize: getRem(30),
+        imagePickerAddIconColor: '#d8d8d8',
+        imagePickerAddTextFontSize: getRem(12),
+        imagePickerAddTextColor: useGlobal('subInfoFontColor'),
+        imagePickerErrorColor: '#ffffff',
+        imagePickerErrorBackground: 'rgba(0, 0, 0, 0.5)',
+        imagePickerCloseColor: '#ffffff',
+        imagePickerCloseFontSize: getRem(12),
+        imagePickerCloseWidth: getRem(18),
+        imagePickerCloseHeight: getRem(18),
+        imagePickerCloseBackground: 'rgba(0, 0, 0, 0.3)',
+        imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
     };
 }
 

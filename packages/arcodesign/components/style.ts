@@ -22,6 +22,7 @@ import './ellipsis/style';
 import './grid/style';
 import './image/style';
 import './show-monitor/style';
+import './image-picker/style';
 import './image-preview/style';
 import './input/style';
 import './load-more/style';

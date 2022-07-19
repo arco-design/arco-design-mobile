@@ -1,8 +1,8 @@
-### Data Display
+### Data Entry
 
-# Image 
+# ImagePicker 
 
-Enhanced img tag, provides a variety of image filling modes, and supports image loading prompts and loading failure prompts.
+ImagePicker Component
 
 ======
 
@@ -10,9 +10,55 @@ Enhanced img tag, provides a variety of image filling modes, and supports image 
 
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
+|className|Custom className|string|-|
+|style|Custom stylesheet|CSSProperties|-|
+|images|selected images list|ImagePickItem\[\]|required|
+|accept|Available File Types|string|'image/*'|
+|multiple|Whether To Support Multiple Selection|boolean|-|
+|capture|Whether To Support Multiple Selection \[capture MDN\](https://developer\.mozilla\.org/en\-US/docs/Web/HTML/Attributes/capture)|string \| boolean|-|
+|columns|The Number Of Pictures Displayed In A Row|number|3|
+|gutter|spacing between grids|number|8|
+|limit|max Pictures Can Choose|number|-|
+|maxSize|File size limit, in K|number|-|
+|hideDelete|Whether to hide delete Icon|boolean|false|
+|hideSelect|Whether to hide Select Icon|boolean|false|
+|alwaysShowSelect|Whether to always show Select Icon|boolean|false|
+|disabled|Disable Select & Delete Image|boolean|-|
+|deleteIcon|Defined Delete Icon|ReactNode|-|
+|selectIcon|Defined Select Icon|ReactNode|-|
+|imageProps|Attributes passed through to the image|ImageProps|-|
+|renderError|Defined upload failed display|(index?: number) =\> ReactNode|-|
+|renderLoading|Defined uploading display|(index?: number) =\> ReactNode|-|
+|upload|upload function|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
+|onSelect|-|(\.\.\.args: any\[\]) =\> void|-|
+|onChange|The list of selected images changes|(fileList: ImagePickItem\[\]) =\> Promise\<void\>|-|
+|onMaxSizeExceed|Image exceeds size limit|(file: File) =\> void|-|
+|onLimitExceed|The number of pictures exceeds the limit|(files: File\[\]) =\> void|-|
+|onClick|click event|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
+|onLongPress|long press event|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
+|selectAdapter|Select Adaptor|() =\> Promise\<SelectCallback\>|required|
+
+> Refs
+
+|Property|Description|Type|
+|----------|-------------|------|
+|dom|最外层元素 DOM|HTMLDivElement|
+
+> ImagePickItem
+
+|Property|Description|Type|DefaultValue|
+|----------|-------------|------|------|
+|url|Image Url|string|required|
+|file|Image File|File|-|
+|status|Image Status|"loaded" \| "loading" \| "error"|required|
+
+> ImageProps
+
+|Property|Description|Type|DefaultValue|
+|----------|-------------|------|------|
 |style|Custom stylesheet|CSSProperties|-|
 |className|Custom classname|string|-|
-|status|The specified image state, valid when staticLabel=false|"loading" \| "loaded" \| "init" \| "error"|-|
+|status|The specified image state, valid when staticLabel=false|"loaded" \| "loading" \| "error" \| "init"|-|
 |src|Image resource|string|required|
 |width|Container width, when number is input, the default unit is px, if a string is input, the unit is accepted|ReactText|-|
 |height|Container height, when number is input, the default unit is px, if a string is input, the unit is accepted|ReactText|-|
@@ -41,18 +87,10 @@ Enhanced img tag, provides a variety of image filling modes, and supports image 
 |onError|Callback when the image fails to load, triggered after the retry finally fails if there is an automatic retry|(e: string \| Event) =\> void|-|
 |onAutoRetry|Callback triggered by automatic retry when image loading fails|(e: string \| Event) =\> void|-|
 
-> Refs
-
-|Property|Description|Type|
-|----------|-------------|------|
-|dom|The outermost element DOM|HTMLDivElement|
-|image|Native image element DOM|HTMLImageElement|
-|retry|Manually retry image loading|() =\> void|
-
 > ImageStatus
 
 ```
-"loading"|"loaded"|"init"|"error"
+"loaded"|"loading"|"error"|"init"
 ```
 
 > ObjectPosition
@@ -60,3 +98,17 @@ Enhanced img tag, provides a variety of image filling modes, and supports image 
 ```
 string|number|string & {}
 ```
+
+> SelectCallback
+
+|Property|Description|Type|
+|----------|-------------|------|
+|files|-|AdapterFile\[\]|
+
+> AdapterFile
+
+|Property|Description|Type|
+|----------|-------------|------|
+|url|-|string|
+|size|-|number|
+|name|-|string|

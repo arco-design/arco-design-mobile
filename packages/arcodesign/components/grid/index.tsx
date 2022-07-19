@@ -131,15 +131,18 @@ const Grid = forwardRef((props: GridProps, ref: Ref<GridRef>) => {
     }));
 
     const getRows = (prefix: string, rowsData: GridData[], rows: number, row: number) => {
-        const fakeGrids = new Array(
-            !isSliding && columns && rowsData.length % columns
-                ? columns - (rowsData.length % columns)
-                : 0,
-        ).fill('');
-        const widthStyle = { minWidth: `${(1 / columns) * 100}%` };
+        const placeholders = !isSliding && rowsData.length % columns;
+        let renderData = rowsData;
+        if (placeholders) {
+            const fakeGrids = (new Array(columns - placeholders) as GridData[]).fill({
+                img: null,
+                title: '',
+            });
+            renderData = rowsData.concat(fakeGrids);
+        }
         return (
             <div className={`${prefix}-rows`} key={row}>
-                {rowsData.map((item: GridData, index: number) => {
+                {renderData.map((item: GridData, index: number) => {
                     const {
                         img,
                         title,
@@ -154,7 +157,7 @@ const Grid = forwardRef((props: GridProps, ref: Ref<GridRef>) => {
                     }
                     const marginBottom =
                         row + 1 === rows ? 0 : typeof gutter === 'number' ? gutter : gutter?.y || 0;
-                    const rowLen = rowsData.length;
+                    const rowLen = renderData.length;
                     const marginRight =
                         index + 1 === rowLen
                             ? 0
@@ -204,13 +207,6 @@ const Grid = forwardRef((props: GridProps, ref: Ref<GridRef>) => {
                         </div>
                     );
                 })}
-                {fakeGrids.map((_, i) => (
-                    <div
-                        className={cls(`${prefix}-rows-item fake-col`)}
-                        key={i}
-                        style={widthStyle}
-                    />
-                ))}
             </div>
         );
     };

@@ -86,6 +86,8 @@
 |PullRefresh|-|\{ loadingText: string; pullingText: string; finishText: string; loosingText: string; \}|
 |DropdownMenu|-|\{ select: string; \}|
 |Pagination|-|\{ previousPage: string; nextPage: string; \}|
+|Image|-|\{ loadError: string; \}|
+|ImagePicker|-|\{ loadError: string; \}|
 
 > AlertOptions
 

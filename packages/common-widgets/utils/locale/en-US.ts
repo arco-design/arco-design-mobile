@@ -39,5 +39,11 @@ const localeConfig: ILocale = {
         previousPage: 'Previous',
         nextPage: 'Next',
     },
+    Image: {
+        loadError: 'Retry',
+    },
+    ImagePicker: {
+        loadError: 'Load failed',
+    },
 };
 export default localeConfig;

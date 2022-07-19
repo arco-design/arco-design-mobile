@@ -3359,6 +3359,134 @@
             "en": "Default mask background color when image loads or retries"
         }
     },
+    "imagePickerAddBackground": {
+        "cssKey": "image-picker-add-background",
+        "desc": "",
+        "override": "",
+        "value": "#f7f8fa",
+        "jsValue": "#f7f8fa",
+        "staticValue": "#f7f8fa"
+    },
+    "imagePickerAddIconColor": {
+        "cssKey": "image-picker-add-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "#d8d8d8",
+        "jsValue": "#d8d8d8",
+        "staticValue": "#d8d8d8"
+    },
+    "imagePickerAddIconFontSize": {
+        "cssKey": "image-picker-add-icon-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(30)`",
+        "jsValue": "@getRem@30",
+        "staticValue": "0.6rem"
+    },
+    "imagePickerAddTextColor": {
+        "cssKey": "image-picker-add-text-color",
+        "desc": "",
+        "override": "",
+        "value": "@sub-info-font-color",
+        "jsValue": "@global@subInfoFontColor",
+        "staticValue": "#86909c"
+    },
+    "imagePickerAddTextFontSize": {
+        "cssKey": "image-picker-add-text-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem"
+    },
+    "imagePickerBorderRadius": {
+        "cssKey": "image-picker-border-radius",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(2)`",
+        "jsValue": "@getRem@2",
+        "staticValue": "0.04rem"
+    },
+    "imagePickerCloseBackground": {
+        "cssKey": "image-picker-close-background",
+        "desc": "",
+        "override": "",
+        "value": "rgba(0, 0, 0, 0.3)",
+        "jsValue": "rgba(0, 0, 0, 0.3)",
+        "staticValue": "rgba(0, 0, 0, 0.3)"
+    },
+    "imagePickerCloseBorderRadius": {
+        "cssKey": "image-picker-close-border-radius",
+        "desc": "",
+        "override": "",
+        "value": "0 ~`pxtorem(2)`",
+        "jsValue": "0 @getRem@2",
+        "staticValue": "0 0.04rem"
+    },
+    "imagePickerCloseColor": {
+        "cssKey": "image-picker-close-color",
+        "desc": "",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff"
+    },
+    "imagePickerCloseFontSize": {
+        "cssKey": "image-picker-close-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem"
+    },
+    "imagePickerCloseHeight": {
+        "cssKey": "image-picker-close-height",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(18)`",
+        "jsValue": "@getRem@18",
+        "staticValue": "0.36rem"
+    },
+    "imagePickerCloseWidth": {
+        "cssKey": "image-picker-close-width",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(18)`",
+        "jsValue": "@getRem@18",
+        "staticValue": "0.36rem"
+    },
+    "imagePickerDisabledOpacity": {
+        "cssKey": "image-picker-disabled-opacity",
+        "desc": "",
+        "override": "",
+        "value": "0.7",
+        "jsValue": "0.7",
+        "staticValue": "0.7"
+    },
+    "imagePickerErrorBackground": {
+        "cssKey": "image-picker-error-background",
+        "desc": "",
+        "override": "",
+        "value": "rgba(0, 0, 0, 0.5)",
+        "jsValue": "rgba(0, 0, 0, 0.5)",
+        "staticValue": "rgba(0, 0, 0, 0.5)"
+    },
+    "imagePickerErrorColor": {
+        "cssKey": "image-picker-error-color",
+        "desc": "",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff"
+    },
+    "imagePickerFontSize": {
+        "cssKey": "image-picker-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem"
+    },
     "imagePlaceholderBackground": {
         "cssKey": "image-placeholder-background",
         "desc": "图片 placeholder 背景色",
@@ -5699,30 +5827,6 @@
             "en": "Label distance  of horizoverticalntal slider from the right of the mark"
         }
     },
-    "stepsCustomIconHeight": {
-        "cssKey": "steps-custom-icon-height",
-        "desc": "steps 步骤自定义图标高度",
-        "override": "",
-        "value": "20PX",
-        "jsValue": "20PX",
-        "staticValue": "20PX",
-        "localeDesc": {
-            "ch": "steps 步骤自定义图标高度",
-            "en": "Steps custom icon height"
-        }
-    },
-    "stepsCustomIconWidth": {
-        "cssKey": "steps-custom-icon-width",
-        "desc": "steps 步骤自定义图标宽度",
-        "override": "",
-        "value": "20PX",
-        "jsValue": "20PX",
-        "staticValue": "20PX",
-        "localeDesc": {
-            "ch": "steps 步骤自定义图标宽度",
-            "en": "Steps custom icon width"
-        }
-    },
     "stepsDescriptionColor": {
         "cssKey": "steps-description-color",
         "desc": "steps 步骤默认描述文字颜色",
@@ -6116,6 +6220,18 @@
         "staticValue": "0.28rem 0",
         "localeDesc": {
             "ch": "steps 垂直分割线上下间距",
+            "en": "Left and right spacing of the vertical dividing line of Steps"
+        }
+    },
+    "stepsTailVerticalTop": {
+        "cssKey": "steps-tail-vertical-top",
+        "desc": "steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半",
+        "override": "",
+        "value": "~`pxtorem(9)`",
+        "jsValue": "@getRem@9",
+        "staticValue": "0.18rem",
+        "localeDesc": {
+            "ch": "steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半",
             "en": "Left and right spacing of the vertical dividing line of Steps"
         }
     },

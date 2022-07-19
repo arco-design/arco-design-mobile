@@ -1016,6 +1016,28 @@
                 },
                 "tags": {},
                 "descWithTags": ""
+            },
+            "Image": {
+                "name": "Image",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ loadError: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "ImagePicker": {
+                "name": "ImagePicker",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ loadError: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
             }
         },
         "DialogRef": {

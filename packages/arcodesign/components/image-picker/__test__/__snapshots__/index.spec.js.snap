@@ -1,0 +1,3459 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`image-picker demo test image-picker demo: columns.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="horizontal-border"
+            />
+          </div>
+        </div>
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="horizontal-border"
+            />
+          </div>
+        </div>
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+            <i
+              class="horizontal-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:8px;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="horizontal-border"
+            />
+          </div>
+        </div>
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:20%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:20%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:20%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:20%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: define-render1.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="custom-delete custom-delete-bg"
+                >
+                  <svg
+                    fill="none"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    width="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="white"
+                      height="1.11647"
+                      rx="0.2"
+                      transform="matrix(0.705389 0.70882 -0.705389 0.70882 1.28711 0.500977)"
+                      width="11.5787"
+                    />
+                    <rect
+                      fill="white"
+                      height="1.11647"
+                      rx="0.2"
+                      transform="matrix(0.705389 -0.70882 0.705389 0.70882 0.545898 8.70703)"
+                      width="11.5787"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <svg
+                  fill="none"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  width="30"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    opacity="0.8"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.69432 4.49173C9.87623 4.04355 10.3142 3.75 10.8011 3.75H19.1536C19.6303 3.75 20.0612 4.03159 20.2496 4.46618L20.9659 6.11842H26.8125C27.5374 6.11842 28.125 6.64861 28.125 7.30263V25.0658C28.125 25.7198 27.5374 26.25 26.8125 26.25H3.1875C2.46263 26.25 1.875 25.7198 1.875 25.0658V7.30263C1.875 6.64861 2.46263 6.11842 3.1875 6.11842H9.03409L9.69432 4.49173ZM15 21.8385C18.1066 21.8385 20.625 19.3201 20.625 16.2135C20.625 13.1069 18.1066 10.5885 15 10.5885C11.8934 10.5885 9.375 13.1069 9.375 16.2135C9.375 19.3201 11.8934 21.8385 15 21.8385ZM15 19.9635C17.0711 19.9635 18.75 18.2845 18.75 16.2135C18.75 14.1424 17.0711 12.4635 15 12.4635C12.9289 12.4635 11.25 14.1424 11.25 16.2135C11.25 18.2845 12.9289 19.9635 15 19.9635Z"
+                      fill="#86909C"
+                      fill-rule="evenodd"
+                    />
+                  </g>
+                </svg>
+                <p
+                  style="font-size:12px"
+                >
+                  照片/视频
+                </p>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="custom-delete"
+                >
+                  <svg
+                    fill="none"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    width="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="white"
+                      height="1.11647"
+                      rx="0.2"
+                      transform="matrix(0.705389 0.70882 -0.705389 0.70882 1.28711 0.500977)"
+                      width="11.5787"
+                    />
+                    <rect
+                      fill="white"
+                      height="1.11647"
+                      rx="0.2"
+                      transform="matrix(0.705389 -0.70882 0.705389 0.70882 0.545898 8.70703)"
+                      width="11.5787"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <svg
+                  fill="none"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  width="30"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    opacity="0.8"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.69432 4.49173C9.87623 4.04355 10.3142 3.75 10.8011 3.75H19.1536C19.6303 3.75 20.0612 4.03159 20.2496 4.46618L20.9659 6.11842H26.8125C27.5374 6.11842 28.125 6.64861 28.125 7.30263V25.0658C28.125 25.7198 27.5374 26.25 26.8125 26.25H3.1875C2.46263 26.25 1.875 25.7198 1.875 25.0658V7.30263C1.875 6.64861 2.46263 6.11842 3.1875 6.11842H9.03409L9.69432 4.49173ZM15 21.8385C18.1066 21.8385 20.625 19.3201 20.625 16.2135C20.625 13.1069 18.1066 10.5885 15 10.5885C11.8934 10.5885 9.375 13.1069 9.375 16.2135C9.375 19.3201 11.8934 21.8385 15 21.8385ZM15 19.9635C17.0711 19.9635 18.75 18.2845 18.75 16.2135C18.75 14.1424 17.0711 12.4635 15 12.4635C12.9289 12.4635 11.25 14.1424 11.25 16.2135C11.25 18.2845 12.9289 19.9635 15 19.9635Z"
+                      fill="#86909C"
+                      fill-rule="evenodd"
+                    />
+                  </g>
+                </svg>
+                <p
+                  style="font-size:12px"
+                >
+                  照片/视频
+                </p>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: define-render2.md renders correctly 1`] = `
+<div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                  <div
+                    class="image-content image-loading-container"
+                  >
+                    <div
+                      class="loading1"
+                    >
+                      加载中...
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                  <div
+                    class="image-content image-error-container"
+                  >
+                    <div
+                      class="arco-image-picker-error"
+                    >
+                      <svg
+                        fill="none"
+                        height="31"
+                        viewBox="0 0 32 31"
+                        width="32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M26.9964 2.20298C26.9468 1.53032 26.3853 1 25.7 1H2.3L2.20298 1.00357C1.53032 1.05319 1 1.61466 1 2.3V25.7L1.00357 25.797C1.05319 26.4697 1.61466 27 2.3 27H18.252C18.0875 26.3608 18 25.6906 18 25H3V3H25V17.0619C25.3276 17.021 25.6613 17 26 17C26.3387 17 26.6724 17.021 27 17.0619V2.3L26.9964 2.20298ZM21.9194 18.1175V12.0594C21.9194 11.9255 21.8663 11.7971 21.7716 11.7024C21.5745 11.5053 21.2548 11.5053 21.0577 11.7024L14.6748 18.0846L12.2685 15.6781C12.0713 15.481 11.7517 15.481 11.5546 15.6781L6.33889 20.8938C6.26811 20.9645 6.22824 21.0605 6.228 21.1606C6.22749 21.3697 6.39659 21.5396 6.60569 21.5401L12.0044 21.5539C12.0368 21.563 12.071 21.5678 12.1063 21.5678H18.7716C19.456 20.129 20.5573 18.9268 21.9194 18.1175ZM10.5664 10.2118V6.42578H6.78034V10.2118H10.5664Z"
+                          fill="#C9CDD4"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M26 31C29.3137 31 32 28.3137 32 25C32 21.6863 29.3137 19 26 19C22.6863 19 20 21.6863 20 25C20 28.3137 22.6863 31 26 31Z"
+                          fill="#C9CDD4"
+                        />
+                        <path
+                          clip-rule="evenodd"
+                          d="M28.7987 27.0083C28.8768 26.9302 28.8768 26.8036 28.7987 26.7255L27.0179 24.9447L28.7861 23.1764C28.8642 23.0983 28.8642 22.9717 28.7861 22.8936L28.0083 22.1157C27.9302 22.0376 27.8036 22.0376 27.7255 22.1157L25.9572 23.884L24.1318 22.0586C24.0537 21.9805 23.9271 21.9805 23.849 22.0586L23.0712 22.8364C22.9931 22.9145 22.9931 23.0411 23.0712 23.1192L24.8966 24.9447L23.0586 26.7827C22.9805 26.8608 22.9805 26.9874 23.0586 27.0655L23.8364 27.8433C23.9145 27.9214 24.0411 27.9214 24.1192 27.8433L25.9572 26.0053L27.7381 27.7861C27.8162 27.8642 27.9428 27.8642 28.0209 27.7861L28.7987 27.0083Z"
+                          fill="white"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                  <div
+                    class="image-content image-loading-container"
+                  >
+                    <div
+                      class="image-loading"
+                    >
+                      <div
+                        class="arco-loading all-border-box circle loading-icon"
+                        style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+                      >
+                        <svg
+                          viewBox="0 0 20 20"
+                        >
+                          <defs>
+                            <linearGradient
+                              id="grad1-"
+                              x1="0%"
+                              x2="100%"
+                              y1="0%"
+                              y2="0%"
+                            >
+                              <stop
+                                class="loading-circle-middle stop-color-with-config"
+                                offset="0%"
+                              />
+                              <stop
+                                class="loading-circle-start stop-color-with-config"
+                                offset="100%"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="grad2-"
+                              x1="0%"
+                              x2="100%"
+                              y1="0%"
+                              y2="0%"
+                            >
+                              <stop
+                                class="loading-circle-middle stop-color-with-config"
+                                offset="0%"
+                              />
+                              <stop
+                                class="loading-circle-end stop-color-with-config"
+                                offset="100%"
+                              />
+                            </linearGradient>
+                          </defs>
+                          <circle
+                            cx="10"
+                            cy="10"
+                            fill="none"
+                            r="8.5"
+                            stroke="url(#grad1-)"
+                            stroke-dasharray="26.703537555513243"
+                            stroke-dashoffset="26.703537555513243"
+                            stroke-width="3"
+                          />
+                          <circle
+                            cx="10"
+                            cy="10"
+                            fill="none"
+                            r="8.5"
+                            stroke="url(#grad2-)"
+                            stroke-dasharray="26.703537555513243"
+                            stroke-width="3"
+                          />
+                          <circle
+                            class="loading-circle-filleted fill-color-with-config"
+                            cx="18.5"
+                            cy="10"
+                            r="1.5"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                  <div
+                    class="image-content image-error-container"
+                  >
+                    <div
+                      class="load-error"
+                    >
+                      加载失败
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                  <div
+                    class="image-content image-loading-container"
+                  >
+                    <div
+                      class="image-loading"
+                    >
+                      <div
+                        class="arco-loading all-border-box circle loading-icon"
+                        style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+                      >
+                        <svg
+                          viewBox="0 0 20 20"
+                        >
+                          <defs>
+                            <linearGradient
+                              id="grad1-"
+                              x1="0%"
+                              x2="100%"
+                              y1="0%"
+                              y2="0%"
+                            >
+                              <stop
+                                class="loading-circle-middle stop-color-with-config"
+                                offset="0%"
+                              />
+                              <stop
+                                class="loading-circle-start stop-color-with-config"
+                                offset="100%"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="grad2-"
+                              x1="0%"
+                              x2="100%"
+                              y1="0%"
+                              y2="0%"
+                            >
+                              <stop
+                                class="loading-circle-middle stop-color-with-config"
+                                offset="0%"
+                              />
+                              <stop
+                                class="loading-circle-end stop-color-with-config"
+                                offset="100%"
+                              />
+                            </linearGradient>
+                          </defs>
+                          <circle
+                            cx="10"
+                            cy="10"
+                            fill="none"
+                            r="8.5"
+                            stroke="url(#grad1-)"
+                            stroke-dasharray="26.703537555513243"
+                            stroke-dashoffset="26.703537555513243"
+                            stroke-width="3"
+                          />
+                          <circle
+                            cx="10"
+                            cy="10"
+                            fill="none"
+                            r="8.5"
+                            stroke="url(#grad2-)"
+                            stroke-dasharray="26.703537555513243"
+                            stroke-width="3"
+                          />
+                          <circle
+                            class="loading-circle-filleted fill-color-with-config"
+                            cx="18.5"
+                            cy="10"
+                            r="1.5"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                  <div
+                    class="image-content image-error-container"
+                  >
+                    <div
+                      class="load-error1"
+                    >
+                      <div>
+                        <svg
+                          fill="none"
+                          height="25"
+                          viewBox="0 0 25 25"
+                          width="25"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.5 24C6.15458 24 1 18.8454 1 12.5C1 6.15458 6.15458 1 12.5 1C18.8454 1 24 6.15458 24 12.5C24 18.8454 18.8454 24 12.5 24Z"
+                            stroke="white"
+                          />
+                          <path
+                            d="M12.5298 14.6972C9.45045 14.736 8.2352 17.2113 8.1837 17.3181C8.07042 17.5511 8.1837 17.8229 8.43087 17.9199C8.67804 18.0267 8.96641 17.9199 9.06939 17.687C9.07969 17.6676 10.0684 15.5805 12.5401 15.6H12.5813C14.9088 15.6 15.9078 17.5996 15.949 17.687C16.0622 17.9102 16.3403 18.017 16.5875 17.9102C16.8346 17.8035 16.9376 17.5414 16.8243 17.3084C16.7729 17.2016 15.537 14.6875 12.571 14.6875C12.571 14.6972 12.5504 14.6972 12.5298 14.6972Z"
+                            fill="white"
+                            stroke="white"
+                            stroke-width="0.2"
+                          />
+                          <path
+                            clip-rule="evenodd"
+                            d="M16.8698 8.13965C17.4725 8.13965 17.9611 8.62825 17.9611 9.23097V10.868C17.9611 11.4707 17.4725 11.9593 16.8698 11.9593C16.267 11.9593 15.7784 11.4707 15.7784 10.868V9.23097C15.7784 8.62825 16.267 8.13965 16.8698 8.13965ZM8.13918 8.13965C8.7419 8.13965 9.2305 8.62825 9.2305 9.23097V10.868C9.2305 11.4707 8.7419 11.9593 8.13918 11.9593C7.53645 11.9593 7.04785 11.4707 7.04785 10.868V9.23097C7.04785 8.62825 7.53645 8.13965 8.13918 8.13965Z"
+                            fill="white"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                        <p>
+                          加载失败
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: disable.md renders correctly 1`] = `
+<div
+  class="arco-image-picker  arco-image-picker-disabled"
+>
+  <div
+    class="arco-image-picker-container "
+  >
+    <div
+      class="arco-grid"
+    >
+      <div
+        class="arco-grid-rows"
+      >
+        <div
+          class="arco-grid-rows-item"
+          style="margin-bottom:0;margin-right:8px"
+        >
+          <div
+            class="arco-image-picker-image"
+            style="width:auto;height:auto"
+          >
+            <div>
+              <div
+                class="arco-image all-border-box pc"
+                style="width:auto;height:auto"
+              >
+                <div
+                  class="image-content image-bottom-overlap"
+                >
+                  <div
+                    class="image-placeholder"
+                  />
+                </div>
+                <div
+                  class="image-container init animate"
+                  style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                />
+              </div>
+              <div
+                class="arco-image-picker-image-mask"
+              />
+            </div>
+            <div
+              class="arco-image-picker-close"
+            >
+              <div
+                class="arco-image-picker-close-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-close "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <i
+            class="vertical-border"
+          />
+        </div>
+        <div
+          class="arco-grid-rows-item"
+          style="margin-bottom:0;margin-right:0"
+        >
+          <div
+            class="arco-image-picker-add"
+            style="width:auto;height:auto"
+          >
+            <div
+              class="arco-image-picker-add-icon"
+            >
+              <svg
+                class="arco-icon arco-icon-add "
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <input
+              accept="image/*"
+              type="file"
+            />
+          </div>
+          <i
+            class="vertical-border"
+          />
+        </div>
+        <div
+          class="arco-grid-rows-item fake-col"
+          style="min-width:25%"
+        />
+        <div
+          class="arco-grid-rows-item fake-col"
+          style="min-width:25%"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: hide-select-close.md renders correctly 1`] = `
+<div>
+  <p>
+    隐藏删除
+  </p>
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <p>
+    隐藏选择
+  </p>
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: image-event.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: image-props.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                    style="border-radius:10px"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: index.md renders correctly 1`] = `
+<div
+  class="arco-image-picker  "
+>
+  <div
+    class="arco-image-picker-container "
+  >
+    <div
+      class="arco-grid"
+    >
+      <div
+        class="arco-grid-rows"
+      >
+        <div
+          class="arco-grid-rows-item"
+          style="margin-bottom:0;margin-right:8px"
+        >
+          <div
+            class="arco-image-picker-image"
+            style="width:auto;height:auto"
+          >
+            <div>
+              <div
+                class="arco-image all-border-box pc"
+                style="width:auto;height:auto"
+              >
+                <div
+                  class="image-content image-bottom-overlap"
+                >
+                  <div
+                    class="image-placeholder"
+                  />
+                </div>
+                <div
+                  class="image-container init animate"
+                  style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                />
+              </div>
+              <div
+                class="arco-image-picker-image-mask"
+              />
+            </div>
+            <div
+              class="arco-image-picker-close"
+            >
+              <div
+                class="arco-image-picker-close-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-close "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <i
+            class="vertical-border"
+          />
+        </div>
+        <div
+          class="arco-grid-rows-item"
+          style="margin-bottom:0;margin-right:0"
+        >
+          <div
+            class="arco-image-picker-add"
+            style="width:auto;height:auto"
+          >
+            <div
+              class="arco-image-picker-add-icon"
+            >
+              <svg
+                class="arco-icon arco-icon-add "
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <input
+              accept="image/*"
+              type="file"
+            />
+          </div>
+          <i
+            class="vertical-border"
+          />
+        </div>
+        <div
+          class="arco-grid-rows-item fake-col"
+          style="min-width:25%"
+        />
+        <div
+          class="arco-grid-rows-item fake-col"
+          style="min-width:25%"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: limit-size.md renders correctly 1`] = `
+<div
+  class="arco-image-picker  "
+>
+  <div
+    class="arco-image-picker-container "
+  >
+    <div
+      class="arco-grid"
+    >
+      <div
+        class="arco-grid-rows"
+      >
+        <div
+          class="arco-grid-rows-item"
+          style="margin-bottom:0;margin-right:8px"
+        >
+          <div
+            class="arco-image-picker-image"
+            style="width:auto;height:auto"
+          >
+            <div>
+              <div
+                class="arco-image all-border-box pc"
+                style="width:auto;height:auto"
+              >
+                <div
+                  class="image-content image-bottom-overlap"
+                >
+                  <div
+                    class="image-placeholder"
+                  />
+                </div>
+                <div
+                  class="image-container init animate"
+                  style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                />
+              </div>
+              <div
+                class="arco-image-picker-image-mask"
+              />
+            </div>
+            <div
+              class="arco-image-picker-close"
+            >
+              <div
+                class="arco-image-picker-close-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-close "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <i
+            class="vertical-border"
+          />
+        </div>
+        <div
+          class="arco-grid-rows-item"
+          style="margin-bottom:0;margin-right:0"
+        >
+          <div
+            class="arco-image-picker-add"
+            style="width:auto;height:auto"
+          >
+            <div
+              class="arco-image-picker-add-icon"
+            >
+              <svg
+                class="arco-icon arco-icon-add "
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <input
+              accept="image/*"
+              multiple=""
+              type="file"
+            />
+          </div>
+          <i
+            class="vertical-border"
+          />
+        </div>
+        <div
+          class="arco-grid-rows-item fake-col"
+          style="min-width:25%"
+        />
+        <div
+          class="arco-grid-rows-item fake-col"
+          style="min-width:25%"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`image-picker demo test image-picker demo: upload.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                  <div
+                    class="image-content image-loading-container"
+                  >
+                    <div
+                      class="image-loading"
+                    >
+                      <div
+                        class="arco-loading all-border-box circle loading-icon"
+                        style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:20px;height:20px"
+                      >
+                        <svg
+                          viewBox="0 0 20 20"
+                        >
+                          <defs>
+                            <linearGradient
+                              id="grad1-"
+                              x1="0%"
+                              x2="100%"
+                              y1="0%"
+                              y2="0%"
+                            >
+                              <stop
+                                class="loading-circle-middle stop-color-with-config"
+                                offset="0%"
+                              />
+                              <stop
+                                class="loading-circle-start stop-color-with-config"
+                                offset="100%"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="grad2-"
+                              x1="0%"
+                              x2="100%"
+                              y1="0%"
+                              y2="0%"
+                            >
+                              <stop
+                                class="loading-circle-middle stop-color-with-config"
+                                offset="0%"
+                              />
+                              <stop
+                                class="loading-circle-end stop-color-with-config"
+                                offset="100%"
+                              />
+                            </linearGradient>
+                          </defs>
+                          <circle
+                            cx="10"
+                            cy="10"
+                            fill="none"
+                            r="8.5"
+                            stroke="url(#grad1-)"
+                            stroke-dasharray="26.703537555513243"
+                            stroke-dashoffset="26.703537555513243"
+                            stroke-width="3"
+                          />
+                          <circle
+                            cx="10"
+                            cy="10"
+                            fill="none"
+                            r="8.5"
+                            stroke="url(#grad2-)"
+                            stroke-dasharray="26.703537555513243"
+                            stroke-width="3"
+                          />
+                          <circle
+                            class="loading-circle-filleted fill-color-with-config"
+                            cx="18.5"
+                            cy="10"
+                            r="1.5"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height:20px"
+  />
+  <div
+    class="arco-image-picker  "
+  >
+    <div
+      class="arco-image-picker-container "
+    >
+      <div
+        class="arco-grid"
+      >
+        <div
+          class="arco-grid-rows"
+        >
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:8px"
+          >
+            <div
+              class="arco-image-picker-image"
+              style="width:auto;height:auto"
+            >
+              <div>
+                <div
+                  class="arco-image all-border-box pc"
+                  style="width:auto;height:auto"
+                >
+                  <div
+                    class="image-content image-bottom-overlap"
+                  >
+                    <div
+                      class="image-placeholder"
+                    />
+                  </div>
+                  <div
+                    class="image-container init animate"
+                    style="transition-duration:200ms;-webkit-transition-duration:200ms"
+                  />
+                  <div
+                    class="image-content image-error-container"
+                  >
+                    <div
+                      class="arco-image-picker-error"
+                    >
+                      <svg
+                        fill="none"
+                        height="31"
+                        viewBox="0 0 32 31"
+                        width="32"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M26.9964 2.20298C26.9468 1.53032 26.3853 1 25.7 1H2.3L2.20298 1.00357C1.53032 1.05319 1 1.61466 1 2.3V25.7L1.00357 25.797C1.05319 26.4697 1.61466 27 2.3 27H18.252C18.0875 26.3608 18 25.6906 18 25H3V3H25V17.0619C25.3276 17.021 25.6613 17 26 17C26.3387 17 26.6724 17.021 27 17.0619V2.3L26.9964 2.20298ZM21.9194 18.1175V12.0594C21.9194 11.9255 21.8663 11.7971 21.7716 11.7024C21.5745 11.5053 21.2548 11.5053 21.0577 11.7024L14.6748 18.0846L12.2685 15.6781C12.0713 15.481 11.7517 15.481 11.5546 15.6781L6.33889 20.8938C6.26811 20.9645 6.22824 21.0605 6.228 21.1606C6.22749 21.3697 6.39659 21.5396 6.60569 21.5401L12.0044 21.5539C12.0368 21.563 12.071 21.5678 12.1063 21.5678H18.7716C19.456 20.129 20.5573 18.9268 21.9194 18.1175ZM10.5664 10.2118V6.42578H6.78034V10.2118H10.5664Z"
+                          fill="#C9CDD4"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M26 31C29.3137 31 32 28.3137 32 25C32 21.6863 29.3137 19 26 19C22.6863 19 20 21.6863 20 25C20 28.3137 22.6863 31 26 31Z"
+                          fill="#C9CDD4"
+                        />
+                        <path
+                          clip-rule="evenodd"
+                          d="M28.7987 27.0083C28.8768 26.9302 28.8768 26.8036 28.7987 26.7255L27.0179 24.9447L28.7861 23.1764C28.8642 23.0983 28.8642 22.9717 28.7861 22.8936L28.0083 22.1157C27.9302 22.0376 27.8036 22.0376 27.7255 22.1157L25.9572 23.884L24.1318 22.0586C24.0537 21.9805 23.9271 21.9805 23.849 22.0586L23.0712 22.8364C22.9931 22.9145 22.9931 23.0411 23.0712 23.1192L24.8966 24.9447L23.0586 26.7827C22.9805 26.8608 22.9805 26.9874 23.0586 27.0655L23.8364 27.8433C23.9145 27.9214 24.0411 27.9214 24.1192 27.8433L25.9572 26.0053L27.7381 27.7861C27.8162 27.8642 27.9428 27.8642 28.0209 27.7861L28.7987 27.0083Z"
+                          fill="white"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="arco-image-picker-image-mask"
+                />
+              </div>
+              <div
+                class="arco-image-picker-close"
+              >
+                <div
+                  class="arco-image-picker-close-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-close "
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item"
+            style="margin-bottom:0;margin-right:0"
+          >
+            <div
+              class="arco-image-picker-add"
+              style="width:auto;height:auto"
+            >
+              <div
+                class="arco-image-picker-add-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-add "
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <input
+                accept="image/*"
+                type="file"
+              />
+            </div>
+            <i
+              class="vertical-border"
+            />
+          </div>
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+          <div
+            class="arco-grid-rows-item fake-col"
+            style="min-width:25%"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

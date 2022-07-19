@@ -45,14 +45,11 @@
             }
         },
         "status": {
-            "defaultValue": {
-                "value": "\"init\""
-            },
+            "defaultValue": null,
             "description": "指定图片状态，staticLabel=false时有效\n@en The specified image state, valid when staticLabel=false",
             "name": "status",
             "tags": {
-                "en": "The specified image state, valid when staticLabel=false",
-                "default": "\"init\""
+                "en": "The specified image state, valid when staticLabel=false"
             },
             "descWithTags": "指定图片状态，staticLabel=false时有效",
             "parent": {

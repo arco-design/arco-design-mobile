@@ -18,7 +18,7 @@ class DemoGeneratePlugin {
         compiler.hooks.watchRun.tap('WatchRun', (comp) => {
             const changedTimes = comp.watchFileSystem.watcher.mtimes;
             const changedFiles = Object.keys(changedTimes);
-            const tokenPath = path.join(rootPath, 'packages/arcodesign/tokens/src', this.options.appName || 'arcodesign');
+            const tokenPath = path.join('tokens/src', this.options.appName || 'arcodesign');
             const reg = new RegExp(`${tokenPath}.+\\/index.js`);
             if (changedFiles && changedFiles.some((file) => reg.test(file))) {
                 console.log('>>> Files changed. Generating token again...');
