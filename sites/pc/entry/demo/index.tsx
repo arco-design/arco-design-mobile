@@ -8,9 +8,11 @@ import CodePopover from '../../../components/code-popover';
 import Layout from '../layout';
 import { HistoryContext } from '../../entry';
 import { localeMap } from '../../../utils/locale';
+import toQuery, { parseUrlQuery } from '../../../utils/toQuery';
 import './index.less';
 
 const AnchorLink = Anchor.Link;
+const urlQuery = parseUrlQuery();
 
 export interface IDemoProps {
     name: string;
@@ -160,9 +162,12 @@ export default function Demo(props: IDemoProps) {
             {needShowIframe && (
                 <div className="mobile-iframe">
                     <iframe
-                        src={`${previewUrl}?hide_back=${hideBack || 1}&from_web=1${
-                            isReadMe ? '&need_jump=0' : ''
-                        }`}
+                        src={`${previewUrl.split('#')[0] || ''}?${toQuery({
+                            ...urlQuery,
+                            hide_back: hideBack || 1,
+                            from_web: 1,
+                            ...(isReadMe ? { need_jump: 0 } : {}),
+                        })}#${previewUrl.split('#')[1] || ''}`}
                         title="mobile sites"
                         key={name}
                     />
