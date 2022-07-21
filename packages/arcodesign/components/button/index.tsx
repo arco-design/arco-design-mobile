@@ -118,6 +118,12 @@ export interface ButtonProps {
      * @en Callback function when disabling button
      */
     onClickDisabled?: (e: React.MouseEvent) => void;
+    /**
+     * 加载中是否禁用按钮操作
+     * @en Disable button when loading
+     * @default true
+     */
+    disableWhenLoading?: boolean;
 }
 
 export interface ButtonRef {
@@ -145,6 +151,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
         inline = false,
         loading = false,
         disabled = false,
+        disableWhenLoading = true,
         shape = 'semi',
         halfBorder = false,
         icon,
@@ -212,7 +219,9 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
                     onTouchCancel={handleTouchEnd}
                     onMouseDown={handleTouchStart}
                     onMouseUp={handleTouchEnd}
-                    onClick={disabled ? onClickDisabled : onClick}
+                    onClick={
+                        disabled || (loading && disableWhenLoading) ? onClickDisabled : onClick
+                    }
                 >
                     <div className="btn-icon">
                         {icon}
