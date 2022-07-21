@@ -50,7 +50,7 @@ export default function Transition(props: TransitionProps) {
         children = <div />,
         type,
         in: transIn,
-        timeout = 1000,
+        timeout = 300,
         mountOnEnter = true,
         unmountOnExit = true,
         ...restProps
