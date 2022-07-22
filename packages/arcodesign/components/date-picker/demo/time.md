@@ -28,7 +28,7 @@ export default function DatePickerDemo() {
                 label="Time node"
                 onClick={() => {setPicker2Visible(true);}}
             >
-                {new Date(picker2Value).toLocaleString()}
+                {new Date(picker2Value).toLocaleString("zh-CN", {hour12: false})}
             </Cell>
             <Cell
                 showArrow
