@@ -13,7 +13,7 @@
 |className|自定义类名|string|-|
 |style|自定义样式|CSSProperties|-|
 |content|需要展示的内容|ReactNode|-|
-|type|通知类型|"success" \| "error" \| "warn" \| "info"|-|
+|type|通知类型|"success" \| "error" \| "warn" \| "info"|"info"|
 |visible|是否显示通知|boolean|false|
 |close|控制通知关闭的事件|() =\> void|-|
 |onClose|通知关闭时的回调函数|() =\> void|-|
