@@ -29,6 +29,7 @@ Using for starting an immediate action
 |children|Children element|ReactNode|-|
 |onClick|Callback function when clicking button|(e: MouseEvent\<Element, MouseEvent\>) =\> void|-|
 |onClickDisabled|Callback function when disabling button|(e: MouseEvent\<Element, MouseEvent\>) =\> void|-|
+|disableWhenLoading|Disable button when loading|boolean|true|
 
 > Refs
 
