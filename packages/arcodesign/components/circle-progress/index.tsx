@@ -2,6 +2,7 @@ import { cls } from '@arco-design/mobile-utils';
 import React, { useRef, forwardRef, Ref, useImperativeHandle, useMemo } from 'react';
 import { ContextLayout } from '../context-provider';
 import { getStyleWithVendor, useGenSvgKey, useProgress } from '../_helpers';
+
 export interface CircleProgressProps {
     /**
      * 自定义类名
@@ -190,11 +191,11 @@ const CircleProgress = forwardRef((props: CircleProgressProps, ref: Ref<CirclePr
         if (isRenderNormal) {
             if (progressColorStart) {
                 return progressColorStart;
-            } else if (progressColorEnd) {
-                return progressColorEnd;
-            } else {
-                return progressColor;
             }
+            if (progressColorEnd) {
+                return progressColorEnd;
+            }
+            return progressColor;
         }
     }, [progressColorStart, progressColorEnd, progressColor]);
     function renderNormalProgress() {

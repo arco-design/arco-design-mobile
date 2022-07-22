@@ -9,8 +9,8 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import { ContextLayout } from '../context-provider';
 import { cls } from '@arco-design/mobile-utils';
+import { ContextLayout } from '../context-provider';
 import { useRefState } from '../_helpers';
 import { TabBarItemProps, TabBarItemRef, TabBarRef, TabBarProps } from './type';
 

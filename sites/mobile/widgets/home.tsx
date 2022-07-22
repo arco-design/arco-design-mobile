@@ -21,16 +21,14 @@ export function Arrow() {
 interface IHomeProps {
     language?: LanguageSupport;
 }
-export default function Home({
-    language = LanguageSupport.CH
-}: IHomeProps) {
+export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
     const history = useContext(HistoryContext);
     const actualRoutes = useMemo(() => {
         const langRoutes = language === LanguageSupport.EN ? enRoutes : routes;
         return getMenuOrder(langRoutes, language);
     }, [routes, enRoutes, language]);
     /** 区分iframe通信 */
-    const needJump = getUrlParam('need_jump') === '0' ? false : true;
+    const needJump = getUrlParam('need_jump') !== '0';
 
     useEffect(() => {
         document.body.classList.add('white-body');
@@ -47,11 +45,14 @@ export default function Home({
 
     function handleSubItemClick(route) {
         window.localStorage.setItem('home_scroll', `${route}__${window.pageYOffset}`);
-        window.parent.postMessage({
-            type: 'component',
-            data: route,
-            language
-        }, '*');
+        window.parent.postMessage(
+            {
+                type: 'component',
+                data: route,
+                language,
+            },
+            '*',
+        );
         if (needJump) {
             history.push(`${language === LanguageSupport.EN ? '/en-US' : ''}/components/${route}`);
         }
@@ -60,7 +61,10 @@ export default function Home({
     return (
         <div className="arcodesign-mobile-home-wrapper">
             <div className="arcodesign-demo-logo">
-                <img src="https://sf1-cdn-tos.douyinstatic.com/obj/eden-cn/lbfpfvha/arco-mobile-home-logo.png" alt="" />
+                <img
+                    src="https://sf1-cdn-tos.douyinstatic.com/obj/eden-cn/lbfpfvha/arco-mobile-home-logo.png"
+                    alt=""
+                />
             </div>
             {Object.keys(actualRoutes).map((type, menuIndex) => (
                 <div className="arcodesign-demo-menu" key={menuIndex}>

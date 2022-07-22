@@ -203,11 +203,14 @@
             }
         },
         "type": {
-            "defaultValue": null,
+            "defaultValue": {
+                "value": "\"info\""
+            },
             "description": "通知类型\n@en Notification type",
             "name": "type",
             "tags": {
-                "en": "Notification type"
+                "en": "Notification type",
+                "default": "\"info\""
             },
             "descWithTags": "通知类型",
             "parent": {

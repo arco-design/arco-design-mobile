@@ -6,6 +6,8 @@ import { NotifyProps, NotifyRef } from './type';
 import { getStyleWithVendor, useUpdateEffect } from '../_helpers';
 import { NotifyBaseProps, notify } from './methods';
 
+export * from './type';
+
 const Notify = forwardRef((props: NotifyProps, ref: Ref<NotifyRef>) => {
     const {
         className = '',

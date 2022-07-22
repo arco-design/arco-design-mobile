@@ -8,8 +8,8 @@ import React, {
     useContext,
     useMemo,
 } from 'react';
-import { ContextLayout } from '../context-provider';
 import { cls, convertCssDuration, nextTick } from '@arco-design/mobile-utils';
+import { ContextLayout } from '../context-provider';
 import { useRefState, useUpdateEffect } from '../_helpers';
 import IconArrowDown from '../icon/IconArrowDown';
 import { CollapseProps, CollapseRef } from './type';
