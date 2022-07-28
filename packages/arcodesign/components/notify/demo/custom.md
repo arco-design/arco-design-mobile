@@ -72,7 +72,7 @@ export default function NotifyDemo() {
                         getContainer: () => ref.current,
                         style:{
                             position: 'fixed',
-                            top: 44,
+                            top: 64,
                         },
                     })
                 }
