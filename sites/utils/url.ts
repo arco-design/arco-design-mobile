@@ -13,8 +13,6 @@ const MOBILE_PAGE =
         ? 'http://localhost:8822/#/'
         : 'https://$siteDomain$/mobile/react/arco-design/mobile/#/';
 
-export const FIGMA_RESOURCE = 'https://www.figma.com/community/file/1128173873536739844';
-
 export const getUrlsByLanguage = (language: LanguageSupport) => {
     const languageVal = language === LanguageSupport.CH ? '' : LanguageLocaleMap[language];
     return languageVal
