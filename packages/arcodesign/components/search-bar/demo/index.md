@@ -1,4 +1,4 @@
-## 基础样式
+## 基础样式 @en{Basic Style}
 
 #### 1
 
@@ -17,7 +17,7 @@ export default function SearchBarDemo() {
 
     const handleChange = newShape => setShape(newShape);
     const handleClick = inputValue => {
-        Toast.toast('输入框内容：' + inputValue);
+        Toast.toast('inputValue：' + inputValue);
     };
 
     return (

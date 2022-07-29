@@ -1,4 +1,4 @@
-## 右侧按钮展现时机
+## 右侧按钮展现时机 @en{Right Button Display Timing}
 
 #### 2
 

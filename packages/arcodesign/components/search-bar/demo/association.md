@@ -1,4 +1,4 @@
-## 搜索联想框
+## 搜索联想框 @en{Search Association}
 
 #### 5
 
@@ -13,8 +13,8 @@ export default function SearchBarDemo() {
         const value = e.target.value;
         setTimeout(() => {
             const newAssociationItems = [
-                { content: '测试1' },
-                { content: '测试2' },
+                { content: 'Test1' },
+                { content: 'Test2' },
                 { content: 'Arco' },
                 { content: value },
             ];
@@ -24,10 +24,10 @@ export default function SearchBarDemo() {
 
     return (
         <SearchBar
-            appendBtnText="搜索"
-            showSearchAssociation
-            searchAssociationItems={associationItems}
-            searchAssociationShowType="value"
+            appendBtnText="Search"
+            enableAssociation
+            associationItems={associationItems}
+            associationShowType="value"
             highlightMode="prefix"
             onChange={handleInputChange}
         />

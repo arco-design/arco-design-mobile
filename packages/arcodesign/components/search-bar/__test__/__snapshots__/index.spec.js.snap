@@ -138,7 +138,7 @@ exports[`search-bar demo test search-bar demo: action-btn.md renders correctly 1
     class="arco-search-bar-container all-border-box arco-search-bar-square"
   >
     <div
-      class="arco-search-bar-wrap text border-half pc prefix"
+      class="arco-search-bar-wrap search border-half pc prefix"
     >
       <div
         class="arco-search-bar-prefix"
@@ -159,7 +159,7 @@ exports[`search-bar demo test search-bar demo: action-btn.md renders correctly 1
       <input
         class="arco-search-bar-input"
         placeholder="请输入要查询的内容"
-        type="text"
+        type="search"
         value=""
       />
     </div>
@@ -172,7 +172,7 @@ exports[`search-bar demo test search-bar demo: association.md renders correctly 
   class="arco-search-bar-container all-border-box arco-search-bar-square"
 >
   <div
-    class="arco-search-bar-wrap text border-half pc prefix"
+    class="arco-search-bar-wrap search border-half pc prefix"
   >
     <div
       class="arco-search-bar-prefix"
@@ -193,7 +193,7 @@ exports[`search-bar demo test search-bar demo: association.md renders correctly 
     <input
       class="arco-search-bar-input"
       placeholder="请输入要查询的内容"
-      type="text"
+      type="search"
       value=""
     />
   </div>
@@ -209,12 +209,12 @@ exports[`search-bar demo test search-bar demo: custom-icon.md renders correctly 
     class="arco-search-bar-container all-border-box arco-search-bar-square"
   >
     <div
-      class="arco-search-bar-wrap text border-half pc"
+      class="arco-search-bar-wrap search border-half pc"
     >
       <input
         class="arco-search-bar-input"
-        placeholder="无按钮"
-        type="text"
+        placeholder="请输入要查询的内容"
+        type="search"
         value=""
       />
     </div>
@@ -224,7 +224,7 @@ exports[`search-bar demo test search-bar demo: custom-icon.md renders correctly 
     style="margin-top:20px"
   >
     <div
-      class="arco-search-bar-wrap text border-half pc prefix"
+      class="arco-search-bar-wrap search border-half pc prefix"
     >
       <div
         class="arco-search-bar-prefix"
@@ -246,8 +246,8 @@ exports[`search-bar demo test search-bar demo: custom-icon.md renders correctly 
       </div>
       <input
         class="arco-search-bar-input"
-        placeholder="自定义按钮"
-        type="text"
+        placeholder="请输入要查询的内容"
+        type="search"
         value=""
       />
     </div>
@@ -262,7 +262,7 @@ exports[`search-bar demo test search-bar demo: custom-pend.md renders correctly 
   <div
     style="display:flex;align-items:center;font-size:14px;margin-right:10px"
   >
-    城市 
+    City 
     <svg
       class="arco-icon arco-icon-arrow-down "
       height="1em"
@@ -278,7 +278,7 @@ exports[`search-bar demo test search-bar demo: custom-pend.md renders correctly 
     </svg>
   </div>
   <div
-    class="arco-search-bar-wrap text border-half pc prefix"
+    class="arco-search-bar-wrap search border-half pc prefix"
   >
     <div
       class="arco-search-bar-prefix"
@@ -299,7 +299,7 @@ exports[`search-bar demo test search-bar demo: custom-pend.md renders correctly 
     <input
       class="arco-search-bar-input"
       placeholder="请输入要查询的内容"
-      type="text"
+      type="search"
       value=""
     />
   </div>
@@ -391,7 +391,7 @@ exports[`search-bar demo test search-bar demo: index.md renders correctly 1`] = 
     class="arco-search-bar-container all-border-box arco-search-bar-square"
   >
     <div
-      class="arco-search-bar-wrap text border-half pc prefix"
+      class="arco-search-bar-wrap search border-half pc prefix"
     >
       <div
         class="arco-search-bar-prefix"
@@ -412,7 +412,7 @@ exports[`search-bar demo test search-bar demo: index.md renders correctly 1`] = 
       <input
         class="arco-search-bar-input"
         placeholder="请输入要查询的内容"
-        type="text"
+        type="search"
         value=""
       />
     </div>
