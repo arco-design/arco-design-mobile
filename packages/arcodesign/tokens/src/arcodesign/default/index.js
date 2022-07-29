@@ -385,8 +385,7 @@ function getCompTokens() {
          * 轮播图滑块文字背景色
          * @en Background color of the carousel sliders
          */
-        carouselItemTextBackground:
-            'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
+        carouselItemTextBackground: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
         /**
          * 轮播图滑块文字高度
          * @en Font height of the carousel sliders
@@ -2117,8 +2116,7 @@ function getCompTokens() {
          * 图片预览指示器背景色
          *  @en ImagePreview indicator background color
          */
-        imagePreviewIndicatorBackground:
-            'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
+        imagePreviewIndicatorBackground: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
         /**
          * 图片预览小图放大时的动画曲线
          * @en Animation curve when ImagePreview thumbnail is enlarged
@@ -3299,6 +3297,126 @@ function getCompTokens() {
          * @en ActionSheet subtitle font size
          */
         actionSheetSubTitleFontSize: getRem(14),
+        /**
+         * 搜索框内边距大小
+         * @en Padding of SearchBar
+         */
+        searchBarPadding: getRem(16),
+        /**
+         * 搜索框背景颜色
+         * @en BackgroundColor of SearchBar
+         */
+        searchBarBackgroundColor: '#FFFFFF',
+        /**
+         * 方形搜索框的圆角大小
+         * @en Size of the rounded corners of the square SearchBar
+         */
+        searchBarSquareShapeBorderRadius: getRem(2),
+        /**
+         * 圆形搜索框的圆角大小
+         * @en Size of the rounded corners of the round SearchBar
+         */
+        searchBarRoundShapeBorderRadius: getRem(9999),
+        /**
+         * 搜索输入框容器高度
+         * @en SearchBar input container height
+         */
+        searchBarInputWrapperHeight: getRem(36),
+        /**
+         * 搜索输入框容器内边距大小
+         * @en SearchBar input container padding
+         */
+        searchBarInputWrapperPadding: `${getRem(8)} ${getRem(14)}`,
+        /**
+         * 搜索输入框容器背景颜色
+         * @en SearchBar input container background color
+         */
+        searchBarInputWrapperBackgroundColor: '#F2F3F5',
+        /**
+         * 搜索输入框容器字体大小
+         * @en SearchBar input container font size
+         */
+        searchBarInputWrapperFontSize: getRem(14),
+        /**
+         * 搜索输入框高度
+         * @en SearchBar input height
+         */
+        searchBarInputHeight: getRem(20),
+        /**
+         * 搜索输入框光标颜色
+         * @en Color of SearchBar input caret
+         */
+        searchBarInputCaretColor: useGlobal('primaryColor'),
+        /**
+         * 搜索输入框提示文案颜色
+         * @en Color of SearchBar input placeholder
+         */
+        searchBarInputPlaceholderColor: useGlobal('disabledColor'),
+        /**
+         * 搜索框搜索框左侧插入内容的右侧外边距
+         * @en Right margin of SearchBar prefix
+         */
+        searchBarPrefixMarginRight: getRem(9),
+        /**
+         * 搜索框清除按钮的颜色
+         * @en Color of SearchBar clear icon
+         */
+        searchBarClearIconColor: '#C9CDD4',
+        /**
+         * 搜索框搜索按钮的颜色
+         * @en Color of SearchBar search icon
+         */
+        searchBarSearchIconColor: '#86909C',
+        /**
+         * 搜索框右侧按钮颜色
+         * @en Color of SearchBar action button
+         */
+        searchBarActionBtnColor: useGlobal('primaryColor'),
+        /**
+         * 搜索框右侧按钮文字大小
+         * @en Font size of SearchBar action button
+         */
+        searchBarActionBtnFontSize: getRem(15),
+        /**
+         * 搜索框右侧按钮的左边距
+         * @en Left margin of SearchBar action button
+         */
+        searchBarActionBtnMarginLeft: getRem(16),
+        /**
+         * 搜索联想框背景颜色
+         * @en Background color of SearchBar association
+         */
+        searchBarAssociationBackgroundColor: '#FFFFFF',
+        /**
+         * 搜索联想框候选项高度
+         * @en Height of SearchBar association item
+         */
+        searchBarAssociationItemHeight: getRem(52),
+        /**
+         * 搜索联想框候选项内边距
+         * @en Padding of SearchBar association item
+         */
+        searchBarAssociationItemPadding: getRem(16),
+        /**
+         * 搜索联想框候选项普通文字颜色
+         * @en Color of SearchBar association item
+         */
+        searchBarAssociationItemColor: useGlobal('fontColor'),
+        /**
+         * 搜索联想框候选项下边框颜色
+         * @en Bottom border color of SearchBar association item
+         */
+        searchBarAssociationItemBorderBottomColor: '#f2f3f5',
+        /**
+         * 搜索联想框候选项下边框宽度
+         * @en Bottom border width of SearchBar association item
+         */
+        searchBarAssociationItemBorderBottomWidth: getRem(1),
+        /**
+         * 搜索联想框候选项高亮文案颜色
+         * @en Color of SearchBar association item highlight text
+         */
+        searchBarAssociationItemHighlightColor: useGlobal('primaryColor'),
     };
 }
 

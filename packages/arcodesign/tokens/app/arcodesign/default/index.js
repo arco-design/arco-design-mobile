@@ -657,7 +657,31 @@ var tokens = {
   "action-sheet-cancel-border-width": "0.16rem",
   "action-sheet-header-padding": "0.32rem",
   "action-sheet-title-font-size": "0.32rem",
-  "action-sheet-sub-title-font-size": "0.28rem"
+  "action-sheet-sub-title-font-size": "0.28rem",
+  "search-bar-padding": "0.32rem",
+  "search-bar-background-color": "#FFFFFF",
+  "search-bar-square-shape-border-radius": "0.04rem",
+  "search-bar-round-shape-border-radius": "199.98rem",
+  "search-bar-input-wrapper-height": "0.72rem",
+  "search-bar-input-wrapper-padding": "0.16rem 0.28rem",
+  "search-bar-input-wrapper-background-color": "#F2F3F5",
+  "search-bar-input-wrapper-font-size": "0.28rem",
+  "search-bar-input-height": "0.4rem",
+  "search-bar-input-caret-color": "#165dff",
+  "search-bar-input-placeholder-color": "#c9cdd4",
+  "search-bar-prefix-margin-right": "0.18rem",
+  "search-bar-clear-icon-color": "#C9CDD4",
+  "search-bar-search-icon-color": "#86909C",
+  "search-bar-action-btn-color": "#165dff",
+  "search-bar-action-btn-font-size": "0.3rem",
+  "search-bar-action-btn-margin-left": "0.32rem",
+  "search-bar-association-background-color": "#FFFFFF",
+  "search-bar-association-item-height": "1.04rem",
+  "search-bar-association-item-padding": "0.32rem",
+  "search-bar-association-item-color": "#1d2129",
+  "search-bar-association-item-border-bottom-color": "#f2f3f5",
+  "search-bar-association-item-border-bottom-width": "0.02rem",
+  "search-bar-association-item-highlight-color": "#165dff"
 };
 var _default = tokens;
 exports["default"] = _default;
