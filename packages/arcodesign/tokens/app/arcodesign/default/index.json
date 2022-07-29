@@ -5387,6 +5387,294 @@
             "en": "Hidden scrollbar reserved width"
         }
     },
+    "searchBarActionBtnColor": {
+        "cssKey": "search-bar-action-btn-color",
+        "desc": "搜索框右侧按钮颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "搜索框右侧按钮颜色",
+            "en": "Color of SearchBar action button"
+        }
+    },
+    "searchBarActionBtnFontSize": {
+        "cssKey": "search-bar-action-btn-font-size",
+        "desc": "搜索框右侧按钮文字大小",
+        "override": "",
+        "value": "~`pxtorem(15)`",
+        "jsValue": "@getRem@15",
+        "staticValue": "0.3rem",
+        "localeDesc": {
+            "ch": "搜索框右侧按钮文字大小",
+            "en": "Font size of SearchBar action button"
+        }
+    },
+    "searchBarActionBtnMarginLeft": {
+        "cssKey": "search-bar-action-btn-margin-left",
+        "desc": "搜索框右侧按钮的左边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "搜索框右侧按钮的左边距",
+            "en": "Left margin of SearchBar action button"
+        }
+    },
+    "searchBarAssociationBackgroundColor": {
+        "cssKey": "search-bar-association-background-color",
+        "desc": "搜索联想框背景颜色",
+        "override": "",
+        "value": "#FFFFFF",
+        "jsValue": "#FFFFFF",
+        "staticValue": "#FFFFFF",
+        "localeDesc": {
+            "ch": "搜索联想框背景颜色",
+            "en": "Background color of SearchBar association"
+        }
+    },
+    "searchBarAssociationItemBorderBottomColor": {
+        "cssKey": "search-bar-association-item-border-bottom-color",
+        "desc": "搜索联想框候选项下边框颜色",
+        "override": "",
+        "value": "#f2f3f5",
+        "jsValue": "#f2f3f5",
+        "staticValue": "#f2f3f5",
+        "localeDesc": {
+            "ch": "搜索联想框候选项下边框颜色",
+            "en": "Bottom border color of SearchBar association item"
+        }
+    },
+    "searchBarAssociationItemBorderBottomWidth": {
+        "cssKey": "search-bar-association-item-border-bottom-width",
+        "desc": "搜索联想框候选项下边框宽度",
+        "override": "",
+        "value": "~`pxtorem(1)`",
+        "jsValue": "@getRem@1",
+        "staticValue": "0.02rem",
+        "localeDesc": {
+            "ch": "搜索联想框候选项下边框宽度",
+            "en": "Bottom border width of SearchBar association item"
+        }
+    },
+    "searchBarAssociationItemColor": {
+        "cssKey": "search-bar-association-item-color",
+        "desc": "搜索联想框候选项普通文字颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "搜索联想框候选项普通文字颜色",
+            "en": "Color of SearchBar association item"
+        }
+    },
+    "searchBarAssociationItemHeight": {
+        "cssKey": "search-bar-association-item-height",
+        "desc": "搜索联想框候选项高度",
+        "override": "",
+        "value": "~`pxtorem(52)`",
+        "jsValue": "@getRem@52",
+        "staticValue": "1.04rem",
+        "localeDesc": {
+            "ch": "搜索联想框候选项高度",
+            "en": "Height of SearchBar association item"
+        }
+    },
+    "searchBarAssociationItemHighlightColor": {
+        "cssKey": "search-bar-association-item-highlight-color",
+        "desc": "搜索联想框候选项高亮文案颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "搜索联想框候选项高亮文案颜色",
+            "en": "Color of SearchBar association item highlight text"
+        }
+    },
+    "searchBarAssociationItemPadding": {
+        "cssKey": "search-bar-association-item-padding",
+        "desc": "搜索联想框候选项内边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "搜索联想框候选项内边距",
+            "en": "Padding of SearchBar association item"
+        }
+    },
+    "searchBarBackgroundColor": {
+        "cssKey": "search-bar-background-color",
+        "desc": "搜索框背景颜色",
+        "override": "",
+        "value": "#FFFFFF",
+        "jsValue": "#FFFFFF",
+        "staticValue": "#FFFFFF",
+        "localeDesc": {
+            "ch": "搜索框背景颜色",
+            "en": "BackgroundColor of SearchBar"
+        }
+    },
+    "searchBarClearIconColor": {
+        "cssKey": "search-bar-clear-icon-color",
+        "desc": "搜索框清除按钮的颜色",
+        "override": "",
+        "value": "#C9CDD4",
+        "jsValue": "#C9CDD4",
+        "staticValue": "#C9CDD4",
+        "localeDesc": {
+            "ch": "搜索框清除按钮的颜色",
+            "en": "Color of SearchBar clear icon"
+        }
+    },
+    "searchBarInputCaretColor": {
+        "cssKey": "search-bar-input-caret-color",
+        "desc": "搜索输入框光标颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "搜索输入框光标颜色",
+            "en": "Color of SearchBar input caret"
+        }
+    },
+    "searchBarInputHeight": {
+        "cssKey": "search-bar-input-height",
+        "desc": "搜索输入框高度",
+        "override": "",
+        "value": "~`pxtorem(20)`",
+        "jsValue": "@getRem@20",
+        "staticValue": "0.4rem",
+        "localeDesc": {
+            "ch": "搜索输入框高度",
+            "en": "SearchBar input height"
+        }
+    },
+    "searchBarInputPlaceholderColor": {
+        "cssKey": "search-bar-input-placeholder-color",
+        "desc": "搜索输入框提示文案颜色",
+        "override": "",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
+        "staticValue": "#c9cdd4",
+        "localeDesc": {
+            "ch": "搜索输入框提示文案颜色",
+            "en": "Color of SearchBar input placeholder"
+        }
+    },
+    "searchBarInputWrapperBackgroundColor": {
+        "cssKey": "search-bar-input-wrapper-background-color",
+        "desc": "搜索输入框容器背景颜色",
+        "override": "",
+        "value": "#F2F3F5",
+        "jsValue": "#F2F3F5",
+        "staticValue": "#F2F3F5",
+        "localeDesc": {
+            "ch": "搜索输入框容器背景颜色",
+            "en": "SearchBar input container background color"
+        }
+    },
+    "searchBarInputWrapperFontSize": {
+        "cssKey": "search-bar-input-wrapper-font-size",
+        "desc": "搜索输入框容器字体大小",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "搜索输入框容器字体大小",
+            "en": "SearchBar input container font size"
+        }
+    },
+    "searchBarInputWrapperHeight": {
+        "cssKey": "search-bar-input-wrapper-height",
+        "desc": "搜索输入框容器高度",
+        "override": "",
+        "value": "~`pxtorem(36)`",
+        "jsValue": "@getRem@36",
+        "staticValue": "0.72rem",
+        "localeDesc": {
+            "ch": "搜索输入框容器高度",
+            "en": "SearchBar input container height"
+        }
+    },
+    "searchBarInputWrapperPadding": {
+        "cssKey": "search-bar-input-wrapper-padding",
+        "desc": "搜索输入框容器内边距大小",
+        "override": "",
+        "value": "~`pxtorem(8)` ~`pxtorem(14)`",
+        "jsValue": "@getRem@8 @getRem@14",
+        "staticValue": "0.16rem 0.28rem",
+        "localeDesc": {
+            "ch": "搜索输入框容器内边距大小",
+            "en": "SearchBar input container padding"
+        }
+    },
+    "searchBarPadding": {
+        "cssKey": "search-bar-padding",
+        "desc": "搜索框内边距大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "搜索框内边距大小",
+            "en": "Padding of SearchBar"
+        }
+    },
+    "searchBarPrefixMarginRight": {
+        "cssKey": "search-bar-prefix-margin-right",
+        "desc": "搜索框搜索框左侧插入内容的右侧外边距",
+        "override": "",
+        "value": "~`pxtorem(9)`",
+        "jsValue": "@getRem@9",
+        "staticValue": "0.18rem",
+        "localeDesc": {
+            "ch": "搜索框搜索框左侧插入内容的右侧外边距",
+            "en": "Right margin of SearchBar prefix"
+        }
+    },
+    "searchBarRoundShapeBorderRadius": {
+        "cssKey": "search-bar-round-shape-border-radius",
+        "desc": "圆形搜索框的圆角大小",
+        "override": "",
+        "value": "~`pxtorem(9999)`",
+        "jsValue": "@getRem@9999",
+        "staticValue": "199.98rem",
+        "localeDesc": {
+            "ch": "圆形搜索框的圆角大小",
+            "en": "Size of the rounded corners of the round SearchBar"
+        }
+    },
+    "searchBarSearchIconColor": {
+        "cssKey": "search-bar-search-icon-color",
+        "desc": "搜索框搜索按钮的颜色",
+        "override": "",
+        "value": "#86909C",
+        "jsValue": "#86909C",
+        "staticValue": "#86909C",
+        "localeDesc": {
+            "ch": "搜索框搜索按钮的颜色",
+            "en": "Color of SearchBar search icon"
+        }
+    },
+    "searchBarSquareShapeBorderRadius": {
+        "cssKey": "search-bar-square-shape-border-radius",
+        "desc": "方形搜索框的圆角大小",
+        "override": "",
+        "value": "~`pxtorem(2)`",
+        "jsValue": "@getRem@2",
+        "staticValue": "0.04rem",
+        "localeDesc": {
+            "ch": "方形搜索框的圆角大小",
+            "en": "Size of the rounded corners of the square SearchBar"
+        }
+    },
     "sliderHasMarkPaddingBottom": {
         "cssKey": "slider-has-mark-padding-bottom",
         "desc": "slider 有标记时的底部内边距",

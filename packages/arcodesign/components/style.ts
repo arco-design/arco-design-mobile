@@ -41,6 +41,7 @@ import './pull-refresh/style';
 import './radio/style';
 import './rate/style';
 import './slider/style';
+import './search-bar/style';
 import './steps/style';
 import './sticky/style';
 import './swipe-load/style';
