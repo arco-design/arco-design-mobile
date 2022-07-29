@@ -10,18 +10,19 @@ import { highlightWithContainMode, highlightWithPrefixMode } from './highlight';
 export function SearchBarAssociation<Data>(props: SearchBarAssociationProps<Data>) {
     const {
         prefixCls,
-        searchAssociationItems = [],
+        associationItems = [],
         highlightClassName,
         highlightMode = 'none',
         highlightStyle,
         onAssociationClick,
         onAssociationItemClick,
-        renderSearchAssociation,
-        renderSearchAssociationItem,
+        renderAssociation,
+        renderAssociationItem,
         keyword,
         visible,
     } = props;
     const searchBarAssociationPrefixCls = `${prefixCls}-association`;
+    const defaultHighlightClassName = `${searchBarAssociationPrefixCls}-item-highlight`;
 
     const renderHighlightNode = (content: string) => {
         if (!content || !keyword || highlightMode === 'none') {
@@ -30,8 +31,7 @@ export function SearchBarAssociation<Data>(props: SearchBarAssociationProps<Data
         const config: SearchBarAssociationHighlightConfig = {
             keyword,
             content,
-            highlightClassName:
-                highlightClassName || `${searchBarAssociationPrefixCls}-item-highlight`,
+            highlightClassName: highlightClassName || defaultHighlightClassName,
             highlightStyle,
         };
 
@@ -41,7 +41,9 @@ export function SearchBarAssociation<Data>(props: SearchBarAssociationProps<Data
         if (highlightMode === 'prefix') {
             return highlightWithPrefixMode(config);
         }
-        return content;
+        return typeof highlightMode === 'function'
+            ? highlightMode(content, keyword, defaultHighlightClassName)
+            : content;
     };
 
     const renderItem = (item: SearchAssociationItem<Data>, index: number) => {
@@ -51,8 +53,8 @@ export function SearchBarAssociation<Data>(props: SearchBarAssociationProps<Data
         if (typeof itemContent === 'string' && highlightMode !== 'none') {
             node = renderHighlightNode(itemContent);
         }
-        if (renderSearchAssociationItem) {
-            node = renderSearchAssociationItem(item, index, node);
+        if (renderAssociationItem) {
+            node = renderAssociationItem(item, index, node);
         }
         return (
             <div
@@ -66,9 +68,9 @@ export function SearchBarAssociation<Data>(props: SearchBarAssociationProps<Data
     };
 
     const renderContent = () => {
-        const associationContent = searchAssociationItems.map(renderItem);
-        if (renderSearchAssociation) {
-            return renderSearchAssociation(associationContent);
+        const associationContent = associationItems.map(renderItem);
+        if (renderAssociation) {
+            return renderAssociation(associationContent);
         }
         return associationContent;
     };

@@ -3403,16 +3403,6 @@ function getCompTokens() {
          */
         searchBarAssociationItemColor: useGlobal('fontColor'),
         /**
-         * 搜索联想框候选项下边框颜色
-         * @en Bottom border color of SearchBar association item
-         */
-        searchBarAssociationItemBorderBottomColor: '#f2f3f5',
-        /**
-         * 搜索联想框候选项下边框宽度
-         * @en Bottom border width of SearchBar association item
-         */
-        searchBarAssociationItemBorderBottomWidth: getRem(1),
-        /**
          * 搜索联想框候选项高亮文案颜色
          * @en Color of SearchBar association item highlight text
          */

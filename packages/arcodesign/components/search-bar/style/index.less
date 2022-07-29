@@ -74,10 +74,10 @@
     right: 0;
     .use-var(background-color, search-bar-association-background-color);
     top: 100%;
-    visibility: hidden;
+    display: none;
 
     &-visible {
-      visibility: visible;
+      display: block;
     }
 
     &-item {
@@ -88,15 +88,10 @@
       .use-var(color, search-bar-association-item-color);
       .use-var(padding, search-bar-association-item-padding);
       
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 1px;
-        transform: scaleY(0.5);
-        .use-var(background-color, search-bar-association-item-border-bottom-color)
+      .onepx-border-var(bottom, line-color);
+
+      &:not(:last-child) {
+        .onepx-border-var(bottom, line-color);
       }
 
       &-highlight {

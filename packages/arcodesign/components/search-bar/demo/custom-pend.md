@@ -1,4 +1,4 @@
-## 自定义插入内容
+## 自定义插入内容 @en{Custom Insert}
 
 #### 4
 
@@ -18,7 +18,7 @@ export default function SearchBarDemo() {
 
         return (
             <div style={wrapperStyle}>
-                城市 <IconArrowDown style={iconStyle} />
+                City <IconArrowDown style={iconStyle} />
             </div>
         );
     };

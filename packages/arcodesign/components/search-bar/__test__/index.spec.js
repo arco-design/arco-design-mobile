@@ -133,12 +133,12 @@ describe('SearchBar', () => {
         ];
 
         const component = mount(
-            <SearchBar showSearchAssociation searchAssociationItems={associationItems} />,
+            <SearchBar enableAssociation associationItems={associationItems} />,
         );
 
         expect(component.find(associationContainerSelector).length).toBe(0);
 
-        // searchAssociationShowType为default
+        // associationShowType为default
         const inputDom = component.find(inputSelector);
         inputDom.simulate('change', { target: { value: '测' } });
         expect(component.find(associationContainerSelector).length).toBe(1);
@@ -149,9 +149,9 @@ describe('SearchBar', () => {
         inputDom.simulate('change', { target: { value: '' } });
         expect(component.find(associationContainerSelector).length).toBe(0);
 
-        // searchAssociationShowType为value，blur也不会消失
+        // associationShowType为value，blur也不会消失
         component.setProps({
-            searchAssociationShowType: 'value',
+            associationShowType: 'value',
         });
         inputDom.simulate('change', { target: { value: '测' } });
         expect(component.find(associationContainerSelector).length).toBe(1);
@@ -160,9 +160,9 @@ describe('SearchBar', () => {
         inputDom.simulate('change', { target: { value: '' } });
         expect(component.find(associationContainerSelector).length).toBe(0);
 
-        // searchAssociationShowType为focus, blur也消失
+        // associationShowType为focus, blur也消失
         component.setProps({
-            searchAssociationShowType: 'focus',
+            associationShowType: 'focus',
         });
         inputDom.simulate('blur');
         expect(component.find(associationContainerSelector).length).toBe(0);
@@ -170,7 +170,7 @@ describe('SearchBar', () => {
         expect(component.find(associationContainerSelector).length).toBe(1);
 
         component.setProps({
-            searchAssociationShowType: 'always',
+            associationShowType: 'always',
         });
         inputDom.simulate('blur');
         expect(component.find(associationContainerSelector).length).toBe(1);
@@ -193,9 +193,9 @@ describe('SearchBar', () => {
 
         const component = mount(
             <SearchBar
-                showSearchAssociation
+                enableAssociation
                 ref={ref}
-                searchAssociationItems={associationItems}
+                associationItems={associationItems}
                 onAssociationClick={handleAssociationClick}
                 onAssociationItemClick={handleAssociationItemClick}
             />,
@@ -244,12 +244,12 @@ describe('SearchBar', () => {
                 content: 'Ad',
             },
             {
-                content: '',
+                content: '一个测试组',
             },
         ];
 
         const component = mount(
-            <SearchBar showSearchAssociation searchAssociationItems={associationItems} />,
+            <SearchBar enableAssociation associationItems={associationItems} />,
         );
 
         expect(component.find(associationItemSelector).length).toBe(associationItems.length);
@@ -259,6 +259,7 @@ describe('SearchBar', () => {
             highlightMode: 'prefix',
         });
         const inputDom = component.find(inputSelector);
+
         inputDom.simulate('change', { target: { value: 'A' } });
         expect(component.find(highlightNodeSelector).length).toBe(2);
         inputDom.simulate('change', { target: { value: 'Arco' } });
@@ -268,6 +269,23 @@ describe('SearchBar', () => {
 
         inputDom.simulate('change', { target: { value: '' } });
         expect(component.find(highlightNodeSelector).length).toBe(0);
+
+        component.setProps({
+            highlightMode: 'contain',
+        });
+        inputDom.simulate('change', { target: { value: '测试' } });
+        expect(component.find(highlightNodeSelector).length).toBe(2);
+
+        component.setProps({
+            highlightMode: (content, keyword, defaultClassName) =>
+                content.includes(keyword) ? (
+                    <span className={defaultClassName}>{content}</span>
+                ) : (
+                    content
+                ),
+        });
+        component.update();
+        expect(component.find(highlightNodeSelector).length).toBe(2);
     });
 
     it('highlight prefix mode work correctly', () => {
@@ -291,8 +309,8 @@ describe('SearchBar', () => {
 
         const component = mount(
             <SearchBar
-                showSearchAssociation
-                searchAssociationItems={associationItems}
+                enableAssociation
+                associationItems={associationItems}
                 highlightMode="contain"
             />,
         );
@@ -336,10 +354,10 @@ describe('SearchBar', () => {
 
         const component = mount(
             <SearchBar
-                showSearchAssociation
-                searchAssociationItems={associationItems}
-                renderSearchAssociation={renderSearchAssociation}
-                renderSearchAssociationItem={renderSearchAssociationItem}
+                enableAssociation
+                associationItems={associationItems}
+                renderAssociation={renderSearchAssociation}
+                renderAssociationItem={renderSearchAssociationItem}
                 highlightMode="unknown"
             />,
         );

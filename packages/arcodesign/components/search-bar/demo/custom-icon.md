@@ -1,4 +1,4 @@
-## 自定义 icon
+## 自定义 Icon @en{Custom Icon}
 
 #### 3
 
@@ -11,12 +11,8 @@ export default function SearchBarDemo() {
 
     return (
         <div>
-            <SearchBar prefix={null} placeholder="无按钮" appendBtnText="搜索" />
-            <SearchBar
-                style={style}
-                prefix={<IconSetting style={{ color: '#86909c' }} />}
-                placeholder="自定义按钮"
-            />
+            <SearchBar prefix={null} appendBtnText="Search" />
+            <SearchBar style={style} prefix={<IconSetting style={{ color: '#86909c' }} />} />
         </div>
     );
 }
