@@ -81,12 +81,12 @@ export interface BasicInputProps<T = HTMLInputElement> {
      * 输入框头部内容，在输入框外部
      * @en The content of the header of the input box, outside the input box
      */
-    prepend?: React.ReactNode | ((focusing: boolean) => React.ReactNode);
+    prepend?: React.ReactNode | ((focusing: boolean, inputValue: string) => React.ReactNode);
     /**
      * 输入框尾部内容，在输入框外部
      * @en The content at the end of the input box, outside the input box
      */
-    append?: React.ReactNode | ((focusing: boolean) => React.ReactNode);
+    append?: React.ReactNode | ((focusing: boolean, inputValue: string) => React.ReactNode);
     /**
      * 在聚焦之前blur掉，即切换不同input时会重新弹起键盘，常用于input type切换时重新加载键盘，安卓上有效
      * @en Blur before focusing, that is, the keyboard will be re-bounced when switching between different inputs. It is often used to reload the keyboard when the input type is switched. It is valid on Android.
