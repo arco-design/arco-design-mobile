@@ -15,7 +15,15 @@ import { SearchBarAssociation } from './association';
 import { SEARCH_BAR_DEFAULT_BTN_TEXT, SEARCH_BAR_DEFAULT_PLACEHOLDER } from './constant';
 import { SearchAssociationBaseItem, SearchBarProps, SearchBarRef } from './type';
 
-export * from './type';
+export {
+    SearchBarProps,
+    SearchBarRef,
+    SearchActionBtnShowType,
+    SearchAssociationHighlightMode,
+    SearchAssociationItem,
+    SearchAssociationShowType,
+    SearchBarShape,
+} from './type';
 
 /**
  * 搜索框组件
@@ -145,7 +153,8 @@ const SearchBar = forwardRef(
 
         const [visible, setVisible] = useState(
             associationShowType === 'always' ||
-                (associationShowType === 'value' && Boolean(inputValue)),
+                ((associationShowType === 'value' || associationShowType === 'default') &&
+                    Boolean(inputValue)),
         );
         // 真实的控制搜索联想框显隐，受控模式优先生效
         const actualVisible = associationVisible ?? visible;
