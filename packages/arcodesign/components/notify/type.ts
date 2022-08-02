@@ -21,6 +21,7 @@ export interface NotifyProps {
     /**
      * 通知类型
      * @en Notification type
+     * @default "info"
      */
     type?: NotifyType;
     /**

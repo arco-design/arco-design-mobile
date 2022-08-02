@@ -402,6 +402,26 @@
                 "name": "(e: MouseEvent<Element, MouseEvent>) => void"
             }
         },
+        "disableWhenLoading": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "加载中是否禁用按钮操作\n@en Disable button when loading",
+            "name": "disableWhenLoading",
+            "tags": {
+                "en": "Disable button when loading",
+                "default": "true"
+            },
+            "descWithTags": "加载中是否禁用按钮操作",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",

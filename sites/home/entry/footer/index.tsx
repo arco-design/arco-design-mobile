@@ -1,7 +1,7 @@
 import React, { ReactNode, useContext } from 'react';
 import { Collapse } from 'Arco';
 import { LanguageSupport } from '../../../utils/language';
-import { FIGMA_RESOURCE, getUrlsByLanguage } from '../../../utils/url';
+import { getUrlsByLanguage } from '../../../utils/url';
 import Img from '../components/img';
 import { GlobalContext } from '../setting';
 import { localeMap } from '../../../utils/locale';
@@ -24,9 +24,6 @@ const getAllLinks = (language: LanguageSupport) => {
                 link: 'https://$siteDomain$/material',
             },
             { name: localeMap.ArcoProBestPractices[language], link: 'https://pro.arco.design/' },
-        ],
-        [localeMap.HomeFooterResource[language]]: [
-            { name: localeMap.HomeFooterFigma[language], link: FIGMA_RESOURCE },
         ],
         [localeMap.HomeFooterFeedback[language]]: [],
     };
@@ -52,6 +49,16 @@ export default function Footer() {
                         <div className="footer-title">{key}</div>
                         {Object.keys(allLinks).length - 1 === index ? (
                             <div className="footer-feedback">
+                                <div
+                                    className="footer-link"
+                                    onClick={() =>
+                                        window.open(
+                                            'https://github.com/arco-design/arco-design-mobile/issues',
+                                        )
+                                    }
+                                >
+                                    GitHub Issues
+                                </div>
                                 <div className="footer-desc">
                                     {localeMap.FeedbackTips[language]}
                                 </div>

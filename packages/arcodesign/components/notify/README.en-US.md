@@ -13,7 +13,7 @@ The feedback information bar displayed after active operation can be called by m
 |className|Custom classname|string|-|
 |style|Custom style|CSSProperties|-|
 |content|Notification content|ReactNode|-|
-|type|Notification type|"success" \| "error" \| "warn" \| "info"|-|
+|type|Notification type|"success" \| "error" \| "warn" \| "info"|"info"|
 |visible|Whether to show notification|boolean|false|
 |close|Close function|() =\> void|-|
 |onClose|Callback after closing|() =\> void|-|
