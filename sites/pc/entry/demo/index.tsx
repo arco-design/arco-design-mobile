@@ -144,6 +144,17 @@ export default function Demo(props: IDemoProps) {
         );
     }
 
+    function getIframeSrc() {
+        const urlParts = previewUrl.split('#');
+        const customQuery = toQuery({
+            ...urlQuery,
+            hide_back: hideBack || 1,
+            from_web: 1,
+            ...(isReadMe ? { need_jump: 0 } : {}),
+        });
+        return `${urlParts[0] || ''}?${customQuery}#${urlParts[1] || ''}`;
+    }
+
     useEffect(() => {
         window.addEventListener('message', event => {
             if (event?.data?.type === 'component') {
@@ -161,16 +172,7 @@ export default function Demo(props: IDemoProps) {
             {doc}
             {needShowIframe && (
                 <div className="mobile-iframe">
-                    <iframe
-                        src={`${previewUrl.split('#')[0] || ''}?${toQuery({
-                            ...urlQuery,
-                            hide_back: hideBack || 1,
-                            from_web: 1,
-                            ...(isReadMe ? { need_jump: 0 } : {}),
-                        })}#${previewUrl.split('#')[1] || ''}`}
-                        title="mobile sites"
-                        key={name}
-                    />
+                    <iframe src={getIframeSrc()} title="mobile sites" key={name} />
                 </div>
             )}
             {update && doc && !isIcon && renderCodePopover()}

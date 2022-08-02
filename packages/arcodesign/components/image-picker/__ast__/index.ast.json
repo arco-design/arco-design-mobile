@@ -465,7 +465,7 @@
             },
             "required": false,
             "type": {
-                "name": "(e: MouseEvent<HTMLElement, MouseEvent>, image: ImagePickItem, index: number) => void"
+                "name": "(e: TouchEvent<HTMLElement>, image: ImagePickItem, index: number) => void"
             }
         },
         "selectAdapter": {

@@ -169,11 +169,7 @@ export interface ImagePickerProps {
      * 图片长按事件
      * @en long press event
      */
-    onLongPress?: (
-        e: React.MouseEvent<HTMLElement, MouseEvent>,
-        image: ImagePickItem,
-        index: number,
-    ) => void;
+    onLongPress?: (e: React.TouchEvent<HTMLElement>, image: ImagePickItem, index: number) => void;
     /**
      * 图片选择适配器
      * @en Select Adaptor
@@ -254,7 +250,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         });
     };
 
-    const handleChange = event => {
+    const handleChange = (event, fromAdapter?: boolean) => {
         const files =
             [...(event.target.files || [])].filter(file => {
                 // 过滤maxSize
@@ -264,7 +260,9 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                 }
                 return true;
             }) || [];
-        event.target.value = '';
+        if (!fromAdapter) {
+            event.target.value = '';
+        }
         // 截断limit
         if (limit !== 0 && files.length + images.length > limit) {
             onLimitExceed && onLimitExceed(files);
@@ -308,23 +306,31 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
 
     // click && longPress
     let timeOutEvent;
-    const handleTouchStart = (e, image, index) => {
+    const handleTouchStart = (
+        e: React.TouchEvent<HTMLDivElement>,
+        image: ImagePickItem,
+        index: number,
+    ) => {
         e.preventDefault();
         timeOutEvent = setTimeout(() => {
             timeOutEvent = 0;
-            typeof onLongPress === 'function' && onLongPress(e, image, index);
+            onLongPress?.(e, image, index);
         }, 750);
     };
-    const handleTouchEnd = (e, image, index) => {
+    const handleClick = (
+        e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        image: ImagePickItem,
+        index: number,
+    ) => {
         clearTimeout(timeOutEvent);
         if (timeOutEvent !== 0) {
-            typeof onClick === 'function' && onClick(e, image, index);
+            onClick?.(e, image, index);
         }
     };
 
     const handleSelect = () => {
         selectAdapter
-            ? selectAdapter().then(({ files }) => handleChange({ target: { files } }))
+            ? selectAdapter().then(({ files }) => handleChange({ target: { files } }, true))
             : fileRef.current?.click();
     };
 
@@ -353,7 +359,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                         <div key={`${index}-${url}`} className={`${prefixCls}-image-picker-image`}>
                             <div
                                 onTouchStart={e => handleTouchStart(e, image, index)}
-                                onTouchEnd={e => handleTouchEnd(e, image, index)}
+                                onClick={e => handleClick(e, image, index)}
                                 className={`${prefixCls}-image-picker-image-container`}
                             >
                                 <Image
@@ -408,7 +414,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                                     accept={accept}
                                     multiple={multiple}
                                     type="file"
-                                    onChange={handleChange}
+                                    onChange={e => handleChange(e)}
                                     ref={fileRef}
                                 />
                             ) : null}
