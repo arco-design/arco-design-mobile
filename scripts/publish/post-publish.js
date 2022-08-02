@@ -4,7 +4,7 @@ const childProcess = require('child_process');
 const axios = require('axios');
 
 function getCdnBaseUrl(file, version) {
-    return `https://unpkg.com/browse/@arco-design/mobile-react@${version}/dist/${file}`;
+    return `https://unpkg.com/@arco-design/mobile-react@${version}/dist/${file}`;
 }
 
 (async function getLatestVersion() {

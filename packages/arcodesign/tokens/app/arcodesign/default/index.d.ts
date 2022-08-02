@@ -1,6 +1,6 @@
 export declare function getRem(px: number, baseFontSize: number): string;
 export interface ArcodesignToken extends Record<string, string> {
-    'prefix': string;
+    prefix: string;
     'base-font-size': string;
     'background-color': string;
     'font-color': string;
