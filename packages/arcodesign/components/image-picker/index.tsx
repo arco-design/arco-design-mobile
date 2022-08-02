@@ -182,7 +182,10 @@ export interface ImagePickerProps {
 }
 
 export interface ImagePickerRef {
-    /** 最外层元素 DOM */
+    /**
+     * 最外层 DOM 元素
+     * @en The outer DOM element of the component
+     */
     dom: HTMLDivElement | null;
 }
 

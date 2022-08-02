@@ -1077,13 +1077,15 @@
             "dom": {
                 "name": "dom",
                 "required": true,
-                "description": "最外层元素 DOM",
+                "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
                 "defaultValue": null,
                 "type": {
                     "name": "HTMLDivElement"
                 },
-                "tags": {},
-                "descWithTags": "最外层元素 DOM"
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "最外层 DOM 元素"
             }
         }
     },

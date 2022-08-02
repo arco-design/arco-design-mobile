@@ -42,7 +42,7 @@ ImagePicker Component
 
 |Property|Description|Type|
 |----------|-------------|------|
-|dom|最外层元素 DOM|HTMLDivElement|
+|dom|The outer DOM element of the component|HTMLDivElement|
 
 > ImagePickItem
 

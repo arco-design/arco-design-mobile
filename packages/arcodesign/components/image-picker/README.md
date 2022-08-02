@@ -42,7 +42,7 @@
 
 |参数|描述|类型|
 |----------|-------------|------|
-|dom|最外层元素 DOM|HTMLDivElement|
+|dom|最外层 DOM 元素|HTMLDivElement|
 
 > ImagePickItem
 
