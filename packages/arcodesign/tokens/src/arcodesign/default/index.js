@@ -3294,21 +3294,85 @@ function getCompTokens() {
          * @en ActionSheet subtitle font size
          */
         actionSheetSubTitleFontSize: getRem(14),
+        /**
+         * 图片选择器内部字体大小
+         * @en Font size of ImagePicker
+         */
         imagePickerFontSize: getRem(14),
+        /**
+         * 图片选择器禁用状态下的透明度
+         * @en Opacity of disabled ImagePicker
+         */
         imagePickerDisabledOpacity: '0.7',
+        /**
+         * 图片选择器中图片的圆角值
+         * @en Border radius of the image in ImagePicker
+         */
         imagePickerBorderRadius: getRem(2),
+        /**
+         * 图片选择器添加图片按钮的背景色
+         * @en Background of the add button of ImagePicker
+         */
         imagePickerAddBackground: '#f7f8fa',
+        /**
+         * 图片选择器添加图片按钮的图标大小
+         * @en Icon size of the add button of ImagePicker
+         */
         imagePickerAddIconFontSize: getRem(30),
+        /**
+         * 图片选择器添加图片按钮的图标颜色
+         * @en Icon color of the add button of ImagePicker
+         */
         imagePickerAddIconColor: '#d8d8d8',
+        /**
+         * 图片选择器添加图片按钮的字体大小
+         * @en Font size of the add button of ImagePicker
+         */
         imagePickerAddTextFontSize: getRem(12),
+        /**
+         * 图片选择器添加图片按钮的字体颜色
+         * @en Font color of the add button of ImagePicker
+         */
         imagePickerAddTextColor: useGlobal('subInfoFontColor'),
+        /**
+         * 图片选择器中图片错误状态下的文字颜色
+         * @en Text color for image error state in the image picker
+         */
         imagePickerErrorColor: '#ffffff',
+        /**
+         * 图片选择器中图片错误状态下的背景色
+         * @en Background for image error state in the image picker
+         */
         imagePickerErrorBackground: 'rgba(0, 0, 0, 0.5)',
+        /**
+         * 图片选择器关闭按钮字体颜色
+         * @en Font color of the close button of ImagePicker
+         */
         imagePickerCloseColor: '#ffffff',
+        /**
+         * 图片选择器关闭按钮字体大小
+         * @en Font size of the close button of ImagePicker
+         */
         imagePickerCloseFontSize: getRem(12),
+        /**
+         * 图片选择器关闭按钮宽度
+         * @en Width of the close button of ImagePicker
+         */
         imagePickerCloseWidth: getRem(18),
+        /**
+         * 图片选择器关闭按钮高度
+         * @en Height of the close button of ImagePicker
+         */
         imagePickerCloseHeight: getRem(18),
+        /**
+         * 图片选择器关闭按钮背景色
+         * @en Background of the close button of ImagePicker
+         */
         imagePickerCloseBackground: 'rgba(0, 0, 0, 0.3)',
+        /**
+         * 图片选择器关闭按钮圆角值
+         * @en Border radius of the close button of ImagePicker
+         */
         imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
     };
 }
