@@ -89,7 +89,7 @@ npm install babel-plugin-import -D
 plugins: [
     ["import", {
         "libraryName": "@arco-design/mobile-react",
-        "libraryDirectory": "esm",
+        "libraryDirectory": "esm", // In SSR environment, you need to use `cjs` here
         "style": (path) => `${path}/style`,
     }]
 ]
@@ -102,7 +102,7 @@ plugins: [
 ```js
 plugins: [
     ["import", {
-        "libraryName": "@arco-design/mobile-react/esm/icon",
+        "libraryName": "@arco-design/mobile-react/esm/icon", // In SSR environment, you need to replace `esm` with `cjs`
         "libraryDirectory": "",
         "camel2DashComponentName": false,
     }]
@@ -115,11 +115,11 @@ If both **component** and **Icon** need to be imported on demand, you need to ad
 plugins: [
     ["import", {
         "libraryName": "@arco-design/mobile-react",
-        "libraryDirectory": "esm",
+        "libraryDirectory": "esm", // In SSR environment, you need to use `cjs` here
         "style": (path) => `${path}/style`
     }, "@arco-design/mobile-react"],
     ["import", {
-        "libraryName": "@arco-design/mobile-react/esm/icon",
+        "libraryName": "@arco-design/mobile-react/esm/icon", // In SSR environment, you need to replace `esm` with `cjs`
         "libraryDirectory": "",
         "camel2DashComponentName": false
     }, "@arco-design/mobile-react/esm/icon"]
