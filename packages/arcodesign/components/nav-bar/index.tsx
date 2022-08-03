@@ -160,7 +160,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
     const relBackground = scrollToggleHide ? 'transparent' : '';
     const [customStyle, setCustomStyle] = useState<CSSProperties>({});
     const onElementScroll = (curOffset: number) => {
-        setScrollToggleHide(curOffset <= showOffset);
+        setScrollToggleHide(curOffset < showOffset);
 
         if (getComputedStyleByScroll) {
             const cstyle = getComputedStyleByScroll(curOffset);
@@ -186,6 +186,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
     useEffect(() => {
         const needBind = showOffset || getComputedStyleByScroll;
         const container = getValidScrollContainer(getScrollContainer);
+        handleEleScroll();
         if (needBind && container) {
             container.addEventListener('scroll', handleEleScroll, false);
         }
