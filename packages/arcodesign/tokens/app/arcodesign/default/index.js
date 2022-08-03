@@ -1,18 +1,21 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
-    value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-exports['default'] = void 0;
+exports["default"] = void 0;
 exports.getRem = getRem;
 
 function getRem(px, baseFontSize) {
-    var num = Math.round((px / Number(baseFontSize)) * 1000000) / 1000000;
-    return num ? ''.concat(num, 'rem') : num;
+  var num = Math.round(px / Number(baseFontSize) * 1000000) / 1000000;
+  return num ? "".concat(num, "rem") : num;
 }
 
 var tokens = {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fix: 重新生成token
   "prefix": "arco",
   "base-font-size": "50",
   "background-color": "#ffffff",
@@ -171,9 +174,14 @@ var tokens = {
   "avatar-desc-ultra-small-margin-top": "0.04rem",
   "avatar-name-color": "#1d2129",
   "avatar-desc-color": "#86909c",
+<<<<<<< HEAD
   "button-line-height": "1.2",
   "button-radius": "2PX",
   "button-icon-text-gutter": "0.08rem",
+=======
+  "button-border-color": "#165dff",
+  "button-radius": "2PX",
+>>>>>>> fix: 重新生成token
   "button-primary-background": "#165dff",
   "button-primary-clicked-background": "#0E42D2",
   "button-primary-disabled-background": "#94bfff",
@@ -707,6 +715,7 @@ var tokens = {
   "image-picker-close-height": "0.36rem",
   "image-picker-close-background": "rgba(0, 0, 0, 0.3)",
   "image-picker-close-border-radius": "0 0.04rem"
+<<<<<<< HEAD
 =======
     prefix: 'arco',
     'base-font-size': '50',
@@ -1396,6 +1405,8 @@ var tokens = {
     'image-picker-close-background': 'rgba(0, 0, 0, 0.3)',
     'image-picker-close-border-radius': '0 0.04rem',
 >>>>>>> fix: 删除不必要的less变量
+=======
+>>>>>>> fix: 重新生成token
 };
 var _default = tokens;
-exports['default'] = _default;
+exports["default"] = _default;
