@@ -35,6 +35,7 @@ export function useInputLogic(
         clearable,
         clearShowType = 'focus',
         clearIcon = <IconClear />,
+        preventEventWhenClearing = true,
         onClear,
         autoFocus,
     } = props;
@@ -44,7 +45,25 @@ export function useInputLogic(
             clearShowType === 'always' ||
             (clearShowType === 'value' && Boolean(value || defaultValue)),
     );
-    const focusingRef = useRef(false);
+    /**
+     * clear相关问题背景
+     * 如果点击clear按钮之前已经是focusing状态了，那么在点完clear按钮之后会手动聚焦一下
+     * 该行为将导致onClear事件触发时，也会触发一次onBlur和onFocus事件，可能影响一些组件外的代码逻辑
+     *
+     * e.g. 假设input按钮右侧有一个按钮仅在聚焦时展示
+     * 实现代码大致是：onBlur设置其visible为false，onFocus设置其visible为true
+     * 那么这个按钮就会因为clear的点击造成一瞬的闪烁
+     *
+     * 解决思路
+     * 先来看一下，在输入框已激活的状态时，点击清除按钮后，组件的一些事件的触发顺序
+     * handleBlur -> handleClear -> handleFocus -> onBlur(外部回调) -> onFocus(外部回调)
+     * 可以看到外部的onBlur和onFocus回调都是在handleClear函数之后被调用
+     * 因此可以在handleClear中设置一个shouldPreventEvent的boolean标志
+     * 如果这个标志为true，则跳过调用外部的onBlur和onFocus，并在最后再将标志置回false
+     *
+     */
+    const [isFocusing, setIsFocusing] = useState(false);
+    const shouldPreventEvent = useRef(false);
     const actualInputValue = value !== void 0 ? value : inputValue;
     const system = useSystem();
     const wrapRef = useRef<HTMLDivElement | null>(null);
@@ -107,7 +126,11 @@ export function useInputLogic(
 
     function handleFocus(e: React.FocusEvent<InputEleType>) {
         nextTick(() => {
-            focusingRef.current = true;
+            if (preventEventWhenClearing && shouldPreventEvent.current) {
+                shouldPreventEvent.current = false;
+                return;
+            }
+            setIsFocusing(true);
             clearShowType === 'focus' && toggleClear(true);
             onFocus && onFocus(e);
         });
@@ -115,7 +138,10 @@ export function useInputLogic(
 
     function handleBlur(e: React.FocusEvent<InputEleType>) {
         nextTick(() => {
-            focusingRef.current = false;
+            if (preventEventWhenClearing && shouldPreventEvent.current) {
+                return;
+            }
+            setIsFocusing(false);
             clearShowType === 'focus' && toggleClear(false);
             onBlur && onBlur(e);
         });
@@ -124,7 +150,7 @@ export function useInputLogic(
     function handleClick(e: React.MouseEvent<InputEleType>) {
         // 安卓才会有键盘切换不过来的问题，ios不开启此项，因为blur之后不能再自动focus
         // @en Android will have the problem that the keyboard cannot be switched. iOS does not enable this, because it can no longer automatically focus after blur.
-        if (blurBeforeFocus && system === 'android' && !focusingRef.current) {
+        if (blurBeforeFocus && system === 'android' && !isFocusing) {
             inputRef.current && inputRef.current.blur();
             nextTick(() => {
                 inputRef.current && inputRef.current.focus();
@@ -145,10 +171,19 @@ export function useInputLogic(
             onClear && onClear(e);
             // 当点击clear前是focus时强制执行focus
             // @en Enforce focus when focus is before clicking clear
-            if (focusingRef.current) {
+            if (isFocusing) {
+                if (preventEventWhenClearing) {
+                    shouldPreventEvent.current = true;
+                }
                 inputRef.current && inputRef.current.focus();
             }
         });
+    }
+
+    function renderPendNode(
+        pend?: ReactNode | ((focusing: boolean, keyword: string) => ReactNode),
+    ) {
+        return typeof pend === 'function' ? pend(isFocusing, actualInputValue) : pend;
     }
 
     function renderWrapper(prefixCls: string, type: string, children: ReactNode) {
@@ -158,7 +193,7 @@ export function useInputLogic(
                 style={style}
                 ref={wrapRef}
             >
-                {prepend}
+                {renderPendNode(prepend)}
                 <div
                     className={cls(
                         `${prefixCls}-wrap`,
@@ -189,7 +224,7 @@ export function useInputLogic(
                     ) : null}
                     {suffix ? <div className={`${prefixCls}-suffix`}>{suffix}</div> : null}
                 </div>
-                {append}
+                {renderPendNode(append)}
             </div>
         );
     }

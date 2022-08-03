@@ -1,0 +1,80 @@
+{
+    "description": "搜索框组件",
+    "descriptionTags": {
+        "en": "SearchBar component",
+        "type": "导航",
+        "type_en": "Navigation",
+        "name": "搜索框",
+        "name_en": "SearchBar"
+    },
+    "displayName": "SearchBar",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名",
+            "name": "className",
+            "tags": {},
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/index.tsx",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式",
+            "name": "style",
+            "tags": {},
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/index.tsx",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<SearchBarRef>"
+            }
+        }
+    },
+    "deps": {
+        "SearchBarRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {},
+                "descWithTags": "最外层元素 DOM"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "SearchBarProps",
+        "ref": "SearchBarRef"
+    },
+    "isDefaultExport": true
+}
