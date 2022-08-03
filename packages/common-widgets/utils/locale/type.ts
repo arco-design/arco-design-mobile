@@ -41,4 +41,10 @@ export interface ILocale {
         previousPage: string;
         nextPage: string;
     };
+    Image: {
+        loadError: string;
+    };
+    ImagePicker: {
+        loadError: string;
+    };
 }

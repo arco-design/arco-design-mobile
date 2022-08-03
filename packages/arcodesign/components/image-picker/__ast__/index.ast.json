@@ -1,0 +1,1098 @@
+{
+    "description": "图片选择器组件",
+    "descriptionTags": {
+        "en": "ImagePicker Component",
+        "type": "数据输入",
+        "type_en": "Data Entry",
+        "name": "图片选择器",
+        "name_en": "ImagePicker"
+    },
+    "displayName": "ImagePicker",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom className",
+            "name": "className",
+            "tags": {
+                "en": "Custom className"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "images": {
+            "defaultValue": null,
+            "description": "已选择图片列表\n@en selected images list",
+            "name": "images",
+            "tags": {
+                "en": "selected images list"
+            },
+            "descWithTags": "已选择图片列表",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": true,
+            "type": {
+                "name": "ImagePickItem[]"
+            }
+        },
+        "accept": {
+            "defaultValue": {
+                "value": "'image/*'"
+            },
+            "description": "可以选择的文件类型\n@en Available File Types",
+            "name": "accept",
+            "tags": {
+                "en": "Available File Types",
+                "default": "'image/*'"
+            },
+            "descWithTags": "可以选择的文件类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "multiple": {
+            "defaultValue": null,
+            "description": "是否支持多选\n@en Whether To Support Multiple Selection",
+            "name": "multiple",
+            "tags": {
+                "en": "Whether To Support Multiple Selection"
+            },
+            "descWithTags": "是否支持多选",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "capture": {
+            "defaultValue": null,
+            "description": "图片选取模式 Image selection mode [capture MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)\n@en Whether To Support Multiple Selection [capture MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)",
+            "name": "capture",
+            "tags": {
+                "en": "Whether To Support Multiple Selection [capture MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)"
+            },
+            "descWithTags": "图片选取模式 Image selection mode [capture MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string | boolean"
+            }
+        },
+        "columns": {
+            "defaultValue": {
+                "value": "3"
+            },
+            "description": "一行展示图片张数\n@en The Number Of Pictures Displayed In A Row",
+            "name": "columns",
+            "tags": {
+                "en": "The Number Of Pictures Displayed In A Row",
+                "default": "3"
+            },
+            "descWithTags": "一行展示图片张数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "gutter": {
+            "defaultValue": {
+                "value": "8"
+            },
+            "description": "格子间的间距\n@en spacing between grids",
+            "name": "gutter",
+            "tags": {
+                "en": "spacing between grids",
+                "default": "8"
+            },
+            "descWithTags": "格子间的间距",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "limit": {
+            "defaultValue": null,
+            "description": "最多选择图片张数，超出数量自动隐藏上传按钮，0表示不做限制\n@en max Pictures Can Choose",
+            "name": "limit",
+            "tags": {
+                "en": "max Pictures Can Choose"
+            },
+            "descWithTags": "最多选择图片张数，超出数量自动隐藏上传按钮，0表示不做限制",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "maxSize": {
+            "defaultValue": null,
+            "description": "文件大小限制，单位为K\n@en File size limit, in K",
+            "name": "maxSize",
+            "tags": {
+                "en": "File size limit, in K"
+            },
+            "descWithTags": "文件大小限制，单位为K",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "hideDelete": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否隐藏删除Icon\n@en Whether to hide delete Icon",
+            "name": "hideDelete",
+            "tags": {
+                "en": "Whether to hide delete Icon",
+                "default": "false"
+            },
+            "descWithTags": "是否隐藏删除Icon",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "hideSelect": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否隐藏选择Icon\n@en Whether to hide Select Icon",
+            "name": "hideSelect",
+            "tags": {
+                "en": "Whether to hide Select Icon",
+                "default": "false"
+            },
+            "descWithTags": "是否隐藏选择Icon",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "alwaysShowSelect": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否总是展示选择Icon，默认情况下当图片数量超出limit值时会自动隐藏选择Icon\n@en Whether to always show Select Icon",
+            "name": "alwaysShowSelect",
+            "tags": {
+                "en": "Whether to always show Select Icon",
+                "default": "false"
+            },
+            "descWithTags": "是否总是展示选择Icon，默认情况下当图片数量超出limit值时会自动隐藏选择Icon",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "disabled": {
+            "defaultValue": null,
+            "description": "禁用选择和删除图片\n@en Disable Select & Delete Image",
+            "name": "disabled",
+            "tags": {
+                "en": "Disable Select & Delete Image"
+            },
+            "descWithTags": "禁用选择和删除图片",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "deleteIcon": {
+            "defaultValue": null,
+            "description": "自定义删除图标\n@en Defined Delete Icon",
+            "name": "deleteIcon",
+            "tags": {
+                "en": "Defined Delete Icon"
+            },
+            "descWithTags": "自定义删除图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "selectIcon": {
+            "defaultValue": null,
+            "description": "自定义选择图标\n@en Defined Select Icon",
+            "name": "selectIcon",
+            "tags": {
+                "en": "Defined Select Icon"
+            },
+            "descWithTags": "自定义选择图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "imageProps": {
+            "defaultValue": null,
+            "description": "透传给图片的属性\n@en Attributes passed through to the image",
+            "name": "imageProps",
+            "tags": {
+                "en": "Attributes passed through to the image"
+            },
+            "descWithTags": "透传给图片的属性",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ImageProps"
+            }
+        },
+        "renderError": {
+            "defaultValue": null,
+            "description": "自定义上传失败展示\n@en Defined upload failed display",
+            "name": "renderError",
+            "tags": {
+                "en": "Defined upload failed display"
+            },
+            "descWithTags": "自定义上传失败展示",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index?: number) => ReactNode"
+            }
+        },
+        "renderLoading": {
+            "defaultValue": null,
+            "description": "自定义上传中展示\n@en Defined uploading display",
+            "name": "renderLoading",
+            "tags": {
+                "en": "Defined uploading display"
+            },
+            "descWithTags": "自定义上传中展示",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index?: number) => ReactNode"
+            }
+        },
+        "upload": {
+            "defaultValue": null,
+            "description": "上传方法\n@en upload function",
+            "name": "upload",
+            "tags": {
+                "en": "upload function"
+            },
+            "descWithTags": "上传方法",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(file: ImagePickItem) => Promise<ImagePickItem>"
+            }
+        },
+        "onSelect": {
+            "defaultValue": null,
+            "description": "",
+            "name": "onSelect",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(...args: any[]) => void"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "已选图片列表发生变化\n@en The list of selected images changes",
+            "name": "onChange",
+            "tags": {
+                "en": "The list of selected images changes"
+            },
+            "descWithTags": "已选图片列表发生变化",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(fileList: ImagePickItem[]) => Promise<void>"
+            }
+        },
+        "onMaxSizeExceed": {
+            "defaultValue": null,
+            "description": "图片超过限制大小\n@en Image exceeds size limit",
+            "name": "onMaxSizeExceed",
+            "tags": {
+                "en": "Image exceeds size limit"
+            },
+            "descWithTags": "图片超过限制大小",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(file: File) => void"
+            }
+        },
+        "onLimitExceed": {
+            "defaultValue": null,
+            "description": "选择张数超过限制\n@en The number of pictures exceeds the limit",
+            "name": "onLimitExceed",
+            "tags": {
+                "en": "The number of pictures exceeds the limit"
+            },
+            "descWithTags": "选择张数超过限制",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(files: File[]) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "图片点击\n@en click event",
+            "name": "onClick",
+            "tags": {
+                "en": "click event"
+            },
+            "descWithTags": "图片点击",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLElement, MouseEvent>, image: ImagePickItem, index: number) => void"
+            }
+        },
+        "onLongPress": {
+            "defaultValue": null,
+            "description": "图片长按事件\n@en long press event",
+            "name": "onLongPress",
+            "tags": {
+                "en": "long press event"
+            },
+            "descWithTags": "图片长按事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent<HTMLElement>, image: ImagePickItem, index: number) => void"
+            }
+        },
+        "selectAdapter": {
+            "defaultValue": null,
+            "description": "图片选择适配器\n@en Select Adaptor",
+            "name": "selectAdapter",
+            "tags": {
+                "en": "Select Adaptor"
+            },
+            "descWithTags": "图片选择适配器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "name": "ImagePickerProps"
+            },
+            "required": true,
+            "type": {
+                "name": "() => Promise<SelectCallback>"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<ImagePickerRef>"
+            }
+        }
+    },
+    "deps": {
+        "ImagePickItem": {
+            "url": {
+                "name": "url",
+                "required": true,
+                "description": "图片地址\n@en Image Url",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Image Url"
+                },
+                "descWithTags": "图片地址"
+            },
+            "file": {
+                "name": "file",
+                "required": false,
+                "description": "图片文件\n@en Image File",
+                "defaultValue": null,
+                "type": {
+                    "name": "File"
+                },
+                "tags": {
+                    "en": "Image File"
+                },
+                "descWithTags": "图片文件"
+            },
+            "status": {
+                "name": "status",
+                "required": true,
+                "description": "图片状态\n@en Image Status",
+                "defaultValue": {
+                    "value": "'loaded'"
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"loaded\" | \"loading\" | \"error\"",
+                    "value": [
+                        {
+                            "value": "\"loaded\""
+                        },
+                        {
+                            "value": "\"loading\""
+                        },
+                        {
+                            "value": "\"error\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Image Status",
+                    "default": "'loaded'"
+                },
+                "descWithTags": "图片状态"
+            }
+        },
+        "ImageProps": {
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": null,
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet"
+                },
+                "descWithTags": "自定义样式"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname"
+                },
+                "descWithTags": "自定义类名"
+            },
+            "status": {
+                "name": "status",
+                "required": false,
+                "description": "指定图片状态，staticLabel=false时有效\n@en The specified image state, valid when staticLabel=false",
+                "defaultValue": null,
+                "type": {
+                    "name": "enum",
+                    "raw": "ImageStatus",
+                    "value": [
+                        {
+                            "value": "\"loaded\""
+                        },
+                        {
+                            "value": "\"loading\""
+                        },
+                        {
+                            "value": "\"error\""
+                        },
+                        {
+                            "value": "\"init\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "The specified image state, valid when staticLabel=false"
+                },
+                "descWithTags": "指定图片状态，staticLabel=false时有效"
+            },
+            "src": {
+                "name": "src",
+                "required": true,
+                "description": "图片链接\n@\n@en Image resource",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "": "",
+                    "en": "Image resource"
+                },
+                "descWithTags": "图片链接"
+            },
+            "width": {
+                "name": "width",
+                "required": false,
+                "description": "容器宽度，传数值，默认单位为px，传字符串则接受传入的单位\n@en Container width, when number is input, the default unit is px, if a string is input, the unit is accepted",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "Container width, when number is input, the default unit is px, if a string is input, the unit is accepted"
+                },
+                "descWithTags": "容器宽度，传数值，默认单位为px，传字符串则接受传入的单位"
+            },
+            "height": {
+                "name": "height",
+                "required": false,
+                "description": "容器高度，传数值，默认单位为px，传字符串则接受传入的单位\n@en Container height, when number is input, the default unit is px, if a string is input, the unit is accepted",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "Container height, when number is input, the default unit is px, if a string is input, the unit is accepted"
+                },
+                "descWithTags": "容器高度，传数值，默认单位为px，传字符串则接受传入的单位"
+            },
+            "alt": {
+                "name": "alt",
+                "required": false,
+                "description": "替代文本\n@en Alternative text",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Alternative text",
+                    "default": "\"\""
+                },
+                "descWithTags": "替代文本"
+            },
+            "fit": {
+                "name": "fit",
+                "required": false,
+                "description": "图片填充模式(object-fit)，传preview-*为预览模式，预览模式仅staticLabel=false时有效\n@en Image fill mode (object-fit), preview-* is preview mode, preview mode is only valid when staticLabel=false",
+                "defaultValue": {
+                    "value": "\"fill\""
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"-moz-initial\" | \"inherit\" | \"initial\" | \"revert\" | \"revert-layer\" | \"unset\" | \"contain\" | \"cover\" | \"fill\" | \"none\" | \"scale-down\" | \"preview-y\" | \"preview-x\"",
+                    "value": [
+                        {
+                            "value": "\"-moz-initial\""
+                        },
+                        {
+                            "value": "\"inherit\""
+                        },
+                        {
+                            "value": "\"initial\""
+                        },
+                        {
+                            "value": "\"revert\""
+                        },
+                        {
+                            "value": "\"revert-layer\""
+                        },
+                        {
+                            "value": "\"unset\""
+                        },
+                        {
+                            "value": "\"contain\""
+                        },
+                        {
+                            "value": "\"cover\""
+                        },
+                        {
+                            "value": "\"fill\""
+                        },
+                        {
+                            "value": "\"none\""
+                        },
+                        {
+                            "value": "\"scale-down\""
+                        },
+                        {
+                            "value": "\"preview-y\""
+                        },
+                        {
+                            "value": "\"preview-x\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Image fill mode (object-fit), preview-* is preview mode, preview mode is only valid when staticLabel=false",
+                    "default": "\"fill\""
+                },
+                "descWithTags": "图片填充模式(object-fit)，传preview-*为预览模式，预览模式仅staticLabel=false时有效"
+            },
+            "position": {
+                "name": "position",
+                "required": false,
+                "description": "图片填充位置(object-position)\n@en Image fill position(object-position)",
+                "defaultValue": {
+                    "value": "\"center\""
+                },
+                "type": {
+                    "name": "ObjectPosition<ReactText>"
+                },
+                "tags": {
+                    "en": "Image fill position(object-position)",
+                    "default": "\"center\""
+                },
+                "descWithTags": "图片填充位置(object-position)"
+            },
+            "radius": {
+                "name": "radius",
+                "required": false,
+                "description": "图片圆角\n@en Image border radius",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "Image border radius"
+                },
+                "descWithTags": "图片圆角"
+            },
+            "bordered": {
+                "name": "bordered",
+                "required": false,
+                "description": "是否加边框\n@en Whether to add a border",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to add a border"
+                },
+                "descWithTags": "是否加边框"
+            },
+            "loadingArea": {
+                "name": "loadingArea",
+                "required": false,
+                "description": "自定义展示加载中内容，staticLabel=false时有效\n@en Custom display loading content, valid when staticLabel=false",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Custom display loading content, valid when staticLabel=false"
+                },
+                "descWithTags": "自定义展示加载中内容，staticLabel=false时有效"
+            },
+            "errorArea": {
+                "name": "errorArea",
+                "required": false,
+                "description": "自定义展示加载失败内容，staticLabel=false时有效\n@en Custom display failed to load content, valid when staticLabel=false",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Custom display failed to load content, valid when staticLabel=false"
+                },
+                "descWithTags": "自定义展示加载失败内容，staticLabel=false时有效"
+            },
+            "showLoading": {
+                "name": "showLoading",
+                "required": false,
+                "description": "是否展示图片加载中提示，staticLabel=false时有效\n@en Whether to display the image loading prompt, valid when staticLabel=false",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to display the image loading prompt, valid when staticLabel=false"
+                },
+                "descWithTags": "是否展示图片加载中提示，staticLabel=false时有效"
+            },
+            "showError": {
+                "name": "showError",
+                "required": false,
+                "description": "是否展示图片加载失败提示，staticLabel=false时有效\n@en Whether to display the image loading failure prompt, valid when staticLabel=false",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to display the image loading failure prompt, valid when staticLabel=false"
+                },
+                "descWithTags": "是否展示图片加载失败提示，staticLabel=false时有效"
+            },
+            "animateDuration": {
+                "name": "animateDuration",
+                "required": false,
+                "description": "加载完时展现动画时长，staticLabel=false时有效\n@en Display animation duration when loading is complete, valid when staticLabel=false",
+                "defaultValue": {
+                    "value": "200"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Display animation duration when loading is complete, valid when staticLabel=false",
+                    "default": "200"
+                },
+                "descWithTags": "加载完时展现动画时长，staticLabel=false时有效"
+            },
+            "retryTime": {
+                "name": "retryTime",
+                "required": false,
+                "description": "失败时自动重试次数\n@en Number of automatic retries on failure",
+                "defaultValue": {
+                    "value": "0"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Number of automatic retries on failure",
+                    "default": "0"
+                },
+                "descWithTags": "失败时自动重试次数"
+            },
+            "forceHttps": {
+                "name": "forceHttps",
+                "required": false,
+                "description": "是否强制使用https\n@en Whether to force the use of https",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to force the use of https"
+                },
+                "descWithTags": "是否强制使用https"
+            },
+            "boxWidth": {
+                "name": "boxWidth",
+                "required": false,
+                "description": "预览模式下，父容器宽度\n@en In preview mode, the width of the parent container",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "In preview mode, the width of the parent container"
+                },
+                "descWithTags": "预览模式下，父容器宽度"
+            },
+            "boxHeight": {
+                "name": "boxHeight",
+                "required": false,
+                "description": "预览模式下，父容器高度\n@en In preview mode, the height of the parent container",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "In preview mode, the height of the parent container"
+                },
+                "descWithTags": "预览模式下，父容器高度"
+            },
+            "topOverlap": {
+                "name": "topOverlap",
+                "required": false,
+                "description": "图片顶层内容\n@en Top-level content of the image",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Top-level content of the image"
+                },
+                "descWithTags": "图片顶层内容"
+            },
+            "bottomOverlap": {
+                "name": "bottomOverlap",
+                "required": false,
+                "description": "图片底层内容（placeholder），默认是灰色兜底，传null可移除\n@en The bottom content of the image (placeholder), the default is gray bottom, input null to remove",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "The bottom content of the image (placeholder), the default is gray bottom, input null to remove"
+                },
+                "descWithTags": "图片底层内容（placeholder），默认是灰色兜底，传null可移除"
+            },
+            "showImage": {
+                "name": "showImage",
+                "required": false,
+                "description": "手动控制是否加载图片\n@en Manually control whether to load images",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Manually control whether to load images"
+                },
+                "descWithTags": "手动控制是否加载图片"
+            },
+            "staticLabel": {
+                "name": "staticLabel",
+                "required": false,
+                "description": "是否直接渲染<img>标签，不走加载图片流程\n@en Whether to render the <img> tag directly without going through the image loading process",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to render the <img> tag directly without going through the image loading process"
+                },
+                "descWithTags": "是否直接渲染<img>标签，不走加载图片流程"
+            },
+            "nativeProps": {
+                "name": "nativeProps",
+                "required": false,
+                "description": "img标签原生属性，优先级低于单独设置\n@en Img tag native attributes, the priority is lower than the separate setting",
+                "defaultValue": null,
+                "type": {
+                    "name": "DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>"
+                },
+                "tags": {
+                    "en": "Img tag native attributes, the priority is lower than the separate setting"
+                },
+                "descWithTags": "img标签原生属性，优先级低于单独设置"
+            },
+            "onChange": {
+                "name": "onChange",
+                "required": false,
+                "description": "切换status时触发的回调\n@en Callback triggered when switching status",
+                "defaultValue": null,
+                "type": {
+                    "name": "(status: string) => void"
+                },
+                "tags": {
+                    "en": "Callback triggered when switching status"
+                },
+                "descWithTags": "切换status时触发的回调"
+            },
+            "onClick": {
+                "name": "onClick",
+                "required": false,
+                "description": "点击图片时触发的回调\n@en Callback when clicking image",
+                "defaultValue": null,
+                "type": {
+                    "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => void"
+                },
+                "tags": {
+                    "en": "Callback when clicking image"
+                },
+                "descWithTags": "点击图片时触发的回调"
+            },
+            "onLoad": {
+                "name": "onLoad",
+                "required": false,
+                "description": "图片加载完毕时触发的回调\n@en Callback when the image is loaded",
+                "defaultValue": null,
+                "type": {
+                    "name": "(e: Event, image: HTMLImageElement) => void"
+                },
+                "tags": {
+                    "en": "Callback when the image is loaded"
+                },
+                "descWithTags": "图片加载完毕时触发的回调"
+            },
+            "onError": {
+                "name": "onError",
+                "required": false,
+                "description": "图片加载失败时触发的回调，如果有自动重试则在重试最终失败后触发\n@en Callback when the image fails to load, triggered after the retry finally fails if there is an automatic retry",
+                "defaultValue": null,
+                "type": {
+                    "name": "(e: string | Event) => void"
+                },
+                "tags": {
+                    "en": "Callback when the image fails to load, triggered after the retry finally fails if there is an automatic retry"
+                },
+                "descWithTags": "图片加载失败时触发的回调，如果有自动重试则在重试最终失败后触发"
+            },
+            "onAutoRetry": {
+                "name": "onAutoRetry",
+                "required": false,
+                "description": "图片加载失败时自动重试触发的回调\n@en Callback triggered by automatic retry when image loading fails",
+                "defaultValue": null,
+                "type": {
+                    "name": "(e: string | Event) => void"
+                },
+                "tags": {
+                    "en": "Callback triggered by automatic retry when image loading fails"
+                },
+                "descWithTags": "图片加载失败时自动重试触发的回调"
+            }
+        },
+        "ImageStatus": "\"loaded\"|\"loading\"|\"error\"|\"init\"",
+        "ObjectPosition": "string|number|string & {}",
+        "SelectCallback": {
+            "files": {
+                "name": "files",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "AdapterFile[]"
+                },
+                "tags": {},
+                "descWithTags": ""
+            }
+        },
+        "AdapterFile": {
+            "url": {
+                "name": "url",
+                "required": false,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "size": {
+                "name": "size",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "name": {
+                "name": "name",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {},
+                "descWithTags": ""
+            }
+        },
+        "ImagePickerRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "最外层 DOM 元素"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "ImagePickerProps",
+        "ref": "ImagePickerRef"
+    },
+    "isDefaultExport": true
+}

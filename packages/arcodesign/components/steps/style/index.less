@@ -47,7 +47,7 @@
             .vertical & {
                 height: 100%;
                 .use-var(width, steps-icon-width);
-                .rem(top, 9);
+                .use-var(top, steps-tail-vertical-top);
                 .use-var(padding, steps-tail-vertical-padding);
 
                 &:after {
@@ -65,21 +65,17 @@
             }
         }
 
-        &-custom-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            .use-var(width, steps-custom-icon-width);
-            .use-var(height, steps-custom-icon-height);
-        }
-
+        &-custom-icon,
         &-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
             .use-var(width, steps-icon-width);
             .use-var(height, steps-icon-height);
+        }
+
+        &-icon {
+            border-radius: 50%;
 
             .number.finish & {
                 .use-var(background, steps-finish-icon-num-background);

@@ -12,7 +12,7 @@
 |----------|-------------|------|------|
 |style|自定义样式|CSSProperties|-|
 |className|自定义类名|string|-|
-|status|指定图片状态，staticLabel=false时有效|"loading" \| "loaded" \| "init" \| "error"|"init"|
+|status|指定图片状态，staticLabel=false时有效|"loading" \| "loaded" \| "init" \| "error"|-|
 |src|图片链接|string|必填|
 |width|容器宽度，传数值，默认单位为px，传字符串则接受传入的单位|ReactText|-|
 |height|容器高度，传数值，默认单位为px，传字符串则接受传入的单位|ReactText|-|

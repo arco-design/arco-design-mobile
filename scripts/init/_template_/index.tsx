@@ -2,14 +2,23 @@ import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { ContextLayout } from '../context-provider';
 
 export interface $COMP$Props {
-    /** 自定义类名 */
+     /**
+     * 自定义类名
+     * @en Custom classname
+     */
     className?: string;
-    /** 自定义样式 */
+    /**
+     * 自定义样式
+     * @en Custom stylesheet
+     */
     style?: React.CSSProperties;
 }
 
 export interface $COMP$Ref {
-    /** 最外层元素 DOM */
+    /**
+     * 最外层 DOM 元素
+     * @en The outer DOM element of the component
+     */
     dom: HTMLDivElement | null;
 }
 

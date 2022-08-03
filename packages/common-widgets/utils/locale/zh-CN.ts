@@ -39,6 +39,12 @@ const localeConfig: ILocale = {
         previousPage: '上一页',
         nextPage: '下一页',
     },
+    Image: {
+        loadError: '重试',
+    },
+    ImagePicker: {
+        loadError: '加载失败',
+    },
 };
 
 export default localeConfig;

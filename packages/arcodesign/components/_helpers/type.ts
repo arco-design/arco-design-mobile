@@ -28,6 +28,6 @@ export interface BaseRef {
     /**
      * 组件外层dom元素
      * @en The outer DOM element of the component
-     * */
+     */
     dom: HTMLDivElement | null;
 }

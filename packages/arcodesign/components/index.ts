@@ -21,6 +21,7 @@ export { default as Ellipsis } from './ellipsis';
 export { default as Grid } from './grid';
 export { default as Image } from './image';
 export { default as ShowMonitor } from './show-monitor';
+export { default as ImagePicker } from './image-picker';
 export { default as ImagePreview } from './image-preview';
 export { default as Input } from './input';
 export { default as LoadMore } from './load-more';

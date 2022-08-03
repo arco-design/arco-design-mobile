@@ -8,7 +8,7 @@ import React, {
     CSSProperties,
     useMemo,
 } from 'react';
-import { cls, handleUnit, nextTick } from '@arco-design/mobile-utils';
+import { cls, defaultLocale, handleUnit, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Loading from '../loading';
 import { useSystem, useWindowSize, getStyleWithVendor, useMountedState } from '../_helpers';
@@ -29,7 +29,6 @@ export interface ImageProps {
     /**
      * 指定图片状态，staticLabel=false时有效
      * @en The specified image state, valid when staticLabel=false
-     * @default "init"
      */
     status?: ImageStatus;
     /**
@@ -217,7 +216,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
     const {
         style,
         className,
-        status = 'init',
+        status,
         src,
         width,
         height,
@@ -249,6 +248,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
     const isPreview = Boolean(fit.indexOf('preview') >= 0);
     const actualBoxWidth = boxWidth || windowWidth;
     const actualBoxHeight = boxHeight || windowHeight;
+    const validStatus = status === undefined ? imageStatus : status;
 
     const attrs = useMemo(() => {
         const imageStyle: CSSProperties = {};
@@ -410,7 +410,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
 
     return (
         <ContextLayout>
-            {({ prefixCls }) => (
+            {({ prefixCls, locale = defaultLocale }) => (
                 <div
                     className={cls(
                         `${prefixCls}-image all-border-box`,
@@ -431,7 +431,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                         </div>
                     ) : null}
                     <div
-                        className={cls('image-container', imageStatus, {
+                        className={cls('image-container', validStatus, {
                             animate: Boolean(animateDuration),
                             'static-label': staticLabel,
                         })}
@@ -451,7 +451,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                             />
                         ) : null}
                     </div>
-                    {showLoading && (status === 'loading' || imageStatus === 'loading') ? (
+                    {showLoading && validStatus === 'loading' ? (
                         <div
                             className="image-content image-loading-container"
                             style={{ borderRadius: radius }}
@@ -468,7 +468,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                             )}
                         </div>
                     ) : null}
-                    {showError && (status === 'error' || imageStatus === 'error') ? (
+                    {showError && validStatus === 'error' ? (
                         <div
                             className="image-content image-error-container"
                             onClick={e => {
@@ -477,7 +477,9 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                             }}
                             style={{ borderRadius: radius }}
                         >
-                            {errorArea || <div className="image-retry-load">重试</div>}
+                            {errorArea || (
+                                <div className="image-retry-load">{locale.Image.loadError}</div>
+                            )}
                         </div>
                     ) : null}
                     {topOverlap ? (

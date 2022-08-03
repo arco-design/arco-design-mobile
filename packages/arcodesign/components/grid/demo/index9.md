@@ -5,7 +5,7 @@
 ```js
 import { Grid } from '@arco-design/mobile-react';
 
-const data = Array.from(new Array(9)).map(() => ({
+const data = Array.from(new Array(8)).map(() => ({
   img: <div className="grid-demo-block"></div>,
   title: 'Title Text',
 }));

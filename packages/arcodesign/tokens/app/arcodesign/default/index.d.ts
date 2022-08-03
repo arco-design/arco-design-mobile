@@ -517,6 +517,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'steps-padding': string;
     'steps-tail-horizontal-padding': string;
     'steps-tail-vertical-padding': string;
+    'steps-tail-vertical-top': string;
     'steps-tail-standard-size': string;
     'steps-tail-standard-background': string;
     'steps-tail-finish-background': string;
@@ -543,8 +544,6 @@ export interface ArcodesignToken extends Record<string, string> {
     'steps-wait-description-color': string;
     'steps-icon-width': string;
     'steps-icon-height': string;
-    'steps-custom-icon-width': string;
-    'steps-custom-icon-height': string;
     'steps-dot-width': string;
     'steps-dot-height': string;
     'steps-dot-border-width': string;
@@ -646,6 +645,22 @@ export interface ArcodesignToken extends Record<string, string> {
     'action-sheet-header-padding': string;
     'action-sheet-title-font-size': string;
     'action-sheet-sub-title-font-size': string;
+    'image-picker-font-size': string;
+    'image-picker-disabled-opacity': string;
+    'image-picker-border-radius': string;
+    'image-picker-add-background': string;
+    'image-picker-add-icon-font-size': string;
+    'image-picker-add-icon-color': string;
+    'image-picker-add-text-font-size': string;
+    'image-picker-add-text-color': string;
+    'image-picker-error-color': string;
+    'image-picker-error-background': string;
+    'image-picker-close-color': string;
+    'image-picker-close-font-size': string;
+    'image-picker-close-width': string;
+    'image-picker-close-height': string;
+    'image-picker-close-background': string;
+    'image-picker-close-border-radius': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;
