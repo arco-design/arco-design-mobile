@@ -33,11 +33,6 @@ export interface DropdownMenuBasicProps {
      */
     selectIndex?: number;
     /**
-     * 自定义选择器
-     * @en Custom selector
-     */
-    renderSelectLabel?: (op: OptionsItem, index: number) => ReactNode;
-    /**
      * 选择器禁用状态
      * @en Selector disabled state
      */
@@ -123,6 +118,11 @@ export interface SingleOptionProps {
      *  */
     values?: number[];
     /**
+     * 自定义选择器
+     * @en Custom selector
+     */
+    renderSelectLabel?: (op: OptionsItem, index: number) => ReactNode;
+    /**
      * 点击选项时触发的回调函数
      * @en Callback when clicking option
      *  */
@@ -155,6 +155,7 @@ export interface MultipleOptionProps {
     options: string[] | OptionsItem[][];
     defaultValues?: number[][];
     values?: number[][];
+    renderSelectLabel?: (op: OptionsItem[], index: number) => ReactNode;
     onOptionClick?: (
         selected: boolean,
         val: number,

@@ -14,7 +14,6 @@
 |style|自定义样式|CSSProperties|-|
 |defaultSelectIndex|初始被选择的选择器的序号|number|-|
 |selectIndex|(受控) 被选择的选择器的序号|number|-|
-|renderSelectLabel|自定义选择器|(op: OptionsItem, index: number) =\> ReactNode|-|
 |disabled|选择器禁用状态|boolean\[\]|-|
 |selectTips|选择器的说明|string\[\]|-|
 |onSelectChange|当选中的选择器改变的时候触发的回调函数|(selectIndex: number) =\> void|-|
@@ -31,6 +30,7 @@
 |options|下拉框展示的选择项，其中级联选项仅单选支持|string\[\] \| OptionsItem\[\]\[\] \| CascadeOptions\[\]|必填|
 |defaultValues|初始选择项|number\[\] \| number\[\]\[\]|-|
 |values|(受控) 每个选择器选中的项|number\[\] \| number\[\]\[\]|-|
+|renderSelectLabel|自定义选择器|((op: OptionsItem, index: number) =\> ReactNode) \| ((op: OptionsItem\[\], index: number) =\> ReactNode)|-|
 |onOptionClick|点击选项时触发的回调函数|((value: number, item: OptionsItem, selectIndex?: number) =\> void) \| ((selected: boolean, val: number, item: OptionsItem, selectIndex?: number) =\> void)|-|
 |onOptionChange|选项改变时触发的回调函数|((value: number, item: OptionsItem, selectIndex?: number) =\> void) \| ((vals: number\[\], item: OptionsItem, selectIndex?: number) =\> void)|-|
 |onValuesChange|所有选择器选项总值改变时的回调函数|((values: number\[\]) =\> void) \| ((values: number\[\]\[\]) =\> void)|-|
@@ -41,14 +41,6 @@
 |参数|描述|类型|
 |----------|-------------|------|
 |dom|最外层元素 DOM|HTMLDivElement|
-
-> OptionsItem
-
-|参数|描述|类型|
-|----------|-------------|------|
-|label|选项名称|ReactNode|
-|value|选项标识|number|
-|disabled|选项是否可用，默认false表示可用|boolean|
 
 > DropdownCommonProps
 
@@ -79,6 +71,14 @@
 |getStopTouchElements|可阻止关闭面板的元素，当 clickOtherToClose=true 时有效|() =\> HTMLElement\[\]|当前组件的父元素|
 |getScrollContainer|内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动|() =\> HTMLElement \| HTMLElement\[\]|-|
 |getPortalContainer|获取挂载容器|() =\> HTMLElement|-|
+
+> OptionsItem
+
+|参数|描述|类型|
+|----------|-------------|------|
+|label|选项名称|ReactNode|
+|value|选项标识|number|
+|disabled|选项是否可用，默认false表示可用|boolean|
 
 > CascadeOptions
 

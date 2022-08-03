@@ -14,7 +14,6 @@ Dropdown component, click the selector (select) to expand the dropdown box (drop
 |style|Custom stylesheet|CSSProperties|-|
 |defaultSelectIndex|The number of the selector that is initially selected|number|-|
 |selectIndex|The selected number of selector (controlled)|number|-|
-|renderSelectLabel|Custom selector|(op: OptionsItem, index: number) =\> ReactNode|-|
 |disabled|Selector disabled state|boolean\[\]|-|
 |selectTips|Description of selectors|string\[\]|-|
 |onSelectChange|Callback when the selected selector changes|(selectIndex: number) =\> void|-|
@@ -31,6 +30,7 @@ Dropdown component, click the selector (select) to expand the dropdown box (drop
 |options|The options displayed in the dropdown box, in which the cascade option only supports single selection|string\[\] \| OptionsItem\[\]\[\] \| CascadeOptions\[\]|required|
 |defaultValues|initial selection item|number\[\] \| number\[\]\[\]|-|
 |values|(Controlled) The item selected by each selector|number\[\] \| number\[\]\[\]|-|
+|renderSelectLabel|Custom selector|((op: OptionsItem, index: number) =\> ReactNode) \| ((op: OptionsItem\[\], index: number) =\> ReactNode)|-|
 |onOptionClick|Callback when clicking option|((value: number, item: OptionsItem, selectIndex?: number) =\> void) \| ((selected: boolean, val: number, item: OptionsItem, selectIndex?: number) =\> void)|-|
 |onOptionChange|Callback when options change|((value: number, item: OptionsItem, selectIndex?: number) =\> void) \| ((vals: number\[\], item: OptionsItem, selectIndex?: number) =\> void)|-|
 |onValuesChange|Callback when the total value of all selector options changes|((values: number\[\]) =\> void) \| ((values: number\[\]\[\]) =\> void)|-|
@@ -41,14 +41,6 @@ Dropdown component, click the selector (select) to expand the dropdown box (drop
 |Property|Description|Type|
 |----------|-------------|------|
 |dom|The outermost element DOM|HTMLDivElement|
-
-> OptionsItem
-
-|Property|Description|Type|
-|----------|-------------|------|
-|label|option label|ReactNode|
-|value|option value|number|
-|disabled|Whether the option is available, the default false means available|boolean|
 
 > DropdownCommonProps
 
@@ -79,6 +71,14 @@ Dropdown component, click the selector (select) to expand the dropdown box (drop
 |getStopTouchElements|Element that prevents the panel from closing, valid when clickOtherToClose=true|() =\> HTMLElement\[\]|The parent element of the current component|
 |getScrollContainer|Content inner scroll container, scrolling will be releases when it is not scrolled to the top or bottom|() =\> HTMLElement \| HTMLElement\[\]|-|
 |getPortalContainer|Get mounted container|() =\> HTMLElement|-|
+
+> OptionsItem
+
+|Property|Description|Type|
+|----------|-------------|------|
+|label|option label|ReactNode|
+|value|option value|number|
+|disabled|Whether the option is available, the default false means available|boolean|
 
 > CascadeOptions
 

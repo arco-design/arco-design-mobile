@@ -46,7 +46,6 @@ const DropdownMenu = forwardRef((props: DropdownMenuProps, ref: Ref<DropdownMenu
         defaultSelectIndex = 0,
         showDropdown,
         defaultShowDropdown = false,
-        renderSelectLabel,
         onValuesChange,
         onSelectChange,
         onDropdownChange,
@@ -93,14 +92,19 @@ const DropdownMenu = forwardRef((props: DropdownMenuProps, ref: Ref<DropdownMenu
 
     const selectedOptions = useMemo(
         () =>
-            formattedOptions.map(
-                (ops, index) =>
-                    ops.find(op => {
-                        const value = currentValues[index];
-                        return Array.isArray(value) ? value.includes(op.value) : op.value === value;
-                    }) || (props.multiple ? defaultOpItem : ops[0]),
-            ),
-        [formattedOptions, currentValues],
+            formattedOptions.map((ops, index) => {
+                if (props.multiple) {
+                    const value = (currentValues[index] as number[]) || [];
+                    const opItems = ops.reduce(
+                        (acc, op) => [...acc, ...(value.includes(op.value) ? [op] : [])],
+                        [],
+                    );
+                    return opItems.length ? opItems : [defaultOpItem];
+                }
+                const value = currentValues[index];
+                return ops.find(op => op.value === value) || ops[0];
+            }),
+        [formattedOptions, currentValues, props.multiple],
     );
 
     /**
@@ -174,6 +178,25 @@ const DropdownMenu = forwardRef((props: DropdownMenuProps, ref: Ref<DropdownMenu
         isStopTouchEl: isCurrentSelectEl,
     };
 
+    const renderSelectedLabel = (op: OptionsItem | OptionsItem[], index: number) => {
+        if (props.multiple === true) {
+            const multipleOp = (op as OptionsItem[]) || [];
+            return props.renderSelectLabel ? (
+                props.renderSelectLabel(multipleOp, index)
+            ) : (
+                <div className={cls(`${prefixCls}-select-item-label-text`)}>
+                    {multipleOp.map(item => item.label).join(',')}
+                </div>
+            );
+        }
+        const singleOp = (op as OptionsItem) || [];
+        return props.renderSelectLabel ? (
+            props.renderSelectLabel(singleOp, index)
+        ) : (
+            <div className={cls(`${prefixCls}-select-item-label-text`)}>{singleOp.label}</div>
+        );
+    };
+
     return (
         <div
             ref={domRef}
@@ -200,13 +223,7 @@ const DropdownMenu = forwardRef((props: DropdownMenuProps, ref: Ref<DropdownMenu
                                 <span className={cls(`${prefixCls}-select-item-tip`)}>{tip}</span>
                             )}
                             <div className={cls(`${prefixCls}-select-item-label`)}>
-                                {renderSelectLabel ? (
-                                    renderSelectLabel(op, index)
-                                ) : (
-                                    <div className={cls(`${prefixCls}-select-item-label-text`)}>
-                                        {op.label}
-                                    </div>
-                                )}
+                                {renderSelectedLabel(op, index)}
                                 {icon === void 0 ? (
                                     <IconTriDown
                                         className={cls(`${prefixCls}-select-item-icon`, {

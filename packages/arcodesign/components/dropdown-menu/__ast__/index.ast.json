@@ -78,23 +78,6 @@
                 "name": "number"
             }
         },
-        "renderSelectLabel": {
-            "defaultValue": null,
-            "description": "自定义选择器\n@en Custom selector",
-            "name": "renderSelectLabel",
-            "tags": {
-                "en": "Custom selector"
-            },
-            "descWithTags": "自定义选择器",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/dropdown-menu/type.ts",
-                "name": "DropdownMenuBasicProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(op: OptionsItem, index: number) => ReactNode"
-            }
-        },
         "disabled": {
             "defaultValue": null,
             "description": "选择器禁用状态\n@en Selector disabled state",
@@ -373,6 +356,23 @@
                 "name": "number[] | number[][]"
             }
         },
+        "renderSelectLabel": {
+            "defaultValue": null,
+            "description": "自定义选择器\n@en Custom selector",
+            "name": "renderSelectLabel",
+            "tags": {
+                "en": "Custom selector"
+            },
+            "descWithTags": "自定义选择器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown-menu/type.ts",
+                "name": "SingleOptionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "((op: OptionsItem, index: number) => ReactNode) | ((op: OptionsItem[], index: number) => ReactNode)"
+            }
+        },
         "onOptionClick": {
             "defaultValue": null,
             "description": "点击选项时触发的回调函数\n@en Callback when clicking option",
@@ -458,47 +458,6 @@
         }
     },
     "deps": {
-        "OptionsItem": {
-            "label": {
-                "name": "label",
-                "required": true,
-                "description": "选项名称\n@en option label",
-                "defaultValue": null,
-                "type": {
-                    "name": "ReactNode"
-                },
-                "tags": {
-                    "en": "option label"
-                },
-                "descWithTags": "选项名称"
-            },
-            "value": {
-                "name": "value",
-                "required": true,
-                "description": "选项标识\n@en option value",
-                "defaultValue": null,
-                "type": {
-                    "name": "number"
-                },
-                "tags": {
-                    "en": "option value"
-                },
-                "descWithTags": "选项标识"
-            },
-            "disabled": {
-                "name": "disabled",
-                "required": false,
-                "description": "选项是否可用，默认false表示可用\n@en Whether the option is available, the default false means available",
-                "defaultValue": null,
-                "type": {
-                    "name": "boolean"
-                },
-                "tags": {
-                    "en": "Whether the option is available, the default false means available"
-                },
-                "descWithTags": "选项是否可用，默认false表示可用"
-            }
-        },
         "DropdownCommonProps": {
             "className": {
                 "name": "className",
@@ -884,6 +843,47 @@
                     "en": "Get mounted container"
                 },
                 "descWithTags": "获取挂载容器"
+            }
+        },
+        "OptionsItem": {
+            "label": {
+                "name": "label",
+                "required": true,
+                "description": "选项名称\n@en option label",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "option label"
+                },
+                "descWithTags": "选项名称"
+            },
+            "value": {
+                "name": "value",
+                "required": true,
+                "description": "选项标识\n@en option value",
+                "defaultValue": null,
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "option value"
+                },
+                "descWithTags": "选项标识"
+            },
+            "disabled": {
+                "name": "disabled",
+                "required": false,
+                "description": "选项是否可用，默认false表示可用\n@en Whether the option is available, the default false means available",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the option is available, the default false means available"
+                },
+                "descWithTags": "选项是否可用，默认false表示可用"
             }
         },
         "CascadeOptions": {
