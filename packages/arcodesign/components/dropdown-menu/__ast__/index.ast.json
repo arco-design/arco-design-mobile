@@ -336,7 +336,7 @@
             },
             "required": false,
             "type": {
-                "name": "number[] | number[][]"
+                "name": "ReactText[] | ReactText[][]"
             }
         },
         "values": {
@@ -353,7 +353,7 @@
             },
             "required": false,
             "type": {
-                "name": "number[] | number[][]"
+                "name": "ReactText[] | ReactText[][]"
             }
         },
         "renderSelectLabel": {
@@ -387,7 +387,7 @@
             },
             "required": false,
             "type": {
-                "name": "((value: number, item: OptionsItem, selectIndex?: number) => void) | ((selected: boolean, val: number, item: OptionsItem, selectIndex?: number) => void)"
+                "name": "((value: ReactText, item: OptionsItem, selectIndex?: number) => void) | ((selected: boolean, val: ReactText, item: OptionsItem, selectIndex?: number) => void)"
             }
         },
         "onOptionChange": {
@@ -404,7 +404,7 @@
             },
             "required": false,
             "type": {
-                "name": "((value: number, item: OptionsItem, selectIndex?: number) => void) | ((vals: number[], item: OptionsItem, selectIndex?: number) => void)"
+                "name": "((value: ReactText, item: OptionsItem, selectIndex?: number) => void) | ((vals: ReactText[], item: OptionsItem, selectIndex?: number) => void)"
             }
         },
         "onValuesChange": {
@@ -421,7 +421,7 @@
             },
             "required": false,
             "type": {
-                "name": "((values: number[]) => void) | ((values: number[][]) => void)"
+                "name": "((values: ReactText[]) => void) | ((values: ReactText[][]) => void)"
             }
         },
         "getFormattedOptions": {
@@ -438,7 +438,7 @@
             },
             "required": false,
             "type": {
-                "name": "((options: string[] | OptionsItem[][] | CascadeOptions[], values?: number[]) => { formattedOptions: OptionsItem[][]; formattedValue: number[]; }) | ((options: string[] | ... 1 more ... | CascadeOptions[], values?: number[][]) => { ...; })"
+                "name": "((options: string[] | OptionsItem[][] | CascadeOptions[], values?: ReactText[]) => { formattedOptions: OptionsItem[][]; formattedValue: ReactText[]; }) | ((options: string[] | ... 1 more ... | CascadeOptions[], values?: ReactText[][]) => { ...; })"
             }
         },
         "ref": {
@@ -706,6 +706,19 @@
                 },
                 "descWithTags": "使用多列标签样式，传 true 为 4 列，传数字为指定 n 列"
             },
+            "optionIcon": {
+                "name": "optionIcon",
+                "required": false,
+                "description": "选项附带图标\n@en Icon in each option",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Icon in each option"
+                },
+                "descWithTags": "选项附带图标"
+            },
             "mountOnEnter": {
                 "name": "mountOnEnter",
                 "required": false,
@@ -865,7 +878,7 @@
                 "description": "选项标识\n@en option value",
                 "defaultValue": null,
                 "type": {
-                    "name": "number"
+                    "name": "ReactText"
                 },
                 "tags": {
                     "en": "option value"
@@ -919,7 +932,7 @@
                 "description": "选项标识\n@en option value",
                 "defaultValue": null,
                 "type": {
-                    "name": "number"
+                    "name": "ReactText"
                 },
                 "tags": {
                     "en": "option value"

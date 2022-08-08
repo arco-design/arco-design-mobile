@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from 'react';
-import { OptionsItem, DropdownCommonProps } from '../dropdown';
+import { OptionsItem, DropdownCommonProps, OptionValueType } from '../dropdown';
 
 export type { OptionsItem, DropdownCommonProps };
 
@@ -111,12 +111,12 @@ export interface SingleOptionProps {
      * 初始选择项
      * @en initial selection item
      *  */
-    defaultValues?: number[];
+    defaultValues?: OptionValueType[];
     /**
      * (受控) 每个选择器选中的项
      * @en (Controlled) The item selected by each selector
      *  */
-    values?: number[];
+    values?: OptionValueType[];
     /**
      * 自定义选择器
      * @en Custom selector
@@ -126,50 +126,50 @@ export interface SingleOptionProps {
      * 点击选项时触发的回调函数
      * @en Callback when clicking option
      *  */
-    onOptionClick?: (value: number, item: OptionsItem, selectIndex?: number) => void;
+    onOptionClick?: (value: OptionValueType, item: OptionsItem, selectIndex?: number) => void;
     /**
      * 选项改变时触发的回调函数
      * @en Callback when options change
      *  */
-    onOptionChange?: (value: number, item: OptionsItem, selectIndex?: number) => void;
+    onOptionChange?: (value: OptionValueType, item: OptionsItem, selectIndex?: number) => void;
     /**
      * 所有选择器选项总值改变时的回调函数
      * @en Callback when the total value of all selector options changes
      *  */
-    onValuesChange?: (values: number[]) => void;
+    onValuesChange?: (values: OptionValueType[]) => void;
     /**
      * 格式化传入的options
      * @en Format the input options
      *  */
     getFormattedOptions?: (
         options: SingleOptionProps['options'],
-        values?: number[],
+        values?: OptionValueType[],
     ) => {
         formattedOptions: OptionsItem[][];
-        formattedValue: number[];
+        formattedValue: OptionValueType[];
     };
 }
 
 export interface MultipleOptionProps {
     multiple: true;
     options: string[] | OptionsItem[][];
-    defaultValues?: number[][];
-    values?: number[][];
+    defaultValues?: OptionValueType[][];
+    values?: OptionValueType[][];
     renderSelectLabel?: (op: OptionsItem[], index: number) => ReactNode;
     onOptionClick?: (
         selected: boolean,
-        val: number,
+        val: OptionValueType,
         item: OptionsItem,
         selectIndex?: number,
     ) => void;
-    onOptionChange?: (vals: number[], item: OptionsItem, selectIndex?: number) => void;
-    onValuesChange?: (values: number[][]) => void;
+    onOptionChange?: (vals: OptionValueType[], item: OptionsItem, selectIndex?: number) => void;
+    onValuesChange?: (values: OptionValueType[][]) => void;
     getFormattedOptions?: (
         options: SingleOptionProps['options'],
-        values?: number[][],
+        values?: OptionValueType[][],
     ) => {
         formattedOptions: OptionsItem[][];
-        formattedValue: number[][];
+        formattedValue: OptionValueType[][];
     };
 }
 

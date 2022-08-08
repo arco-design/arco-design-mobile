@@ -395,6 +395,23 @@
                 "name": "number | boolean"
             }
         },
+        "optionIcon": {
+            "defaultValue": null,
+            "description": "选项附带图标\n@en Icon in each option",
+            "name": "optionIcon",
+            "tags": {
+                "en": "Icon in each option"
+            },
+            "descWithTags": "选项附带图标",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                "name": "DropdownCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
         "mountOnEnter": {
             "defaultValue": {
                 "value": "true"
@@ -603,7 +620,7 @@
             },
             "required": false,
             "type": {
-                "name": "number | number[]"
+                "name": "string | number | ReactText[]"
             }
         },
         "selectedValue": {
@@ -620,7 +637,7 @@
             },
             "required": false,
             "type": {
-                "name": "number | number[]"
+                "name": "string | number | ReactText[]"
             }
         },
         "onOptionClick": {
@@ -637,7 +654,7 @@
             },
             "required": false,
             "type": {
-                "name": "((val: number, op: OptionsItem) => void) | ((selected: boolean, val: number, op: OptionsItem) => void)"
+                "name": "((val: ReactText, op: OptionsItem) => void) | ((selected: boolean, val: ReactText, op: OptionsItem) => void)"
             }
         },
         "onOptionChange": {
@@ -654,7 +671,7 @@
             },
             "required": false,
             "type": {
-                "name": "((val: number, op: OptionsItem) => void) | ((vals: number[], op: OptionsItem) => void)"
+                "name": "((val: ReactText, op: OptionsItem) => void) | ((vals: ReactText[], op: OptionsItem) => void)"
             }
         },
         "ref": {
@@ -694,7 +711,7 @@
                 "description": "选项标识\n@en option value",
                 "defaultValue": null,
                 "type": {
-                    "name": "number"
+                    "name": "ReactText"
                 },
                 "tags": {
                     "en": "option value"
@@ -775,6 +792,23 @@
                         "name": "number | boolean"
                     }
                 },
+                "icon": {
+                    "defaultValue": null,
+                    "description": "选项列表右侧图标\n@en Icon on the right side of the options list",
+                    "name": "icon",
+                    "tags": {
+                        "en": "Icon on the right side of the options list"
+                    },
+                    "descWithTags": "选项列表右侧图标",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/dropdown/type.ts",
+                        "name": "DropdownOptionsBasicProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
                 "multiple": {
                     "defaultValue": {
                         "value": "false"
@@ -809,7 +843,7 @@
                     },
                     "required": false,
                     "type": {
-                        "name": "number | number[]"
+                        "name": "string | number | ReactText[]"
                     }
                 },
                 "selectedValue": {
@@ -826,7 +860,7 @@
                     },
                     "required": false,
                     "type": {
-                        "name": "number | number[]"
+                        "name": "string | number | ReactText[]"
                     }
                 },
                 "onOptionClick": {
@@ -843,7 +877,7 @@
                     },
                     "required": false,
                     "type": {
-                        "name": "((val: number, op: OptionsItem) => void) | ((selected: boolean, val: number, op: OptionsItem) => void)"
+                        "name": "((val: ReactText, op: OptionsItem) => void) | ((selected: boolean, val: ReactText, op: OptionsItem) => void)"
                     }
                 },
                 "onOptionChange": {
@@ -860,7 +894,7 @@
                     },
                     "required": false,
                     "type": {
-                        "name": "((val: number, op: OptionsItem) => void) | ((vals: number[], op: OptionsItem) => void)"
+                        "name": "((val: ReactText, op: OptionsItem) => void) | ((vals: ReactText[], op: OptionsItem) => void)"
                     }
                 },
                 "ref": {
@@ -900,7 +934,7 @@
                         "description": "选项标识\n@en option value",
                         "defaultValue": null,
                         "type": {
-                            "name": "number"
+                            "name": "ReactText"
                         },
                         "tags": {
                             "en": "option value"
