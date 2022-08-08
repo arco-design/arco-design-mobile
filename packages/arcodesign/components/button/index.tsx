@@ -124,6 +124,12 @@ export interface ButtonProps {
      * @default true
      */
     disableWhenLoading?: boolean;
+    /**
+     * 加载中是否覆盖Icon
+     * @en Whether to override Icon during loading
+     * @default true
+     */
+    coverIconWhenLoading?: boolean;
 }
 
 export interface ButtonRef {
@@ -166,6 +172,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
         loadingIcon,
         onClick,
         onClickDisabled,
+        coverIconWhenLoading = false,
     } = props;
     const domRef = useRef<HTMLButtonElement | null>(null);
     const { prefixCls } = useContext(GlobalContext);
@@ -192,6 +199,13 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
 
     const handleTouchEnd = () => {
         setActive(false);
+    };
+
+    const renderIcon = () => {
+        if (coverIconWhenLoading) {
+            return loading ? null : icon;
+        }
+        return icon;
     };
 
     return (
@@ -221,7 +235,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
         >
             {icon || loading ? (
                 <div className={`${prefix}-icon btn-icon`}>
-                    {icon}
+                    {renderIcon()}
                     {loading &&
                         (loadingIcon === void 0 ? (
                             <Loading

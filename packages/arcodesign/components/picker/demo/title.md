@@ -10,7 +10,7 @@ export default function PickerDemo() {
     const pickerRef = React.useRef();
 
     const data = [{
-        label: 'Beijing',
+        label: '北京',
         value: 'Beijing',
         children: [{
             label: 'Beijing',
