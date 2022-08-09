@@ -15,6 +15,7 @@ import {
 } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import BackArrow from './back-icon';
+import { useSystem } from '../_helpers';
 
 export interface NavBarRef {
     /** @deprecated */
@@ -159,8 +160,10 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
     const [scrollToggleHide, setScrollToggleHide] = useState(showOffset > 0);
     const relBackground = scrollToggleHide ? 'transparent' : '';
     const [customStyle, setCustomStyle] = useState<CSSProperties>({});
+    const system = useSystem();
+
     const onElementScroll = (curOffset: number) => {
-        setScrollToggleHide(curOffset <= showOffset);
+        setScrollToggleHide(curOffset < showOffset);
 
         if (getComputedStyleByScroll) {
             const cstyle = getComputedStyleByScroll(curOffset);
@@ -186,6 +189,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
     useEffect(() => {
         const needBind = showOffset || getComputedStyleByScroll;
         const container = getValidScrollContainer(getScrollContainer);
+        handleEleScroll();
         if (needBind && container) {
             container.addEventListener('scroll', handleEleScroll, false);
         }
@@ -235,7 +239,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
                     }}
                 >
                     <div
-                        className={cls(className, `${prefixCls}-nav-bar-wrapper`, {
+                        className={cls(className, system, `${prefixCls}-nav-bar-wrapper`, {
                             [`${prefixCls}-nav-bar-wrapper-fixed`]: fixed,
                             [`${prefixCls}-nav-bar-wrapper-border`]: hasBottomLine,
                         })}

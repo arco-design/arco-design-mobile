@@ -30,6 +30,7 @@
 |maskAnimationTimeout|蒙层动画时长|number|500|
 |maskAnimationFunction|蒙层动画函数|string|"cubic-bezier(0.32, 0.96, 0.6, 1)"|
 |useColumn|使用多列标签样式，传 true 为 4 列，传数字为指定 n 列|number \| boolean|false|
+|optionIcon|选项附带图标|ReactNode|-|
 |mountOnEnter|是否在打开下拉框时再加载内容|boolean|true|
 |unmountOnExit|是否在退出时卸载内容|boolean|true|
 |preventBodyScroll|弹窗打开时是否禁止body的滚动|boolean|true|
@@ -40,10 +41,10 @@
 |getScrollContainer|内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动|() =\> HTMLElement \| HTMLElement\[\]|-|
 |getPortalContainer|获取挂载容器|() =\> HTMLElement|-|
 |multiple|是否支持多选|boolean|false|
-|defaultSelectedValue|默认选中值|number \| number\[\]|-|
-|selectedValue|当前选择的选项标识|number \| number\[\]|-|
-|onOptionClick|点击选项时触发的回调函数|((val: number, op: OptionsItem) =\> void) \| ((selected: boolean, val: number, op: OptionsItem) =\> void)|-|
-|onOptionChange|当选项改变时触发的回调函数|((val: number, op: OptionsItem) =\> void) \| ((vals: number\[\], op: OptionsItem) =\> void)|-|
+|defaultSelectedValue|默认选中值|string \| number \| ReactText\[\]|-|
+|selectedValue|当前选择的选项标识|string \| number \| ReactText\[\]|-|
+|onOptionClick|点击选项时触发的回调函数|((val: ReactText, op: OptionsItem) =\> void) \| ((selected: boolean, val: ReactText, op: OptionsItem) =\> void)|-|
+|onOptionChange|当选项改变时触发的回调函数|((val: ReactText, op: OptionsItem) =\> void) \| ((vals: ReactText\[\], op: OptionsItem) =\> void)|-|
 
 > 引用/Refs
 
@@ -57,18 +58,19 @@
 |----------|-------------|------|------|
 |options|展示的选项列表|OptionsItem\[\]|必填|
 |useColumn|使用多列标签样式，传 true 为 4 列，传数字为指定 n 列|number \| boolean|false|
+|icon|选项列表右侧图标|ReactNode|-|
 |multiple|是否支持多选|boolean|false|
-|defaultSelectedValue|默认选中值|number \| number\[\]|-|
-|selectedValue|当前选择的选项标识|number \| number\[\]|-|
-|onOptionClick|点击选项时触发的回调函数|((val: number, op: OptionsItem) =\> void) \| ((selected: boolean, val: number, op: OptionsItem) =\> void)|-|
-|onOptionChange|当选项改变时触发的回调函数|((val: number, op: OptionsItem) =\> void) \| ((vals: number\[\], op: OptionsItem) =\> void)|-|
+|defaultSelectedValue|默认选中值|string \| number \| ReactText\[\]|-|
+|selectedValue|当前选择的选项标识|string \| number \| ReactText\[\]|-|
+|onOptionClick|点击选项时触发的回调函数|((val: ReactText, op: OptionsItem) =\> void) \| ((selected: boolean, val: ReactText, op: OptionsItem) =\> void)|-|
+|onOptionChange|当选项改变时触发的回调函数|((val: ReactText, op: OptionsItem) =\> void) \| ((vals: ReactText\[\], op: OptionsItem) =\> void)|-|
 
 > OptionsItem
 
 |参数|描述|类型|
 |----------|-------------|------|
 |label|选项名称|ReactNode|
-|value|选项标识|number|
+|value|选项标识|ReactText|
 |disabled|选项是否可用，默认false表示可用|boolean|
 
 > DropdownOptionsRef

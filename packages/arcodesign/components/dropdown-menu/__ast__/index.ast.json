@@ -78,23 +78,6 @@
                 "name": "number"
             }
         },
-        "renderSelectLabel": {
-            "defaultValue": null,
-            "description": "自定义选择器\n@en Custom selector",
-            "name": "renderSelectLabel",
-            "tags": {
-                "en": "Custom selector"
-            },
-            "descWithTags": "自定义选择器",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/dropdown-menu/type.ts",
-                "name": "DropdownMenuBasicProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(op: OptionsItem, index: number) => ReactNode"
-            }
-        },
         "disabled": {
             "defaultValue": null,
             "description": "选择器禁用状态\n@en Selector disabled state",
@@ -353,7 +336,7 @@
             },
             "required": false,
             "type": {
-                "name": "number[] | number[][]"
+                "name": "ReactText[] | ReactText[][]"
             }
         },
         "values": {
@@ -370,7 +353,24 @@
             },
             "required": false,
             "type": {
-                "name": "number[] | number[][]"
+                "name": "ReactText[] | ReactText[][]"
+            }
+        },
+        "renderSelectLabel": {
+            "defaultValue": null,
+            "description": "自定义选择器\n@en Custom selector",
+            "name": "renderSelectLabel",
+            "tags": {
+                "en": "Custom selector"
+            },
+            "descWithTags": "自定义选择器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/dropdown-menu/type.ts",
+                "name": "SingleOptionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "((op: OptionsItem, index: number) => ReactNode) | ((op: OptionsItem[], index: number) => ReactNode)"
             }
         },
         "onOptionClick": {
@@ -387,7 +387,7 @@
             },
             "required": false,
             "type": {
-                "name": "((value: number, item: OptionsItem, selectIndex?: number) => void) | ((selected: boolean, val: number, item: OptionsItem, selectIndex?: number) => void)"
+                "name": "((value: ReactText, item: OptionsItem, selectIndex?: number) => void) | ((selected: boolean, val: ReactText, item: OptionsItem, selectIndex?: number) => void)"
             }
         },
         "onOptionChange": {
@@ -404,7 +404,7 @@
             },
             "required": false,
             "type": {
-                "name": "((value: number, item: OptionsItem, selectIndex?: number) => void) | ((vals: number[], item: OptionsItem, selectIndex?: number) => void)"
+                "name": "((value: ReactText, item: OptionsItem, selectIndex?: number) => void) | ((vals: ReactText[], item: OptionsItem, selectIndex?: number) => void)"
             }
         },
         "onValuesChange": {
@@ -421,7 +421,7 @@
             },
             "required": false,
             "type": {
-                "name": "((values: number[]) => void) | ((values: number[][]) => void)"
+                "name": "((values: ReactText[]) => void) | ((values: ReactText[][]) => void)"
             }
         },
         "getFormattedOptions": {
@@ -438,7 +438,7 @@
             },
             "required": false,
             "type": {
-                "name": "((options: string[] | OptionsItem[][] | CascadeOptions[], values?: number[]) => { formattedOptions: OptionsItem[][]; formattedValue: number[]; }) | ((options: string[] | ... 1 more ... | CascadeOptions[], values?: number[][]) => { ...; })"
+                "name": "((options: string[] | OptionsItem[][] | CascadeOptions[], values?: ReactText[]) => { formattedOptions: OptionsItem[][]; formattedValue: ReactText[]; }) | ((options: string[] | ... 1 more ... | CascadeOptions[], values?: ReactText[][]) => { ...; })"
             }
         },
         "ref": {
@@ -458,47 +458,6 @@
         }
     },
     "deps": {
-        "OptionsItem": {
-            "label": {
-                "name": "label",
-                "required": true,
-                "description": "选项名称\n@en option label",
-                "defaultValue": null,
-                "type": {
-                    "name": "ReactNode"
-                },
-                "tags": {
-                    "en": "option label"
-                },
-                "descWithTags": "选项名称"
-            },
-            "value": {
-                "name": "value",
-                "required": true,
-                "description": "选项标识\n@en option value",
-                "defaultValue": null,
-                "type": {
-                    "name": "number"
-                },
-                "tags": {
-                    "en": "option value"
-                },
-                "descWithTags": "选项标识"
-            },
-            "disabled": {
-                "name": "disabled",
-                "required": false,
-                "description": "选项是否可用，默认false表示可用\n@en Whether the option is available, the default false means available",
-                "defaultValue": null,
-                "type": {
-                    "name": "boolean"
-                },
-                "tags": {
-                    "en": "Whether the option is available, the default false means available"
-                },
-                "descWithTags": "选项是否可用，默认false表示可用"
-            }
-        },
         "DropdownCommonProps": {
             "className": {
                 "name": "className",
@@ -747,6 +706,19 @@
                 },
                 "descWithTags": "使用多列标签样式，传 true 为 4 列，传数字为指定 n 列"
             },
+            "optionIcon": {
+                "name": "optionIcon",
+                "required": false,
+                "description": "选项附带图标\n@en Icon in each option",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Icon in each option"
+                },
+                "descWithTags": "选项附带图标"
+            },
             "mountOnEnter": {
                 "name": "mountOnEnter",
                 "required": false,
@@ -886,6 +858,47 @@
                 "descWithTags": "获取挂载容器"
             }
         },
+        "OptionsItem": {
+            "label": {
+                "name": "label",
+                "required": true,
+                "description": "选项名称\n@en option label",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "option label"
+                },
+                "descWithTags": "选项名称"
+            },
+            "value": {
+                "name": "value",
+                "required": true,
+                "description": "选项标识\n@en option value",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "option value"
+                },
+                "descWithTags": "选项标识"
+            },
+            "disabled": {
+                "name": "disabled",
+                "required": false,
+                "description": "选项是否可用，默认false表示可用\n@en Whether the option is available, the default false means available",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the option is available, the default false means available"
+                },
+                "descWithTags": "选项是否可用，默认false表示可用"
+            }
+        },
         "CascadeOptions": {
             "children": {
                 "name": "children",
@@ -919,7 +932,7 @@
                 "description": "选项标识\n@en option value",
                 "defaultValue": null,
                 "type": {
-                    "name": "number"
+                    "name": "ReactText"
                 },
                 "tags": {
                     "en": "option value"
