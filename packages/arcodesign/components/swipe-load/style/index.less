@@ -4,14 +4,21 @@
     position: relative;
     display: inline-flex;
     width: 100%;
+
     .@{prefix}-list-area {
         position: relative;
         width: 100%;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
+
     .@{prefix}-loading-area {
         .use-var(background-color, swipe-load-label-background);
         margin-top: 0;
         .use-var(border-radius, swipe-load-label-border-radius);
+
         .@{prefix}-loading-label {
             .use-var(margin-left, swipe-load-label-text-margin-left);
             .use-var(width, swipe-load-label-text-width);

@@ -79,6 +79,35 @@ export interface SwipeLoadProps {
      */
     activeText?: string;
     /**
+     * 触碰左侧边界时是否需要回弹效果
+     * @en Whether a bounce effect is required when touching the left boundary
+     * @default false
+     */
+    bounceWhenBumpBoundary?: boolean;
+    /**
+     * 当开启回弹效果时的阻尼系数
+     * @en Damping coefficient when the rebound effect is turned on
+     * @default 3
+     */
+    bounceDampRate?: number;
+    /**
+     * 当开启回弹效果时的动画毫秒时间
+     * @en Animation in milliseconds when the bounce effect is turned on
+     * @default 300
+     */
+    bounceAnimateDuration?: number;
+    /**
+     * 回弹效果开启时需要回弹的容器，默认为 getScrollContainer 返回的容器或容器的一个子元素
+     * @en The container that needs to be rebounded when the rebound effect is enabled, the default is the container returned by getScrollContainer or a child element of the container
+     */
+    getBounceContainer?: () => HTMLElement | null;
+    /**
+     * 当开启回弹效果时自定义手指滑动跟手的距离计算方式，dis表示touchmove的距离
+     * @en When the rebound effect is turned on, customize the calculation method of the distance between the finger sliding and the hand, and dis indicates the distance of touchmove
+     * @default (dis) => Math.min(dis, bounceScrollContainer.offsetWidth) / bounceDampRate
+     */
+    bounceDistanceProcessor?: (dis: number) => number;
+    /**
      * 抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突
      * @en Throw the outer touchstart event, which is easy to customize. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc.
      */

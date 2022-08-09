@@ -12,6 +12,7 @@ export default function SwipeLoadDemo() {
             }}
             maxElementOffset={54.5}
             minConfirmOffset={25}
+            bounceWhenBumpBoundary
         >
             {[1, 2, 3, 4, 5].map(item => {
                 return (

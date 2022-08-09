@@ -25,6 +25,13 @@ export function getStyleWithVendor(style: CSSProperties): CSSProperties {
     return newStyle;
 }
 
+export function setStyleWithVendor(dom: HTMLElement, style: CSSProperties) {
+    const vendorStyle = getStyleWithVendor(style);
+    for (const key in vendorStyle) {
+        dom.style[key] = vendorStyle[key];
+    }
+}
+
 /**
  * 计算默认值，仅未定义时使用默认值
  * @desc {en} Calculate the default value, use default value only if undefined
