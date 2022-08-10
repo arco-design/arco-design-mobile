@@ -158,8 +158,9 @@ export interface ArcodesignToken extends Record<string, string> {
     'avatar-desc-ultra-small-margin-top': string;
     'avatar-name-color': string;
     'avatar-desc-color': string;
-    'button-border-color': string;
+    'button-line-height': string;
     'button-radius': string;
+    'button-icon-text-gutter': string;
     'button-primary-background': string;
     'button-primary-clicked-background': string;
     'button-primary-disabled-background': string;

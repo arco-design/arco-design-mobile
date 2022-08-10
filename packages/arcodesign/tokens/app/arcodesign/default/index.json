@@ -971,18 +971,6 @@
             "en": "Base font size used for rem conversion"
         }
     },
-    "buttonBorderColor": {
-        "cssKey": "button-border-color",
-        "desc": "border颜色",
-        "override": "button-border",
-        "value": "@primary-color",
-        "jsValue": "@global@primaryColor",
-        "staticValue": "#165dff",
-        "localeDesc": {
-            "ch": "border颜色",
-            "en": "Button Border color"
-        }
-    },
     "buttonDefaultBackground": {
         "cssKey": "button-default-background",
         "desc": "default 类型按钮背景色",
@@ -1139,6 +1127,18 @@
             "en": "Huge button font size"
         }
     },
+    "buttonIconTextGutter": {
+        "cssKey": "button-icon-text-gutter",
+        "desc": "按钮图标与文字的间距",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "按钮图标与文字的间距",
+            "en": "Gutter between icon and text"
+        }
+    },
     "buttonLargeHeight": {
         "cssKey": "button-large-height",
         "desc": "large 按钮高度",
@@ -1173,6 +1173,18 @@
         "localeDesc": {
             "ch": "large 按钮文字大小",
             "en": "Large button font size"
+        }
+    },
+    "buttonLineHeight": {
+        "cssKey": "button-line-height",
+        "desc": "按钮的行高",
+        "override": "button-border",
+        "value": "1.2",
+        "jsValue": "1.2",
+        "staticValue": "1.2",
+        "localeDesc": {
+            "ch": "按钮的行高",
+            "en": "Button line height"
         }
     },
     "buttonMediumHeight": {
@@ -1309,14 +1321,14 @@
     },
     "buttonRadius": {
         "cssKey": "button-radius",
-        "desc": "圆角大小",
+        "desc": "shape=semi时圆角大小",
         "override": "",
         "value": "2PX",
         "jsValue": "2PX",
         "staticValue": "2PX",
         "localeDesc": {
-            "ch": "圆角大小",
-            "en": "Button border radius"
+            "ch": "shape=semi时圆角大小",
+            "en": "Button border radius when shape=semi"
         }
     },
     "buttonSmallHeight": {

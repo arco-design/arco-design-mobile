@@ -174,7 +174,7 @@ export interface ImagePickerProps {
      * 图片选择适配器
      * @en Select Adaptor
      */
-    selectAdapter: () => Promise<SelectCallback>;
+    selectAdapter?: () => Promise<SelectCallback>;
 }
 
 export interface ImagePickerRef {
