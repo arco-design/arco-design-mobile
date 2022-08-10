@@ -480,7 +480,7 @@
                 "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
                 "name": "ImagePickerProps"
             },
-            "required": true,
+            "required": false,
             "type": {
                 "name": "() => Promise<SelectCallback>"
             }

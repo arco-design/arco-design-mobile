@@ -800,16 +800,21 @@ function getCompTokens() {
          */
         avatarDescColor: useGlobal('subInfoFontColor'),
         /**
-         * border颜色
-         * @en Button Border color
+         * 按钮的行高
+         * @en Button line height
          * @override buttonBorder
          */
-        buttonBorderColor: useGlobal('primaryColor'),
+        buttonLineHeight: '1.2',
         /**
-         * 圆角大小
-         * @en Button border radius
+         * shape=semi时圆角大小
+         * @en Button border radius when shape=semi
          */
         buttonRadius: '2PX',
+        /**
+         * 按钮图标与文字的间距
+         * @en Gutter between icon and text
+         */
+        buttonIconTextGutter: getRem(4),
         /**
          * primary 类型按钮背景色
          * @en Primary button background color

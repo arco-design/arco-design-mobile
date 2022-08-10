@@ -42,7 +42,12 @@ export const Group = forwardRef((props: AvatarGroupProps, ref: Ref<AvatarGroupRe
         <div
             ref={domRef}
             style={style}
-            className={cls(className, `${prefixCls}-avatar-group`, `group-${size}`)}
+            className={cls(
+                className,
+                `${prefixCls}-avatar-group`,
+                `${prefixCls}-avatar-group-size-${size}`,
+                `group-${size}`,
+            )}
         >
             <AvatarGroupContext.Provider value={{ isGroup: true, shape, size }}>
                 {childrenArr.map((child, i) => {

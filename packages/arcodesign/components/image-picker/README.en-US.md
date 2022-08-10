@@ -36,7 +36,7 @@ ImagePicker Component
 |onLimitExceed|The number of pictures exceeds the limit|(files: File\[\]) =\> void|-|
 |onClick|click event|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
 |onLongPress|long press event|(e: TouchEvent\<HTMLElement\>, image: ImagePickItem, index: number) =\> void|-|
-|selectAdapter|Select Adaptor|() =\> Promise\<SelectCallback\>|required|
+|selectAdapter|Select Adaptor|() =\> Promise\<SelectCallback\>|-|
 
 > Refs
 

@@ -36,7 +36,7 @@
 |onLimitExceed|选择张数超过限制|(files: File\[\]) =\> void|-|
 |onClick|图片点击|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
 |onLongPress|图片长按事件|(e: TouchEvent\<HTMLElement\>, image: ImagePickItem, index: number) =\> void|-|
-|selectAdapter|图片选择适配器|() =\> Promise\<SelectCallback\>|必填|
+|selectAdapter|图片选择适配器|() =\> Promise\<SelectCallback\>|-|
 
 > 引用/Refs
 
