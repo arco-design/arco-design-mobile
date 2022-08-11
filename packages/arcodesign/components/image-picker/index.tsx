@@ -20,9 +20,10 @@ export interface ImagePickItem {
     /**
      * 图片状态
      * @en Image Status
-     * @default 'loaded'
+     * @default 以图片自身加载状态而定
+     * @default_en According to inner status of the image
      */
-    status: 'loaded' | 'loading' | 'error';
+    status?: 'loaded' | 'loading' | 'error';
 }
 export interface AdapterFile {
     url?: string;
@@ -123,7 +124,7 @@ export interface ImagePickerProps {
      * 透传给图片的属性
      * @en Attributes passed through to the image
      */
-    imageProps?: ImageProps;
+    imageProps?: Partial<ImageProps>;
     /**
      * 自定义上传失败展示
      * @en Defined upload failed display
@@ -139,13 +140,11 @@ export interface ImagePickerProps {
      * @en upload function
      */
     upload?: (file: ImagePickItem) => Promise<ImagePickItem | null>;
-    // ValidateImage?: (files: File[], fileList: ImagePickItem[]) => void;
-    onSelect?: (...args) => void;
     /**
      * 已选图片列表发生变化
      * @en The list of selected images changes
      */
-    onChange?: (fileList: ImagePickItem[]) => Promise<void>;
+    onChange?: (fileList: ImagePickItem[]) => void;
     /**
      * 图片超过限制大小
      * @en Image exceeds size limit
@@ -272,7 +271,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         Promise.all(files.map(file => parseFile(file))).then(parseFiles => {
             const res = parseFiles.map((url, index) => ({
                 url,
-                status: upload ? 'loading' : 'loaded',
+                status: typeof upload === 'function' ? 'loading' : 'loaded',
                 file: files[index],
             })) as ImagePickItem[];
             const cacheRes = [...images, ...res];
@@ -286,13 +285,13 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                             cacheRes[propsImageLength + index] = {
                                 ...cacheRes[propsImageLength + index],
                                 ...data,
+                                status: undefined,
                             };
                         })
                         .catch(() => {
                             cacheRes[propsImageLength + index].status = 'error';
                         })
                         .finally(() => {
-                            cacheRes[propsImageLength + index].status = 'loaded';
                             onChange([...cacheRes]);
                         });
                 });

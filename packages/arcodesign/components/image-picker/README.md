@@ -26,12 +26,11 @@
 |disabled|禁用选择和删除图片|boolean|-|
 |deleteIcon|自定义删除图标|ReactNode|-|
 |selectIcon|自定义选择图标|ReactNode|-|
-|imageProps|透传给图片的属性|ImageProps|-|
+|imageProps|透传给图片的属性|Partial\<ImageProps\>|-|
 |renderError|自定义上传失败展示|(index?: number) =\> ReactNode|-|
 |renderLoading|自定义上传中展示|(index?: number) =\> ReactNode|-|
 |upload|上传方法|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
-|onSelect|-|(\.\.\.args: any\[\]) =\> void|-|
-|onChange|已选图片列表发生变化|(fileList: ImagePickItem\[\]) =\> Promise\<void\>|-|
+|onChange|已选图片列表发生变化|(fileList: ImagePickItem\[\]) =\> void|-|
 |onMaxSizeExceed|图片超过限制大小|(file: File) =\> void|-|
 |onLimitExceed|选择张数超过限制|(files: File\[\]) =\> void|-|
 |onClick|图片点击|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
@@ -50,7 +49,7 @@
 |----------|-------------|------|------|
 |url|图片地址|string|必填|
 |file|图片文件|File|-|
-|status|图片状态|"loaded" \| "loading" \| "error"|必填|
+|status|图片状态|"loaded" \| "loading" \| "error"|以图片自身加载状态而定|
 
 > ImageProps
 
