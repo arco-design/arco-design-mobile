@@ -314,7 +314,7 @@
             },
             "required": false,
             "type": {
-                "name": "ImageProps"
+                "name": "Partial<ImageProps>"
             }
         },
         "renderError": {
@@ -368,21 +368,6 @@
                 "name": "(file: ImagePickItem) => Promise<ImagePickItem>"
             }
         },
-        "onSelect": {
-            "defaultValue": null,
-            "description": "",
-            "name": "onSelect",
-            "tags": {},
-            "descWithTags": "",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(...args: any[]) => void"
-            }
-        },
         "onChange": {
             "defaultValue": null,
             "description": "已选图片列表发生变化\n@en The list of selected images changes",
@@ -397,7 +382,7 @@
             },
             "required": false,
             "type": {
-                "name": "(fileList: ImagePickItem[]) => Promise<void>"
+                "name": "(fileList: ImagePickItem[]) => void"
             }
         },
         "onMaxSizeExceed": {
@@ -531,10 +516,10 @@
             },
             "status": {
                 "name": "status",
-                "required": true,
-                "description": "图片状态\n@en Image Status",
+                "required": false,
+                "description": "图片状态\n@en Image Status\n@default_en According to inner status of the image",
                 "defaultValue": {
-                    "value": "'loaded'"
+                    "value": "以图片自身加载状态而定"
                 },
                 "type": {
                     "name": "enum",
@@ -553,7 +538,8 @@
                 },
                 "tags": {
                     "en": "Image Status",
-                    "default": "'loaded'"
+                    "default": "以图片自身加载状态而定",
+                    "default_en": "According to inner status of the image"
                 },
                 "descWithTags": "图片状态"
             }

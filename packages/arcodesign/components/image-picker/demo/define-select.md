@@ -51,7 +51,7 @@ export default function ImagePickerDemo() {
     const onMaxSizeExceed = file => {
         window.toastInstance = Toast.toast(`${file.name} over ${maxSize}K`);
     };
-    const onLimitExceed = files => {
+    const onLimitExceed = () => {
         window.toastInstance = Toast.toast(`Select up to ${limit} images`);
     };
 

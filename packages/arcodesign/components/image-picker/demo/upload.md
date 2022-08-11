@@ -25,13 +25,11 @@ export default function ImagePickerDemo() {
     const [images, setImages] = useState([
         {
             url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg',
-            loading: true,
         }
     ]);
     const [images1, setImages1] = useState([
         {
             url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg',
-            error: true,
         }
     ]);
     return (
