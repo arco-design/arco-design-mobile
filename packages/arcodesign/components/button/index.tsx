@@ -217,8 +217,6 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             onTouchCancel={handleTouchEnd}
-            onMouseDown={handleTouchStart}
-            onMouseUp={handleTouchEnd}
             onClick={disabled || (loading && disableWhenLoading) ? onClickDisabled : onClick}
         >
             {icon || loading ? (

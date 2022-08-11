@@ -1,10 +1,10 @@
 <div align="center">
-  <a href="https://arco.design/mobile/react" target="_blank">
-    <img alt="Arco Design Logo" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
-  </a>
+    <a href="https://arco.design/mobile/react" target="_blank">
+        <img alt="Arco Design Logo" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
+    </a>
 </div>
 <div align="center">
-  <h1>Arco Design Mobile</h1>
+    <h1>Arco Design Mobile</h1>
 </div>
 
 <div align="center">
@@ -88,10 +88,24 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 贡献之前请先阅读 [行为准则](./CODE_OF_CONDUCT.md) 和 [贡献指南](./CONTRIBUTING.zh-CN.md).
 
-感谢所有为 Arco Design Mobile 做过贡献的人!
+感谢所有为 Arco Design Mobile 做过贡献的人！
+
+<a href="https://github.com/arco-design/arco-design-mobile/graphs/contributors"><img src="https://contrib.rocks/image?repo=arco-design/arco-design-mobile" style="height: 50px" /></a>
+
+以及曾经的战友们：
+
+<a href="https://github.com/wuyadream"><img src="https://github.com/wuyadream.png" style="height: 50px; border-radius: 50%" /></a>
+<a href="https://github.com/Ariussssss"><img src="https://github.com/Ariussssss.png" style="height: 50px; border-radius: 50%" /></a>
+<a href="https://github.com/WindyZYY"><img src="https://github.com/WindyZYY.png" style="height: 50px; border-radius: 50%" /></a>
+<a href="https://github.com/10000lance"><img src="https://github.com/10000lance.png" style="height: 50px; border-radius: 50%" /></a>
+<a href="https://github.com/GitHubzhangshuai"><img src="https://github.com/GitHubzhangshuai.png" style="height: 50px; border-radius: 50%" /></a>
 
 # License
 
 [MIT 协议](./LICENSE)
 
-[![Star History Chart](https://api.star-history.com/svg?repos=arco-design/arco-design-mobile&type=Date)](https://star-history.com/#arco-design/arco-design-mobile&Date)
+<br/><br/>
+
+<div align="center">
+    <a href="https://star-history.com/#arco-design/arco-design-mobile&Date"><img src="https://api.star-history.com/svg?repos=arco-design/arco-design-mobile&type=Date" style="max-width: 100%; width: 550px"/></a>
+</div>
