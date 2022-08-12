@@ -172,7 +172,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
         loadingIcon,
         onClick,
         onClickDisabled,
-        coverIconWhenLoading = false,
+        coverIconWhenLoading = true,
     } = props;
     const domRef = useRef<HTMLButtonElement | null>(null);
     const { prefixCls } = useContext(GlobalContext);

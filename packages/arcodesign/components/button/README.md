@@ -30,6 +30,7 @@
 |onClick|点击按钮的回调函数|(e: MouseEvent\<Element, MouseEvent\>) =\> void|-|
 |onClickDisabled|禁用状态下点击按钮的回调函数|(e: MouseEvent\<Element, MouseEvent\>) =\> void|-|
 |disableWhenLoading|加载中是否禁用按钮操作|boolean|true|
+|coverIconWhenLoading|加载中是否覆盖Icon|boolean|true|
 
 > 引用/Refs
 
