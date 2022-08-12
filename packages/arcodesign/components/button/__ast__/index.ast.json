@@ -422,6 +422,26 @@
                 "name": "boolean"
             }
         },
+        "coverIconWhenLoading": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "加载中是否覆盖Icon\n@en Whether to override Icon during loading",
+            "name": "coverIconWhenLoading",
+            "tags": {
+                "en": "Whether to override Icon during loading",
+                "default": "true"
+            },
+            "descWithTags": "加载中是否覆盖Icon",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/button/index.tsx",
+                "name": "ButtonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",

@@ -30,6 +30,7 @@ Using for starting an immediate action
 |onClick|Callback function when clicking button|(e: MouseEvent\<Element, MouseEvent\>) =\> void|-|
 |onClickDisabled|Callback function when disabling button|(e: MouseEvent\<Element, MouseEvent\>) =\> void|-|
 |disableWhenLoading|Disable button when loading|boolean|true|
+|coverIconWhenLoading|Whether to override Icon during loading|boolean|true|
 
 > Refs
 
