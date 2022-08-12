@@ -96,9 +96,9 @@ const Badge = forwardRef((props: BadgeProps, ref: Ref<BadgeRef>) => {
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
     }));
-    function renderInnerBadge() {
+    function renderInnerBadge(prefix: string) {
         return dot ? null : (
-            <span className="badge-text">
+            <span className={`${prefix}-text badge-text`}>
                 {Number(text) && Number(text) > maxCount ? `${maxCount}+` : text}
             </span>
         );
@@ -109,14 +109,14 @@ const Badge = forwardRef((props: BadgeProps, ref: Ref<BadgeRef>) => {
                 <Transition in={visible} timeout={timeout} type="scale">
                     <div
                         className={cls(`${prefixCls}-badge`, className, {
-                            dot,
-                            bordered,
-                            absolute,
+                            [`${prefixCls}-badge-dot dot`]: dot,
+                            [`${prefixCls}-badge-bordered bordered`]: bordered,
+                            [`${prefixCls}-badge-absolute absolute`]: absolute,
                         })}
                         style={style}
                         ref={domRef}
                     >
-                        {children || renderInnerBadge()}
+                        {children || renderInnerBadge(`${prefixCls}-badge`)}
                     </div>
                 </Transition>
             )}
