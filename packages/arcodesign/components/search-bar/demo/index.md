@@ -17,13 +17,13 @@ export default function SearchBarDemo() {
 
     const handleChange = newShape => setShape(newShape);
     const handleClick = inputValue => {
-        Toast.toast('inputValue：' + inputValue);
+        Toast.toast('点击了取消');
     };
 
     return (
         <div>
             <Radio.Group style={style} options={options} value={shape} onChange={handleChange} />
-            <SearchBar shape={shape} onActionBtnClick={handleClick} />
+            <SearchBar shape={shape} onCancel={handleClick} />
         </div>
     );
 }

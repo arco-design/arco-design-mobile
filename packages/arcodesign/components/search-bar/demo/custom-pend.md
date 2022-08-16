@@ -1,6 +1,6 @@
 ## 自定义插入内容 @en{Custom Insert}
 
-#### 4
+#### 5
 
 ```js
 import { SearchBar, Avatar } from '@arco-design/mobile-react';
@@ -28,6 +28,6 @@ export default function SearchBarDemo() {
         return <Avatar size="ultra-small" style={{ marginLeft: 13 }} />;
     };
 
-    return <SearchBar prepend={renderPrepend()} append={renderAppend} />;
+    return <SearchBar prepend={renderPrepend()} append={renderAppend} actionButton={null} />;
 }
 ```

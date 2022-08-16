@@ -1,6 +1,6 @@
 ## 搜索联想框 @en{Search Association}
 
-#### 5
+#### 8
 
 ```js
 import { SearchBar } from '@arco-design/mobile-react';
@@ -24,6 +24,7 @@ export default function SearchBarDemo() {
 
     return (
         <SearchBar
+            style={{ marginBottom: 200 }}
             appendBtnText="Search"
             enableAssociation
             associationItems={associationItems}

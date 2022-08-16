@@ -12,13 +12,13 @@ import { ContextLayout, GlobalContext } from '../context-provider';
 import { IconSearch } from '../icon';
 import { useInputLogic } from '../input/hooks';
 import { SearchBarAssociation } from './association';
-import { SEARCH_BAR_DEFAULT_BTN_TEXT, SEARCH_BAR_DEFAULT_PLACEHOLDER } from './constant';
+import { CancelButton } from './cancel-button';
+import { SEARCH_BAR_DEFAULT_PLACEHOLDER } from './constant';
 import { SearchAssociationBaseItem, SearchBarProps, SearchBarRef } from './type';
 
 export {
     SearchBarProps,
     SearchBarRef,
-    SearchActionBtnShowType,
     SearchAssociationHighlightMode,
     SearchAssociationItem,
     SearchAssociationShowType,
@@ -57,9 +57,10 @@ const SearchBar = forwardRef(
             pattern,
             prefix = <IconSearch className={`${searchBarPrefixCls}-search-icon`} />,
             append,
-            actionBtnText = SEARCH_BAR_DEFAULT_BTN_TEXT,
-            actionBtnShowType = 'default',
+            textAlign = 'left',
+            actionButton,
             clearable = true,
+            clearShowType = 'value',
             shape = 'square',
             className,
             enableAssociation = false,
@@ -69,7 +70,7 @@ const SearchBar = forwardRef(
             highlightClassName,
             highlightMode,
             highlightStyle,
-            onActionBtnClick,
+            onCancel,
             onAssociationClick,
             onAssociationItemClick,
             renderAssociation,
@@ -83,50 +84,49 @@ const SearchBar = forwardRef(
          *
          */
         const formatAppendProp = (focusing: boolean, currentInputValue: string) => {
-            // 默认情况下，在激活时插入一个actionBtn
             let appendNode: ReactNode = null;
-            if (typeof append === 'undefined') {
-                const shouldInsertActionBtn =
-                    actionBtnShowType === 'always' ||
-                    (actionBtnShowType === 'default' && (focusing || Boolean(currentInputValue))) ||
-                    (actionBtnShowType === 'focus' && focusing) ||
-                    (actionBtnShowType === 'value' && Boolean(currentInputValue));
-                if (shouldInsertActionBtn)
-                    appendNode = (
-                        <span
-                            className={`${searchBarPrefixCls}-action-btn`}
-                            onClick={() => onActionBtnClick?.(currentInputValue)}
-                        >
-                            {actionBtnText}
-                        </span>
-                    );
-            } else if (typeof append === 'function') {
+
+            if (typeof append === 'function') {
                 appendNode = append(focusing, currentInputValue);
             } else {
                 appendNode = append;
             }
 
-            // 开启搜索联想框的话，再额外插入一个搜索联想框到append中
-            return enableAssociation ? (
+            // 默认情况下，在激活时或有内容时插入一个cancelBtn
+            const formatActionButton: ReactNode =
+                typeof actionButton === 'undefined' ? (
+                    <CancelButton
+                        focusing={focusing}
+                        currentInputValue={currentInputValue}
+                        className={`${searchBarPrefixCls}-cancel-btn`}
+                        onCancel={onCancel}
+                    />
+                ) : (
+                    actionButton
+                );
+
+            return (
                 <>
                     {appendNode}
-                    <SearchBarAssociation
-                        prefixCls={searchBarPrefixCls}
-                        keyword={currentInputValue}
-                        // eslint-disable-next-line @typescript-eslint/no-use-before-define
-                        visible={actualVisible}
-                        associationItems={associationItems}
-                        highlightClassName={highlightClassName}
-                        highlightMode={highlightMode}
-                        highlightStyle={highlightStyle}
-                        onAssociationClick={onAssociationClick}
-                        onAssociationItemClick={onAssociationItemClick}
-                        renderAssociation={renderAssociation}
-                        renderAssociationItem={renderAssociationItem}
-                    />
+                    {formatActionButton}
+                    {/* 开启搜索联想框的话，再额外插入一个搜索联想框到append中 */}
+                    {enableAssociation ? (
+                        <SearchBarAssociation
+                            prefixCls={searchBarPrefixCls}
+                            keyword={currentInputValue}
+                            // eslint-disable-next-line @typescript-eslint/no-use-before-define
+                            visible={actualVisible}
+                            associationItems={associationItems}
+                            highlightClassName={highlightClassName}
+                            highlightMode={highlightMode}
+                            highlightStyle={highlightStyle}
+                            onAssociationClick={onAssociationClick}
+                            onAssociationItemClick={onAssociationItemClick}
+                            renderAssociation={renderAssociation}
+                            renderAssociationItem={renderAssociationItem}
+                        />
+                    ) : null}
                 </>
-            ) : (
-                appendNode
             );
         };
 
@@ -146,6 +146,7 @@ const SearchBar = forwardRef(
                 prefix,
                 clearable,
                 append: formatAppendProp,
+                clearShowType,
                 ...inputProps,
             },
             inputRef,
@@ -220,7 +221,11 @@ const SearchBar = forwardRef(
                     onKeyUp={onKeyUp}
                     onKeyPress={onKeyPress}
                     ref={inputRef}
-                    className={cls(`${searchBarPrefixCls}-input`, inputClass)}
+                    className={cls(
+                        `${searchBarPrefixCls}-input`,
+                        inputClass,
+                        `${searchBarPrefixCls}-input-${textAlign}`,
+                    )}
                     style={inputStyle}
                     value={inputValue}
                     type={type}

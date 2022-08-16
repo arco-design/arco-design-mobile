@@ -12,7 +12,7 @@ demoTest('search-bar');
 mountTest(SearchBar, 'SearchBar');
 
 const prefix = `${defaultContext.prefixCls}-search-bar`;
-const actionBtnSelector = `.${prefix}-action-btn`;
+const cancelBtnSelector = `span.${prefix}-cancel-btn`;
 const inputSelector = `.${prefix}-input`;
 const clearIconSelector = `.${prefix}-clear`;
 const searchIconSelector = `svg.${prefix}-search-icon`;
@@ -55,74 +55,53 @@ describe('SearchBar', () => {
         inputDom.simulate('click');
 
         // 清除按钮被正常渲染
+        expect(component.find(clearIconSelector).length).toBe(0);
+        inputDom.simulate('change', { target: { value: '测试' } });
         expect(component.find(clearIconSelector).length).toBe(1);
         // 右侧actionBtn被正常渲染
-        expect(component.find(actionBtnSelector).length).toBe(1);
+        expect(component.find(cancelBtnSelector).length).toBe(1);
     });
 
     useFakeTimersTest('actionBtn should render correctly', root => {
-        const handleActionBtnClick = jest.fn();
-        const component = mount(
-            <SearchBar actionBtnText="搜索" onActionBtnClick={handleActionBtnClick} />,
-            { attachTo: root },
-        );
+        const handleCancel = jest.fn();
+        const component = mount(<SearchBar onCancel={handleCancel} />, { attachTo: root });
 
         const inputDom = createInputDomSimulator(component.find(inputSelector), component);
 
         // 测试actionBtnShowType为default的情况
-        expect(component.find(actionBtnSelector).length).toBe(0);
+        expect(component.find(cancelBtnSelector).length).toBe(0);
         inputDom.simulate('focus');
-        expect(component.find(actionBtnSelector).length).toBe(1);
+        expect(component.find(cancelBtnSelector).length).toBe(1);
 
         inputDom.simulate('blur');
-        expect(component.find(actionBtnSelector).length).toBe(0);
+        expect(component.find(cancelBtnSelector).length).toBe(0);
+
         inputDom.simulate('change', { target: { value: '测试' } });
-        expect(component.find(actionBtnSelector).length).toBe(1);
-        inputDom.simulate('blur');
-        expect(component.find(actionBtnSelector).length).toBe(1);
+        expect(component.find(cancelBtnSelector).length).toBe(1);
 
-        // 测试actionBtnShowType为always的情况
-        component.setProps({ actionBtnShowType: 'always' });
-        inputDom.simulate('change', { target: { value: '' } });
         inputDom.simulate('blur');
-        expect(component.find(actionBtnSelector).length).toBe(1);
+        expect(component.find(cancelBtnSelector).length).toBe(1);
 
-        // 测试actionBtnShowType为focus的情况
-        component.setProps({ actionBtnShowType: 'focus' });
-        inputDom.simulate('blur');
-        expect(component.find(actionBtnSelector).length).toBe(0);
+        component.find(cancelBtnSelector).simulate('click');
+        delay(component, 25);
+        expect(component.find(cancelBtnSelector).length).toBe(0);
+        expect(handleCancel).toBeCalledTimes(1);
+
         inputDom.simulate('focus');
-        expect(component.find(actionBtnSelector).length);
-        inputDom.simulate('blur');
-        expect(component.find(actionBtnSelector).length).toBe(0);
-
-        // 测试actionBtnShowType为value的情况
-        component.setProps({ actionBtnShowType: 'value' });
-        inputDom.simulate('change', { target: { value: '' } });
-        expect(component.find(actionBtnSelector).length).toBe(0);
-        inputDom.simulate('change', { target: { value: '测试' } });
-        expect(component.find(actionBtnSelector).length).toBe(1);
-        inputDom.simulate('blur');
-        expect(component.find(actionBtnSelector).length).toBe(1);
-
-        // 测试actionBtnShowType为none的情况
-        component.setProps({ actionBtnShowType: 'none' });
-        inputDom.simulate('focus');
-        expect(component.find(actionBtnSelector).length).toBe(0);
-        inputDom.simulate('change', { target: { value: '测' } });
-        expect(component.find(actionBtnSelector).length).toBe(0);
+        expect(component.find(cancelBtnSelector).length).toBe(1);
+        component.find(cancelBtnSelector).simulate('click');
+        delay(component, 25);
+        expect(component.find(cancelBtnSelector).length).toBe(0);
+        expect(handleCancel).toBeCalledTimes(2);
 
         // 测试自定义append是否正常
-        component.setProps({ actionBtnShowType: 'default' });
-        const actionBtn = component.find(actionBtnSelector);
-        inputDom.simulate('change', { target: { value: '测试' } });
-        actionBtn.simulate('click');
-        expect(handleActionBtnClick).toHaveBeenCalledWith('测试');
-
         component.setProps({
+            actionButton: <span id="search">搜索</span>,
             append: <span id="test">测试</span>,
         });
+        component.update();
         expect(component.find('#test').length).toBe(1);
+        expect(component.find('#search').length).toBe(1);
     });
 
     it('association should render correctly', () => {

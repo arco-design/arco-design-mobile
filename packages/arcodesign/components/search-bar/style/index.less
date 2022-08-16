@@ -32,6 +32,15 @@
     background-color: transparent;
     .use-var(height, search-bar-input-height);
     .use-var(caret-color, search-bar-input-caret-color);
+    &-left {
+      text-align: left;
+    }
+    &-right {
+      text-align: right;
+    }
+    &-center {
+      text-align: center;
+    }
 
     &::placeholder {
       .use-var(color, search-bar-input-placeholder-color);
@@ -60,12 +69,13 @@
 
   &-search-icon {
     .use-var(color, search-bar-search-icon-color);
+    .use-var(font-size, search-bar-search-icon-font-size);
   }
 
-  &-action-btn {
-    .use-var(margin-left, search-bar-action-btn-margin-left);
-    .use-var(color, search-bar-action-btn-color);
-    .use-var(font-size, search-bar-action-btn-font-size);
+  &-cancel-btn {
+    .use-var(margin-left, search-bar-cancel-btn-margin-left);
+    .use-var(color, search-bar-cancel-btn-color);
+    .use-var(font-size, search-bar-cancel-btn-font-size);
   }
 
   &-association {
@@ -87,9 +97,8 @@
       position: relative;
       .use-var(color, search-bar-association-item-color);
       .use-var(padding, search-bar-association-item-padding);
+      .use-var(font-size, search-bar-association-item-font-size);
       
-      .onepx-border-var(bottom, line-color);
-
       &:not(:last-child) {
         .onepx-border-var(bottom, line-color);
       }

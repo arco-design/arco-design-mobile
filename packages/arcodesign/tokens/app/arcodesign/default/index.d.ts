@@ -670,12 +670,14 @@ export interface ArcodesignToken extends Record<string, string> {
     'search-bar-prefix-margin-right': string;
     'search-bar-clear-icon-color': string;
     'search-bar-search-icon-color': string;
-    'search-bar-action-btn-color': string;
-    'search-bar-action-btn-font-size': string;
-    'search-bar-action-btn-margin-left': string;
+    'search-bar-search-icon-font-size': string;
+    'search-bar-cancel-btn-color': string;
+    'search-bar-cancel-btn-font-size': string;
+    'search-bar-cancel-btn-margin-left': string;
     'search-bar-association-background-color': string;
     'search-bar-association-item-height': string;
     'search-bar-association-item-padding': string;
+    'search-bar-association-item-font-size': string;
     'search-bar-association-item-color': string;
     'search-bar-association-item-highlight-color': string;
     'image-picker-font-size': string;

@@ -3408,20 +3408,25 @@ function getCompTokens() {
          */
         searchBarSearchIconColor: '#86909C',
         /**
-         * 搜索框右侧按钮颜色
-         * @en Color of SearchBar action button
+         * 搜索框按钮大小
+         * @en Fontsize of SearchBar search icon
          */
-        searchBarActionBtnColor: useGlobal('primaryColor'),
+        searchBarSearchIconFontSize: getRem(16),
         /**
-         * 搜索框右侧按钮文字大小
-         * @en Font size of SearchBar action button
+         * 搜索框右侧取消按钮颜色
+         * @en Color of SearchBar cancel button
          */
-        searchBarActionBtnFontSize: getRem(15),
+        searchBarCancelBtnColor: useGlobal('primaryColor'),
         /**
-         * 搜索框右侧按钮的左边距
-         * @en Left margin of SearchBar action button
+         * 搜索框右侧取消按钮文字大小
+         * @en Font size of SearchBar cancel button
          */
-        searchBarActionBtnMarginLeft: getRem(16),
+        searchBarCancelBtnFontSize: getRem(15),
+        /**
+         * 搜索框右侧取消按钮的左边距
+         * @en Left margin of SearchBar cancel button
+         */
+        searchBarCancelBtnMarginLeft: getRem(16),
         /**
          * 搜索联想框背景颜色
          * @en Background color of SearchBar association
@@ -3437,6 +3442,11 @@ function getCompTokens() {
          * @en Padding of SearchBar association item
          */
         searchBarAssociationItemPadding: getRem(16),
+        /**
+         * 搜索联想框候选项字体大小
+         * @en Fontsize of SearchBar association item
+         */
+        searchBarAssociationItemFontSize: getRem(15),
         /**
          * 搜索联想框候选项普通文字颜色
          * @en Color of SearchBar association item

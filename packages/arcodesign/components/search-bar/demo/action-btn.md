@@ -1,30 +1,23 @@
-## 右侧按钮展现时机 @en{Right Button Display Timing}
+## 自定义右侧按钮 @en{Custom right button}
 
 #### 2
 
 ```js
-import { SearchBar, Radio } from '@arco-design/mobile-react';
+import { SearchBar } from '@arco-design/mobile-react';
 import { useEffect, useState } from 'react';
 
 const style = { padding: 16, backgroundColor: 'white' };
-const options = [
-    { label: 'default', value: 'default' },
-    { label: 'always', value: 'always' },
-    { label: 'none', value: 'none' },
-    { label: 'value', value: 'value' },
-    { label: 'focus', value: 'focus' },
-];
+const actionBtnStyle = {
+    marginLeft: 16,
+    color: '#165DFF',
+    fontSize: 15,
+};
 
 export default function SearchBarDemo() {
     const [type, setType] = useState('default');
 
     const handleChange = newType => setType(newType);
 
-    return (
-        <div>
-            <Radio.Group style={style} options={options} value={type} onChange={handleChange} />
-            <SearchBar actionBtnShowType={type} />
-        </div>
-    );
+    return <SearchBar actionButton={<span style={actionBtnStyle}>搜索</span>} />;
 }
 ```

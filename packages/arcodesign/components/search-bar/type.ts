@@ -5,8 +5,6 @@ export type SearchBarShape = 'square' | 'round';
 
 export type SearchAssociationShowType = 'focus' | 'value' | 'default' | 'always';
 
-export type SearchActionBtnShowType = 'default' | 'always' | 'none' | 'value' | 'focus';
-
 export type SearchAssociationHighlightMode =
     | 'prefix'
     | 'contain'
@@ -63,10 +61,10 @@ export interface SearchBarAssociationProps<Data = Record<string, any>> {
      */
     highlightClassName?: string;
     /**
-     * 右侧按钮的点击回调
-     * @en Right button click callback
+     * 右侧取消按钮的点击回调
+     * @en Right cancel button click callback
      */
-    onActionBtnClick?: (inputValue: string) => void;
+    onCancel?: () => void;
     /**
      * 每行搜索结果的点击回调
      * @en Click callback for each row of search results
@@ -103,6 +101,12 @@ export interface SearchBarProps<Data = Record<string, any>>
      */
     shape?: SearchBarShape;
     /**
+     * 搜索框内容位置
+     * @en Search bar content location
+     * @default "left"
+     */
+    textAlign?: 'left' | 'center' | 'right';
+    /**
      * 搜索框头部插入的内容
      * @en Content inserted in the header of the search box
      */
@@ -114,17 +118,11 @@ export interface SearchBarProps<Data = Record<string, any>>
      */
     append?: ReactNode | ((focusing: boolean, value: string) => ReactNode);
     /**
-     * 默认行为下，搜索框尾部插入的按钮文案
-     * @en By default, the button text inserted at the end of the search box
-     * @default "取消"
+     * 搜索框最右侧要插入的按钮，默认情况下插入一个取消按钮
+     * @en The button to insert on the far right side of the search box, a cancel button is inserted by default
+     * @default "<CancelButton />"
      */
-    actionBtnText?: string;
-    /**
-     * 搜索框尾部插入的按钮展现时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索框被聚焦或者搜索词不为空 - always 一直展示 - none 不展示
-     * @en Display timing of the button inserted at the end of the search box - "focus" only when focused - "value" search term is not empty - "default" search bar is focused or search term is not empty - "always" always displayed - "none" do not show
-     * @default "focus"
-     */
-    actionBtnShowType?: SearchActionBtnShowType;
+    actionButton?: ReactNode;
     /**
      * 是否开启搜索联想框功能
      * @en Whether to enable the search association box function
