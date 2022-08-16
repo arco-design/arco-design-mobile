@@ -6455,6 +6455,116 @@
             "en": "Additional information font color"
         }
     },
+    "swipeActionCloseTransition": {
+        "cssKey": "swipe-action-close-transition",
+        "desc": "SwipeAction 菜单关闭时的动画曲线",
+        "override": "",
+        "value": "cubic-bezier(0.34, 0.69, 0.1, 1)",
+        "jsValue": "cubic-bezier(0.34, 0.69, 0.1, 1)",
+        "staticValue": "cubic-bezier(0.34, 0.69, 0.1, 1)",
+        "localeDesc": {
+            "ch": "SwipeAction 菜单关闭时的动画曲线"
+        }
+    },
+    "swipeActionIconHeight": {
+        "cssKey": "swipe-action-icon-height",
+        "desc": "swipeAction Icon 高",
+        "override": "",
+        "value": "~`pxtorem(20)`",
+        "jsValue": "@getRem@20",
+        "staticValue": "0.4rem",
+        "localeDesc": {
+            "ch": "swipeAction Icon 高"
+        }
+    },
+    "swipeActionIconMarginRight": {
+        "cssKey": "swipe-action-icon-margin-right",
+        "desc": "swipeAction Icon的右边距",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "swipeAction Icon的右边距"
+        }
+    },
+    "swipeActionIconWidth": {
+        "cssKey": "swipe-action-icon-width",
+        "desc": "swipeAction Icon 宽",
+        "override": "",
+        "value": "~`pxtorem(20)`",
+        "jsValue": "@getRem@20",
+        "staticValue": "0.4rem",
+        "localeDesc": {
+            "ch": "swipeAction Icon 宽"
+        }
+    },
+    "swipeActionInfoBounceBuffer": {
+        "cssKey": "swipe-action-info-bounce-buffer",
+        "desc": "swipeAction 菜单弹性效果预留底部色块宽度",
+        "override": "",
+        "value": "~`pxtorem(30)`",
+        "jsValue": "@getRem@30",
+        "staticValue": "0.6rem",
+        "localeDesc": {
+            "ch": "swipeAction 菜单弹性效果预留底部色块宽度"
+        }
+    },
+    "swipeActionInfoPadding": {
+        "cssKey": "swipe-action-info-padding",
+        "desc": "SwipeAction 菜单的内边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "SwipeAction 菜单的内边距"
+        }
+    },
+    "swipeActionOpenTransition": {
+        "cssKey": "swipe-action-open-transition",
+        "desc": "SwipeAction 菜单打开时的动画曲线",
+        "override": "",
+        "value": "cubic-bezier(0.2, 0.8, 0.32, 1.28)",
+        "jsValue": "cubic-bezier(0.2, 0.8, 0.32, 1.28)",
+        "staticValue": "cubic-bezier(0.2, 0.8, 0.32, 1.28)",
+        "localeDesc": {
+            "ch": "SwipeAction 菜单打开时的动画曲线"
+        }
+    },
+    "swipeActionTextColor": {
+        "cssKey": "swipe-action-text-color",
+        "desc": "SwipeAction 文字背景色",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "SwipeAction 文字背景色"
+        }
+    },
+    "swipeActionTextFontSize": {
+        "cssKey": "swipe-action-text-font-size",
+        "desc": "SwipeAction 文字大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "SwipeAction 文字大小"
+        }
+    },
+    "swipeActionTextLineHeight": {
+        "cssKey": "swipe-action-text-line-height",
+        "desc": "SwipeAction 文字行高",
+        "override": "",
+        "value": "~`pxtorem(22)`",
+        "jsValue": "@getRem@22",
+        "staticValue": "0.44rem",
+        "localeDesc": {
+            "ch": "SwipeAction 文字行高"
+        }
+    },
     "swipeLoadLabelBackground": {
         "cssKey": "swipe-load-label-background",
         "desc": "swipeLoad 滑动区域的背景色",

@@ -44,6 +44,7 @@ import './rate/style';
 import './slider/style';
 import './steps/style';
 import './sticky/style';
+import './swipe-action/style';
 import './swipe-load/style';
 import './tab-bar/style';
 import './tag/style';

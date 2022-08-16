@@ -2866,6 +2866,46 @@ function getCompTokens() {
          */
         stepsProcessWithConfigItemIconColor: '#FFFFFF',
         /**
+         * SwipeAction 菜单打开时的动画曲线
+         */
+        swipeActionOpenTransition: 'cubic-bezier(0.2, 0.8, 0.32, 1.28)',
+        /**
+         * SwipeAction 菜单关闭时的动画曲线
+         */
+        swipeActionCloseTransition: 'cubic-bezier(0.34, 0.69, 0.1, 1)',
+        /**
+         * SwipeAction 菜单的内边距
+         */
+        swipeActionInfoPadding: getRem(16),
+        /**
+         * swipeAction 菜单弹性效果预留底部色块宽度
+         */
+        swipeActionInfoBounceBuffer: getRem(30),
+        /**
+         * SwipeAction 文字大小
+         */
+        swipeActionTextFontSize: getRem(16),
+        /**
+         * SwipeAction 文字行高
+         */
+        swipeActionTextLineHeight: getRem(22),
+        /**
+         * SwipeAction 文字背景色
+         */
+        swipeActionTextColor: '#ffffff',
+        /**
+         * swipeAction Icon 宽
+         */
+        swipeActionIconWidth: getRem(20),
+        /**
+         * swipeAction Icon 高
+         */
+        swipeActionIconHeight: getRem(20),
+        /**
+         * swipeAction Icon的右边距
+         */
+        swipeActionIconMarginRight: getRem(4),
+        /**
          * 徽标背景色
          * @en Badge background color
          */
