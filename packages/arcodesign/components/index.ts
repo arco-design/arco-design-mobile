@@ -43,6 +43,7 @@ export { default as Rate } from './rate';
 export { default as Slider } from './slider';
 export { default as Steps } from './steps';
 export { default as Sticky } from './sticky';
+export { default as SwipeAction } from './swipe-action';
 export { default as SwipeLoad } from './swipe-load';
 export { default as TabBar } from './tab-bar';
 export { default as Tag } from './tag';

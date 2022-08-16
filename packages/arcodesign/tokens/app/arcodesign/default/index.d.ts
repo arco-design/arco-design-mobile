@@ -559,6 +559,16 @@ export interface ArcodesignToken extends Record<string, string> {
     'steps-vertical-padding-bottom': string;
     'steps-vertical-padding-left': string;
     'steps-process-with-config-item-icon-color': string;
+    'swipe-action-open-transition': string;
+    'swipe-action-close-transition': string;
+    'swipe-action-info-padding': string;
+    'swipe-action-info-bounce-buffer': string;
+    'swipe-action-text-font-size': string;
+    'swipe-action-text-line-height': string;
+    'swipe-action-text-color': string;
+    'swipe-action-icon-width': string;
+    'swipe-action-icon-height': string;
+    'swipe-action-icon-margin-right': string;
     'badge-background-color': string;
     'badge-text-color': string;
     'badge-font-size': string;
