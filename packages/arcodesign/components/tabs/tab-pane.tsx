@@ -221,7 +221,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
         const scrollSizeAttr = scrollVertical ? 'scrollHeight' : 'scrollWidth';
         const sizeAttr = scrollVertical ? 'offsetHeight' : 'offsetWidth';
         const maxTopDis = isGlobal
-            ? document.body[scrollSizeAttr] -
+            ? Math.max(document.documentElement[scrollSizeAttr], document.body[scrollSizeAttr]) -
                 scrollTop -
                 (scrollVertical ? window.innerHeight : window.innerWidth)
             : scrollEle[scrollSizeAttr] - scrollTop - scrollEle[sizeAttr];
