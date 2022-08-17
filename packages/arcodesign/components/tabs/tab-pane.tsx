@@ -218,12 +218,20 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
         const scrollTop = isGlobal
             ? Math.max(document.documentElement[scrollAttr], document.body[scrollAttr])
             : scrollEle[scrollAttr];
+        const scrollSizeAttr = scrollVertical ? 'scrollHeight' : 'scrollWidth';
+        const sizeAttr = scrollVertical ? 'offsetHeight' : 'offsetWidth';
+        const maxTopDis = isGlobal
+            ? Math.max(document.documentElement[scrollSizeAttr], document.body[scrollSizeAttr]) -
+                scrollTop -
+                (scrollVertical ? window.innerHeight : window.innerWidth)
+            : scrollEle[scrollSizeAttr] - scrollTop - scrollEle[sizeAttr];
+        const normalizedTopDis = Math.min(maxTopDis, topDis);
         clearTimeout(timerRef.current);
         autoScrollingRef.current = true;
         const duration = rightNow ? 0 : transitionDuration || 0;
         scrollWithAnimation(
             scrollTop,
-            scrollTop + topDis,
+            scrollTop + normalizedTopDis,
             top => {
                 if (isGlobal) {
                     document.documentElement[scrollAttr] = top;
