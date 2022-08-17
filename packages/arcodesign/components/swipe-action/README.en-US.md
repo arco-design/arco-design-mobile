@@ -1,8 +1,8 @@
-### 反馈
+### FeedBack
 
-# 滑动操作 
+# SwipeAction 
 
-滑动操作组件，左右滑动拉出菜单栏
+SwipeAction component, slide left and right to pull out the menu bar
 
 ======
 

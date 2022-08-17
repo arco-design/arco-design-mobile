@@ -1,8 +1,11 @@
 {
     "description": "滑动操作组件，左右滑动拉出菜单栏",
     "descriptionTags": {
+        "en": "SwipeAction component, slide left and right to pull out the menu bar",
         "type": "反馈",
-        "name": "滑动操作"
+        "type_en": "FeedBack",
+        "name": "滑动操作",
+        "name_en": "SwipeAction"
     },
     "displayName": "SwipeAction",
     "methods": [],
