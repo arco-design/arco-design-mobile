@@ -18,8 +18,11 @@ import { getStyleWithVendor, useLatestRef, useRefState } from '../_helpers';
 
 /**
  * 滑动操作组件，左右滑动拉出菜单栏
+ * @en SwipeAction component, slide left and right to pull out the menu bar
  * @type 反馈
+ * @type_en FeedBack
  * @name 滑动操作
+ * @name_en SwipeAction
  */
 
 const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef>) => {
