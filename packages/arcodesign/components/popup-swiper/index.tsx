@@ -162,23 +162,47 @@ const PopupSwiper = forwardRef((props: PopupSwiperProps, ref: Ref<PopupSwiperRef
             const movingFromDirec = allowedDirections.includes(fromDirec) ? fromDirec : '';
             const disDirection = exitDirection || movingFromDirec;
             const direcValue = ['top', 'bottom'].includes(disDirection) ? 'Y' : 'X';
-            switch (movingFromDirec) {
-                case 'top':
-                case 'bottom':
-                    setDistance({
-                        direction: direcValue,
-                        value: Math[movingFromDirec === 'top' ? 'min' : 'max'](0, disY),
-                    });
-                    break;
-                case 'left':
-                case 'right':
-                    setDistance({
-                        direction: direcValue,
-                        value: Math[movingFromDirec === 'left' ? 'min' : 'max'](0, disX),
-                    });
-                    break;
-                default:
-                    break;
+            let distanceValue = 0;
+            if (movingFromDirec) {
+                if (exitDirection) {
+                    switch (exitDirection) {
+                        case 'bottom':
+                            distanceValue = Math.abs(disY);
+                            break;
+                        case 'top':
+                            distanceValue = -Math.abs(disY);
+                            break;
+                        case 'left':
+                            distanceValue = Math.abs(disX);
+                            break;
+                        case 'right':
+                            distanceValue = -Math.abs(disX);
+                            break;
+                        default:
+                            break;
+                    }
+                } else {
+                    switch (movingFromDirec) {
+                        case 'bottom':
+                            distanceValue = Math.max(0, disY);
+                            break;
+                        case 'top':
+                            distanceValue = Math.min(0, disY);
+                            break;
+                        case 'left':
+                            distanceValue = Math.min(0, disX);
+                            break;
+                        case 'right':
+                            distanceValue = Math.max(0, disX);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                setDistance({
+                    direction: direcValue,
+                    value: distanceValue,
+                });
             }
         },
         [onTouchMove, allowedDirections, exitDirection],
