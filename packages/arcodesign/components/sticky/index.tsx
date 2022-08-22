@@ -141,7 +141,7 @@ export interface StickyProps {
      */
     getContainer?: () => HTMLElement | string;
     /**
-     * 指定滚动容器，如果指定该值则relative属性始终认定为false；如果返回string则使用querySelector选取容器
+     * 指定滚动容器；如果返回string则使用querySelector选取容器
      * @en Specifies the scrolling container. If this value is specified, the relative property is always regarded as false; if a string is input, use querySelector to select the container
      * @default () => window
      */
