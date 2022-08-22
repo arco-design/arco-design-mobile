@@ -6,6 +6,7 @@ import React, {
     Ref,
     useImperativeHandle,
     useState,
+    CSSProperties,
 } from 'react';
 import { cls, nextTick } from '@arco-design/mobile-utils';
 import { CSSTransition } from 'react-transition-group';
@@ -75,7 +76,7 @@ export function componentGenerator<
 
         // down=0为向上展开，1为向下展开
         // @en down=0 is to expand upwards, 1 is to expand downwards
-        const [down, setDown] = useState(direction === 'down');
+        const [down, setDown] = useState<boolean | null>(null);
         const maskHeight = useRef(0);
         const optionsContainer = useRef<HTMLDivElement>(null);
         const dropdownContainer = useRef<HTMLDivElement>(null);
@@ -107,42 +108,39 @@ export function componentGenerator<
 
         usePreventBodyScroll(showDropdown, preventBodyScroll, initialBodyOverflow);
 
-        useEffect(() => {
-            // 为0的时候不改变
-            // @en Does not change when it is 0
-            if (optionsWrapperHeight === 0) return;
-            const tempEl = getAnchorElement
-                ? getAnchorElement()
-                : dropdownContainer.current?.parentElement;
-            const { bottom, top } = tempEl?.getBoundingClientRect() || {
-                bottom: 0,
-                top: 0,
-            };
-            const tempTop = props.top || bottom;
-            const tempBottom = props.bottom || windowHeight - top;
-            const tempMaskHeight = windowHeight - tempTop;
-            // 没有指定方向，且空间足够时，或向上展开的空间不够，向下展开
-            // @en If there is no specified direction and there is enough space, or there is not enough space to expand upward, expand downward
-            const tempDown =
-                (direction !== 'up' && optionsWrapperHeight < tempMaskHeight) ||
-                optionsWrapperHeight > tempTop;
-            if (tempDown) {
-                maskHeight.current = tempMaskHeight;
-                setPositionStyle({ top: `${tempTop}px`, bottom: '' });
-            } else {
-                maskHeight.current = windowHeight - tempBottom;
-                setPositionStyle({ top: '', bottom: `${tempBottom}px` });
-            }
-            setDown(tempDown);
-        }, [
-            dropdownContainer,
-            optionsWrapperHeight,
-            props.top,
-            props.bottom,
-            Boolean(getAnchorElement),
-            direction,
-            windowHeight,
-        ]);
+        const updateDown = useCallback(
+            (wrapperHeight: number) => {
+                // 为0的时候不改变
+                // @en Does not change when it is 0
+                if (wrapperHeight === 0) {
+                    return;
+                }
+                const tempEl = getAnchorElement
+                    ? getAnchorElement()
+                    : dropdownContainer.current?.parentElement;
+                const { bottom, top } = tempEl?.getBoundingClientRect() || {
+                    bottom: 0,
+                    top: 0,
+                };
+                const tempTop = props.top || bottom;
+                const tempBottom = props.bottom || windowHeight - top;
+                const tempMaskHeight = windowHeight - tempTop;
+                // 没有指定方向，且空间足够时，或向上展开的空间不够，向下展开
+                // @en If there is no specified direction and there is enough space, or there is not enough space to expand upward, expand downward
+                const tempDown =
+                    (direction !== 'up' && wrapperHeight < tempMaskHeight) ||
+                    wrapperHeight > tempTop;
+                if (tempDown) {
+                    maskHeight.current = tempMaskHeight;
+                    setPositionStyle({ top: `${tempTop}px`, bottom: '' });
+                } else {
+                    maskHeight.current = windowHeight - tempBottom;
+                    setPositionStyle({ top: '', bottom: `${tempBottom}px` });
+                }
+                setDown(tempDown);
+            },
+            [props.top, props.bottom, Boolean(getAnchorElement), direction, windowHeight],
+        );
 
         /**
          * 取消选择
@@ -181,22 +179,24 @@ export function componentGenerator<
         }, [showDropdown, clickOtherToClose, handleCancel]);
 
         useEffect(() => {
-            nextTick(() => {
-                if (height !== void 0) {
-                    // 受控模式下，完全交由外层控制
-                    // @en In controlled mode, it is completely controlled by the outer layer
-                    setOptionsWrapperHeight(height);
+            let wrapperHeight = 0;
+            if (height !== void 0) {
+                // 受控模式下，完全交由外层控制
+                // @en In controlled mode, it is completely controlled by the outer layer
+                wrapperHeight = height;
+            } else {
+                if (!optionsContainer.current) return;
+                if (!showDropdown) {
+                    wrapperHeight = 0;
                 } else {
-                    if (!optionsContainer.current) return;
-                    if (!showDropdown) setOptionsWrapperHeight(0);
-                    else {
-                        setOptionsWrapperHeight(
-                            optionsContainer.current.getBoundingClientRect().height,
-                        );
-                    }
+                    wrapperHeight = optionsContainer.current.getBoundingClientRect().height;
                 }
+            }
+            updateDown(wrapperHeight);
+            nextTick(() => {
+                setOptionsWrapperHeight(wrapperHeight);
             });
-        }, [showDropdown, options.length, height]);
+        }, [showDropdown, options.length, height, updateDown]);
 
         useImperativeHandle(ref, () => ({
             dom: domRef.current,
@@ -204,10 +204,19 @@ export function componentGenerator<
 
         function getOptionsStyle() {
             const trans = down ? 'translateY(-100%)' : 'translateY(100%)';
+            const transStyle: CSSProperties =
+                down === null
+                    ? {
+                          opacity: 0,
+                      }
+                    : {
+                          opacity: 1,
+                          transform: optionsWrapperHeight ? 'translateY(0)' : trans,
+                          transition: `all ${dropdownAnimationTimeout}ms ${dropdownAnimationFunction}`,
+                      };
             return getStyleWithVendor({
                 // height: `${optionsWrapperHeight}px`,
-                transform: optionsWrapperHeight ? '' : trans,
-                transition: `transform ${dropdownAnimationTimeout}ms ${dropdownAnimationFunction}`,
+                ...transStyle,
                 overflow: optionsWrapperHeight > maxHeight || height ? 'auto' : 'hidden',
                 maxHeight: `${maxHeight}px`,
             });
@@ -243,6 +252,7 @@ export function componentGenerator<
                                 }}
                                 onExited={el => {
                                     el.style.visibility = 'hidden';
+                                    setDown(null);
                                 }}
                                 mountOnEnter={mountOnEnter}
                                 unmountOnExit={unmountOnExit}
