@@ -251,14 +251,14 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
 
     const handleChange = (event, fromAdapter?: boolean) => {
         const files =
-            [...(event.target.files || [])].filter(file => {
+            (Array.prototype.filter.call(event.target.files || [], file => {
                 // 过滤maxSize
                 if (maxSize && file.size > maxSize * 1024) {
                     onMaxSizeExceed && onMaxSizeExceed(file);
                     return false;
                 }
                 return true;
-            }) || [];
+            }) as File[]) || [];
         if (!fromAdapter) {
             event.target.value = '';
         }
