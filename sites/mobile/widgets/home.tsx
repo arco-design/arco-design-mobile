@@ -62,7 +62,7 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
         <div className="arcodesign-mobile-home-wrapper">
             <div className="arcodesign-demo-logo">
                 <img
-                    src="https://sf1-cdn-tos.douyinstatic.com/obj/eden-cn/lbfpfvha/arco-mobile-home-logo.png"
+                    src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/arco-mobile-home-logo.png"
                     alt=""
                 />
             </div>
