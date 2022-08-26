@@ -16,16 +16,17 @@ class DemoGeneratePlugin {
             }
         });
         compiler.hooks.watchRun.tap('WatchRun', (comp) => {
-            const changedTimes = comp.watchFileSystem.watcher.mtimes;
-            const changedFiles = Object.keys(changedTimes);
-            const tokenPath = 'tokens/src/arcodesign';
-            const reg = new RegExp(`${tokenPath}.+\\/index.js`);
-            if (changedFiles && changedFiles.some((file) => reg.test(file))) {
-                console.log('>>> Files changed. Generating token again...');
-                try {
-                    generateToken(this.options);
-                } catch (e) {
-                    console.error('generate token error', e);
+            if (comp.modifiedFiles) {
+                const changedFiles = Array.from(comp.modifiedFiles);
+                const tokenPath = 'tokens/src/arcodesign';
+                const reg = new RegExp(`${tokenPath}.+\\/index.js`);
+                if (changedFiles && changedFiles.some(file => reg.test(file))) {
+                    console.log('>>> Files changed. Generating token again...');
+                    try {
+                        generateToken(this.options);
+                    } catch (e) {
+                        console.error('generate token error', e);
+                    }
                 }
             }
         });

@@ -87,7 +87,6 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
-            allChunks: true,
         }),
     ],
 };

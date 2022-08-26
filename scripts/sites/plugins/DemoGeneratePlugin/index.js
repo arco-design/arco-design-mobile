@@ -23,12 +23,13 @@ class DemoGeneratePlugin {
             });
         });
         compiler.hooks.watchRun.tap('WatchRun', comp => {
-            const changedTimes = comp.watchFileSystem.watcher.mtimes;
-            const changedFiles = Object.keys(changedTimes).join(',');
-            const pagePath = path.join(rootPath, this.options.siteFolder || 'sites/pages');
-            if (changedFiles && changedFiles.indexOf(pagePath) < 0) {
-                console.log('>>> Files changed. Generating demos again...');
-                generateDemo(this.options);
+            if (comp.modifiedFiles) {
+                const changedFiles = Array.from(comp.modifiedFiles).join(',');
+                const pagePath = path.join(rootPath, this.options.siteFolder || 'sites/pages');
+                if (changedFiles && changedFiles.indexOf(pagePath) < 0) {
+                    console.log('>>> Files changed. Generating demos again...');
+                    generateDemo(this.options);
+                }
             }
         });
     }

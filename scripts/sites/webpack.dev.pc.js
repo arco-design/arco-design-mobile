@@ -1,5 +1,5 @@
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SiteGeneratePlugin = require('./plugins/SiteGeneratePlugin');
 const baseConfig = require('./webpack.common.js');
@@ -20,10 +20,12 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
     devtool: 'source-map',
     devServer: {
         host: '0.0.0.0',
-        contentBase: './',
-        inline: true,
+        static:{
+            directory:'./'
+        },
+        liveReload: true,
         port: 8823,
-        disableHostCheck: true
+        allowedHosts:'all'
     },
     plugins: [
         new SiteGeneratePlugin(),

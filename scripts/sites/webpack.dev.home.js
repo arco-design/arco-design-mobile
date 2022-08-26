@@ -1,5 +1,5 @@
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.common.js');
 const genBaseConfig = require('./genBaseConfig');
@@ -19,10 +19,12 @@ const devConfig = merge(genBaseConfig(baseConfig, 'home'), {
     devtool: 'source-map',
     devServer: {
         host: '0.0.0.0',
-        contentBase: './',
-        inline: true,
+        static:{
+            directory:'./'
+        },
+        liveReload: true,
         port: 8824,
-        disableHostCheck: true
+        allowedHosts:'all',
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -31,11 +33,7 @@ const devConfig = merge(genBaseConfig(baseConfig, 'home'), {
             filename: 'index.html',
         }),
     ],
-    externals: [
-        { "Arco": 'Arco'},
-        { "react": "React" },
-        { "react-dom": "ReactDOM" },
-    ]
-})
+    externals: [{ Arco: 'Arco' }, { react: 'React' }, { 'react-dom': 'ReactDOM' }],
+});
 
 module.exports = devConfig;

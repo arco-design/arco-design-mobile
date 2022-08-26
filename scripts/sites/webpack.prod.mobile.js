@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DemoGeneratePlugin = require('./plugins/DemoGeneratePlugin');
 const TokenGeneratePlugin = require('./plugins/TokenGeneratePlugin');

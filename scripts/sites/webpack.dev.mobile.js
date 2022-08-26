@@ -1,9 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VConsolePlugin = require('vconsole-webpack-plugin');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const DemoGeneratePlugin = require('./plugins/DemoGeneratePlugin');
 const TokenGeneratePlugin = require('./plugins/TokenGeneratePlugin');
 const utils = require('../utils');
@@ -29,10 +28,12 @@ const devConfig = merge(baseConfig, {
     devtool: 'source-map',
     devServer: {
         host: '0.0.0.0',
-        contentBase: './',
-        inline: true,
+        static:{
+            directory:'./'
+        },
+        liveReload: true,
         port: 8822,
-        disableHostCheck: true,
+        allowedHosts:'all',
         ...(filterComp.length
             ? {
                   open: true,
@@ -41,13 +42,6 @@ const devConfig = merge(baseConfig, {
             : {}),
     },
     plugins: [
-        new HardSourceWebpackPlugin(),
-        // 取消报错会下降一倍速度
-        // new HardSourceWebpackPlugin.ExcludeModulePlugin([
-        //     {
-        //         test: /less/,
-        //     },
-        // ]),
         new VConsolePlugin({ enable: true }),
         new DemoGeneratePlugin({
             filterComp,
@@ -59,6 +53,7 @@ const devConfig = merge(baseConfig, {
             filename: 'index.html',
         }),
     ],
+    cache:true
 });
 
 module.exports = devConfig;
