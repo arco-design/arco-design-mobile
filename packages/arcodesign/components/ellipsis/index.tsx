@@ -13,7 +13,7 @@ export * from './type';
 /**
  * 文本缩略组件，支持多行缩略、富文本、自定义缩略符、尾字符过滤等。
  * @en Text ellipsis component supports multi-line abbreviations, rich text, custom abbreviations, tail character filtering, etc.
- * @type 数据展示
+ * @type 信息展示
  * @type_en Data Display
  * @name 文本缩略
  * @name_en Ellipsis

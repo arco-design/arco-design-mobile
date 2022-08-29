@@ -2,7 +2,7 @@
     "description": "轮播组件，支持自定义轮播索引样式及滑块宽度。**需要注意的是，如果正使用`fastclick`，需要为 touchstart 的 target 添加`needsclick`类**（<a href=\"https://github.com/ftlabs/fastclick#ignore-certain-elements-with-needsclick\" target=\"_blank\">详情戳这里</a>），以规避`fastclick`逻辑与组件内部的手势冲突。（如果使用了`list`属性则无需额外添加）",
     "descriptionTags": {
         "en": "Carousel component, supports custom carousel index style and slider width. **Note that if you are using `fastclick`, you need to add a `needsclick` class to the touchstart target ** (<a href=\"https://github.com/ftlabs/fastclick#ignore-certain-elements- with-needsclick\" target=\"_blank\">click here for details</a>) to avoid `fastclick` logic conflicts with gestures inside the component. (no need to add if `list` is set)",
-        "type": "数据展示",
+        "type": "信息展示",
         "type_en": "Data Display",
         "name": "轮播图",
         "name_en": "Carousel"

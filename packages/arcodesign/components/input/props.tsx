@@ -81,12 +81,12 @@ export interface BasicInputProps<T = HTMLInputElement> {
      * 输入框头部内容，在输入框外部
      * @en The content of the header of the input box, outside the input box
      */
-    prepend?: React.ReactNode;
+    prepend?: React.ReactNode | ((focusing: boolean, inputValue: string) => React.ReactNode);
     /**
      * 输入框尾部内容，在输入框外部
      * @en The content at the end of the input box, outside the input box
      */
-    append?: React.ReactNode;
+    append?: React.ReactNode | ((focusing: boolean, inputValue: string) => React.ReactNode);
     /**
      * 在聚焦之前blur掉，即切换不同input时会重新弹起键盘，常用于input type切换时重新加载键盘，安卓上有效
      * @en Blur before focusing, that is, the keyboard will be re-bounced when switching between different inputs. It is often used to reload the keyboard when the input type is switched. It is valid on Android.
@@ -103,6 +103,12 @@ export interface BasicInputProps<T = HTMLInputElement> {
      * @default "focus"
      */
     clearShowType?: 'focus' | 'value' | 'always';
+    /**
+     * 在聚焦模式下点击清除按钮时，是否要屏蔽对应产生的onBlur和onFocus事件
+     * @en Whether to block the onBlur and onFocus events generated when the clear button is clicked in focus mode
+     * @default true
+     */
+    preventEventWhenClearing?: boolean;
     /**
      * 清除按钮类型，也可自定义
      * @en Clear button type, also customizable

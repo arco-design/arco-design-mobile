@@ -37,7 +37,7 @@ export interface DatePickerRef {
 /**
  * 日期时间选择器，基于`Picker`组件扩展，支持指定范围，单位可精确到秒。
  * @en Date picker, based on the `Picker` component, supports the specified range, the unit can be accurate to seconds.
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  * @name 日期时间选择器
  * @name_en DatePicker

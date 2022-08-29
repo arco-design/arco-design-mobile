@@ -3340,6 +3340,126 @@ function getCompTokens() {
          */
         actionSheetSubTitleFontSize: getRem(14),
         /**
+         * 搜索栏内边距大小
+         * @en Padding of SearchBar
+         */
+        searchBarPadding: getRem(16),
+        /**
+         * 搜索栏背景颜色
+         * @en BackgroundColor of SearchBar
+         */
+        searchBarBackgroundColor: '#FFFFFF',
+        /**
+         * 方形搜索栏的圆角大小
+         * @en Size of the rounded corners of the square SearchBar
+         */
+        searchBarSquareShapeBorderRadius: getRem(2),
+        /**
+         * 圆形搜索栏的圆角大小
+         * @en Size of the rounded corners of the round SearchBar
+         */
+        searchBarRoundShapeBorderRadius: getRem(9999),
+        /**
+         * 搜索输入框容器高度
+         * @en SearchBar input container height
+         */
+        searchBarInputWrapperHeight: getRem(36),
+        /**
+         * 搜索输入框容器内边距大小
+         * @en SearchBar input container padding
+         */
+        searchBarInputWrapperPadding: `${getRem(8)} ${getRem(14)}`,
+        /**
+         * 搜索输入框容器背景颜色
+         * @en SearchBar input container background color
+         */
+        searchBarInputWrapperBackgroundColor: '#F2F3F5',
+        /**
+         * 搜索输入框容器字体大小
+         * @en SearchBar input container font size
+         */
+        searchBarInputWrapperFontSize: getRem(14),
+        /**
+         * 搜索输入框高度
+         * @en SearchBar input height
+         */
+        searchBarInputHeight: getRem(20),
+        /**
+         * 搜索输入框光标颜色
+         * @en Color of SearchBar input caret
+         */
+        searchBarInputCaretColor: useGlobal('primaryColor'),
+        /**
+         * 搜索输入框提示文案颜色
+         * @en Color of SearchBar input placeholder
+         */
+        searchBarInputPlaceholderColor: useGlobal('disabledColor'),
+        /**
+         * 搜索栏搜索栏左侧插入内容的右侧外边距
+         * @en Right margin of SearchBar prefix
+         */
+        searchBarPrefixMarginRight: getRem(9),
+        /**
+         * 搜索栏清除按钮的颜色
+         * @en Color of SearchBar clear icon
+         */
+        searchBarClearIconColor: '#C9CDD4',
+        /**
+         * 搜索栏搜索按钮的颜色
+         * @en Color of SearchBar search icon
+         */
+        searchBarSearchIconColor: '#86909C',
+        /**
+         * 搜索栏按钮大小
+         * @en Fontsize of SearchBar search icon
+         */
+        searchBarSearchIconFontSize: getRem(16),
+        /**
+         * 搜索栏右侧取消按钮颜色
+         * @en Color of SearchBar cancel button
+         */
+        searchBarCancelBtnColor: useGlobal('primaryColor'),
+        /**
+         * 搜索栏右侧取消按钮文字大小
+         * @en Font size of SearchBar cancel button
+         */
+        searchBarCancelBtnFontSize: getRem(15),
+        /**
+         * 搜索栏右侧取消按钮的左边距
+         * @en Left margin of SearchBar cancel button
+         */
+        searchBarCancelBtnMarginLeft: getRem(16),
+        /**
+         * 搜索联想框背景颜色
+         * @en Background color of SearchBar association
+         */
+        searchBarAssociationBackgroundColor: '#FFFFFF',
+        /**
+         * 搜索联想框候选项高度
+         * @en Height of SearchBar association item
+         */
+        searchBarAssociationItemHeight: getRem(52),
+        /**
+         * 搜索联想框候选项内边距
+         * @en Padding of SearchBar association item
+         */
+        searchBarAssociationItemPadding: getRem(16),
+        /**
+         * 搜索联想框候选项字体大小
+         * @en Fontsize of SearchBar association item
+         */
+        searchBarAssociationItemFontSize: getRem(15),
+        /**
+         * 搜索联想框候选项普通文字颜色
+         * @en Color of SearchBar association item
+         */
+        searchBarAssociationItemColor: useGlobal('fontColor'),
+        /**
+         * 搜索联想框候选项高亮文案颜色
+         * @en Color of SearchBar association item highlight text
+         */
+        searchBarAssociationItemHighlightColor: useGlobal('primaryColor'),
+        /**
          * 图片选择器内部字体大小
          * @en Font size of ImagePicker
          */

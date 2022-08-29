@@ -1,4 +1,4 @@
-### 数据输入
+### 数据录入
 
 # 输入框 Input
 
@@ -30,11 +30,12 @@
 |label|输入框左侧文本|ReactNode|-|
 |required|是否必填项|boolean|-|
 |validator|正则验证，不符合验证的不允许输入|RegExp \| ((value: string) =\> boolean)|-|
-|prepend|输入框头部内容，在输入框外部|ReactNode|-|
-|append|输入框尾部内容，在输入框外部|ReactNode|-|
+|prepend|输入框头部内容，在输入框外部|ReactNode \| ((focusing: boolean, inputValue: string) =\> ReactNode)|-|
+|append|输入框尾部内容，在输入框外部|ReactNode \| ((focusing: boolean, inputValue: string) =\> ReactNode)|-|
 |blurBeforeFocus|在聚焦之前blur掉，即切换不同input时会重新弹起键盘，常用于input type切换时重新加载键盘，安卓上有效|boolean|-|
 |clearable|是否有清除按钮|boolean|-|
 |clearShowType|清除按钮展示时机：focus \- 聚焦时展示 value \- 有值则展示 always \- 始终展示|"focus" \| "value" \| "always"|"focus"|
+|preventEventWhenClearing|在聚焦模式下点击清除按钮时，是否要屏蔽对应产生的onBlur和onFocus事件|boolean|true|
 |clearIcon|清除按钮类型，也可自定义|ReactNode|\<IconClear className="clear-icon" /\>|
 |onClear|按下清除按钮回调|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> void|-|
 |prefix|输入框前置内容，在输入框内部，也可自定义|ReactNode|-|

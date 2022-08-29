@@ -37,11 +37,12 @@ A multi-line textarea, supports adaptive content height.
 |label|text to the left of the input box|ReactNode|-|
 |required|Whether it is required|boolean|-|
 |validator|Regular validation, input is not allowed if it does not meet the validation|RegExp \| ((value: string) =\> boolean)|-|
-|prepend|The content of the header of the input box, outside the input box|ReactNode|-|
-|append|The content at the end of the input box, outside the input box|ReactNode|-|
+|prepend|The content of the header of the input box, outside the input box|ReactNode \| ((focusing: boolean, inputValue: string) =\> ReactNode)|-|
+|append|The content at the end of the input box, outside the input box|ReactNode \| ((focusing: boolean, inputValue: string) =\> ReactNode)|-|
 |blurBeforeFocus|Blur before focusing, that is, the keyboard will be re\-bounced when switching between different inputs\. It is often used to reload the keyboard when the input type is switched\. It is valid on Android\.|boolean|-|
 |clearable|whether there is a clear button|boolean|-|
 |clearShowType|Clear button display timing: focus \- display when focused, value \- display when there is value, always \- always display|"focus" \| "value" \| "always"|"focus"|
+|preventEventWhenClearing|Whether to block the onBlur and onFocus events generated when the clear button is clicked in focus mode|boolean|true|
 |clearIcon|Clear button type, also customizable|ReactNode|\<IconClear className="clear-icon" /\>|
 |onClear|Callback when clear button is pressed|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> void|-|
 |prefix|The prefix of the input box, inside the input box, can also be customized|ReactNode|-|

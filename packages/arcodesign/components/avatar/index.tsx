@@ -184,7 +184,7 @@ const Avatar = componentGenerator(BaseImage);
 /**
  * 头像展示组件，支持圆形和方形两种形状，支持图片文字头像，支持五种尺寸。
  * @en Avatar component supports two shapes of circle and square, supports pictures or text avatars, with five sizes.
- * @type 数据展示
+ * @type 信息展示
  * @type_en Data Display
  * @name 头像
  * @name_en Avatar

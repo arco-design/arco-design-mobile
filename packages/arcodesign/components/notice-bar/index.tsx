@@ -114,7 +114,7 @@ export interface NoticeBarRef {
 /**
  * 可自定义换行或滚动效果，支持循环滚动。
  * @en Line wrapping or scrolling effects can be customized, and circular scrolling is supported.
- * @type 数据展示
+ * @type 信息展示
  * @type_en Data Display
  * @name 通知栏
  * @name_en NoticeBar
