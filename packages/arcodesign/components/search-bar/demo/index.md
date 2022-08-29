@@ -17,7 +17,7 @@ export default function SearchBarDemo() {
 
     const handleChange = newShape => setShape(newShape);
     const handleClick = inputValue => {
-        Toast.toast('点击了取消');
+        Toast.toast('Click cancel');
     };
 
     return (

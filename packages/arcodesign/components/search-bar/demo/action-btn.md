@@ -18,6 +18,6 @@ export default function SearchBarDemo() {
 
     const handleChange = newType => setType(newType);
 
-    return <SearchBar actionButton={<span style={actionBtnStyle}>搜索</span>} />;
+    return <SearchBar actionButton={<span style={actionBtnStyle}>Search</span>} />;
 }
 ```

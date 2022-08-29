@@ -13,7 +13,6 @@ import { IconSearch } from '../icon';
 import { useInputLogic } from '../input/hooks';
 import { SearchBarAssociation } from './association';
 import { CancelButton } from './cancel-button';
-import { SEARCH_BAR_DEFAULT_PLACEHOLDER } from './constant';
 import { SearchAssociationBaseItem, SearchBarProps, SearchBarRef } from './type';
 
 export {
@@ -38,7 +37,7 @@ const SearchBar = forwardRef(
         props: SearchBarProps<Data>,
         ref: Ref<SearchBarRef>,
     ) => {
-        const { prefixCls } = useContext(GlobalContext);
+        const { prefixCls, locale } = useContext(GlobalContext);
         const searchBarPrefixCls = `${prefixCls}-search-bar`;
 
         const {
@@ -49,7 +48,7 @@ const SearchBar = forwardRef(
             id,
             name,
             maxLength,
-            placeholder = SEARCH_BAR_DEFAULT_PLACEHOLDER,
+            placeholder = locale?.SearchBar.placeholder,
             readOnly,
             onKeyUp,
             onKeyPress,
@@ -81,7 +80,7 @@ const SearchBar = forwardRef(
 
         /**
          * 格式化搜索输入框尾部要插入的内容
-         *
+         * @en Format the content to be inserted at the end of the search input box
          */
         const formatAppendProp = (focusing: boolean, currentInputValue: string) => {
             let appendNode: ReactNode = null;
@@ -93,6 +92,7 @@ const SearchBar = forwardRef(
             }
 
             // 默认情况下，在激活时或有内容时插入一个cancelBtn
+            // @en By default inserts a cancelBtn on activation or when there is content
             const formatActionButton: ReactNode =
                 typeof actionButton === 'undefined' ? (
                     <CancelButton
@@ -100,6 +100,7 @@ const SearchBar = forwardRef(
                         currentInputValue={currentInputValue}
                         className={`${searchBarPrefixCls}-cancel-btn`}
                         onCancel={onCancel}
+                        text={locale?.SearchBar.cancelBtn}
                     />
                 ) : (
                     actionButton
@@ -109,7 +110,6 @@ const SearchBar = forwardRef(
                 <>
                     {appendNode}
                     {formatActionButton}
-                    {/* 开启搜索联想框的话，再额外插入一个搜索联想框到append中 */}
                     {enableAssociation ? (
                         <SearchBarAssociation
                             prefixCls={searchBarPrefixCls}
@@ -158,6 +158,7 @@ const SearchBar = forwardRef(
                     Boolean(inputValue)),
         );
         // 真实的控制搜索联想框显隐，受控模式优先生效
+        // @en Control the display and hide of the search association box, and the controlled mode takes effect first
         const actualVisible = associationVisible ?? visible;
 
         useImperativeHandle(ref, () => ({
@@ -170,6 +171,7 @@ const SearchBar = forwardRef(
 
         /**
          * 处理非受控逻辑下，搜索联想框的显隐状态
+         * @en Handle the display state of the search association box under uncontrolled logic
          *
          * @param {boolean} newVisible 新的visible
          * @param {string} newValue 新的输入框值
@@ -178,12 +180,15 @@ const SearchBar = forwardRef(
             if (associationShowType === 'always') {
                 setVisible(true);
                 // 聚焦模式下，直接把visible和newVisible对齐即可
+                // @en In focus mode, just align visible and newVisible directly
             } else if (associationShowType === 'focus') {
                 setVisible(newVisible);
                 // 聚焦 + 有值模式下，需要newVisible为true和newValue.length > 0同时满足
+                // @en In focus + valued mode, newVisible is required to be true and newValue.length > 0 to be satisfied at the same time
             } else if (associationShowType === 'default') {
                 setVisible(newVisible && Boolean(newValue));
                 // 仅有值模式下，visible需要newValue.length > 0
+                // @en In value-only mode, visible requires newValue.length > 0
             } else if (associationShowType === 'value') {
                 setVisible(Boolean(newValue));
             }

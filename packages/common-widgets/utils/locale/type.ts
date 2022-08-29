@@ -47,4 +47,8 @@ export interface ILocale {
     ImagePicker: {
         loadError: string;
     };
+    SearchBar: {
+        placeholder: string;
+        cancelBtn: string;
+    };
 }

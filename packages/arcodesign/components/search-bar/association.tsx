@@ -50,6 +50,7 @@ export function SearchBarAssociation<Data>(props: SearchBarAssociationProps<Data
         const itemContent = item.content;
         let node: ReactNode = itemContent;
         // itemContent为string类型，并且开启高亮模式才去走渲染高亮内容的逻辑
+        // @en When `itemContent` is a string, and the highlight mode is turned on, the logic of rendering the highlighted content is performed
         if (typeof itemContent === 'string' && highlightMode !== 'none') {
             node = renderHighlightNode(itemContent);
         }

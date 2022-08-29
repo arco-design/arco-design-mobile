@@ -23,7 +23,6 @@ export default function SearchBarDemo() {
         );
     };
 
-    // 可以根据focusing的true或false选择渲染不同的内容
     const renderAppend = focusing => {
         return <Avatar size="ultra-small" style={{ marginLeft: 13 }} />;
     };
