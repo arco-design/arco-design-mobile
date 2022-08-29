@@ -19,7 +19,7 @@
             },
             "descWithTags": "自定义类名",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -36,7 +36,7 @@
             },
             "descWithTags": "自定义样式",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -53,7 +53,7 @@
             },
             "descWithTags": "已选择图片列表",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": true,
@@ -73,7 +73,7 @@
             },
             "descWithTags": "可以选择的文件类型",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -90,7 +90,7 @@
             },
             "descWithTags": "是否支持多选",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -107,7 +107,7 @@
             },
             "descWithTags": "图片选取模式 Image selection mode [capture MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -127,7 +127,7 @@
             },
             "descWithTags": "一行展示图片张数",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -147,7 +147,7 @@
             },
             "descWithTags": "格子间的间距",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -164,7 +164,7 @@
             },
             "descWithTags": "最多选择图片张数，超出数量自动隐藏上传按钮，0表示不做限制",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -181,7 +181,7 @@
             },
             "descWithTags": "文件大小限制，单位为K",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -201,7 +201,7 @@
             },
             "descWithTags": "是否隐藏删除Icon",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -221,7 +221,7 @@
             },
             "descWithTags": "是否隐藏选择Icon",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -241,7 +241,7 @@
             },
             "descWithTags": "是否总是展示选择Icon，默认情况下当图片数量超出limit值时会自动隐藏选择Icon",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -258,7 +258,7 @@
             },
             "descWithTags": "禁用选择和删除图片",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -275,7 +275,7 @@
             },
             "descWithTags": "自定义删除图标",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -292,7 +292,7 @@
             },
             "descWithTags": "自定义选择图标",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -309,7 +309,7 @@
             },
             "descWithTags": "透传给图片的属性",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -326,7 +326,7 @@
             },
             "descWithTags": "自定义上传失败展示",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -343,7 +343,7 @@
             },
             "descWithTags": "自定义上传中展示",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -360,7 +360,7 @@
             },
             "descWithTags": "上传方法",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -377,7 +377,7 @@
             },
             "descWithTags": "已选图片列表发生变化",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -394,7 +394,7 @@
             },
             "descWithTags": "图片超过限制大小",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -411,7 +411,7 @@
             },
             "descWithTags": "选择张数超过限制",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -428,7 +428,7 @@
             },
             "descWithTags": "图片点击",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -445,7 +445,7 @@
             },
             "descWithTags": "图片长按事件",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,
@@ -462,7 +462,7 @@
             },
             "descWithTags": "图片选择适配器",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
                 "name": "ImagePickerProps"
             },
             "required": false,

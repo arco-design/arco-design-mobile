@@ -507,7 +507,7 @@
             },
             "required": false,
             "type": {
-                "name": "ReactNode"
+                "name": "ReactNode | ((focusing: boolean, inputValue: string) => ReactNode)"
             }
         },
         "append": {
@@ -524,7 +524,7 @@
             },
             "required": false,
             "type": {
-                "name": "ReactNode"
+                "name": "ReactNode | ((focusing: boolean, inputValue: string) => ReactNode)"
             }
         },
         "blurBeforeFocus": {
@@ -591,6 +591,26 @@
                         "value": "\"always\""
                     }
                 ]
+            }
+        },
+        "preventEventWhenClearing": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "在聚焦模式下点击清除按钮时，是否要屏蔽对应产生的onBlur和onFocus事件\n@en Whether to block the onBlur and onFocus events generated when the clear button is clicked in focus mode",
+            "name": "preventEventWhenClearing",
+            "tags": {
+                "en": "Whether to block the onBlur and onFocus events generated when the clear button is clicked in focus mode",
+                "default": "true"
+            },
+            "descWithTags": "在聚焦模式下点击清除按钮时，是否要屏蔽对应产生的onBlur和onFocus事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
             }
         },
         "clearIcon": {
