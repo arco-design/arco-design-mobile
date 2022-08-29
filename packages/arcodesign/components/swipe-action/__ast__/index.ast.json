@@ -135,12 +135,12 @@
                 "name": "number"
             }
         },
-        "disable": {
+        "disabled": {
             "defaultValue": {
                 "value": "false"
             },
             "description": "是否禁用\n@en Whether to disable",
-            "name": "disable",
+            "name": "disabled",
             "tags": {
                 "en": "Whether to disable",
                 "default": "false"

@@ -43,7 +43,7 @@ export interface SwipeActionProps {
      * @en Whether to disable
      * @default false
      */
-    disable?: boolean;
+    disabled?: boolean;
     /**
      * 动画的执行时间 (单位ms)
      * @en Animation execution time in ms

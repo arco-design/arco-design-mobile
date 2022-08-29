@@ -17,7 +17,7 @@ SwipeAction component, slide left and right to pull out the menu bar
 |leftActions|left Menu|Action\[\]|-|
 |closeOnTouchOutside|Click outside for auto return|boolean|false|
 |threshold|How far the menu slides off/off automatically ranges from 0 to 1|number|0.15|
-|disable|Whether to disable|boolean|false|
+|disabled|Whether to disable|boolean|false|
 |transitionDuration|Animation execution time in ms|number|300|
 |dampRate|Damping coefficient|number|15|
 |openStyleType|The style type when the menu slides in\. layer \- the menu is stacked in layers; push \- the menu is pushed directly in sequence|"layer" \| "push"|"layer"|
