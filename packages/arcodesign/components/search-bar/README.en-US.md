@@ -1,4 +1,4 @@
-### Navigation
+### Data Entry
 
 # SearchBar 
 
@@ -14,14 +14,14 @@ SearchBar component
 |textAlign|Search bar content location|"left" \| "center" \| "right"|"left"|
 |prepend|Content inserted in the header of the search box|ReactNode \| ((focusing: boolean, value: string) =\> ReactNode)|-|
 |append|The content to be inserted at the end of the search box, a button will be inserted by default when the search box is activated|ReactNode \| ((focusing: boolean, value: string) =\> ReactNode)|(focusing) => focusing ? (<span>取消</span>) : null|
-|actionButton|The button to insert on the far right side of the search box, a cancel button is inserted by default|ReactNode|"<CancelButton />"|
+|actionButton|The button to insert on the far right side of the search box, a cancel button is inserted by default|ReactNode|<CancelButton />|
 |enableAssociation|Whether to enable the search association box function|boolean|false|
 |associationVisible|(Controlled mode) Visible state of search association box|boolean|-|
 |associationShowType|In uncontrolled mode, the display timing of the search association box \- "focus" only when focused \- "value" search term is not empty \- "default" search bar is focused or search term is not empty \- "always" always displayed|"value" \| "focus" \| "default" \| "always"|"default"|
 |associationItems|every search|SearchAssociationBaseItem\[\]|-|
 |highlightMode|Search result highlighting mode, which can be two built\-in modes, or a custom highlighting function(Accept option content content, search keyword keyword, default highlight class, return a ReactNode) \- "prefix" to highlight the longest prefix matching string \- "contain" to highlight all search keywords \- "none" to turn off highlighting|SearchAssociationHighlightMode|"none"|
 |highlightStyle|The style to be added to the highlighted result, only available in non\-custom highlight mode|CSSProperties|-|
-|highlightClassName|The class to be added to the highlighting result, only valid in non\-custom highlighting mode|string|"{color: #165dff;}"|
+|highlightClassName|The class to be added to the highlighting result, only valid in non\-custom highlighting mode|string|-|
 |onCancel|Right cancel button click callback|() =\> void|-|
 |onAssociationItemClick|Click callback for each row of search results|(item: SearchAssociationBaseItem, index: number) =\> void|-|
 |onAssociationClick|The callback for the overall click of the search association box|(event: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|

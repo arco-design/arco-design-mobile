@@ -13,7 +13,7 @@ const List = componentGenerator(Tag);
 /**
  * 标签组件，支持标签和标签组。
  * @en Tag component, supports tags and tag groups.
- * @type 数据展示
+ * @type 信息展示
  * @type_en Data Display
  * @name 标签
  * @name_en Tag

@@ -15,7 +15,7 @@ const Group = componentGenerator(Checkbox);
  * @en Checkbox, click to switch selection when available, support disabled status, support checkbox group.
  * @name 复选框
  * @name_en Checkbox
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  */
 export default componentWrapper(Checkbox, {

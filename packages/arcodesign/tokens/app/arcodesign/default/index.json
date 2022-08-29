@@ -5665,61 +5665,61 @@
     },
     "searchBarBackgroundColor": {
         "cssKey": "search-bar-background-color",
-        "desc": "搜索框背景颜色",
+        "desc": "搜索栏背景颜色",
         "override": "",
         "value": "#FFFFFF",
         "jsValue": "#FFFFFF",
         "staticValue": "#FFFFFF",
         "localeDesc": {
-            "ch": "搜索框背景颜色",
+            "ch": "搜索栏背景颜色",
             "en": "BackgroundColor of SearchBar"
         }
     },
     "searchBarCancelBtnColor": {
         "cssKey": "search-bar-cancel-btn-color",
-        "desc": "搜索框右侧取消按钮颜色",
+        "desc": "搜索栏右侧取消按钮颜色",
         "override": "",
         "value": "@primary-color",
         "jsValue": "@global@primaryColor",
         "staticValue": "#165dff",
         "localeDesc": {
-            "ch": "搜索框右侧取消按钮颜色",
+            "ch": "搜索栏右侧取消按钮颜色",
             "en": "Color of SearchBar cancel button"
         }
     },
     "searchBarCancelBtnFontSize": {
         "cssKey": "search-bar-cancel-btn-font-size",
-        "desc": "搜索框右侧取消按钮文字大小",
+        "desc": "搜索栏右侧取消按钮文字大小",
         "override": "",
         "value": "~`pxtorem(15)`",
         "jsValue": "@getRem@15",
         "staticValue": "0.3rem",
         "localeDesc": {
-            "ch": "搜索框右侧取消按钮文字大小",
+            "ch": "搜索栏右侧取消按钮文字大小",
             "en": "Font size of SearchBar cancel button"
         }
     },
     "searchBarCancelBtnMarginLeft": {
         "cssKey": "search-bar-cancel-btn-margin-left",
-        "desc": "搜索框右侧取消按钮的左边距",
+        "desc": "搜索栏右侧取消按钮的左边距",
         "override": "",
         "value": "~`pxtorem(16)`",
         "jsValue": "@getRem@16",
         "staticValue": "0.32rem",
         "localeDesc": {
-            "ch": "搜索框右侧取消按钮的左边距",
+            "ch": "搜索栏右侧取消按钮的左边距",
             "en": "Left margin of SearchBar cancel button"
         }
     },
     "searchBarClearIconColor": {
         "cssKey": "search-bar-clear-icon-color",
-        "desc": "搜索框清除按钮的颜色",
+        "desc": "搜索栏清除按钮的颜色",
         "override": "",
         "value": "#C9CDD4",
         "jsValue": "#C9CDD4",
         "staticValue": "#C9CDD4",
         "localeDesc": {
-            "ch": "搜索框清除按钮的颜色",
+            "ch": "搜索栏清除按钮的颜色",
             "en": "Color of SearchBar clear icon"
         }
     },
@@ -5809,73 +5809,73 @@
     },
     "searchBarPadding": {
         "cssKey": "search-bar-padding",
-        "desc": "搜索框内边距大小",
+        "desc": "搜索栏内边距大小",
         "override": "",
         "value": "~`pxtorem(16)`",
         "jsValue": "@getRem@16",
         "staticValue": "0.32rem",
         "localeDesc": {
-            "ch": "搜索框内边距大小",
+            "ch": "搜索栏内边距大小",
             "en": "Padding of SearchBar"
         }
     },
     "searchBarPrefixMarginRight": {
         "cssKey": "search-bar-prefix-margin-right",
-        "desc": "搜索框搜索框左侧插入内容的右侧外边距",
+        "desc": "搜索栏搜索栏左侧插入内容的右侧外边距",
         "override": "",
         "value": "~`pxtorem(9)`",
         "jsValue": "@getRem@9",
         "staticValue": "0.18rem",
         "localeDesc": {
-            "ch": "搜索框搜索框左侧插入内容的右侧外边距",
+            "ch": "搜索栏搜索栏左侧插入内容的右侧外边距",
             "en": "Right margin of SearchBar prefix"
         }
     },
     "searchBarRoundShapeBorderRadius": {
         "cssKey": "search-bar-round-shape-border-radius",
-        "desc": "圆形搜索框的圆角大小",
+        "desc": "圆形搜索栏的圆角大小",
         "override": "",
         "value": "~`pxtorem(9999)`",
         "jsValue": "@getRem@9999",
         "staticValue": "199.98rem",
         "localeDesc": {
-            "ch": "圆形搜索框的圆角大小",
+            "ch": "圆形搜索栏的圆角大小",
             "en": "Size of the rounded corners of the round SearchBar"
         }
     },
     "searchBarSearchIconColor": {
         "cssKey": "search-bar-search-icon-color",
-        "desc": "搜索框搜索按钮的颜色",
+        "desc": "搜索栏搜索按钮的颜色",
         "override": "",
         "value": "#86909C",
         "jsValue": "#86909C",
         "staticValue": "#86909C",
         "localeDesc": {
-            "ch": "搜索框搜索按钮的颜色",
+            "ch": "搜索栏搜索按钮的颜色",
             "en": "Color of SearchBar search icon"
         }
     },
     "searchBarSearchIconFontSize": {
         "cssKey": "search-bar-search-icon-font-size",
-        "desc": "搜索框按钮大小",
+        "desc": "搜索栏按钮大小",
         "override": "",
         "value": "~`pxtorem(16)`",
         "jsValue": "@getRem@16",
         "staticValue": "0.32rem",
         "localeDesc": {
-            "ch": "搜索框按钮大小",
+            "ch": "搜索栏按钮大小",
             "en": "Fontsize of SearchBar search icon"
         }
     },
     "searchBarSquareShapeBorderRadius": {
         "cssKey": "search-bar-square-shape-border-radius",
-        "desc": "方形搜索框的圆角大小",
+        "desc": "方形搜索栏的圆角大小",
         "override": "",
         "value": "~`pxtorem(2)`",
         "jsValue": "@getRem@2",
         "staticValue": "0.04rem",
         "localeDesc": {
-            "ch": "方形搜索框的圆角大小",
+            "ch": "方形搜索栏的圆角大小",
             "en": "Size of the rounded corners of the square SearchBar"
         }
     },

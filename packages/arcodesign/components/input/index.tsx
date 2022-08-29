@@ -49,7 +49,7 @@ export interface InputRef {
 /**
  * 输入框组件，支持添加前后缀。
  * @en The input box, supports adding prefixes and suffixes.
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  * @name 输入框
  * @name_en Input

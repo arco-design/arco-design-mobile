@@ -73,7 +73,7 @@ export interface BadgeRef {
 /**
  * 在右上角展示徽标数字或小红点
  * @en Display the badge number or small red dot in the upper right corner
- * @type 数据展示
+ * @type 信息展示
  * @type_en Data Display
  * @name 徽标
  * @name_en Badge

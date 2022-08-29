@@ -1,8 +1,8 @@
-### 导航
+### 数据录入
 
-# 搜索框 SearchBar
+# 搜索栏 SearchBar
 
-搜索框组件
+搜索栏组件
 
 ======
 
@@ -11,17 +11,17 @@
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |shape|输入框形状|"square" \| "round"|"square"|
-|textAlign|搜索框内容位置|"left" \| "center" \| "right"|"left"|
-|prepend|搜索框头部插入的内容|ReactNode \| ((focusing: boolean, value: string) =\> ReactNode)|-|
-|append|搜索框尾部要插入的内容, 默认在搜索框激活态时会插入一个按钮|ReactNode \| ((focusing: boolean, value: string) =\> ReactNode)|(focusing) => focusing ? (<span>取消</span>) : null|
-|actionButton|搜索框最右侧要插入的按钮，默认情况下插入一个取消按钮|ReactNode|"<CancelButton />"|
+|textAlign|搜索栏内容位置|"left" \| "center" \| "right"|"left"|
+|prepend|搜索栏头部插入的内容|ReactNode \| ((focusing: boolean, value: string) =\> ReactNode)|-|
+|append|搜索栏尾部要插入的内容, 默认在搜索栏激活态时会插入一个按钮|ReactNode \| ((focusing: boolean, value: string) =\> ReactNode)|(focusing) => focusing ? (<span>取消</span>) : null|
+|actionButton|搜索栏最右侧要插入的按钮，默认情况下插入一个取消按钮|ReactNode|<CancelButton />|
 |enableAssociation|是否开启搜索联想框功能|boolean|false|
 |associationVisible|（受控模式）搜索联想框的可见态|boolean|-|
-|associationShowType|非受控模式下，搜索联想框的展示时机 \- focus 仅聚焦时 \- value 搜索词不为空 \- default 搜索框被聚焦或者搜索词不为空 \- always 一直展示|"value" \| "focus" \| "default" \| "always"|"default"|
+|associationShowType|非受控模式下，搜索联想框的展示时机 \- focus 仅聚焦时 \- value 搜索词不为空 \- default 搜索栏被聚焦或者搜索词不为空 \- always 一直展示|"value" \| "focus" \| "default" \| "always"|"default"|
 |associationItems|每一项搜索内容|SearchAssociationBaseItem\[\]|-|
 |highlightMode|搜索结果高亮模式，可以是内置的两种模式，或者一个自定义的高亮函数(接受选项内容content、搜索关键字keyword、默认的高亮class，返回一个ReactNode) \- prefix 高亮最长前缀匹配字符串 \- contain 高亮所有搜索关键字 \- none 关闭高亮|SearchAssociationHighlightMode|"none"|
 |highlightStyle|要为高亮结果添加的样式，仅非自定高亮模式下生效|CSSProperties|-|
-|highlightClassName|要为高亮结果添加的class，仅非自定义高亮模式下生效|string|"{color: #165dff;}"|
+|highlightClassName|要为高亮结果添加的class，仅非自定义高亮模式下生效|string|-|
 |onCancel|右侧取消按钮的点击回调|() =\> void|-|
 |onAssociationItemClick|每行搜索结果的点击回调|(item: SearchAssociationBaseItem, index: number) =\> void|-|
 |onAssociationClick|搜索联想框整体被点击的回调|(event: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|

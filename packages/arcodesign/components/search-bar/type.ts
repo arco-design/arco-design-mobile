@@ -57,7 +57,6 @@ export interface SearchBarAssociationProps<Data = Record<string, any>> {
     /**
      * 要为高亮结果添加的class，仅非自定义高亮模式下生效
      * @en The class to be added to the highlighting result, only valid in non-custom highlighting mode
-     * @default "{color: #165dff;}"
      */
     highlightClassName?: string;
     /**
@@ -101,26 +100,26 @@ export interface SearchBarProps<Data = Record<string, any>>
      */
     shape?: SearchBarShape;
     /**
-     * 搜索框内容位置
+     * 搜索栏内容位置
      * @en Search bar content location
      * @default "left"
      */
     textAlign?: 'left' | 'center' | 'right';
     /**
-     * 搜索框头部插入的内容
+     * 搜索栏头部插入的内容
      * @en Content inserted in the header of the search box
      */
     prepend?: ReactNode | ((focusing: boolean, value: string) => ReactNode);
     /**
-     * 搜索框尾部要插入的内容, 默认在搜索框激活态时会插入一个按钮
+     * 搜索栏尾部要插入的内容, 默认在搜索栏激活态时会插入一个按钮
      * @en The content to be inserted at the end of the search box, a button will be inserted by default when the search box is activated
      * @default (focusing) => focusing ? (<span>取消</span>) : null
      */
     append?: ReactNode | ((focusing: boolean, value: string) => ReactNode);
     /**
-     * 搜索框最右侧要插入的按钮，默认情况下插入一个取消按钮
+     * 搜索栏最右侧要插入的按钮，默认情况下插入一个取消按钮
      * @en The button to insert on the far right side of the search box, a cancel button is inserted by default
-     * @default "<CancelButton />"
+     * @default <CancelButton />
      */
     actionButton?: ReactNode;
     /**
@@ -135,7 +134,7 @@ export interface SearchBarProps<Data = Record<string, any>>
      */
     associationVisible?: boolean;
     /**
-     * 非受控模式下，搜索联想框的展示时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索框被聚焦或者搜索词不为空 - always 一直展示
+     * 非受控模式下，搜索联想框的展示时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索栏被聚焦或者搜索词不为空 - always 一直展示
      * @en In uncontrolled mode, the display timing of the search association box - "focus" only when focused - "value" search term is not empty - "default" search bar is focused or search term is not empty - "always" always displayed
      * @default "default"
      */
@@ -169,7 +168,6 @@ export interface SearchBarAssociationHighlightConfig {
     /**
      * 要为高亮结果添加的class，仅非自定义高亮模式下生效
      * @en The class to be added to the highlighting result, only valid in non-custom highlighting mode
-     * @default "{color: #165dff;}"
      */
     highlightClassName?: string;
     /**

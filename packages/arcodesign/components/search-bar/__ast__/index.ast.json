@@ -1,10 +1,10 @@
 {
-    "description": "搜索框组件",
+    "description": "搜索栏组件",
     "descriptionTags": {
         "en": "SearchBar component",
-        "type": "导航",
-        "type_en": "Navigation",
-        "name": "搜索框",
+        "type": "数据录入",
+        "type_en": "Data Entry",
+        "name": "搜索栏",
         "name_en": "SearchBar"
     },
     "displayName": "SearchBar",
@@ -43,13 +43,13 @@
             "defaultValue": {
                 "value": "\"left\""
             },
-            "description": "搜索框内容位置\n@en Search bar content location",
+            "description": "搜索栏内容位置\n@en Search bar content location",
             "name": "textAlign",
             "tags": {
                 "en": "Search bar content location",
                 "default": "\"left\""
             },
-            "descWithTags": "搜索框内容位置",
+            "descWithTags": "搜索栏内容位置",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
                 "name": "SearchBarProps"
@@ -73,12 +73,12 @@
         },
         "prepend": {
             "defaultValue": null,
-            "description": "搜索框头部插入的内容\n@en Content inserted in the header of the search box",
+            "description": "搜索栏头部插入的内容\n@en Content inserted in the header of the search box",
             "name": "prepend",
             "tags": {
                 "en": "Content inserted in the header of the search box"
             },
-            "descWithTags": "搜索框头部插入的内容",
+            "descWithTags": "搜索栏头部插入的内容",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
                 "name": "SearchBarProps"
@@ -92,13 +92,13 @@
             "defaultValue": {
                 "value": "(focusing) => focusing ? (<span>取消</span>) : null"
             },
-            "description": "搜索框尾部要插入的内容, 默认在搜索框激活态时会插入一个按钮\n@en The content to be inserted at the end of the search box, a button will be inserted by default when the search box is activated",
+            "description": "搜索栏尾部要插入的内容, 默认在搜索栏激活态时会插入一个按钮\n@en The content to be inserted at the end of the search box, a button will be inserted by default when the search box is activated",
             "name": "append",
             "tags": {
                 "en": "The content to be inserted at the end of the search box, a button will be inserted by default when the search box is activated",
                 "default": "(focusing) => focusing ? (<span>取消</span>) : null"
             },
-            "descWithTags": "搜索框尾部要插入的内容, 默认在搜索框激活态时会插入一个按钮",
+            "descWithTags": "搜索栏尾部要插入的内容, 默认在搜索栏激活态时会插入一个按钮",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
                 "name": "SearchBarProps"
@@ -110,15 +110,15 @@
         },
         "actionButton": {
             "defaultValue": {
-                "value": "\"<CancelButton />\""
+                "value": "<CancelButton />"
             },
-            "description": "搜索框最右侧要插入的按钮，默认情况下插入一个取消按钮\n@en The button to insert on the far right side of the search box, a cancel button is inserted by default",
+            "description": "搜索栏最右侧要插入的按钮，默认情况下插入一个取消按钮\n@en The button to insert on the far right side of the search box, a cancel button is inserted by default",
             "name": "actionButton",
             "tags": {
                 "en": "The button to insert on the far right side of the search box, a cancel button is inserted by default",
-                "default": "\"<CancelButton />\""
+                "default": "<CancelButton />"
             },
-            "descWithTags": "搜索框最右侧要插入的按钮，默认情况下插入一个取消按钮",
+            "descWithTags": "搜索栏最右侧要插入的按钮，默认情况下插入一个取消按钮",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
                 "name": "SearchBarProps"
@@ -169,13 +169,13 @@
             "defaultValue": {
                 "value": "\"default\""
             },
-            "description": "非受控模式下，搜索联想框的展示时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索框被聚焦或者搜索词不为空 - always 一直展示\n@en In uncontrolled mode, the display timing of the search association box - \"focus\" only when focused - \"value\" search term is not empty - \"default\" search bar is focused or search term is not empty - \"always\" always displayed",
+            "description": "非受控模式下，搜索联想框的展示时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索栏被聚焦或者搜索词不为空 - always 一直展示\n@en In uncontrolled mode, the display timing of the search association box - \"focus\" only when focused - \"value\" search term is not empty - \"default\" search bar is focused or search term is not empty - \"always\" always displayed",
             "name": "associationShowType",
             "tags": {
                 "en": "In uncontrolled mode, the display timing of the search association box - \"focus\" only when focused - \"value\" search term is not empty - \"default\" search bar is focused or search term is not empty - \"always\" always displayed",
                 "default": "\"default\""
             },
-            "descWithTags": "非受控模式下，搜索联想框的展示时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索框被聚焦或者搜索词不为空 - always 一直展示",
+            "descWithTags": "非受控模式下，搜索联想框的展示时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索栏被聚焦或者搜索词不为空 - always 一直展示",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
                 "name": "SearchBarProps"
@@ -255,14 +255,11 @@
             }
         },
         "highlightClassName": {
-            "defaultValue": {
-                "value": "\"{color: #165dff;}\""
-            },
+            "defaultValue": null,
             "description": "要为高亮结果添加的class，仅非自定义高亮模式下生效\n@en The class to be added to the highlighting result, only valid in non-custom highlighting mode",
             "name": "highlightClassName",
             "tags": {
-                "en": "The class to be added to the highlighting result, only valid in non-custom highlighting mode",
-                "default": "\"{color: #165dff;}\""
+                "en": "The class to be added to the highlighting result, only valid in non-custom highlighting mode"
             },
             "descWithTags": "要为高亮结果添加的class，仅非自定义高亮模式下生效",
             "parent": {

@@ -385,7 +385,8 @@ function getCompTokens() {
          * 轮播图滑块文字背景色
          * @en Background color of the carousel sliders
          */
-        carouselItemTextBackground: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
+        carouselItemTextBackground:
+            'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
         /**
          * 轮播图滑块文字高度
          * @en Font height of the carousel sliders
@@ -2121,7 +2122,8 @@ function getCompTokens() {
          * 图片预览指示器背景色
          *  @en ImagePreview indicator background color
          */
-        imagePreviewIndicatorBackground: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
+        imagePreviewIndicatorBackground:
+            'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
         /**
          * 图片预览小图放大时的动画曲线
          * @en Animation curve when ImagePreview thumbnail is enlarged
@@ -3338,22 +3340,22 @@ function getCompTokens() {
          */
         actionSheetSubTitleFontSize: getRem(14),
         /**
-         * 搜索框内边距大小
+         * 搜索栏内边距大小
          * @en Padding of SearchBar
          */
         searchBarPadding: getRem(16),
         /**
-         * 搜索框背景颜色
+         * 搜索栏背景颜色
          * @en BackgroundColor of SearchBar
          */
         searchBarBackgroundColor: '#FFFFFF',
         /**
-         * 方形搜索框的圆角大小
+         * 方形搜索栏的圆角大小
          * @en Size of the rounded corners of the square SearchBar
          */
         searchBarSquareShapeBorderRadius: getRem(2),
         /**
-         * 圆形搜索框的圆角大小
+         * 圆形搜索栏的圆角大小
          * @en Size of the rounded corners of the round SearchBar
          */
         searchBarRoundShapeBorderRadius: getRem(9999),
@@ -3393,37 +3395,37 @@ function getCompTokens() {
          */
         searchBarInputPlaceholderColor: useGlobal('disabledColor'),
         /**
-         * 搜索框搜索框左侧插入内容的右侧外边距
+         * 搜索栏搜索栏左侧插入内容的右侧外边距
          * @en Right margin of SearchBar prefix
          */
         searchBarPrefixMarginRight: getRem(9),
         /**
-         * 搜索框清除按钮的颜色
+         * 搜索栏清除按钮的颜色
          * @en Color of SearchBar clear icon
          */
         searchBarClearIconColor: '#C9CDD4',
         /**
-         * 搜索框搜索按钮的颜色
+         * 搜索栏搜索按钮的颜色
          * @en Color of SearchBar search icon
          */
         searchBarSearchIconColor: '#86909C',
         /**
-         * 搜索框按钮大小
+         * 搜索栏按钮大小
          * @en Fontsize of SearchBar search icon
          */
         searchBarSearchIconFontSize: getRem(16),
         /**
-         * 搜索框右侧取消按钮颜色
+         * 搜索栏右侧取消按钮颜色
          * @en Color of SearchBar cancel button
          */
         searchBarCancelBtnColor: useGlobal('primaryColor'),
         /**
-         * 搜索框右侧取消按钮文字大小
+         * 搜索栏右侧取消按钮文字大小
          * @en Font size of SearchBar cancel button
          */
         searchBarCancelBtnFontSize: getRem(15),
         /**
-         * 搜索框右侧取消按钮的左边距
+         * 搜索栏右侧取消按钮的左边距
          * @en Left margin of SearchBar cancel button
          */
         searchBarCancelBtnMarginLeft: getRem(16),

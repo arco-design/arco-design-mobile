@@ -26,11 +26,11 @@ export {
 } from './type';
 
 /**
- * 搜索框组件
+ * 搜索栏组件
  * @en SearchBar component
- * @type 导航
- * @type_en Navigation
- * @name 搜索框
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 搜索栏
  * @name_en SearchBar
  */
 const SearchBar = forwardRef(

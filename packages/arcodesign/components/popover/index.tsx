@@ -15,7 +15,7 @@ const Menu = componentGenerator(Popover);
  * @en Bubble card, supports six directions, small arrows are centered in each direction based on the mounted sub-elements, and supports controlled and uncontrolled modes.
  * @name 气泡卡片
  * @name_en Popover
- * @type 数据展示
+ * @type 信息展示
  * @type_en Data Display
  */
 export default componentWrapper(Popover, {

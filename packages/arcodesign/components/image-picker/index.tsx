@@ -13,7 +13,7 @@ export * from './type';
 /**
  * 图片选择器组件
  * @en ImagePicker Component
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  * @name 图片选择器
  * @name_en ImagePicker
