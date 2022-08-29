@@ -32,7 +32,7 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
         children,
         leftActions,
         rightActions,
-        disable = false,
+        disabled = false,
         threshold = 0.15,
         closeOnTouchOutside,
         transitionDuration = 300,
@@ -46,7 +46,7 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
     const leftRef = useRef<HTMLDivElement>(null);
     const rightRef = useRef<HTMLDivElement>(null);
 
-    const isOpen = useRef<boolean>(false);
+    const isOpen = useRef(false);
 
     const leftMenuWidthRef = useRef<number>(0);
     const [leftMenuWidthArr, setLeftMenuWidthArr] = useState<number[]>([]);
@@ -83,21 +83,15 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
     }
 
     function touchstart(e: TouchEvent) {
-        if (!disable) {
-            startRef.current = offsetRef.current;
-            resetMoveData();
-            startX.current = e.touches[0].pageX;
-        }
+        startRef.current = offsetRef.current;
+        resetMoveData();
+        startX.current = e.touches[0].pageX;
     }
     function touchmove(e: TouchEvent) {
-        if (disable) {
-            return;
-        }
         e.preventDefault();
         slideX.current = e.touches[0].pageX - startX.current;
         forbidClick.current = true;
         setMoving(true);
-        /** 设置外露菜单距离 */
         setOffset(
             getMenuCurrentWidth(
                 slideX.current + startRef.current,
@@ -148,20 +142,24 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
         };
     }
 
-    // 添加触摸事件
     useEffect(() => {
-        if (disable) return;
         const container = domRef.current;
-        container?.addEventListener('touchstart', touchstart);
-        container?.addEventListener('touchmove', touchmove);
-        container?.addEventListener('touchend', touchend);
+        if (!disabled && container) {
+            container.addEventListener('touchstart', touchstart);
+            container.addEventListener('touchmove', touchmove);
+            container.addEventListener('touchend', touchend);
+        }
         return () => {
-            container?.removeEventListener('touchstart', touchstart);
-            container?.removeEventListener('touchmove', touchmove);
-            container?.removeEventListener('touchend', touchend);
+            if (!disabled && container) {
+                container.removeEventListener('touchstart', touchstart);
+                container.removeEventListener('touchmove', touchmove);
+                container.removeEventListener('touchend', touchend);
+            }
         };
-    }, [disable]);
+    }, [disabled]);
+
     // 获取左右菜单的宽度
+    // @en Get the width of the left and right menu
     useEffect(() => {
         const { totalWidth: leftTotalWidth, widthArr: leftWidthArr } = getWidthByRef(leftRef);
         leftMenuWidthRef.current = leftTotalWidth;
@@ -170,13 +168,13 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
         rightMenuWidthRef.current = rightTotalWidth;
         setRightMenuWidthArr(rightWidthArr);
     }, [leftActions, rightActions]);
-    // closeOnTouchOutside 点击外部区域事件
+
+    // 点击外部区域事件
+    // @en Event when clicking outside of the element
     useEffect(() => {
         const handle = e => {
-            if (!domRef.current?.contains(e.target)) {
-                if (isOpen.current) {
-                    close();
-                }
+            if (!domRef.current?.contains(e.target) && isOpen.current) {
+                close();
             }
         };
         closeOnTouchOutside && document.addEventListener('touchstart', handle);
@@ -191,7 +189,6 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
         open,
     }));
 
-    /** 关闭菜单 */
     function close(dir?: 'left' | 'right') {
         setOffset(0);
         if (isOpen.current) {
@@ -204,7 +201,6 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
             handleClose(dir);
         }
     }
-    /** 打开菜单 */
     function open(dir: 'left' | 'right' = 'right') {
         if (!isOpen.current) {
             isOpen.current = true;
@@ -212,13 +208,13 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
         }
         setOffset(dir === 'left' ? leftMenuWidthRef.current : -rightMenuWidthRef.current);
     }
-    /** 打开菜单后的回调 */
+
     function handleOpen(dir) {
         setTimeout(() => {
             onOpen?.(dir);
         }, transitionDuration);
     }
-    /** 关闭菜单的回调 */
+
     function handleClose(dir) {
         setTimeout(() => {
             onClose?.(dir);

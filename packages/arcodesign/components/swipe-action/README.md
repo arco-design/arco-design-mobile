@@ -17,7 +17,7 @@
 |leftActions|左侧菜单|Action\[\]|-|
 |closeOnTouchOutside|点击外部是否自动归位|boolean|false|
 |threshold|菜单滑出多少距离后自动滑出/关闭的系数 范围 0\-1|number|0.15|
-|disable|是否禁用|boolean|false|
+|disabled|是否禁用|boolean|false|
 |transitionDuration|动画的执行时间 (单位ms)|number|300|
 |dampRate|阻尼系数|number|15|
 |openStyleType|菜单滑入时的样式类型，layer \- 分层堆叠进入，push \- 直接依次推入|"layer" \| "push"|"layer"|
