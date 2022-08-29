@@ -1,4 +1,5 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle, InputHTMLAttributes } from 'react';
+import { Promise } from 'es6-promise';
 import { cls, defaultLocale } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { IconClose } from '../icon';
@@ -223,6 +224,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
+    const cacheRef = useRef<ImagePickItem[]>([]);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -274,25 +276,26 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                 status: typeof upload === 'function' ? 'loading' : 'loaded',
                 file: files[index],
             })) as ImagePickItem[];
-            const cacheRes = [...images, ...res];
-            onChange(cacheRes);
+            cacheRef.current = [...images, ...res];
+            onChange([...cacheRef.current]);
             // 执行upload
             if (typeof upload === 'function') {
-                const propsImageLength = images.length;
-                files.forEach((_file, index) => {
-                    upload(cacheRes[propsImageLength + index])
+                files.forEach(_file => {
+                    upload(cacheRef.current.find(({ file }) => file === _file) as ImagePickItem)
                         .then(data => {
-                            cacheRes[propsImageLength + index] = {
-                                ...cacheRes[propsImageLength + index],
+                            const index = cacheRef.current.findIndex(({ file }) => file === _file);
+                            cacheRef.current[index] = {
+                                ...cacheRef.current[index],
                                 ...data,
                                 status: undefined,
                             };
                         })
                         .catch(() => {
-                            cacheRes[propsImageLength + index].status = 'error';
+                            const index = cacheRef.current.findIndex(({ file }) => file === _file);
+                            cacheRef.current[index].status = 'error';
                         })
                         .finally(() => {
-                            onChange([...cacheRes]);
+                            onChange([...cacheRef.current]);
                         });
                 });
             }
