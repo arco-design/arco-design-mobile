@@ -15,7 +15,7 @@ import { SearchBarAssociation } from './association';
 import { CancelButton } from './cancel-button';
 import { SearchAssociationBaseItem, SearchBarProps, SearchBarRef } from './type';
 
-export {
+export type {
     SearchBarProps,
     SearchBarRef,
     SearchAssociationHighlightMode,
