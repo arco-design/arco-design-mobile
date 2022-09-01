@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.21.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.0...@arco-design/mobile-react@2.21.1) (2022-09-01)
+
+
+### Bug Fixes
+
+* `Ellipsis` duplicate reflow ([41fc0a2](https://github.com/arco-design/arco-design-mobile/commit/41fc0a237c3737e0ad2db09623db3577ca243348))
+* `SearchBar` export type ([5ee5ebf](https://github.com/arco-design/arco-design-mobile/commit/5ee5ebf9923b0d1582a52a646f6daea168b89946))
+* `SwipeAction` import optimize ([5060d25](https://github.com/arco-design/arco-design-mobile/commit/5060d2570e0eb85c6f6b344e9ac9f0b50212f486))
+
+
+
+
+
 # [2.21.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.19.1...@arco-design/mobile-react@2.21.0) (2022-08-29)
 
 
