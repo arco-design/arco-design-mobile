@@ -1,0 +1,1098 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stepper demo test stepper demo: default.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            单边禁用
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            可用状态
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1.0"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            禁用状态
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`stepper demo test stepper demo: events.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            onBlur
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            onChange
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            onFocus
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            onAddButtonClick
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            onMinusButtonClick
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            onClick
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`stepper demo test stepper demo: renderContent.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            addButton
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div>
+                add
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            minusButton
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div>
+                minus
+              </div>
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            renderContent
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              type="number"
+              value="11"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`stepper demo test stepper demo: style.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            只读
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              readonly=""
+              type="number"
+              value="5"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            显示边框
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-square"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            圆角风格
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-round"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            style
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+            style="background:red"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            className
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default wxy-test"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            inputStyle
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              style="background:blue"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            inputClass
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input wxy-test"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`stepper demo test stepper demo: value.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            设置最大/最小值
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="11"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            设置小数点
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="10.0"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            设置递增值
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            允许空值
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            可等于极限
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1.3"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            formatter
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1.0"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-cell all-border-box bordered"
+    >
+      <div
+        class="arco-cell-inner"
+      >
+        <div
+          class="cell-label"
+        >
+          <div
+            class="cell-title"
+          >
+            change value
+          </div>
+        </div>
+        <div
+          class="cell-content has-label"
+        >
+          <div
+            class="arco-stepper arco-default"
+          >
+            <div>
+              <div
+                class="arco-stepper-minus-button disabled"
+              />
+            </div>
+            <input
+              class="arco-stepper-input"
+              type="number"
+              value="1"
+            />
+            <div>
+              <div
+                class="arco-stepper-add-button"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
