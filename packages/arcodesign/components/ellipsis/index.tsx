@@ -29,7 +29,7 @@ const Ellipsis = forwardRef((props: EllipsisProps, ref: Ref<EllipsisRef>) => {
         ellipsisNode = '...',
         collapseNode = '',
         onCollapseNodeClick,
-        endExcludes = [],
+        endExcludes,
         reflowOnResize = false,
         onReflow,
         onEllipsisNodeClick,
@@ -41,7 +41,7 @@ const Ellipsis = forwardRef((props: EllipsisProps, ref: Ref<EllipsisRef>) => {
         isSupportWebkitLineClamp() &&
         maxHeight === void 0 &&
         ellipsisNode === '...' &&
-        endExcludes.length === 0 &&
+        (!endExcludes || endExcludes.length === 0) &&
         !onReflow &&
         !onEllipsisNodeClick;
 

@@ -14,7 +14,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
         maxHeight,
         ellipsisNode,
         collapseNode,
-        endExcludes = [],
+        endExcludes,
         reflowOnResize,
         onReflow,
         onEllipsisNodeClick,
@@ -62,7 +62,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
             }
         }
         // Remove the exclude char at the end of the content.
-        while (endExcludes.includes(currentText[currentText.length - 1])) {
+        while (endExcludes && endExcludes.includes(currentText[currentText.length - 1])) {
             currentText = currentText.slice(0, -1);
         }
         // Callback after reflow.

@@ -9,8 +9,7 @@ import React, {
     useContext,
     useState,
 } from 'react';
-import { nextTick } from '@arco-design/mobile-utils/utils';
-import { cls } from '@arco-design/mobile-utils';
+import { nextTick, cls } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
 import { SwipeActionProps, SwipeActionRef } from './type';
 import RenderAction from './item';
