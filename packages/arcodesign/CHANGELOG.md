@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.21.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.1...@arco-design/mobile-react@2.21.2) (2022-09-07)
+
+
+### Bug Fixes
+
+* `Button` fix style when use reset.less ([bb05f2c](https://github.com/arco-design/arco-design-mobile/commit/bb05f2c279089115f73fc39c523c9767ed37a8c4))
+
+
+
+
+
 ## [2.21.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.0...@arco-design/mobile-react@2.21.1) (2022-09-01)
 
 
