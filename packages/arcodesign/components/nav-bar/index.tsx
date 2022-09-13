@@ -13,6 +13,7 @@ import {
     getScrollContainerAttribute,
     getValidScrollContainer,
 } from '@arco-design/mobile-utils';
+import { unstable_batchedUpdates as batchedUpdates } from 'react-dom';
 import { ContextLayout } from '../context-provider';
 import BackArrow from './back-icon';
 import { useSystem } from '../_helpers';
@@ -163,13 +164,15 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
     const system = useSystem();
 
     const onElementScroll = (curOffset: number) => {
-        setScrollToggleHide(curOffset < showOffset);
+        batchedUpdates(() => {
+            setScrollToggleHide(curOffset < showOffset);
 
-        if (getComputedStyleByScroll) {
-            const cstyle = getComputedStyleByScroll(curOffset);
+            if (getComputedStyleByScroll) {
+                const cstyle = getComputedStyleByScroll(curOffset);
 
-            setCustomStyle(cstyle);
-        }
+                setCustomStyle(cstyle);
+            }
+        });
     };
 
     useImperativeHandle(ref, () => ({
