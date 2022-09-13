@@ -10,6 +10,7 @@ import React, {
     ReactNode,
 } from 'react';
 import { cls, nextTick } from '@arco-design/mobile-utils';
+import { unstable_batchedUpdates as batchedUpdates } from 'react-dom';
 import { ContextLayout } from '../context-provider';
 import TabCell, { TabCellRef, TabCellProps } from './tab-cell';
 import TabPane, { TabPaneRef } from './tab-pane';
@@ -678,22 +679,24 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
 
     const handlePaneTouchStart = useCallback(
         (e: TouchEvent) => {
-            if (onTouchStart && onTouchStart(e, activeIndexRef.current)) {
-                return;
-            }
-            if (posAdjustingRef.current) {
-                return;
-            }
-            touchStartedRef.current = true;
-            setCellTrans(false);
-            setPaneTrans(false);
-            const evt = e.touches[0];
-            touchStartXRef.current = evt.clientX || 0;
-            touchStartYRef.current = evt.clientY || 0;
-            scrollingRef.current = null;
-            posAdjustingRef.current = false;
-            touchStartTimeRef.current = new Date().getTime();
-            touchStoppedRef.current = false;
+            batchedUpdates(() => {
+                if (onTouchStart && onTouchStart(e, activeIndexRef.current)) {
+                    return;
+                }
+                if (posAdjustingRef.current) {
+                    return;
+                }
+                touchStartedRef.current = true;
+                setCellTrans(false);
+                setPaneTrans(false);
+                const evt = e.touches[0];
+                touchStartXRef.current = evt.clientX || 0;
+                touchStartYRef.current = evt.clientY || 0;
+                scrollingRef.current = null;
+                posAdjustingRef.current = false;
+                touchStartTimeRef.current = new Date().getTime();
+                touchStoppedRef.current = false;
+            });
         },
         [onTouchStart],
     );
