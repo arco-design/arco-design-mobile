@@ -1,5 +1,5 @@
 import { cls } from '@arco-design/mobile-utils';
-import React, { useRef, forwardRef, Ref, useImperativeHandle, useState, ReactNode } from 'react';
+import React, { useRef, forwardRef, Ref, useImperativeHandle, ReactNode } from 'react';
 import { ContextLayout } from '../context-provider';
 import useButtonClick from './hooks/useButtonClick';
 import useInputEvent from './hooks/useInputEvent';
