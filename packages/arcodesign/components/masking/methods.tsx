@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { appendElementById, removeElement, nextTick } from '@arco-design/mobile-utils';
+import { GlobalContextParams } from '../context-provider';
 
 export interface OpenBaseProps {
     // 从config继承的属性
@@ -17,7 +18,7 @@ export function getOpenMethod<T extends { key?: string }, P extends OpenBaseProp
     containerId?: string,
     normalize: (config: T) => P = config => config as any,
 ) {
-    return (config: T) => {
+    return (config: T, context?: GlobalContextParams) => {
         const baseProps: P = {
             unmountOnExit: true,
             ...normalize(config),
@@ -32,7 +33,10 @@ export function getOpenMethod<T extends { key?: string }, P extends OpenBaseProp
         const { child: div } = appendElementById(id, baseProps.getContainer);
         let leaving = false;
         function render(props: P) {
-            ReactDOM.render(<Component {...props} getContainer={() => div} />, div);
+            ReactDOM.render(
+                <Component {...Object.assign(props, { context })} getContainer={() => div} />,
+                div,
+            );
         }
 
         function update(newConfig: T) {

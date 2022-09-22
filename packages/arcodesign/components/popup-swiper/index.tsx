@@ -9,7 +9,7 @@ import React, {
     useMemo,
 } from 'react';
 import { cls, componentWrapper, nextTick } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import ContextProvider, { ContextLayout, WithGlobalContext } from '../context-provider';
 import { OpenBaseProps } from '../masking';
 import Popup, { DirectionType, PopupProps, PopupRef } from '../popup';
 import { open } from './methods';
@@ -310,6 +310,19 @@ export function methodsGenerator<P extends OpenBaseProps>(Comp: React.FunctionCo
     };
 }
 
+function PopupSwiperWithContext(props: WithGlobalContext<PopupSwiperProps>) {
+    const { context: propsContext, ...others } = props;
+    return (
+        <ContextLayout>
+            {context => (
+                <ContextProvider {...Object.assign(context, propsContext)}>
+                    <PopupSwiper {...others} />
+                </ContextProvider>
+            )}
+        </ContextLayout>
+    );
+}
+
 /**
  * 基于弹出层(Popup)封装的具有手势关闭功能的弹出层组件，拥有 Popup 组件的其他能力。
  * @en The popup with gesture closing function based on the popup encapsulation, has other capabilities of the Popup component.
@@ -318,4 +331,4 @@ export function methodsGenerator<P extends OpenBaseProps>(Comp: React.FunctionCo
  * @name 可滑动弹出层
  * @name_en PopupSwiper
  */
-export default componentWrapper(PopupSwiper, methodsGenerator(PopupSwiper));
+export default componentWrapper(PopupSwiper, methodsGenerator(PopupSwiperWithContext));

@@ -16,7 +16,7 @@ import {
     cls,
 } from '@arco-design/mobile-utils';
 import TransformAble from '@arco-design/transformable';
-import { ContextLayout } from '../context-provider';
+import ContextProvider, { ContextLayout, WithGlobalContext } from '../context-provider';
 import Carousel, { CarouselProps, CarouselRef } from '../carousel';
 import Transition from '../transition';
 import BaseImage, { ImageRef, ImageProps } from '../image';
@@ -1208,6 +1208,19 @@ export function methodsGenerator<P extends ImagePreviewProps>(Comp: React.Functi
     };
 }
 
+function ImagePreviewWithContext(props: WithGlobalContext<ImagePreviewProps>) {
+    const { context: propsContext, ...others } = props;
+    return (
+        <ContextLayout>
+            {context => (
+                <ContextProvider {...Object.assign(context, propsContext)}>
+                    <ImagePreview {...others} />
+                </ContextProvider>
+            )}
+        </ContextLayout>
+    );
+}
+
 /**
  * 图片预览组件，支持循环轮播、双指/双击缩放、缩略图放大效果。
  * @en The image preview, supports circular rotation, two-finger/double-tap zoom, and thumbnail zoom effects.
@@ -1216,4 +1229,4 @@ export function methodsGenerator<P extends ImagePreviewProps>(Comp: React.Functi
  * @name 图片预览
  * @name_en ImagePreview
  */
-export default componentWrapper(ImagePreview, methodsGenerator(ImagePreview));
+export default componentWrapper(ImagePreview, methodsGenerator(ImagePreviewWithContext));

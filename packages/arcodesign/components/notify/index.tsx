@@ -1,7 +1,7 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { componentWrapper, nextTick } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import ContextProvider, { ContextLayout, WithGlobalContext } from '../context-provider';
 import { NotifyProps, NotifyRef } from './type';
 import { getStyleWithVendor, useUpdateEffect } from '../_helpers';
 import { NotifyBaseProps, notify } from './methods';
@@ -158,6 +158,19 @@ export function methodsGenerator<P extends NotifyBaseProps>(Comp: React.FC<P>) {
     };
 }
 
+function NotifyWithContext(props: WithGlobalContext<NotifyProps>) {
+    const { context: propsContext, ...others } = props;
+    return (
+        <ContextLayout>
+            {context => (
+                <ContextProvider {...Object.assign(context, propsContext)}>
+                    <Notify {...others} />
+                </ContextProvider>
+            )}
+        </ContextLayout>
+    );
+}
+
 /**
  * 主动操作后显示的反馈信息横条，可采用方法调用或者组件调用的方式
  * @en The feedback information bar displayed after active operation can be called by method or by component.
@@ -166,4 +179,4 @@ export function methodsGenerator<P extends NotifyBaseProps>(Comp: React.FC<P>) {
  * @name 消息通知
  * @name_en Notify
  */
-export default componentWrapper(Notify, methodsGenerator(Notify));
+export default componentWrapper(Notify, methodsGenerator(NotifyWithContext));

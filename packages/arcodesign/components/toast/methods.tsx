@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { nextTick } from '@arco-design/mobile-utils';
+import { GlobalContextParams } from '../context-provider';
 
 export interface ToastBaseProps {
     getContainer?: () => HTMLElement;
@@ -18,7 +19,7 @@ export function toast<P extends ToastBaseProps>(
     type?: string,
 ) {
     type Config = Omit<P, 'visible' | 'close'>;
-    return (originConfig: string | Config) => {
+    return (originConfig: string | Config, context?: GlobalContextParams) => {
         const config =
             typeof originConfig === 'string'
                 ? ({
@@ -36,7 +37,7 @@ export function toast<P extends ToastBaseProps>(
         document.body.appendChild(div);
 
         function render(props) {
-            ReactDOM.render(<Component {...props} />, div);
+            ReactDOM.render(<Component {...Object.assign(props, { context })} />, div);
         }
 
         function destory() {

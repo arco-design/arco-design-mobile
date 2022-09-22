@@ -52,6 +52,8 @@ export interface ContextProviderProps extends GlobalContextParams {
     children: React.ReactNode;
 }
 
+export type WithGlobalContext<T> = T & { context?: GlobalContextParams };
+
 /**
  * 全局数据控制组件，用于替换全局数据。
  * @en Global data control component, used to replace global data.

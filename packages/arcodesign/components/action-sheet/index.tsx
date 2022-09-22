@@ -7,7 +7,7 @@ import React, {
     CSSProperties,
 } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import ContextProvider, { ContextLayout, WithGlobalContext } from '../context-provider';
 import Popup, { PopupProps, PopupRef } from '../popup';
 import { OpenBaseProps } from '../masking';
 import { open } from './methods';
@@ -183,6 +183,19 @@ export function methodsGenerator<P extends OpenBaseProps>(Comp: React.FunctionCo
     };
 }
 
+function ActionSheetWithContext(props: WithGlobalContext<ActionSheetProps>) {
+    const { context: propsContext, ...others } = props;
+    return (
+        <ContextLayout>
+            {context => (
+                <ContextProvider {...Object.assign(context, propsContext)}>
+                    <ActionSheet {...others} />
+                </ContextProvider>
+            )}
+        </ContextLayout>
+    );
+}
+
 /**
  * 动作面板组件
  * @en ActionSheet Commponent
@@ -191,4 +204,4 @@ export function methodsGenerator<P extends OpenBaseProps>(Comp: React.FunctionCo
  * @name 动作面板
  * @name_en ActionSheet
  */
-export default componentWrapper(ActionSheet, methodsGenerator(ActionSheet));
+export default componentWrapper(ActionSheet, methodsGenerator(ActionSheetWithContext));

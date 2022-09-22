@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { appendElementById, removeElement } from '@arco-design/mobile-utils';
+import { GlobalContextParams } from '../context-provider';
 
 export interface OpenBaseProps {
     onClose?: () => void;
@@ -11,7 +12,7 @@ export interface OpenBaseProps {
 
 export function open<P extends OpenBaseProps>(Component: React.FunctionComponent<P>) {
     type Config = Omit<P, 'close'>;
-    return (config: Config) => {
+    return (config: Config, context?: GlobalContextParams) => {
         const baseProps: Config & {
             // 从config继承的属性
             // @en Properties inherited from config
@@ -38,7 +39,10 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         let leaving = false;
 
         function render(props: P) {
-            ReactDOM.render(<Component {...props} getContainer={() => div} />, div);
+            ReactDOM.render(
+                <Component {...Object.assign(props, { context })} getContainer={() => div} />,
+                div,
+            );
         }
 
         function update(newConfig: Config) {

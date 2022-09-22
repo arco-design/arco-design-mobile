@@ -1,6 +1,7 @@
 import { nextTick } from '@arco-design/mobile-utils';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { GlobalContextParams } from '../context-provider';
 
 export interface NotifyBaseProps {
     getContainer?: () => HTMLElement;
@@ -13,7 +14,7 @@ export interface NotifyBaseProps {
 
 export function notify<P extends NotifyBaseProps>(Component: React.FC<P>, type?: string) {
     type Config = Omit<P, 'visible' | 'close'>;
-    return (originConfig: string | Config) => {
+    return (originConfig: string | Config, context?: GlobalContextParams) => {
         const config =
             typeof originConfig === 'string'
                 ? ({
@@ -32,7 +33,7 @@ export function notify<P extends NotifyBaseProps>(Component: React.FC<P>, type?:
             document.body.appendChild(div);
         }
         function render(props) {
-            ReactDOM.render(<Component {...props} />, div);
+            ReactDOM.render(<Component {...Object.assign(props, { context })} />, div);
         }
 
         function destroy() {
