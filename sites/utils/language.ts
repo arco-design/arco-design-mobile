@@ -20,11 +20,11 @@ export const commonLocaleMap = {
         [LanguageSupport.EN]: 'Layout',
     },
     DataDisplay: {
-        [LanguageSupport.CH]: '信息展示',
+        [LanguageSupport.CH]: '数据展示',
         [LanguageSupport.EN]: 'Data Display',
     },
     DataEntry: {
-        [LanguageSupport.CH]: '数据录入',
+        [LanguageSupport.CH]: '数据输入',
         [LanguageSupport.EN]: 'Data Entry',
     },
     FeedBack: {
