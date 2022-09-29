@@ -1,3 +1,4 @@
+// used to Google Analytics for page data statistics
 function pidFromPathName(path: string) {
     const dotPos = path.lastIndexOf('.');
     return path.slice(1, dotPos).replace('/', '-');
@@ -27,7 +28,7 @@ function getPidFromUrl(url: string) {
 export function showGA() {
     try {
         const { href, pathname, hash } = window.location;
-        (window as any).gtag('event', 'page_view', {
+        window.gtag('event', 'page_view', {
             page_title: getPidFromUrl(href),
             page_location: href,
             page_path: `${pathname}${hash}`,
@@ -36,7 +37,7 @@ export function showGA() {
 }
 
 export function clickReportGA(reportParams: Record<string, any>) {
-    (window as any).gtag('event', 'click_event', {
+    window.gtag('event', 'click_event', {
         path_name: `${window.location.pathname}${window.location.hash}`,
         ...reportParams,
     });
