@@ -12,7 +12,7 @@
 |----------|-------------|------|------|
 |className|自定义类名|string|-|
 |style|自定义样式|CSSProperties|-|
-|tabs|TabBar内容数组，除必填项外也可附加其他数据|TabData\[\]|必填|
+|tabs|TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹|TabData\[\]|必填|
 |children|TabPane内容|ReactNode|-|
 |activeTab|当前活动tab index，传入则为受控|number|-|
 |defaultActiveTab|初始tab index值|number|0|
@@ -123,7 +123,7 @@ string|{ [x: string]: any; title: ReactNode; }
 |cellTrans|TabBar是否启用过渡效果|boolean|必填|
 |distance|手指滑动距离|number|必填|
 |jumpingDis|下划线已滑动的距离|number|必填|
-|tabs|TabBar内容数组，除必填项外也可附加其他数据|TabData\[\]|必填|
+|tabs|TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹|TabData\[\]|必填|
 |disabled|是否禁用切换，包括点击TabBar切换和滑动切换|boolean|-|
 |tabBarPosition|TabBar位置|"top" \| "bottom" \| "left" \| "right"|"top"|
 |tabBarArrange|TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右|"start" \| "center" \| "end"|"center"|

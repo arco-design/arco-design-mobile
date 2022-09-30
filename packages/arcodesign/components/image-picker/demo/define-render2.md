@@ -3,7 +3,6 @@
 #### 6
 
 ```js
-import { useState } from 'react';
 import { ImagePicker } from '@arco-design/mobile-react';
 const SadEmoji = () => (
     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +26,7 @@ const SadEmoji = () => (
 );
 
 export default function ImagePickerDemo1() {
-    const [images, setImages] = useState([
+    const [images, setImages] = React.useState([
         { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
         { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg', status: 'error' },
     ]);
