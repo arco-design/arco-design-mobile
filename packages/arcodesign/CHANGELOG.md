@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.21.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.2...@arco-design/mobile-react@2.21.3) (2022-09-30)
+
+
+### Bug Fixes
+
+* `Ellipsis` special case for truncateHTML ([fa9db03](https://github.com/arco-design/arco-design-mobile/commit/fa9db03baecbb378e38d2217eddb85dec59d27d4))
+* `ImagePicker` import grid style ([e257ce0](https://github.com/arco-design/arco-design-mobile/commit/e257ce00dc3ecd4c61934149751fb817d3242159))
+* `Tabs` tab bar underline optimize ([20c9621](https://github.com/arco-design/arco-design-mobile/commit/20c962113e8a0dc43995813dda328239a1807a50))
+
+
+
+
+
 ## [2.21.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.1...@arco-design/mobile-react@2.21.2) (2022-09-07)
 
 
