@@ -1,0 +1,1044 @@
+{
+    "description": "搜索栏组件",
+    "descriptionTags": {
+        "en": "SearchBar component",
+        "type": "数据录入",
+        "type_en": "Data Entry",
+        "name": "搜索栏",
+        "name_en": "SearchBar"
+    },
+    "displayName": "SearchBar",
+    "methods": [],
+    "props": {
+        "shape": {
+            "defaultValue": {
+                "value": "\"square\""
+            },
+            "description": "输入框形状\n@en input box shape",
+            "name": "shape",
+            "tags": {
+                "en": "input box shape",
+                "default": "\"square\""
+            },
+            "descWithTags": "输入框形状",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "SearchBarShape",
+                "value": [
+                    {
+                        "value": "\"square\""
+                    },
+                    {
+                        "value": "\"round\""
+                    }
+                ]
+            }
+        },
+        "textAlign": {
+            "defaultValue": {
+                "value": "\"left\""
+            },
+            "description": "搜索栏内容位置\n@en Search bar content location",
+            "name": "textAlign",
+            "tags": {
+                "en": "Search bar content location",
+                "default": "\"left\""
+            },
+            "descWithTags": "搜索栏内容位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"left\" | \"center\" | \"right\"",
+                "value": [
+                    {
+                        "value": "\"left\""
+                    },
+                    {
+                        "value": "\"center\""
+                    },
+                    {
+                        "value": "\"right\""
+                    }
+                ]
+            }
+        },
+        "prepend": {
+            "defaultValue": null,
+            "description": "搜索栏头部插入的内容\n@en Content inserted in the header of the search box",
+            "name": "prepend",
+            "tags": {
+                "en": "Content inserted in the header of the search box"
+            },
+            "descWithTags": "搜索栏头部插入的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode | ((focusing: boolean, value: string) => ReactNode)"
+            }
+        },
+        "append": {
+            "defaultValue": {
+                "value": "(focusing) => focusing ? (<span>取消</span>) : null"
+            },
+            "description": "搜索栏尾部要插入的内容, 默认在搜索栏激活态时会插入一个按钮\n@en The content to be inserted at the end of the search box, a button will be inserted by default when the search box is activated",
+            "name": "append",
+            "tags": {
+                "en": "The content to be inserted at the end of the search box, a button will be inserted by default when the search box is activated",
+                "default": "(focusing) => focusing ? (<span>取消</span>) : null"
+            },
+            "descWithTags": "搜索栏尾部要插入的内容, 默认在搜索栏激活态时会插入一个按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode | ((focusing: boolean, value: string) => ReactNode)"
+            }
+        },
+        "actionButton": {
+            "defaultValue": {
+                "value": "<CancelButton />"
+            },
+            "description": "搜索栏最右侧要插入的按钮，默认情况下插入一个取消按钮\n@en The button to insert on the far right side of the search box, a cancel button is inserted by default",
+            "name": "actionButton",
+            "tags": {
+                "en": "The button to insert on the far right side of the search box, a cancel button is inserted by default",
+                "default": "<CancelButton />"
+            },
+            "descWithTags": "搜索栏最右侧要插入的按钮，默认情况下插入一个取消按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "enableAssociation": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否开启搜索联想框功能\n@en Whether to enable the search association box function",
+            "name": "enableAssociation",
+            "tags": {
+                "en": "Whether to enable the search association box function",
+                "default": "false"
+            },
+            "descWithTags": "是否开启搜索联想框功能",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "associationVisible": {
+            "defaultValue": null,
+            "description": "（受控模式）搜索联想框的可见态\n@en (Controlled mode) Visible state of search association box",
+            "name": "associationVisible",
+            "tags": {
+                "en": "(Controlled mode) Visible state of search association box"
+            },
+            "descWithTags": "（受控模式）搜索联想框的可见态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "associationShowType": {
+            "defaultValue": {
+                "value": "\"default\""
+            },
+            "description": "非受控模式下，搜索联想框的展示时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索栏被聚焦或者搜索词不为空 - always 一直展示\n@en In uncontrolled mode, the display timing of the search association box - \"focus\" only when focused - \"value\" search term is not empty - \"default\" search bar is focused or search term is not empty - \"always\" always displayed",
+            "name": "associationShowType",
+            "tags": {
+                "en": "In uncontrolled mode, the display timing of the search association box - \"focus\" only when focused - \"value\" search term is not empty - \"default\" search bar is focused or search term is not empty - \"always\" always displayed",
+                "default": "\"default\""
+            },
+            "descWithTags": "非受控模式下，搜索联想框的展示时机 - focus 仅聚焦时 - value 搜索词不为空 - default 搜索栏被聚焦或者搜索词不为空 - always 一直展示",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "SearchAssociationShowType",
+                "value": [
+                    {
+                        "value": "\"value\""
+                    },
+                    {
+                        "value": "\"focus\""
+                    },
+                    {
+                        "value": "\"default\""
+                    },
+                    {
+                        "value": "\"always\""
+                    }
+                ]
+            }
+        },
+        "associationItems": {
+            "defaultValue": null,
+            "description": "每一项搜索内容\n@en every search",
+            "name": "associationItems",
+            "tags": {
+                "en": "every search"
+            },
+            "descWithTags": "每一项搜索内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "SearchAssociationBaseItem[]"
+            }
+        },
+        "highlightMode": {
+            "defaultValue": {
+                "value": "\"none\""
+            },
+            "description": "搜索结果高亮模式，可以是内置的两种模式，或者一个自定义的高亮函数(接受选项内容content、搜索关键字keyword、默认的高亮class，返回一个ReactNode) - prefix 高亮最长前缀匹配字符串 - contain 高亮所有搜索关键字 - none 关闭高亮\n@en Search result highlighting mode, which can be two built-in modes, or a custom highlighting function(Accept option content content, search keyword keyword, default highlight class, return a ReactNode) - \"prefix\" to highlight the longest prefix matching string - \"contain\" to highlight all search keywords - \"none\" to turn off highlighting",
+            "name": "highlightMode",
+            "tags": {
+                "en": "Search result highlighting mode, which can be two built-in modes, or a custom highlighting function(Accept option content content, search keyword keyword, default highlight class, return a ReactNode) - \"prefix\" to highlight the longest prefix matching string - \"contain\" to highlight all search keywords - \"none\" to turn off highlighting",
+                "default": "\"none\""
+            },
+            "descWithTags": "搜索结果高亮模式，可以是内置的两种模式，或者一个自定义的高亮函数(接受选项内容content、搜索关键字keyword、默认的高亮class，返回一个ReactNode) - prefix 高亮最长前缀匹配字符串 - contain 高亮所有搜索关键字 - none 关闭高亮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "SearchAssociationHighlightMode"
+            }
+        },
+        "highlightStyle": {
+            "defaultValue": null,
+            "description": "要为高亮结果添加的样式，仅非自定高亮模式下生效\n@en The style to be added to the highlighted result, only available in non-custom highlight mode",
+            "name": "highlightStyle",
+            "tags": {
+                "en": "The style to be added to the highlighted result, only available in non-custom highlight mode"
+            },
+            "descWithTags": "要为高亮结果添加的样式，仅非自定高亮模式下生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "highlightClassName": {
+            "defaultValue": null,
+            "description": "要为高亮结果添加的class，仅非自定义高亮模式下生效\n@en The class to be added to the highlighting result, only valid in non-custom highlighting mode",
+            "name": "highlightClassName",
+            "tags": {
+                "en": "The class to be added to the highlighting result, only valid in non-custom highlighting mode"
+            },
+            "descWithTags": "要为高亮结果添加的class，仅非自定义高亮模式下生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "onCancel": {
+            "defaultValue": null,
+            "description": "右侧取消按钮的点击回调\n@en Right cancel button click callback",
+            "name": "onCancel",
+            "tags": {
+                "en": "Right cancel button click callback"
+            },
+            "descWithTags": "右侧取消按钮的点击回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onAssociationItemClick": {
+            "defaultValue": null,
+            "description": "每行搜索结果的点击回调\n@en Click callback for each row of search results",
+            "name": "onAssociationItemClick",
+            "tags": {
+                "en": "Click callback for each row of search results"
+            },
+            "descWithTags": "每行搜索结果的点击回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(item: SearchAssociationBaseItem, index: number) => void"
+            }
+        },
+        "onAssociationClick": {
+            "defaultValue": null,
+            "description": "搜索联想框整体被点击的回调\n@en The callback for the overall click of the search association box",
+            "name": "onAssociationClick",
+            "tags": {
+                "en": "The callback for the overall click of the search association box"
+            },
+            "descWithTags": "搜索联想框整体被点击的回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(event: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+            }
+        },
+        "renderAssociationItem": {
+            "defaultValue": null,
+            "description": "自定义渲染每行搜索结果\n@en Custom rendering of each row of search results",
+            "name": "renderAssociationItem",
+            "tags": {
+                "en": "Custom rendering of each row of search results"
+            },
+            "descWithTags": "自定义渲染每行搜索结果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(item: SearchAssociationBaseItem, index: number, node: ReactNode) => ReactNode"
+            }
+        },
+        "renderAssociation": {
+            "defaultValue": null,
+            "description": "自定义渲染搜索联想框整体内容\n@en Customize the rendering of the overall content of the search association box",
+            "name": "renderAssociation",
+            "tags": {
+                "en": "Customize the rendering of the overall content of the search association box"
+            },
+            "descWithTags": "自定义渲染搜索联想框整体内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/search-bar/type.ts",
+                "name": "SearchBarAssociationProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(Content: ReactNode) => ReactNode"
+            }
+        },
+        "type": {
+            "defaultValue": {
+                "value": "\"text\""
+            },
+            "description": "输入框类型\n@en Input box type",
+            "name": "type",
+            "tags": {
+                "en": "Input box type",
+                "default": "\"text\""
+            },
+            "descWithTags": "输入框类型",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "pattern": {
+            "defaultValue": null,
+            "description": "检查控件值的正则表达式\n@en Regular expression to check the value of input box",
+            "name": "pattern",
+            "tags": {
+                "en": "Regular expression to check the value of input box"
+            },
+            "descWithTags": "检查控件值的正则表达式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "inputClass": {
+            "defaultValue": null,
+            "description": "输入框dom自定义类名\n@en Custom classname for input DOM",
+            "name": "inputClass",
+            "tags": {
+                "en": "Custom classname for input DOM"
+            },
+            "descWithTags": "输入框dom自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "inputStyle": {
+            "defaultValue": null,
+            "description": "输入框dom自定义样式\n@en Custom style for input DOM",
+            "name": "inputStyle",
+            "tags": {
+                "en": "Custom style for input DOM"
+            },
+            "descWithTags": "输入框dom自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "nativeProps": {
+            "defaultValue": null,
+            "description": "其他未列出的原生属性，优先级低于已列出的组件属性\n@en Other unlisted native properties have lower priority than listed component properties",
+            "name": "nativeProps",
+            "tags": {
+                "en": "Other unlisted native properties have lower priority than listed component properties"
+            },
+            "descWithTags": "其他未列出的原生属性，优先级低于已列出的组件属性",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "InputHTMLAttributes<HTMLInputElement>"
+            }
+        },
+        "id": {
+            "defaultValue": null,
+            "description": "输入框的id\n@en Input id",
+            "name": "id",
+            "tags": {
+                "en": "Input id"
+            },
+            "descWithTags": "输入框的id",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "name": {
+            "defaultValue": null,
+            "description": "输入框的name\n@en Input name",
+            "name": "name",
+            "tags": {
+                "en": "Input name"
+            },
+            "descWithTags": "输入框的name",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "value": {
+            "defaultValue": null,
+            "description": "绑定值，传入即受控\n@en Binding value, if input, the component is controlled",
+            "name": "value",
+            "tags": {
+                "en": "Binding value, if input, the component is controlled"
+            },
+            "descWithTags": "绑定值，传入即受控",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "defaultValue": {
+            "defaultValue": null,
+            "description": "默认值\n@en Default value",
+            "name": "defaultValue",
+            "tags": {
+                "en": "Default value"
+            },
+            "descWithTags": "默认值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "maxLength": {
+            "defaultValue": null,
+            "description": "最大输入长度\n@en Maximum input length",
+            "name": "maxLength",
+            "tags": {
+                "en": "Maximum input length"
+            },
+            "descWithTags": "最大输入长度",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "placeholder": {
+            "defaultValue": null,
+            "description": "占位文本\n@en Placeholder text",
+            "name": "placeholder",
+            "tags": {
+                "en": "Placeholder text"
+            },
+            "descWithTags": "占位文本",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "disabled": {
+            "defaultValue": null,
+            "description": "输入框是否禁用\n@en Whether the input box is disabled",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether the input box is disabled"
+            },
+            "descWithTags": "输入框是否禁用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "readOnly": {
+            "defaultValue": null,
+            "description": "是否只读\n@en Read-only",
+            "name": "readOnly",
+            "tags": {
+                "en": "Read-only"
+            },
+            "descWithTags": "是否只读",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "autoFocus": {
+            "defaultValue": null,
+            "description": "是否自动获取焦点\n@en Whether to automatically get the focus",
+            "name": "autoFocus",
+            "tags": {
+                "en": "Whether to automatically get the focus"
+            },
+            "descWithTags": "是否自动获取焦点",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "validator": {
+            "defaultValue": null,
+            "description": "正则验证，不符合验证的不允许输入\n@en Regular validation, input is not allowed if it does not meet the validation",
+            "name": "validator",
+            "tags": {
+                "en": "Regular validation, input is not allowed if it does not meet the validation"
+            },
+            "descWithTags": "正则验证，不符合验证的不允许输入",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "RegExp | ((value: string) => boolean)"
+            }
+        },
+        "blurBeforeFocus": {
+            "defaultValue": null,
+            "description": "在聚焦之前blur掉，即切换不同input时会重新弹起键盘，常用于input type切换时重新加载键盘，安卓上有效\n@en Blur before focusing, that is, the keyboard will be re-bounced when switching between different inputs. It is often used to reload the keyboard when the input type is switched. It is valid on Android.",
+            "name": "blurBeforeFocus",
+            "tags": {
+                "en": "Blur before focusing, that is, the keyboard will be re-bounced when switching between different inputs. It is often used to reload the keyboard when the input type is switched. It is valid on Android."
+            },
+            "descWithTags": "在聚焦之前blur掉，即切换不同input时会重新弹起键盘，常用于input type切换时重新加载键盘，安卓上有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "clearable": {
+            "defaultValue": null,
+            "description": "是否有清除按钮\n@en whether there is a clear button",
+            "name": "clearable",
+            "tags": {
+                "en": "whether there is a clear button"
+            },
+            "descWithTags": "是否有清除按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "clearShowType": {
+            "defaultValue": {
+                "value": "\"focus\""
+            },
+            "description": "清除按钮展示时机：focus - 聚焦时展示 value - 有值则展示 always - 始终展示\n@en Clear button display timing: focus - display when focused, value - display when there is value, always - always display",
+            "name": "clearShowType",
+            "tags": {
+                "en": "Clear button display timing: focus - display when focused, value - display when there is value, always - always display",
+                "default": "\"focus\""
+            },
+            "descWithTags": "清除按钮展示时机：focus - 聚焦时展示 value - 有值则展示 always - 始终展示",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"value\" | \"focus\" | \"always\"",
+                "value": [
+                    {
+                        "value": "\"value\""
+                    },
+                    {
+                        "value": "\"focus\""
+                    },
+                    {
+                        "value": "\"always\""
+                    }
+                ]
+            }
+        },
+        "preventEventWhenClearing": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "在聚焦模式下点击清除按钮时，是否要屏蔽对应产生的onBlur和onFocus事件\n@en Whether to block the onBlur and onFocus events generated when the clear button is clicked in focus mode",
+            "name": "preventEventWhenClearing",
+            "tags": {
+                "en": "Whether to block the onBlur and onFocus events generated when the clear button is clicked in focus mode",
+                "default": "true"
+            },
+            "descWithTags": "在聚焦模式下点击清除按钮时，是否要屏蔽对应产生的onBlur和onFocus事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "clearIcon": {
+            "defaultValue": {
+                "value": "\\<IconClear className=\"clear-icon\" /\\>"
+            },
+            "description": "清除按钮类型，也可自定义\n@en Clear button type, also customizable",
+            "name": "clearIcon",
+            "tags": {
+                "en": "Clear button type, also customizable",
+                "default": "\\<IconClear className=\"clear-icon\" /\\>"
+            },
+            "descWithTags": "清除按钮类型，也可自定义",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "onClear": {
+            "defaultValue": null,
+            "description": "按下清除按钮回调\n@en Callback when clear button is pressed",
+            "name": "onClear",
+            "tags": {
+                "en": "Callback when clear button is pressed"
+            },
+            "descWithTags": "按下清除按钮回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => void"
+            }
+        },
+        "prefix": {
+            "defaultValue": null,
+            "description": "输入框前置内容，在输入框内部，也可自定义\n@en The prefix of the input box, inside the input box, can also be customized",
+            "name": "prefix",
+            "tags": {
+                "en": "The prefix of the input box, inside the input box, can also be customized"
+            },
+            "descWithTags": "输入框前置内容，在输入框内部，也可自定义",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "suffix": {
+            "defaultValue": null,
+            "description": "输入框后置内容，在输入框内部，也可自定义\n@en The suffix content of the input box, inside the input box, can also be customized",
+            "name": "suffix",
+            "tags": {
+                "en": "The suffix content of the input box, inside the input box, can also be customized"
+            },
+            "descWithTags": "输入框后置内容，在输入框内部，也可自定义",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "数据改变时触发（失去焦点时）\n@en Fired when the data changes (when bluring the focus)",
+            "name": "onChange",
+            "tags": {
+                "en": "Fired when the data changes (when bluring the focus)"
+            },
+            "descWithTags": "数据改变时触发（失去焦点时）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: ChangeEvent<HTMLInputElement>, value: string) => void"
+            }
+        },
+        "onInput": {
+            "defaultValue": null,
+            "description": "数据改变时触发\n@en Callback when data changes",
+            "name": "onInput",
+            "tags": {
+                "en": "Callback when data changes"
+            },
+            "descWithTags": "数据改变时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: ChangeEvent<HTMLInputElement>, value: string) => void"
+            }
+        },
+        "onFocus": {
+            "defaultValue": null,
+            "description": "输入框聚焦时触发\n@en Callback when the input box is focused",
+            "name": "onFocus",
+            "tags": {
+                "en": "Callback when the input box is focused"
+            },
+            "descWithTags": "输入框聚焦时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: FocusEvent<HTMLInputElement, Element>) => void"
+            }
+        },
+        "onBlur": {
+            "defaultValue": null,
+            "description": "输入框失去焦点时触发\n@en Callback when the input box is blured",
+            "name": "onBlur",
+            "tags": {
+                "en": "Callback when the input box is blured"
+            },
+            "descWithTags": "输入框失去焦点时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: FocusEvent<HTMLInputElement, Element>) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击输入框事件\n@en Callback when clicking the input box",
+            "name": "onClick",
+            "tags": {
+                "en": "Callback when clicking the input box"
+            },
+            "descWithTags": "点击输入框事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLInputElement, MouseEvent>) => void"
+            }
+        },
+        "onKeyUp": {
+            "defaultValue": null,
+            "description": "原生的keyup事件\n@en Native keyup event",
+            "name": "onKeyUp",
+            "tags": {
+                "en": "Native keyup event"
+            },
+            "descWithTags": "原生的keyup事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: KeyboardEvent<HTMLInputElement>) => void"
+            }
+        },
+        "onKeyDown": {
+            "defaultValue": null,
+            "description": "原生的keydown事件\n@en Native keydown event",
+            "name": "onKeyDown",
+            "tags": {
+                "en": "Native keydown event"
+            },
+            "descWithTags": "原生的keydown事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: KeyboardEvent<HTMLInputElement>) => void"
+            }
+        },
+        "onKeyPress": {
+            "defaultValue": null,
+            "description": "原生的keypress事件\n@en Native keypress event",
+            "name": "onKeyPress",
+            "tags": {
+                "en": "Native keypress event"
+            },
+            "descWithTags": "原生的keypress事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: KeyboardEvent<HTMLInputElement>) => void"
+            }
+        },
+        "onPressEnter": {
+            "defaultValue": null,
+            "description": "按下回车键时触发\n@en Callback when the enter key is pressed",
+            "name": "onPressEnter",
+            "tags": {
+                "en": "Callback when the enter key is pressed"
+            },
+            "descWithTags": "按下回车键时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: KeyboardEvent<HTMLInputElement>) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<SearchBarRef>"
+            }
+        }
+    },
+    "deps": {
+        "SearchBarShape": "\"square\"|\"round\"",
+        "SearchAssociationShowType": "\"value\"|\"focus\"|\"default\"|\"always\"",
+        "SearchAssociationBaseItem": {
+            "content": {
+                "name": "content",
+                "required": true,
+                "description": "基础内容\n@en basic content",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "basic content"
+                },
+                "descWithTags": "基础内容"
+            }
+        },
+        "SearchAssociationHighlightMode": "\"prefix\"|\"contain\"|\"none\"|(content: string, keyword: string, defaultHighlightClassName: string) => ReactNode",
+        "SearchBarRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "input": {
+                "name": "input",
+                "required": true,
+                "description": "原生输入框 DOM\n@en Native input box DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLInputElement"
+                },
+                "tags": {
+                    "en": "Native input box DOM"
+                },
+                "descWithTags": "原生输入框 DOM"
+            },
+            "toggleAssociation": {
+                "name": "toggleAssociation",
+                "required": true,
+                "description": "仅非受控模式下生效，手动控制搜索联想框的显隐，如果没有传入值则默认将显隐状态反转\n@en It only takes effect in uncontrolled mode. Manually control the display and hide of the search association box. If there is no incoming value, the display and hidden state will be reversed by default.",
+                "defaultValue": null,
+                "type": {
+                    "name": "(newVisible?: boolean) => void"
+                },
+                "tags": {
+                    "en": "It only takes effect in uncontrolled mode. Manually control the display and hide of the search association box. If there is no incoming value, the display and hidden state will be reversed by default."
+                },
+                "descWithTags": "仅非受控模式下生效，手动控制搜索联想框的显隐，如果没有传入值则默认将显隐状态反转"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "SearchBarProps",
+        "ref": "SearchBarRef"
+    },
+    "isDefaultExport": true
+}

@@ -3,11 +3,10 @@
 #### 4
 
 ```js
-import { useState } from 'react';
 import { ImagePicker, Toast } from '@arco-design/mobile-react';
 
 export default function ImagePickerDemo() {
-    const [images, setImages] = useState([
+    const [images, setImages] = React.useState([
         { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
         { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
     ]);
@@ -16,7 +15,7 @@ export default function ImagePickerDemo() {
     const onMaxSizeExceed = file => {
         window.toastInstance = Toast.toast(`${file.name} over ${maxSize}K`);
     };
-    const onLimitExceed = files => {
+    const onLimitExceed = () => {
         window.toastInstance = Toast.toast(`Select up to ${limit} images`);
     };
     return (

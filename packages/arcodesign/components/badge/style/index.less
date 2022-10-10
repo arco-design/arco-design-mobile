@@ -40,24 +40,24 @@
     .set-content-box-width-var(min-width, badge-text-width, badge-text-padding, badge-text-padding);
     .use-var(padding, badge-text-padding, 0);
 
-    .badge-text {
+    &-text {
         display: block;
         font-weight: 500;
         .set-font-size-var(badge-font-size);
     }
 
-    &.dot {
+    &-dot {
         .use-var(width, badge-dot-width);
         .use-var(height, badge-dot-width);
         padding: 0;
         min-width: auto;
     }
 
-    &.bordered {
+    &-bordered {
         .use-var(border, badge-border-color, 1PX solid);
     }
 
-    &.absolute {
+    &-absolute {
         position: absolute;
         top: 0;
         left: 100%;
@@ -65,7 +65,7 @@
         .use-var(margin-top, badge-text-deviation);
     }
 
-    &.absolute.dot {
+    &-absolute&-dot {
         .use-var(margin-left, badge-dot-deviation);
         .use-var(margin-top, badge-dot-deviation);
     }

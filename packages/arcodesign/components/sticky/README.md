@@ -25,7 +25,7 @@
 |onStickyStateChange|吸顶状态切换时触发 payload\.isSticky: 当前是否为吸顶/吸底状态 payload\.wasSticky: 前一个状态是否为吸顶/吸底状态|(payload: StickyEventPayload) =\> void|-|
 |onTopChange|滚动时top变化回调，参数为元素距离容器顶部减去topOffset的距离|(top: number) =\> void|-|
 |getContainer|指定sticky元素的依附容器，sticky元素不会超出容器，在容器离开视口时会跟随 如果返回string则使用querySelector选取容器|() =\> string \| HTMLElement|-|
-|getScrollContainer|指定滚动容器，如果指定该值则relative属性始终认定为false；如果返回string则使用querySelector选取容器|() =\> string \| HTMLElement \| Window|() => window|
+|getScrollContainer|指定滚动容器；如果返回string则使用querySelector选取容器|() =\> string \| HTMLElement \| Window|() => window|
 
 > 引用/Refs
 

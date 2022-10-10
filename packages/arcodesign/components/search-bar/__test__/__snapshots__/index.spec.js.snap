@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`search-bar demo test search-bar demo: action-btn.md renders correctly 1`] = `
+<div
+  class="arco-search-bar-container all-border-box arco-search-bar-square"
+>
+  <div
+    class="arco-search-bar-wrap search border-half pc prefix"
+  >
+    <div
+      class="arco-search-bar-prefix"
+    >
+      <svg
+        class="arco-icon arco-icon-search arco-search-bar-search-icon"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M469.333 106.667C669.632 106.667 832 269.035 832 469.333c0 75.712-23.19 146.006-62.87 204.16l144.683 144.683a21.333 21.333 0 010 30.165l-36.202 36.203a21.333 21.333 0 01-30.166 0L706.56 743.68A361.259 361.259 0 01469.333 832c-200.298 0-362.666-162.368-362.666-362.667s162.368-362.666 362.666-362.666zm0 89.6c-150.826 0-273.066 122.24-273.066 273.066S318.507 742.4 469.333 742.4 742.4 620.16 742.4 469.333 620.16 196.267 469.333 196.267z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <input
+      class="arco-search-bar-input arco-search-bar-input-left"
+      placeholder="请输入要查询的内容"
+      type="search"
+      value=""
+    />
+  </div>
+  <span
+    style="margin-left:16px;color:#165DFF;font-size:15px"
+  >
+    搜索
+  </span>
+</div>
+`;
+
+exports[`search-bar demo test search-bar demo: association.md renders correctly 1`] = `
+<div
+  class="arco-search-bar-container all-border-box arco-search-bar-square"
+  style="margin-bottom:200px"
+>
+  <div
+    class="arco-search-bar-wrap search border-half pc prefix"
+  >
+    <div
+      class="arco-search-bar-prefix"
+    >
+      <svg
+        class="arco-icon arco-icon-search arco-search-bar-search-icon"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M469.333 106.667C669.632 106.667 832 269.035 832 469.333c0 75.712-23.19 146.006-62.87 204.16l144.683 144.683a21.333 21.333 0 010 30.165l-36.202 36.203a21.333 21.333 0 01-30.166 0L706.56 743.68A361.259 361.259 0 01469.333 832c-200.298 0-362.666-162.368-362.666-362.667s162.368-362.666 362.666-362.666zm0 89.6c-150.826 0-273.066 122.24-273.066 273.066S318.507 742.4 469.333 742.4 742.4 620.16 742.4 469.333 620.16 196.267 469.333 196.267z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <input
+      class="arco-search-bar-input arco-search-bar-input-left"
+      placeholder="请输入要查询的内容"
+      type="search"
+      value=""
+    />
+  </div>
+  <div
+    class="arco-search-bar-association"
+  />
+</div>
+`;
+
+exports[`search-bar demo test search-bar demo: custom-color.md renders correctly 1`] = `
+<div
+  class="arco-search-bar-container all-border-box arco-search-bar-square"
+  style="background-color:#bedaff"
+>
+  <div
+    class="arco-search-bar-wrap search border-half pc prefix"
+  >
+    <div
+      class="arco-search-bar-prefix"
+    >
+      <svg
+        class="arco-icon arco-icon-search arco-search-bar-search-icon"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M469.333 106.667C669.632 106.667 832 269.035 832 469.333c0 75.712-23.19 146.006-62.87 204.16l144.683 144.683a21.333 21.333 0 010 30.165l-36.202 36.203a21.333 21.333 0 01-30.166 0L706.56 743.68A361.259 361.259 0 01469.333 832c-200.298 0-362.666-162.368-362.666-362.667s162.368-362.666 362.666-362.666zm0 89.6c-150.826 0-273.066 122.24-273.066 273.066S318.507 742.4 469.333 742.4 742.4 620.16 742.4 469.333 620.16 196.267 469.333 196.267z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <input
+      class="arco-search-bar-input arco-search-bar-input-left"
+      placeholder="请输入要查询的内容"
+      type="search"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`search-bar demo test search-bar demo: custom-icon.md renders correctly 1`] = `
+<div
+  class="arco-search-bar-container all-border-box arco-search-bar-square"
+>
+  <div
+    class="arco-search-bar-wrap search border-half pc prefix"
+  >
+    <div
+      class="arco-search-bar-prefix"
+    >
+      <svg
+        class="arco-icon arco-icon-setting "
+        fill="currentColor"
+        height="1em"
+        style="color:#86909c"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M512 46.55c34.517 0 68.565 3.797 101.696 11.263l19.136 4.288L692.48 198.08l146.837-16.043 13.27 14.443a465.493 465.493 0 01101.802 176.939l5.76 18.602-11.456 15.723L872.747 512l87.402 119.979-5.76 18.602A465.493 465.493 0 01852.587 827.52l-13.27 14.443L692.48 825.92l-59.648 135.979-19.136 4.288c-33.13 7.466-67.2 11.264-101.696 11.264-34.517 0-68.587-3.798-101.717-11.264l-19.136-4.31-7.894-17.941L331.52 825.92l-146.837 16.043-13.27-14.443A465.493 465.493 0 0169.611 650.56l-5.76-18.603 11.456-15.722L151.253 512 63.851 392.043l5.76-18.603a465.493 465.493 0 01101.802-176.96l13.27-14.443L331.52 198.08l59.627-135.957 19.136-4.31c33.13-7.466 67.2-11.264 101.717-11.264zm0 77.567a387.58 387.58 0 00-65.792 5.611L398.421 238.72a63.488 63.488 0 01-65.066 37.61l-117.483-12.863a387.947 387.947 0 00-66.048 114.837l70.165 96.32c16.214 22.272 16.214 52.48 0 74.752l-70.186 96.32a387.947 387.947 0 0066.069 114.837l117.504-12.864a63.488 63.488 0 0165.045 37.632l47.787 108.971a387.393 387.393 0 0065.792 5.61 387.33 387.33 0 0065.77-5.61l47.81-108.992a63.488 63.488 0 0165.066-37.61l117.483 12.863a387.947 387.947 0 0066.048-114.816l-70.165-96.341a63.488 63.488 0 010-74.752l70.165-96.341a387.947 387.947 0 00-66.048-114.816L690.624 276.33a63.488 63.488 0 01-65.045-37.611l-47.787-108.992a386.325 386.325 0 00-65.792-5.61zm0 193.942c106.752 0 193.195 86.869 193.195 193.941S618.752 705.92 512 705.92 318.805 619.093 318.805 512 405.248 318.08 512 318.08zm0 77.568c-63.808 0-115.627 52.053-115.627 116.373 0 64.299 51.819 116.373 115.627 116.373S627.627 576.32 627.627 512c0-64.299-51.819-116.373-115.627-116.373z"
+        />
+      </svg>
+    </div>
+    <input
+      class="arco-search-bar-input arco-search-bar-input-left"
+      placeholder="请输入要查询的内容"
+      type="search"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`search-bar demo test search-bar demo: custom-pend.md renders correctly 1`] = `
+<div
+  class="arco-search-bar-container all-border-box arco-search-bar-square"
+>
+  <div
+    style="display:flex;align-items:center;font-size:14px;margin-right:10px"
+  >
+    City 
+    <svg
+      class="arco-icon arco-icon-arrow-down "
+      height="1em"
+      style="margin-left:5px;font-size:10px"
+      viewBox="0 0 1024 1024"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M512 676.864l346.944-346.965a21.333 21.333 0 0130.187 0l30.165 30.186a21.333 21.333 0 010 30.166L542.166 767.36a42.667 42.667 0 01-60.331 0L104.704 390.25a21.333 21.333 0 010-30.165l30.165-30.186a21.333 21.333 0 0130.187 0L512 676.864z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="arco-search-bar-wrap search border-half pc prefix"
+  >
+    <div
+      class="arco-search-bar-prefix"
+    >
+      <svg
+        class="arco-icon arco-icon-search arco-search-bar-search-icon"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M469.333 106.667C669.632 106.667 832 269.035 832 469.333c0 75.712-23.19 146.006-62.87 204.16l144.683 144.683a21.333 21.333 0 010 30.165l-36.202 36.203a21.333 21.333 0 01-30.166 0L706.56 743.68A361.259 361.259 0 01469.333 832c-200.298 0-362.666-162.368-362.666-362.667s162.368-362.666 362.666-362.666zm0 89.6c-150.826 0-273.066 122.24-273.066 273.066S318.507 742.4 469.333 742.4 742.4 620.16 742.4 469.333 620.16 196.267 469.333 196.267z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <input
+      class="arco-search-bar-input arco-search-bar-input-left"
+      placeholder="请输入要查询的内容"
+      type="search"
+      value=""
+    />
+  </div>
+  <div
+    class="arco-avatar-wrapper ultra-small circle"
+    style="margin-left:13px"
+  >
+    <div
+      class="arco-avatar ultra-small circle default-overlap"
+    >
+      <svg
+        class="arco-icon arco-icon-user-fill arco-avatar-default"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 20 20"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.5 10.833c2.301 0 5 1.786 5 5v2.5c0 .46-.373.834-.833.834H3.333a.833.833 0 01-.833-.834v-2.5c0-3.211 2.699-5 5-5h5zM10 1.25a4.167 4.167 0 110 8.333 4.167 4.167 0 010-8.333z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`search-bar demo test search-bar demo: index.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-radio-group"
+    style="padding:16px;background-color:white"
+  >
+    <div
+      class="arco-radio shape-circle inline"
+    >
+      <div
+        class="radio-icon checked"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-checked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="radio-text"
+      >
+        square
+      </div>
+    </div>
+    <div
+      class="arco-radio shape-circle inline"
+    >
+      <div
+        class="radio-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-unchecked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="radio-text"
+      >
+        round
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-search-bar-container all-border-box arco-search-bar-square"
+  >
+    <div
+      class="arco-search-bar-wrap search border-half pc prefix"
+    >
+      <div
+        class="arco-search-bar-prefix"
+      >
+        <svg
+          class="arco-icon arco-icon-search arco-search-bar-search-icon"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M469.333 106.667C669.632 106.667 832 269.035 832 469.333c0 75.712-23.19 146.006-62.87 204.16l144.683 144.683a21.333 21.333 0 010 30.165l-36.202 36.203a21.333 21.333 0 01-30.166 0L706.56 743.68A361.259 361.259 0 01469.333 832c-200.298 0-362.666-162.368-362.666-362.667s162.368-362.666 362.666-362.666zm0 89.6c-150.826 0-273.066 122.24-273.066 273.066S318.507 742.4 469.333 742.4 742.4 620.16 742.4 469.333 620.16 196.267 469.333 196.267z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <input
+        class="arco-search-bar-input arco-search-bar-input-left"
+        placeholder="请输入要查询的内容"
+        type="search"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`search-bar demo test search-bar demo: no-icon.md renders correctly 1`] = `
+<div
+  class="arco-search-bar-container all-border-box arco-search-bar-square"
+>
+  <div
+    class="arco-search-bar-wrap search border-half pc"
+  >
+    <input
+      class="arco-search-bar-input arco-search-bar-input-left"
+      placeholder="请输入要查询的内容"
+      type="search"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`search-bar demo test search-bar demo: text-center.md renders correctly 1`] = `
+<div
+  class="arco-search-bar-container all-border-box arco-search-bar-square"
+>
+  <div
+    class="arco-search-bar-wrap search border-half pc prefix"
+  >
+    <div
+      class="arco-search-bar-prefix"
+    >
+      <svg
+        class="arco-icon arco-icon-search arco-search-bar-search-icon"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M469.333 106.667C669.632 106.667 832 269.035 832 469.333c0 75.712-23.19 146.006-62.87 204.16l144.683 144.683a21.333 21.333 0 010 30.165l-36.202 36.203a21.333 21.333 0 01-30.166 0L706.56 743.68A361.259 361.259 0 01469.333 832c-200.298 0-362.666-162.368-362.666-362.667s162.368-362.666 362.666-362.666zm0 89.6c-150.826 0-273.066 122.24-273.066 273.066S318.507 742.4 469.333 742.4 742.4 620.16 742.4 469.333 620.16 196.267 469.333 196.267z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+    <input
+      class="arco-search-bar-input arco-search-bar-input-center"
+      placeholder="请输入要查询的内容"
+      type="search"
+      value=""
+    />
+  </div>
+</div>
+`;

@@ -39,7 +39,7 @@ export function componentGenerator<
             className = '',
             style = {},
             imageProps = {},
-            defaultOverLap = <IconUserFill className={`${prefixCls}-avatar-default`} />,
+            defaultOverLap,
             onClickDecoration,
             onClick,
         } = props;
@@ -87,22 +87,47 @@ export function componentGenerator<
             <div
                 ref={domRef}
                 style={style}
-                className={cls(`${prefixCls}-avatar-wrapper`, className, size, shape, {
-                    'with-info': Boolean(avatarName),
-                })}
+                className={cls(
+                    `${prefixCls}-avatar-wrapper`,
+                    className,
+                    size,
+                    shape,
+                    `${prefixCls}-avatar-wrapper-shape-${shape}`,
+                    {
+                        [`${prefixCls}-avatar-wrapper-with-info ${prefixCls}-avatar-wrapper-with-info-size-${size} with-info`]:
+                            Boolean(avatarName),
+                    },
+                )}
                 onClick={onClick}
             >
                 <div
-                    className={cls(`${prefixCls}-avatar`, size, shape, {
-                        [`${prefixCls}-text-avatar`]: isTextAvatar,
-                        [`${prefixCls}-image-avatar`]: isImageAvatar,
-                        'default-overlap': useDefaultAvatar,
-                    })}
+                    className={cls(
+                        `${prefixCls}-avatar`,
+                        `${prefixCls}-avatar-size-${size}`,
+                        size,
+                        `${prefixCls}-avatar-shape-${shape}`,
+                        shape,
+                        {
+                            [`${prefixCls}-text-avatar ${prefixCls}-avatar-mode-text`]:
+                                isTextAvatar,
+                            [`${prefixCls}-image-avatar ${prefixCls}-avatar-mode-image`]:
+                                isImageAvatar,
+                            [`${prefixCls}-avatar-default-overlap default-overlap`]:
+                                useDefaultAvatar,
+                        },
+                    )}
                     style={avatarStyle}
                     ref={avatarRef}
                 >
                     {children}
-                    {useDefaultAvatar && defaultOverLap}
+                    {useDefaultAvatar &&
+                        (defaultOverLap === void 0 ? (
+                            <IconUserFill
+                                className={`${prefixCls}-avatar-default ${prefixCls}-avatar-default-icon-size-${size}`}
+                            />
+                        ) : (
+                            defaultOverLap
+                        ))}
                     {isImageAvatar && src && (
                         <Comp
                             {...({
@@ -114,7 +139,7 @@ export function componentGenerator<
                     )}
                     {isTextAvatar && (
                         <span
-                            className={`${prefixCls}-avatar-text`}
+                            className={`${prefixCls}-avatar-text ${prefixCls}-avatar-text-size-${size}`}
                             ref={avatarTextRef}
                             style={{
                                 transform: `scale(${textScale})`,
@@ -135,9 +160,17 @@ export function componentGenerator<
                 {renderInfo}
                 {!renderInfo && avatarName && (
                     <div className={cls(`${prefixCls}-avatar-info`)}>
-                        <div className={cls(`${prefixCls}-avatar-name`)}>{avatarName}</div>
+                        <div
+                            className={`${prefixCls}-avatar-name ${prefixCls}-avatar-name-size-${size}`}
+                        >
+                            {avatarName}
+                        </div>
                         {avatarDesc && (
-                            <div className={cls(`${prefixCls}-avatar-desc`)}>{avatarDesc}</div>
+                            <div
+                                className={`${prefixCls}-avatar-desc ${prefixCls}-avatar-desc-size-${size}`}
+                            >
+                                {avatarDesc}
+                            </div>
                         )}
                     </div>
                 )}
@@ -151,7 +184,7 @@ const Avatar = componentGenerator(BaseImage);
 /**
  * 头像展示组件，支持圆形和方形两种形状，支持图片文字头像，支持五种尺寸。
  * @en Avatar component supports two shapes of circle and square, supports pictures or text avatars, with five sizes.
- * @type 数据展示
+ * @type 信息展示
  * @type_en Data Display
  * @name 头像
  * @name_en Avatar

@@ -197,7 +197,7 @@ export interface ImageRef {
 /**
  * 增强版的 img 标签，提供多种图片填充模式，支持图片加载中提示、加载失败提示。
  * @en Enhanced img tag, provides a variety of image filling modes, and supports image loading prompts and loading failure prompts.
- * @type 数据展示
+ * @type 信息展示
  * @type_en Data Display
  * @name 图片
  * @name_en Image
@@ -213,6 +213,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
     const wrapRef = useRef<HTMLDivElement | null>(null);
     const retryCountRef = useRef(0);
     const loadingImageRef = useRef<HTMLImageElement | null>(null);
+    const hasLoadedRef = useRef(false);
     const {
         style,
         className,
@@ -321,6 +322,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         image.onload = evt => {
             loadingImageRef.current = null;
             imageDomRef.current = image;
+            hasLoadedRef.current = true;
             changeStatus('loaded');
             const { width: imageWidth = 0, height: imageHeight = 0 } = image;
             let extraClass = '';
@@ -434,6 +436,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                         className={cls('image-container', validStatus, {
                             animate: Boolean(animateDuration),
                             'static-label': staticLabel,
+                            'has-loaded': hasLoadedRef.current,
                         })}
                         style={getStyleWithVendor({
                             transitionDuration: `${animateDuration}ms`,

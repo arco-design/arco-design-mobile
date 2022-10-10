@@ -4,7 +4,7 @@
         "en": "Radio button, click to switch selection when available, supports disabled state and radio option group.",
         "name": "单选框",
         "name_en": "Radio",
-        "type": "数据输入",
+        "type": "数据录入",
         "type_en": "Data Entry"
     },
     "displayName": "Radio",

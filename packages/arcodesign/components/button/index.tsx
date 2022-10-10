@@ -1,6 +1,6 @@
-import React, { useState, forwardRef, Ref, useRef, useImperativeHandle } from 'react';
+import React, { useState, forwardRef, Ref, useRef, useImperativeHandle, useContext } from 'react';
 import { cls } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { GlobalContext } from '../context-provider';
 import Loading from '../loading';
 import { useSystem } from '../_helpers';
 import { useCustomColor } from './hooks';
@@ -124,6 +124,12 @@ export interface ButtonProps {
      * @default true
      */
     disableWhenLoading?: boolean;
+    /**
+     * 加载中是否覆盖Icon
+     * @en Whether to override Icon during loading
+     * @default true
+     */
+    coverIconWhenLoading?: boolean;
 }
 
 export interface ButtonRef {
@@ -166,8 +172,11 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
         loadingIcon,
         onClick,
         onClickDisabled,
+        coverIconWhenLoading = true,
     } = props;
     const domRef = useRef<HTMLButtonElement | null>(null);
+    const { prefixCls } = useContext(GlobalContext);
+    const prefix = `${prefixCls}-button`;
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -179,6 +188,7 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
         borderColor,
         isActive,
         disabled,
+        halfBorder,
     });
 
     const handleTouchStart = () => {
@@ -191,55 +201,63 @@ const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonRef>) => {
         setActive(false);
     };
 
+    const renderIcon = () => {
+        if (coverIconWhenLoading) {
+            return loading ? null : icon;
+        }
+        return icon;
+    };
+
     return (
-        <ContextLayout>
-            {({ prefixCls }) => (
-                <button
-                    type="button"
-                    ref={domRef}
-                    style={{ ...customColorStyle, ...style }}
-                    className={cls(
-                        `${prefixCls}-button`,
-                        className,
-                        `type-${type}`,
-                        `size-${size}`,
-                        `is-${shape}`,
-                        system,
-                        {
-                            inline,
-                            disabled,
-                            loading,
-                            active: isActive,
-                            'half-border': halfBorder,
-                        },
-                        ...customColorClass,
-                    )}
-                    onTouchStart={handleTouchStart}
-                    onTouchEnd={handleTouchEnd}
-                    onTouchCancel={handleTouchEnd}
-                    onMouseDown={handleTouchStart}
-                    onMouseUp={handleTouchEnd}
-                    onClick={
-                        disabled || (loading && disableWhenLoading) ? onClickDisabled : onClick
-                    }
-                >
-                    <div className="btn-icon">
-                        {icon}
-                        {loading &&
-                            (loadingIcon === void 0 ? (
-                                <Loading className="loading-icon" radius={6} type="circle" />
-                            ) : (
-                                loadingIcon
-                            ))}
-                    </div>
-                    {(!loading || (loading && showTextWhenLoading)) && children ? (
-                        <div className={cls('btn-text', { 'has-icon': loading || icon })}>
-                            {children}
-                        </div>
-                    ) : null}
-                </button>
+        <button
+            type="button"
+            ref={domRef}
+            style={{ ...customColorStyle, ...style }}
+            className={cls(
+                prefix,
+                `${prefix}-type-${type} type-${type}`,
+                `${prefix}-size-${size} ${prefix}-size-${size}-is-${shape} size-${size}`,
+                className,
+                `is-${shape}`,
+                system,
+                {
+                    [`${prefix}-inline inline`]: inline,
+                    [`${prefix}-type-${type}-disabled disabled`]: disabled,
+                    loading,
+                    [`${prefix}-type-${type}-active active`]: isActive,
+                },
+                ...customColorClass,
             )}
-        </ContextLayout>
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={handleTouchEnd}
+            onClick={disabled || (loading && disableWhenLoading) ? onClickDisabled : onClick}
+        >
+            {icon || loading ? (
+                <div className={`${prefix}-icon btn-icon`}>
+                    {renderIcon()}
+                    {loading &&
+                        (loadingIcon === void 0 ? (
+                            <Loading
+                                className={`${prefix}-loading-icon loading-icon`}
+                                radius={6}
+                                type="circle"
+                            />
+                        ) : (
+                            loadingIcon
+                        ))}
+                </div>
+            ) : null}
+            {(!loading || (loading && showTextWhenLoading)) && children ? (
+                <div
+                    className={cls(`${prefix}-text`, `${prefix}-text-${system}`, 'btn-text', {
+                        [`${prefix}-text-has-icon has-icon`]: loading || icon,
+                    })}
+                >
+                    {children}
+                </div>
+            ) : null}
+        </button>
     );
 });
 

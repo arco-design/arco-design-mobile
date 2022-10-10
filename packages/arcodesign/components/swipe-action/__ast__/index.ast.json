@@ -1,0 +1,406 @@
+{
+    "description": "滑动操作组件，左右滑动拉出菜单栏",
+    "descriptionTags": {
+        "en": "SwipeAction component, slide left and right to pull out the menu bar",
+        "type": "反馈",
+        "type_en": "FeedBack",
+        "name": "滑动操作",
+        "name_en": "SwipeAction"
+    },
+    "displayName": "SwipeAction",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom style",
+            "name": "style",
+            "tags": {
+                "en": "Custom style"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "子元素\n@en Inner Content",
+            "name": "children",
+            "tags": {
+                "en": "Inner Content"
+            },
+            "descWithTags": "子元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": true,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "rightActions": {
+            "defaultValue": null,
+            "description": "右侧菜单\n@en right Menu",
+            "name": "rightActions",
+            "tags": {
+                "en": "right Menu"
+            },
+            "descWithTags": "右侧菜单",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "Action[]"
+            }
+        },
+        "leftActions": {
+            "defaultValue": null,
+            "description": "左侧菜单\n@en left Menu",
+            "name": "leftActions",
+            "tags": {
+                "en": "left Menu"
+            },
+            "descWithTags": "左侧菜单",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "Action[]"
+            }
+        },
+        "closeOnTouchOutside": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "点击外部是否自动归位\n@en Click outside for auto return",
+            "name": "closeOnTouchOutside",
+            "tags": {
+                "en": "Click outside for auto return",
+                "default": "false"
+            },
+            "descWithTags": "点击外部是否自动归位",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "threshold": {
+            "defaultValue": {
+                "value": "0.15"
+            },
+            "description": "菜单滑出多少距离后自动滑出/关闭的系数 范围 0-1\n@en How far the menu slides off/off automatically ranges from 0 to 1",
+            "name": "threshold",
+            "tags": {
+                "en": "How far the menu slides off/off automatically ranges from 0 to 1",
+                "default": "0.15"
+            },
+            "descWithTags": "菜单滑出多少距离后自动滑出/关闭的系数 范围 0-1",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用\n@en Whether to disable",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to disable",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "transitionDuration": {
+            "defaultValue": {
+                "value": "300"
+            },
+            "description": "动画的执行时间 (单位ms)\n@en Animation execution time in ms",
+            "name": "transitionDuration",
+            "tags": {
+                "en": "Animation execution time in ms",
+                "default": "300"
+            },
+            "descWithTags": "动画的执行时间 (单位ms)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "dampRate": {
+            "defaultValue": {
+                "value": "15"
+            },
+            "description": "阻尼系数\n@en Damping coefficient",
+            "name": "dampRate",
+            "tags": {
+                "en": "Damping coefficient",
+                "default": "15"
+            },
+            "descWithTags": "阻尼系数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "openStyleType": {
+            "defaultValue": {
+                "value": "\"layer\""
+            },
+            "description": "菜单滑入时的样式类型，layer - 分层堆叠进入，push - 直接依次推入\n@en The style type when the menu slides in. layer - the menu is stacked in layers; push - the menu is pushed directly in sequence",
+            "name": "openStyleType",
+            "tags": {
+                "en": "The style type when the menu slides in. layer - the menu is stacked in layers; push - the menu is pushed directly in sequence",
+                "default": "\"layer\""
+            },
+            "descWithTags": "菜单滑入时的样式类型，layer - 分层堆叠进入，push - 直接依次推入",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"layer\" | \"push\"",
+                "value": [
+                    {
+                        "value": "\"layer\""
+                    },
+                    {
+                        "value": "\"push\""
+                    }
+                ]
+            }
+        },
+        "onOpen": {
+            "defaultValue": null,
+            "description": "滑出动画结束后触发\n@en Triggered when the slide out animation ends",
+            "name": "onOpen",
+            "tags": {
+                "en": "Triggered when the slide out animation ends"
+            },
+            "descWithTags": "滑出动画结束后触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(direction: \"left\" | \"right\") => void"
+            }
+        },
+        "onClose": {
+            "defaultValue": null,
+            "description": "滑入动画结束后触发\n@en Triggered when the slide in animation ends",
+            "name": "onClose",
+            "tags": {
+                "en": "Triggered when the slide in animation ends"
+            },
+            "descWithTags": "滑入动画结束后触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/swipe-action/type.ts",
+                "name": "SwipeActionProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(direction: \"left\" | \"right\") => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<SwipeActionRef>"
+            }
+        }
+    },
+    "deps": {
+        "Action": {
+            "text": {
+                "name": "text",
+                "required": false,
+                "description": "自定义内容\n@en Custom Content",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Custom Content"
+                },
+                "descWithTags": "自定义内容"
+            },
+            "icon": {
+                "name": "icon",
+                "required": false,
+                "description": "自定义图标\n@en Custom Icon",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Custom Icon"
+                },
+                "descWithTags": "自定义图标"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom Style",
+                "defaultValue": null,
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom Style"
+                },
+                "descWithTags": "自定义样式"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom Style",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom Style"
+                },
+                "descWithTags": "自定义类名"
+            },
+            "onClick": {
+                "name": "onClick",
+                "required": false,
+                "description": "点击事件 返回true可以阻止菜单的关闭\n@en Clicking the event to return true prevents the menu from closing",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => boolean | void | Promise<boolean | void>"
+                },
+                "tags": {
+                    "en": "Clicking the event to return true prevents the menu from closing"
+                },
+                "descWithTags": "点击事件 返回true可以阻止菜单的关闭"
+            },
+            "children": {
+                "name": "children",
+                "required": false,
+                "description": "子元素没有text或者icon的传递children\n@en Child elements do not pass children with text or icon",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Child elements do not pass children with text or icon"
+                },
+                "descWithTags": "子元素没有text或者icon的传递children"
+            }
+        },
+        "SwipeActionRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "close": {
+                "name": "close",
+                "required": true,
+                "description": "使滑动条归位\n@en Bring the slider back into position",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Bring the slider back into position"
+                },
+                "descWithTags": "使滑动条归位"
+            },
+            "open": {
+                "name": "open",
+                "required": true,
+                "description": "打开滑动条，默认打开右边\n@en Open the slider, the right by default",
+                "defaultValue": null,
+                "type": {
+                    "name": "(direction: \"left\" | \"right\") => void"
+                },
+                "tags": {
+                    "en": "Open the slider, the right by default"
+                },
+                "descWithTags": "打开滑动条，默认打开右边"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "SwipeActionProps",
+        "ref": "SwipeActionRef"
+    },
+    "isDefaultExport": true
+}

@@ -6,9 +6,17 @@
 
 .button-has-border(@color) {
     .use-var(border, @color, 1PX solid);
-    &.half-border:not(.has-custom-border) {
+    &.half-border {
         border-width: 0;
         .hairline-var(@color);
+    }
+}
+
+.button-has-border-value(@value) {
+    border: 1PX solid @value;
+    &.half-border {
+        border-width: 0;
+        .hairline(@value);
     }
 }
 
@@ -18,9 +26,9 @@
 }
 
 .button-text-size(@font-size) {
-    .btn-icon,
+    .@{prefix}-button-icon,
     i,
-    .btn-text,
+    .@{prefix}-button-text,
     svg {
         .use-var(font-size, @font-size);
     }
@@ -28,10 +36,10 @@
 
 .button-size-height(@height) {
     .use-var(height, @height);
-    &.is-round {
+    &-is-round {
         .use-var(border-radius, @height);
     }
-    &.is-square {
+    &-is-square {
         .rem(border-radius, 0);
     }
 }
@@ -44,45 +52,48 @@
     display: block;
     width: 100%;
     box-sizing: border-box;
+    .use-var(line-height, button-line-height);
     .use-var(border-radius, button-radius);
-    .button-has-border(button-border-color);
     .noselect();
 
-    &.inline {
+    &&-inline {
         width: auto;
         display: inline-block;
     }
 
     .set-button-type(length(@type-map));
 
+    &&-type-ghost {
+        .button-has-border-value(currentColor);
+    }
+
     .set-button-size(length(@size-map));
 
-    &.android .btn-text {
+    &-text-android {
         .rem(padding-top, 2);
     }
 
-    .btn-icon {
+    &-icon {
         vertical-align: middle;
         display: inline-flex;
         align-items: center;
         justify-content: center;
     }
-    .btn-text {
-        .rem(font-size, 15);
+    &-text {
         display: inline-block;
         vertical-align: middle;
     }
-    .btn-text.has-icon {
-        .rem(margin-left, 4);
+    &-text-has-icon {
+        .use-var(margin-left, button-icon-text-gutter);
     }
 
-    .loading-icon {
+    &-loading-icon {
         display: inline-block;
         vertical-align: middle;
+    }
 
-        & + .btn-text {
-            .rem(margin-left, 8);
-        }
+    &.has-custom-border {
+        border: 1PX solid;
     }
 }
 
@@ -90,34 +101,19 @@
 .set-button-type(@index) when (@index > 0) {
     @type: extract(@type-map, @index);
 
-    &.type-@{type} {
-        .button-has-border('button-@{type}-background');
+    &&-type-@{type} {
         .use-var(background, 'button-@{type}-background');
         .use-var(color, 'button-@{type}-text-color');
-        .set-loading-color-var('button-@{type}-text-color');
-        &.disabled {
-            &.ios,
-            &.android {
-                .button-no-border();
-            }
+        &-disabled {
             .use-var(background, 'button-@{type}-disabled-background');
             .use-var(color, 'button-@{type}-disabled-text-color')
         }
-        &.active {
+        &-active {
             .use-var(background, 'button-@{type}-clicked-background');
-            .button-has-border('button-@{type}-clicked-background');
         }
     }
-
-    &.type-ghost {
-        &, &.active {
-            .button-has-border(button-ghost-text-color);
-        }
-        &.disabled {
-            &.ios, &.android {
-                .button-has-border(button-ghost-disabled-text-color);
-            }
-        }
+    &-type-@{type} {
+        .set-loading-color-var('button-@{type}-text-color');
     }
 
     .set-button-type(@index - 1);
@@ -126,7 +122,7 @@
 .set-button-size(@index) when (@index > 0) {
     @size: extract(@size-map, @index);
 
-    &.size-@{size} {
+    &&-size-@{size} {
         .use-var(padding, "button-@{size}-padding");
         .button-size-height("button-@{size}-height");
         .button-text-size("button-@{size}-text-size");
