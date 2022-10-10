@@ -76,25 +76,24 @@ export const useSliderEvents = ({
             return (realTimeValue: number) => {
                 setValueGroup(realTimeValue);
             };
-        } else {
-            const index = Math.abs(valueGroup[0] - start) < Math.abs(valueGroup[1] - start) ? 0 : 1;
-            const handleValue = (realTimeValue: number) => {
-                setValueGroup(passValueGroup => {
-                    if (typeof passValueGroup === 'number') {
-                        return [passValueGroup, realTimeValue];
-                    }
-                    const newValueGroup = [...passValueGroup] as [number, number];
-                    newValueGroup[index] = realTimeValue;
-                    return newValueGroup;
-                });
-            };
-            if (isTouching) {
-                setCommonIsTouching(index);
-                handleValue(start);
-                setIsTouching(IsTouchingStatus.Moving);
-            }
-            return handleValue;
         }
+        const index = Math.abs(valueGroup[0] - start) < Math.abs(valueGroup[1] - start) ? 0 : 1;
+        const handleValue = (realTimeValue: number) => {
+            setValueGroup(passValueGroup => {
+                if (typeof passValueGroup === 'number') {
+                    return [passValueGroup, realTimeValue];
+                }
+                const newValueGroup = [...passValueGroup] as [number, number];
+                newValueGroup[index] = realTimeValue;
+                return newValueGroup;
+            });
+        };
+        if (isTouching) {
+            setCommonIsTouching(index);
+            handleValue(start);
+            setIsTouching(IsTouchingStatus.Moving);
+        }
+        return handleValue;
     }, [touchStartPosition, getValueFromPosition]);
 
     useEffect(() => {

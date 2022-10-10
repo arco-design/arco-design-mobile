@@ -8,6 +8,7 @@ import React, {
     forwardRef,
     Ref,
     useImperativeHandle,
+    ReactNode,
 } from 'react';
 import { cls } from '@arco-design/mobile-utils';
 import { ValueType, PickerData, PickerCellMovingStatus } from '../type';
@@ -21,7 +22,7 @@ export interface PickerCellProps {
     itemHeight: number;
     wrapperHeight: number;
     selectedValue?: ValueType;
-    onValueChange?: (value: ValueType) => void;
+    onValueChange?: (value: ValueType, label: ReactNode) => void;
     disabled: boolean;
     hideEmptyCols?: boolean;
     /**
@@ -88,8 +89,9 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         // index有改变时再抛出
         // @en Throws again when index changes
         if (currentIndex !== nowItemIndex) {
-            setCurrentIndex(nowItemIndex);
+            setCurrentIndex(Math.max(nowItemIndex, 0));
             const newValue = data[nowItemIndex] && data[nowItemIndex].value;
+            const newLabel = data[nowItemIndex] && data[nowItemIndex].label;
 
             if (newValue !== currentValue) {
                 // if (!('selectedValue' in props)) {
@@ -97,7 +99,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
                 // }
                 setCurrentValue(newValue);
                 if (onValueChange) {
-                    onValueChange(newValue);
+                    onValueChange(newValue, newLabel);
                 }
             }
         }
@@ -341,7 +343,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     useLayoutEffect(() => {
         if ('selectedValue' in props) {
             const curIndex = data.findIndex((item: PickerData) => item.value === selectedValue);
-            setCurrentIndex(curIndex);
+            setCurrentIndex(Math.max(curIndex, 0));
 
             if (curIndex >= 0) {
                 _scrollToIndexWithChange(curIndex);

@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, useImperativeHandle, useMemo, useRef } from 'react';
+import React, { forwardRef, ReactNode, Ref, useImperativeHandle, useMemo, useRef } from 'react';
 import { arrayTreeFilter } from '@arco-design/mobile-utils';
 import { PickerData, ValueType, PickerCellMovingStatus } from '../type';
 import MultiPicker from './multi-picker';
@@ -16,8 +16,8 @@ export interface CascaderProps {
     selectedValue: ValueType[];
     rows?: number;
     hideEmptyCols?: boolean;
-    onValueChange?: (value: ValueType[], index: number) => void;
-    onPickerChange?: (value: ValueType[], index: number) => void;
+    onValueChange: (value: ValueType[], index: number, label: ReactNode[]) => void;
+    onPickerChange?: (value: ValueType[], index: number, label: ReactNode[]) => void;
     touchToStop?: boolean | number;
 }
 export interface CascaderRef {
@@ -57,7 +57,7 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
         pickerCellsRef.current.forEach(cell => cell.scrollToCurrentIndex());
     }
 
-    function _onValueChange(value: ValueType[], index: number) {
+    function _onValueChange(value: ValueType[], index: number, label: ReactNode[]) {
         const children: PickerData[] = arrayTreeFilter(
             data,
             (item: PickerData, level: number) => level <= index && item.value === value[level],
@@ -68,9 +68,10 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
         for (i = index + 1; i < cols && child && child.children; i++) {
             child = child.children[0];
             value[i] = child.value;
+            label[i] = child.label;
         }
         value.length = i;
-        onValueChange?.(value, index);
+        onValueChange?.(value, index, label);
     }
 
     function _formatData() {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { PickerData, ValueType } from '../picker-view/type';
 import { PopupProps } from '../popup';
 
@@ -58,12 +58,12 @@ export interface PickerProps
      * 选中后的回调
      * @en Callback after selection
      */
-    onChange?: (selectedValue: ValueType[]) => void;
+    onChange?: (selectedValue: ValueType[], label: ReactNode[]) => void;
     /**
      * 每列数据选择变化后的回调函数
      * @en The callback after each column data selection changes
      */
-    onPickerChange?: (value: ValueType[], index: number) => void;
+    onPickerChange?: (value: ValueType[], index: number, label: ReactNode[]) => void;
     /**
      * 每列样式
      * @en Stylesheet per column

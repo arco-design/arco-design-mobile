@@ -7,6 +7,7 @@ import React, {
     useMemo,
     useCallback,
     useEffect,
+    ReactNode,
 } from 'react';
 import { ContextLayout } from '../context-provider';
 import MultiPicker from '../picker-view/components/multi-picker';
@@ -34,6 +35,11 @@ export interface PickerViewRef {
      * @en Get all column values
      */
     getAllColumnValues: () => ValueType[];
+    /**
+     * 获取所有列的 label
+     * @en Get all column values
+     */
+    getAllColumnLabels: () => ReactNode[];
     /**
      * 获取第 n 列的值
      * @en Get the value of the nth column
@@ -75,6 +81,7 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         disabled = false,
         clickable = true,
         value,
+        label,
         hideEmptyCols = false,
         onPickerChange,
         touchToStop = false,
@@ -89,6 +96,8 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
     const scrollValueRef = useRef(value);
     const pickerCellsRef = useRef<PickerCellRef[]>([]);
     const cascaderRef = useRef<CascaderRef>(null);
+    const [pickerLabel, setPickerLabel] = useState<ReactNode[]>(label);
+    const scrollLabelRef = useRef(label);
 
     const innerData = useMemo(() => {
         let newData: PickerData[][];
@@ -120,7 +129,12 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         scrollValueRef.current = scrollValue;
     }, [scrollValue]);
 
+    useEffect(() => {
+        scrollLabelRef.current = pickerLabel;
+    }, [pickerLabel]);
+
     const getAllColumnValues = () => scrollValueRef.current;
+    const getAllColumnLabels = () => scrollLabelRef.current;
 
     function getColumnValue(index = 0) {
         return scrollValueRef.current[index];
@@ -144,31 +158,38 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         dom: domRef.current,
         getCellMovingStatus,
         getAllColumnValues,
+        getAllColumnLabels,
         getColumnValue,
         updateLayout,
         resetValue,
         scrollToCurrentIndex,
     }));
 
-    function _onPickerChange(val: ValueType[], index: number) {
+    function _onPickerChange(val: ValueType[], index: number, lab: ReactNode[]) {
         setScrollValue(val);
+        setPickerLabel(lab);
 
         if (onPickerChange) {
-            onPickerChange(val, index);
+            onPickerChange(val, index, label);
         }
     }
 
-    function _onValueChange(val: ValueType[], index: number) {
+    function _onValueChange(val: ValueType[], index: number, lab: ReactNode[]) {
         setScrollValue(val);
+        setPickerLabel(lab);
 
         if (onPickerChange) {
-            onPickerChange(val, index);
+            onPickerChange(val, index, label);
         }
     }
 
     useEffect(() => {
         setScrollValue(value);
     }, [value, setScrollValue]);
+
+    useEffect(() => {
+        setPickerLabel(pickerLabel);
+    }, [pickerLabel, setPickerLabel]);
 
     const updateWrapperHeight = useCallback(() => {
         if (wrapperRef && wrapperRef.current) {
