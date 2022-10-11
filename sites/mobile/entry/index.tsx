@@ -1,5 +1,5 @@
 import React, { createContext, useMemo } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
 import tokens from '../../../packages/arcodesign/tokens/app/arcodesign/default';
@@ -96,5 +96,4 @@ function App() {
         </ContextProvider>
     );
 }
-
-ReactDOM.render(<App />, document.querySelector('#app'));
+createRoot(document.querySelector('#app')!).render(<App />);

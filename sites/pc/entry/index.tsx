@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import demoDocs from '../pages/components';
 import enDemoDocs from '../pages/components/index-en-US';
@@ -14,7 +14,7 @@ export const HistoryContext = createContext<any>(null);
 function CompGenerator(children, history) {
     return <HistoryContext.Provider value={history}>{children}</HistoryContext.Provider>;
 }
-ReactDOM.render(
+createRoot(document.querySelector('#root')!).render(
     <div className="arcodesign-pc-site-wrap">
         <HashRouter>
             <Switch>
@@ -96,5 +96,4 @@ ReactDOM.render(
             </Switch>
         </HashRouter>
     </div>,
-    document.querySelector('#root'),
 );
