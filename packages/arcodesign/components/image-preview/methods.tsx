@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { appendElementById, removeElement } from '@arco-design/mobile-utils';
+import { render as ReactDOMRender, RootType } from '../_helpers';
 
 export interface OpenBaseProps {
     onClose?: () => void;
@@ -37,8 +37,13 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         const { child: div } = appendElementById(id, baseProps.getContainer);
         let leaving = false;
 
-        function render(props: P) {
-            ReactDOM.render(<Component {...props} getContainer={() => div} />, div);
+        let root: RootType | undefined;
+        function render(props) {
+            if (root) {
+                root.render(<Component {...props} />);
+            } else {
+                root = ReactDOMRender(<Component {...props} />, div);
+            }
         }
 
         function update(newConfig: Config) {
