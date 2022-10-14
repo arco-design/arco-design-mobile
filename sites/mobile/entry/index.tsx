@@ -1,5 +1,4 @@
 import React, { createContext, useMemo } from 'react';
-import ReactDOM from 'react-dom';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
 import tokens from '../../../packages/arcodesign/tokens/app/arcodesign/default';
@@ -13,6 +12,7 @@ import TypicalDemo from '../widgets/typicalDemo';
 import useTheme from './useTheme';
 import '../../../packages/arcodesign/components/style';
 import '../../../packages/arcodesign/tools/touch2mouse';
+import { render } from '../../../packages/arcodesign/components/_helpers';
 import useLocale from './useLocale';
 import './index.less';
 
@@ -97,4 +97,4 @@ function App() {
     );
 }
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+render(<App />, document.querySelector('#app')!);
