@@ -87,7 +87,6 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
         startX.current = e.touches[0].pageX;
     }
     function touchmove(e: TouchEvent) {
-        e.preventDefault();
         slideX.current = e.touches[0].pageX - startX.current;
         forbidClick.current = true;
         setMoving(true);
