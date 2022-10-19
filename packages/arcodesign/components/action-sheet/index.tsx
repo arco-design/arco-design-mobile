@@ -38,7 +38,7 @@ export interface ActionSheetItemOptions {
      * @en Click option event, actionSheet will be prevent from closing when returning true
      */
     onClick?: (
-        e: React.MouseEvent<HTMLElement, MouseEvent>,
+        e?: React.MouseEvent<HTMLElement, MouseEvent>,
     ) => (void | boolean) | Promise<void | boolean>;
 }
 
