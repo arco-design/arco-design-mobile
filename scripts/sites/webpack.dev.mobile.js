@@ -1,9 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VConsolePlugin = require('vconsole-webpack-plugin');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const DemoGeneratePlugin = require('./plugins/DemoGeneratePlugin');
 const TokenGeneratePlugin = require('./plugins/TokenGeneratePlugin');
 const utils = require('../utils');
@@ -26,28 +25,40 @@ const devConfig = merge(baseConfig, {
         filename: '[name].js',
         chunkFilename: '[name].js',
     },
+    cache: {
+        type: 'filesystem',
+        buildDependencies: {
+            config: [__filename],
+        },
+    },
+    snapshot: {
+        managedPaths: [path.resolve(__dirname, '../../node_modules')],
+        buildDependencies: {
+            timestamp: true
+        },
+        module: {
+            hash: true
+        },
+        resolve: {
+            hash: true,
+        },
+    },
     devtool: 'source-map',
     devServer: {
         host: '0.0.0.0',
-        contentBase: './',
-        inline: true,
+        static: {
+            directory: path.join(__dirname, "./")
+        },
         port: 8822,
-        disableHostCheck: true,
+        allowedHosts: "all",
         ...(filterComp.length
             ? {
-                  open: true,
-                  openPage: `http://localhost:8822/#/components/${filterComp[0]}`,
-              }
+                open: true,
+                openPage: `http://localhost:8822/#/components/${filterComp[0]}`,
+            }
             : {}),
     },
     plugins: [
-        new HardSourceWebpackPlugin(),
-        // 取消报错会下降一倍速度
-        // new HardSourceWebpackPlugin.ExcludeModulePlugin([
-        //     {
-        //         test: /less/,
-        //     },
-        // ]),
         new VConsolePlugin({ enable: true }),
         new DemoGeneratePlugin({
             filterComp,

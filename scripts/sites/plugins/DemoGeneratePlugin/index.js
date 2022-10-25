@@ -1,7 +1,12 @@
 const path = require('path');
+const fs = require('fs');
 const rootPath = path.resolve(__dirname, '../../../../');
 const generateDemo = require('./generate-demo');
-
+const componentsDir = path.resolve(rootPath, 'packages/arcodesign/components')
+const components = fs.readdirSync(componentsDir)
+const demoPaths = components
+    .filter(path => !path.includes('.') && !path.startsWith('_'))
+    .map(dir => path.resolve(componentsDir, dir, 'demo'));
 class DemoGeneratePlugin {
     constructor(options) {
         this.options = options || {};
@@ -12,19 +17,11 @@ class DemoGeneratePlugin {
             generateDemo(this.options);
         });
         compiler.hooks.afterCompile.tap('afterCompile', comp => {
-            [
-                ...new Set(
-                    [...comp.fileTimestamps.keys()]
-                        .filter(key => Boolean(key.match(/(^.+components\/[^/]+)/g)))
-                        .map(e => e.match(/(^.+components\/[^/]+)/g)[0] + '/demo'),
-                ),
-            ].forEach(dir => {
-                comp.contextDependencies.add(dir);
-            });
+            comp.contextDependencies.addAll(demoPaths)
         });
         compiler.hooks.watchRun.tap('WatchRun', comp => {
-            const changedTimes = comp.watchFileSystem.watcher.mtimes;
-            const changedFiles = Object.keys(changedTimes).join(',');
+            const changedTimes = comp.modifiedFiles
+            const changedFiles = changedTimes ? [...changedTimes].join('') : ''
             const pagePath = path.join(rootPath, this.options.siteFolder || 'sites/pages');
             if (changedFiles && changedFiles.indexOf(pagePath) < 0) {
                 console.log('>>> Files changed. Generating demos again...');

@@ -49,8 +49,8 @@ class SiteGeneratePlugin {
             }
         });
         compiler.hooks.watchRun.tap('WatchRun', (comp) => {
-            const changedTimes = comp.watchFileSystem.watcher.mtimes;
-            const changedFiles = Object.keys(changedTimes).join(',');
+            const changedTimes = comp.modifiedFiles
+            const changedFiles = changedTimes ? [...changedTimes].join('') : ''
             const pagePath = path.join(rootPath, this.options.siteFolder || 'sites/pc/pages');
             const tokenPath = 'tokens/src/arcodesign';
             const reg = new RegExp(`${tokenPath}.+\\/index.js`);
