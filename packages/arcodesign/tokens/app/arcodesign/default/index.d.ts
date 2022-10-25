@@ -696,6 +696,25 @@ export interface ArcodesignToken extends Record<string, string> {
     'image-picker-close-height': string;
     'image-picker-close-background': string;
     'image-picker-close-border-radius': string;
+    'indexbar-background': string;
+    'indexbar-group-left-spacing': string;
+    'indexbar-group-title-height': string;
+    'indexbar-group-title-background': string;
+    'indexbar-group-item-height': string;
+    'indexbar-sidebar-margin-right': string;
+    'indexbar-sidebar-item-font-size': string;
+    'indexbar-sidebar-item-padding-bottom': string;
+    'indexbar-sidebar-sweat-padding': string;
+    'indexbar-sidebar-sweat-background': string;
+    'indexbar-sidebar-sweat-color': string;
+    'indexbar-sidebar-sweat-right': string;
+    'indexbar-sidebar-sweat-font-size': string;
+    'indexbar-sidebar-toast-background': string;
+    'indexbar-sidebar-toast-color': string;
+    'indexbar-sidebar-toast-height': string;
+    'indexbar-sidebar-toast-radius': string;
+    'indexbar-sidebar-toast-padding': string;
+    'indexbar-sidebar-toast-font-size': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;

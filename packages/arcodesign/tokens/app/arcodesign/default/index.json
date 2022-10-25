@@ -3671,6 +3671,158 @@
             "en": "The animation curve when the image is loaded and displayed"
         }
     },
+    "indexbarBackground": {
+        "cssKey": "indexbar-background",
+        "desc": "",
+        "override": "",
+        "value": "white",
+        "jsValue": "white",
+        "staticValue": "white"
+    },
+    "indexbarGroupItemHeight": {
+        "cssKey": "indexbar-group-item-height",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(54)`",
+        "jsValue": "@getRem@54",
+        "staticValue": "1.08rem"
+    },
+    "indexbarGroupLeftSpacing": {
+        "cssKey": "indexbar-group-left-spacing",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem"
+    },
+    "indexbarGroupTitleBackground": {
+        "cssKey": "indexbar-group-title-background",
+        "desc": "",
+        "override": "",
+        "value": "#f7f8fa",
+        "jsValue": "#f7f8fa",
+        "staticValue": "#f7f8fa"
+    },
+    "indexbarGroupTitleHeight": {
+        "cssKey": "indexbar-group-title-height",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(24)`",
+        "jsValue": "@getRem@24",
+        "staticValue": "0.48rem"
+    },
+    "indexbarSidebarItemFontSize": {
+        "cssKey": "indexbar-sidebar-item-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(10)`",
+        "jsValue": "@getRem@10",
+        "staticValue": "0.2rem"
+    },
+    "indexbarSidebarItemPaddingBottom": {
+        "cssKey": "indexbar-sidebar-item-padding-bottom",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem"
+    },
+    "indexbarSidebarMarginRight": {
+        "cssKey": "indexbar-sidebar-margin-right",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem"
+    },
+    "indexbarSidebarSweatBackground": {
+        "cssKey": "indexbar-sidebar-sweat-background",
+        "desc": "",
+        "override": "",
+        "value": "#323232",
+        "jsValue": "#323232",
+        "staticValue": "#323232"
+    },
+    "indexbarSidebarSweatColor": {
+        "cssKey": "indexbar-sidebar-sweat-color",
+        "desc": "",
+        "override": "",
+        "value": "white",
+        "jsValue": "white",
+        "staticValue": "white"
+    },
+    "indexbarSidebarSweatFontSize": {
+        "cssKey": "indexbar-sidebar-sweat-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(24)`",
+        "jsValue": "@getRem@24",
+        "staticValue": "0.48rem"
+    },
+    "indexbarSidebarSweatPadding": {
+        "cssKey": "indexbar-sidebar-sweat-padding",
+        "desc": "",
+        "override": "",
+        "value": "0 ~`pxtorem(8)`",
+        "jsValue": "0 @getRem@8",
+        "staticValue": "0 0.16rem"
+    },
+    "indexbarSidebarSweatRight": {
+        "cssKey": "indexbar-sidebar-sweat-right",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(36.4)`",
+        "jsValue": "@getRem@36.4",
+        "staticValue": "0.728rem"
+    },
+    "indexbarSidebarToastBackground": {
+        "cssKey": "indexbar-sidebar-toast-background",
+        "desc": "",
+        "override": "",
+        "value": "#323232",
+        "jsValue": "#323232",
+        "staticValue": "#323232"
+    },
+    "indexbarSidebarToastColor": {
+        "cssKey": "indexbar-sidebar-toast-color",
+        "desc": "",
+        "override": "",
+        "value": "white",
+        "jsValue": "white",
+        "staticValue": "white"
+    },
+    "indexbarSidebarToastFontSize": {
+        "cssKey": "indexbar-sidebar-toast-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(24)`",
+        "jsValue": "@getRem@24",
+        "staticValue": "0.48rem"
+    },
+    "indexbarSidebarToastHeight": {
+        "cssKey": "indexbar-sidebar-toast-height",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(48)`",
+        "jsValue": "@getRem@48",
+        "staticValue": "0.96rem"
+    },
+    "indexbarSidebarToastPadding": {
+        "cssKey": "indexbar-sidebar-toast-padding",
+        "desc": "",
+        "override": "",
+        "value": "0 ~`pxtorem(8)`",
+        "jsValue": "0 @getRem@8",
+        "staticValue": "0 0.16rem"
+    },
+    "indexbarSidebarToastRadius": {
+        "cssKey": "indexbar-sidebar-toast-radius",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem"
+    },
     "inputCaretColor": {
         "cssKey": "input-caret-color",
         "desc": "输入框 光标颜色",

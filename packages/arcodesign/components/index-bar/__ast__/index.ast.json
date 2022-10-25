@@ -1,0 +1,207 @@
+{
+    "description": "索引栏组件",
+    "descriptionTags": {
+        "en": "IndexBar component",
+        "type": "导航",
+        "type_en": "Navigation",
+        "name": "索引栏",
+        "name_en": "SearchBar"
+    },
+    "displayName": "IndexBar",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "defaultIndex": {
+            "defaultValue": null,
+            "description": "",
+            "name": "defaultIndex",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "sticky": {
+            "defaultValue": null,
+            "description": "",
+            "name": "sticky",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "groups": {
+            "defaultValue": null,
+            "description": "",
+            "name": "groups",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "IndexBarGroupItem<IndexBarBaseData>[]"
+            }
+        },
+        "tipType": {
+            "defaultValue": null,
+            "description": "",
+            "name": "tipType",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "IndexBarTipType",
+                "value": [
+                    {
+                        "value": "\"none\""
+                    },
+                    {
+                        "value": "\"sweat\""
+                    },
+                    {
+                        "value": "\"toast\""
+                    }
+                ]
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<IndexBarRef>"
+            }
+        }
+    },
+    "deps": {
+        "IndexBarGroupItem": {
+            "Data": {
+                "name": "Data",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "any"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "index": {
+                "name": "index",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "list": {
+                "name": "list",
+                "required": false,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "IndexBarBaseData[]"
+                },
+                "tags": {},
+                "descWithTags": ""
+            }
+        },
+        "IndexBarBaseData": {
+            "content": {
+                "name": "content",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {},
+                "descWithTags": ""
+            }
+        },
+        "IndexBarTipType": "\"none\"|\"sweat\"|\"toast\"",
+        "IndexBarRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "最外层 DOM 元素"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "IndexBarProps",
+        "ref": "IndexBarRef"
+    },
+    "isDefaultExport": true
+}

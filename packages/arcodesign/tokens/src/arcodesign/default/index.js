@@ -3539,6 +3539,25 @@ function getCompTokens() {
          * @en Border radius of the close button of ImagePicker
          */
         imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
+        indexbarBackground: 'white',
+        indexbarGroupLeftSpacing: getRem(16),
+        indexbarGroupTitleHeight: getRem(24),
+        indexbarGroupTitleBackground: "#f7f8fa",
+        indexbarGroupItemHeight: getRem(54),
+        indexbarSidebarMarginRight: getRem(8),
+        indexbarSidebarItemFontSize: getRem(10),
+        indexbarSidebarItemPaddingBottom: getRem(8),
+        indexbarSidebarSweatPadding: `0 ${getRem(8)}`,
+        indexbarSidebarSweatBackground: '#323232',
+        indexbarSidebarSweatColor: 'white',
+        indexbarSidebarSweatRight: getRem(36.4),
+        indexbarSidebarSweatFontSize: getRem(24),
+        indexbarSidebarToastBackground: '#323232',
+        indexbarSidebarToastColor: 'white',
+        indexbarSidebarToastHeight: getRem(48),
+        indexbarSidebarToastRadius: getRem(4),
+        indexbarSidebarToastPadding: `0 ${getRem(8)}`,
+        indexbarSidebarToastFontSize: getRem(24)
     };
 }
 

@@ -707,7 +707,26 @@ var tokens = {
   "image-picker-close-width": "0.36rem",
   "image-picker-close-height": "0.36rem",
   "image-picker-close-background": "rgba(0, 0, 0, 0.3)",
-  "image-picker-close-border-radius": "0 0.04rem"
+  "image-picker-close-border-radius": "0 0.04rem",
+  "indexbar-background": "white",
+  "indexbar-group-left-spacing": "0.32rem",
+  "indexbar-group-title-height": "0.48rem",
+  "indexbar-group-title-background": "#f7f8fa",
+  "indexbar-group-item-height": "1.08rem",
+  "indexbar-sidebar-margin-right": "0.16rem",
+  "indexbar-sidebar-item-font-size": "0.2rem",
+  "indexbar-sidebar-item-padding-bottom": "0.16rem",
+  "indexbar-sidebar-sweat-padding": "0 0.16rem",
+  "indexbar-sidebar-sweat-background": "#323232",
+  "indexbar-sidebar-sweat-color": "white",
+  "indexbar-sidebar-sweat-right": "0.728rem",
+  "indexbar-sidebar-sweat-font-size": "0.48rem",
+  "indexbar-sidebar-toast-background": "#323232",
+  "indexbar-sidebar-toast-color": "white",
+  "indexbar-sidebar-toast-height": "0.96rem",
+  "indexbar-sidebar-toast-radius": "0.08rem",
+  "indexbar-sidebar-toast-padding": "0 0.16rem",
+  "indexbar-sidebar-toast-font-size": "0.48rem"
 };
 var _default = tokens;
 exports["default"] = _default;

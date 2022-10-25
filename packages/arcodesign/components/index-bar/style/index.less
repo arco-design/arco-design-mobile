@@ -1,0 +1,106 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-indexbar {
+  position: relative;
+  .use-var(background, indexbar-background);
+  overflow: hidden;
+  &-container {
+    height: 100%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &-group {
+    position: relative;
+    &-title {
+      .use-var(padding-left, indexbar-group-left-spacing);
+      .use-var(height, indexbar-group-title-height);
+      .use-var(background, indexbar-group-title-background);
+      display: flex;
+      align-items: center;
+    }
+    &-item {
+      .use-var(height, indexbar-group-item-height);
+      display: flex;
+      align-items: center;
+      .use-var(margin-left, indexbar-group-left-spacing);
+
+      &:not(:last-child) {
+        .onepx-border-var(bottom, line-color);
+      }
+    }
+  }
+
+  &-sidebar {
+    &-touching {
+      left: 0;
+    }
+    position: absolute;
+    // 保证侧边栏的层级比item的底边一像素的border要高
+    z-index: 2;
+    right: 0;
+    .use-var(margin-right, indexbar-sidebar-margin-right);
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+
+    &-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .use-var(font-size, indexbar-sidebar-item-font-size);
+      cursor: pointer;
+
+      &:not(:last-child) {
+        .use-var(padding-bottom, indexbar-sidebar-item-padding-bottom);
+      }
+    }
+
+    &-sweat {
+      // 水滴形状不方便自定义高度
+      position: absolute;
+      height: 50px;
+      min-width: 50px;
+      border-radius: 9999px;
+      text-align: center;
+      .use-var(padding, indexbar-sidebar-sweat-padding);
+      .use-var(background, indexbar-sidebar-sweat-background);
+      .use-var(right, indexbar-sidebar-sweat-right);
+      .use-var(font-size, indexbar-sidebar-sweat-font-size);
+      .use-var(color, indexbar-sidebar-sweat-color);
+      line-height: 50px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: -28.5px;
+        width: 0;
+        height: 0;
+        border: 18px solid transparent;
+        .use-var(border-left-color, indexbar-sidebar-sweat-background);
+      }
+    }
+
+    &-toast {
+      position: absolute;
+      .use-var(background, indexbar-sidebar-toast-background);
+      .use-var(color, indexbar-sidebar-toast-color);
+      left: 50%;
+      top: 50%;
+      .use-var(min-width, indexbar-sidebar-toast-height);
+      .use-var(height, indexbar-sidebar-toast-height);
+      .use-var(line-height, indexbar-sidebar-toast-height);
+      transform: translate(-50%, -50%);
+      text-align: center;
+      .use-var(padding, indexbar-sidebar-toast-padding);
+      .use-var(font-size, indexbar-sidebar-toast-font-size);
+      .use-var(border-radius, indexbar-sidebar-toast-radius);
+    }
+  }
+}
