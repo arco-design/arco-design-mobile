@@ -100,6 +100,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         translateZ = true,
         fullScreen,
         autoHeight,
+        tabBarStopPropagation = true,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const cellRef = useRef<TabCellRef | null>(null);
@@ -435,6 +436,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
                     renderTabBarInner,
                     tabBarStyle,
                     tabBarClass,
+                    tabBarStopPropagation,
                     ...commonProps,
                 };
                 const CellComp = <TabCell {...cellProps} />;
