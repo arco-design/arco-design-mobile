@@ -45,6 +45,10 @@ const localeConfig: ILocale = {
     ImagePicker: {
         loadError: '加载失败',
     },
+    SearchBar: {
+        placeholder: '请输入要查询的内容',
+        cancelBtn: '取消',
+    },
 };
 
 export default localeConfig;

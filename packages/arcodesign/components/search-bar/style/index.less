@@ -1,0 +1,111 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-search-bar {
+  &-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .use-var(padding, search-bar-padding);
+    .use-var(background-color, search-bar-background-color);
+  }
+  &-square {
+    .@{prefix}-search-bar-wrap {
+      .use-var(border-radius, search-bar-square-shape-border-radius);
+    }
+  }
+  &-round {
+    .@{prefix}-search-bar-wrap {
+      .use-var(border-radius, search-bar-round-shape-border-radius);
+    }
+  }
+  &-wrap {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    .use-var(height, search-bar-input-wrapper-height);
+    .use-var(font-size, search-bar-input-wrapper-font-size);
+    .use-var(padding, search-bar-input-wrapper-padding);
+    .use-var(background-color, search-bar-input-wrapper-background-color);
+  }
+  &-input {
+    flex: 1;
+    background-color: transparent;
+    .use-var(height, search-bar-input-height);
+    .use-var(caret-color, search-bar-input-caret-color);
+    &-left {
+      text-align: left;
+    }
+    &-right {
+      text-align: right;
+    }
+    &-center {
+      text-align: center;
+    }
+
+    &::placeholder {
+      .use-var(color, search-bar-input-placeholder-color);
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+
+  &-prefix,
+  &-suffix,
+  &-clear {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  &-prefix {
+    .use-var(margin-right, search-bar-prefix-margin-right);
+  }
+
+  &-clear {
+    .use-var(color, search-bar-clear-icon-color);
+  }
+
+  &-search-icon {
+    .use-var(color, search-bar-search-icon-color);
+    .use-var(font-size, search-bar-search-icon-font-size);
+  }
+
+  &-cancel-btn {
+    .use-var(margin-left, search-bar-cancel-btn-margin-left);
+    .use-var(color, search-bar-cancel-btn-color);
+    .use-var(font-size, search-bar-cancel-btn-font-size);
+  }
+
+  &-association {
+    position: absolute;
+    left: 0;
+    right: 0;
+    .use-var(background-color, search-bar-association-background-color);
+    top: 100%;
+    display: none;
+
+    &-visible {
+      display: block;
+    }
+
+    &-item {
+      .use-var(height, search-bar-association-item-height);
+      display: flex;
+      align-items: center;
+      position: relative;
+      .use-var(color, search-bar-association-item-color);
+      .use-var(padding, search-bar-association-item-padding);
+      .use-var(font-size, search-bar-association-item-font-size);
+      
+      &:not(:last-child) {
+        .onepx-border-var(bottom, line-color);
+      }
+
+      &-highlight {
+        .use-var(color, search-bar-association-item-highlight-color)
+      }
+    }
+  }
+}

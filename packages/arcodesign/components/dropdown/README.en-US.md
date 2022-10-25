@@ -30,6 +30,7 @@ Dropdown panel, showing options to choose from
 |maskAnimationTimeout|Mask animation duration|number|500|
 |maskAnimationFunction|Mask animation function|string|"cubic-bezier(0.32, 0.96, 0.6, 1)"|
 |useColumn|Use multi\-column label style, input true, it's 4 columns, and input number n, it will be n columns|number \| boolean|false|
+|optionIcon|Icon in each option|ReactNode|-|
 |mountOnEnter|Whether to reload the content when the dropdown box is opened|boolean|true|
 |unmountOnExit|Whether to unmount content on exit|boolean|true|
 |preventBodyScroll|Whether to prohibit the scrolling of the body when the dropdown box is opened|boolean|true|
@@ -40,10 +41,10 @@ Dropdown panel, showing options to choose from
 |getScrollContainer|Content inner scroll container, scrolling will be releases when it is not scrolled to the top or bottom|() =\> HTMLElement \| HTMLElement\[\]|-|
 |getPortalContainer|Get mounted container|() =\> HTMLElement|-|
 |multiple|Whether to support multiple selection|boolean|false|
-|defaultSelectedValue|Default checked value|number \| number\[\]|-|
-|selectedValue|The currently selected option value|number \| number\[\]|-|
-|onOptionClick|Callback when clicking option|((val: number, op: OptionsItem) =\> void) \| ((selected: boolean, val: number, op: OptionsItem) =\> void)|-|
-|onOptionChange|Callback when the option changes|((val: number, op: OptionsItem) =\> void) \| ((vals: number\[\], op: OptionsItem) =\> void)|-|
+|defaultSelectedValue|Default checked value|string \| number \| ReactText\[\]|-|
+|selectedValue|The currently selected option value|string \| number \| ReactText\[\]|-|
+|onOptionClick|Callback when clicking option|((val: ReactText, op: OptionsItem) =\> void) \| ((selected: boolean, val: ReactText, op: OptionsItem) =\> void)|-|
+|onOptionChange|Callback when the option changes|((val: ReactText, op: OptionsItem) =\> void) \| ((vals: ReactText\[\], op: OptionsItem) =\> void)|-|
 
 > Refs
 
@@ -57,18 +58,19 @@ Dropdown panel, showing options to choose from
 |----------|-------------|------|------|
 |options|Displayed list of options|OptionsItem\[\]|required|
 |useColumn|Use multi\-column label style, input true, it's 4 columns, and input number n, it will be n columns|number \| boolean|false|
+|icon|Icon on the right side of the options list|ReactNode|-|
 |multiple|Whether to support multiple selection|boolean|false|
-|defaultSelectedValue|Default checked value|number \| number\[\]|-|
-|selectedValue|The currently selected option value|number \| number\[\]|-|
-|onOptionClick|Callback when clicking option|((val: number, op: OptionsItem) =\> void) \| ((selected: boolean, val: number, op: OptionsItem) =\> void)|-|
-|onOptionChange|Callback when the option changes|((val: number, op: OptionsItem) =\> void) \| ((vals: number\[\], op: OptionsItem) =\> void)|-|
+|defaultSelectedValue|Default checked value|string \| number \| ReactText\[\]|-|
+|selectedValue|The currently selected option value|string \| number \| ReactText\[\]|-|
+|onOptionClick|Callback when clicking option|((val: ReactText, op: OptionsItem) =\> void) \| ((selected: boolean, val: ReactText, op: OptionsItem) =\> void)|-|
+|onOptionChange|Callback when the option changes|((val: ReactText, op: OptionsItem) =\> void) \| ((vals: ReactText\[\], op: OptionsItem) =\> void)|-|
 
 > OptionsItem
 
 |Property|Description|Type|
 |----------|-------------|------|
 |label|option label|ReactNode|
-|value|option value|number|
+|value|option value|ReactText|
 |disabled|Whether the option is available, the default false means available|boolean|
 
 > DropdownOptionsRef

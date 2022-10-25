@@ -19,7 +19,7 @@
             },
             "descWithTags": "自定义类名",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -36,7 +36,7 @@
             },
             "descWithTags": "自定义样式",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -46,14 +46,14 @@
         },
         "tabs": {
             "defaultValue": null,
-            "description": "TabBar内容数组，除必填项外也可附加其他数据\n@en Array of TabBar content, additional data can be appended in addition to the required fields",
+            "description": "TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹\n@en Array of TabBar content, additional data can be appended in addition to the required fields",
             "name": "tabs",
             "tags": {
                 "en": "Array of TabBar content, additional data can be appended in addition to the required fields"
             },
-            "descWithTags": "TabBar内容数组，除必填项外也可附加其他数据",
+            "descWithTags": "TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": true,
@@ -70,7 +70,7 @@
             },
             "descWithTags": "TabPane内容",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -87,7 +87,7 @@
             },
             "descWithTags": "当前活动tab index，传入则为受控",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -107,7 +107,7 @@
             },
             "descWithTags": "初始tab index值",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -124,7 +124,7 @@
             },
             "descWithTags": "是否禁用切换，包括点击TabBar切换和滑动切换",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -144,7 +144,7 @@
             },
             "descWithTags": "TabBar位置",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -179,7 +179,7 @@
             },
             "descWithTags": "TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -211,7 +211,7 @@
             },
             "descWithTags": "是否TabBar超出屏幕时靠左滚动排列",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -228,7 +228,7 @@
             },
             "descWithTags": "TabBar是否顶部固定",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -245,7 +245,7 @@
             },
             "descWithTags": "tabBar额外渲染内容",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -265,7 +265,7 @@
             },
             "descWithTags": "tabBar滚动时变化的bezier曲线值",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -285,7 +285,7 @@
             },
             "descWithTags": "tabBar滚动过渡时长，单位ms",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -305,7 +305,7 @@
             },
             "descWithTags": "tabBar滚动时机，`jump`表示在跳转tab时，`after-jump`表示跳转动画执行后，`none`表示切换tab后不自动滚动",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -334,7 +334,7 @@
             },
             "descWithTags": "tabBar是否有分割线",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -354,7 +354,7 @@
             },
             "descWithTags": "在竖向滚动tabPane时，自动重设tabBar滚动位置的时机",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -386,7 +386,7 @@
             },
             "descWithTags": "页签的样式，line为顺次排布，line-divide为等分间距排布，card为分段器式排布",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -424,7 +424,7 @@
             },
             "descWithTags": "是否允许滑动",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -444,7 +444,7 @@
             },
             "descWithTags": "TabBar下划线滑动动画切换时间，单位ms",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -464,7 +464,7 @@
             },
             "descWithTags": "是否为全屏(100%)布局",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -484,7 +484,7 @@
             },
             "descWithTags": "容器高度自适应，仅在mode=swipe且是垂直布局时生效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -504,7 +504,7 @@
             },
             "descWithTags": "swipe模式下表示手指抬起后到动画结束时间，scroll模式下表示点击tab后滚动过渡时间，单位ms",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -524,7 +524,7 @@
             },
             "descWithTags": "是否使用毛毛虫效果",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -544,7 +544,7 @@
             },
             "descWithTags": "使用毛毛虫效果时，执行动画更改的属性，`scale`表示更改 transform: scale 值，`size`表示更改宽高值。一般在避免border-radius被scale拉伸的情况会使用`size`，但需注意其性能不如`scale`",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -573,7 +573,7 @@
             },
             "descWithTags": "毛毛虫效果开启时，TabBar下划线最长延展倍数（相对于自身长度）",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -593,7 +593,7 @@
             },
             "descWithTags": "滑动切换距离阈值(宽度比例)，范围为[0, 1]，如果该属性和`distanceToChangeTab`属性均设置，则实际计算结果更大的生效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -613,7 +613,7 @@
             },
             "descWithTags": "滑动切换距离阈值(固定px宽度)，如果该属性和`percentToChangeTab`属性均设置，则实际计算结果更大的生效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -633,7 +633,7 @@
             },
             "descWithTags": "滑动切换速度阈值(手指从按下到抬起之间的滑动速度，单位为px/s)，与滑动切换距离阈值同时设置时，满足其中一个即生效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -653,7 +653,7 @@
             },
             "descWithTags": "点击tab切换时禁用动画",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -670,7 +670,7 @@
             },
             "descWithTags": "只加载当前页相邻的n个内容，为0时会隐藏/销毁所有相邻内容，不传则加载所有内容，在mode=swipe时生效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -690,7 +690,7 @@
             },
             "descWithTags": "当开启懒加载时，针对不在懒加载范围内的内容设置样式，传入null则销毁内容",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -707,7 +707,7 @@
             },
             "descWithTags": "自行渲染不在懒加载范围内的pane，其中参数pane代表第index个tab原本要渲染的内容",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -724,7 +724,7 @@
             },
             "descWithTags": "在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -744,7 +744,7 @@
             },
             "descWithTags": "TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -764,7 +764,7 @@
             },
             "descWithTags": "是否展示下划线",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -784,7 +784,7 @@
             },
             "descWithTags": "触发onTouchStopped的最小阈值",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -804,7 +804,7 @@
             },
             "descWithTags": "距离屏幕边缘多远开始向右滑动时禁用tabs滑动事件",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -824,7 +824,7 @@
             },
             "descWithTags": "swipe 模式下，触摸事件是否需要 stopPropagation",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -841,7 +841,7 @@
             },
             "descWithTags": "swipe 模式下，组件内部的滚动容器，用于豁免滑动事件响应",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -861,7 +861,7 @@
             },
             "descWithTags": "tabs切换模式，swipe为滑动模式，scroll为滚动监听模式",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -887,7 +887,7 @@
             },
             "descWithTags": "滚动模式下的滚动容器，用于监听滚动事件，mode=scroll 时有效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -907,7 +907,7 @@
             },
             "descWithTags": "滚动模式下的节流粒度，mode=scroll 时有效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -927,7 +927,7 @@
             },
             "descWithTags": "滚动模式下判断tab切换的偏移量，正数为向下偏移，负数为向上偏移，mode=scroll 时有效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -948,7 +948,7 @@
             },
             "descWithTags": "滚动模式下，在组件初始加载时是否需要自动滚动到当前所选位置，mode=scroll 时有效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -968,7 +968,7 @@
             },
             "descWithTags": "当滚动到最底部时，如果最后一个pane尚未到达底部，是否强行选中，mode=scroll 时有效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -988,7 +988,7 @@
             },
             "descWithTags": "是否监听垂直方向的滚动，否则监听水平方向滚动",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1005,7 +1005,7 @@
             },
             "descWithTags": "TabBar外层容器自定义类名",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1022,7 +1022,7 @@
             },
             "descWithTags": "TabPane外层容器自定义类名",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1039,7 +1039,7 @@
             },
             "descWithTags": "TabBar外层容器自定义样式",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1056,7 +1056,7 @@
             },
             "descWithTags": "TabPane外层容器自定义样式",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1073,7 +1073,7 @@
             },
             "descWithTags": "TabPane额外渲染元素，需绝对定位",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1093,7 +1093,7 @@
             },
             "descWithTags": "TabPane和TabBar开启translateZ",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1110,7 +1110,7 @@
             },
             "descWithTags": "当滑到第一页或最后一页，还想再滑动时触发",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1127,7 +1127,7 @@
             },
             "descWithTags": "tab变化回调",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1144,7 +1144,7 @@
             },
             "descWithTags": "tab变化且动画执行完毕后回调",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1161,7 +1161,7 @@
             },
             "descWithTags": "TabBar点击的事件",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1178,7 +1178,7 @@
             },
             "descWithTags": "TabBar超出屏幕状态切换回调",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1195,7 +1195,7 @@
             },
             "descWithTags": "TabPane touchstart事件",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1212,7 +1212,7 @@
             },
             "descWithTags": "TabPane touchmove事件",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1229,7 +1229,7 @@
             },
             "descWithTags": "TabPane touchend / touchcancel事件",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1246,7 +1246,7 @@
             },
             "descWithTags": "TabBar在溢出滚动时回调",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1263,7 +1263,7 @@
             },
             "descWithTags": "tabs 左右滑动时回调，用于监听滑动距离以做滑动同步交互",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1280,7 +1280,7 @@
             },
             "descWithTags": "mode=scroll 时，触发滚动容器滚动回调",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1297,7 +1297,7 @@
             },
             "descWithTags": "自行渲染TabBar的下划线",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1314,7 +1314,7 @@
             },
             "descWithTags": "自行渲染TabBar，常用于与Sticky配合使用",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1331,7 +1331,7 @@
             },
             "descWithTags": "自行渲染TabBar的每一个item",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1349,7 +1349,7 @@
             },
             "descWithTags": "自行渲染TabBar内部内容，当需要给 .@{prefix}-tab-cell 外层再嵌套一层dom时使用",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1366,7 +1366,7 @@
             },
             "descWithTags": "tabBar间隙，type=line时有效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1383,7 +1383,7 @@
             },
             "descWithTags": "TabBar两侧留白宽度，type=line时有效",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1400,7 +1400,7 @@
             },
             "descWithTags": "TabBar下划线长度",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1417,7 +1417,7 @@
             },
             "descWithTags": "TabBar下划线厚度",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1434,7 +1434,7 @@
             },
             "descWithTags": "TabBar下划线内部样式，作用于 tab-cell-underline-inner",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/tabs/index.tsx",
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
@@ -1631,7 +1631,7 @@
             "tabs": {
                 "name": "tabs",
                 "required": true,
-                "description": "TabBar内容数组，除必填项外也可附加其他数据\n@en Array of TabBar content, additional data can be appended in addition to the required fields",
+                "description": "TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹\n@en Array of TabBar content, additional data can be appended in addition to the required fields",
                 "defaultValue": null,
                 "type": {
                     "name": "TabData[]"
@@ -1639,7 +1639,7 @@
                 "tags": {
                     "en": "Array of TabBar content, additional data can be appended in addition to the required fields"
                 },
-                "descWithTags": "TabBar内容数组，除必填项外也可附加其他数据"
+                "descWithTags": "TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹"
             },
             "disabled": {
                 "name": "disabled",

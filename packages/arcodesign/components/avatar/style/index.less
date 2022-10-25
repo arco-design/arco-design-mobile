@@ -2,16 +2,6 @@
 
 @size-map: @avatar-size-map;
 
-.@{prefix}-avatar-wrapper {
-    display: inline-block;
-    .set-with-info-avatar-size(length(@size-map));
-
-    &.with-info {
-        display: flex;
-        align-items: center;
-    }
-}
-
 .@{prefix}-avatar {
     position: relative;
     font-size: 0;
@@ -20,21 +10,23 @@
     justify-content: center;
     .use-var(color, avatar-text-font-color);
     .use-var(background-color, avatar-background);
-    &.@{prefix}-image-avatar {
+
+    &-mode-image {
         background-color: transparent;
     }
 
-    &.default-overlap {
+    &-default-overlap {
         .use-var(background-color, avatar-default-overlap-background);
     }
 
-    &.circle {
+    &-shape-circle {
         .set-avatar-radius(50%);
     }
 
-    &.square {
+    &-shape-square {
         .set-avatar-radius(.08rem);
     }
+
     .set-avatar-size(length(@size-map));
 
     &-img {
@@ -50,26 +42,34 @@
         flex: 0 0 auto;
         font-weight: bold;
     }
-}
 
-.@{prefix}-avatar-info {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    .rem(margin-left, 16);
-}
+    &-wrapper {
+        display: inline-block;
 
-.@{prefix}-avatar-name {
-    .use-var(color, avatar-name-color);
-}
+        &-with-info {
+            display: flex;
+            align-items: center;
+        }
+    }
 
-.@{prefix}-avatar-desc {
-    .use-var(color, avatar-desc-color);
-}
+    &-info {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .rem(margin-left, 16);
+    }
 
+    &-name {
+        .use-var(color, avatar-name-color);
+    }
+
+    &-desc {
+        .use-var(color, avatar-desc-color);
+    }
+}
 
 .@{prefix}-avatar-group {
-    .@{prefix}-avatar-wrapper.circle {
+    .@{prefix}-avatar-wrapper-shape-circle {
         position: relative; // 为了让z-index属性生效
 
         &:first-child {
@@ -92,39 +92,12 @@
     }
 }
 
-// 循环设置各头像大小的属性
-
-.set-with-info-avatar-size(@index) when (@index > 0) {
-
-    @size: extract(@size-map, @index);
-
-    // 有辅助信息的样式
-    &.with-info.@{size} {
-        .use-var(height, "avatar-info-box-@{size}-size");
-    }
-
-    // 用户名样式
-    &.@{size} .@{prefix}-avatar-name {
-        .use-var(font-size, "avatar-name-@{size}-font-size");
-        .use-var(line-height, "avatar-name-@{size}-line-height");
-    }
-
-    // 用户描述样式
-    &.@{size} .@{prefix}-avatar-desc {
-        .use-var(margin-top, "avatar-desc-@{size}-margin-top");
-        .use-var(font-size, "avatar-desc-@{size}-font-size");
-        .use-var(line-height, "avatar-desc-@{size}-line-height");
-    }
-
-    .set-with-info-avatar-size(@index - 1);
-}
-
 // 循环设置头像叠层的样式
 .set-avatar-group-size(@index) when (@index > 0) {
 
     @size: extract(@size-map, @index);
 
-    &.group-@{size} {
+    &-size-@{size} {
         .@{prefix}-avatar-wrapper {
             .use-var(margin-left, "avatar-group-@{size}-size-offset");
         }
@@ -141,24 +114,33 @@
 
     @size: extract(@size-map, @index);
 
-    &.group-@{size} {
-        .@{prefix}-avatar-wrapper {
-            .use-var(margin-left, "avatar-group-@{size}-size-offset");
-        }
-        .@{prefix}-avatar {
-            .use-var(border-width, "avatar-group-@{size}-size-border");
-        }
-    }
-
-    &.@{size} {
+    &-size-@{size} {
         .use-var(width, "avatar-@{size}-size");
         .use-var(height, "avatar-@{size}-size");
-        .@{prefix}-avatar-default {
-            .use-var(font-size, "avatar-default-overlap-@{size}-size");
-        }
-        .@{prefix}-avatar-text {
-            .use-var(font-size, "avatar-@{size}-text-font-size");
-        }
+    }
+    &-default-icon-size-@{size} {
+        .use-var(font-size, "avatar-default-overlap-@{size}-size");
+    }
+    &-text-size-@{size} {
+        .use-var(font-size, "avatar-@{size}-text-font-size");
+    }
+
+    // 有辅助信息的样式
+    &-wrapper-with-info-size-@{size} {
+        .use-var(height, "avatar-info-box-@{size}-size");
+    }
+
+    // 用户名样式
+    &-name-size-@{size} {
+        .use-var(font-size, "avatar-name-@{size}-font-size");
+        .use-var(line-height, "avatar-name-@{size}-line-height");
+    }
+
+    // 用户描述样式
+    &-desc-size-@{size} {
+        .use-var(margin-top, "avatar-desc-@{size}-margin-top");
+        .use-var(font-size, "avatar-desc-@{size}-font-size");
+        .use-var(line-height, "avatar-desc-@{size}-line-height");
     }
 
     .set-avatar-size(@index - 1);

@@ -6,147 +6,17 @@ import React, {
     useState,
     useEffect,
     CSSProperties,
-    useMemo,
 } from 'react';
-import {
-    cls,
-    scrollWithAnimation,
-    nextTick,
-    addCssKeyframes,
-    removeCssStyleDom,
-} from '@arco-design/mobile-utils';
-import { TabsProps, UnderlineStyle, TabData } from '.';
-import { useSystem, getStyleWithVendor, useRefState } from '../_helpers';
+import { cls, scrollWithAnimation, nextTick } from '@arco-design/mobile-utils';
+import { TabData, TabCellProps, TabCellRef, TabCellUnderlineRef } from './type';
+import { useSystem } from '../_helpers';
+import TabCellUnderline from './tab-cell-underline';
 
 interface OffsetRect {
     left: number;
     top: number;
     width: number;
     height: number;
-}
-
-export interface TabCellProps
-    extends Pick<
-        TabsProps,
-        | 'tabs'
-        | 'type'
-        | 'onTabClick'
-        | 'tabBarPosition'
-        | 'tabBarArrange'
-        | 'tabBarScroll'
-        | 'tabBarFixed'
-        | 'renderUnderline'
-        | 'duration'
-        | 'transitionDuration'
-        | 'useCaterpillar'
-        | 'tabBarExtra'
-        | 'onTabBarOverflowChange'
-        | 'tabBarGutter'
-        | 'tabBarPadding'
-        | 'underlineSize'
-        | 'underlineThick'
-        | 'underlineInnerStyle'
-        | 'caterpillarMaxScale'
-        | 'caterpillarProperty'
-        | 'onTabBarScroll'
-        | 'hideTabBarBeforeMounted'
-        | 'tabBarScrollBezier'
-        | 'tabBarScrollDuration'
-        | 'tabBarScrollChance'
-        | 'tabBarHasDivider'
-        | 'tabBarStyle'
-        | 'tabBarClass'
-        | 'mode'
-        | 'overflowThreshold'
-        | 'showUnderline'
-        | 'disabled'
-        | 'renderTabBarItem'
-        | 'renderTabBarInner'
-        | 'translateZ'
-    > {
-    /**
-     * 类前缀
-     * @en prefix classname
-     */
-    prefixCls?: string;
-    /**
-     * 当前选中 Tab
-     * @en Currently selected Tab
-     */
-    activeIndex: number;
-    /**
-     * 当前选中 Tab ref
-     * @en Currently selected Tab ref
-     */
-    activeIndexRef: React.MutableRefObject<number>;
-    /**
-     * Tab 布局方向，横向 or 竖向
-     * @en Tab layout direction, horizontal or vertical
-     */
-    tabDirection: 'horizontal' | 'vertical';
-    /**
-     * 修改选中 Tab
-     * @en Modify selected Tab
-     */
-    changeIndex: (newIndex: number, from?: string) => void;
-    /**
-     * 外层容器宽度
-     * @en Wrapper container width
-     */
-    wrapWidth: number;
-    /**
-     * 外层容器高度
-     * @en Wrapper container height
-     */
-    wrapHeight: number;
-    /**
-     * TabBar是否启用过渡效果
-     * @en Whether the TabBar enables transition effects
-     */
-    cellTrans: boolean;
-    /**
-     * 手指滑动距离
-     * @en Finger sliding distance
-     */
-    distance: number;
-    /**
-     * 下划线已滑动的距离
-     * @en The distance the underline has been swiped
-     */
-    jumpingDis: number;
-}
-
-export interface TabCellRef {
-    /**
-     * 外层元素 DOM
-     * @en Outer element DOM
-     */
-    dom: HTMLDivElement | null;
-    /**
-     * 当前 TabBar 宽度是否已溢出
-     * @en Whether the current TabBar width has overflowed
-     */
-    hasOverflow: boolean;
-    /**
-     * 滚动 bar 到指定位置，tabs 上下布局时是以 x 轴滚动，左右布局时以 y 轴滚动
-     * @en Scroll the bar to the specified position, the tabs are scrolled on the x-axis when the tabs are laid out up and down, and the y-axis is scrolled when the tabs are laid out left and right
-     */
-    scrollTo: (position: number, rightNow?: boolean) => void;
-    /**
-     * 滚动 bar 使当前选中item到屏幕中间
-     * @en Scroll the bar to bring the currently selected item to the middle of the screen
-     */
-    scrollToCenter: (rightNow?: boolean) => void;
-    /**
-     * 触发毛毛虫动画
-     * @en Trigger caterpillar animation
-     */
-    setCaterpillarAnimate: (ratio?: number) => void;
-    /**
-     * 重新计算下划线样式
-     * @en Recalculate underline style
-     */
-    resetUnderlineStyle: () => void;
 }
 
 const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
@@ -198,12 +68,9 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     } = props;
     const prefix = `${prefixCls}-tab-cell`;
     const domRef = useRef<HTMLDivElement | null>(null);
-    const lineRef = useRef<HTMLDivElement | null>(null);
-    const timeRef = useRef(0);
+    const underlineRef = useRef<TabCellUnderlineRef>(null);
     const allCellRectRef = useRef<OffsetRect[]>([]);
-    const [underlineStyle, setUnderlineStyle] = useState<UnderlineStyle>({});
-    const [caterpillar, caterpillarRef, setCaterpillar] = useRefState(false);
-    const [caterpillarDelay, setCaterpillarDelay] = useState(0);
+    const [showLine, setShowLine] = useState(false);
     const [hasOverflow, setHasOverflow] = useState(false);
     const [originArrange, setOriginArrange] = useState(() =>
         tabs.length < overflowThreshold ? tabBarArrange : 'start',
@@ -214,7 +81,6 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
             ? tabs.length < overflowThreshold || activeIndex === 0
             : !hideTabBarBeforeMounted,
     );
-    const [showLine, setShowLine] = useState(false);
     const isVertical = tabDirection === 'vertical';
     const isLine = (type || '').indexOf('line') !== -1;
     const isCard = type === 'card';
@@ -226,67 +92,8 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     const cellGutter = isCard ? void 0 : tabBarGutter;
     const hasDivider = tabBarHasDivider === void 0 ? isLine : tabBarHasDivider;
     const wrapSize = isVertical ? wrapWidth : wrapHeight;
-    const translateZStr = translateZ ? ' translateZ(0)' : '';
 
     const system = useSystem();
-    const maxScaleWithDefault = caterpillarMaxScale || 2;
-    const animationKey = useMemo(() => {
-        if (!showUnderline || !useCaterpillar) {
-            return '';
-        }
-        if (caterpillarProperty === 'size') {
-            return `tabsCaterpillar${isVertical ? 'W' : 'H'}${maxScaleWithDefault}`;
-        }
-        if (caterpillarMaxScale) {
-            return `tabsCaterpillar${isVertical ? 'X' : 'Y'}${caterpillarMaxScale}`;
-        }
-        return '';
-    }, [showUnderline, useCaterpillar, isVertical, caterpillarMaxScale, caterpillarProperty]);
-
-    useEffect(() => {
-        if (!animationKey) {
-            return;
-        }
-        const dir = isVertical ? 'X' : 'Y';
-        if (caterpillarProperty === 'size') {
-            const attr = isVertical ? 'width' : 'height';
-            addCssKeyframes(
-                animationKey,
-                `{
-                    0% {
-                        ${attr}: 100%;
-                    }
-                    50% {
-                        ${attr}: ${100 * maxScaleWithDefault}%;
-                    }
-                    100% {
-                        ${attr}: 100%;
-                    }
-                }`,
-            );
-            return;
-        }
-        addCssKeyframes(
-            animationKey,
-            `{
-                0% {
-                    transform: scale${dir}(1)${translateZStr};
-                    -webkit-transform: scale${dir}(1)${translateZStr};
-                }
-                50% {
-                    transform: scale${dir}(${caterpillarMaxScale})${translateZStr};
-                    -webkit-transform: scale${dir}(${caterpillarMaxScale})${translateZStr};
-                }
-                100% {
-                    transform: scale${dir}(1)${translateZStr};
-                    -webkit-transform: scale${dir}(1)${translateZStr};
-                }
-            }`,
-        );
-        return () => {
-            removeCssStyleDom(animationKey);
-        };
-    }, [animationKey]);
 
     useEffect(() => {
         nextTick(() => {
@@ -302,23 +109,8 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     }, [domRef.current, wrapSize, tabs]);
 
     useEffect(() => {
-        resetUnderlineStyle();
-    }, [
-        useCaterpillar,
-        caterpillar,
-        cellTrans,
-        duration,
-        tabDirection,
-        wrapWidth,
-        wrapHeight,
-        distance,
-        animationKey,
-        caterpillarDelay,
-    ]);
-
-    useEffect(() => {
         nextTick(() => {
-            resetUnderlineStyle();
+            underlineRef.current?.resetUnderlineStyle();
         });
     }, [
         activeIndex,
@@ -336,10 +128,10 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
             scrollTo,
             scrollToCenter,
             hasOverflow,
-            setCaterpillarAnimate,
-            resetUnderlineStyle,
+            setCaterpillarAnimate: ratio => underlineRef.current?.setCaterpillarAnimate(ratio),
+            resetUnderlineStyle: () => underlineRef.current?.resetUnderlineStyle(),
         }),
-        [scrollToCenter, scrollTo, hasOverflow, setCaterpillarAnimate, resetUnderlineStyle],
+        [scrollToCenter, scrollTo, hasOverflow],
     );
 
     useEffect(() => {
@@ -371,17 +163,6 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
             }
         };
     }, [hasOverflow]);
-
-    useEffect(() => {
-        if (jumpingDis && useCaterpillar && system !== 'ios') {
-            const movedRatio = wrapWidth ? jumpingDis / wrapWidth : 0;
-            setCaterpillarAnimate(movedRatio);
-        }
-    }, [jumpingDis]);
-
-    function resetUnderlineStyle() {
-        setUnderlineStyle(getUnderlineStyle());
-    }
 
     function setCellOverflow() {
         let overflow = false;
@@ -452,121 +233,11 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         }
     }
 
-    function getUnderlineStyle(): UnderlineStyle {
-        const transStyle: CSSProperties = {};
-        if (useCaterpillar) {
-            transStyle.animationDuration = `${duration}ms`;
-        }
-        if (caterpillarRef.current && animationKey) {
-            transStyle.animationName = animationKey;
-        }
-        if (caterpillarDelay) {
-            transStyle.animationDelay = `-${caterpillarDelay}ms`;
-        }
-        const lineStyle: UnderlineStyle = getLineStyle();
-        return {
-            outer: getStyleWithVendor({
-                transitionDuration: cellTrans ? `${duration}ms` : '0ms',
-                ...(lineStyle.outer || {}),
-            }),
-            inner: getStyleWithVendor({
-                ...transStyle,
-                ...(lineStyle.inner || {}),
-            }),
-        };
-    }
-
-    function getLineStyle(): UnderlineStyle {
-        if (!lineRef.current || !domRef.current) {
-            return {};
-        }
-        const currentLeft = getLineLeft(activeIndex);
-        const descIndex = getDescIndex();
-        const descLeft = getLineLeft(descIndex);
-        const moveRatio = wrapWidth ? distance / wrapWidth : 0;
-        const leftOffset = moveRatio * (currentLeft - descLeft);
-        const direc = isVertical ? 'X' : 'Y';
-        const transStyle =
-            useCaterpillar && !jumpingDis
-                ? caterpillarProperty === 'size'
-                    ? {
-                          [isVertical ? 'width' : 'height']: `${100 * getLineScale(moveRatio)}%`,
-                          willChange: 'width',
-                      }
-                    : {
-                          transform: `scale${direc}(${getLineScale(moveRatio)})`,
-                      }
-                : {};
-        const outerSize = isVertical
-            ? {
-                  width: underlineSize,
-                  height: underlineThick,
-              }
-            : {
-                  height: underlineSize,
-                  width: underlineThick,
-              };
-        return {
-            outer: {
-                transform: `translate${direc}(${
-                    distance > 0 ? currentLeft - leftOffset : currentLeft + leftOffset
-                }px)${translateZStr}`,
-                ...outerSize,
-            },
-            inner: {
-                ...transStyle,
-            },
-        };
-    }
-
-    function getLineLeft(index) {
-        const offsetSize = isVertical
-            ? lineRef.current?.offsetWidth
-            : lineRef.current?.offsetHeight;
-        const lineWidth = offsetSize || 0;
-        return getTabCenterLeft(index) - lineWidth / 2;
-    }
-
-    function getTabCenterLeft(index) {
+    function getTabCenterLeft(index: number) {
         const currentTab = allCellRectRef.current[index] || {};
         const currentTabWidth = (isVertical ? currentTab.width : currentTab.height) || 0;
         const currentTabLeft = (isVertical ? currentTab.left : currentTab.top) || 0;
         return currentTabLeft + currentTabWidth / 2;
-    }
-
-    function getLineScale(ratio: number) {
-        const absRatio = Math.abs(ratio);
-        return absRatio > 0.5
-            ? (1 - absRatio) * 2 * (maxScaleWithDefault - 1) + 1
-            : absRatio * 2 * (maxScaleWithDefault - 1) + 1;
-    }
-
-    function getDescIndex() {
-        if (distance > 0) {
-            return activeIndex - 1;
-        }
-        if (distance < 0) {
-            return activeIndex + 1;
-        }
-        return activeIndex;
-    }
-
-    function setCaterpillarAnimate(movedRatio = 0) {
-        if (!duration) {
-            return;
-        }
-        const movedTime = (duration || 0) * Math.abs(movedRatio);
-        setCaterpillarDelay(movedTime);
-        nextTick(() => {
-            setCaterpillar(true);
-        });
-        if (timeRef.current) {
-            clearTimeout(timeRef.current);
-        }
-        timeRef.current = window.setTimeout(() => {
-            setCaterpillar(false);
-            setCaterpillarDelay(0);
-        }, (duration || 0) - movedTime + 20);
     }
 
     function getCellPadding(pType: 'left' | 'right') {
@@ -602,30 +273,32 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         if (!showUnderline || !isLine) {
             return null;
         }
-        return renderUnderline ? (
-            renderUnderline(underlineStyle, showLine, lineRef)
-        ) : (
-            <div
-                className={cls(`${prefix}-underline`, { show: showLine })}
-                ref={lineRef}
-                style={underlineStyle.outer}
-            >
-                <div
-                    className={cls(
-                        `${prefix}-underline-inner`,
-                        {
-                            caterpillar,
-                            'custom-animate': animationKey,
-                            'caterpillar-moving': caterpillar || (useCaterpillar && distance),
-                        },
-                        tabDirection,
-                    )}
-                    style={{
-                        ...(underlineStyle.inner || {}),
-                        ...(underlineInnerStyle || {}),
-                    }}
-                />
-            </div>
+        const lineProps = {
+            prefix,
+            showLine,
+            useCaterpillar,
+            distance,
+            tabDirection,
+            underlineInnerStyle,
+            cellTrans,
+            duration,
+            activeIndex,
+            wrapWidth,
+            wrapHeight,
+            jumpingDis,
+            caterpillarMaxScale,
+            caterpillarProperty,
+            translateZ,
+            underlineSize,
+            underlineThick,
+            renderUnderline,
+        };
+        return (
+            <TabCellUnderline
+                ref={underlineRef}
+                getTabCenterLeft={getTabCenterLeft}
+                {...lineProps}
+            />
         );
     }
 

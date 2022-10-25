@@ -1,10 +1,10 @@
 <div align="center">
-  <a href="https://arco.design/mobile/react" target="_blank">
-    <img alt="Arco Design Logo" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
-  </a>
+    <a href="https://arco.design/mobile/react" target="_blank">
+        <img alt="Arco Design Logo" width="200" src="https://avatars.githubusercontent.com/u/64576149?s=200&v=4"/>
+    </a>
 </div>
 <div align="center">
-  <h1>Arco Design Mobile</h1>
+    <h1>Arco Design Mobile</h1>
 </div>
 
 <div align="center">
@@ -90,8 +90,22 @@ Developers interested in contributing should read the [Code of Conduct](./CODE_O
 
 Thank you to all the people who already contributed to Arco Design Mobile!
 
+<a href="https://github.com/arco-design/arco-design-mobile/graphs/contributors"><img src="https://contrib.rocks/image?repo=arco-design/arco-design-mobile" style="height: 50px" /></a>
+
+And our former comrades:
+
+<a href="https://github.com/wuyadream"><img src="https://github.com/wuyadream.png" style="height: 50px; border-radius: 50%" /></a>
+<a href="https://github.com/Ariussssss"><img src="https://github.com/Ariussssss.png" style="height: 50px; border-radius: 50%" /></a>
+<a href="https://github.com/WindyZYY"><img src="https://github.com/WindyZYY.png" style="height: 50px; border-radius: 50%" /></a>
+<a href="https://github.com/10000lance"><img src="https://github.com/10000lance.png" style="height: 50px; border-radius: 50%" /></a>
+<a href="https://github.com/GitHubzhangshuai"><img src="https://github.com/GitHubzhangshuai.png" style="height: 50px; border-radius: 50%" /></a>
+
 # License
 
 This project is [MIT licensed](./LICENSE).
 
-[![Star History Chart](https://api.star-history.com/svg?repos=arco-design/arco-design-mobile&type=Date)](https://star-history.com/#arco-design/arco-design-mobile&Date)
+<br/><br/>
+
+<div align="center">
+    <a href="https://star-history.com/#arco-design/arco-design-mobile&Date"><img src="https://api.star-history.com/svg?repos=arco-design/arco-design-mobile&type=Date" style="max-width: 100%; width: 550px"/></a>
+</div>

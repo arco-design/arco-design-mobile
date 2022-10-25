@@ -286,7 +286,7 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
  * @en Slide input component, displays the current value and optional range.
  * @name 滑动输入条
  * @name_en Slider
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  */
 const SliderWrapper = forwardRef((props: SliderProps, ref: Ref<SliderRef>) => {

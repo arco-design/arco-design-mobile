@@ -1,0 +1,513 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`swipe-action demo test swipe-action demo: custom-color.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-swipe-action "
+      style="transition-duration:0.5s;transform:translateX(0px)"
+    >
+      <div
+        class="arco-swipe-action-menu-left arco-swipe-action-menu"
+      />
+      <div
+        class="arco-swipe-action-content"
+      >
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                自定义颜色
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-swipe-action-menu-right arco-swipe-action-menu"
+      >
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:1;background:#86909C"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              取消置顶
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:2;background:#F53F3F"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              删除
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`swipe-action demo test swipe-action demo: custom-style.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-swipe-action "
+      style="transition-duration:0.5s;transform:translateX(0px)"
+    >
+      <div
+        class="arco-swipe-action-menu-left arco-swipe-action-menu"
+      />
+      <div
+        class="arco-swipe-action-content"
+      >
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                自定义样式
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-swipe-action-menu-right arco-swipe-action-menu"
+      >
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:1;background:#FFB400"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-icon"
+            >
+              <svg
+                class="arco-icon arco-icon-star "
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M268.437 941.29a35.563 35.563 0 01-50.773-35.733l25.899-248.49a35.563 35.563 0 00-8.896-27.456L66.176 442.155a35.563 35.563 0 0119.008-58.539l246.507-52.608a35.563 35.563 0 0023.36-16.96L481.237 95.872a35.563 35.563 0 0161.568 0l126.187 218.176a35.525 35.525 0 0023.36 16.96l246.507 52.608a35.563 35.563 0 0119.008 58.539L789.376 629.61a35.533 35.533 0 00-8.917 27.456l25.898 248.49a35.563 35.563 0 01-50.773 35.734l-228.16-109.739a35.563 35.563 0 00-30.805 0L268.459 941.29zm191.147-186.645a120.896 120.896 0 01104.81 0l147.84 71.104-16.682-159.829a120.896 120.896 0 0130.336-93.355L836.864 449.11l-162.347-34.645a120.896 120.896 0 01-79.402-57.685L512 213.099l-83.115 143.68a120.896 120.896 0 01-79.402 57.685l-162.347 34.645 110.976 123.456a120.896 120.896 0 0130.336 93.355l-16.683 159.83 147.84-71.105z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              收藏
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:2;background:#F53F3F"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-icon"
+            >
+              <svg
+                class="arco-icon arco-icon-delete "
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M640 85.333A42.667 42.667 0 01682.667 128l-.022 42.645 228.694.022c9.493 0 12.928.981 16.426 2.858a19.41 19.41 0 018.043 8.064c1.877 3.478 2.859 6.912 2.859 16.427v30.635c0 9.514-.982 12.949-2.859 16.426a19.392 19.392 0 01-8.064 8.064c-3.477 1.878-6.912 2.859-16.427 2.859l-57.984-.021V896a42.667 42.667 0 01-42.666 42.667H213.333A42.667 42.667 0 01170.667 896l-.022-640.021-57.962.021c-9.515 0-12.95-.981-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.426v-30.635c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.858 16.427-2.858l228.629-.022.021-42.645A42.667 42.667 0 01384 85.333h256zM768 256H256v597.333h512V256zM448 384a21.333 21.333 0 0121.333 21.333V704A21.333 21.333 0 01448 725.333h-42.667A21.333 21.333 0 01384 704V405.333A21.333 21.333 0 01405.333 384H448zm170.667 0A21.333 21.333 0 01640 405.333V704a21.333 21.333 0 01-21.333 21.333H576A21.333 21.333 0 01554.667 704V405.333A21.333 21.333 0 01576 384h42.667z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              删除
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`swipe-action demo test swipe-action demo: left-right.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-swipe-action "
+      style="transition-duration:0.5s;transform:translateX(0px)"
+    >
+      <div
+        class="arco-swipe-action-menu-left arco-swipe-action-menu"
+      >
+        <div
+          class="arco-swipe-action-menu-action-left arco-swipe-action-menu-action-info-container"
+          style="z-index:1;background:#C9CDD4"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              置顶
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-swipe-action-menu-action-left arco-swipe-action-menu-action-info-container"
+          style="z-index:2;background:#F53F3F"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              删除
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-swipe-action-content"
+      >
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                左右滑动
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-swipe-action-menu-right arco-swipe-action-menu"
+      >
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:1;background:#C9CDD4"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              取消置顶
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:2;background:#F53F3F"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              删除
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`swipe-action demo test swipe-action demo: multiple-lines.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-swipe-action "
+      style="transition-duration:0.5s;transform:translateX(0px)"
+    >
+      <div
+        class="arco-swipe-action-menu-left arco-swipe-action-menu"
+      >
+        <div
+          class="arco-swipe-action-menu-action-left arco-swipe-action-menu-action-info-container"
+          style="z-index:1;background:#C9CDD4"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              置顶
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-swipe-action-menu-action-left arco-swipe-action-menu-action-info-container"
+          style="z-index:2;background:#F53F3F"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              删除
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-swipe-action-content"
+      >
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                多行数值
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+          </div>
+          辅助文字
+        </div>
+      </div>
+      <div
+        class="arco-swipe-action-menu-right arco-swipe-action-menu"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`swipe-action demo test swipe-action demo: secondary-confirmation.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-swipe-action "
+      style="transition-duration:0.5s;transform:translateX(0px)"
+    >
+      <div
+        class="arco-swipe-action-menu-left arco-swipe-action-menu"
+      />
+      <div
+        class="arco-swipe-action-content"
+      >
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                二次确认
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-swipe-action-menu-right arco-swipe-action-menu"
+      >
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:1;background:#C9CDD4"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              取消置顶
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:2;background:#F53F3F"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              删除
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`swipe-action demo test swipe-action demo: single-line.md renders correctly 1`] = `
+<div
+  class="arco-cell-group all-border-box"
+>
+  <div
+    class="cell-group-body"
+  >
+    <div
+      class="arco-swipe-action "
+      style="transition-duration:0.5s;transform:translateX(0px)"
+    >
+      <div
+        class="arco-swipe-action-menu-left arco-swipe-action-menu"
+      />
+      <div
+        class="arco-swipe-action-content"
+      >
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                单行数值
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-swipe-action-menu-right arco-swipe-action-menu"
+      >
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:1;background:#C9CDD4"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              置顶
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-swipe-action-menu-action-right arco-swipe-action-menu-action-info-container"
+          style="z-index:2;background:#F53F3F"
+        >
+          <div
+            class="arco-swipe-action-menu-action-info"
+          >
+            <div
+              class="arco-swipe-action-menu-action-info-text"
+            >
+              删除
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

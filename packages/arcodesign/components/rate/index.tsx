@@ -114,7 +114,7 @@ export interface RateRef {
 /**
  * 评分组件，支持受控模式
  * @en Rate component, supports controlled mode
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  * @name 评分
  * @name_en Rate

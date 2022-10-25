@@ -971,18 +971,6 @@
             "en": "Base font size used for rem conversion"
         }
     },
-    "buttonBorderColor": {
-        "cssKey": "button-border-color",
-        "desc": "border颜色",
-        "override": "button-border",
-        "value": "@primary-color",
-        "jsValue": "@global@primaryColor",
-        "staticValue": "#165dff",
-        "localeDesc": {
-            "ch": "border颜色",
-            "en": "Button Border color"
-        }
-    },
     "buttonDefaultBackground": {
         "cssKey": "button-default-background",
         "desc": "default 类型按钮背景色",
@@ -1139,6 +1127,18 @@
             "en": "Huge button font size"
         }
     },
+    "buttonIconTextGutter": {
+        "cssKey": "button-icon-text-gutter",
+        "desc": "按钮图标与文字的间距",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "按钮图标与文字的间距",
+            "en": "Gutter between icon and text"
+        }
+    },
     "buttonLargeHeight": {
         "cssKey": "button-large-height",
         "desc": "large 按钮高度",
@@ -1173,6 +1173,18 @@
         "localeDesc": {
             "ch": "large 按钮文字大小",
             "en": "Large button font size"
+        }
+    },
+    "buttonLineHeight": {
+        "cssKey": "button-line-height",
+        "desc": "按钮的行高",
+        "override": "button-border",
+        "value": "1.2",
+        "jsValue": "1.2",
+        "staticValue": "1.2",
+        "localeDesc": {
+            "ch": "按钮的行高",
+            "en": "Button line height"
         }
     },
     "buttonMediumHeight": {
@@ -1309,14 +1321,14 @@
     },
     "buttonRadius": {
         "cssKey": "button-radius",
-        "desc": "圆角大小",
+        "desc": "shape=semi时圆角大小",
         "override": "",
         "value": "2PX",
         "jsValue": "2PX",
         "staticValue": "2PX",
         "localeDesc": {
-            "ch": "圆角大小",
-            "en": "Button border radius"
+            "ch": "shape=semi时圆角大小",
+            "en": "Button border radius when shape=semi"
         }
     },
     "buttonSmallHeight": {
@@ -5579,6 +5591,294 @@
             "en": "Hidden scrollbar reserved width"
         }
     },
+    "searchBarAssociationBackgroundColor": {
+        "cssKey": "search-bar-association-background-color",
+        "desc": "搜索联想框背景颜色",
+        "override": "",
+        "value": "#FFFFFF",
+        "jsValue": "#FFFFFF",
+        "staticValue": "#FFFFFF",
+        "localeDesc": {
+            "ch": "搜索联想框背景颜色",
+            "en": "Background color of SearchBar association"
+        }
+    },
+    "searchBarAssociationItemColor": {
+        "cssKey": "search-bar-association-item-color",
+        "desc": "搜索联想框候选项普通文字颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "搜索联想框候选项普通文字颜色",
+            "en": "Color of SearchBar association item"
+        }
+    },
+    "searchBarAssociationItemFontSize": {
+        "cssKey": "search-bar-association-item-font-size",
+        "desc": "搜索联想框候选项字体大小",
+        "override": "",
+        "value": "~`pxtorem(15)`",
+        "jsValue": "@getRem@15",
+        "staticValue": "0.3rem",
+        "localeDesc": {
+            "ch": "搜索联想框候选项字体大小",
+            "en": "Fontsize of SearchBar association item"
+        }
+    },
+    "searchBarAssociationItemHeight": {
+        "cssKey": "search-bar-association-item-height",
+        "desc": "搜索联想框候选项高度",
+        "override": "",
+        "value": "~`pxtorem(52)`",
+        "jsValue": "@getRem@52",
+        "staticValue": "1.04rem",
+        "localeDesc": {
+            "ch": "搜索联想框候选项高度",
+            "en": "Height of SearchBar association item"
+        }
+    },
+    "searchBarAssociationItemHighlightColor": {
+        "cssKey": "search-bar-association-item-highlight-color",
+        "desc": "搜索联想框候选项高亮文案颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "搜索联想框候选项高亮文案颜色",
+            "en": "Color of SearchBar association item highlight text"
+        }
+    },
+    "searchBarAssociationItemPadding": {
+        "cssKey": "search-bar-association-item-padding",
+        "desc": "搜索联想框候选项内边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "搜索联想框候选项内边距",
+            "en": "Padding of SearchBar association item"
+        }
+    },
+    "searchBarBackgroundColor": {
+        "cssKey": "search-bar-background-color",
+        "desc": "搜索栏背景颜色",
+        "override": "",
+        "value": "#FFFFFF",
+        "jsValue": "#FFFFFF",
+        "staticValue": "#FFFFFF",
+        "localeDesc": {
+            "ch": "搜索栏背景颜色",
+            "en": "BackgroundColor of SearchBar"
+        }
+    },
+    "searchBarCancelBtnColor": {
+        "cssKey": "search-bar-cancel-btn-color",
+        "desc": "搜索栏右侧取消按钮颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "搜索栏右侧取消按钮颜色",
+            "en": "Color of SearchBar cancel button"
+        }
+    },
+    "searchBarCancelBtnFontSize": {
+        "cssKey": "search-bar-cancel-btn-font-size",
+        "desc": "搜索栏右侧取消按钮文字大小",
+        "override": "",
+        "value": "~`pxtorem(15)`",
+        "jsValue": "@getRem@15",
+        "staticValue": "0.3rem",
+        "localeDesc": {
+            "ch": "搜索栏右侧取消按钮文字大小",
+            "en": "Font size of SearchBar cancel button"
+        }
+    },
+    "searchBarCancelBtnMarginLeft": {
+        "cssKey": "search-bar-cancel-btn-margin-left",
+        "desc": "搜索栏右侧取消按钮的左边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "搜索栏右侧取消按钮的左边距",
+            "en": "Left margin of SearchBar cancel button"
+        }
+    },
+    "searchBarClearIconColor": {
+        "cssKey": "search-bar-clear-icon-color",
+        "desc": "搜索栏清除按钮的颜色",
+        "override": "",
+        "value": "#C9CDD4",
+        "jsValue": "#C9CDD4",
+        "staticValue": "#C9CDD4",
+        "localeDesc": {
+            "ch": "搜索栏清除按钮的颜色",
+            "en": "Color of SearchBar clear icon"
+        }
+    },
+    "searchBarInputCaretColor": {
+        "cssKey": "search-bar-input-caret-color",
+        "desc": "搜索输入框光标颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "搜索输入框光标颜色",
+            "en": "Color of SearchBar input caret"
+        }
+    },
+    "searchBarInputHeight": {
+        "cssKey": "search-bar-input-height",
+        "desc": "搜索输入框高度",
+        "override": "",
+        "value": "~`pxtorem(20)`",
+        "jsValue": "@getRem@20",
+        "staticValue": "0.4rem",
+        "localeDesc": {
+            "ch": "搜索输入框高度",
+            "en": "SearchBar input height"
+        }
+    },
+    "searchBarInputPlaceholderColor": {
+        "cssKey": "search-bar-input-placeholder-color",
+        "desc": "搜索输入框提示文案颜色",
+        "override": "",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
+        "staticValue": "#c9cdd4",
+        "localeDesc": {
+            "ch": "搜索输入框提示文案颜色",
+            "en": "Color of SearchBar input placeholder"
+        }
+    },
+    "searchBarInputWrapperBackgroundColor": {
+        "cssKey": "search-bar-input-wrapper-background-color",
+        "desc": "搜索输入框容器背景颜色",
+        "override": "",
+        "value": "#F2F3F5",
+        "jsValue": "#F2F3F5",
+        "staticValue": "#F2F3F5",
+        "localeDesc": {
+            "ch": "搜索输入框容器背景颜色",
+            "en": "SearchBar input container background color"
+        }
+    },
+    "searchBarInputWrapperFontSize": {
+        "cssKey": "search-bar-input-wrapper-font-size",
+        "desc": "搜索输入框容器字体大小",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "搜索输入框容器字体大小",
+            "en": "SearchBar input container font size"
+        }
+    },
+    "searchBarInputWrapperHeight": {
+        "cssKey": "search-bar-input-wrapper-height",
+        "desc": "搜索输入框容器高度",
+        "override": "",
+        "value": "~`pxtorem(36)`",
+        "jsValue": "@getRem@36",
+        "staticValue": "0.72rem",
+        "localeDesc": {
+            "ch": "搜索输入框容器高度",
+            "en": "SearchBar input container height"
+        }
+    },
+    "searchBarInputWrapperPadding": {
+        "cssKey": "search-bar-input-wrapper-padding",
+        "desc": "搜索输入框容器内边距大小",
+        "override": "",
+        "value": "~`pxtorem(8)` ~`pxtorem(14)`",
+        "jsValue": "@getRem@8 @getRem@14",
+        "staticValue": "0.16rem 0.28rem",
+        "localeDesc": {
+            "ch": "搜索输入框容器内边距大小",
+            "en": "SearchBar input container padding"
+        }
+    },
+    "searchBarPadding": {
+        "cssKey": "search-bar-padding",
+        "desc": "搜索栏内边距大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "搜索栏内边距大小",
+            "en": "Padding of SearchBar"
+        }
+    },
+    "searchBarPrefixMarginRight": {
+        "cssKey": "search-bar-prefix-margin-right",
+        "desc": "搜索栏搜索栏左侧插入内容的右侧外边距",
+        "override": "",
+        "value": "~`pxtorem(9)`",
+        "jsValue": "@getRem@9",
+        "staticValue": "0.18rem",
+        "localeDesc": {
+            "ch": "搜索栏搜索栏左侧插入内容的右侧外边距",
+            "en": "Right margin of SearchBar prefix"
+        }
+    },
+    "searchBarRoundShapeBorderRadius": {
+        "cssKey": "search-bar-round-shape-border-radius",
+        "desc": "圆形搜索栏的圆角大小",
+        "override": "",
+        "value": "~`pxtorem(9999)`",
+        "jsValue": "@getRem@9999",
+        "staticValue": "199.98rem",
+        "localeDesc": {
+            "ch": "圆形搜索栏的圆角大小",
+            "en": "Size of the rounded corners of the round SearchBar"
+        }
+    },
+    "searchBarSearchIconColor": {
+        "cssKey": "search-bar-search-icon-color",
+        "desc": "搜索栏搜索按钮的颜色",
+        "override": "",
+        "value": "#86909C",
+        "jsValue": "#86909C",
+        "staticValue": "#86909C",
+        "localeDesc": {
+            "ch": "搜索栏搜索按钮的颜色",
+            "en": "Color of SearchBar search icon"
+        }
+    },
+    "searchBarSearchIconFontSize": {
+        "cssKey": "search-bar-search-icon-font-size",
+        "desc": "搜索栏按钮大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "搜索栏按钮大小",
+            "en": "Fontsize of SearchBar search icon"
+        }
+    },
+    "searchBarSquareShapeBorderRadius": {
+        "cssKey": "search-bar-square-shape-border-radius",
+        "desc": "方形搜索栏的圆角大小",
+        "override": "",
+        "value": "~`pxtorem(2)`",
+        "jsValue": "@getRem@2",
+        "staticValue": "0.04rem",
+        "localeDesc": {
+            "ch": "方形搜索栏的圆角大小",
+            "en": "Size of the rounded corners of the square SearchBar"
+        }
+    },
     "sliderHasMarkPaddingBottom": {
         "cssKey": "slider-has-mark-padding-bottom",
         "desc": "slider 有标记时的底部内边距",
@@ -6441,6 +6741,116 @@
         "localeDesc": {
             "ch": "附加信息字体颜色",
             "en": "Additional information font color"
+        }
+    },
+    "swipeActionCloseTransition": {
+        "cssKey": "swipe-action-close-transition",
+        "desc": "SwipeAction 菜单关闭时的动画曲线",
+        "override": "",
+        "value": "cubic-bezier(0.34, 0.69, 0.1, 1)",
+        "jsValue": "cubic-bezier(0.34, 0.69, 0.1, 1)",
+        "staticValue": "cubic-bezier(0.34, 0.69, 0.1, 1)",
+        "localeDesc": {
+            "ch": "SwipeAction 菜单关闭时的动画曲线"
+        }
+    },
+    "swipeActionIconHeight": {
+        "cssKey": "swipe-action-icon-height",
+        "desc": "swipeAction Icon 高",
+        "override": "",
+        "value": "~`pxtorem(20)`",
+        "jsValue": "@getRem@20",
+        "staticValue": "0.4rem",
+        "localeDesc": {
+            "ch": "swipeAction Icon 高"
+        }
+    },
+    "swipeActionIconMarginRight": {
+        "cssKey": "swipe-action-icon-margin-right",
+        "desc": "swipeAction Icon的右边距",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "swipeAction Icon的右边距"
+        }
+    },
+    "swipeActionIconWidth": {
+        "cssKey": "swipe-action-icon-width",
+        "desc": "swipeAction Icon 宽",
+        "override": "",
+        "value": "~`pxtorem(20)`",
+        "jsValue": "@getRem@20",
+        "staticValue": "0.4rem",
+        "localeDesc": {
+            "ch": "swipeAction Icon 宽"
+        }
+    },
+    "swipeActionInfoBounceBuffer": {
+        "cssKey": "swipe-action-info-bounce-buffer",
+        "desc": "swipeAction 菜单弹性效果预留底部色块宽度",
+        "override": "",
+        "value": "~`pxtorem(30)`",
+        "jsValue": "@getRem@30",
+        "staticValue": "0.6rem",
+        "localeDesc": {
+            "ch": "swipeAction 菜单弹性效果预留底部色块宽度"
+        }
+    },
+    "swipeActionInfoPadding": {
+        "cssKey": "swipe-action-info-padding",
+        "desc": "SwipeAction 菜单的内边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "SwipeAction 菜单的内边距"
+        }
+    },
+    "swipeActionOpenTransition": {
+        "cssKey": "swipe-action-open-transition",
+        "desc": "SwipeAction 菜单打开时的动画曲线",
+        "override": "",
+        "value": "cubic-bezier(0.2, 0.8, 0.32, 1.28)",
+        "jsValue": "cubic-bezier(0.2, 0.8, 0.32, 1.28)",
+        "staticValue": "cubic-bezier(0.2, 0.8, 0.32, 1.28)",
+        "localeDesc": {
+            "ch": "SwipeAction 菜单打开时的动画曲线"
+        }
+    },
+    "swipeActionTextColor": {
+        "cssKey": "swipe-action-text-color",
+        "desc": "SwipeAction 文字背景色",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "SwipeAction 文字背景色"
+        }
+    },
+    "swipeActionTextFontSize": {
+        "cssKey": "swipe-action-text-font-size",
+        "desc": "SwipeAction 文字大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "SwipeAction 文字大小"
+        }
+    },
+    "swipeActionTextLineHeight": {
+        "cssKey": "swipe-action-text-line-height",
+        "desc": "SwipeAction 文字行高",
+        "override": "",
+        "value": "~`pxtorem(22)`",
+        "jsValue": "@getRem@22",
+        "staticValue": "0.44rem",
+        "localeDesc": {
+            "ch": "SwipeAction 文字行高"
         }
     },
     "swipeLoadLabelBackground": {

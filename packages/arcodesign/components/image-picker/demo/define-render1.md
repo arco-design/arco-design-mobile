@@ -3,8 +3,7 @@
 #### 5
 
 ```js
-import { useState } from 'react';
-import { ImagePicker, Avatar } from '@arco-design/mobile-react';
+import { ImagePicker } from '@arco-design/mobile-react';
 const DeleteIcon = () => (
     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect
@@ -37,7 +36,7 @@ const SelectIcon = () => (
 );
 
 export default function ImagePickerDemo() {
-    const [images, setImages] = useState([
+    const [images, setImages] = React.useState([
         { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
     ]);
 

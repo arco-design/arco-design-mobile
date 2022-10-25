@@ -1,0 +1,89 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-swipe-action {
+    position: relative;
+    transition: transform 0s;
+    .use-var(font-size,swipe-action-text-font-size);
+
+    &, &-menu {
+        &.action-open {
+            .use-var(transition-timing-function, swipe-action-open-transition);
+        }
+        &.action-close {
+            .use-var(transition-timing-function, swipe-action-close-transition);
+        }
+    }
+
+    &-content {
+        width: 100%;
+    }
+
+    &-menu {
+        display: flex;
+        position: absolute;
+        height: 100%;
+        overflow: visible;
+        flex-wrap: nowrap;
+        top: 0;
+        transition: width 0s;
+
+        &-left {
+            right: 100%;
+        }
+
+        &-right {
+            left: 100%;
+        }
+        &-action {
+            &-left {
+                &::after {
+                    right: 100%;
+                    margin-right: -1PX;
+                }
+            }
+            &-right {
+                &::after {
+                    left: 100%;
+                    margin-left: -1PX;
+                }
+            }
+            &-info {
+                height: 100%;
+                .use-var(padding, swipe-action-info-padding);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &-container {
+                    position: relative;
+                    &.open-style-layer {
+                        position: absolute;
+                        height: 100%;
+                    }
+                    &::after {
+                        content: " ";
+                        position: absolute;
+                        top: 0;
+                        height: 100%;
+                        .use-var(width, swipe-action-info-bounce-buffer);
+                        background: inherit;
+                    }
+                }
+
+                &-text {
+                    white-space: nowrap;
+                    .use-var(font-size,swipe-action-text-font-size);
+                    .use-var(line-height,swipe-action-text-line-height);
+                    .use-var(color, swipe-action-text-color);
+                }
+
+                &-icon {
+                    .use-var(margin-right,swipe-action-icon-margin-right);
+                    .use-var(height, swipe-action-icon-height);
+                    .use-var(width, swipe-action-icon-width);
+                    .use-var(color, swipe-action-text-color);
+                }
+            }
+        }
+    }
+}

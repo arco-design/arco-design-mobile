@@ -26,17 +26,16 @@ ImagePicker Component
 |disabled|Disable Select & Delete Image|boolean|-|
 |deleteIcon|Defined Delete Icon|ReactNode|-|
 |selectIcon|Defined Select Icon|ReactNode|-|
-|imageProps|Attributes passed through to the image|ImageProps|-|
+|imageProps|Attributes passed through to the image|Partial\<ImageProps\>|-|
 |renderError|Defined upload failed display|(index?: number) =\> ReactNode|-|
 |renderLoading|Defined uploading display|(index?: number) =\> ReactNode|-|
 |upload|upload function|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
-|onSelect|-|(\.\.\.args: any\[\]) =\> void|-|
-|onChange|The list of selected images changes|(fileList: ImagePickItem\[\]) =\> Promise\<void\>|-|
+|onChange|The list of selected images changes|(fileList: ImagePickItem\[\]) =\> void|-|
 |onMaxSizeExceed|Image exceeds size limit|(file: File) =\> void|-|
 |onLimitExceed|The number of pictures exceeds the limit|(files: File\[\]) =\> void|-|
 |onClick|click event|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
 |onLongPress|long press event|(e: TouchEvent\<HTMLElement\>, image: ImagePickItem, index: number) =\> void|-|
-|selectAdapter|Select Adaptor|() =\> Promise\<SelectCallback\>|required|
+|selectAdapter|Select Adaptor|() =\> Promise\<SelectCallback\>|-|
 
 > Refs
 
@@ -50,7 +49,7 @@ ImagePicker Component
 |----------|-------------|------|------|
 |url|Image Url|string|required|
 |file|Image File|File|-|
-|status|Image Status|"loaded" \| "loading" \| "error"|required|
+|status|Image Status|"loaded" \| "loading" \| "error"|According to inner status of the image|
 
 > ImageProps
 

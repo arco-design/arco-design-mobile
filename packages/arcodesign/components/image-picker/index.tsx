@@ -1,194 +1,19 @@
-import React, { useRef, forwardRef, Ref, useImperativeHandle, InputHTMLAttributes } from 'react';
+import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
+import { Promise } from 'es6-promise';
 import { cls, defaultLocale } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { IconClose } from '../icon';
-import Image, { ImageProps } from '../image';
+import Image from '../image';
 import Grid from '../grid';
 import AddIcon from './add-icon';
+import { AdapterFile, ImagePickerProps, ImagePickerRef, ImagePickItem } from './type';
 
-export interface ImagePickItem {
-    /**
-     * 图片地址
-     * @en Image Url
-     */
-    url: string;
-    /**
-     * 图片文件
-     * @en Image File
-     */
-    file?: File;
-    /**
-     * 图片状态
-     * @en Image Status
-     * @default 'loaded'
-     */
-    status: 'loaded' | 'loading' | 'error';
-}
-export interface AdapterFile {
-    url?: string;
-    size: number;
-    name: string;
-}
-export interface SelectCallback {
-    files: AdapterFile[];
-}
-export interface ImagePickerProps {
-    /**
-     * 自定义类名
-     * @en Custom className
-     */
-    className?: string;
-    /**
-     * 自定义样式
-     * @en Custom stylesheet
-     */
-    style?: React.CSSProperties;
-    /**
-     * 已选择图片列表
-     * @en selected images list
-     */
-    images: ImagePickItem[];
-    /**
-     * 可以选择的文件类型
-     * @en Available File Types
-     * @default 'image/*'
-     */
-    accept?: string;
-    /**
-     * 是否支持多选
-     * @en Whether To Support Multiple Selection
-     */
-    multiple?: boolean;
-    /**
-     * 图片选取模式 Image selection mode [capture MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)
-     * @en Whether To Support Multiple Selection [capture MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)
-     */
-    capture?: InputHTMLAttributes<unknown>['capture'];
-    /**
-     * 一行展示图片张数
-     * @en The Number Of Pictures Displayed In A Row
-     * @default 3
-     */
-    columns?: number;
-    /**
-     * 格子间的间距
-     * @en spacing between grids
-     * @default 8
-     */
-    gutter?: number;
-    /**
-     * 最多选择图片张数，超出数量自动隐藏上传按钮，0表示不做限制
-     * @en max Pictures Can Choose
-     */
-    limit?: number;
-    /**
-     * 文件大小限制，单位为K
-     * @en File size limit, in K
-     */
-    maxSize?: number;
-    /**
-     * 是否隐藏删除Icon
-     * @en Whether to hide delete Icon
-     * @default false
-     */
-    hideDelete?: boolean;
-    /**
-     * 是否隐藏选择Icon
-     * @en Whether to hide Select Icon
-     * @default false
-     */
-    hideSelect?: boolean;
-    /**
-     * 是否总是展示选择Icon，默认情况下当图片数量超出limit值时会自动隐藏选择Icon
-     * @en Whether to always show Select Icon
-     * @default false
-     */
-    alwaysShowSelect?: boolean;
-    /**
-     * 禁用选择和删除图片
-     * @en Disable Select & Delete Image
-     */
-    disabled?: boolean;
-    /**
-     * 自定义删除图标
-     * @en Defined Delete Icon
-     */
-    deleteIcon?: React.ReactNode;
-    /**
-     * 自定义选择图标
-     * @en Defined Select Icon
-     */
-    selectIcon?: React.ReactNode;
-    /**
-     * 透传给图片的属性
-     * @en Attributes passed through to the image
-     */
-    imageProps?: ImageProps;
-    /**
-     * 自定义上传失败展示
-     * @en Defined upload failed display
-     */
-    renderError?: (index?: number) => React.ReactNode | React.ReactNode;
-    /**
-     * 自定义上传中展示
-     * @en Defined uploading display
-     */
-    renderLoading?: (index?: number) => React.ReactNode | React.ReactNode;
-    /**
-     * 上传方法
-     * @en upload function
-     */
-    upload?: (file: ImagePickItem) => Promise<ImagePickItem | null>;
-    // ValidateImage?: (files: File[], fileList: ImagePickItem[]) => void;
-    onSelect?: (...args) => void;
-    /**
-     * 已选图片列表发生变化
-     * @en The list of selected images changes
-     */
-    onChange?: (fileList: ImagePickItem[]) => Promise<void>;
-    /**
-     * 图片超过限制大小
-     * @en Image exceeds size limit
-     */
-    onMaxSizeExceed?: (file: File) => void;
-    /**
-     * 选择张数超过限制
-     * @en The number of pictures exceeds the limit
-     */
-    onLimitExceed?: (files: File[]) => void;
-    /**
-     * 图片点击
-     * @en click event
-     */
-    onClick?: (
-        e: React.MouseEvent<HTMLElement, MouseEvent>,
-        image: ImagePickItem,
-        index: number,
-    ) => void;
-    /**
-     * 图片长按事件
-     * @en long press event
-     */
-    onLongPress?: (e: React.TouchEvent<HTMLElement>, image: ImagePickItem, index: number) => void;
-    /**
-     * 图片选择适配器
-     * @en Select Adaptor
-     */
-    selectAdapter: () => Promise<SelectCallback>;
-}
-
-export interface ImagePickerRef {
-    /**
-     * 最外层 DOM 元素
-     * @en The outer DOM element of the component
-     */
-    dom: HTMLDivElement | null;
-}
+export * from './type';
 
 /**
  * 图片选择器组件
  * @en ImagePicker Component
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  * @name 图片选择器
  * @name_en ImagePicker
@@ -224,6 +49,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
+    const cacheRef = useRef<ImagePickItem[]>([]);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -252,14 +78,14 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
 
     const handleChange = (event, fromAdapter?: boolean) => {
         const files =
-            [...(event.target.files || [])].filter(file => {
+            (Array.prototype.filter.call(event.target.files || [], file => {
                 // 过滤maxSize
                 if (maxSize && file.size > maxSize * 1024) {
                     onMaxSizeExceed && onMaxSizeExceed(file);
                     return false;
                 }
                 return true;
-            }) || [];
+            }) as File[]) || [];
         if (!fromAdapter) {
             event.target.value = '';
         }
@@ -272,28 +98,29 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         Promise.all(files.map(file => parseFile(file))).then(parseFiles => {
             const res = parseFiles.map((url, index) => ({
                 url,
-                status: upload ? 'loading' : 'loaded',
+                status: typeof upload === 'function' ? 'loading' : 'loaded',
                 file: files[index],
             })) as ImagePickItem[];
-            const cacheRes = [...images, ...res];
-            onChange(cacheRes);
+            cacheRef.current = [...images, ...res];
+            onChange([...cacheRef.current]);
             // 执行upload
             if (typeof upload === 'function') {
-                const propsImageLength = images.length;
-                files.forEach((_file, index) => {
-                    upload(cacheRes[propsImageLength + index])
+                files.forEach(_file => {
+                    upload(cacheRef.current.find(({ file }) => file === _file) as ImagePickItem)
                         .then(data => {
-                            cacheRes[propsImageLength + index] = {
-                                ...cacheRes[propsImageLength + index],
+                            const index = cacheRef.current.findIndex(({ file }) => file === _file);
+                            cacheRef.current[index] = {
+                                ...cacheRef.current[index],
                                 ...data,
+                                status: undefined,
                             };
                         })
                         .catch(() => {
-                            cacheRes[propsImageLength + index].status = 'error';
+                            const index = cacheRef.current.findIndex(({ file }) => file === _file);
+                            cacheRef.current[index].status = 'error';
                         })
                         .finally(() => {
-                            cacheRes[propsImageLength + index].status = 'loaded';
-                            onChange([...cacheRes]);
+                            onChange([...cacheRef.current]);
                         });
                 });
             }

@@ -222,6 +222,32 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
                 } as TListenerEntity,
                 true,
             ) as boolean,
+        /**
+         * 重置元素初始可见态为false，并重新对元素可见度发起检测，优先级低于disabled（通常用在对ShowMonitor内部元素变化时发起的重新监听）
+         * @en Reset the initial visible state of the element to false, and re-detect the visibility of the element, the priority is lower than 'disabled'(Usually used to re-listen when elements inside ShowMonitor change)
+         */
+        flushVisibleStatus() {
+            isVisible.current = false;
+            if (isSupportNativeApi && io.current && domRef.current) {
+                disabled
+                    ? io.current.unobserve(domRef.current)
+                    : io.current.observe(domRef.current);
+            } else if (listener.current) {
+                const key = wrapperKey.current;
+                if (once && onOnceEmittedListeners?.[key]) {
+                    onOnceEmittedListeners[key] = onOnceEmittedListeners[key].filter(
+                        emitListener => emitListener !== listener.current,
+                    );
+                }
+                if (
+                    !disabled &&
+                    !listeners[key].find(_listener => _listener === listener.current)
+                ) {
+                    listeners[key].push(listener.current);
+                }
+                !disabled && checkVisible(listener.current);
+            }
+        },
     }));
 
     function checkVisible(component: TListenerEntity, ignoreCheckPreVisibleStatus = false) {

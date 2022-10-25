@@ -100,7 +100,7 @@ export interface SwitchRef {
 /**
  * 开关组件，支持点击和滑动触发开关动作。
  * @en A switch component that supports click and slide trigger switch actions.
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  * @name 开关
  * @name_en Switch

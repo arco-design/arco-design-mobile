@@ -25,9 +25,9 @@ export const useCustomColor = ({
     borderColor,
     isActive: active,
     disabled,
-}: Pick<ButtonProps, 'color' | 'bgColor' | 'borderColor' | 'type'> & {
+    halfBorder,
+}: Pick<ButtonProps, 'color' | 'bgColor' | 'borderColor' | 'type' | 'disabled' | 'halfBorder'> & {
     isActive: boolean;
-    disabled: boolean;
 }) => {
     const state = { active, disabled };
     const priority = ['active', 'disabled'];
@@ -54,10 +54,10 @@ export const useCustomColor = ({
         return res;
     }, [styleConfig, active, disabled]);
 
-    const customColorClass = useMemo(
-        () => (styleConfig.borderColor ? ['has-custom-border'] : []),
-        [diffColor(borderColor)],
-    );
+    const customColorClass = useMemo(() => {
+        const borderCls = halfBorder ? 'half-border' : '';
+        return styleConfig.borderColor ? ['has-custom-border'] : [borderCls];
+    }, [styleConfig.borderColor, halfBorder]);
 
     return { customColorStyle, customColorClass };
 };

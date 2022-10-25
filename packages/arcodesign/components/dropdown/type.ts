@@ -1,5 +1,7 @@
 import { CSSProperties, ReactNode } from 'react';
 
+export type OptionValueType = number | string;
+
 export interface OptionsItem {
     /**
      * 选项名称
@@ -10,7 +12,7 @@ export interface OptionsItem {
      * 选项标识
      * @en option value
      * */
-    value: number;
+    value: OptionValueType;
     /**
      * 选项是否可用，默认false表示可用
      * @en Whether the option is available, the default false means available
@@ -113,6 +115,11 @@ export interface DropdownCommonProps {
      */
     useColumn?: boolean | number;
     /**
+     * 选项附带图标
+     * @en Icon in each option
+     */
+    optionIcon?: ReactNode;
+    /**
      * 是否在打开下拉框时再加载内容
      * @en Whether to reload the content when the dropdown box is opened
      * @default true
@@ -179,30 +186,30 @@ export interface SingleOptionProps {
      * 默认选中值
      * @en Default checked value
      * */
-    defaultSelectedValue?: number;
+    defaultSelectedValue?: OptionValueType;
     /**
      * 当前选择的选项标识
      * @en The currently selected option value
      * */
-    selectedValue?: number;
+    selectedValue?: OptionValueType;
     /**
      * 点击选项时触发的回调函数
      * @en Callback when clicking option
      * */
-    onOptionClick?: (val: number, op: OptionsItem) => void;
+    onOptionClick?: (val: OptionValueType, op: OptionsItem) => void;
     /**
      * 当选项改变时触发的回调函数
      * @en Callback when the option changes
      *  */
-    onOptionChange?: (val: number, op: OptionsItem) => void;
+    onOptionChange?: (val: OptionValueType, op: OptionsItem) => void;
 }
 
 export interface MultipleOptionProps {
     multiple: true;
-    defaultSelectedValue?: number[];
-    selectedValue?: number[];
-    onOptionClick?: (selected: boolean, val: number, op: OptionsItem) => void;
-    onOptionChange?: (vals: number[], op: OptionsItem) => void;
+    defaultSelectedValue?: OptionValueType[];
+    selectedValue?: OptionValueType[];
+    onOptionClick?: (selected: boolean, val: OptionValueType, op: OptionsItem) => void;
+    onOptionChange?: (vals: OptionValueType[], op: OptionsItem) => void;
 }
 
 export type OptionProps = SingleOptionProps | MultipleOptionProps;
@@ -256,6 +263,11 @@ export interface DropdownOptionsBasicProps {
      * @default false
      */
     useColumn?: DropdownCommonProps['useColumn'];
+    /**
+     * 选项列表右侧图标
+     * @en Icon on the right side of the options list
+     */
+    icon?: ReactNode;
 }
 
 export type DropdownOptionsProps = DropdownOptionsBasicProps & OptionProps;

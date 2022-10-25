@@ -13,7 +13,7 @@ import IconCheck from '../icon/IconCheck';
 import { OptionsItem, DropdownOptionsProps, DropdownOptionsRef, ValueType } from './type';
 
 const Options = forwardRef((props: DropdownOptionsProps, ref: Ref<DropdownOptionsRef | null>) => {
-    const { options, useColumn, selectedValue, defaultSelectedValue, multiple } = props;
+    const { options, useColumn, icon, selectedValue, defaultSelectedValue, multiple } = props;
     const { prefixCls } = useContext(GlobalContext);
     const [innerValue, setInnerValue] = useState<ValueType>(() => {
         const defaultValue = multiple ? [] : 0;
@@ -82,7 +82,11 @@ const Options = forwardRef((props: DropdownOptionsProps, ref: Ref<DropdownOption
                     style={minWidthStyle}
                 >
                     {op.label}
-                    <IconCheck className={`${prefixCls}-dropdown-options-item-icon`} />
+                    {icon !== void 0 ? (
+                        icon
+                    ) : (
+                        <IconCheck className={`${prefixCls}-dropdown-options-item-icon`} />
+                    )}
                 </div>
             ))}
             {fakeOpts.map((_, i) => (

@@ -65,7 +65,7 @@ export interface PickerViewRef {
 /**
  * 选择器视图组件，不含弹窗，方便使用方灵活定制选择器。
  * @en The picker view component, not has contain popup, which is convenient for the user to flexibly customize the picker.
- * @type 数据输入
+ * @type 数据录入
  * @type_en Data Entry
  * @name 选择器视图
  * @name_en PickerView

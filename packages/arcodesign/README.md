@@ -59,8 +59,8 @@ React & ReactDOM： **<a href="https://reactjs.org/docs/cdn-links.html" target="
 React Transition Group： **<a href="https://reactcommunity.org/react-transition-group/" target="_blank">戳这里获取</a>**
 
 ```
-<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.19.1/dist/style.min.css">
-<script src="https://unpkg.com/@arco-design/mobile-react@2.19.1/dist/index.min.js"></script>
+<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.21.3/dist/style.min.css">
+<script src="https://unpkg.com/@arco-design/mobile-react@2.21.3/dist/index.min.js"></script>
 ```
 
 ## 引入全部
@@ -89,7 +89,7 @@ npm install babel-plugin-import -D
 plugins: [
     ["import", {
         "libraryName": "@arco-design/mobile-react",
-        "libraryDirectory": "esm",
+        "libraryDirectory": "esm", // 注意如果是 SSR 环境，这里需使用 `cjs`
         "style": (path) => `${path}/style`,
     }]
 ]
@@ -102,7 +102,7 @@ plugins: [
 ```js
 plugins: [
     ["import", {
-        "libraryName": "@arco-design/mobile-react/esm/icon",
+        "libraryName": "@arco-design/mobile-react/esm/icon", // 注意如果是 SSR 环境，这里需将 `esm` 替换为 `cjs`
         "libraryDirectory": "",
         "camel2DashComponentName": false,
     }]
@@ -115,11 +115,11 @@ plugins: [
 plugins: [
     ["import", {
         "libraryName": "@arco-design/mobile-react",
-        "libraryDirectory": "esm",
+        "libraryDirectory": "esm", // 注意如果是 SSR 环境，这里需使用 `cjs`
         "style": (path) => `${path}/style`
     }, "@arco-design/mobile-react"],
     ["import", {
-        "libraryName": "@arco-design/mobile-react/esm/icon",
+        "libraryName": "@arco-design/mobile-react/esm/icon", // 注意如果是 SSR 环境，这里需将 `esm` 替换为 `cjs`
         "libraryDirectory": "",
         "camel2DashComponentName": false
     }, "@arco-design/mobile-react/esm/icon"]

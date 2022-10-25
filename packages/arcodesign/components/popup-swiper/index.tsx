@@ -162,19 +162,20 @@ const PopupSwiper = forwardRef((props: PopupSwiperProps, ref: Ref<PopupSwiperRef
             const movingFromDirec = allowedDirections.includes(fromDirec) ? fromDirec : '';
             const disDirection = exitDirection || movingFromDirec;
             const direcValue = ['top', 'bottom'].includes(disDirection) ? 'Y' : 'X';
+            const direcRatio = ['bottom', 'right'].includes(disDirection) ? 1 : -1;
             switch (movingFromDirec) {
                 case 'top':
                 case 'bottom':
                     setDistance({
                         direction: direcValue,
-                        value: Math[movingFromDirec === 'top' ? 'min' : 'max'](0, disY),
+                        value: Math.abs(disY) * direcRatio,
                     });
                     break;
                 case 'left':
                 case 'right':
                     setDistance({
                         direction: direcValue,
-                        value: Math[movingFromDirec === 'left' ? 'min' : 'max'](0, disX),
+                        value: Math.abs(disX) * direcRatio,
                     });
                     break;
                 default:

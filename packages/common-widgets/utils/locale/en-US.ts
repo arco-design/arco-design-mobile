@@ -45,5 +45,9 @@ const localeConfig: ILocale = {
     ImagePicker: {
         loadError: 'Load failed',
     },
+    SearchBar: {
+        placeholder: 'Please enter the content to be searched',
+        cancelBtn: 'Cancel',
+    },
 };
 export default localeConfig;
