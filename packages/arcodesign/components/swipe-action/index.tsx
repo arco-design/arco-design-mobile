@@ -60,6 +60,7 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
 
     const startRef = useRef(0);
     const startX = useRef(0);
+    const startY = useRef(0);
     const slideX = useRef(0);
     const isLayer = openStyleType === 'layer';
 
@@ -73,6 +74,7 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
 
     function resetMoveData() {
         startX.current = 0;
+        startY.current = 0;
         slideX.current = 0;
     }
 
@@ -85,9 +87,15 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
         startRef.current = offsetRef.current;
         resetMoveData();
         startX.current = e.touches[0].pageX;
+        startY.current = e.touches[0].pageY;
     }
+
     function touchmove(e: TouchEvent) {
-        e.preventDefault();
+        const x = Math.abs(e.touches[0].pageX - startX.current);
+        const y = Math.abs(e.touches[0].pageY - startY.current);
+        if (x > y) {
+            e.preventDefault();
+        }
         slideX.current = e.touches[0].pageX - startX.current;
         forbidClick.current = true;
         setMoving(true);
