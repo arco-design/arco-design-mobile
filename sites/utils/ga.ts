@@ -33,12 +33,18 @@ export function showGA() {
             page_location: href,
             page_path: `${pathname}${hash}`,
         });
-    } catch (e) {}
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 export function clickReportGA(reportParams: Record<string, any>) {
-    window.gtag('event', 'click_event', {
-        path_name: `${window.location.pathname}${window.location.hash}`,
-        ...reportParams,
-    });
+    try {
+        window.gtag('event', 'click_event', {
+            path_name: `${window.location.pathname}${window.location.hash}`,
+            ...reportParams,
+        });
+    } catch (e) {
+        console.error(e);
+    }
 }
