@@ -1,6 +1,6 @@
 import React from 'react';
 import { appendElementById, removeElement } from '@arco-design/mobile-utils';
-import { render as ReactDOMRender, RootType } from '../_helpers';
+import { ReactDOMRender } from '../_helpers/render';
 
 export interface OpenBaseProps {
     onClose?: () => void;
@@ -36,15 +36,7 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         const id = `_ARCO_IMAGE_PREVIEW_DIV_${baseProps.key || ''}_`;
         const { child: div } = appendElementById(id, baseProps.getContainer);
         let leaving = false;
-
-        let root: RootType | undefined;
-        function render(props) {
-            if (root) {
-                root.render(<Component {...props} />);
-            } else {
-                root = ReactDOMRender(<Component {...props} />, div);
-            }
-        }
+        const { render } = new ReactDOMRender(Component, div);
 
         function update(newConfig: Config) {
             dynamicProps = {
