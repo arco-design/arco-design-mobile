@@ -431,6 +431,12 @@ export interface TabsProps {
      * @en Tabbar underline inner style, applied to tab-cell-underline-inner
      */
     underlineInnerStyle?: React.CSSProperties;
+    /**
+     * 当前 TabBar 的触摸事件是否需要 stopPropagation
+     * @en Does the touch event of the current TabBar require stopPropagation
+     * @default true
+     */
+    tabBarStopPropagation?: boolean;
 }
 
 export interface TabsRef {
@@ -560,6 +566,11 @@ export interface TabCellProps
      * @en The distance the underline has been swiped
      */
     jumpingDis: number;
+    /**
+     * 当前 TabBar 的触摸事件是否需要 stopPropagation
+     * @en Does the touch event of the current TabBar require stopPropagation
+     */
+    tabBarStopPropagation: boolean;
 }
 
 export interface TabCellRef {
