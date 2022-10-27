@@ -10,12 +10,15 @@ export default function (name: string, url: string = window.location.href) {
 export const getUrlParams = (url: string = window.location.href): Record<string, string> => {
     const newUrl = new URL(url);
     const params = newUrl.search;
-    if(!params) {
+    if (!params) {
         return {};
     }
-    return params.slice(1).split('&').reduce((pre, val) => {
-        const [key, value] = val.split('=');
-        pre[key] = value;
-        return pre;
-    }, {});
-}
+    return params
+        .slice(1)
+        .split('&')
+        .reduce((pre, val) => {
+            const [key, value] = val.split('=');
+            pre[key] = value;
+            return pre;
+        }, {});
+};
