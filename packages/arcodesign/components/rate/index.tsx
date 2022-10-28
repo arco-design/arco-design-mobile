@@ -234,6 +234,10 @@ const Rate = forwardRef((props: RateProps, ref: Ref<RateRef>) => {
         <ContextLayout>
             {({ prefixCls }) => (
                 <div
+                    aria-valuemin={0}
+                    aria-valuemax={count}
+                    aria-valuenow={innerValue}
+                    aria-disabled={disabled}
                     className={cls(`${prefixCls}-rate`, className, { disabled })}
                     style={style}
                     ref={domRef}

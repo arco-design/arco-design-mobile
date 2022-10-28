@@ -115,6 +115,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
                 onInput={handleInput}
                 onKeyDown={handleKeyDown}
                 onClick={handleClick}
+                aria-disabled={disabled}
             />,
         );
     }
