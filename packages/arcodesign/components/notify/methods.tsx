@@ -1,6 +1,6 @@
 import { nextTick } from '@arco-design/mobile-utils';
 import React from 'react';
-import { render as ReactDOMRender, RootType } from '../_helpers';
+import { ReactDOMRender } from '../_helpers/render';
 
 export interface NotifyBaseProps {
     getContainer?: () => HTMLElement;
@@ -32,19 +32,12 @@ export function notify<P extends NotifyBaseProps>(Component: React.FC<P>, type?:
             document.body.appendChild(div);
         }
 
-        let root: RootType | undefined;
-        function render(props) {
-            if (root) {
-                root.render(<Component {...props} />);
-            } else {
-                root = ReactDOMRender(<Component {...props} />, div);
-            }
-        }
+        const { render, unmount } = new ReactDOMRender(Component, div);
 
         function destroy() {
             const { onClose } = config;
             onClose && onClose();
-            root = root?._unmount() as undefined;
+            unmount();
             if (div.parentNode) {
                 div.parentNode.removeChild(div);
             }

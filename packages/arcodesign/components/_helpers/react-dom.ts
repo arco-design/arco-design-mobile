@@ -42,18 +42,15 @@ const updateUsingClientEntryPoint = (skipWarning?: boolean) => {
     }
 };
 
-let createRoot: CreateRootFnType;
+let createRoot: CreateRootFnType | undefined;
 try {
     createRoot = CopyReactDOM.createRoot;
-} catch (_) {
-    createRoot = undefined as unknown as CreateRootFnType;
-    //
-}
+} catch (_) {}
 
 if (isReact18 && createRoot) {
     copyRender = (app: ReactElement, container: Element | DocumentFragment) => {
         updateUsingClientEntryPoint(true);
-        const root = createRoot(container);
+        const root = (createRoot as CreateRootFnType)(container);
         updateUsingClientEntryPoint(false);
 
         root.render(app);

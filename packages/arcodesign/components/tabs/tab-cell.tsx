@@ -65,6 +65,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         tabBarStyle,
         tabBarClass,
         translateZ,
+        tabBarStopPropagation,
     } = props;
     const prefix = `${prefixCls}-tab-cell`;
     const domRef = useRef<HTMLDivElement | null>(null);
@@ -152,12 +153,12 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         // TabCell左右可滚动时，防止触发父级touchmove事件导致滚不动
         // @en When the TabCell can be scrolled left and right, prevent the parent touchmove event from being triggered which result in inability to scroll
         const stopFunc = (e: TouchEvent) => e.stopPropagation();
-        if (isVertical && hasOverflow && domRef.current) {
+        if (isVertical && hasOverflow && domRef.current && tabBarStopPropagation) {
             domRef.current.addEventListener('touchstart', stopFunc);
             domRef.current.addEventListener('touchmove', stopFunc);
         }
         return () => {
-            if (isVertical && hasOverflow && domRef.current) {
+            if (isVertical && hasOverflow && domRef.current && tabBarStopPropagation) {
                 domRef.current.removeEventListener('touchstart', stopFunc);
                 domRef.current.removeEventListener('touchmove', stopFunc);
             }

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.22.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.3...@arco-design/mobile-react@2.22.0) (2022-10-28)
+
+
+### Bug Fixes
+
+*  `SwipeAction` prevent touchmove by gesture ([#59](https://github.com/arco-design/arco-design-mobile/issues/59)) ([c9ef474](https://github.com/arco-design/arco-design-mobile/commit/c9ef474312eb9f9af736431f16147cfb56dee623))
+* `Tabs` supports tabBarStopPropagation ([#62](https://github.com/arco-design/arco-design-mobile/issues/62)) ([ba24d17](https://github.com/arco-design/arco-design-mobile/commit/ba24d178320e12b0aa95e5d75feb34e5e5163af4))
+
+
+### Features
+
+* add support for react18 ([#57](https://github.com/arco-design/arco-design-mobile/issues/57)) ([7cbb4fc](https://github.com/arco-design/arco-design-mobile/commit/7cbb4fcd5bd8c2809141bf0546f42ecf3367fd73))
+
+
+
+
+
 ## [2.21.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.2...@arco-design/mobile-react@2.21.3) (2022-09-30)
 
 

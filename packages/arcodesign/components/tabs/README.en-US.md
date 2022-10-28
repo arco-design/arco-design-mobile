@@ -83,6 +83,7 @@ Used to let the user switch between different views. In order to optimize the re
 |underlineSize|TabBar underline length|ReactText|-|
 |underlineThick|TabBar underline thickness|ReactText|-|
 |underlineInnerStyle|Tabbar underline inner style, applied to tab\-cell\-underline\-inner|CSSProperties|-|
+|tabBarStopPropagation|Does the touch event of the current TabBar require stopPropagation|boolean|true|
 
 > Refs
 
@@ -123,6 +124,7 @@ string|{ [x: string]: any; title: ReactNode; }
 |cellTrans|Whether the TabBar enables transition effects|boolean|required|
 |distance|Finger sliding distance|number|required|
 |jumpingDis|The distance the underline has been swiped|number|required|
+|tabBarStopPropagation|Does the touch event of the current TabBar require stopPropagation|boolean|required|
 |tabs|Array of TabBar content, additional data can be appended in addition to the required fields|TabData\[\]|required|
 |disabled|Whether to disable switching, including clicking TabBar switching and sliding switching|boolean|-|
 |tabBarPosition|Tabbar position|"top" \| "bottom" \| "left" \| "right"|"top"|
