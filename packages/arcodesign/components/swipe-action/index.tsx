@@ -53,6 +53,7 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
     const [rightMenuWidthArr, setRightMenuWidthArr] = useState<number[]>([]);
     const dampRateRef = useLatestRef(dampRate);
     const forbidClick = useRef(false);
+    const scrollingRef = useRef<boolean | null>(null);
 
     const [moving, movingRef, setMoving] = useRefState(false);
     const [offset, offsetRef, setOffset] = useRefState(0);
@@ -86,17 +87,24 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
     function touchstart(e: TouchEvent) {
         startRef.current = offsetRef.current;
         resetMoveData();
+        scrollingRef.current = null;
         startX.current = e.touches[0].pageX;
         startY.current = e.touches[0].pageY;
     }
 
     function touchmove(e: TouchEvent) {
-        const x = Math.abs(e.touches[0].pageX - startX.current);
-        const y = Math.abs(e.touches[0].pageY - startY.current);
-        if (x > y) {
-            e.preventDefault();
+        const x = e.changedTouches[0].pageX - startX.current;
+        const y = e.changedTouches[0].pageY - startY.current;
+        if (scrollingRef.current === null) {
+            scrollingRef.current = Math.abs(x) < Math.abs(y);
         }
-        slideX.current = e.touches[0].pageX - startX.current;
+        if (scrollingRef.current) {
+            setMoving(false);
+            setOffset(0);
+            return;
+        }
+        e.cancelable && e.preventDefault();
+        slideX.current = x;
         forbidClick.current = true;
         setMoving(true);
         setOffset(
@@ -109,7 +117,7 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
     }
 
     function touchend() {
-        if (movingRef.current) {
+        if (movingRef.current && !scrollingRef.current) {
             const currentMenu = offsetRef.current > 0 ? 'left' : 'right';
             changeMenu(currentMenu);
             setMoving(false);

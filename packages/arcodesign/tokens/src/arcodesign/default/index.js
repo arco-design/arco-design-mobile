@@ -385,8 +385,7 @@ function getCompTokens() {
          * 轮播图滑块文字背景色
          * @en Background color of the carousel sliders
          */
-        carouselItemTextBackground:
-            'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
+        carouselItemTextBackground: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
         /**
          * 轮播图滑块文字高度
          * @en Font height of the carousel sliders
@@ -2122,8 +2121,7 @@ function getCompTokens() {
          * 图片预览指示器背景色
          *  @en ImagePreview indicator background color
          */
-        imagePreviewIndicatorBackground:
-            'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
+        imagePreviewIndicatorBackground: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
         /**
          * 图片预览小图放大时的动画曲线
          * @en Animation curve when ImagePreview thumbnail is enlarged
