@@ -46,6 +46,8 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         onLimitExceed,
         upload,
         selectAdapter,
+        onSelectClick,
+        onDeleteClick,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
@@ -128,6 +130,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     };
 
     const handleDelete = (index: number) => {
+        onDeleteClick && onDeleteClick(index);
         onChange(images.filter((_i, j) => j !== index));
     };
 
@@ -155,6 +158,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     };
 
     const handleSelect = () => {
+        onSelectClick && onSelectClick();
         selectAdapter
             ? selectAdapter().then(({ files }) => handleChange({ target: { files } }, true))
             : fileRef.current?.click();

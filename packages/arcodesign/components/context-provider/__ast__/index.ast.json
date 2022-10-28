@@ -265,6 +265,17 @@
                 },
                 "tags": {},
                 "descWithTags": ""
+            },
+            "SearchBar": {
+                "name": "SearchBar",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ placeholder: string; cancelBtn: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
             }
         }
     },
