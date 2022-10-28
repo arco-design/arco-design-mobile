@@ -1442,6 +1442,26 @@
                 "name": "CSSProperties"
             }
         },
+        "tabBarStopPropagation": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "当前 TabBar 的触摸事件是否需要 stopPropagation\n@en Does the touch event of the current TabBar require stopPropagation",
+            "name": "tabBarStopPropagation",
+            "tags": {
+                "en": "Does the touch event of the current TabBar require stopPropagation",
+                "default": "true"
+            },
+            "descWithTags": "当前 TabBar 的触摸事件是否需要 stopPropagation",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",
@@ -1627,6 +1647,19 @@
                     "en": "The distance the underline has been swiped"
                 },
                 "descWithTags": "下划线已滑动的距离"
+            },
+            "tabBarStopPropagation": {
+                "name": "tabBarStopPropagation",
+                "required": true,
+                "description": "当前 TabBar 的触摸事件是否需要 stopPropagation\n@en Does the touch event of the current TabBar require stopPropagation",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Does the touch event of the current TabBar require stopPropagation"
+                },
+                "descWithTags": "当前 TabBar 的触摸事件是否需要 stopPropagation"
             },
             "tabs": {
                 "name": "tabs",
