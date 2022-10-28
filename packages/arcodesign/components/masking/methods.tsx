@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { appendElementById, removeElement, nextTick } from '@arco-design/mobile-utils';
+import { ReactDOMRender } from '../_helpers/render';
 
 export interface OpenBaseProps {
     // 从config继承的属性
@@ -31,9 +31,7 @@ export function getOpenMethod<T extends { key?: string }, P extends OpenBaseProp
         const id = `_${containerId || 'ARCO_MASKING'}_DIV_${config.key || ''}_`;
         const { child: div } = appendElementById(id, baseProps.getContainer);
         let leaving = false;
-        function render(props: P) {
-            ReactDOM.render(<Component {...props} getContainer={() => div} />, div);
-        }
+        const { render } = new ReactDOMRender(Component, div);
 
         function update(newConfig: T) {
             dynamicProps = {

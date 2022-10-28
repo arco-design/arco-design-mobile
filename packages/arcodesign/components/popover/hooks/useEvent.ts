@@ -45,6 +45,7 @@ export const useEvent = (
         onVisibleChange(false);
         window.clearTimeout(closeTimer.current);
         closeTimer.current = 0;
+        mayRemoveEventListenerOnBody();
     };
 
     const throttleHandleVerticalScroll = useMemo(() => {
@@ -70,7 +71,7 @@ export const useEvent = (
     ]);
 
     const mayRemoveEventListenerOnBody = useCallback(() => {
-        document.body.removeEventListener('click', handleClickBody);
+        document.body.removeEventListener('click', handleClickBody, true);
         document.body.removeEventListener('touchstart', handleTouchBody);
 
         const el = getVerticalScrollContainer();
@@ -88,7 +89,6 @@ export const useEvent = (
                 !isContains(wrapperRef.current, e.target) &&
                 !isContains(popoverInnerRef.current?.dom || null, e.target)
             ) {
-                // TODO: 这里仅阻止了react事件，react 18 将不再在document上挂事件，这里的stop会失效
                 if (preventBodyClick) {
                     e.stopPropagation();
                     e.preventDefault();
@@ -114,12 +114,12 @@ export const useEvent = (
         const handle = (e: Event) => {
             e.stopPropagation();
             e.preventDefault();
-            document.body.removeEventListener('click', handle);
+            document.body.removeEventListener('click', handle, true);
             clearTimeout(preventRecentClickTimer);
         };
-        document.body.addEventListener('click', handle);
+        document.body.addEventListener('click', handle, true);
         preventRecentClickTimer = window.setTimeout(() => {
-            document.body.removeEventListener('click', handle);
+            document.body.removeEventListener('click', handle, true);
         }, 500);
     };
 
@@ -174,7 +174,7 @@ export const useEvent = (
             const el = getVerticalScrollContainer();
             el && el.addEventListener('scroll', handleScrollBody);
         } else if (clickOtherToClose) {
-            document.body.addEventListener('click', handleClickBody);
+            document.body.addEventListener('click', handleClickBody, true);
         }
     };
 

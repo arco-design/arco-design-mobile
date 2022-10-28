@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { nextTick } from '@arco-design/mobile-utils';
+import { ReactDOMRender } from '../_helpers/render';
 
 export interface ToastBaseProps {
     getContainer?: () => HTMLElement;
@@ -34,16 +34,13 @@ export function toast<P extends ToastBaseProps>(
 
         const div = document.createElement('div');
         document.body.appendChild(div);
+        const { render, unmount } = new ReactDOMRender(Component, div);
 
-        function render(props) {
-            ReactDOM.render(<Component {...props} />, div);
-        }
-
-        function destory() {
+        function destroy() {
             const { onClose } = config;
             onClose && onClose();
-            const unmountResult = ReactDOM.unmountComponentAtNode(div);
-            if (unmountResult && div.parentNode) {
+            unmount();
+            if (div.parentNode) {
                 div.parentNode.removeChild(div);
             }
         }
@@ -52,7 +49,7 @@ export function toast<P extends ToastBaseProps>(
             ...config,
             close,
             getContainer: () => div,
-            onClose: destory,
+            onClose: destroy,
             visible: false,
         };
         let leaving = false;

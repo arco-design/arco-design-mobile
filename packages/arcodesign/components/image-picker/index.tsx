@@ -138,7 +138,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         image: ImagePickItem,
         index: number,
     ) => {
-        e.preventDefault();
         timeOutEvent = setTimeout(() => {
             timeOutEvent = 0;
             onLongPress?.(e, image, index);
