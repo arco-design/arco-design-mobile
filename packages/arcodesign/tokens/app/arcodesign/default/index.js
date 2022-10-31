@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 exports.getRem = getRem;
 function getRem(px, baseFontSize) {
-  var num = Math.round(px / Number(baseFontSize) * 1000000) / 1000000;
+  var num = Math.round(px / Number(baseFontSize) * 1e6) / 1e6;
   return num ? "".concat(num, "rem") : num;
 }
 var tokens = {
