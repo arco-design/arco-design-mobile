@@ -157,11 +157,13 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         }
     };
 
-    const handleSelect = () => {
-        onSelectClick && onSelectClick();
-        selectAdapter
-            ? selectAdapter().then(({ files }) => handleChange({ target: { files } }, true))
-            : fileRef.current?.click();
+    const handleSelect = (e: React.MouseEvent) => {
+        if (e.target !== fileRef.current) {
+            onSelectClick && onSelectClick();
+            selectAdapter
+                ? selectAdapter().then(({ files }) => handleChange({ target: { files } }, true))
+                : fileRef.current?.click();
+        }
     };
 
     const getGridData = (prefixCls, locale) => {
