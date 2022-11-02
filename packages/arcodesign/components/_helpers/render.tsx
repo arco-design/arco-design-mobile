@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { RootType, render as copyRender } from './react-dom';
+import { GlobalContextParams } from '../context-provider';
 
 export class ReactDOMRender {
     root: RootType | undefined;
@@ -8,17 +9,21 @@ export class ReactDOMRender {
 
     container: Element | DocumentFragment;
 
-    constructor(app: FunctionComponent, container: Element | DocumentFragment) {
+    context: GlobalContextParams | undefined;
+
+    constructor(app: FunctionComponent, container: Element | DocumentFragment, context?: GlobalContextParams) {
         this.app = app;
         this.container = container;
+        this.context = context;
     }
 
     render = props => {
         const CustomApp = this.app;
+        const propsWithContext = Object.assign(props, { context: this.context });
         if (this.root) {
-            this.root.render(<CustomApp {...props} />);
+            this.root.render(<CustomApp {...propsWithContext} />);
         } else {
-            this.root = copyRender(<CustomApp {...props} />, this.container);
+            this.root = copyRender(<CustomApp {...propsWithContext} />, this.container);
         }
     };
 
