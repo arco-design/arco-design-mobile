@@ -11,7 +11,11 @@ export class ReactDOMRender {
 
     context: GlobalContextParams | undefined;
 
-    constructor(app: FunctionComponent, container: Element | DocumentFragment, context?: GlobalContextParams) {
+    constructor(
+        app: FunctionComponent,
+        container: Element | DocumentFragment,
+        context?: GlobalContextParams,
+    ) {
         this.app = app;
         this.container = container;
         this.context = context;
@@ -19,7 +23,7 @@ export class ReactDOMRender {
 
     render = props => {
         const CustomApp = this.app;
-        const propsWithContext = Object.assign(props, { context: this.context });
+        const propsWithContext = { ...props, context: this.context };
         if (this.root) {
             this.root.render(<CustomApp {...propsWithContext} />);
         } else {

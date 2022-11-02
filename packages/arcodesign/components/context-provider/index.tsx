@@ -134,7 +134,7 @@ export function CompWithGlobalContext<P extends JSX.IntrinsicAttributes>(
         return (
             <ContextLayout>
                 {context => (
-                    <ContextProvider {...Object.assign(context, propsContext)}>
+                    <ContextProvider {...{ ...context, ...propsContext }}>
                         <Component {...(others as P)} />
                     </ContextProvider>
                 )}
