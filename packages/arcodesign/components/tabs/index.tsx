@@ -12,7 +12,13 @@ import { cls, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import TabCell from './tab-cell';
 import TabPane from './tab-pane';
-import { useRefState, useListenResize, useUpdateEffect, useSwiperInnerScroll } from '../_helpers';
+import {
+    useRefState,
+    useListenResize,
+    useUpdateEffect,
+    useSwiperInnerScroll,
+    useSystem,
+} from '../_helpers';
 import { TabCellRef, TabPaneRef, TabsProps, TabsRef } from './type';
 
 export * from './type';
@@ -124,6 +130,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
     const touchStoppedRef = useRef(false);
     const changeFromRef = useRef('');
     const touchMoveBarScrollRef = useRef(false);
+    const system = useSystem();
     const allPanes = getAllPanes();
     const tabDirection =
         ['top', 'bottom'].indexOf(tabBarPosition) !== -1 ? 'vertical' : 'horizontal';
@@ -247,9 +254,10 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
             const evt = e.changedTouches[0];
             const touchMoveX = evt.clientX || 0;
             const touchMoveY = evt.clientY || 0;
-            // bugfix: 兼容safari在右滑返回上一页时clientX为负值的情况
+            // bugfix: 兼容safari在右滑返回上一页时clientX为负值的情况，安卓有折叠屏，触点会有超出屏幕(clientX < 0)的情况，因此这里限定ios系统
             // @en bugfix: bugfix: Compatible with the case in safari where clientX is negative when swiping right back to the previous page
-            const posDisX = touchMoveX < 0 ? 0 : touchMoveX - touchStartXRef.current;
+            const posDisX =
+                system === 'ios' && touchMoveX < 0 ? 0 : touchMoveX - touchStartXRef.current;
             const posDisY = touchMoveY - touchStartYRef.current;
             const absDisX = Math.abs(posDisX);
             const absDisY = Math.abs(posDisY);

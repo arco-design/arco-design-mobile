@@ -88,6 +88,7 @@
 |Pagination|-|\{ previousPage: string; nextPage: string; \}|
 |Image|-|\{ loadError: string; \}|
 |ImagePicker|-|\{ loadError: string; \}|
+|SearchBar|-|\{ placeholder: string; cancelBtn: string; \}|
 
 > AlertOptions
 

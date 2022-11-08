@@ -14,9 +14,11 @@ const Step = forwardRef((props: StepProps, ref: Ref<StepRef | null>) => {
         direction,
         index = 0,
         status: contextStatus,
+        align: contextAlign,
         changeIndex,
     } = useContext(StepsContext);
     const status = props.status || contextStatus;
+    const align = props.align || contextAlign;
 
     const domRef = useRef<HTMLDivElement | null>(null);
     useImperativeHandle(ref, () => ({
@@ -51,12 +53,20 @@ const Step = forwardRef((props: StepProps, ref: Ref<StepRef | null>) => {
             {({ prefixCls }) => (
                 <div
                     ref={domRef}
-                    className={cls(`${prefixCls}-steps-item`, currentStatus, direction, iconType)}
+                    className={cls(
+                        `${prefixCls}-steps-item`,
+                        `${prefixCls}-steps-item-align-${align}`,
+                        currentStatus,
+                        direction,
+                        iconType,
+                    )}
                     onClick={() => changeIndex(index)}
                 >
                     <div
                         className={cls(
                             `${prefixCls}-steps-item-tail`,
+                            `${prefixCls}-steps-item-tail-status-${currentStatus}`,
+                            `${prefixCls}-steps-item-tail-align-${align}`,
                             `${currentStatus}-tail-color-with-config`,
                         )}
                     />
@@ -84,7 +94,12 @@ const Step = forwardRef((props: StepProps, ref: Ref<StepRef | null>) => {
                         </div>
                     )}
                     {title || description ? (
-                        <div className={cls(`${prefixCls}-steps-item-content`)}>
+                        <div
+                            className={cls(
+                                `${prefixCls}-steps-item-content`,
+                                `${prefixCls}-steps-item-content-align-${align}`,
+                            )}
+                        >
                             {title ? (
                                 <div
                                     className={cls(

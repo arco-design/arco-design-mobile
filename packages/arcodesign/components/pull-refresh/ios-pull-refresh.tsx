@@ -23,6 +23,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
 
     const {
         className,
+        style,
         children,
         loadingText = (
             <div className={cls(`${prefixCls}-pull-refresh-label-text`)}>
@@ -192,7 +193,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
                 'is-disabled': disabled || (!touching && useHideAsNestedScroll),
             })}
             ref={domRef}
-            style={contentHeight > 0 ? { height: contentHeight } : {}}
+            style={contentHeight > 0 ? { height: contentHeight, ...(style || {}) } : style}
         >
             <div className={cls(`${prefixCls}-pull-refresh-content-wrapper`)}>
                 <div
