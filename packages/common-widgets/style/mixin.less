@@ -31,7 +31,7 @@
     height: 100%;
 }
 
-.text-medium(@color, @stroke: 0.3PX) {
+.text-medium(@color: currentColor, @stroke: 0.3PX) {
     font-weight: bold;
     .android &,
     &.android,
@@ -300,7 +300,10 @@
     .process-title-color-with-config {
         color: @color;
     }
-    .finish-tail-color-with-config:after {
+    .finish-tail-color-with-config::before,
+    .finish-tail-color-with-config::after,
+    .process-tail-color-with-config::before,
+    .error-tail-color-with-config::before {
         background: @color;
     }
 }

@@ -385,7 +385,8 @@ function getCompTokens() {
          * 轮播图滑块文字背景色
          * @en Background color of the carousel sliders
          */
-        carouselItemTextBackground: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
+        carouselItemTextBackground:
+            'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
         /**
          * 轮播图滑块文字高度
          * @en Font height of the carousel sliders
@@ -2121,7 +2122,8 @@ function getCompTokens() {
          * 图片预览指示器背景色
          *  @en ImagePreview indicator background color
          */
-        imagePreviewIndicatorBackground: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
+        imagePreviewIndicatorBackground:
+            'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
         /**
          * 图片预览小图放大时的动画曲线
          * @en Animation curve when ImagePreview thumbnail is enlarged
@@ -2649,18 +2651,38 @@ function getCompTokens() {
          */
         stepsPadding: `${getRem(16)} 0`,
         /**
+         * steps 分割线圆角值
+         * @en Border radius of steps dividing
+         */
+        stepsTailBorderRadius: '2PX',
+        /**
+         * steps 水平分割线与图标中心点的距离
+         * @en The distance between the horizontal dividing line and the center point of the icon
+         */
+        stepsTailHorizontalGutter: getRem(18),
+        /**
+         * steps 垂直分割线与图标中心点的距离
+         * @en The distance between the vertical dividing line and the center point of the icon
+         */
+        stepsTailVerticalGutter: getRem(14),
+        /**
          * steps 水平分割线左右间距
          * @en Left and right spacing of the horizontal dividing line of Steps
          */
-        stepsTailHorizontalPadding: `0 ${getRem(18)}`,
+        stepsTailHorizontalPadding: `0 ${useGlobal('stepsTailHorizontalGutter')}`,
         /**
          * steps 垂直分割线上下间距
          * @en Left and right spacing of the vertical dividing line of Steps
          */
-        stepsTailVerticalPadding: `${getRem(14)} 0`,
+        stepsTailVerticalPadding: `${useGlobal('stepsTailVerticalGutter')} 0`,
+        /**
+         * steps 水平分割线的向右偏移距离，一般是 stepsIconHeight 值的一半
+         * @en The offset distance to the right of the horizontal dividing line of steps, generally half the value of stepsIconHeight
+         */
+        stepsTailHorizontalLeft: getRem(9),
         /**
          * steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半
-         * @en Left and right spacing of the vertical dividing line of Steps
+         * @en The offset distance to the bottom of the vertical dividing line of steps, generally half the value of stepsIconHeight
          */
         stepsTailVerticalTop: getRem(9),
         /**
