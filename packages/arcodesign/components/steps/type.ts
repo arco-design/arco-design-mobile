@@ -47,6 +47,7 @@ export interface StepsProps {
      * 步骤条对齐方式
      * @en Step alignment
      * @default direction="horizontal" 时默认为 "center"，direction="vertical" 时默认为 "start"
+     * @default_en "center" when direction="horizontal" and "start" when direction="vertical"
      */
     align?: 'center' | 'start';
     /**
