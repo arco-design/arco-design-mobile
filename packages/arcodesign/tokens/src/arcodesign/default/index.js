@@ -2659,12 +2659,12 @@ function getCompTokens() {
          * steps 水平分割线与图标中心点的距离
          * @en The distance between the horizontal dividing line and the center point of the icon
          */
-        stepsTailHorizontalGutter: getRem(18),
+        stepsTailHorizontalGutter: '18PX',
         /**
          * steps 垂直分割线与图标中心点的距离
          * @en The distance between the vertical dividing line and the center point of the icon
          */
-        stepsTailVerticalGutter: getRem(14),
+        stepsTailVerticalGutter: '14PX',
         /**
          * steps 水平分割线左右间距
          * @en Left and right spacing of the horizontal dividing line of Steps
@@ -2679,12 +2679,12 @@ function getCompTokens() {
          * steps 水平分割线的向右偏移距离，一般是 stepsIconHeight 值的一半
          * @en The offset distance to the right of the horizontal dividing line of steps, generally half the value of stepsIconHeight
          */
-        stepsTailHorizontalLeft: getRem(9),
+        stepsTailHorizontalLeft: '9PX',
         /**
          * steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半
          * @en The offset distance to the bottom of the vertical dividing line of steps, generally half the value of stepsIconHeight
          */
-        stepsTailVerticalTop: getRem(9),
+        stepsTailVerticalTop: '9PX',
         /**
          * steps 步骤分割线默认粗细
          * @en Steps dividing line thickness
