@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.0...@arco-design/mobile-react@2.22.2) (2022-11-09)
+
+
+### Bug Fixes
+
+* `PullRefresh` support custom style ([edac495](https://github.com/arco-design/arco-design-mobile/commit/edac4954526b8f2e3a86c9742752222e19f899f8))
+* `Steps` optimize style & support custom alignment ([617c570](https://github.com/arco-design/arco-design-mobile/commit/617c57003135215787897b48c07d2b674c482828))
+* `Tabs` fix touch event on foldable screen ([a67fa71](https://github.com/arco-design/arco-design-mobile/commit/a67fa71c8944e27aa43d6353e4a24e4ba676cec3))
+* optimize .text-medium mixin ([ab62ab2](https://github.com/arco-design/arco-design-mobile/commit/ab62ab2cdb51174cbd2106467bbf1a3db4694982))
+
+
+
+
+
 # [2.22.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.3...@arco-design/mobile-react@2.22.0) (2022-10-28)
 
 
