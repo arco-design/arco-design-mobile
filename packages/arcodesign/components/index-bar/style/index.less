@@ -14,7 +14,9 @@
   }
 
   &-group {
-    position: relative;
+    &-active {
+        .use-var(color, indexbar-group-active-color);
+    }
     &-title {
       .use-var(padding-left, indexbar-group-left-spacing);
       .use-var(height, indexbar-group-title-height);
@@ -58,6 +60,9 @@
       &:not(:last-child) {
         .use-var(padding-bottom, indexbar-sidebar-item-padding-bottom);
       }
+    }
+    &-active {
+        .use-var(color, indexbar-sidebar-active-color);
     }
 
     &-sweat {

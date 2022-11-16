@@ -1,9 +1,16 @@
 @import '../../../../style/mixin.less';
 
 #demo-index-bar {
-  .arcodesign-mobile-demo-content {
-    padding: 0;
-    background: transparent;
-    .rem(font-size, 16)
-  }
+    padding-bottom: 0px;
+    .arcodesign-mobile-title {
+        display: none;
+    }
+    .arcodesign-mobile-demo-content {
+        padding: 0;
+        background: transparent;
+        .rem(font-size, 16);
+    }
+    .arcodesign-mobile-demo-nav-inner::after {
+        border-bottom-color: transparent;
+    }
 }

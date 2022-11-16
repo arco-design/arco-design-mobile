@@ -3679,6 +3679,14 @@
         "jsValue": "white",
         "staticValue": "white"
     },
+    "indexbarGroupActiveColor": {
+        "cssKey": "indexbar-group-active-color",
+        "desc": "",
+        "override": "",
+        "value": "#165dff",
+        "jsValue": "#165dff",
+        "staticValue": "#165dff"
+    },
     "indexbarGroupItemHeight": {
         "cssKey": "indexbar-group-item-height",
         "desc": "",
@@ -3710,6 +3718,14 @@
         "value": "~`pxtorem(24)`",
         "jsValue": "@getRem@24",
         "staticValue": "0.48rem"
+    },
+    "indexbarSidebarActiveColor": {
+        "cssKey": "indexbar-sidebar-active-color",
+        "desc": "",
+        "override": "",
+        "value": "#165dff",
+        "jsValue": "#165dff",
+        "staticValue": "#165dff"
     },
     "indexbarSidebarItemFontSize": {
         "cssKey": "indexbar-sidebar-item-font-size",

@@ -21,7 +21,7 @@ export function IndexBarGroup<Data extends IndexBarBaseData = IndexBarBaseData>(
     } = props;
     const { prefixCls } = useContext(GlobalContext);
     // 有可能是IndexBar.Group的写法，因此sticky从context中获得
-    const { sticky, getScrollContainer } = useContext(IndexBarContext);
+    const { sticky, getScrollContainer, activeIndex, updateRef } = useContext(IndexBarContext);
     const domRef = useRef<HTMLDivElement | null>(null);
 
     // 用户自定义列表元素vnode的key
@@ -44,13 +44,22 @@ export function IndexBarGroup<Data extends IndexBarBaseData = IndexBarBaseData>(
         if (renderStickyItem) {
             return renderStickyItem(groupIndex);
         }
-        const titleDom = <div className={`${prefixCls}-indexbar-group-title`}>{groupIndex}</div>;
+        const titleDom = (
+            <div
+                className={cls(`${prefixCls}-indexbar-group-title`, {
+                    [`${prefixCls}-indexbar-group-active`]: activeIndex === groupIndex,
+                })}
+            >
+                {groupIndex}
+            </div>
+        );
         const groupDom = domRef.current;
         return sticky ? (
             <Sticky
                 getContainer={() => groupDom as HTMLDivElement}
                 stickyStyle="absolute"
                 getScrollContainer={getScrollContainer as () => HTMLDivElement}
+                ref={ref => ref && updateRef(groupIndex, ref)}
             >
                 {titleDom}
             </Sticky>

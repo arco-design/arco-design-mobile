@@ -1,4 +1,5 @@
 import React, { CSSProperties, ReactElement, ReactNode } from 'react';
+import { StickyRef } from '../sticky';
 
 export type IndexBarIndexType = string | number;
 
@@ -14,12 +15,18 @@ interface IndexBarGroupItem<Data extends IndexBarBaseData> {
 export type IndexBarTipType = 'none' | 'sweat' | 'toast';
 export type IndexBarChangeTrigger = 'swipe' | 'manual' | 'sidebar';
 
+export interface IndexBarScrollParams {
+    index: IndexBarIndexType;
+    type: IndexBarChangeTrigger;
+    rightNow?: boolean;
+    extraScrollOffset?: number;
+}
+
 export interface IndexBarSideBarProps {
     tipType: IndexBarTipType;
     indexes: IndexBarIndexType[];
     prefixCls?: string;
     onClick: (index: IndexBarIndexType) => void;
-    onTouchChange: (isTouching: boolean) => void;
     activeIndex?: IndexBarIndexType;
     renderSideBarItem?: (index: IndexBarIndexType) => ReactNode;
     renderSideBar?: (Content: ReactNode) => ReactElement;
@@ -71,9 +78,16 @@ export interface IndexBarRef {
      */
     dom: HTMLDivElement | null;
     scrollToIndex: (index?: IndexBarIndexType, rightNow?: boolean) => void;
+    /**
+     * 局部滚动模式下，如果容器外部还有嵌套滚动，可主动调用此方法，让 sticky 的元素主动更新 fixed 位置
+     * @en In the local scrolling mode, if there is nested scrolling outside the container, this method can be actively called to make the sticky element actively update the fixed position
+     */
+    recalculatePosition: (index?: IndexBarIndexType) => void;
 }
 
 export interface IndexBarContext {
     sticky: boolean;
     getScrollContainer: () => HTMLDivElement | null;
+    activeIndex?: IndexBarIndexType;
+    updateRef: (index: IndexBarIndexType, ref: StickyRef) => void;
 }

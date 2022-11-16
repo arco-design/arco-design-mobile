@@ -3540,10 +3540,12 @@ function getCompTokens() {
          */
         imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
         indexbarBackground: 'white',
+        indexbarGroupActiveColor: '#165dff',
         indexbarGroupLeftSpacing: getRem(16),
         indexbarGroupTitleHeight: getRem(24),
         indexbarGroupTitleBackground: "#f7f8fa",
         indexbarGroupItemHeight: getRem(54),
+        indexbarSidebarActiveColor: '#165dff',
         indexbarSidebarMarginRight: getRem(8),
         indexbarSidebarItemFontSize: getRem(10),
         indexbarSidebarItemPaddingBottom: getRem(8),

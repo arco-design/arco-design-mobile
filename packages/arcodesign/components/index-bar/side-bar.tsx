@@ -7,7 +7,6 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
         indexes,
         prefixCls,
         onClick,
-        onTouchChange,
         activeIndex,
         tipType,
         renderSideBar,
@@ -18,7 +17,6 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
 
     const setIsTouching = (touching: boolean) => {
         originSetIsTouching(touching);
-        onTouchChange(touching);
     };
 
     const handleTouchingStart = () => setIsTouching(true);
@@ -29,6 +27,7 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
         if (!isTouching || !e.touches?.length) {
             return;
         }
+        // e.stopPropagation();
         const { clientX, clientY } = e.touches[0];
         const target = document.elementFromPoint(clientX, clientY) as HTMLElement;
         if (target && target.dataset?.index) {
@@ -59,7 +58,9 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
                 renderSideBarTip(activeIndex, 'toast')}
             {indexes.map(index => (
                 <div
-                    className={`${prefixCls}-indexbar-sidebar-item`}
+                    className={cls(`${prefixCls}-indexbar-sidebar-item`, {
+                        [`${prefixCls}-indexbar-sidebar-active`]: activeIndex === index,
+                    })}
                     key={index}
                     onTouchStart={() => onClick(index)}
                     data-index={index}
