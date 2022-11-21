@@ -479,7 +479,9 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         currentIndex !== void 0 ? currentIndex : initialIndex,
     );
     const [transforms, transformsRef, setTransforms] = useRefState<number[]>([]);
-    const [direction, directionRef, setStateDirection] = useRefState<'left' | 'right' | ''>('left');
+    const [direction, directionRef, setStateDirection] = useRefState<'left' | 'right' | ''>(
+        autoPlayDirection === 'reverse' && autoPlay ? 'right' : 'left',
+    );
     const lastDirectionRef = useRef('');
     const lastShownIndexRef = useRef(-1);
     const { allChildren, fakeTwoChildren } = getAllChildren();
