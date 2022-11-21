@@ -91,6 +91,12 @@ export interface CarouselProps {
      */
     autoPlay?: boolean;
     /**
+     * 自动播放方向
+     * @en Direction when playing auto
+     * @default 'normal'
+     */
+    autoPlayDirection?: 'normal' | 'reverse';
+    /**
      * 是否响应手势滑动
      * @en Whether to respond to gesture swipe
      * @default true
@@ -399,6 +405,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         animateDurationSlide = 300,
         loop = true,
         autoPlay = true,
+        autoPlayDirection = 'normal',
         swipeable = true,
         stayDuration = 4000,
         boxWidth,
@@ -854,7 +861,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         const oldIndex = getShownIndex(indexRef.current);
         const changedIndex = newIndex !== oldIndex ? getShownIndex(newIndex) : -1;
         if (autoJump) {
-            setDirection('left');
+            setDirection(autoPlayDirection === 'reverse' ? 'right' : 'left');
         } else if (newIndex === indexRef.current) {
             setDirection(distanceRef.current > 0 ? 'right' : 'left');
         } else {
@@ -904,7 +911,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             return;
         }
         timerRef.current = delayTimeout(() => {
-            jumpTo(indexRef.current + 1);
+            jumpTo(autoPlayDirection === 'reverse' ? indexRef.current - 1 : indexRef.current + 1);
         }, stayDuration);
     }
 
