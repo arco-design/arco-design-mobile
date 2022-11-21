@@ -19,6 +19,7 @@ Date picker, based on the `Picker` component, supports the specified range, the 
 |minTs|Minimum selectable date, timestamp|number|10 years ago from the current time|
 |maxTs|Maximum selectable date, timestamp|number|Next decade from current time|
 |useUTC|Whether to use UTC|boolean|false|
+|skipExtremumJudgment|Whether to skip the extreme value time judgment, if skipped, the component will always use the controlled time as the initialization time|boolean|false|
 |formatter|The formatting method of each optional item, the parameter type is ItemTypes, the parameter value is the value of the current row, and the displayed text is returned\.|(value: number, type: ItemType) =\> string|(value: number) => (value < 10 ? \`0${value}\` : String(value))|
 |valueFilter|Row filtering method, the parameter type is ItemType, the parameter value is the value of the current row, and returns true to indicate that the row can be selected|(type: ItemType, value: number) =\> boolean|() => true|
 |columnsProcessor|Selector list item intervention to insert custom options\.|(columns: PickerData\[\]\[\], currentDateObj: IDateObj) =\> PickerData\[\]\[\]|-|

@@ -195,6 +195,26 @@
                 "name": "boolean"
             }
         },
+        "skipExtremumJudgment": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否跳过极值时间判断，若跳过，则组件内部始终使用受控时间作为初始化时间\n@en Whether to skip the extreme value time judgment, if skipped, the component will always use the controlled time as the initialization time",
+            "name": "skipExtremumJudgment",
+            "tags": {
+                "en": "Whether to skip the extreme value time judgment, if skipped, the component will always use the controlled time as the initialization time",
+                "default": "false"
+            },
+            "descWithTags": "是否跳过极值时间判断，若跳过，则组件内部始终使用受控时间作为初始化时间",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/date-picker/type.ts",
+                "name": "DatePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "formatter": {
             "defaultValue": {
                 "value": "(value: number) => (value < 10 ? \\`0${value}\\` : String(value))"

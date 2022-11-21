@@ -19,6 +19,7 @@
 |minTs|最小可选日期，timestamp|number|当前时间的前十年|
 |maxTs|最大可选日期，timestamp|number|当前时间的后十年|
 |useUTC|是否使用 UTC 时间|boolean|false|
+|skipExtremumJudgment|是否跳过极值时间判断，若跳过，则组件内部始终使用受控时间作为初始化时间|boolean|false|
 |formatter|各可选项展示的格式化方法，参数type为ItemTypes，参数value为当前行的值，返回展示的文字|(value: number, type: ItemType) =\> string|(value: number) => (value < 10 ? \`0${value}\` : String(value))|
 |valueFilter|可选择行过滤方法，参数type为ItemType，参数value为当前行的值，返回true表示该行可选择|(type: ItemType, value: number) =\> boolean|() => true|
 |columnsProcessor|选择器列表项干预，可插入自定义选项|(columns: PickerData\[\]\[\], currentDateObj: IDateObj) =\> PickerData\[\]\[\]|-|

@@ -59,9 +59,12 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         columnsProcessor,
         touchToStop,
         useUTC = false,
+        skipExtremumJudgment = false,
         ...otherProps
     } = props;
-    const currentTs = Math.min(maxTs, Math.max(minTs, userSetCurrentTs));
+    const currentTs = skipExtremumJudgment
+        ? userSetCurrentTs
+        : Math.min(maxTs, Math.max(minTs, userSetCurrentTs));
     const [data, setData] = useState<PickerData[][]>([[]]);
     const [value, setValue] = useState<ValueType[]>([]);
     const currentDateObjRef = useRef(_convertTsToDateObj(currentTs));
@@ -257,7 +260,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         maxDateObjRef.current = _convertTsToDateObj(maxTs);
 
         _initData();
-    }, [currentTs, minTs, maxTs, useUTC]);
+    }, [minTs, maxTs, useUTC]);
 
     useEffect(() => {
         if (visible) {

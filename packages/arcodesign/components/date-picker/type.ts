@@ -97,6 +97,12 @@ export interface DatePickerProps
      */
     useUTC?: boolean;
     /**
+     * 是否跳过极值时间判断，若跳过，则组件内部始终使用受控时间作为初始化时间
+     * @en Whether to skip the extreme value time judgment, if skipped, the component will always use the controlled time as the initialization time
+     * @default false
+     */
+    skipExtremumJudgment?: boolean;
+    /**
      * 各可选项展示的格式化方法，参数type为ItemTypes，参数value为当前行的值，返回展示的文字
      * @en The formatting method of each optional item, the parameter type is ItemTypes, the parameter value is the value of the current row, and the displayed text is returned.
      * @default (value: number) => (value < 10 ? \`0${value}\` : String(value))
