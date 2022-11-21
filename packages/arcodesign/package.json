@@ -1,6 +1,6 @@
 {
     "name": "@arco-design/mobile-react",
-    "version": "2.21.3-10ea792.17+10ea792",
+    "version": "2.22.2",
     "description": "",
     "main": "cjs/index.js",
     "module": "esm/index.js",
