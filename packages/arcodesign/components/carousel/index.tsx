@@ -730,7 +730,15 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         return () => {
             clear();
         };
-    }, [userSetBoxWidth, userSetBoxHeight, childWidth, childHeight, stayDuration, noInterval]);
+    }, [
+        userSetBoxWidth,
+        userSetBoxHeight,
+        childWidth,
+        childHeight,
+        stayDuration,
+        noInterval,
+        autoPlayDirection,
+    ]);
 
     useUpdateEffect(() => {
         if (currentIndex !== void 0) {
