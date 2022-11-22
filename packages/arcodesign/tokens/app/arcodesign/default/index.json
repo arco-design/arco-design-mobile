@@ -3755,9 +3755,17 @@
         "cssKey": "indexbar-sidebar-item-padding",
         "desc": "",
         "override": "",
-        "value": "0 0 ~`pxtorem(8)`",
-        "jsValue": "0 0 @getRem@8",
-        "staticValue": "0 0 0.16rem"
+        "value": "~`pxtorem(2)` 0",
+        "jsValue": "@getRem@2 0",
+        "staticValue": "0.04rem 0"
+    },
+    "indexbarSidebarItemWidth": {
+        "cssKey": "indexbar-sidebar-item-width",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(13)`",
+        "jsValue": "@getRem@13",
+        "staticValue": "0.26rem"
     },
     "indexbarSidebarMarginRight": {
         "cssKey": "indexbar-sidebar-margin-right",
