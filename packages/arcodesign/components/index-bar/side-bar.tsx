@@ -6,6 +6,7 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
     const {
         indexes,
         prefixCls,
+        onTouching,
         onClick,
         activeIndex,
         tipType,
@@ -17,6 +18,7 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
 
     const setIsTouching = (touching: boolean) => {
         originSetIsTouching(touching);
+        onTouching(touching);
     };
 
     const handleTouchingStart = () => setIsTouching(true);
@@ -27,7 +29,6 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
         if (!isTouching || !e.touches?.length) {
             return;
         }
-        // e.stopPropagation();
         const { clientX, clientY } = e.touches[0];
         const target = document.elementFromPoint(clientX, clientY) as HTMLElement;
         if (target && target.dataset?.index) {

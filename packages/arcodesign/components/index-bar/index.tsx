@@ -54,7 +54,6 @@ const IndexBar = forwardRef(
             defaultIndex,
             scrollBezier,
             scrollDuration = 0,
-            scrollStopPropagation = true,
             disableSidebar = false,
             onChange,
             onGroupItemClick,
@@ -127,8 +126,8 @@ const IndexBar = forwardRef(
                 const duration = rightNow ? 0 : scrollDuration;
                 const targetScrollTop = groupDom.offsetTop + extraScrollOffset;
                 // 将屏幕滚动到groupDom
-                // 如果非滑动触发，禁用handleScroll事件
-                if (type !== 'swipe') {
+                // 手动触发需要禁用handleScroll事件
+                if (type === 'manual') {
                     isScrollHandlerDisabledRef.current = true;
                     setTimeout(() => {
                         isScrollHandlerDisabledRef.current = false;
@@ -187,14 +186,10 @@ const IndexBar = forwardRef(
         };
 
         useEffect(() => {
-            const handleScroll = lodashThrottle((e: Event) => {
+            const handleScroll = lodashThrottle(() => {
                 // 用户正在触碰sidebar和手动触发scroll时禁用滚动事件的处理
                 if (!containerRef.current || isScrollHandlerDisabledRef.current) {
                     return;
-                }
-
-                if (scrollStopPropagation) {
-                    e.preventDefault();
                 }
 
                 // 根据滚动的距离，获取处于屏幕最顶部的group是哪个
@@ -247,6 +242,9 @@ const IndexBar = forwardRef(
                                     activeIndex={activeIndex}
                                     prefixCls={prefixCls}
                                     indexes={indexes}
+                                    onTouching={isTouching =>
+                                        (isScrollHandlerDisabledRef.current = isTouching)
+                                    }
                                     onClick={newIndex =>
                                         handleScrollIntoIndex({ index: newIndex, type: 'sidebar' })
                                     }

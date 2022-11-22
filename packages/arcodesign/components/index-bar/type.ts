@@ -26,6 +26,7 @@ export interface IndexBarSideBarProps {
     tipType: IndexBarTipType;
     indexes: IndexBarIndexType[];
     prefixCls?: string;
+    onTouching: (isTouching: boolean) => void;
     onClick: (index: IndexBarIndexType) => void;
     activeIndex?: IndexBarIndexType;
     renderSideBarItem?: (index: IndexBarIndexType) => ReactNode;
@@ -62,7 +63,6 @@ export interface IndexBarProps<Data extends IndexBarBaseData> {
     tipType?: IndexBarTipType;
     scrollDuration?: number;
     scrollBezier?: [number, number, number, number];
-    scrollStopPropagation?: boolean;
     onChange?: (index: IndexBarIndexType, trigger: IndexBarChangeTrigger) => void;
     onGroupItemClick?: (index: IndexBarIndexType, itemData: Data, itemIndex: number) => void;
     renderSideBarItem?: (index: IndexBarIndexType) => ReactNode;
