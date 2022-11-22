@@ -701,11 +701,13 @@ export interface ArcodesignToken extends Record<string, string> {
     'indexbar-group-left-spacing': string;
     'indexbar-group-title-height': string;
     'indexbar-group-title-background': string;
+    'indexbar-group-title-font-size': string;
     'indexbar-group-item-height': string;
+    'indexbar-group-item-font-size': string;
     'indexbar-sidebar-active-color': string;
     'indexbar-sidebar-margin-right': string;
     'indexbar-sidebar-item-font-size': string;
-    'indexbar-sidebar-item-padding-bottom': string;
+    'indexbar-sidebar-item-padding': string;
     'indexbar-sidebar-sweat-padding': string;
     'indexbar-sidebar-sweat-background': string;
     'indexbar-sidebar-sweat-color': string;

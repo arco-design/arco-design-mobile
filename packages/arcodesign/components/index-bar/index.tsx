@@ -54,6 +54,7 @@ const IndexBar = forwardRef(
             defaultIndex,
             scrollBezier,
             scrollDuration = 0,
+            scrollStopPropagation = true,
             disableSidebar = false,
             onChange,
             onGroupItemClick,
@@ -186,10 +187,14 @@ const IndexBar = forwardRef(
         };
 
         useEffect(() => {
-            const handleScroll = lodashThrottle(() => {
+            const handleScroll = lodashThrottle((e: Event) => {
                 // 用户正在触碰sidebar和手动触发scroll时禁用滚动事件的处理
                 if (!containerRef.current || isScrollHandlerDisabledRef.current) {
                     return;
+                }
+
+                if (scrollStopPropagation) {
+                    e.preventDefault();
                 }
 
                 // 根据滚动的距离，获取处于屏幕最顶部的group是哪个

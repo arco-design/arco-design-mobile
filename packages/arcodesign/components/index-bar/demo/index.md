@@ -23,7 +23,6 @@ const formatLocationData = Object.entries(locationData).map(([key, values]) => {
     }
 })
 
-const styleHeight = "calc(100vh - 44px - 0.84rem)"
 
 const jsxData = new Array(15).fill(0).map((_, index) => {
     return {
@@ -57,7 +56,7 @@ export default function IndexBarDemo() {
     // 使用IndexBar的普通写法
     const renderIndexBarWtihGroups = () => {
         return <IndexBar 
-          style={{ height: styleHeight }} 
+          className="custom-indexbar-height"
           groups={formatLocationData} 
           tipType="toast" 
           onGroupItemClick={(index, itemData) => Toast.toast(itemData.content)}
@@ -66,10 +65,15 @@ export default function IndexBarDemo() {
 
     // 使用IndexBar的jsx写法
     const renderIndexBarWithJsx = () => {
-        return <IndexBar style={{ height: styleHeight }} tipType="sweat" ref={customIndexBarRef}>
+        return <IndexBar className="custom-indexbar-height" tipType="sweat" ref={customIndexBarRef}>
             {
                 jsxData.map(item => {
-                    return <IndexBar.Group index={item.index} list={item.list} key={item.index} />
+                    return <IndexBar.Group 
+                        index={item.index}
+                        list={item.list} 
+                        key={item.index} 
+                        onClick={(index, itemData) => Toast.toast(itemData.content)} 
+                    />
                 })
             } 
         </IndexBar>

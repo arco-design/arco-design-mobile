@@ -13,4 +13,15 @@
     .arcodesign-mobile-demo-nav-inner::after {
         border-bottom-color: transparent;
     }
+
+    .custom-indexbar-height {
+        /* 减去顶bar高度和tabbar高度 */
+        height: calc(100vh - 64px - 0.84rem);
+    }
+    .arco-tab-cell.vertical.line {
+        .rem(font-size, 16);
+        &:not(.last) {
+            .rem(margin-right, 139);
+        }
+    }
 }
