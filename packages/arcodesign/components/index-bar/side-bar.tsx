@@ -69,7 +69,9 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
                         isTouching &&
                         activeIndex === index &&
                         renderSideBarTip(index, 'sweat')}
-                    {renderSideBarItem(index)}
+                    <div className={`${prefixCls}-indexbar-sidebar-item-wrapper`}>
+                        {renderSideBarItem(index)}
+                    </div>
                 </div>
             ))}
         </div>

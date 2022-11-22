@@ -52,13 +52,20 @@
         user-select: none;
 
         &-item {
-            position: relative;
             display: flex;
-            align-items: center;
             justify-content: flex-end;
-            .use-var(font-size, indexbar-sidebar-item-font-size);
+            align-items: center;
+            position: relative;
             .use-var(padding, indexbar-sidebar-item-padding);
             cursor: pointer;
+
+            &-wrapper {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                .use-var(width, indexbar-sidebar-item-width);
+                .use-var(font-size, indexbar-sidebar-item-font-size);
+            }
 
             &:last-child {
                 padding-bottom: 0px;
