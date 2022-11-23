@@ -19,6 +19,7 @@
 |animateDurationSlide|手动切换轮播滑块时，当手指释放后，动画的执行时间(ms)|number|300|
 |loop|是否开启循环轮播，当指定轮播滑块宽度时该属性不生效|boolean|true|
 |autoPlay|是否开启自动播放|boolean|true|
+|autoPlayDirection|自动播放方向|"normal" \| "reverse"|"normal"|
 |swipeable|是否响应手势滑动|boolean|true|
 |stayDuration|开启自动播放时，每一个滑块的停留时间(ms)|number|4000|
 |boxWidth|指定容器宽度，默认为基于父容器100%|ReactText|-|
