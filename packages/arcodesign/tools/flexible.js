@@ -14,6 +14,9 @@
 
     "use strict";
 
+    _exports.__esModule = true;
+    _exports.default = void 0;
+
     function setRootPixel(base, sketch, max) {
         var baseFontSize = base || 50;
         var sketchWidth = sketch || 375;

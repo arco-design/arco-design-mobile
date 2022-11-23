@@ -93,7 +93,7 @@ export interface CarouselProps {
     /**
      * 自动播放方向
      * @en Direction when playing auto
-     * @default 'normal'
+     * @default "normal"
      */
     autoPlayDirection?: 'normal' | 'reverse';
     /**

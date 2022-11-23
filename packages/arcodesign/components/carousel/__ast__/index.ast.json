@@ -175,6 +175,35 @@
                 "name": "boolean"
             }
         },
+        "autoPlayDirection": {
+            "defaultValue": {
+                "value": "\"normal\""
+            },
+            "description": "自动播放方向\n@en Direction when playing auto",
+            "name": "autoPlayDirection",
+            "tags": {
+                "en": "Direction when playing auto",
+                "default": "\"normal\""
+            },
+            "descWithTags": "自动播放方向",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"normal\" | \"reverse\"",
+                "value": [
+                    {
+                        "value": "\"normal\""
+                    },
+                    {
+                        "value": "\"reverse\""
+                    }
+                ]
+            }
+        },
         "swipeable": {
             "defaultValue": {
                 "value": "true"

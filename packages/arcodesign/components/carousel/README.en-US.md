@@ -19,6 +19,7 @@ Carousel component, supports custom carousel index style and slider width. **Not
 |animateDurationSlide|Animation duration(ms) after the finger is released When manually switching the carousel slider|number|300|
 |loop|Whether to enable circular rotation, it does not take effect when the slider width is specified|boolean|true|
 |autoPlay|Whether to enable autoplay|boolean|true|
+|autoPlayDirection|Direction when playing auto|"normal" \| "reverse"|"normal"|
 |swipeable|Whether to respond to gesture swipe|boolean|true|
 |stayDuration|The stay duration of each slider when autoplay is turned on|number|4000|
 |boxWidth|Width of the box, the default value is 100% based on the parent container|ReactText|-|
