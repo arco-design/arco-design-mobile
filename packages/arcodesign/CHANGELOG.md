@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.2...@arco-design/mobile-react@2.22.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* `Carousel` supports autoPlayDirection ([#72](https://github.com/arco-design/arco-design-mobile/issues/72)) ([527aaf4](https://github.com/arco-design/arco-design-mobile/commit/527aaf4bdf86fe4cf995bd8e4bd2580e9db8c942))
+* flexible.js support umd ([#73](https://github.com/arco-design/arco-design-mobile/issues/73)) ([d3f35c0](https://github.com/arco-design/arco-design-mobile/commit/d3f35c093a579bb404fff91dbf6437cdd93f19f7))
+
+
+
+
+
 ## [2.22.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.0...@arco-design/mobile-react@2.22.2) (2022-11-09)
 
 
