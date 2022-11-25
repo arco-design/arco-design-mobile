@@ -14,7 +14,7 @@ import { ContextLayout } from '../context-provider';
 import { IndexBarContext } from './context';
 import { IndexBarGroup } from './group';
 import { IndexBarSideBar } from './side-bar';
-import {
+import type {
     IndexBarBaseData,
     IndexBarChangeTrigger,
     IndexBarIndexType,
@@ -30,6 +30,15 @@ import {
     isValidIndex,
 } from './utils';
 import { StickyRef } from '../sticky';
+
+export type {
+    IndexBarProps,
+    IndexBarRef,
+    IndexBarGroupProps,
+    IndexBarChangeTrigger,
+    IndexBarIndexType,
+    IndexBarTipType,
+} from './type';
 
 /**
  * 索引栏组件
@@ -101,10 +110,10 @@ const IndexBar = forwardRef(
             type: IndexBarChangeTrigger,
         ): void => {
             setActiveIndex(oldActiveIndex => {
-                const newActiveIndex = getFormatIndex(index, activeIndex);
+                const newActiveIndex = getFormatIndex(index, oldActiveIndex);
                 // 和上一次激活的acitveIndex不同，再触发onChange事件
                 if (newActiveIndex !== oldActiveIndex) {
-                    onChange?.(index, type);
+                    onChange?.(newActiveIndex, type);
                 }
                 return newActiveIndex;
             });
@@ -178,7 +187,7 @@ const IndexBar = forwardRef(
                     index={group.index}
                     key={group.index}
                     list={group.list}
-                    onClick={onGroupItemClick}
+                    onGroupItemClick={onGroupItemClick}
                     renderGroupItem={renderGroupItem}
                     renderStickyItem={renderStickyItem}
                 />

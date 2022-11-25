@@ -3673,195 +3673,327 @@
     },
     "indexbarBackground": {
         "cssKey": "indexbar-background",
-        "desc": "",
+        "desc": "索引栏背景颜色",
         "override": "",
         "value": "white",
         "jsValue": "white",
-        "staticValue": "white"
+        "staticValue": "white",
+        "localeDesc": {
+            "ch": "索引栏背景颜色",
+            "en": "IndexBar background color"
+        }
     },
     "indexbarGroupActiveColor": {
         "cssKey": "indexbar-group-active-color",
-        "desc": "",
+        "desc": "索引栏，激活状态下的，索引文字颜色",
         "override": "",
         "value": "#165dff",
         "jsValue": "#165dff",
-        "staticValue": "#165dff"
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "索引栏，激活状态下的，索引文字颜色",
+            "en": "IndexBar, In active state, index text color"
+        }
     },
     "indexbarGroupItemFontSize": {
         "cssKey": "indexbar-group-item-font-size",
-        "desc": "",
+        "desc": "索引栏内容子项字号大小",
         "override": "",
         "value": "~`pxtorem(14)`",
         "jsValue": "@getRem@14",
-        "staticValue": "0.28rem"
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "索引栏内容子项字号大小",
+            "en": "IndexBar content sub-item font size"
+        }
     },
     "indexbarGroupItemHeight": {
         "cssKey": "indexbar-group-item-height",
-        "desc": "",
+        "desc": "索引栏内容子项高度",
         "override": "",
         "value": "~`pxtorem(54)`",
         "jsValue": "@getRem@54",
-        "staticValue": "1.08rem"
+        "staticValue": "1.08rem",
+        "localeDesc": {
+            "ch": "索引栏内容子项高度",
+            "en": "IndexBar content subitem height"
+        }
     },
     "indexbarGroupLeftSpacing": {
         "cssKey": "indexbar-group-left-spacing",
-        "desc": "",
+        "desc": "索引栏内容左填充宽度",
         "override": "",
         "value": "~`pxtorem(16)`",
         "jsValue": "@getRem@16",
-        "staticValue": "0.32rem"
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "索引栏内容左填充宽度",
+            "en": "IndexBar content left padding width"
+        }
     },
     "indexbarGroupTitleBackground": {
         "cssKey": "indexbar-group-title-background",
-        "desc": "",
+        "desc": "索引栏标题背景颜色",
         "override": "",
         "value": "#f7f8fa",
         "jsValue": "#f7f8fa",
-        "staticValue": "#f7f8fa"
+        "staticValue": "#f7f8fa",
+        "localeDesc": {
+            "ch": "索引栏标题背景颜色",
+            "en": "IndexBar title background color"
+        }
     },
     "indexbarGroupTitleFontSize": {
         "cssKey": "indexbar-group-title-font-size",
-        "desc": "",
+        "desc": "索引栏索引标题字号",
         "override": "",
         "value": "~`pxtorem(14)`",
         "jsValue": "@getRem@14",
-        "staticValue": "0.28rem"
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "索引栏索引标题字号",
+            "en": "IndexBar index title font size"
+        }
     },
     "indexbarGroupTitleHeight": {
         "cssKey": "indexbar-group-title-height",
-        "desc": "",
+        "desc": "索引栏索引标题高度",
         "override": "",
         "value": "~`pxtorem(24)`",
         "jsValue": "@getRem@24",
-        "staticValue": "0.48rem"
+        "staticValue": "0.48rem",
+        "localeDesc": {
+            "ch": "索引栏索引标题高度",
+            "en": "IndexBar index header height"
+        }
     },
     "indexbarSidebarActiveColor": {
         "cssKey": "indexbar-sidebar-active-color",
-        "desc": "",
+        "desc": "索引栏侧边栏激活索引颜色",
         "override": "",
         "value": "#165dff",
         "jsValue": "#165dff",
-        "staticValue": "#165dff"
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "索引栏侧边栏激活索引颜色",
+            "en": "IndexBar sidebar active index color"
+        }
     },
     "indexbarSidebarItemFontSize": {
         "cssKey": "indexbar-sidebar-item-font-size",
-        "desc": "",
+        "desc": "索引栏侧边栏子项字号大小",
         "override": "",
         "value": "~`pxtorem(10)`",
         "jsValue": "@getRem@10",
-        "staticValue": "0.2rem"
+        "staticValue": "0.2rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏子项字号大小",
+            "en": "The font size of the subitems in the sidebar of the IndexBar"
+        }
     },
     "indexbarSidebarItemPadding": {
         "cssKey": "indexbar-sidebar-item-padding",
-        "desc": "",
+        "desc": "索引栏侧边栏子项高度",
         "override": "",
         "value": "~`pxtorem(2)` 0",
         "jsValue": "@getRem@2 0",
-        "staticValue": "0.04rem 0"
+        "staticValue": "0.04rem 0",
+        "localeDesc": {
+            "ch": "索引栏侧边栏子项高度",
+            "en": "IndexBar sidebar child item height"
+        }
     },
     "indexbarSidebarItemWidth": {
         "cssKey": "indexbar-sidebar-item-width",
-        "desc": "",
+        "desc": "索引栏侧边栏子项宽度",
         "override": "",
         "value": "~`pxtorem(13)`",
         "jsValue": "@getRem@13",
-        "staticValue": "0.26rem"
+        "staticValue": "0.26rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏子项宽度",
+            "en": "IndexBar sidebar child item width"
+        }
     },
     "indexbarSidebarMarginRight": {
         "cssKey": "indexbar-sidebar-margin-right",
-        "desc": "",
+        "desc": "索引栏侧边栏离右侧距离",
         "override": "",
         "value": "~`pxtorem(8)`",
         "jsValue": "@getRem@8",
-        "staticValue": "0.16rem"
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏离右侧距离",
+            "en": "The distance from the sidebar of the IndexBar to the right"
+        }
     },
     "indexbarSidebarSweatBackground": {
         "cssKey": "indexbar-sidebar-sweat-background",
-        "desc": "",
+        "desc": "索引栏侧边栏水滴提示气泡背景颜色",
         "override": "",
         "value": "#323232",
         "jsValue": "#323232",
-        "staticValue": "#323232"
+        "staticValue": "#323232",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴提示气泡背景颜色",
+            "en": "IndexBar sidebar water drop prompt bubble background color"
+        }
     },
     "indexbarSidebarSweatColor": {
         "cssKey": "indexbar-sidebar-sweat-color",
-        "desc": "",
+        "desc": "索引栏侧边栏水滴提示文案颜色",
         "override": "",
         "value": "white",
         "jsValue": "white",
-        "staticValue": "white"
+        "staticValue": "white",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴提示文案颜色",
+            "en": "The color of the water drop prompt text in the sidebar of the IndexBar"
+        }
     },
     "indexbarSidebarSweatFontSize": {
         "cssKey": "indexbar-sidebar-sweat-font-size",
-        "desc": "",
+        "desc": "索引栏侧边栏水滴字号大小",
         "override": "",
         "value": "~`pxtorem(24)`",
         "jsValue": "@getRem@24",
-        "staticValue": "0.48rem"
+        "staticValue": "0.48rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴字号大小",
+            "en": "IndexBar sidebar water drop font size"
+        }
     },
     "indexbarSidebarSweatPadding": {
         "cssKey": "indexbar-sidebar-sweat-padding",
-        "desc": "",
+        "desc": "索引栏侧边栏水滴提示气泡的内边距",
         "override": "",
         "value": "0 ~`pxtorem(8)`",
         "jsValue": "0 @getRem@8",
-        "staticValue": "0 0.16rem"
+        "staticValue": "0 0.16rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴提示气泡的内边距",
+            "en": "The inner margin of the water drop prompt bubble in the sidebar of the IndexBar"
+        }
+    },
+    "indexbarSidebarSweatRadius": {
+        "cssKey": "indexbar-sidebar-sweat-radius",
+        "desc": "索引栏侧边栏水滴直径",
+        "override": "",
+        "value": "~`pxtorem(50)`",
+        "jsValue": "@getRem@50",
+        "staticValue": "1rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴直径",
+            "en": "IndexBar sidebar droplet diameter"
+        }
     },
     "indexbarSidebarSweatRight": {
         "cssKey": "indexbar-sidebar-sweat-right",
-        "desc": "",
+        "desc": "索引栏侧边栏水滴离侧边栏的距离",
         "override": "",
         "value": "~`pxtorem(36.4)`",
         "jsValue": "@getRem@36.4",
-        "staticValue": "0.728rem"
+        "staticValue": "0.728rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴离侧边栏的距离",
+            "en": "The distance between the water droplets in the sidebar of the IndexBar and the sidebar"
+        }
+    },
+    "indexbarSidebarSweatTriangleBorder": {
+        "cssKey": "indexbar-sidebar-sweat-triangle-border",
+        "desc": "索引栏侧边栏三角气泡的border",
+        "override": "",
+        "value": "~`pxtorem(18)` solid transparent",
+        "jsValue": "@getRem@18 solid transparent",
+        "staticValue": "0.36rem solid transparent",
+        "localeDesc": {
+            "ch": "索引栏侧边栏三角气泡的border",
+            "en": "The border of the triangle bubble in the sidebar of the IndexBar"
+        }
+    },
+    "indexbarSidebarSweatTrianglePosition": {
+        "cssKey": "indexbar-sidebar-sweat-triangle-position",
+        "desc": "索引栏侧边栏三角气泡位置",
+        "override": "",
+        "value": "~`pxtorem(-28.5)`",
+        "jsValue": "@getRem@-28.5",
+        "staticValue": "-0.57rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏三角气泡位置",
+            "en": "The position of the triangle bubble in the sidebar of the IndexBar"
+        }
     },
     "indexbarSidebarToastBackground": {
         "cssKey": "indexbar-sidebar-toast-background",
-        "desc": "",
+        "desc": "索引栏侧边栏轻提示背景颜色",
         "override": "",
         "value": "#323232",
         "jsValue": "#323232",
-        "staticValue": "#323232"
+        "staticValue": "#323232",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示背景颜色",
+            "en": "IndexBar sidebar light prompt background color"
+        }
     },
     "indexbarSidebarToastColor": {
         "cssKey": "indexbar-sidebar-toast-color",
-        "desc": "",
+        "desc": "索引栏侧边栏轻提示文案颜色",
         "override": "",
         "value": "white",
         "jsValue": "white",
-        "staticValue": "white"
+        "staticValue": "white",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示文案颜色",
+            "en": "The color of the light prompt copy in the sidebar of the IndexBar"
+        }
     },
     "indexbarSidebarToastFontSize": {
         "cssKey": "indexbar-sidebar-toast-font-size",
-        "desc": "",
+        "desc": "索引栏侧边栏轻提示字号大小",
         "override": "",
         "value": "~`pxtorem(24)`",
         "jsValue": "@getRem@24",
-        "staticValue": "0.48rem"
+        "staticValue": "0.48rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示字号大小",
+            "en": "IndexBar sidebar light prompt font size"
+        }
     },
     "indexbarSidebarToastHeight": {
         "cssKey": "indexbar-sidebar-toast-height",
-        "desc": "",
+        "desc": "索引栏侧边栏轻提示方框高度",
         "override": "",
         "value": "~`pxtorem(48)`",
         "jsValue": "@getRem@48",
-        "staticValue": "0.96rem"
+        "staticValue": "0.96rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示方框高度",
+            "en": "The height of the light prompt box in the sidebar of the IndexBar"
+        }
     },
     "indexbarSidebarToastPadding": {
         "cssKey": "indexbar-sidebar-toast-padding",
-        "desc": "",
+        "desc": "索引栏侧边栏轻提示内边距",
         "override": "",
         "value": "0 ~`pxtorem(8)`",
         "jsValue": "0 @getRem@8",
-        "staticValue": "0 0.16rem"
+        "staticValue": "0 0.16rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示内边距",
+            "en": "IndexBar sidebar light prompt padding"
+        }
     },
     "indexbarSidebarToastRadius": {
         "cssKey": "indexbar-sidebar-toast-radius",
-        "desc": "",
+        "desc": "索引栏侧边栏轻提示圆角大小",
         "override": "",
         "value": "~`pxtorem(4)`",
         "jsValue": "@getRem@4",
-        "staticValue": "0.08rem"
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示圆角大小",
+            "en": "The sidebar of the IndexBar lightly prompts the size of the rounded corners"
+        }
     },
     "inputCaretColor": {
         "cssKey": "input-caret-color",

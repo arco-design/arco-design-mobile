@@ -385,8 +385,7 @@ function getCompTokens() {
          * 轮播图滑块文字背景色
          * @en Background color of the carousel sliders
          */
-        carouselItemTextBackground:
-            'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
+        carouselItemTextBackground: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
         /**
          * 轮播图滑块文字高度
          * @en Font height of the carousel sliders
@@ -2122,8 +2121,7 @@ function getCompTokens() {
          * 图片预览指示器背景色
          *  @en ImagePreview indicator background color
          */
-        imagePreviewIndicatorBackground:
-            'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
+        imagePreviewIndicatorBackground: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
         /**
          * 图片预览小图放大时的动画曲线
          * @en Animation curve when ImagePreview thumbnail is enlarged
@@ -3539,30 +3537,141 @@ function getCompTokens() {
          * @en Border radius of the close button of ImagePicker
          */
         imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
+        /**
+         * 索引栏背景颜色
+         * @en IndexBar background color
+         */
         indexbarBackground: 'white',
+        /**
+         * 索引栏，激活状态下的，索引文字颜色
+         * @en IndexBar, In active state, index text color
+         */
         indexbarGroupActiveColor: '#165dff',
+        /**
+         * 索引栏内容左填充宽度
+         * @en IndexBar content left padding width
+         */
         indexbarGroupLeftSpacing: getRem(16),
+        /**
+         * 索引栏索引标题高度
+         * @en IndexBar index header height
+         */
         indexbarGroupTitleHeight: getRem(24),
-        indexbarGroupTitleBackground: "#f7f8fa",
+        /**
+         * 索引栏标题背景颜色
+         * @en IndexBar title background color
+         */
+        indexbarGroupTitleBackground: '#f7f8fa',
+        /**
+         * 索引栏索引标题字号
+         * @en IndexBar index title font size
+         */
         indexbarGroupTitleFontSize: getRem(14),
+        /**
+         * 索引栏内容子项高度
+         * @en IndexBar content subitem height
+         */
         indexbarGroupItemHeight: getRem(54),
+        /**
+         * 索引栏内容子项字号大小
+         * @en IndexBar content sub-item font size
+         */
         indexbarGroupItemFontSize: getRem(14),
+        /**
+         * 索引栏侧边栏激活索引颜色
+         * @en IndexBar sidebar active index color
+         */
         indexbarSidebarActiveColor: '#165dff',
+        /**
+         * 索引栏侧边栏离右侧距离
+         * @en The distance from the sidebar of the IndexBar to the right
+         */
         indexbarSidebarMarginRight: getRem(8),
+        /**
+         * 索引栏侧边栏子项字号大小
+         * @en The font size of the subitems in the sidebar of the IndexBar
+         */
         indexbarSidebarItemFontSize: getRem(10),
+        /**
+         * 索引栏侧边栏子项高度
+         * @en IndexBar sidebar child item height
+         */
         indexbarSidebarItemPadding: `${getRem(2)} 0`,
+        /**
+         * 索引栏侧边栏子项宽度
+         * @en IndexBar sidebar child item width
+         */
         indexbarSidebarItemWidth: getRem(13),
+        /**
+         * 索引栏侧边栏水滴提示气泡的内边距
+         * @en The inner margin of the water drop prompt bubble in the sidebar of the IndexBar
+         */
         indexbarSidebarSweatPadding: `0 ${getRem(8)}`,
+        /**
+         * 索引栏侧边栏水滴提示气泡背景颜色
+         * @en IndexBar sidebar water drop prompt bubble background color
+         */
         indexbarSidebarSweatBackground: '#323232',
+        /**
+         * 索引栏侧边栏水滴提示文案颜色
+         * @en The color of the water drop prompt text in the sidebar of the IndexBar
+         */
         indexbarSidebarSweatColor: 'white',
+        /**
+         * 索引栏侧边栏水滴离侧边栏的距离
+         * @en The distance between the water droplets in the sidebar of the IndexBar and the sidebar
+         */
         indexbarSidebarSweatRight: getRem(36.4),
+        /**
+         * 索引栏侧边栏水滴字号大小
+         * @en IndexBar sidebar water drop font size
+         */
         indexbarSidebarSweatFontSize: getRem(24),
+        /**
+         * 索引栏侧边栏水滴直径
+         * @en IndexBar sidebar droplet diameter
+         */
+        indexbarSidebarSweatRadius: getRem(50),
+        /**
+         * 索引栏侧边栏三角气泡位置
+         * @en The position of the triangle bubble in the sidebar of the IndexBar
+         */
+        indexbarSidebarSweatTrianglePosition: getRem(-28.5),
+        /**
+         * 索引栏侧边栏三角气泡的border
+         * @en The border of the triangle bubble in the sidebar of the IndexBar
+         */
+        indexbarSidebarSweatTriangleBorder: `${getRem(18)} solid transparent`,
+        /**
+         * 索引栏侧边栏轻提示背景颜色
+         * @en IndexBar sidebar light prompt background color
+         */
         indexbarSidebarToastBackground: '#323232',
+        /**
+         * 索引栏侧边栏轻提示文案颜色
+         * @en The color of the light prompt copy in the sidebar of the IndexBar
+         */
         indexbarSidebarToastColor: 'white',
+        /**
+         * 索引栏侧边栏轻提示方框高度
+         * @en The height of the light prompt box in the sidebar of the IndexBar
+         */
         indexbarSidebarToastHeight: getRem(48),
+        /**
+         * 索引栏侧边栏轻提示圆角大小
+         * @en The sidebar of the IndexBar lightly prompts the size of the rounded corners
+         */
         indexbarSidebarToastRadius: getRem(4),
+        /**
+         * 索引栏侧边栏轻提示内边距
+         * @en IndexBar sidebar light prompt padding
+         */
         indexbarSidebarToastPadding: `0 ${getRem(8)}`,
-        indexbarSidebarToastFontSize: getRem(24)
+        /**
+         * 索引栏侧边栏轻提示字号大小
+         * @en IndexBar sidebar light prompt font size
+         */
+        indexbarSidebarToastFontSize: getRem(24),
     };
 }
 

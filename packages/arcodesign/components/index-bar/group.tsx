@@ -15,7 +15,7 @@ export function IndexBarGroup<Data extends IndexBarBaseData = IndexBarBaseData>(
         style,
         children,
         listKey,
-        onClick,
+        onGroupItemClick,
         renderGroupItem,
         renderStickyItem,
     } = props;
@@ -33,7 +33,7 @@ export function IndexBarGroup<Data extends IndexBarBaseData = IndexBarBaseData>(
             <div
                 className={`${prefixCls}-indexbar-group-item`}
                 key={formatGetListKey(data, index)}
-                onClick={() => onClick?.(groupIndex, data, index)}
+                onClick={() => onGroupItemClick?.(groupIndex, data, index)}
             >
                 {renderGroupItem ? renderGroupItem(groupIndex, data, index) : data.content}
             </div>
