@@ -36,6 +36,8 @@
 |onClick|图片点击|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
 |onLongPress|图片长按事件|(e: TouchEvent\<HTMLElement\>, image: ImagePickItem, index: number) =\> void|-|
 |selectAdapter|图片选择适配器|() =\> Promise\<SelectCallback\>|-|
+|onSelectClick|选图点击事件|() =\> void|-|
+|onDeleteClick|删除点击事件|(index: number) =\> void|-|
 
 > 引用/Refs
 
