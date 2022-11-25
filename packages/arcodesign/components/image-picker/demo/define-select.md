@@ -6,11 +6,10 @@
 @en{Default Use `<input type="file"/>` Select File, Use `onSelect` to Rewrite}
 
 ```js
-import { useState } from 'react';
 import { ImagePicker, Toast } from '@arco-design/mobile-react';
 
 export default function ImagePickerDemo() {
-    const [images, setImages] = useState([
+    const [images, setImages] = React.useState([
         { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
     ]);
     const selectAdapter = () => {

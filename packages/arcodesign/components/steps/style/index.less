@@ -11,15 +11,23 @@
 
         &.horizontal {
             flex-direction: column;
+        }
+
+        &-align-center {
             align-items: center;
         }
 
-        &.vertical {
+        &-align-start {
             align-items: flex-start;
         }
 
-        &:last-child &-tail:after {
-            display: none;
+        &-align-center.vertical {
+            .use-var(padding-bottom, steps-vertical-content-padding-bottom);
+        }
+
+        &:first-child &-tail::before,
+        &:last-child &-tail::after {
+            visibility: hidden;
         }
 
         &-tail {
@@ -30,37 +38,93 @@
 
             .horizontal & {
                 width: 100%;
-                left: 50%;
                 .use-var(height, steps-icon-height);
-                .use-var(padding, steps-tail-horizontal-padding);
 
-                &:after {
-                    content: "";
-                    display: inline-block;
-                    width: 100%;
+                &::before,
+                &::after {
                     .use-var(height, steps-tail-standard-size);
-                    .use-var(background, steps-tail-standard-background);
-                    .rem(border-radius, 2);
+                }
+
+                &-align-start {
+                    .use-var(left, steps-tail-horizontal-left);
+                    .use-var(padding, steps-tail-horizontal-padding);
+
+                    &::after {
+                        content: "";
+                        width: 100%;
+                        .use-var(border-radius, steps-tail-border-radius);
+                    }
+                }
+
+                &-align-center {
+                    &::before,
+                    &::after {
+                        content: "";
+                        width: 50%;
+                    }
+                    &::before {
+                        .use-var(margin-right, steps-tail-horizontal-gutter);
+                        .use-var(border-top-right-radius, steps-tail-border-radius);
+                        .use-var(border-bottom-right-radius, steps-tail-border-radius);
+                    }
+                    &::after {
+                        .use-var(margin-left, steps-tail-horizontal-gutter);
+                        .use-var(border-top-left-radius, steps-tail-border-radius);
+                        .use-var(border-bottom-left-radius, steps-tail-border-radius);
+                    }
                 }
             }
 
             .vertical & {
                 height: 100%;
                 .use-var(width, steps-icon-width);
-                .use-var(top, steps-tail-vertical-top);
-                .use-var(padding, steps-tail-vertical-padding);
+                flex-direction: column;
 
-                &:after {
-                    content: "";
-                    display: inline-block;
-                    height: 100%;
+                &::before,
+                &::after {
                     .use-var(width, steps-tail-standard-size);
-                    .use-var(background, steps-tail-standard-background);
-                    .rem(border-radius, 2);
+                }
+
+                &-align-start {
+                    .use-var(top, steps-tail-vertical-top);
+                    .use-var(padding, steps-tail-vertical-padding);
+
+                    &::after {
+                        content: "";
+                        height: 100%;
+                        .use-var(border-radius, steps-tail-border-radius);
+                    }
+                }
+
+                &-align-center {
+                    &::before,
+                    &::after {
+                        content: "";
+                        height: 50%;
+                    }
+                    &::before {
+                        .use-var(margin-bottom, steps-tail-vertical-gutter);
+                        .use-var(border-bottom-left-radius, steps-tail-border-radius);
+                        .use-var(border-bottom-right-radius, steps-tail-border-radius);
+                    }
+                    &::after {
+                        .use-var(margin-top, steps-tail-vertical-gutter);
+                        .use-var(border-top-left-radius, steps-tail-border-radius);
+                        .use-var(border-top-right-radius, steps-tail-border-radius);
+                    }
                 }
             }
 
-            .finish &:after {
+            &::after,
+            &::before {
+                display: inline-block;
+                .use-var(background, steps-tail-standard-background);
+            }
+
+            &-status-finish::before,
+            &-status-finish::after,
+            &-align-center&-status-process::before,
+            &-align-center&-status-error::before {
                 .use-var(background, steps-tail-finish-background);
             }
         }
@@ -110,7 +174,7 @@
                 .use-var(font-size, steps-icon-num-font-size);
                 .use-var(line-height, steps-icon-num-line-height);
                 .use-var(color, steps-icon-num-color);
-                .text-medium-var(steps-icon-num-color);
+                .text-medium();
 
                 .process & {
                     .use-var(color, steps-process-icon-num-color);
@@ -142,17 +206,21 @@
         }
 
         &-content {
-            text-align: center;
 
             .horizontal & {
                 .use-var(margin-top, steps-horizontal-content-margin-top);
+                &-align-center {
+                    text-align: center;
+                }
             }
 
             .vertical & {
                 .use-var(margin-left, steps-vertical-content-margin-left);
-                text-align: left;
                 flex: 1;
-                .use-var(padding-bottom, steps-vertical-content-padding-bottom);
+
+                &-align-start {
+                    .use-var(padding-bottom, steps-vertical-content-padding-bottom);
+                }
             }
         }
 

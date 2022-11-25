@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.7](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.6...@arco-design/mobile-utils@2.12.7) (2022-11-23)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+## [2.12.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.4...@arco-design/mobile-utils@2.12.6) (2022-11-09)
+
+
+### Bug Fixes
+
+* `Steps` optimize style & support custom alignment ([617c570](https://github.com/arco-design/arco-design-mobile/commit/617c57003135215787897b48c07d2b674c482828))
+* optimize .text-medium mixin ([ab62ab2](https://github.com/arco-design/arco-design-mobile/commit/ab62ab2cdb51174cbd2106467bbf1a3db4694982))
+
+
+
+
+
+## [2.12.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.3...@arco-design/mobile-utils@2.12.4) (2022-10-28)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+## [2.12.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.2...@arco-design/mobile-utils@2.12.3) (2022-09-30)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
 ## [2.12.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.1...@arco-design/mobile-utils@2.12.2) (2022-09-07)
 
 **Note:** Version bump only for package @arco-design/mobile-utils

@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState, useEffect } from 'react';
 import { LanguageSupport } from '../../utils/language';
 import { getUrlsByLanguage } from '../../utils/url';
 import HomeBanner from './banner';
@@ -9,6 +9,7 @@ import Business from './business';
 import Nav from './nav';
 import Principle from './principle';
 import getUrlParam from '../../utils/getUrlParam';
+import { showGA } from '../../utils/ga';
 import { GlobalContext, isMobileBrowser } from './setting';
 import './index.less';
 
@@ -33,6 +34,10 @@ export default function App() {
     }
 
     const isMobile = useMemo(() => isMobileBrowser(), []);
+
+    useEffect(() => {
+        showGA();
+    }, []);
 
     return (
         <GlobalContext.Provider value={{ language, isMobile }}>

@@ -61,4 +61,4 @@
 |status|状态，disabled 状态下不可点，danger 状态字体飘红|"normal" \| "disabled" \| "danger"|
 |className|选项文字自定义类名|string|
 |style|选项文字自定义样式|CSSProperties|
-|onClick|点击选项事件，返回值为 true 时可以阻止动作面板关闭|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> boolean \| void \| Promise\<boolean \| void\>|
+|onClick|点击选项事件，返回值为 true 时可以阻止动作面板关闭|(e?: MouseEvent\<HTMLElement, MouseEvent\>) =\> boolean \| void \| Promise\<boolean \| void\>|

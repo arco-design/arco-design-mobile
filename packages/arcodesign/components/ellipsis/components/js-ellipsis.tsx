@@ -100,7 +100,13 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
                 textContainer.appendChild(nodes[i]);
                 const { height } = container.getBoundingClientRect();
                 if (height > max) {
-                    break;
+                    if (nodes[i].childNodes && nodes[i].childNodes.length) {
+                        break;
+                    } else {
+                        textContainer.removeChild(nodes[i]);
+                        handleOnReflow(true, textContainer.innerHTML);
+                        return;
+                    }
                 }
                 i++;
             }

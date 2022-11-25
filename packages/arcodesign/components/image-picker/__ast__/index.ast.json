@@ -470,6 +470,40 @@
                 "name": "() => Promise<SelectCallback>"
             }
         },
+        "onSelectClick": {
+            "defaultValue": null,
+            "description": "选图点击事件\n@en Select Icon Click Event",
+            "name": "onSelectClick",
+            "tags": {
+                "en": "Select Icon Click Event"
+            },
+            "descWithTags": "选图点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onDeleteClick": {
+            "defaultValue": null,
+            "description": "删除点击事件\n@en Delete Icon Click Event",
+            "name": "onDeleteClick",
+            "tags": {
+                "en": "Delete Icon Click Event"
+            },
+            "descWithTags": "删除点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: number) => void"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",

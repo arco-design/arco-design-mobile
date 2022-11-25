@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.22.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.2...@arco-design/mobile-react@2.22.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* `Carousel` supports autoPlayDirection ([#72](https://github.com/arco-design/arco-design-mobile/issues/72)) ([527aaf4](https://github.com/arco-design/arco-design-mobile/commit/527aaf4bdf86fe4cf995bd8e4bd2580e9db8c942))
+* flexible.js support umd ([#73](https://github.com/arco-design/arco-design-mobile/issues/73)) ([d3f35c0](https://github.com/arco-design/arco-design-mobile/commit/d3f35c093a579bb404fff91dbf6437cdd93f19f7))
+
+
+
+
+
+## [2.22.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.0...@arco-design/mobile-react@2.22.2) (2022-11-09)
+
+
+### Bug Fixes
+
+* `PullRefresh` support custom style ([edac495](https://github.com/arco-design/arco-design-mobile/commit/edac4954526b8f2e3a86c9742752222e19f899f8))
+* `Steps` optimize style & support custom alignment ([617c570](https://github.com/arco-design/arco-design-mobile/commit/617c57003135215787897b48c07d2b674c482828))
+* `Tabs` fix touch event on foldable screen ([a67fa71](https://github.com/arco-design/arco-design-mobile/commit/a67fa71c8944e27aa43d6353e4a24e4ba676cec3))
+* optimize .text-medium mixin ([ab62ab2](https://github.com/arco-design/arco-design-mobile/commit/ab62ab2cdb51174cbd2106467bbf1a3db4694982))
+
+
+
+
+
+# [2.22.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.3...@arco-design/mobile-react@2.22.0) (2022-10-28)
+
+
+### Bug Fixes
+
+*  `SwipeAction` prevent touchmove by gesture ([#59](https://github.com/arco-design/arco-design-mobile/issues/59)) ([c9ef474](https://github.com/arco-design/arco-design-mobile/commit/c9ef474312eb9f9af736431f16147cfb56dee623))
+* `Tabs` supports tabBarStopPropagation ([#62](https://github.com/arco-design/arco-design-mobile/issues/62)) ([ba24d17](https://github.com/arco-design/arco-design-mobile/commit/ba24d178320e12b0aa95e5d75feb34e5e5163af4))
+
+
+### Features
+
+* add support for react18 ([#57](https://github.com/arco-design/arco-design-mobile/issues/57)) ([7cbb4fc](https://github.com/arco-design/arco-design-mobile/commit/7cbb4fcd5bd8c2809141bf0546f42ecf3367fd73))
+
+
+
+
+
+## [2.21.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.2...@arco-design/mobile-react@2.21.3) (2022-09-30)
+
+
+### Bug Fixes
+
+* `Ellipsis` special case for truncateHTML ([fa9db03](https://github.com/arco-design/arco-design-mobile/commit/fa9db03baecbb378e38d2217eddb85dec59d27d4))
+* `ImagePicker` import grid style ([e257ce0](https://github.com/arco-design/arco-design-mobile/commit/e257ce00dc3ecd4c61934149751fb817d3242159))
+* `Tabs` tab bar underline optimize ([20c9621](https://github.com/arco-design/arco-design-mobile/commit/20c962113e8a0dc43995813dda328239a1807a50))
+
+
+
+
+
 ## [2.21.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.1...@arco-design/mobile-react@2.21.2) (2022-09-07)
 
 
