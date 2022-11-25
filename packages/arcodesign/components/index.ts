@@ -42,6 +42,7 @@ export { default as Radio } from './radio';
 export { default as Rate } from './rate';
 export { default as Slider } from './slider';
 export { default as SearchBar } from './search-bar';
+export { default as Stepper } from './stepper';
 export { default as Steps } from './steps';
 export { default as Sticky } from './sticky';
 export { default as SwipeAction } from './swipe-action';

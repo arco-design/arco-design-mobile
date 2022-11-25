@@ -700,6 +700,20 @@ export interface ArcodesignToken extends Record<string, string> {
     'image-picker-close-height': string;
     'image-picker-close-background': string;
     'image-picker-close-border-radius': string;
+    'stepper-font-size': string;
+    'stepper-square-border': string;
+    'stepper-square-border-radius': string;
+    'stepper-square-background-color': string;
+    'stepper-round-button-border-radius': string;
+    'stepper-round-input-background-color': string;
+    'stepper-button-size': string;
+    'stepper-button-icon-size': string;
+    'stepper-default-background-color': string;
+    'stepper-content-color': string;
+    'stepper-disable-color': string;
+    'stepper-input-width': string;
+    'stepper-input-height': string;
+    'stepper-input-margin': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;

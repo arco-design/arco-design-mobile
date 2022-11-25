@@ -711,7 +711,21 @@ var tokens = {
   "image-picker-close-width": "0.36rem",
   "image-picker-close-height": "0.36rem",
   "image-picker-close-background": "rgba(0, 0, 0, 0.3)",
-  "image-picker-close-border-radius": "0 0.04rem"
+  "image-picker-close-border-radius": "0 0.04rem",
+  "stepper-font-size": "0.28rem",
+  "stepper-square-border": "1PX solid #f2f3f5",
+  "stepper-square-border-radius": "0.04rem",
+  "stepper-square-background-color": "#ffffff",
+  "stepper-round-button-border-radius": "50%",
+  "stepper-round-input-background-color": "transparent",
+  "stepper-button-size": "0.56rem",
+  "stepper-button-icon-size": "0.2rem",
+  "stepper-default-background-color": "#f7f8fa",
+  "stepper-content-color": "#1d2129",
+  "stepper-disable-color": "#c9cdd4",
+  "stepper-input-width": "0.8rem",
+  "stepper-input-height": "0.56rem",
+  "stepper-input-margin": "0 1PX"
 };
 var _default = tokens;
 exports["default"] = _default;
