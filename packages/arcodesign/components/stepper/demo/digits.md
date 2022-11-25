@@ -1,4 +1,4 @@
-## 设置固定小数点
+## 设置固定小数点 @en{Fixed decimal point}
 
 #### 3
 

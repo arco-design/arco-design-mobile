@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StepperProps } from '..';
+import { StepperProps } from '../type';
 
 function correctCalculation(leftNumber: number, rightNumber: number, operator: '-' | '+') {
     const magnification = 1e17;
@@ -12,20 +12,13 @@ export default function useButtonClick(
     params: Required<
         Pick<
             StepperProps,
-            | 'min'
-            | 'max'
-            | 'step'
-            | 'disabled'
-            | 'digits'
-            | 'digits'
-            | 'equalLimitDisabled'
-            | 'onAddButtonClick'
-            | 'onMinusButtonClick'
-        > & {
+            'min' | 'max' | 'step' | 'disabled' | 'digits' | 'digits' | 'equalLimitDisabled'
+        >
+    > &
+        Pick<StepperProps, 'onAddButtonClick' | 'onMinusButtonClick'> & {
             actualInputValue: number;
             updateValue: (updater: number | ((oldValue: number) => number)) => void;
-        }
-    >,
+        },
 ) {
     const {
         actualInputValue,

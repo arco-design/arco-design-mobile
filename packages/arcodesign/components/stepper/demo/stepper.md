@@ -1,4 +1,4 @@
-## 设置递增值（+5 递增）
+## 自定义步长 @en{Custom step}
 
 #### 4
 
@@ -8,7 +8,7 @@ import { Stepper, Cell } from '@arco-design/mobile-react';
 export default function StepperDemo() {
     return (
         <Cell.Group bordered={false}>
-            <Cell label="设置递增值">
+            <Cell label="自定义步长">
                 <Stepper defaultValue={5} step={5} />
             </Cell>
         </Cell.Group>

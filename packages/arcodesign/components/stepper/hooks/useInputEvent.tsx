@@ -1,24 +1,13 @@
 import React from 'react';
-import { StepperProps } from '..';
+import { StepperProps } from '../type';
 import { useUpdateEffect } from '../../_helpers';
 
 export default function useInputEvent(
-    params: Required<
-        Pick<
-            StepperProps,
-            | 'defaultValue'
-            | 'min'
-            | 'max'
-            | 'digits'
-            | 'allowEmpty'
-            | 'onBlur'
-            | 'onChange'
-            | 'onInput'
-        >
-    > & {
-        actualInputValue: number;
-        updateValue: (updater: number | ((oldValue: number) => number)) => void;
-    },
+    params: Required<Pick<StepperProps, 'defaultValue' | 'min' | 'max' | 'digits' | 'allowEmpty'>> &
+        Pick<StepperProps, 'onBlur' | 'onChange' | 'onInput'> & {
+            actualInputValue: number;
+            updateValue: (updater: number | ((oldValue: number) => number)) => void;
+        },
 ) {
     const {
         defaultValue,
