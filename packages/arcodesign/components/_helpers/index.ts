@@ -6,6 +6,7 @@ import { CSSProperties } from 'react';
 
 export * from './hooks';
 export * from './type';
+export * from './react-dom';
 
 export function getStyleWithVendor(style: CSSProperties): CSSProperties {
     const allowReg = /(transform|transition|animation)/i;

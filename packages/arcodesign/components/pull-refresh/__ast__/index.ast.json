@@ -58,14 +58,11 @@
             }
         },
         "className": {
-            "defaultValue": {
-                "value": "\"\""
-            },
+            "defaultValue": null,
             "description": "样式类名\n@en Custom classname",
             "name": "className",
             "tags": {
-                "en": "Custom classname",
-                "default": "\"\""
+                "en": "Custom classname"
             },
             "descWithTags": "样式类名",
             "parent": {
@@ -75,6 +72,23 @@
             "required": false,
             "type": {
                 "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom style",
+            "name": "style",
+            "tags": {
+                "en": "Custom style"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
             }
         },
         "disabled": {

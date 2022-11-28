@@ -2651,20 +2651,40 @@ function getCompTokens() {
          */
         stepsPadding: `${getRem(16)} 0`,
         /**
+         * steps 分割线圆角值
+         * @en Border radius of steps dividing
+         */
+        stepsTailBorderRadius: '2PX',
+        /**
+         * steps 水平分割线与图标中心点的距离
+         * @en The distance between the horizontal dividing line and the center point of the icon
+         */
+        stepsTailHorizontalGutter: '18PX',
+        /**
+         * steps 垂直分割线与图标中心点的距离
+         * @en The distance between the vertical dividing line and the center point of the icon
+         */
+        stepsTailVerticalGutter: '14PX',
+        /**
          * steps 水平分割线左右间距
          * @en Left and right spacing of the horizontal dividing line of Steps
          */
-        stepsTailHorizontalPadding: `0 ${getRem(18)}`,
+        stepsTailHorizontalPadding: `0 ${useGlobal('stepsTailHorizontalGutter')}`,
         /**
          * steps 垂直分割线上下间距
          * @en Left and right spacing of the vertical dividing line of Steps
          */
-        stepsTailVerticalPadding: `${getRem(14)} 0`,
+        stepsTailVerticalPadding: `${useGlobal('stepsTailVerticalGutter')} 0`,
+        /**
+         * steps 水平分割线的向右偏移距离，一般是 stepsIconHeight 值的一半
+         * @en The offset distance to the right of the horizontal dividing line of steps, generally half the value of stepsIconHeight
+         */
+        stepsTailHorizontalLeft: '9PX',
         /**
          * steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半
-         * @en Left and right spacing of the vertical dividing line of Steps
+         * @en The offset distance to the bottom of the vertical dividing line of steps, generally half the value of stepsIconHeight
          */
-        stepsTailVerticalTop: getRem(9),
+        stepsTailVerticalTop: '9PX',
         /**
          * steps 步骤分割线默认粗细
          * @en Steps dividing line thickness
@@ -3539,6 +3559,76 @@ function getCompTokens() {
          * @en Border radius of the close button of ImagePicker
          */
         imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
+        /**
+         * 步进器字体大小
+         * @en Font size of Stepper
+         */
+        stepperFontSize: getRem(14),
+        /**
+         * 步进器方角边框样式
+         * @en Square border style of Stepper
+         */
+        stepperSquareBorder: '1PX solid #f2f3f5',
+        /**
+         * 步进器方角边框半径
+         * @en Square border radius of Stepper
+         */
+        stepperSquareBorderRadius: getRem(2),
+        /**
+         * 步进器方角样式背景颜色
+         * @en Background color of Stepper square style
+         */
+        stepperSquareBackgroundColor: '#ffffff',
+        /**
+         * 步进器圆角按钮边框半径
+         * @en Round button border radius of Stepper
+         */
+        stepperRoundButtonBorderRadius: '50%',
+        /**
+         * 步进器圆角输入框背景颜色
+         * @en Rount input background color of Stepper
+         */
+        stepperRoundInputBackgroundColor: 'transparent',
+        /**
+         * 步进器按钮尺寸
+         * @en Button size of Stepper
+         */
+        stepperButtonSize: getRem(28),
+        /**
+         * 步进器按钮图标尺寸
+         * @en Button icon size of Stepper
+         */
+        stepperButtonIconSize: getRem(10),
+        /**
+         * 步进器默认背景颜色
+         * @en Background default colr of Stepper
+         */
+        stepperDefaultBackgroundColor: '#f7f8fa',
+        /**
+         * 步进器内容字体颜色
+         * @en Content text color of Stepper
+         */
+        stepperContentColor: '#1d2129',
+        /**
+         * 步进器禁用状态字体颜色
+         * @en Text color of Stepper in disable status
+         */
+        stepperDisableColor: '#c9cdd4',
+        /**
+         * 步进器输入框宽度
+         * @en Input width of Stepper
+         */
+        stepperInputWidth: getRem(40),
+        /**
+         * 步进器输入框长度
+         * @en Input height of Stepper
+         */
+        stepperInputHeight: getRem(28),
+        /**
+         * 步进器输入框外边距
+         * @en Input margin of Stepper
+         */
+        stepperInputMargin: '0 1PX',
     };
 }
 

@@ -516,9 +516,13 @@
 @notify-font-size: ~`pxtorem(14)`;
 @notify-min-height: ~`pxtorem(36)`;
 @steps-padding: ~`pxtorem(16)` 0;
-@steps-tail-horizontal-padding: 0 ~`pxtorem(18)`;
-@steps-tail-vertical-padding: ~`pxtorem(14)` 0;
-@steps-tail-vertical-top: ~`pxtorem(9)`;
+@steps-tail-border-radius: 2PX;
+@steps-tail-horizontal-gutter: 18PX;
+@steps-tail-vertical-gutter: 14PX;
+@steps-tail-horizontal-padding: 0 @steps-tail-horizontal-gutter;
+@steps-tail-vertical-padding: @steps-tail-vertical-gutter 0;
+@steps-tail-horizontal-left: 9PX;
+@steps-tail-vertical-top: 9PX;
 @steps-tail-standard-size: 1PX;
 @steps-tail-standard-background: @line-color;
 @steps-tail-finish-background: @primary-color;
@@ -696,4 +700,18 @@
 @image-picker-close-height: ~`pxtorem(18)`;
 @image-picker-close-background: rgba(0, 0, 0, 0.3);
 @image-picker-close-border-radius: 0 ~`pxtorem(2)`;
+@stepper-font-size: ~`pxtorem(14)`;
+@stepper-square-border: 1PX solid #f2f3f5;
+@stepper-square-border-radius: ~`pxtorem(2)`;
+@stepper-square-background-color: #ffffff;
+@stepper-round-button-border-radius: 50%;
+@stepper-round-input-background-color: transparent;
+@stepper-button-size: ~`pxtorem(28)`;
+@stepper-button-icon-size: ~`pxtorem(10)`;
+@stepper-default-background-color: #f7f8fa;
+@stepper-content-color: #1d2129;
+@stepper-disable-color: #c9cdd4;
+@stepper-input-width: ~`pxtorem(40)`;
+@stepper-input-height: ~`pxtorem(28)`;
+@stepper-input-margin: 0 1PX;
 

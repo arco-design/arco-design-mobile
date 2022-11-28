@@ -32,3 +32,4 @@ Global data control component, used to replace global data.
 |Pagination|-|\{ previousPage: string; nextPage: string; \}|
 |Image|-|\{ loadError: string; \}|
 |ImagePicker|-|\{ loadError: string; \}|
+|SearchBar|-|\{ placeholder: string; cancelBtn: string; \}|

@@ -88,6 +88,7 @@ A modal dialog, displayed in a floating layer, guides the user to perform relate
 |Pagination|-|\{ previousPage: string; nextPage: string; \}|
 |Image|-|\{ loadError: string; \}|
 |ImagePicker|-|\{ loadError: string; \}|
+|SearchBar|-|\{ placeholder: string; cancelBtn: string; \}|
 
 > AlertOptions
 
