@@ -13,7 +13,7 @@ export * from './type';
  * 步进器组件，支持受控模式
  * @en Stepper component, provide controlled mode
  * @type 数据录入
- * @type_en Data input
+ * @type_en Data Entry
  * @name 步进器
  * @name_en Stepper
  */

@@ -1,4 +1,4 @@
-### Data input
+### Data Entry
 
 # Stepper 
 

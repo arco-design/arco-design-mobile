@@ -3695,6 +3695,18 @@
             "en": "Input clear icon color"
         }
     },
+    "inputClearIconFontSize": {
+        "cssKey": "input-clear-icon-font-size",
+        "desc": "输入框 清除图标大小",
+        "override": "",
+        "value": "16PX",
+        "jsValue": "16PX",
+        "staticValue": "16PX",
+        "localeDesc": {
+            "ch": "输入框 清除图标大小",
+            "en": "Input clear icon font size"
+        }
+    },
     "inputDisabledBackground": {
         "cssKey": "input-disabled-background",
         "desc": "输入框 禁用状态输入框背景色",

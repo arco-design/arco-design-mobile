@@ -95,6 +95,7 @@ var tokens = {
   "input-disabled-color": "#c9cdd4",
   "input-placeholder-color": "#c9cdd4",
   "input-clear-icon-color": "#c9cdd4",
+  "input-clear-icon-font-size": "16PX",
   "input-label-gutter": "0.48rem",
   "input-horizontal-padding": "0.32rem",
   "input-vertical-padding": "0.24rem",

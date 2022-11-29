@@ -3,7 +3,7 @@
     "descriptionTags": {
         "en": "Stepper component, provide controlled mode",
         "type": "数据录入",
-        "type_en": "Data input",
+        "type_en": "Data Entry",
         "name": "步进器",
         "name_en": "Stepper"
     },

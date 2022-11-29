@@ -428,6 +428,11 @@ function getCompTokens() {
          */
         inputClearIconColor: useGlobal('disabledColor'),
         /**
+         * 输入框 清除图标大小
+         * @en Input clear icon font size
+         */
+        inputClearIconFontSize: '16PX',
+        /**
          *  输入框 前置内容右内边距
          * @en Input right padding of label
          */

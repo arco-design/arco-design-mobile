@@ -83,6 +83,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'input-disabled-color': string;
     'input-placeholder-color': string;
     'input-clear-icon-color': string;
+    'input-clear-icon-font-size': string;
     'input-label-gutter': string;
     'input-horizontal-padding': string;
     'input-vertical-padding': string;
