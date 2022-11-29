@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.3...@arco-design/mobile-react@2.23.0) (2022-11-29)
+
+
+### Bug Fixes
+
+* `ImagePicker` add click event ([#67](https://github.com/arco-design/arco-design-mobile/issues/67)) ([0f76fda](https://github.com/arco-design/arco-design-mobile/commit/0f76fda245ac9a171525800c1d170c93411f2820))
+
+
+### Features
+
+* add new component `Stepper` ([#46](https://github.com/arco-design/arco-design-mobile/issues/46)) ([a6ce795](https://github.com/arco-design/arco-design-mobile/commit/a6ce7958345ca5170cf00b7efa5cf74d02ebe93d))
+
+
+
+
+
 ## [2.22.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.2...@arco-design/mobile-react@2.22.3) (2022-11-23)
 
 
