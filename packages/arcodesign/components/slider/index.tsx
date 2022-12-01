@@ -255,7 +255,7 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
             role="slider"
             aria-valuemin={min}
             aria-valuemax={max}
-            aria-valuenow={valueGroup}
+            aria-valuenow={Array.isArray(valueGroup) ? valueGroup[0] : valueGroup}
             aria-disabled={disabled}
         >
             {isHorizontal ? renderPrefixLabel : renderSuffixLabel}
