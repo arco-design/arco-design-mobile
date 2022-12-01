@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, forwardRef, Ref, useImperativeHandle } from 'react';
-import { cls, nextTick } from '@arco-design/mobile-utils';
+import { cls, componentWrapper, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Popup from '../popup';
 import PickerView, {
@@ -223,4 +223,4 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
     );
 });
 
-export default Picker;
+export default componentWrapper(Picker, 'ADMPicker');

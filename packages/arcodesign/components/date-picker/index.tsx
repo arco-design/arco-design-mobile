@@ -7,7 +7,7 @@ import React, {
     Ref,
     useImperativeHandle,
 } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import Picker, { PickerRef } from '../picker';
 import { PickerData, ValueType } from '../picker-view';
 import { ContextLayout } from '../context-provider';
@@ -286,4 +286,4 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     );
 });
 
-export default DatePicker;
+export default componentWrapper(DatePicker, 'ADMDatePicker');
