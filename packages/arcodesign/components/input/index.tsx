@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { BasicInputProps } from './props';
 import { useInputLogic } from './hooks';
@@ -130,4 +130,4 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
     return <ContextLayout>{renderInput}</ContextLayout>;
 });
 
-export default Input;
+export default componentWrapper(Input, 'ADMInput');
