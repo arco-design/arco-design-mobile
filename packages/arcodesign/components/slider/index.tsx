@@ -9,7 +9,7 @@ import React, {
     useCallback,
     ReactNode,
 } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
 import {
     useSliderStyle,
@@ -304,4 +304,4 @@ const SliderWrapper = forwardRef((props: SliderProps, ref: Ref<SliderRef>) => {
         </SliderContext.Provider>
     );
 });
-export default SliderWrapper;
+export default componentWrapper(SliderWrapper, 'ADMSlider');

@@ -51,4 +51,47 @@ export interface ILocale {
         placeholder: string;
         cancelBtn: string;
     };
+    Form: {
+        required: string;
+        type: {
+            email: string;
+            url: string;
+            string: string;
+            number: string;
+            array: string;
+            object: string;
+            boolean: string;
+        };
+        number: {
+            min: string;
+            max: string;
+            equal: string;
+            range: string;
+            positive: string;
+            negative: string;
+        };
+        string: {
+            max: string;
+            min: string;
+            len: string;
+            match: string;
+            uppercase: string;
+            lowercase: string;
+            whitespace: string;
+        };
+        array: {
+            max: string;
+            min: string;
+            len: string;
+            includes: string;
+            deepEqual: string;
+        };
+        object: {
+            deepEqual: string;
+            hasKeys: string;
+        };
+        boolean: {
+            equal: string;
+        };
+    };
 }

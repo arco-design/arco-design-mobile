@@ -1,5 +1,5 @@
 import React, { useState, useEffect, forwardRef, Ref, useImperativeHandle, useRef } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { useSystem } from '../_helpers';
 
@@ -218,4 +218,4 @@ const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
     );
 });
 
-export default Switch;
+export default componentWrapper(Switch, 'ADMSwitch');

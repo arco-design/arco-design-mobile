@@ -3565,6 +3565,47 @@ function getCompTokens() {
          */
         imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
         /**
+         * 表单项标签字号
+         * @en Font size of Form label
+         */
+        formItemLabelItemFontSize: getRem(16),
+        /**
+         * 表单项标签行高
+         * @en Lineheight of Form label
+         */
+        formItemLabelItemLineHeight: getRem(54),
+        /**
+         * 表单项标签颜色
+         * @en Color of Form label
+         */
+        formItemLabelItemColor: useGlobal('fontColor'),
+        formItemLabelItemGutter: getRem(16),
+        /**
+         * 表单项标签右边距
+         * @en Right padding of Form label
+         */
+        formItemLabelItemWidth: getRem(96),
+        /**
+         * 表单项分割线颜色
+         * @en Form item divider color
+         */
+        formItemBorderDividerColor: 'rgba(0, 0, 0, 0.08)',
+        /**
+         * 表单项必选项星号颜色
+         * @en Form item asterisk color
+         */
+        formItemLabelItemRequiredAsteriskColor: '#F53F3F',
+        /**
+         * 表单项错误提示颜色
+         * @en Form item error message color
+         */
+        formItemErrorMessageColor: '#F53F3F',
+        /**
+         * 表单项警告提示颜色
+         * @en Form item warning message color
+         */
+        formItemWarningMessageColor: '#FF7D00',
+        /*
          * 步进器字体大小
          * @en Font size of Stepper
          */

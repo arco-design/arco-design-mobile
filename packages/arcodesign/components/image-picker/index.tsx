@@ -1,6 +1,6 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { Promise } from 'es6-promise';
-import { cls, defaultLocale } from '@arco-design/mobile-utils';
+import { cls, defaultLocale, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { IconClose } from '../icon';
 import Image from '../image';
@@ -281,4 +281,4 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     );
 });
 
-export default ImagePicker;
+export default componentWrapper(ImagePicker, 'ADMImagePicker');

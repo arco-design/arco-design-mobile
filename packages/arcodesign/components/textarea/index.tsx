@@ -7,7 +7,7 @@ import React, {
     useMemo,
     ReactNode,
 } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { BasicInputProps } from '../input/props';
 import { useInputLogic } from '../input/hooks';
@@ -254,4 +254,4 @@ const Textarea = forwardRef((props: TextareaProps, ref: Ref<TextareaRef>) => {
     return <ContextLayout>{renderTextarea}</ContextLayout>;
 });
 
-export default Textarea;
+export default componentWrapper(Textarea, 'ADMTextarea');

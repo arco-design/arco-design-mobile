@@ -3179,6 +3179,110 @@
             "en": "Base font color"
         }
     },
+    "formItemBorderDividerColor": {
+        "cssKey": "form-item-border-divider-color",
+        "desc": "表单项分割线颜色",
+        "override": "",
+        "value": "rgba(0, 0, 0, 0.08)",
+        "jsValue": "rgba(0, 0, 0, 0.08)",
+        "staticValue": "rgba(0, 0, 0, 0.08)",
+        "localeDesc": {
+            "ch": "表单项分割线颜色",
+            "en": "Form item divider color"
+        }
+    },
+    "formItemErrorMessageColor": {
+        "cssKey": "form-item-error-message-color",
+        "desc": "表单项错误提示颜色",
+        "override": "",
+        "value": "#F53F3F",
+        "jsValue": "#F53F3F",
+        "staticValue": "#F53F3F",
+        "localeDesc": {
+            "ch": "表单项错误提示颜色",
+            "en": "Form item error message color"
+        }
+    },
+    "formItemLabelItemColor": {
+        "cssKey": "form-item-label-item-color",
+        "desc": "表单项标签颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "表单项标签颜色",
+            "en": "Color of Form label"
+        }
+    },
+    "formItemLabelItemFontSize": {
+        "cssKey": "form-item-label-item-font-size",
+        "desc": "表单项标签字号",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "表单项标签字号",
+            "en": "Font size of Form label"
+        }
+    },
+    "formItemLabelItemGutter": {
+        "cssKey": "form-item-label-item-gutter",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem"
+    },
+    "formItemLabelItemLineHeight": {
+        "cssKey": "form-item-label-item-line-height",
+        "desc": "表单项标签行高",
+        "override": "",
+        "value": "~`pxtorem(54)`",
+        "jsValue": "@getRem@54",
+        "staticValue": "1.08rem",
+        "localeDesc": {
+            "ch": "表单项标签行高",
+            "en": "Lineheight of Form label"
+        }
+    },
+    "formItemLabelItemRequiredAsteriskColor": {
+        "cssKey": "form-item-label-item-required-asterisk-color",
+        "desc": "表单项必选项星号颜色",
+        "override": "",
+        "value": "#F53F3F",
+        "jsValue": "#F53F3F",
+        "staticValue": "#F53F3F",
+        "localeDesc": {
+            "ch": "表单项必选项星号颜色",
+            "en": "Form item asterisk color"
+        }
+    },
+    "formItemLabelItemWidth": {
+        "cssKey": "form-item-label-item-width",
+        "desc": "表单项标签右边距",
+        "override": "",
+        "value": "~`pxtorem(96)`",
+        "jsValue": "@getRem@96",
+        "staticValue": "1.92rem",
+        "localeDesc": {
+            "ch": "表单项标签右边距",
+            "en": "Right padding of Form label"
+        }
+    },
+    "formItemWarningMessageColor": {
+        "cssKey": "form-item-warning-message-color",
+        "desc": "表单项警告提示颜色",
+        "override": "",
+        "value": "#FF7D00",
+        "jsValue": "#FF7D00",
+        "staticValue": "#FF7D00",
+        "localeDesc": {
+            "ch": "表单项警告提示颜色",
+            "en": "Form item warning message color"
+        }
+    },
     "fullScreenZIndex": {
         "cssKey": "full-screen-z-index",
         "desc": "全屏组件zIndex基础值",
