@@ -6369,15 +6369,11 @@
     },
     "stepperFontSize": {
         "cssKey": "stepper-font-size",
-        "desc": "步进器字体大小",
+        "desc": "",
         "override": "",
         "value": "~`pxtorem(14)`",
         "jsValue": "@getRem@14",
-        "staticValue": "0.28rem",
-        "localeDesc": {
-            "ch": "步进器字体大小",
-            "en": "Font size of Stepper"
-        }
+        "staticValue": "0.28rem"
     },
     "stepperInputHeight": {
         "cssKey": "stepper-input-height",
