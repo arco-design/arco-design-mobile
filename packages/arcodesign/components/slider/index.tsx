@@ -252,6 +252,11 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
             })}
             style={style}
             ref={domRef}
+            role="slider"
+            aria-valuemin={min}
+            aria-valuemax={max}
+            aria-valuenow={valueGroup}
+            aria-disabled={disabled}
         >
             {isHorizontal ? renderPrefixLabel : renderSuffixLabel}
             <div className={`${prefixCls}-slider-wrapper`}>

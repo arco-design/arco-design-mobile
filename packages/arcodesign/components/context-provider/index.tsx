@@ -49,7 +49,7 @@ export const defaultContext: GlobalContextParams = {
 export const GlobalContext = createContext<GlobalContextParams>(defaultContext);
 
 export interface ContextProviderProps extends GlobalContextParams {
-    children: React.ReactNode | JSX.Element;
+    children: React.ReactNode;
 }
 
 /**

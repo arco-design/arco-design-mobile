@@ -51,4 +51,8 @@ export interface ILocale {
         placeholder: string;
         cancelBtn: string;
     };
+    Stepper: {
+        minusButtonName: string;
+        addButtonName: string;
+    };
 }

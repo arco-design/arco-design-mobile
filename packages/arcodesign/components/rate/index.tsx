@@ -234,6 +234,7 @@ const Rate = forwardRef((props: RateProps, ref: Ref<RateRef>) => {
         <ContextLayout>
             {({ prefixCls }) => (
                 <div
+                    role="slider"
                     aria-valuemin={0}
                     aria-valuemax={count}
                     aria-valuenow={innerValue}

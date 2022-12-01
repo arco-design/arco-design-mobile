@@ -111,7 +111,7 @@ const Stepper = forwardRef((props: StepperProps, ref: Ref<StepperRef>) => {
                     ref={domRef}
                     onClick={onClick}
                 >
-                    <div onClick={handleMinusButtonClick}>
+                    <div aria-label="decrease" onClick={handleMinusButtonClick}>
                         {minusButton || (
                             <div className={cls(`${prefixCls}-stepper-minus-button`)}>
                                 <IconMinus
@@ -137,10 +137,14 @@ const Stepper = forwardRef((props: StepperProps, ref: Ref<StepperRef>) => {
                             readOnly={inputReadonly}
                             ref={inputRef}
                             type="number"
+                            role="spinbutton"
+                            aria-valuenow={showValue}
+                            aria-valuemax={max}
+                            aria-valuemin={min}
                         />
                     )}
 
-                    <div onClick={handleAddButtonClick}>
+                    <div aria-label="increase" onClick={handleAddButtonClick}>
                         {addButton || (
                             <div className={cls(`${prefixCls}-stepper-add-button`)}>
                                 <IconAdd
