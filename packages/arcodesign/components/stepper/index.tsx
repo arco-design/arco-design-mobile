@@ -138,7 +138,7 @@ const Stepper = forwardRef((props: StepperProps, ref: Ref<StepperRef>) => {
                             ref={inputRef}
                             type="number"
                             role="spinbutton"
-                            aria-valuenow={showValue}
+                            aria-valuenow={Number(showValue)}
                             aria-valuemax={max}
                             aria-valuemin={min}
                         />
