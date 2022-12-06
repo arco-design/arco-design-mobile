@@ -126,12 +126,14 @@ export interface NavBarProps {
     getComputedStyleByScroll?: (offset: number) => CSSProperties;
     /**
      * 无障碍aria-label属性
-     * Accessibility attribute aria-label
+     * @en Accessibility attribute aria-label
+     * @default ""
      */
     ariaLabel?: string;
     /**
      * 无障碍role属性
-     * Accessibility attribute role
+     * @en Accessibility attribute role
+     * @default "banner"
      */
     ariaRole?: string;
 }
