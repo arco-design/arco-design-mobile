@@ -128,12 +128,12 @@ export interface NavBarProps {
      * 无障碍aria-label属性
      * Accessibility attribute aria-label
      */
-    ariaLabel: string;
+    ariaLabel?: string;
     /**
      * 无障碍role属性
      * Accessibility attribute role
      */
-    ariaRole: string;
+    ariaRole?: string;
 }
 
 /**
