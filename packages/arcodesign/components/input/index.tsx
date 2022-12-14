@@ -31,6 +31,11 @@ export interface InputProps extends BasicInputProps {
      *  @en Other unlisted native properties have lower priority than listed component properties
      */
     nativeProps?: React.InputHTMLAttributes<HTMLInputElement>;
+    /**
+     * 无障碍label
+     * @en accessible label
+     */
+    ariaLabel?: string;
 }
 
 export interface InputRef {
@@ -69,6 +74,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
         inputClass,
         inputStyle,
         nativeProps = {},
+        ariaLabel = '',
     } = props;
     const inputRef = useRef<HTMLInputElement | null>(null);
     const {
@@ -115,6 +121,8 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
                 onInput={handleInput}
                 onKeyDown={handleKeyDown}
                 onClick={handleClick}
+                aria-disabled={disabled}
+                aria-label={ariaLabel}
             />,
         );
     }

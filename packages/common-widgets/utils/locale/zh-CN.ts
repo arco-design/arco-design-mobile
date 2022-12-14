@@ -49,6 +49,10 @@ const localeConfig: ILocale = {
         placeholder: '请输入要查询的内容',
         cancelBtn: '取消',
     },
+    Stepper: {
+        minusButtonName: '减少',
+        addButtonName: '增加',
+    },
 };
 
 export default localeConfig;

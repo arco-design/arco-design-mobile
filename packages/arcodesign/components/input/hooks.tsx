@@ -189,6 +189,7 @@ export function useInputLogic(
     function renderWrapper(prefixCls: string, type: string, children: ReactNode) {
         return (
             <div
+                role="search"
                 className={`${prefixCls}-container all-border-box ${className || ''}`}
                 style={style}
                 ref={wrapRef}

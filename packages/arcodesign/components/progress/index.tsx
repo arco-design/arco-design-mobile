@@ -198,6 +198,10 @@ const Progress = forwardRef((props: ProgressProps, ref: Ref<ProgressRef>) => {
     function renderBarProgress({ prefixCls }) {
         return (
             <div
+                role="progressbar"
+                aria-valuenow={percentage}
+                aria-valuemax={100}
+                aria-valuemin={0}
                 className={cls(
                     `${prefixCls}-progress`,
                     { 'progress-fixed': mode === 'nav' },
