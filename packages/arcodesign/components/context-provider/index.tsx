@@ -52,6 +52,8 @@ export interface ContextProviderProps extends GlobalContextParams {
     children: React.ReactNode;
 }
 
+export type WithGlobalContext<T> = T & { context?: GlobalContextParams };
+
 /**
  * 全局数据控制组件，用于替换全局数据。
  * @en Global data control component, used to replace global data.
@@ -123,3 +125,20 @@ export default function ContextProvider(props: ContextProviderProps) {
 }
 
 export const ContextLayout = GlobalContext.Consumer;
+
+export function CompWithGlobalContext<P extends JSX.IntrinsicAttributes>(
+    Component: React.FunctionComponent<P>,
+) {
+    return function (props: WithGlobalContext<P>) {
+        const { context: propsContext, ...others } = props;
+        return (
+            <ContextLayout>
+                {context => (
+                    <ContextProvider {...{ ...context, ...propsContext }}>
+                        <Component {...(others as P)} />
+                    </ContextProvider>
+                )}
+            </ContextLayout>
+        );
+    };
+}

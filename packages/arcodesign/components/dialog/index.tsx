@@ -1,6 +1,6 @@
 import React, { forwardRef, Ref, useImperativeHandle, useRef, ReactNode } from 'react';
 import { cls, componentWrapper, ILocale } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import Masking, { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
 import { alert, confirm, open } from './methods';
 import { useSystem } from '../_helpers';
@@ -309,6 +309,8 @@ export function methodsGenerator<P extends OpenBaseProps, A = AlertOptions, C = 
     };
 }
 
+const DialogWithGlobalContext = CompWithGlobalContext(Dialog);
+
 /**
  * 模态对话框，在浮层中显示，引导用户进行相关操作。默认做了防滚动穿透处理，如果弹层内容中需要滚动，则需将滚动容器传入`getScrollContainer`属性以在未滚动到顶部或底部时释放滚动。
  * @en A modal dialog, displayed in a floating layer, guides the user to perform related operations. By default, anti-scroll penetration processing is performed. If scrolling is required in the content of the bullet layer, you need to pass the scroll container to `getScrollContainer` to release scrolling when it is not scrolled to the top or bottom.
@@ -317,4 +319,4 @@ export function methodsGenerator<P extends OpenBaseProps, A = AlertOptions, C = 
  * @name 对话框
  * @name_en Dialog
  */
-export default componentWrapper(Dialog, methodsGenerator(Dialog));
+export default componentWrapper(Dialog, methodsGenerator(DialogWithGlobalContext));

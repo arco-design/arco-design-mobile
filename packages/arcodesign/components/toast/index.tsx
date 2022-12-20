@@ -1,6 +1,6 @@
 import React, { useEffect, forwardRef, Ref, useRef, useImperativeHandle, ReactNode } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import Transition from '../transition';
 import IconErrorCircle from '../icon/IconErrorCircle';
 import IconWarnCircle from '../icon/IconWarnCircle';
@@ -315,6 +315,8 @@ export function methodsGenerator<P extends ToastBaseProps>(Comp: React.FunctionC
     };
 }
 
+const ToastWithGlobalContext = CompWithGlobalContext(Toast);
+
 /**
  * 轻提示组件，支持各个场景下调用方法。
  * @en The toast component, supports calling methods in various scenarios.
@@ -323,4 +325,4 @@ export function methodsGenerator<P extends ToastBaseProps>(Comp: React.FunctionC
  * @name 轻提示
  * @name_en Toast
  */
-export default componentWrapper(Toast, methodsGenerator(Toast));
+export default componentWrapper(Toast, methodsGenerator(ToastWithGlobalContext));

@@ -9,7 +9,7 @@ import React, {
     useState,
 } from 'react';
 import { cls, nextTick, componentWrapper } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import Portal from '../portal';
 import Transition, { TransitionProps } from '../transition';
 import { usePopupScroll, usePreventBodyScroll } from '../_helpers';
@@ -394,6 +394,8 @@ export function methodsGenerator<P extends OpenBaseProps>(Comp: React.FunctionCo
     };
 }
 
+const MaskingWithGlobalContext = CompWithGlobalContext(Masking);
+
 /**
  * 通用模态弹窗，内部内容自定义。默认做了防滚动穿透处理，如果弹层内容中需要滚动，则需将滚动容器传入`getScrollContainer`属性以在未滚动到顶部或底部时释放滚动。
  * @en Generic modal popup with custom internal content. By default, anti-scroll penetration processing is performed. If scrolling is required in the content of the bullet layer, need to pass the scroll container to the `getScrollContainer` to release scrolling when it is not scrolled to the top or bottom.
@@ -402,4 +404,4 @@ export function methodsGenerator<P extends OpenBaseProps>(Comp: React.FunctionCo
  * @name 模态弹窗
  * @name_en Masking
  */
-export default componentWrapper(Masking, methodsGenerator(Masking));
+export default componentWrapper(Masking, methodsGenerator(MaskingWithGlobalContext));
