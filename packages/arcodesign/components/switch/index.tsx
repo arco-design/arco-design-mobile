@@ -189,6 +189,10 @@ const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
         <ContextLayout>
             {({ prefixCls }) => (
                 <div
+                    role="switch"
+                    aria-checked={switchChecked}
+                    aria-disabled={disabled}
+                    tabIndex={0}
                     ref={domRef}
                     className={cls(
                         `${prefixCls}-switch all-border-box`,

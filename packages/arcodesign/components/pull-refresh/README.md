@@ -12,7 +12,8 @@
 |----------|-------------|------|------|
 |type|分成两种类型|"ios" \| "android"|跟随系统|
 |children|子元素|ReactNode|必填|
-|className|样式类名|string|""|
+|className|样式类名|string|-|
+|style|自定义样式|CSSProperties|-|
 |disabled|是否禁用|boolean|false|
 |finishDelay|加载完成后，展示加载完成的时间(ms)|number|300|
 |loosingText|下拉到可释放时的展示元素（type 为 ios 失效）|ReactNode|-|

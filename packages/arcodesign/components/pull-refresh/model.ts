@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 export interface PullRefreshRef {
     /**
@@ -35,9 +35,13 @@ export interface PullRefreshBasicProps {
     /**
      * 样式类名
      * @en Custom classname
-     * @default ""
      */
     className?: string;
+    /**
+     * 自定义样式
+     * @en Custom style
+     */
+    style?: CSSProperties;
     /**
      * 是否禁用
      * @en Whether to be disabled

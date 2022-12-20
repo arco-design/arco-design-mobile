@@ -124,6 +124,18 @@ export interface NavBarProps {
      * @en Set a custom style according to the scroll offset value. After setting this property, the scroll event of the scroll container will be monitored.
      */
     getComputedStyleByScroll?: (offset: number) => CSSProperties;
+    /**
+     * 无障碍aria-label属性
+     * @en Accessibility attribute aria-label
+     * @default ""
+     */
+    ariaLabel?: string;
+    /**
+     * 无障碍role属性
+     * @en Accessibility attribute role
+     * @default "banner"
+     */
+    ariaRole?: string;
 }
 
 /**
@@ -154,6 +166,8 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
         getScrollContainer,
         showOffset = 0,
         getComputedStyleByScroll,
+        ariaLabel = '',
+        ariaRole = 'banner',
     } = props;
     const navBarRef = useRef<HTMLDivElement | null>(null);
 
@@ -237,6 +251,8 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
                         ...(style || {}),
                         ...(relBackground ? { background: relBackground } : {}),
                     }}
+                    aria-label={ariaLabel}
+                    role={ariaRole}
                 >
                     <div
                         className={cls(className, system, `${prefixCls}-nav-bar-wrapper`, {

@@ -61,7 +61,7 @@ ActionSheet Component
 |status|Status, it isn't clickable in disabled status, its font is red in danger status|"normal" \| "disabled" \| "danger"|
 |className|Custom classname for option content|string|
 |style|Custom stylesheet for option content|CSSProperties|
-|onClick|Click option event, actionSheet will be prevent from closing when returning true|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> boolean \| void \| Promise\<boolean \| void\>|
+|onClick|Click option event, actionSheet will be prevent from closing when returning true|(e?: MouseEvent\<HTMLElement, MouseEvent\>) =\> boolean \| void \| Promise\<boolean \| void\>|
 
 > GlobalContextParams
 

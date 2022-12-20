@@ -59,8 +59,8 @@ React & ReactDOM： **<a href="https://reactjs.org/docs/cdn-links.html" target="
 React Transition Group： **<a href="https://reactcommunity.org/react-transition-group/" target="_blank">戳这里获取</a>**
 
 ```
-<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.22.0/dist/style.min.css">
-<script src="https://unpkg.com/@arco-design/mobile-react@2.22.0/dist/index.min.js"></script>
+<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.23.0/dist/style.min.css">
+<script src="https://unpkg.com/@arco-design/mobile-react@2.23.0/dist/index.min.js"></script>
 ```
 
 ## 引入全部

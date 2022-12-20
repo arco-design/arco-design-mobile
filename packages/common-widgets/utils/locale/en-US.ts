@@ -49,5 +49,9 @@ const localeConfig: ILocale = {
         placeholder: 'Please enter the content to be searched',
         cancelBtn: 'Cancel',
     },
+    Stepper: {
+        minusButtonName: 'decrease',
+        addButtonName: 'increase',
+    },
 };
 export default localeConfig;

@@ -692,7 +692,7 @@
                 "description": "点击选项事件，返回值为 true 时可以阻止动作面板关闭\n@en Click option event, actionSheet will be prevent from closing when returning true",
                 "defaultValue": null,
                 "type": {
-                    "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => boolean | void | Promise<boolean | void>"
+                    "name": "(e?: MouseEvent<HTMLElement, MouseEvent>) => boolean | void | Promise<boolean | void>"
                 },
                 "tags": {
                     "en": "Click option event, actionSheet will be prevent from closing when returning true"

@@ -12,7 +12,8 @@ PullRefresh component that pulls down to refresh data.
 |----------|-------------|------|------|
 |type|Divided into two types|"ios" \| "android"|follow the system|
 |children|Children element|ReactNode|required|
-|className|Custom classname|string|""|
+|className|Custom classname|string|-|
+|style|Custom style|CSSProperties|-|
 |disabled|Whether to be disabled|boolean|false|
 |finishDelay|After the loading is completed, the time to display the loading completion (ms)|number|300|
 |loosingText|Displayed element when pulled down to releasable (Invalid in type iOS)|ReactNode|-|

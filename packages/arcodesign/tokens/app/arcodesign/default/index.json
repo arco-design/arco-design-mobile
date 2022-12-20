@@ -3695,6 +3695,18 @@
             "en": "Input clear icon color"
         }
     },
+    "inputClearIconFontSize": {
+        "cssKey": "input-clear-icon-font-size",
+        "desc": "输入框 清除图标大小",
+        "override": "",
+        "value": "16PX",
+        "jsValue": "16PX",
+        "staticValue": "16PX",
+        "localeDesc": {
+            "ch": "输入框 清除图标大小",
+            "en": "Input clear icon font size"
+        }
+    },
     "inputDisabledBackground": {
         "cssKey": "input-disabled-background",
         "desc": "输入框 禁用状态输入框背景色",
@@ -6191,6 +6203,174 @@
             "en": "Label distance  of horizoverticalntal slider from the right of the mark"
         }
     },
+    "stepperButtonIconSize": {
+        "cssKey": "stepper-button-icon-size",
+        "desc": "步进器按钮图标尺寸",
+        "override": "",
+        "value": "~`pxtorem(10)`",
+        "jsValue": "@getRem@10",
+        "staticValue": "0.2rem",
+        "localeDesc": {
+            "ch": "步进器按钮图标尺寸",
+            "en": "Button icon size of Stepper"
+        }
+    },
+    "stepperButtonSize": {
+        "cssKey": "stepper-button-size",
+        "desc": "步进器按钮尺寸",
+        "override": "",
+        "value": "~`pxtorem(28)`",
+        "jsValue": "@getRem@28",
+        "staticValue": "0.56rem",
+        "localeDesc": {
+            "ch": "步进器按钮尺寸",
+            "en": "Button size of Stepper"
+        }
+    },
+    "stepperContentColor": {
+        "cssKey": "stepper-content-color",
+        "desc": "步进器内容字体颜色",
+        "override": "",
+        "value": "#1d2129",
+        "jsValue": "#1d2129",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "步进器内容字体颜色",
+            "en": "Content text color of Stepper"
+        }
+    },
+    "stepperDefaultBackgroundColor": {
+        "cssKey": "stepper-default-background-color",
+        "desc": "步进器默认背景颜色",
+        "override": "",
+        "value": "#f7f8fa",
+        "jsValue": "#f7f8fa",
+        "staticValue": "#f7f8fa",
+        "localeDesc": {
+            "ch": "步进器默认背景颜色",
+            "en": "Background default colr of Stepper"
+        }
+    },
+    "stepperDisableColor": {
+        "cssKey": "stepper-disable-color",
+        "desc": "步进器禁用状态字体颜色",
+        "override": "",
+        "value": "#c9cdd4",
+        "jsValue": "#c9cdd4",
+        "staticValue": "#c9cdd4",
+        "localeDesc": {
+            "ch": "步进器禁用状态字体颜色",
+            "en": "Text color of Stepper in disable status"
+        }
+    },
+    "stepperFontSize": {
+        "cssKey": "stepper-font-size",
+        "desc": "步进器字体大小",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "步进器字体大小",
+            "en": "Font size of Stepper"
+        }
+    },
+    "stepperInputHeight": {
+        "cssKey": "stepper-input-height",
+        "desc": "步进器输入框长度",
+        "override": "",
+        "value": "~`pxtorem(28)`",
+        "jsValue": "@getRem@28",
+        "staticValue": "0.56rem",
+        "localeDesc": {
+            "ch": "步进器输入框长度",
+            "en": "Input height of Stepper"
+        }
+    },
+    "stepperInputMargin": {
+        "cssKey": "stepper-input-margin",
+        "desc": "步进器输入框外边距",
+        "override": "",
+        "value": "0 1PX",
+        "jsValue": "0 1PX",
+        "staticValue": "0 1PX",
+        "localeDesc": {
+            "ch": "步进器输入框外边距",
+            "en": "Input margin of Stepper"
+        }
+    },
+    "stepperInputWidth": {
+        "cssKey": "stepper-input-width",
+        "desc": "步进器输入框宽度",
+        "override": "",
+        "value": "~`pxtorem(40)`",
+        "jsValue": "@getRem@40",
+        "staticValue": "0.8rem",
+        "localeDesc": {
+            "ch": "步进器输入框宽度",
+            "en": "Input width of Stepper"
+        }
+    },
+    "stepperRoundButtonBorderRadius": {
+        "cssKey": "stepper-round-button-border-radius",
+        "desc": "步进器圆角按钮边框半径",
+        "override": "",
+        "value": "50%",
+        "jsValue": "50%",
+        "staticValue": "50%",
+        "localeDesc": {
+            "ch": "步进器圆角按钮边框半径",
+            "en": "Round button border radius of Stepper"
+        }
+    },
+    "stepperRoundInputBackgroundColor": {
+        "cssKey": "stepper-round-input-background-color",
+        "desc": "步进器圆角输入框背景颜色",
+        "override": "",
+        "value": "transparent",
+        "jsValue": "transparent",
+        "staticValue": "transparent",
+        "localeDesc": {
+            "ch": "步进器圆角输入框背景颜色",
+            "en": "Rount input background color of Stepper"
+        }
+    },
+    "stepperSquareBackgroundColor": {
+        "cssKey": "stepper-square-background-color",
+        "desc": "步进器方角样式背景颜色",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "步进器方角样式背景颜色",
+            "en": "Background color of Stepper square style"
+        }
+    },
+    "stepperSquareBorder": {
+        "cssKey": "stepper-square-border",
+        "desc": "步进器方角边框样式",
+        "override": "",
+        "value": "1PX solid #f2f3f5",
+        "jsValue": "1PX solid #f2f3f5",
+        "staticValue": "1PX solid #f2f3f5",
+        "localeDesc": {
+            "ch": "步进器方角边框样式",
+            "en": "Square border style of Stepper"
+        }
+    },
+    "stepperSquareBorderRadius": {
+        "cssKey": "stepper-square-border-radius",
+        "desc": "步进器方角边框半径",
+        "override": "",
+        "value": "~`pxtorem(2)`",
+        "jsValue": "@getRem@2",
+        "staticValue": "0.04rem",
+        "localeDesc": {
+            "ch": "步进器方角边框半径",
+            "en": "Square border radius of Stepper"
+        }
+    },
     "stepsDescriptionColor": {
         "cssKey": "steps-description-color",
         "desc": "steps 步骤默认描述文字颜色",
@@ -6527,6 +6707,18 @@
             "en": "Custom icon color of Steps in processing state"
         }
     },
+    "stepsTailBorderRadius": {
+        "cssKey": "steps-tail-border-radius",
+        "desc": "steps 分割线圆角值",
+        "override": "",
+        "value": "2PX",
+        "jsValue": "2PX",
+        "staticValue": "2PX",
+        "localeDesc": {
+            "ch": "steps 分割线圆角值",
+            "en": "Border radius of steps dividing"
+        }
+    },
     "stepsTailFinishBackground": {
         "cssKey": "steps-tail-finish-background",
         "desc": "steps 步骤分割线完成态颜色",
@@ -6539,13 +6731,37 @@
             "en": "Steps dividing line color in finish state"
         }
     },
+    "stepsTailHorizontalGutter": {
+        "cssKey": "steps-tail-horizontal-gutter",
+        "desc": "steps 水平分割线与图标中心点的距离",
+        "override": "",
+        "value": "18PX",
+        "jsValue": "18PX",
+        "staticValue": "18PX",
+        "localeDesc": {
+            "ch": "steps 水平分割线与图标中心点的距离",
+            "en": "The distance between the horizontal dividing line and the center point of the icon"
+        }
+    },
+    "stepsTailHorizontalLeft": {
+        "cssKey": "steps-tail-horizontal-left",
+        "desc": "steps 水平分割线的向右偏移距离，一般是 stepsIconHeight 值的一半",
+        "override": "",
+        "value": "9PX",
+        "jsValue": "9PX",
+        "staticValue": "9PX",
+        "localeDesc": {
+            "ch": "steps 水平分割线的向右偏移距离，一般是 stepsIconHeight 值的一半",
+            "en": "The offset distance to the right of the horizontal dividing line of steps, generally half the value of stepsIconHeight"
+        }
+    },
     "stepsTailHorizontalPadding": {
         "cssKey": "steps-tail-horizontal-padding",
         "desc": "steps 水平分割线左右间距",
         "override": "",
-        "value": "0 ~`pxtorem(18)`",
-        "jsValue": "0 @getRem@18",
-        "staticValue": "0 0.36rem",
+        "value": "0 @steps-tail-horizontal-gutter",
+        "jsValue": "0 @global@stepsTailHorizontalGutter",
+        "staticValue": "0 18PX",
         "localeDesc": {
             "ch": "steps 水平分割线左右间距",
             "en": "Left and right spacing of the horizontal dividing line of Steps"
@@ -6575,13 +6791,25 @@
             "en": "Steps dividing line thickness"
         }
     },
+    "stepsTailVerticalGutter": {
+        "cssKey": "steps-tail-vertical-gutter",
+        "desc": "steps 垂直分割线与图标中心点的距离",
+        "override": "",
+        "value": "14PX",
+        "jsValue": "14PX",
+        "staticValue": "14PX",
+        "localeDesc": {
+            "ch": "steps 垂直分割线与图标中心点的距离",
+            "en": "The distance between the vertical dividing line and the center point of the icon"
+        }
+    },
     "stepsTailVerticalPadding": {
         "cssKey": "steps-tail-vertical-padding",
         "desc": "steps 垂直分割线上下间距",
         "override": "",
-        "value": "~`pxtorem(14)` 0",
-        "jsValue": "@getRem@14 0",
-        "staticValue": "0.28rem 0",
+        "value": "@steps-tail-vertical-gutter 0",
+        "jsValue": "@global@stepsTailVerticalGutter 0",
+        "staticValue": "14PX 0",
         "localeDesc": {
             "ch": "steps 垂直分割线上下间距",
             "en": "Left and right spacing of the vertical dividing line of Steps"
@@ -6591,12 +6819,12 @@
         "cssKey": "steps-tail-vertical-top",
         "desc": "steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半",
         "override": "",
-        "value": "~`pxtorem(9)`",
-        "jsValue": "@getRem@9",
-        "staticValue": "0.18rem",
+        "value": "9PX",
+        "jsValue": "9PX",
+        "staticValue": "9PX",
         "localeDesc": {
             "ch": "steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半",
-            "en": "Left and right spacing of the vertical dividing line of Steps"
+            "en": "The offset distance to the bottom of the vertical dividing line of steps, generally half the value of stepsIconHeight"
         }
     },
     "stepsTitleFontSize": {

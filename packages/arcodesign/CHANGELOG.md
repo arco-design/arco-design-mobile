@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.3...@arco-design/mobile-react@2.23.0) (2022-11-29)
+
+
+### Bug Fixes
+
+* `ImagePicker` add click event ([#67](https://github.com/arco-design/arco-design-mobile/issues/67)) ([0f76fda](https://github.com/arco-design/arco-design-mobile/commit/0f76fda245ac9a171525800c1d170c93411f2820))
+
+
+### Features
+
+* add new component `Stepper` ([#46](https://github.com/arco-design/arco-design-mobile/issues/46)) ([a6ce795](https://github.com/arco-design/arco-design-mobile/commit/a6ce7958345ca5170cf00b7efa5cf74d02ebe93d))
+
+
+
+
+
+## [2.22.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.2...@arco-design/mobile-react@2.22.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* `Carousel` supports autoPlayDirection ([#72](https://github.com/arco-design/arco-design-mobile/issues/72)) ([527aaf4](https://github.com/arco-design/arco-design-mobile/commit/527aaf4bdf86fe4cf995bd8e4bd2580e9db8c942))
+* flexible.js support umd ([#73](https://github.com/arco-design/arco-design-mobile/issues/73)) ([d3f35c0](https://github.com/arco-design/arco-design-mobile/commit/d3f35c093a579bb404fff91dbf6437cdd93f19f7))
+
+
+
+
+
+## [2.22.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.0...@arco-design/mobile-react@2.22.2) (2022-11-09)
+
+
+### Bug Fixes
+
+* `PullRefresh` support custom style ([edac495](https://github.com/arco-design/arco-design-mobile/commit/edac4954526b8f2e3a86c9742752222e19f899f8))
+* `Steps` optimize style & support custom alignment ([617c570](https://github.com/arco-design/arco-design-mobile/commit/617c57003135215787897b48c07d2b674c482828))
+* `Tabs` fix touch event on foldable screen ([a67fa71](https://github.com/arco-design/arco-design-mobile/commit/a67fa71c8944e27aa43d6353e4a24e4ba676cec3))
+* optimize .text-medium mixin ([ab62ab2](https://github.com/arco-design/arco-design-mobile/commit/ab62ab2cdb51174cbd2106467bbf1a3db4694982))
+
+
+
+
+
 # [2.22.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.3...@arco-design/mobile-react@2.22.0) (2022-10-28)
 
 
