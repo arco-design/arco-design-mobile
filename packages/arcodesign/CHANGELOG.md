@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.24.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.23.0...@arco-design/mobile-react@2.24.0) (2022-12-20)
+
+
+### Bug Fixes
+
+* support accessibility mode ([#65](https://github.com/arco-design/arco-design-mobile/issues/65)) ([fa7789c](https://github.com/arco-design/arco-design-mobile/commit/fa7789c1866341244cbffcbef1d1be375880bd82))
+
+
+### Features
+
+* component function support custom context ([#52](https://github.com/arco-design/arco-design-mobile/issues/52)) ([e5bd260](https://github.com/arco-design/arco-design-mobile/commit/e5bd260f6df128f8cd44e26464f1b5e5e6deff11))
+
+
+
+
+
 # [2.23.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.3...@arco-design/mobile-react@2.23.0) (2022-11-29)
 
 

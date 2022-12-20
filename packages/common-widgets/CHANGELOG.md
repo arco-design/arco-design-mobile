@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.9](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.8...@arco-design/mobile-utils@2.12.9) (2022-12-20)
+
+
+### Bug Fixes
+
+* move common style to body ([#75](https://github.com/arco-design/arco-design-mobile/issues/75)) ([537c00f](https://github.com/arco-design/arco-design-mobile/commit/537c00ff869128e189d6b25b34061661e810f777))
+* support accessibility mode ([#65](https://github.com/arco-design/arco-design-mobile/issues/65)) ([fa7789c](https://github.com/arco-design/arco-design-mobile/commit/fa7789c1866341244cbffcbef1d1be375880bd82))
+
+
+
+
+
 ## [2.12.8](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.7...@arco-design/mobile-utils@2.12.8) (2022-11-29)
 
 **Note:** Version bump only for package @arco-design/mobile-utils
