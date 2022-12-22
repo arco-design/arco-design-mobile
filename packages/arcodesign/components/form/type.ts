@@ -1,4 +1,4 @@
-import { IRules } from '@arco-design/mobile-utils/utils/validator/type';
+import { IRules } from '@arco-design/mobile-utils';
 import { ReactNode } from 'react';
 
 export type FieldValue = any;

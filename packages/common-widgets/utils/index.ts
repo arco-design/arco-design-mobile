@@ -11,6 +11,7 @@ export * from './color';
 export * from './browser';
 export * from './locale';
 export * from './date';
+export * from './validator';
 
 export function handleUnit(value: number | string) {
     return typeof value === 'number' || !isNaN(Number(value)) ? `${value}px` : value;

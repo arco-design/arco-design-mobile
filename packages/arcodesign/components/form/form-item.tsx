@@ -1,8 +1,6 @@
 /* eslint-disable react/no-unused-class-component-methods */
 import React, { PureComponent, ReactNode, useContext, useRef, useState } from 'react';
-import { cls } from '@arco-design/mobile-utils';
-import { Validator } from '@arco-design/mobile-utils/utils/validator/validator';
-import { ValidatorError, ValidatorType } from '@arco-design/mobile-utils/utils/validator/type';
+import { cls, Validator, ValidatorType, ValidatorError } from '@arco-design/mobile-utils';
 import { FormItemContext } from './form-item-context';
 import { GlobalContext } from '../context-provider';
 import {
