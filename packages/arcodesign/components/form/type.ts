@@ -72,7 +72,7 @@ export interface IFormItemContext {
     form: InternalFormInstance;
     layout: ILayout;
     disabled?: boolean;
-    validateMessages?: any;
+    validateMessages?: Record<string, unknown>;
 }
 
 export type IShouldUpdateFunc = (data: { preStore: FieldItem; curStore: FieldItem }) => boolean;

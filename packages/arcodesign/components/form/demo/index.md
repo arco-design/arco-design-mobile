@@ -31,6 +31,23 @@ const genderOptions = [
 
 ]
 
+
+const rules = {
+    name: [
+        {
+            validator: (val, callback) => {
+                if (!val) {
+                    callback('请输入姓名');
+                } else if (val.length > 20) {
+                    callback('最多输入20个字');
+                } else {
+                    callback();
+                }
+            },
+        },
+    ],
+}
+
 export default function FormDemo() {
     const [form] = Form.useForm();
     const [layout, setLayout] = React.useState('horizontal');
@@ -74,7 +91,7 @@ export default function FormDemo() {
                 onSubmitFailed={onSubmitFailed}
                 layout={layout}
             >
-                <Form.FormItem field="name" label="UserName" trigger="onBlur" required>
+                <Form.FormItem field="name" label="UserName" trigger="onBlur" rules={rules.name}required>
                     <Input placeholder="Please input username" clearable border="none" />
                 </Form.FormItem>
                 <Form.FormItem field="age" label="Age" trigger="onInput" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]}>

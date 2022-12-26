@@ -16,17 +16,17 @@ import {
 import { getErrorAndWarnings, isFieldRequired } from './utils';
 
 enum InternalComponentType {
-    Input = 'ADMInput',
-    Textarea = 'ADMTextarea',
-    Checkbox = 'ADMCheckbox',
-    CheckboxGroup = 'ADMCheckboxGroup',
-    DatePicker = 'ADMDatePicker',
-    Picker = 'ADMPicker',
-    Radio = 'ADMRadio',
-    RadioGroup = 'ADMRadioGroup',
-    Slider = 'ADMSlider',
-    Switch = 'ADMSwitch',
-    ImagePicker = 'ADMImagePicker',
+    Input = 'Input',
+    Textarea = 'Textarea',
+    Checkbox = 'Checkbox',
+    CheckboxGroup = 'CheckboxGroup',
+    DatePicker = 'DatePicker',
+    Picker = 'Picker',
+    Radio = 'Radio',
+    RadioGroup = 'RadioGroup',
+    Slider = 'Slider',
+    Switch = 'Switch',
+    ImagePicker = 'ImagePicker',
 }
 
 interface IFromItemInnerState {
