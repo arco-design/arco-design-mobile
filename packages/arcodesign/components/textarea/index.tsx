@@ -254,4 +254,4 @@ const Textarea = forwardRef((props: TextareaProps, ref: Ref<TextareaRef>) => {
     return <ContextLayout>{renderTextarea}</ContextLayout>;
 });
 
-export default componentWrapper(Textarea, 'ADMTextarea');
+export default componentWrapper(Textarea, 'Textarea');

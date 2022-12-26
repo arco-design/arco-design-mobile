@@ -222,4 +222,4 @@ const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
     );
 });
 
-export default componentWrapper(Switch, 'ADMSwitch');
+export default componentWrapper(Switch, 'Switch');

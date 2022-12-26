@@ -281,4 +281,4 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     );
 });
 
-export default componentWrapper(ImagePicker, 'ADMImagePicker');
+export default componentWrapper(ImagePicker, 'ImagePicker');

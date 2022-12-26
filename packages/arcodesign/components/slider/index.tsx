@@ -309,4 +309,4 @@ const SliderWrapper = forwardRef((props: SliderProps, ref: Ref<SliderRef>) => {
         </SliderContext.Provider>
     );
 });
-export default componentWrapper(SliderWrapper, 'ADMSlider');
+export default componentWrapper(SliderWrapper, 'Slider');

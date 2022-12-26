@@ -130,4 +130,4 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
     return <ContextLayout>{renderInput}</ContextLayout>;
 });
 
-export default componentWrapper(Input, 'ADMInput');
+export default componentWrapper(Input, 'Input');

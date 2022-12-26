@@ -223,4 +223,4 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
     );
 });
 
-export default componentWrapper(Picker, 'ADMPicker');
+export default componentWrapper(Picker, 'Picker');

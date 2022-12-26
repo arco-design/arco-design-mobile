@@ -8,7 +8,7 @@ export * from './type';
  * 复选项组
  * @en Checkbox group
  *  */
-const Group = componentWrapper(componentGenerator(Checkbox), 'ADMCheckboxGroup');
+const Group = componentWrapper(componentGenerator(Checkbox), 'CheckboxGroup');
 
 /**
  * 复选框，可用状态下点击切换选择，支持禁用，支持复选项组。
@@ -18,6 +18,6 @@ const Group = componentWrapper(componentGenerator(Checkbox), 'ADMCheckboxGroup')
  * @type 数据录入
  * @type_en Data Entry
  */
-export default componentWrapper(Checkbox, 'ADMCheckbox', {
+export default componentWrapper(Checkbox, 'Checkbox', {
     Group,
 });

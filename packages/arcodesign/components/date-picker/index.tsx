@@ -286,4 +286,4 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     );
 });
 
-export default componentWrapper(DatePicker, 'ADMDatePicker');
+export default componentWrapper(DatePicker, 'DatePicker');
