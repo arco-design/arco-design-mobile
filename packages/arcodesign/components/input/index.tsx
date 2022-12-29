@@ -130,5 +130,4 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
  * @name 输入框
  * @name_en Input
  */
-Input.displayName = 'Input';
-export default Input;
+export default componentWrapper(Input, 'Input');
