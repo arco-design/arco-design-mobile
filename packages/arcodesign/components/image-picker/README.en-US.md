@@ -1,6 +1,6 @@
 ### Data Entry
 
-# ImagePicker 
+# ImagePicker
 
 ImagePicker Component
 

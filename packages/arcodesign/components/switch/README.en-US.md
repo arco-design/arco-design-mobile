@@ -1,6 +1,6 @@
 ### Data Entry
 
-# Switch 
+# Switch
 
 A switch component that supports click and slide trigger switch actions.
 

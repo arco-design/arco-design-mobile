@@ -1,6 +1,12 @@
 {
-    "description": "",
-    "descriptionTags": {},
+    "description": "表单组件用于集合数据录入",
+    "descriptionTags": {
+        "en": "Form, Form for collecting data input",
+        "type": "数据录入",
+        "type_en": "Data Entry",
+        "name": "表单",
+        "name_en": "Form"
+    },
     "displayName": "Form",
     "methods": [
         {
@@ -24,9 +30,11 @@
     "props": {
         "className": {
             "defaultValue": null,
-            "description": "自定义类名",
+            "description": "自定义类名\n@en Custom classname",
             "name": "className",
-            "tags": {},
+            "tags": {
+                "en": "Custom classname"
+            },
             "descWithTags": "自定义类名",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
@@ -39,9 +47,11 @@
         },
         "style": {
             "defaultValue": null,
-            "description": "自定义样式",
+            "description": "自定义样式\n@en Custom stylesheet",
             "name": "style",
-            "tags": {},
+            "tags": {
+                "en": "Custom stylesheet"
+            },
             "descWithTags": "自定义样式",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
@@ -54,10 +64,12 @@
         },
         "layout": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单项布局\n@en Form item layout",
             "name": "layout",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Form item layout"
+            },
+            "descWithTags": "表单项布局",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -81,10 +93,12 @@
         },
         "form": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单实例\n@en Form instance",
             "name": "form",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Form instance"
+            },
+            "descWithTags": "表单实例",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -96,10 +110,12 @@
         },
         "initialValues": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单初始数据\n@en Form initial value",
             "name": "initialValues",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Form initial value"
+            },
+            "descWithTags": "表单初始数据",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -111,10 +127,12 @@
         },
         "onValuesChange": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单项数据变化时的回调\n@en Callback when the form item value changes",
             "name": "onValuesChange",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback when the form item value changes"
+            },
+            "descWithTags": "表单项数据变化时的回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -126,10 +144,12 @@
         },
         "onSubmit": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单项数据变化时的回调\n@en Callback when the form is submitted",
             "name": "onSubmit",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback when the form is submitted"
+            },
+            "descWithTags": "表单项数据变化时的回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -141,10 +161,12 @@
         },
         "onSubmitFailed": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单项数据变化时的回调\n@en Callback when the form is submitted failed",
             "name": "onSubmitFailed",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback when the form is submitted failed"
+            },
+            "descWithTags": "表单项数据变化时的回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -156,10 +178,12 @@
         },
         "disabled": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单禁止输入\n@en disable all form items",
             "name": "disabled",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "disable all form items"
+            },
+            "descWithTags": "表单禁止输入",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"

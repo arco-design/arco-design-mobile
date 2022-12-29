@@ -97,14 +97,6 @@ export interface SwitchRef {
     dom: HTMLDivElement | null;
 }
 
-/**
- * 开关组件，支持点击和滑动触发开关动作。
- * @en A switch component that supports click and slide trigger switch actions.
- * @type 数据录入
- * @type_en Data Entry
- * @name 开关
- * @name_en Switch
- */
 const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
     const system = useSystem();
     const {
@@ -222,4 +214,12 @@ const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
     );
 });
 
+/**
+ * 开关组件，支持点击和滑动触发开关动作。
+ * @en A switch component that supports click and slide trigger switch actions.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 开关
+ * @name_en Switch
+ */
 export default componentWrapper(Switch, 'Switch');

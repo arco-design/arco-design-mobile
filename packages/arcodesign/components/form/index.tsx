@@ -11,14 +11,6 @@ export interface FormRef {
     dom: HTMLFormElement | null;
 }
 
-/**
- * 表单组件用于集合数据录入
- * @en Form
- * @type 数据录入
- * @type_en Data Entry
- * @name 表单
- * @name_en Form
- */
 const Form = forwardRef((props: IFormProps, ref: Ref<FormRef>) => {
     const {
         className = '',
@@ -84,8 +76,16 @@ const Form = forwardRef((props: IFormProps, ref: Ref<FormRef>) => {
     );
 });
 
-export { FormItem, useForm };
+/**
+ * 表单组件用于集合数据录入
+ * @en Form, Form for collecting data input
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 表单
+ * @name_en Form
+ */
 export default componentWrapper(Form, {
     FormItem,
     useForm,
 });
+export { FormItem, useForm };

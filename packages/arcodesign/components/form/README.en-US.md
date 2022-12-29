@@ -1,6 +1,8 @@
-# 
+### Data Entry
 
+# Form 
 
+Form, Form for collecting data input
 
 ======
 
@@ -8,15 +10,15 @@
 
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
-|className|自定义类名|string|-|
-|style|自定义样式|CSSProperties|-|
-|layout|-|"horizontal" \| "vertical" \| "inline"|-|
-|form|-|IFormInstance|-|
-|initialValues|-|Record\<string, any\>|-|
-|onValuesChange|-|(changedValues: any, values: any) =\> void|-|
-|onSubmit|-|(values: any, otherInfo?: IFieldError\[\]) =\> void|-|
-|onSubmitFailed|-|(values: any, errorInfo: IFieldError\[\] \| Error) =\> void|-|
-|disabled|-|boolean|-|
+|className|Custom classname|string|-|
+|style|Custom stylesheet|CSSProperties|-|
+|layout|Form item layout|"horizontal" \| "vertical" \| "inline"|-|
+|form|Form instance|IFormInstance|-|
+|initialValues|Form initial value|Record\<string, any\>|-|
+|onValuesChange|Callback when the form item value changes|(changedValues: any, values: any) =\> void|-|
+|onSubmit|Callback when the form is submitted|(values: any, otherInfo?: IFieldError\[\]) =\> void|-|
+|onSubmitFailed|Callback when the form is submitted failed|(values: any, errorInfo: IFieldError\[\] \| Error) =\> void|-|
+|disabled|disable all form items|boolean|-|
 
 > Refs
 

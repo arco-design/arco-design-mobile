@@ -5,17 +5,51 @@ export type FieldValue = any;
 export type FieldItem = Record<string, any>;
 export type ILayout = 'horizontal' | 'vertical' | 'inline';
 export interface IFormProps {
-    /** 自定义类名 */
+    /**
+     * 自定义类名
+     * @en Custom classname
+     */
     className?: string;
-    /** 自定义样式 */
+    /**
+     * 自定义样式
+     * @en Custom stylesheet
+     */
     style?: React.CSSProperties;
+    /**
+     * 表单项布局
+     * @en Form item layout
+     */
     layout?: ILayout;
+    /**
+     * 表单实例
+     * @en Form instance
+     */
     form?: IFormInstance;
+    /**
+     * 表单初始数据
+     * @en Form initial value
+     */
     initialValues?: FieldItem;
     children: React.ReactNodeArray | ReactNode;
+    /**
+     * 表单项数据变化时的回调
+     * @en Callback when the form item value changes
+     */
     onValuesChange?: Callbacks['onValuesChange'];
+    /**
+     * 表单项数据变化时的回调
+     * @en Callback when the form is submitted
+     */
     onSubmit?: Callbacks['onSubmit'];
+    /**
+     * 表单项数据变化时的回调
+     * @en Callback when the form is submitted failed
+     */
     onSubmitFailed?: Callbacks['onSubmitFailed'];
+    /**
+     * 表单禁止输入
+     * @en disable all form items
+     */
     disabled?: boolean;
 }
 

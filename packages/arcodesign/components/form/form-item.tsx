@@ -27,6 +27,8 @@ enum InternalComponentType {
     Slider = 'Slider',
     Switch = 'Switch',
     ImagePicker = 'ImagePicker',
+    Rate = 'Rate',
+    Stepper = 'Stepper',
 }
 
 interface IFromItemInnerState {

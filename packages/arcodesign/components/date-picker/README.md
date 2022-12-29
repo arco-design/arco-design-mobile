@@ -65,6 +65,75 @@
 |----------|-------------|------|
 |dom|最外层元素 DOM|HTMLDivElement|
 
+> 方法/Methods
+
+|方法名|描述|类型|
+|----------|-------------|------|
+|charAt|Returns the character at the specified index\.|(pos: ) =\> void|
+|charCodeAt|Returns the Unicode value of the character at the specified location\.|(index: ) =\> void|
+|concat|Returns a string that contains the concatenation of two or more strings\.|(strings: ) =\> void|
+|indexOf|Returns the position of the first occurrence of a substring\.|(searchString: , position: ) =\> void|
+|lastIndexOf|Returns the last occurrence of a substring in the string\.|(searchString: , position: ) =\> void|
+|localeCompare|Determines whether two strings are equivalent in the current locale\. Determines whether two strings are equivalent in the current or specified locale\.|(that: ) =\> void|
+|match|Matches a string with a regular expression, and returns an array containing the results of that search\. Matches a string or an object that supports being matched against, and returns an array
+ containing the results of that search, or null if no matches are found\.|(regexp: ) =\> void|
+|replace|Replaces text in a string, using a regular expression or search string\. Replaces text in a string, using a regular expression or search string\. Replaces text in a string, using an object that supports replacement within a string\. Replaces text in a string, using an object that supports replacement within a string\.|(searchValue: , replaceValue: ) =\> void|
+|search|Finds the first substring match in a regular expression search\. Finds the first substring match in a regular expression search\.|(regexp: ) =\> void|
+|slice|Returns a section of a string\.|(start: , end: ) =\> void|
+|split|Split a string into substrings using the specified separator and return them as an array\. Split a string into substrings using the specified separator and return them as an array\.|(separator: , limit: ) =\> void|
+|substring|Returns the substring at the specified location within a String object\.|(start: , end: ) =\> void|
+|toLowerCase|Converts all the alphabetic characters in a string to lowercase\.|() =\> void|
+|toLocaleLowerCase|Converts all alphabetic characters to lowercase, taking into account the host environment's current locale\.|(locales?: string \| string\[\]) =\> void|
+|toUpperCase|Converts all the alphabetic characters in a string to uppercase\.|() =\> void|
+|toLocaleUpperCase|Returns a string where all alphabetic characters have been converted to uppercase, taking into account the host environment's current locale\.|(locales?: string \| string\[\]) =\> void|
+|trim|Removes the leading and trailing white space and line terminator characters from a string\.|() =\> void|
+|substr|Gets a substring beginning at the specified location and having the specified length\.|(from: , length: ) =\> void|
+|codePointAt|Returns a nonnegative integer Number less than 1114112 (0x110000) that is the code point
+ value of the UTF\-16 encoded code point starting at the string element at position pos in
+ the String resulting from converting this object to a String\.
+ If there is no element at that position, the result is undefined\.
+ If a valid UTF\-16 surrogate pair does not begin at pos, the result is the code unit at pos\.|(pos: number) =\> void|
+|includes|Returns true if searchString appears as a substring of the result of converting this
+ object to a String, at one or more positions that are
+ greater than or equal to position; otherwise, returns false\.|(searchString: , position: ) =\> void|
+|endsWith|Returns true if the sequence of elements of searchString converted to a String is the
+ same as the corresponding elements of this object (converted to a String) starting at
+ endPosition – length(this)\. Otherwise returns false\.|(searchString: string, endPosition?: number) =\> void|
+|normalize|Returns the String value result of normalizing the string into the normalization form
+ named by form as specified in Unicode Standard Annex \#15, Unicode Normalization Forms\. Returns the String value result of normalizing the string into the normalization form
+ named by form as specified in Unicode Standard Annex \#15, Unicode Normalization Forms\.|(form: ) =\> void|
+|repeat|Returns a String value that is made from count copies appended together\. If count is 0,
+ the empty string is returned\.|(count: ) =\> void|
+|startsWith|Returns true if the sequence of elements of searchString converted to a String is the
+ same as the corresponding elements of this object (converted to a String) starting at
+ position\. Otherwise returns false\.|(searchString: string, position?: number) =\> void|
+|anchor|Returns an \<a\> HTML anchor element and sets the name attribute to the text value|(name: ) =\> void|
+|big|Returns a \<big\> HTML element|() =\> void|
+|blink|Returns a \<blink\> HTML element|() =\> void|
+|bold|Returns a \<b\> HTML element|() =\> void|
+|fixed|Returns a \<tt\> HTML element|() =\> void|
+|fontcolor|Returns a \<font\> HTML element and sets the color attribute value|(color: string) =\> void|
+|fontsize|Returns a \<font\> HTML element and sets the size attribute value Returns a \<font\> HTML element and sets the size attribute value|(size: number) =\> void|
+|italics|Returns an \<i\> HTML element|() =\> void|
+|link|Returns an \<a\> HTML element and sets the href attribute value|(url: string) =\> void|
+|small|Returns a \<small\> HTML element|() =\> void|
+|strike|Returns a \<strike\> HTML element|() =\> void|
+|sub|Returns a \<sub\> HTML element|() =\> void|
+|sup|Returns a \<sup\> HTML element|() =\> void|
+|__@iterator|Iterator|() =\> void|
+|padStart|Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length\.
+ The padding is applied from the start (left) of the current string\.|(maxLength: , fillString: ) =\> void|
+|padEnd|Pads the current string with a given string (possibly repeated) so that the resulting string reaches a given length\.
+ The padding is applied from the end (right) of the current string\.|(maxLength: , fillString: ) =\> void|
+|trimEnd|Removes the trailing white space and line terminator characters from a string\.|() =\> void|
+|trimStart|Removes the leading white space and line terminator characters from a string\.|() =\> void|
+|trimLeft|Removes the leading white space and line terminator characters from a string\.|() =\> void|
+|trimRight|Removes the trailing white space and line terminator characters from a string\.|() =\> void|
+|matchAll|Matches a string with a regular expression, and returns an iterable of matches
+ containing the results of that search\.|(regexp: ) =\> void|
+|replaceAll|Replace all instances of a substring in a string, using a regular expression or search string\. Replace all instances of a substring in a string, using a regular expression or search string\.|(searchValue: , replaceValue: ) =\> void|
+|at|Takes an integer value and returns the item at that index, allowing for positive and negative integers\. Negative integers count back from the last item in the array\.|(index: number) =\> void|
+
 > IDateObj
 
 |参数|描述|类型|

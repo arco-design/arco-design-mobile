@@ -95,14 +95,6 @@ export interface TextareaRef {
     resize: () => void;
 }
 
-/**
- * 多行文本输入框组件，支持自适应内容高度。
- * @en A multi-line textarea, supports adaptive content height.
- * @type 数据录入
- * @type_en Data Entry
- * @name 多行文本框
- * @name_en Textarea
- */
 const Textarea = forwardRef((props: TextareaProps, ref: Ref<TextareaRef>) => {
     const {
         id,
@@ -254,4 +246,12 @@ const Textarea = forwardRef((props: TextareaProps, ref: Ref<TextareaRef>) => {
     return <ContextLayout>{renderTextarea}</ContextLayout>;
 });
 
+/**
+ * 多行文本输入框组件，支持自适应内容高度。
+ * @en A multi-line textarea, supports adaptive content height.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 多行文本框
+ * @name_en Textarea
+ */
 export default componentWrapper(Textarea, 'Textarea');

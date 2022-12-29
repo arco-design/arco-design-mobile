@@ -1,6 +1,8 @@
-# Form
+### 数据录入
 
+# 表单 Form
 
+表单组件用于集合数据录入
 
 ======
 
@@ -10,13 +12,13 @@
 |----------|-------------|------|------|
 |className|自定义类名|string|-|
 |style|自定义样式|CSSProperties|-|
-|layout|-|"horizontal" \| "vertical" \| "inline"|-|
-|form|-|IFormInstance|-|
-|initialValues|-|Record\<string, any\>|-|
-|onValuesChange|-|(changedValues: any, values: any) =\> void|-|
-|onSubmit|-|(values: any, otherInfo?: IFieldError\[\]) =\> void|-|
-|onSubmitFailed|-|(values: any, errorInfo: IFieldError\[\] \| Error) =\> void|-|
-|disabled|-|boolean|-|
+|layout|表单项布局|"horizontal" \| "vertical" \| "inline"|-|
+|form|表单实例|IFormInstance|-|
+|initialValues|表单初始数据|Record\<string, any\>|-|
+|onValuesChange|表单项数据变化时的回调|(changedValues: any, values: any) =\> void|-|
+|onSubmit|表单项数据变化时的回调|(values: any, otherInfo?: IFieldError\[\]) =\> void|-|
+|onSubmitFailed|表单项数据变化时的回调|(values: any, errorInfo: IFieldError\[\] \| Error) =\> void|-|
+|disabled|表单禁止输入|boolean|-|
 
 > 引用/Refs
 

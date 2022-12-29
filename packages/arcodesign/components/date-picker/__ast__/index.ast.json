@@ -8,7 +8,6 @@
         "name_en": "DatePicker"
     },
     "displayName": "DatePicker",
-    "methods": [],
     "props": {
         "onOk": {
             "defaultValue": null,
