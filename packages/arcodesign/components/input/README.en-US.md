@@ -1,8 +1,6 @@
-### Data Entry
+# 
 
-# Input
 
-The input box, supports adding prefixes and suffixes.
 
 ======
 
