@@ -1,6 +1,6 @@
 ### Data Entry
 
-# Form 
+# Form
 
 Form, Form for collecting data input
 
@@ -24,7 +24,7 @@ Form, Form for collecting data input
 
 |Property|Description|Type|
 |----------|-------------|------|
-|dom|最外层元素 DOM|HTMLFormElement|
+|dom|The outermost element DOM|HTMLFormElement|
 
 > Methods
 
@@ -36,18 +36,19 @@ Form, Form for collecting data input
 
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
-|label|-|ReactNode|required|
-|style|-|CSSProperties|-|
-|field|-|string|required|
-|required|-|boolean|-|
-|disabled|-|boolean|-|
-|layout|-|"horizontal" \| "vertical" \| "inline"|-|
-|shouldUpdate|-|boolean \| IShouldUpdateFunc|-|
-|rules|-|IRules\[\]|-|
-|extra|-|Element|-|
-|trigger|-|string|-|
-|requiredIcon|-|ReactNode|-|
-|initialValue|-|any|-|
+|label|The form item name|ReactNode|required|
+|style|The form item stylesheet|CSSProperties|-|
+|field|Form item field|string|required|
+|required|Whether Form item is required|boolean|-|
+|disabled|Whether Form item is disabled|boolean|-|
+|layout|Form item layout|"horizontal" \| "vertical" \| "inline"|-|
+|children|Form item children|Element|required|
+|shouldUpdate|Form item is updated|boolean \| IShouldUpdateFunc|-|
+|rules|Form item rules|IRules\[\]|-|
+|extra|Form item extra node|Element|-|
+|trigger|The function name when updating data|string|-|
+|requiredIcon|The required icon node|ReactNode|-|
+|initialValue|The initial value of form item|any|-|
 
 > ILayout
 
@@ -76,12 +77,6 @@ Form, Form for collecting data input
 |field|-|string|
 |dom|-|HTMLDivElement|
 
-> IRules
-
-```
-ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
-```
-
 > Element
 
 |Property|Description|Type|
@@ -89,3 +84,20 @@ ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<Val
 |type|-|any|
 |props|-|any|
 |key|-|ReactText|
+
+> IRules
+
+```
+ITypeRules<ValidatorType.Number>|
+ITypeRules<ValidatorType.String>|
+ITypeRules<ValidatorType.Array>|
+ITypeRules<ValidatorType.Boolean>|
+ITypeRules<ValidatorType.Object>|
+ITypeRules<ValidatorType.Custom>
+```
+
+> IFormItemRef
+
+|Property|Description|Type|
+|----------|-------------|------|
+|dom|The outermost element DOM|HTMLDivElement|

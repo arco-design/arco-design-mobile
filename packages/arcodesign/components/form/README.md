@@ -36,18 +36,19 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|label|-|ReactNode|必填|
-|style|-|CSSProperties|-|
-|field|-|string|必填|
-|required|-|boolean|-|
-|disabled|-|boolean|-|
-|layout|-|"horizontal" \| "vertical" \| "inline"|-|
-|shouldUpdate|-|boolean \| IShouldUpdateFunc|-|
-|rules|-|IRules\[\]|-|
-|extra|-|Element|-|
-|trigger|-|string|-|
-|requiredIcon|-|ReactNode|-|
-|initialValue|-|any|-|
+|label|表单项名|ReactNode|必填|
+|style|表单项Stylesheet|CSSProperties|-|
+|field|表单项字段|string|必填|
+|required|表单项是否必填|boolean|-|
+|disabled|表单项是否禁用|boolean|-|
+|layout|表单项布局|"horizontal" \| "vertical" \| "inline"|-|
+|children|表单项子节点|Element|必填|
+|shouldUpdate|表单项是否刷新|boolean \| IShouldUpdateFunc|-|
+|rules|表单项规则|IRules\[\]|-|
+|extra|表单项下方节点|Element|-|
+|trigger|触发事件更新事件名称|string|-|
+|requiredIcon|自定义必填标识|ReactNode|-|
+|initialValue|表单项初始数据|any|-|
 
 > ILayout
 
@@ -76,12 +77,6 @@
 |field|-|string|
 |dom|-|HTMLDivElement|
 
-> IRules
-
-```
-ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
-```
-
 > Element
 
 |参数|描述|类型|
@@ -89,3 +84,20 @@ ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<Val
 |type|-|any|
 |props|-|any|
 |key|-|ReactText|
+
+> IRules
+
+```
+ITypeRules<ValidatorType.Number>|
+ITypeRules<ValidatorType.String>|
+ITypeRules<ValidatorType.Array>|
+ITypeRules<ValidatorType.Boolean>|
+ITypeRules<ValidatorType.Object>|
+ITypeRules<ValidatorType.Custom>
+```
+
+> IFormItemRef
+
+|参数|描述|类型|
+|----------|-------------|------|
+|dom|最外层元素 DOM|HTMLDivElement|

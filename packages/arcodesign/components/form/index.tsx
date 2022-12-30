@@ -3,15 +3,10 @@ import React, { useRef, forwardRef, Ref, useImperativeHandle, useEffect } from '
 import { ContextLayout } from '../context-provider';
 import FormItem from './form-item';
 import { FormItemContext } from './form-item-context';
-import { IFormProps, InternalFormInstance } from './type';
+import { IFormProps, IFormRef, InternalFormInstance } from './type';
 import useForm from './useForm';
 
-export interface FormRef {
-    /** 最外层元素 DOM */
-    dom: HTMLFormElement | null;
-}
-
-const Form = forwardRef((props: IFormProps, ref: Ref<FormRef>) => {
+const Form = forwardRef((props: IFormProps, ref: Ref<IFormRef>) => {
     const {
         className = '',
         style,

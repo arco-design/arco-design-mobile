@@ -1,5 +1,14 @@
 /* eslint-disable react/no-unused-class-component-methods */
-import React, { PureComponent, ReactNode, useContext, useRef, useState } from 'react';
+import React, {
+    forwardRef,
+    PureComponent,
+    ReactNode,
+    Ref,
+    useContext,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from 'react';
 import { cls, Validator, ValidatorType, ValidatorError } from '@arco-design/mobile-utils';
 import { FormItemContext } from './form-item-context';
 import { GlobalContext } from '../context-provider';
@@ -12,6 +21,7 @@ import {
     IFormItemInnerProps,
     IFormItemProps,
     ValidateStatus,
+    IFormItemRef,
 } from './type';
 import { getErrorAndWarnings, isFieldRequired } from './utils';
 
@@ -193,7 +203,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
 }
 FormItemInner.contextType = FormItemContext;
 
-export default function FormItem(props: IFormItemProps) {
+export default forwardRef((props: IFormItemProps, ref: Ref<IFormItemRef>) => {
     const {
         label,
         field,
@@ -228,6 +238,11 @@ export default function FormItem(props: IFormItemProps) {
         ? [{ type: ValidatorType.String, required: true }, ...(rules || [])]
         : rules;
     const isRequired = isFieldRequired(rules) || rest?.required;
+
+    useImperativeHandle(ref, () => ({
+        dom: formItemRef.current,
+    }));
+
     return (
         <div
             className={cls(
@@ -288,4 +303,4 @@ export default function FormItem(props: IFormItemProps) {
             {extra}
         </div>
     );
-}
+});
