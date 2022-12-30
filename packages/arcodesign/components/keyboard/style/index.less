@@ -1,0 +1,74 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-keyboard {
+    background: #f2f3f5;
+    padding: 8px;
+
+    &-wrapper {
+        display: flex;
+    }
+
+    &-key-wrapper {
+        flex: 2 0 auto;
+    }
+
+
+    &-row {
+        display: flex;
+        &:not(&:nth-last-child(1)) {
+            margin-bottom: 8px;
+        }
+
+        .@{prefix}-keyboard-key {
+            &:not(&:nth-child(1)) {
+                margin-left: 8px;
+            }
+
+            &.special {
+                flex: 2.1 0 auto;
+            }
+        }
+    }
+
+    &-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: 8px;
+
+        .@{prefix}-keyboard-key {
+            &:not(&:nth-child(1)) {
+                margin-top: 8px;
+            }
+
+            &.special {
+                flex: 2.5 0 auto;
+                background: #165dff;
+                color: #ffffff;
+            }
+        }
+    }
+
+    &-key {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'PingFang SC';
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 30px;
+        flex: 1;
+        background: #ffffff;
+        border-radius: 4px;
+        height: 48px;
+        color: #1d2129;
+
+        &:active {
+            background: #e5e6eb;
+        }
+    }
+
+    &-popup {
+      background: transparent;
+    }
+}

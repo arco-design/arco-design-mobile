@@ -25,6 +25,7 @@ import './show-monitor/style';
 import './image-picker/style';
 import './image-preview/style';
 import './input/style';
+import './keyboard/style';
 import './load-more/style';
 import './masking/style';
 import './nav-bar/style';
