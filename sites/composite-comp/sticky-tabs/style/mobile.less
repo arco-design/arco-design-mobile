@@ -1,0 +1,22 @@
+@import "../../../../packages/arcodesign/style/mixin.less";
+
+#sticky-tabs-wrapper {
+    height: 500px;
+    overflow: scroll;
+
+    .placeholder {
+        color: #000;
+        .rem(font-size, 20);
+        .rem(height, 100);
+    }
+
+    .demo-tab-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .rem(font-size, 15);
+        .rem(height, 800);
+        .use-var(color, sub-info-font-color);
+    }
+}
+

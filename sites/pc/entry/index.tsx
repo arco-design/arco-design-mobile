@@ -2,6 +2,8 @@ import React, { createContext, useEffect } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import demoDocs from '../pages/components';
 import enDemoDocs from '../pages/components/index-en-US';
+import compositeDemoDocs from '../pages/composite-comp';
+import enCompositeDemoDocs from '../pages/composite-comp/index-en-US';
 import Demo from './demo';
 import Home from './home';
 import readmeDocs from '../pages/guide';
@@ -64,7 +66,7 @@ function App() {
                         path="/components/:name"
                         render={({ history, match }) => {
                             const { name } = match.params;
-                            const Comp = demoDocs[name];
+                            const Comp = demoDocs[name] || compositeDemoDocs[name];
                             return Comp
                                 ? CompGenerator(
                                       <Demo
@@ -82,7 +84,7 @@ function App() {
                         path="/en-US/components/:name"
                         render={({ history, match }) => {
                             const { name } = match.params;
-                            const Comp = enDemoDocs[name];
+                            const Comp = enDemoDocs[name] || enCompositeDemoDocs[name];
                             return Comp
                                 ? CompGenerator(
                                       <Demo

@@ -32,6 +32,14 @@ function renderSiteMdSource(md, language = 'ch') {
         name,
     };
 }
+/**
+ * 渲染「FAQ」部分的doc
+ */
+function renderSiteFAQSource(md, language = 'ch') {
+    const renderer = new marked.Renderer();
+    return marked(md, { renderer })
+}
+
 
 /** 渲染组件 nav intro */
 function renderNavIntro(
@@ -156,7 +164,6 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
     };
 
     renderer.heading = (text, level) => {
-
         if (level === 2 || level === 3) {
             const lastText = utils.getReadMeTextByLang(text, language);
             title = lastText;
@@ -187,4 +194,5 @@ module.exports = {
     renderNavIntro,
     renderDemoSource,
     renderReadmeTable,
+    renderSiteFAQSource,
 };

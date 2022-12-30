@@ -41,6 +41,7 @@ export default function Nav(props: INavProps) {
                 >
                     {Object.keys(menu).map(group => {
                         const _group = menu[group];
+                        const itemRoute = _group.key === 'compositeComp' ? 'components' : 'doc';
                         if (_group.items) {
                             return (
                                 <MenuItemGroup
@@ -51,7 +52,7 @@ export default function Nav(props: INavProps) {
                                     {_group.items.map(item => {
                                         return (
                                             <MenuItem key={item.key}>
-                                                <Link to={`${langPath}/doc/${item.key}`}>
+                                                <Link to={`${langPath}/${itemRoute}/${item.key}`}>
                                                     {item.name}
                                                 </Link>
                                             </MenuItem>

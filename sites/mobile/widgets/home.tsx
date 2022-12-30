@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useMemo } from 'react';
-import routes from '../../pages/route';
-import enRoutes from '../../pages/route-en-US';
+import routes from '../pages/components/route';
+import enRoutes from '../pages/components/route-en-US';
+import compositeRoutes from '../pages/composite-comp/route';
+import enCompositeRoutes from '../pages/composite-comp/route-en-US';
 import { HistoryContext } from '../entry';
 import getUrlParam from '../../utils/getUrlParam';
 import { LanguageSupport } from '../../utils/language';
@@ -25,7 +27,9 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
     const history = useContext(HistoryContext);
     const actualRoutes = useMemo(() => {
         const langRoutes = language === LanguageSupport.EN ? enRoutes : routes;
-        return getMenuOrder(langRoutes, language);
+        const langCompositeRoutes =
+            language === LanguageSupport.EN ? enCompositeRoutes : compositeRoutes;
+        return getMenuOrder(langRoutes, language, langCompositeRoutes);
     }, [routes, enRoutes, language]);
     /** 区分iframe通信 */
     const needJump = getUrlParam('need_jump') !== '0';
