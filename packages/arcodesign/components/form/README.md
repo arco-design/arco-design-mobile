@@ -44,9 +44,9 @@
 |layout|-|"horizontal" \| "vertical" \| "inline"|-|
 |shouldUpdate|-|boolean \| IShouldUpdateFunc|-|
 |rules|-|IRules\[\]|-|
-|extra|-|Element|必填|
+|extra|-|Element|-|
 |trigger|-|string|-|
-|requiredIcon|-|ReactNode|必填|
+|requiredIcon|-|ReactNode|-|
 |initialValue|-|any|-|
 
 > ILayout

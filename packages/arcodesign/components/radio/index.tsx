@@ -7,6 +7,7 @@ export * from './type';
 /**
  * 单选项组
  * @en Radio group
+ * @displayName RadioGroup
  */
 const Group = componentWrapper(componentGenerator(Radio), 'RadioGroup');
 
@@ -17,6 +18,7 @@ const Group = componentWrapper(componentGenerator(Radio), 'RadioGroup');
  * @name_en Radio
  * @type 数据录入
  * @type_en Data Entry
+ * @displayName Radio
  */
 export default componentWrapper(Radio, 'Radio', {
     Group,

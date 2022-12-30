@@ -269,5 +269,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
  * @type_en Data Entry
  * @name 选择器视图
  * @name_en PickerView
+ * @displayName PickerView
  */
 export default componentWrapper(PickerView, 'PickerView');

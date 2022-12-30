@@ -160,5 +160,6 @@ const Stepper = forwardRef((props: StepperProps, ref: Ref<StepperRef>) => {
  * @type_en Data Entry
  * @name 步进器
  * @name_en Stepper
+ * @displayName Stepper
  */
 export default componentWrapper(Stepper, 'Stepper');

@@ -5,7 +5,8 @@
         "name": "复选框",
         "name_en": "Checkbox",
         "type": "数据录入",
-        "type_en": "Data Entry"
+        "type_en": "Data Entry",
+        "displayName": "Checkbox"
     },
     "displayName": "Checkbox",
     "methods": [],
@@ -377,7 +378,8 @@
         "Group": {
             "description": "复选项组",
             "descriptionTags": {
-                "en": "Checkbox group"
+                "en": "Checkbox group",
+                "displayName": "CheckboxGroup"
             },
             "displayName": "Group",
             "methods": [],

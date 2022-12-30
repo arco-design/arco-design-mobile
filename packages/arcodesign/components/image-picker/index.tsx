@@ -280,5 +280,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
  * @type_en Data Entry
  * @name 图片选择器
  * @name_en ImagePicker
+ * @displayName ImagePicker
  */
 export default componentWrapper(ImagePicker, 'ImagePicker');

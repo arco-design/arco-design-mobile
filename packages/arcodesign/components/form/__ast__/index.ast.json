@@ -499,7 +499,7 @@
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
                     },
-                    "required": true,
+                    "required": false,
                     "type": {
                         "name": "Element"
                     }
@@ -529,7 +529,7 @@
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
                     },
-                    "required": true,
+                    "required": false,
                     "type": {
                         "name": "ReactNode"
                     }

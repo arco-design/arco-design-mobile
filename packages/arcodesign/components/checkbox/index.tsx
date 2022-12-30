@@ -7,6 +7,7 @@ export * from './type';
 /**
  * 复选项组
  * @en Checkbox group
+ * @displayName CheckboxGroup
  *  */
 const Group = componentWrapper(componentGenerator(Checkbox), 'CheckboxGroup');
 
@@ -17,6 +18,7 @@ const Group = componentWrapper(componentGenerator(Checkbox), 'CheckboxGroup');
  * @name_en Checkbox
  * @type 数据录入
  * @type_en Data Entry
+ * @displayName Checkbox
  */
 export default componentWrapper(Checkbox, 'Checkbox', {
     Group,

@@ -253,5 +253,6 @@ const Textarea = forwardRef((props: TextareaProps, ref: Ref<TextareaRef>) => {
  * @type_en Data Entry
  * @name 多行文本框
  * @name_en Textarea
+ * @displayName Textarea
  */
 export default componentWrapper(Textarea, 'Textarea');

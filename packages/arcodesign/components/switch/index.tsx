@@ -221,5 +221,6 @@ const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
  * @type_en Data Entry
  * @name 开关
  * @name_en Switch
+ * @displayName Switch
  */
 export default componentWrapper(Switch, 'Switch');

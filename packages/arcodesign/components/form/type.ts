@@ -120,9 +120,9 @@ export interface IFormItemProps {
     children: JSX.Element;
     shouldUpdate?: boolean | IShouldUpdateFunc;
     rules?: IRules[];
-    extra: JSX.Element;
+    extra?: JSX.Element;
     trigger?: string;
-    requiredIcon: ReactNode;
+    requiredIcon?: ReactNode;
     initialValue?: FieldValue;
 }
 export interface IFormItemInnerProps {

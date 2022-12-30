@@ -273,5 +273,6 @@ const Rate = forwardRef((props: RateProps, ref: Ref<RateRef>) => {
  * @type_en Data Entry
  * @name 评分
  * @name_en Rate
+ * @displayName Rate
  */
 export default componentWrapper(Rate, 'Rate');

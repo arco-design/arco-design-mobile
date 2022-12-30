@@ -309,5 +309,6 @@ const SliderWrapper = forwardRef((props: SliderProps, ref: Ref<SliderRef>) => {
  * @name_en Slider
  * @type 数据录入
  * @type_en Data Entry
+ * @displayName Slider
  */
 export default componentWrapper(SliderWrapper, 'Slider');

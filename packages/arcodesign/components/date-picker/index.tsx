@@ -284,5 +284,6 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
  * @type_en Data Entry
  * @name 日期时间选择器
  * @name_en DatePicker
+ * @displayName DatePicker
  */
 export default componentWrapper(DatePicker, 'DatePicker');

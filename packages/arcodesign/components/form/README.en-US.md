@@ -44,9 +44,9 @@ Form, Form for collecting data input
 |layout|-|"horizontal" \| "vertical" \| "inline"|-|
 |shouldUpdate|-|boolean \| IShouldUpdateFunc|-|
 |rules|-|IRules\[\]|-|
-|extra|-|Element|required|
+|extra|-|Element|-|
 |trigger|-|string|-|
-|requiredIcon|-|ReactNode|required|
+|requiredIcon|-|ReactNode|-|
 |initialValue|-|any|-|
 
 > ILayout

@@ -222,5 +222,6 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
  * @type_en Data Entry
  * @name 选择器
  * @name_en Picker
+ * @displayName Picker
  */
 export default componentWrapper(Picker, 'Picker');
