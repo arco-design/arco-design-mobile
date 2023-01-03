@@ -91,7 +91,7 @@ export default function FormDemo() {
                 onSubmitFailed={onSubmitFailed}
                 layout={layout}
             >
-                <Form.FormItem field="name" label="UserName" trigger="onBlur" rules={rules.name}required>
+                <Form.FormItem field="name" label="UserName" trigger="onBlur" rules={rules.name} required>
                     <Input placeholder="Please input username" clearable border="none" />
                 </Form.FormItem>
                 <Form.FormItem field="age" label="Age" trigger="onInput" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]}>

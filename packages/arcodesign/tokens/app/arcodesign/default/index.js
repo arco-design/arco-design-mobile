@@ -713,15 +713,6 @@ var tokens = {
   "image-picker-close-height": "0.36rem",
   "image-picker-close-background": "rgba(0, 0, 0, 0.3)",
   "image-picker-close-border-radius": "0 0.04rem",
-  "form-item-label-item-font-size": "0.32rem",
-  "form-item-label-item-line-height": "1.08rem",
-  "form-item-label-item-color": "#1d2129",
-  "form-item-label-item-gutter": "0.32rem",
-  "form-item-label-item-width": "1.92rem",
-  "form-item-border-divider-color": "rgba(0, 0, 0, 0.08)",
-  "form-item-label-item-required-asterisk-color": "#F53F3F",
-  "form-item-error-message-color": "#F53F3F",
-  "form-item-warning-message-color": "#FF7D00",
   "stepper-font-size": "0.28rem",
   "stepper-square-border": "1PX solid #f2f3f5",
   "stepper-square-border-radius": "0.04rem",
@@ -735,7 +726,16 @@ var tokens = {
   "stepper-disable-color": "#c9cdd4",
   "stepper-input-width": "0.8rem",
   "stepper-input-height": "0.56rem",
-  "stepper-input-margin": "0 1PX"
+  "stepper-input-margin": "0 1PX",
+  "form-item-label-item-font-size": "0.32rem",
+  "form-item-label-item-line-height": "1.08rem",
+  "form-item-label-item-color": "#1d2129",
+  "form-item-label-item-gutter": "0.32rem",
+  "form-item-label-item-width": "1.92rem",
+  "form-item-border-divider-color": "rgba(0, 0, 0, 0.08)",
+  "form-item-label-item-required-asterisk-color": "#F53F3F",
+  "form-item-error-message-color": "#F53F3F",
+  "form-item-warning-message-color": "#FF7D00"
 };
 var _default = tokens;
 exports["default"] = _default;

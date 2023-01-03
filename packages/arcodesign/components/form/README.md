@@ -49,6 +49,7 @@
 |trigger|触发事件更新事件名称|string|-|
 |requiredIcon|自定义必填标识|ReactNode|-|
 |initialValue|表单项初始数据|any|-|
+|displayType|手动指定为内置组件的类型|"Input" \| "Textarea" \| "Checkbox" \| "CheckboxGroup" \| "DatePicker" \| "Picker" \| "Radio" \| "RadioGroup" \| "Slider" \| "Switch" \| "ImagePicker" \| "Rate" \| "Stepper"|-|
 
 > ILayout
 
@@ -60,12 +61,12 @@
 
 |参数|描述|类型|
 |----------|-------------|------|
-|getFieldValue|-|(name: string) =\> any|
-|getFieldsValue|-|(name?: string\[\]) =\> Record\<string, any\>|
-|resetFields|-|() =\> void|
-|setFieldsValue|-|(value: Record\<string, any\>) =\> void|
-|validateFields|-|() =\> Promise\<Record\<string, any\>\>|
-|submit|-|() =\> void|
+|getFieldValue|获取单个表单项值|(name: string) =\> any|
+|getFieldsValue|获取多个表单项值|(name?: string\[\]) =\> Record\<string, any\>|
+|resetFields|重置表单项|() =\> void|
+|setFieldsValue|设置多个表单项值|(value: Record\<string, any\>) =\> void|
+|validateFields|校验所有表单项|() =\> Promise\<Record\<string, any\>\>|
+|submit|提交表单|() =\> void|
 
 > IFieldError
 
@@ -88,12 +89,13 @@
 > IRules
 
 ```
-ITypeRules<ValidatorType.Number>|
-ITypeRules<ValidatorType.String>|
-ITypeRules<ValidatorType.Array>|
-ITypeRules<ValidatorType.Boolean>|
-ITypeRules<ValidatorType.Object>|
-ITypeRules<ValidatorType.Custom>
+ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
+```
+
+> FormInternalComponentType
+
+```
+"Input"|"Textarea"|"Checkbox"|"CheckboxGroup"|"DatePicker"|"Picker"|"Radio"|"RadioGroup"|"Slider"|"Switch"|"ImagePicker"|"Rate"|"Stepper"
 ```
 
 > IFormItemRef

@@ -215,68 +215,80 @@
             "getFieldValue": {
                 "name": "getFieldValue",
                 "required": true,
-                "description": "",
+                "description": "获取单个表单项值\n@en Get field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(name: string) => any"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Get field value"
+                },
+                "descWithTags": "获取单个表单项值"
             },
             "getFieldsValue": {
                 "name": "getFieldsValue",
                 "required": true,
-                "description": "",
+                "description": "获取多个表单项值\n@en Get multiple field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(name?: string[]) => Record<string, any>"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Get multiple field value"
+                },
+                "descWithTags": "获取多个表单项值"
             },
             "resetFields": {
                 "name": "resetFields",
                 "required": true,
-                "description": "",
+                "description": "重置表单项\n@en Reset fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Reset fields"
+                },
+                "descWithTags": "重置表单项"
             },
             "setFieldsValue": {
                 "name": "setFieldsValue",
                 "required": true,
-                "description": "",
+                "description": "设置多个表单项值\n@en Set multiple field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(value: Record<string, any>) => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Set multiple field value"
+                },
+                "descWithTags": "设置多个表单项值"
             },
             "validateFields": {
                 "name": "validateFields",
                 "required": true,
-                "description": "",
+                "description": "校验所有表单项\n@en Validate all fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => Promise<Record<string, any>>"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Validate all fields"
+                },
+                "descWithTags": "校验所有表单项"
             },
             "submit": {
                 "name": "submit",
                 "required": true,
-                "description": "",
+                "description": "提交表单\n@en Submit all fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Submit all fields"
+                },
+                "descWithTags": "提交表单"
             }
         },
         "IFieldError": {
@@ -592,6 +604,65 @@
                         "name": "any"
                     }
                 },
+                "displayType": {
+                    "defaultValue": null,
+                    "description": "手动指定为内置组件的类型\n@en Manually specified as the type of internal component",
+                    "name": "displayType",
+                    "tags": {
+                        "en": "Manually specified as the type of internal component"
+                    },
+                    "descWithTags": "手动指定为内置组件的类型",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
+                        "name": "IFormItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "FormInternalComponentType",
+                        "value": [
+                            {
+                                "value": "\"Input\""
+                            },
+                            {
+                                "value": "\"Textarea\""
+                            },
+                            {
+                                "value": "\"Checkbox\""
+                            },
+                            {
+                                "value": "\"CheckboxGroup\""
+                            },
+                            {
+                                "value": "\"DatePicker\""
+                            },
+                            {
+                                "value": "\"Picker\""
+                            },
+                            {
+                                "value": "\"Radio\""
+                            },
+                            {
+                                "value": "\"RadioGroup\""
+                            },
+                            {
+                                "value": "\"Slider\""
+                            },
+                            {
+                                "value": "\"Switch\""
+                            },
+                            {
+                                "value": "\"ImagePicker\""
+                            },
+                            {
+                                "value": "\"Rate\""
+                            },
+                            {
+                                "value": "\"Stepper\""
+                            }
+                        ]
+                    }
+                },
                 "ref": {
                     "defaultValue": null,
                     "description": "",
@@ -646,6 +717,7 @@
                     }
                 },
                 "IRules": "ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>",
+                "FormInternalComponentType": "\"Input\"|\"Textarea\"|\"Checkbox\"|\"CheckboxGroup\"|\"DatePicker\"|\"Picker\"|\"Radio\"|\"RadioGroup\"|\"Slider\"|\"Switch\"|\"ImagePicker\"|\"Rate\"|\"Stepper\"",
                 "IFormItemRef": {
                     "dom": {
                         "name": "dom",
