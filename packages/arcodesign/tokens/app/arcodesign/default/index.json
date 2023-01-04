@@ -3155,6 +3155,30 @@
             "en": "Ellipsis default font size"
         }
     },
+    "ellipsisFloatEllipsisNodeBackground": {
+        "cssKey": "ellipsis-float-ellipsis-node-background",
+        "desc": "文字缩略组件浮动模式下的缩略符背景色",
+        "override": "",
+        "value": "linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)",
+        "jsValue": "linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)",
+        "staticValue": "linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)",
+        "localeDesc": {
+            "ch": "文字缩略组件浮动模式下的缩略符背景色",
+            "en": "Background of floating ellipsis node"
+        }
+    },
+    "ellipsisFloatEllipsisNodePaddingLeft": {
+        "cssKey": "ellipsis-float-ellipsis-node-padding-left",
+        "desc": "文字缩略组件浮动模式下的缩略符左边距",
+        "override": "",
+        "value": "20PX",
+        "jsValue": "20PX",
+        "staticValue": "20PX",
+        "localeDesc": {
+            "ch": "文字缩略组件浮动模式下的缩略符左边距",
+            "en": "Padding left of floating ellipsis node"
+        }
+    },
     "fixedZIndex": {
         "cssKey": "fixed-z-index",
         "desc": "固定组件zIndex基础值",

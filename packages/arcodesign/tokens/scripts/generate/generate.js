@@ -141,7 +141,9 @@ function generateToken({ appName = 'arcodesign', outputFilter } = {}) {
                 .replace(remReg, `~\`pxtorem($1)\``)};\n`;
             lessVars += `@${cssKey}: ${lessValue};\n`;
             dtsVars += `    '${cssKey}': string;\n`;
-            jsVars += `    "${cssKey}": \`${staticValue}\`,\n`;
+            jsVars += `    "${cssKey}": \`${token[key]
+                .replace(globalReg, (_, $1) => `var(--${getVarsKey($1)})`)
+                .replace(remReg, (_, $1) => getRem($1, token.baseFontSize))}\`,\n`;
             const descInfo = getTokenDescByComment(key, appName, tokenContent, coreTokenContent);
             if (!descInfo.ignore) {
                 tokenInfo[theme][key] = {
