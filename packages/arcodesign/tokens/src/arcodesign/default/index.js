@@ -982,6 +982,17 @@ function getCompTokens() {
          */
         ellipsisDefaultTextSize: getRem(16),
         /**
+         * 文字缩略组件浮动模式下的缩略符背景色
+         * @en Background of floating ellipsis node
+         */
+        ellipsisFloatEllipsisNodeBackground:
+            'linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)',
+        /**
+         * 文字缩略组件浮动模式下的缩略符左边距
+         * @en Padding left of floating ellipsis node
+         */
+        ellipsisFloatEllipsisNodePaddingLeft: '20PX',
+        /**
          * checkbox图标颜色
          * @en Checkbox icon color
          */

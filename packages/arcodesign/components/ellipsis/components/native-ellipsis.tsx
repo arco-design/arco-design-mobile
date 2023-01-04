@@ -9,7 +9,9 @@ function NativeEllipsis({
     dangerouslyUseInnerHTML,
     text,
     maxLine,
+    ellipsisNode,
     collapseNode = '',
+    onEllipsisNodeClick,
     onCollapseNodeClick,
 }: NativeEllipsisProps) {
     return (
@@ -32,6 +34,14 @@ function NativeEllipsis({
                     {collapseNode}
                 </span>
             )}
+            {ellipsis && (ellipsisNode !== '...' || onEllipsisNodeClick) ? (
+                <span
+                    onClick={onEllipsisNodeClick}
+                    className={cls(`${prefixCls}-native-ellipsis-node`)}
+                >
+                    {ellipsisNode}
+                </span>
+            ) : null}
         </div>
     );
 }

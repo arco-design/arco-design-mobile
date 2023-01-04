@@ -181,7 +181,26 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
 
     return (
         <div ref={domRef} className={`${prefixCls}-js`}>
-            <span ref={textRef} className={`${prefixCls}-js-content`} />
+            <span ref={textRef} className={`${prefixCls}-js-content`}>
+                {dangerouslyUseInnerHTML ? (
+                    <span
+                        className={`${prefixCls}-js-content-initial`}
+                        style={{
+                            WebkitLineClamp: maxLine,
+                        }}
+                        dangerouslySetInnerHTML={{ __html: text }}
+                    />
+                ) : (
+                    <span
+                        className={`${prefixCls}-js-content-initial`}
+                        style={{
+                            WebkitLineClamp: maxLine,
+                        }}
+                    >
+                        {text}
+                    </span>
+                )}
+            </span>
             <span
                 ref={ellipsisRef}
                 className={`${prefixCls}-js-content-ellipsis`}
