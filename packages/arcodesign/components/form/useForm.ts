@@ -3,25 +3,21 @@ import { ReactNode, useRef } from 'react';
 import { Callbacks, IFieldError, FieldItem, IFormInstance } from './type';
 
 const defaultFunc: any = () => {
-    console.log('arco ');
+    return 'arco';
 };
 
 export const defaultFormDataMethods = {
     getFieldValue: name => name,
-    getFieldsValue: names => {
-        console.log(names);
+    getFieldsValue: _names => {
         return { arco: 'arco ' };
     },
-    setFieldValue: (name, value) => {
-        console.log(name, value);
+    setFieldValue: (_name, _value) => {
         return true;
     },
-    setFieldsValue: values => {
-        console.log(values);
+    setFieldsValue: _values => {
         return true;
     },
-    registerField: (name, self) => {
-        console.log(name, self);
+    registerField: (_name, _self) => {
         return () => {};
     },
     resetFields: defaultFunc,

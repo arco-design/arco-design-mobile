@@ -114,6 +114,30 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
         this.validateField();
     }
 
+    innerTriggerFunction = (_, value, ...args) => {
+        this.setFieldData(value);
+        const { children, trigger } = this.props;
+        if (trigger && children.props?.[trigger]) {
+            children.props?.[trigger](_, value, ...args);
+        }
+    };
+
+    innerTriggerFunctionWithValueFirst = (value, ...args) => {
+        this.setFieldData(value);
+        const { children, trigger } = this.props;
+        if (trigger && children.props?.[trigger]) {
+            children.props?.[trigger](value, ...args);
+        }
+    };
+
+    innerClearFunction(...args) {
+        const { children } = this.props;
+        this.setFieldData('');
+        if (children.props?.onClear) {
+            children.props?.onClear(...args);
+        }
+    }
+
     renderChildren() {
         const {
             children,
@@ -127,14 +151,14 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
             [triggerPropsField]: getFieldValue(field),
             disabled: this.props.disabled,
         };
-        const childrenType = displayType || children.type.displayName;
+        const childrenType = displayType || children.type?.displayName;
         switch (childrenType) {
             case FormInternalComponentType.Input:
             case FormInternalComponentType.Textarea:
                 props = {
                     value: getFieldValue(field) || '',
-                    onInput: (_, newValue) => this.setFieldData(newValue),
-                    onClear: () => this.setFieldData(''),
+                    onInput: this.innerTriggerFunction,
+                    onClear: this.innerClearFunction,
                     disabled: this.props.disabled,
                 };
                 break;
@@ -145,21 +169,21 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
             case FormInternalComponentType.CheckboxGroup:
                 props = {
                     value: getFieldValue(field),
-                    onChange: newValue => this.setFieldData(newValue),
+                    onChange: this.innerTriggerFunctionWithValueFirst,
                     disabled: this.props.disabled,
                 };
                 break;
             case FormInternalComponentType.DatePicker:
                 props = {
                     currentTs: getFieldValue(field),
-                    onChange: (_, newValue) => this.setFieldData(newValue),
+                    onChange: this.innerTriggerFunction,
                     disabled: this.props.disabled,
                 };
                 break;
             case FormInternalComponentType.Picker:
                 props = {
                     data: getFieldValue(field),
-                    onPickerChange: (_, newValue) => this.setFieldData(newValue),
+                    onPickerChange: this.innerTriggerFunction,
                     disabled: this.props.disabled,
                 };
                 break;
@@ -167,19 +191,19 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
             case FormInternalComponentType.Switch:
                 props = {
                     checked: Boolean(getFieldValue(field)),
-                    onChange: checked => this.setFieldData(checked),
+                    onChange: this.innerTriggerFunctionWithValueFirst,
                     disabled: this.props.disabled,
                 };
                 break;
             case FormInternalComponentType.ImagePicker:
                 props = {
                     images: getFieldValue(field),
-                    onChange: images => this.setFieldData(images),
+                    onChange: this.innerTriggerFunctionWithValueFirst,
                     disabled: this.props.disabled,
                 };
                 break;
             default:
-                const originTrigger = props[trigger];
+                const originTrigger = children.props[trigger];
                 props[trigger] = (newValue, ...args: any) => {
                     this.setFieldData(newValue);
                     originTrigger && originTrigger(newValue, ...args);
