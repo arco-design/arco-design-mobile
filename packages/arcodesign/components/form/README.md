@@ -12,7 +12,7 @@
 |----------|-------------|------|------|
 |className|自定义类名|string|-|
 |style|自定义样式|CSSProperties|-|
-|layout|表单项布局|"horizontal" \| "vertical" \| "inline"|-|
+|layout|表单项布局|"horizontal" \| "vertical" \| "inline"|"horizontal"|
 |form|表单实例|IFormInstance|-|
 |initialValues|表单初始数据|Record\<string, any\>|-|
 |onValuesChange|表单项数据变化时的回调|(changedValues: any, values: any) =\> void|-|
@@ -30,9 +30,9 @@
 
 |方法名|描述|类型|
 |----------|-------------|------|
-|useForm|-|(form?: IFormInstance) =\> void|
+|useForm|获取表单实例|(form: IFormInstance) =\> \[IFormInstance\]|
 
-> Form.FormItem
+> Form.Item
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
@@ -50,22 +50,16 @@
 |requiredIcon|自定义必填标识|ReactNode|-|
 |initialValue|表单项初始数据|any|-|
 
-> ILayout
-
-```
-"horizontal"|"vertical"|"inline"
-```
-
 > IFormInstance
 
 |参数|描述|类型|
 |----------|-------------|------|
-|getFieldValue|-|(name: string) =\> any|
-|getFieldsValue|-|(name?: string\[\]) =\> Record\<string, any\>|
-|resetFields|-|() =\> void|
-|setFieldsValue|-|(value: Record\<string, any\>) =\> void|
-|validateFields|-|() =\> Promise\<Record\<string, any\>\>|
-|submit|-|() =\> void|
+|getFieldValue|获取单个表单项值|(name: string) =\> any|
+|getFieldsValue|获取多个表单项值|(name?: string\[\]) =\> Record\<string, any\>|
+|resetFields|重置表单项|() =\> void|
+|setFieldsValue|设置多个表单项值|(value: Record\<string, any\>) =\> void|
+|validateFields|校验所有表单项|() =\> Promise\<Record\<string, any\>\>|
+|submit|提交表单|() =\> void|
 
 > IFieldError
 
@@ -88,12 +82,7 @@
 > IRules
 
 ```
-ITypeRules<ValidatorType.Number>|
-ITypeRules<ValidatorType.String>|
-ITypeRules<ValidatorType.Array>|
-ITypeRules<ValidatorType.Boolean>|
-ITypeRules<ValidatorType.Object>|
-ITypeRules<ValidatorType.Custom>
+ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
 ```
 
 > IFormItemRef

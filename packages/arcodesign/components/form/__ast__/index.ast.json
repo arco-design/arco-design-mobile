@@ -10,9 +10,27 @@
     "displayName": "Form",
     "methods": [
         {
-            "description": "",
-            "docblock": "",
-            "descriptionTags": {},
+            "description": "获取表单实例",
+            "docblock": "获取表单实例\n@desc {en} Form instance\n@param form 默认表单实例\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "form",
+                        "description": "默认表单实例",
+                        "type": "IFormInstance",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "[IFormInstance]",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Form instance"
+                }
+            },
             "modifiers": [],
             "name": "useForm",
             "params": [
@@ -63,11 +81,14 @@
             }
         },
         "layout": {
-            "defaultValue": null,
+            "defaultValue": {
+                "value": "\"horizontal\""
+            },
             "description": "表单项布局\n@en Form item layout",
             "name": "layout",
             "tags": {
-                "en": "Form item layout"
+                "en": "Form item layout",
+                "default": "\"horizontal\""
             },
             "descWithTags": "表单项布局",
             "parent": {
@@ -77,7 +98,7 @@
             "required": false,
             "type": {
                 "name": "enum",
-                "raw": "ILayout",
+                "raw": "\"horizontal\" | \"vertical\" | \"inline\"",
                 "value": [
                     {
                         "value": "\"horizontal\""
@@ -210,73 +231,84 @@
         }
     },
     "deps": {
-        "ILayout": "\"horizontal\"|\"vertical\"|\"inline\"",
         "IFormInstance": {
             "getFieldValue": {
                 "name": "getFieldValue",
                 "required": true,
-                "description": "",
+                "description": "获取单个表单项值\n@en Get field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(name: string) => any"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Get field value"
+                },
+                "descWithTags": "获取单个表单项值"
             },
             "getFieldsValue": {
                 "name": "getFieldsValue",
                 "required": true,
-                "description": "",
+                "description": "获取多个表单项值\n@en Get multiple field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(name?: string[]) => Record<string, any>"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Get multiple field value"
+                },
+                "descWithTags": "获取多个表单项值"
             },
             "resetFields": {
                 "name": "resetFields",
                 "required": true,
-                "description": "",
+                "description": "重置表单项\n@en Reset fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Reset fields"
+                },
+                "descWithTags": "重置表单项"
             },
             "setFieldsValue": {
                 "name": "setFieldsValue",
                 "required": true,
-                "description": "",
+                "description": "设置多个表单项值\n@en Set multiple field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(value: Record<string, any>) => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Set multiple field value"
+                },
+                "descWithTags": "设置多个表单项值"
             },
             "validateFields": {
                 "name": "validateFields",
                 "required": true,
-                "description": "",
+                "description": "校验所有表单项\n@en Validate all fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => Promise<Record<string, any>>"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Validate all fields"
+                },
+                "descWithTags": "校验所有表单项"
             },
             "submit": {
                 "name": "submit",
                 "required": true,
-                "description": "",
+                "description": "提交表单\n@en Submit all fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Submit all fields"
+                },
+                "descWithTags": "提交表单"
             }
         },
         "IFieldError": {
@@ -353,7 +385,7 @@
         }
     },
     "depComps": {
-        "FormItem": {
+        "Item": {
             "description": "",
             "descriptionTags": {},
             "displayName": "FormItem",
@@ -459,7 +491,7 @@
                     "required": false,
                     "type": {
                         "name": "enum",
-                        "raw": "ILayout",
+                        "raw": "\"horizontal\" | \"vertical\" | \"inline\"",
                         "value": [
                             {
                                 "value": "\"horizontal\""
@@ -609,7 +641,6 @@
                 }
             },
             "deps": {
-                "ILayout": "\"horizontal\"|\"vertical\"|\"inline\"",
                 "Element": {
                     "type": {
                         "name": "type",

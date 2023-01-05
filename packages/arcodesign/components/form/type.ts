@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 
 export type FieldValue = any;
 export type FieldItem = Record<string, any>;
-export type ILayout = 'horizontal' | 'vertical' | 'inline';
 export interface IFormProps {
     /**
      * 自定义类名
@@ -18,8 +17,9 @@ export interface IFormProps {
     /**
      * 表单项布局
      * @en Form item layout
+     * @default "horizontal"
      */
-    layout?: ILayout;
+    layout?: 'horizontal' | 'vertical' | 'inline';
     /**
      * 表单实例
      * @en Form instance
@@ -97,12 +97,28 @@ export enum ValidateStatus {
 }
 
 export interface Callbacks {
+    /**
+     * 表单项数据变化时的回调
+     * @en Callback when the form item value changes
+     */
     onValuesChange?: (changedValues: FieldValue, values: FieldValue) => void;
+    /**
+     * 表单项数据变化时的回调
+     * @en Callback when the form is submitted
+     */
     onSubmit?: (values: FieldValue, otherInfo?: IFieldError[]) => void;
+    /**
+     * 表单项数据变化时的回调
+     * @en Callback when the form is submitted failed
+     */
     onSubmitFailed?: (values: FieldValue, errorInfo: IFieldError[] | Error) => void;
 }
 
 export interface InternalHooks {
+    /**
+     * 注册表单项
+     * @en Register field
+     */
     registerField: (name: string, self: ReactNode) => () => void;
     setInitialValues: (values: FieldItem) => void;
     setCallbacks: (callbacks: Callbacks) => void;
@@ -163,9 +179,25 @@ export interface IFormRef {
 }
 
 export interface IFormItemContext {
+    /**
+     * Form对象实例
+     * @en Form object instance
+     */
     form: InternalFormInstance;
-    layout: ILayout;
+    /**
+     * 表单布局方式
+     * @en Form layout
+     */
+    layout: 'horizontal' | 'vertical' | 'inline';
+    /**
+     * 表单是否禁用
+     * @en Whether form is disabled
+     */
     disabled?: boolean;
+    /**
+     * 表单校验项定义
+     * @en Validating message of form
+     */
     validateMessages?: Record<string, unknown>;
 }
 
@@ -200,7 +232,7 @@ export interface IFormItemProps {
      * 表单项布局
      * @en Form item layout
      */
-    layout?: ILayout;
+    layout?: 'horizontal' | 'vertical' | 'inline';
     /**
      * 表单项子节点
      * @en Form item children
@@ -277,8 +309,20 @@ export interface IFormItemInnerProps {
      * @en The callback when validating status changes
      */
     onValidateStatusChange: (data: { errors: any; warnings: any }) => void;
+    /**
+     * 获取内部表单项的dom
+     * @en The dom of inner form item
+     */
     getFormItemRef: () => HTMLDivElement | null;
+    /**
+     * 自定义表单项存储值的字段名
+     * @en The field name for custom form item
+     */
     triggerPropsField?: string;
+    /**
+     * 表单项是否禁用
+     * @en Whether Form item is disabled
+     */
     disabled?: boolean;
     /**
      * 表单项初始数据

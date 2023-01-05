@@ -1,9 +1,9 @@
 import { componentWrapper, defaultLocale } from '@arco-design/mobile-utils';
 import React, { useRef, forwardRef, Ref, useImperativeHandle, useEffect } from 'react';
 import { ContextLayout } from '../context-provider';
-import FormItem from './form-item';
+import Item from './form-item';
 import { FormItemContext } from './form-item-context';
-import { IFormProps, IFormRef, InternalFormInstance } from './type';
+import { IFormInstance, IFormProps, IFormRef, InternalFormInstance } from './type';
 import useForm from './useForm';
 
 const Form = forwardRef((props: IFormProps, ref: Ref<IFormRef>) => {
@@ -80,7 +80,13 @@ const Form = forwardRef((props: IFormProps, ref: Ref<IFormRef>) => {
  * @name_en Form
  */
 export default componentWrapper(Form, {
-    FormItem,
+    Item,
+    /**
+     * 获取表单实例
+     * @desc {en} Form instance
+     * @param { IFormInstance} form 默认表单实例
+     * @returns {[IFormInstance]}
+     */
     useForm,
 });
-export { FormItem, useForm };
+export { Item, useForm };
