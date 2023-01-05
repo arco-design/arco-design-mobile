@@ -49,6 +49,7 @@
 |trigger|触发事件更新事件名称|string|-|
 |requiredIcon|自定义必填标识|ReactNode|-|
 |initialValue|表单项初始数据|any|-|
+|displayType|手动指定为内置组件的类型|"Input" \| "Textarea" \| "Checkbox" \| "CheckboxGroup" \| "DatePicker" \| "Picker" \| "Radio" \| "RadioGroup" \| "Slider" \| "Switch" \| "ImagePicker" \| "Rate" \| "Stepper"|-|
 
 > IFormInstance
 
@@ -83,6 +84,12 @@
 
 ```
 ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
+```
+
+> FormInternalComponentType
+
+```
+"Input"|"Textarea"|"Checkbox"|"CheckboxGroup"|"DatePicker"|"Picker"|"Radio"|"RadioGroup"|"Slider"|"Switch"|"ImagePicker"|"Rate"|"Stepper"
 ```
 
 > IFormItemRef

@@ -3,6 +3,24 @@ import { ReactNode } from 'react';
 
 export type FieldValue = any;
 export type FieldItem = Record<string, any>;
+export type ILayout = 'horizontal' | 'vertical' | 'inline';
+
+export enum FormInternalComponentType {
+    Input = 'Input',
+    Textarea = 'Textarea',
+    Checkbox = 'Checkbox',
+    CheckboxGroup = 'CheckboxGroup',
+    DatePicker = 'DatePicker',
+    Picker = 'Picker',
+    Radio = 'Radio',
+    RadioGroup = 'RadioGroup',
+    Slider = 'Slider',
+    Switch = 'Switch',
+    ImagePicker = 'ImagePicker',
+    Rate = 'Rate',
+    Stepper = 'Stepper',
+}
+
 export interface IFormProps {
     /**
      * 自定义类名
@@ -268,6 +286,11 @@ export interface IFormItemProps {
      * @en The initial value of form item
      */
     initialValue?: FieldValue;
+    /**
+     * 手动指定为内置组件的类型
+     * @en Manually specified as the type of internal component
+     */
+    displayType?: FormInternalComponentType;
 }
 
 export interface IFormItemRef {
@@ -329,4 +352,5 @@ export interface IFormItemInnerProps {
      * @en The initial value of form item
      */
     initialValue?: FieldValue;
+    displayType?: FormInternalComponentType;
 }

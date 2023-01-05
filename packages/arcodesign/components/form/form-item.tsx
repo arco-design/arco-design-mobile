@@ -22,24 +22,9 @@ import {
     IFormItemProps,
     ValidateStatus,
     IFormItemRef,
+    FormInternalComponentType,
 } from './type';
 import { getErrorAndWarnings, isFieldRequired } from './utils';
-
-enum InternalComponentType {
-    Input = 'Input',
-    Textarea = 'Textarea',
-    Checkbox = 'Checkbox',
-    CheckboxGroup = 'CheckboxGroup',
-    DatePicker = 'DatePicker',
-    Picker = 'Picker',
-    Radio = 'Radio',
-    RadioGroup = 'RadioGroup',
-    Slider = 'Slider',
-    Switch = 'Switch',
-    ImagePicker = 'ImagePicker',
-    Rate = 'Rate',
-    Stepper = 'Stepper',
-}
 
 interface IFromItemInnerState {
     validateStatus: ValidateStatus;
@@ -130,15 +115,22 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
     }
 
     renderChildren() {
-        const { children, field, trigger = 'onChange', triggerPropsField = 'value' } = this.props;
+        const {
+            children,
+            field,
+            trigger = 'onChange',
+            triggerPropsField = 'value',
+            displayType,
+        } = this.props;
         const { getFieldValue } = this.context.form as IFormDataMethods;
         let props = {
             [triggerPropsField]: getFieldValue(field),
             disabled: this.props.disabled,
         };
-        switch (children.type.displayName) {
-            case InternalComponentType.Input:
-            case InternalComponentType.Textarea:
+        const childrenType = displayType || children.type.displayName;
+        switch (childrenType) {
+            case FormInternalComponentType.Input:
+            case FormInternalComponentType.Textarea:
                 props = {
                     value: getFieldValue(field) || '',
                     onInput: (_, newValue) => this.setFieldData(newValue),
@@ -146,25 +138,25 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
                     disabled: this.props.disabled,
                 };
                 break;
-            case InternalComponentType.Checkbox:
-            case InternalComponentType.Radio:
-            case InternalComponentType.Slider:
-            case InternalComponentType.RadioGroup:
-            case InternalComponentType.CheckboxGroup:
+            case FormInternalComponentType.Checkbox:
+            case FormInternalComponentType.Radio:
+            case FormInternalComponentType.Slider:
+            case FormInternalComponentType.RadioGroup:
+            case FormInternalComponentType.CheckboxGroup:
                 props = {
                     value: getFieldValue(field),
                     onChange: newValue => this.setFieldData(newValue),
                     disabled: this.props.disabled,
                 };
                 break;
-            case InternalComponentType.DatePicker:
+            case FormInternalComponentType.DatePicker:
                 props = {
                     currentTs: getFieldValue(field),
                     onChange: (_, newValue) => this.setFieldData(newValue),
                     disabled: this.props.disabled,
                 };
                 break;
-            case InternalComponentType.Picker:
+            case FormInternalComponentType.Picker:
                 props = {
                     data: getFieldValue(field),
                     onPickerChange: (_, newValue) => this.setFieldData(newValue),
@@ -172,14 +164,14 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
                 };
                 break;
 
-            case InternalComponentType.Switch:
+            case FormInternalComponentType.Switch:
                 props = {
                     checked: Boolean(getFieldValue(field)),
                     onChange: checked => this.setFieldData(checked),
                     disabled: this.props.disabled,
                 };
                 break;
-            case InternalComponentType.ImagePicker:
+            case FormInternalComponentType.ImagePicker:
                 props = {
                     images: getFieldValue(field),
                     onChange: images => this.setFieldData(images),

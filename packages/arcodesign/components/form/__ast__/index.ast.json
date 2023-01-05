@@ -624,6 +624,65 @@
                         "name": "any"
                     }
                 },
+                "displayType": {
+                    "defaultValue": null,
+                    "description": "手动指定为内置组件的类型\n@en Manually specified as the type of internal component",
+                    "name": "displayType",
+                    "tags": {
+                        "en": "Manually specified as the type of internal component"
+                    },
+                    "descWithTags": "手动指定为内置组件的类型",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
+                        "name": "IFormItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "FormInternalComponentType",
+                        "value": [
+                            {
+                                "value": "\"Input\""
+                            },
+                            {
+                                "value": "\"Textarea\""
+                            },
+                            {
+                                "value": "\"Checkbox\""
+                            },
+                            {
+                                "value": "\"CheckboxGroup\""
+                            },
+                            {
+                                "value": "\"DatePicker\""
+                            },
+                            {
+                                "value": "\"Picker\""
+                            },
+                            {
+                                "value": "\"Radio\""
+                            },
+                            {
+                                "value": "\"RadioGroup\""
+                            },
+                            {
+                                "value": "\"Slider\""
+                            },
+                            {
+                                "value": "\"Switch\""
+                            },
+                            {
+                                "value": "\"ImagePicker\""
+                            },
+                            {
+                                "value": "\"Rate\""
+                            },
+                            {
+                                "value": "\"Stepper\""
+                            }
+                        ]
+                    }
+                },
                 "ref": {
                     "defaultValue": null,
                     "description": "",
@@ -677,6 +736,7 @@
                     }
                 },
                 "IRules": "ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>",
+                "FormInternalComponentType": "\"Input\"|\"Textarea\"|\"Checkbox\"|\"CheckboxGroup\"|\"DatePicker\"|\"Picker\"|\"Radio\"|\"RadioGroup\"|\"Slider\"|\"Switch\"|\"ImagePicker\"|\"Rate\"|\"Stepper\"",
                 "IFormItemRef": {
                     "dom": {
                         "name": "dom",

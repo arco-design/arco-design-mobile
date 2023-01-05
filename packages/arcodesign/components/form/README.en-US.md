@@ -1,6 +1,6 @@
 ### Data Entry
 
-# Form 
+# Form
 
 Form, Form for collecting data input
 
@@ -49,6 +49,7 @@ Form, Form for collecting data input
 |trigger|The function name when updating data|string|-|
 |requiredIcon|The required icon node|ReactNode|-|
 |initialValue|The initial value of form item|any|-|
+|displayType|Manually specified as the type of internal component|"Input" \| "Textarea" \| "Checkbox" \| "CheckboxGroup" \| "DatePicker" \| "Picker" \| "Radio" \| "RadioGroup" \| "Slider" \| "Switch" \| "ImagePicker" \| "Rate" \| "Stepper"|-|
 
 > IFormInstance
 
@@ -83,6 +84,12 @@ Form, Form for collecting data input
 
 ```
 ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
+```
+
+> FormInternalComponentType
+
+```
+"Input"|"Textarea"|"Checkbox"|"CheckboxGroup"|"DatePicker"|"Picker"|"Radio"|"RadioGroup"|"Slider"|"Switch"|"ImagePicker"|"Rate"|"Stepper"
 ```
 
 > IFormItemRef
