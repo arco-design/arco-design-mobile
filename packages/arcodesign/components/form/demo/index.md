@@ -31,6 +31,23 @@ const genderOptions = [
 
 ]
 
+
+const rules = {
+    name: [
+        {
+            validator: (val, callback) => {
+                if (!val) {
+                    callback('请输入姓名');
+                } else if (val.length > 20) {
+                    callback('最多输入20个字');
+                } else {
+                    callback();
+                }
+            },
+        },
+    ],
+}
+
 export default function FormDemo() {
     const [form] = Form.useForm();
     const [layout, setLayout] = React.useState('horizontal');
@@ -56,6 +73,13 @@ export default function FormDemo() {
     const handleClick = e => {
         e.preventDefault();
     };
+    const handleInput = (e, value) => {
+        if(/^[0-9]*$/.test(value)) {
+            form.setFieldValue('age', value);
+        } else {
+            form.setFieldValue('age', 0);
+        }
+    }
     const SendCode = () => (
         <button
             style={{ position: 'absolute', right: 0, top: 0, fontSize: 16 }}
@@ -74,16 +98,16 @@ export default function FormDemo() {
                 onSubmitFailed={onSubmitFailed}
                 layout={layout}
             >
-                <Form.FormItem field="name" label="UserName" trigger="onBlur" required>
-                    <Input placeholder="Please input username" clearable border="none" />
-                </Form.FormItem>
-                <Form.FormItem field="age" label="Age" trigger="onInput" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]}>
-                    <Input type="number" placeholder="Please input age"  clearable border="none" />
-                </Form.FormItem>
-                <Form.FormItem field="gender" label="Gender">
+                <Form.Item field="name" label="UserName" trigger="onBlur" rules={rules.name} required>
+                    <Input  placeholder="Please input username" clearable border="none" />
+                </Form.Item>
+                <Form.Item field="age" label="Age" trigger="onInput" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]}>
+                    <Input placeholder="Please input age"  clearable border="none" onInput={handleInput}/>
+                </Form.Item>
+                <Form.Item field="gender" label="Gender">
                     <Radio.Group options={genderOptions} />
-                </Form.FormItem>
-                <Form.FormItem
+                </Form.Item>
+                <Form.Item
                     field="checkbox"
                     label="Checkbox"
                     required
@@ -95,18 +119,18 @@ export default function FormDemo() {
                         <Checkbox value={2} style={{height: 42}}>Option content 2</Checkbox>
                         <Checkbox value={3} style={{height: 42}}>Option content 3</Checkbox>
                     </Checkbox.Group>
-                </Form.FormItem>
-                 <Form.FormItem field="score" label="Score">
+                </Form.Item>
+                 <Form.Item field="score" label="Score">
                     <Rate />
-                </Form.FormItem>
-                <Form.FormItem field="pictures" label="Pictures" initialValue={[
+                </Form.Item>
+                <Form.Item field="pictures" label="Pictures" initialValue={[
                     { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' }
                 ]}>
                     <ImagePicker />
-                </Form.FormItem>
-                <Form.FormItem field="progress" label="Progress">
+                </Form.Item>
+                <Form.Item field="progress" label="Progress">
                     <Slider />
-                </Form.FormItem>
+                </Form.Item>
                 <Button needActive onClick={toSubmit}>
                     Submit
                 </Button>

@@ -1,6 +1,8 @@
-# Form
+### 数据录入
 
+# 表单 Form
 
+表单组件用于集合数据录入
 
 ======
 
@@ -10,13 +12,13 @@
 |----------|-------------|------|------|
 |className|自定义类名|string|-|
 |style|自定义样式|CSSProperties|-|
-|layout|-|"horizontal" \| "vertical" \| "inline"|-|
-|form|-|IFormInstance|-|
-|initialValues|-|Record\<string, any\>|-|
-|onValuesChange|-|(changedValues: any, values: any) =\> void|-|
-|onSubmit|-|(values: any, otherInfo?: IFieldError\[\]) =\> void|-|
-|onSubmitFailed|-|(values: any, errorInfo: IFieldError\[\] \| Error) =\> void|-|
-|disabled|-|boolean|-|
+|layout|表单项布局|"horizontal" \| "vertical" \| "inline"|"horizontal"|
+|form|表单实例|IFormInstance|-|
+|initialValues|表单初始数据|Record\<string, any\>|-|
+|onValuesChange|表单项数据变化时的回调|(changedValues: any, values: any) =\> void|-|
+|onSubmit|表单项数据变化时的回调|(values: any, otherInfo?: IFieldError\[\]) =\> void|-|
+|onSubmitFailed|表单项数据变化时的回调|(values: any, errorInfo: IFieldError\[\] \| Error) =\> void|-|
+|disabled|表单禁止输入|boolean|-|
 
 > 引用/Refs
 
@@ -28,41 +30,37 @@
 
 |方法名|描述|类型|
 |----------|-------------|------|
-|useForm|-|(form?: IFormInstance) =\> void|
+|useForm|获取表单实例|(form: IFormInstance) =\> \[IFormInstance\]|
 
-> Form.FormItem
+> Form.Item
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|label|-|ReactNode|必填|
-|style|-|CSSProperties|-|
-|field|-|string|必填|
-|required|-|boolean|-|
-|disabled|-|boolean|-|
-|layout|-|"horizontal" \| "vertical" \| "inline"|-|
-|shouldUpdate|-|boolean \| IShouldUpdateFunc|-|
-|rules|-|IRules\[\]|-|
-|extra|-|Element|必填|
-|trigger|-|string|-|
-|requiredIcon|-|ReactNode|必填|
-|initialValue|-|any|-|
-
-> ILayout
-
-```
-"horizontal"|"vertical"|"inline"
-```
+|label|表单项名|ReactNode|必填|
+|style|表单项Stylesheet|CSSProperties|-|
+|field|表单项字段|string|必填|
+|required|表单项是否必填|boolean|-|
+|disabled|表单项是否禁用|boolean|-|
+|layout|表单项布局|"horizontal" \| "vertical" \| "inline"|-|
+|children|表单项子节点|Element|必填|
+|shouldUpdate|表单项是否刷新|boolean \| IShouldUpdateFunc|-|
+|rules|表单项规则|IRules\[\]|-|
+|extra|表单项下方节点|Element|-|
+|trigger|触发事件更新事件名称|string|-|
+|requiredIcon|自定义必填标识|ReactNode|-|
+|initialValue|表单项初始数据|any|-|
+|displayType|手动指定为内置组件的类型|"Input" \| "Textarea" \| "Checkbox" \| "CheckboxGroup" \| "DatePicker" \| "Picker" \| "Radio" \| "RadioGroup" \| "Slider" \| "Switch" \| "ImagePicker" \| "Rate" \| "Stepper"|-|
 
 > IFormInstance
 
 |参数|描述|类型|
 |----------|-------------|------|
-|getFieldValue|-|(name: string) =\> any|
-|getFieldsValue|-|(name?: string\[\]) =\> Record\<string, any\>|
-|resetFields|-|() =\> void|
-|setFieldsValue|-|(value: Record\<string, any\>) =\> void|
-|validateFields|-|() =\> Promise\<Record\<string, any\>\>|
-|submit|-|() =\> void|
+|getFieldValue|获取单个表单项值|(name: string) =\> any|
+|getFieldsValue|获取多个表单项值|(name?: string\[\]) =\> Record\<string, any\>|
+|resetFields|重置表单项|() =\> void|
+|setFieldsValue|设置多个表单项值|(value: Record\<string, any\>) =\> void|
+|validateFields|校验所有表单项|() =\> Promise\<Record\<string, any\>\>|
+|submit|提交表单|() =\> void|
 
 > IFieldError
 
@@ -74,12 +72,6 @@
 |field|-|string|
 |dom|-|HTMLDivElement|
 
-> IRules
-
-```
-ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
-```
-
 > Element
 
 |参数|描述|类型|
@@ -87,3 +79,21 @@ ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<Val
 |type|-|any|
 |props|-|any|
 |key|-|ReactText|
+
+> IRules
+
+```
+ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
+```
+
+> FormInternalComponentType
+
+```
+"Input"|"Textarea"|"Checkbox"|"CheckboxGroup"|"DatePicker"|"Picker"|"Radio"|"RadioGroup"|"Slider"|"Switch"|"ImagePicker"|"Rate"|"Stepper"
+```
+
+> IFormItemRef
+
+|参数|描述|类型|
+|----------|-------------|------|
+|dom|最外层元素 DOM|HTMLDivElement|

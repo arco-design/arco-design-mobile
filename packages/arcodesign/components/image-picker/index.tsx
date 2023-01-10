@@ -10,14 +10,6 @@ import { AdapterFile, ImagePickerProps, ImagePickerRef, ImagePickItem } from './
 
 export * from './type';
 
-/**
- * 图片选择器组件
- * @en ImagePicker Component
- * @type 数据录入
- * @type_en Data Entry
- * @name 图片选择器
- * @name_en ImagePicker
- */
 const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef>) => {
     const {
         className = '',
@@ -281,4 +273,13 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     );
 });
 
-export default componentWrapper(ImagePicker, 'ADMImagePicker');
+/**
+ * 图片选择器组件
+ * @en ImagePicker Component
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 图片选择器
+ * @name_en ImagePicker
+ * @displayName ImagePicker
+ */
+export default componentWrapper(ImagePicker, 'ImagePicker');

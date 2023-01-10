@@ -82,14 +82,6 @@ const getInitialValue = (value, data: DataType, cascade) => {
     return computedValue;
 };
 
-/**
- * 选择器组件，形式是弹起的浮层。
- * @en The selector component, in the form of a popup layer.
- * @type 数据录入
- * @type_en Data Entry
- * @name 选择器
- * @name_en Picker
- */
 const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
     const {
         className,
@@ -223,4 +215,13 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
     );
 });
 
-export default componentWrapper(Picker, 'ADMPicker');
+/**
+ * 选择器组件，形式是弹起的浮层。
+ * @en The selector component, in the form of a popup layer.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 选择器
+ * @name_en Picker
+ * @displayName Picker
+ */
+export default componentWrapper(Picker, 'Picker');

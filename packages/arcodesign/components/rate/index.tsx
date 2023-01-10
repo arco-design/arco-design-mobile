@@ -7,7 +7,7 @@ import React, {
     useMemo,
     ReactNode,
 } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import IconStarFill from '../icon/IconStarFill';
 import IconStarHalf from '../icon/IconStarHalf';
@@ -111,14 +111,6 @@ export interface RateRef {
     dom: HTMLDivElement | null;
 }
 
-/**
- * 评分组件，支持受控模式
- * @en Rate component, supports controlled mode
- * @type 数据录入
- * @type_en Data Entry
- * @name 评分
- * @name_en Rate
- */
 const Rate = forwardRef((props: RateProps, ref: Ref<RateRef>) => {
     const {
         className,
@@ -274,4 +266,13 @@ const Rate = forwardRef((props: RateProps, ref: Ref<RateRef>) => {
     );
 });
 
-export default Rate;
+/**
+ * 评分组件，支持受控模式
+ * @en Rate component, supports controlled mode
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 评分
+ * @name_en Rate
+ * @displayName Rate
+ */
+export default componentWrapper(Rate, 'Rate');

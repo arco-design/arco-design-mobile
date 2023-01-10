@@ -51,14 +51,6 @@ export interface InputRef {
     input: HTMLInputElement | null;
 }
 
-/**
- * 输入框组件，支持添加前后缀。
- * @en The input box, supports adding prefixes and suffixes.
- * @type 数据录入
- * @type_en Data Entry
- * @name 输入框
- * @name_en Input
- */
 const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
     const {
         id,
@@ -130,4 +122,13 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
     return <ContextLayout>{renderInput}</ContextLayout>;
 });
 
-export default componentWrapper(Input, 'ADMInput');
+/**
+ * 输入框组件，支持添加前后缀。
+ * @en The input box, supports adding prefixes and suffixes.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 输入框
+ * @name_en Input
+ * @displayName Input
+ */
+export default componentWrapper(Input, 'Input');

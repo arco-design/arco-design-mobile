@@ -3,25 +3,22 @@ import { ReactNode, useRef } from 'react';
 import { Callbacks, IFieldError, FieldItem, IFormInstance } from './type';
 
 const defaultFunc: any = () => {
-    console.log('arco ');
+    return 'arco';
 };
 
 export const defaultFormDataMethods = {
     getFieldValue: name => name,
-    getFieldsValue: names => {
-        console.log(names);
+    getFieldsValue: _names => {
         return { arco: 'arco ' };
     },
-    setFieldValue: (name, value) => {
-        console.log(name, value);
+    getFieldError: _name => [],
+    setFieldValue: (_name, _value) => {
         return true;
     },
-    setFieldsValue: values => {
-        console.log(values);
+    setFieldsValue: _values => {
         return true;
     },
-    registerField: (name, self) => {
-        console.log(name, self);
+    registerField: (_name, _self) => {
         return () => {};
     },
     resetFields: defaultFunc,
@@ -94,16 +91,23 @@ class FormData {
         return this._formData?.[name];
     };
 
-    getFieldError = (name: string) => {
+    getFieldError = (name: string): ReactNode[] => {
         const field = this._fieldsList?.[name] || null;
         if (field) {
             return field.getFieldError();
         }
-        return {
-            name,
-            errors: [],
-            warnings: [],
-        };
+        return [];
+    };
+
+    getFieldsError = (names?: string[]): Record<string, ReactNode[]> => {
+        const fields = names || Object.keys(this._fieldsList);
+        return fields.reduce((pre: Record<string, ReactNode[]>, name) => {
+            const theField = this._fieldsList?.[name];
+            if (theField) {
+                pre[name] = theField?.getFieldError();
+            }
+            return pre;
+        }, {});
     };
 
     isFieldTouched = (name: string): boolean => {
@@ -191,6 +195,7 @@ class FormData {
             getFieldsValue: this.getFieldsValue,
             getFieldValue: this.getFieldValue,
             getFieldError: this.getFieldError,
+            getFieldsError: this.getFieldsError,
             isFieldTouched: this.isFieldTouched,
             registerField: this.registerField,
             resetFields: this.resetFields,

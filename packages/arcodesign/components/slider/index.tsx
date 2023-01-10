@@ -286,14 +286,6 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
     );
 });
 
-/**
- * 滑动型输入器，展示当前值和可选范围。
- * @en Slide input component, displays the current value and optional range.
- * @name 滑动输入条
- * @name_en Slider
- * @type 数据录入
- * @type_en Data Entry
- */
 const SliderWrapper = forwardRef((props: SliderProps, ref: Ref<SliderRef>) => {
     const { prefixCls = '' } = useContext(GlobalContext);
     const defaultProps = useContext(SliderContext);
@@ -309,4 +301,14 @@ const SliderWrapper = forwardRef((props: SliderProps, ref: Ref<SliderRef>) => {
         </SliderContext.Provider>
     );
 });
-export default componentWrapper(SliderWrapper, 'ADMSlider');
+
+/**
+ * 滑动型输入器，展示当前值和可选范围。
+ * @en Slide input component, displays the current value and optional range.
+ * @name 滑动输入条
+ * @name_en Slider
+ * @type 数据录入
+ * @type_en Data Entry
+ * @displayName Slider
+ */
+export default componentWrapper(SliderWrapper, 'Slider');

@@ -1,4 +1,4 @@
-import { IRules, ValidatorError } from '@arco-design/mobile-utils/utils/validator/type';
+import { IRules, ValidatorError } from '@arco-design/mobile-utils';
 
 export const isFieldRequired = (rules: IRules[] = []) => {
     return (rules || []).some(rule => rule?.required);

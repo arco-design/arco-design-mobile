@@ -5,7 +5,8 @@
         "name": "单选框",
         "name_en": "Radio",
         "type": "数据录入",
-        "type_en": "Data Entry"
+        "type_en": "Data Entry",
+        "displayName": "Radio"
     },
     "displayName": "Radio",
     "methods": [],
@@ -377,7 +378,8 @@
         "Group": {
             "description": "单选项组",
             "descriptionTags": {
-                "en": "Radio group"
+                "en": "Radio group",
+                "displayName": "RadioGroup"
             },
             "displayName": "Group",
             "methods": [],

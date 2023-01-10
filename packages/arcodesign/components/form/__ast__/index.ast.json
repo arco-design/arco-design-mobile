@@ -1,12 +1,36 @@
 {
-    "description": "",
-    "descriptionTags": {},
+    "description": "表单组件用于集合数据录入",
+    "descriptionTags": {
+        "en": "Form, Form for collecting data input",
+        "type": "数据录入",
+        "type_en": "Data Entry",
+        "name": "表单",
+        "name_en": "Form"
+    },
     "displayName": "Form",
     "methods": [
         {
-            "description": "",
-            "docblock": "",
-            "descriptionTags": {},
+            "description": "获取表单实例",
+            "docblock": "获取表单实例\n@desc {en} Form instance\n@param form 默认表单实例\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "form",
+                        "description": "默认表单实例",
+                        "type": "IFormInstance",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "[IFormInstance]",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Form instance"
+                }
+            },
             "modifiers": [],
             "name": "useForm",
             "params": [
@@ -24,9 +48,11 @@
     "props": {
         "className": {
             "defaultValue": null,
-            "description": "自定义类名",
+            "description": "自定义类名\n@en Custom classname",
             "name": "className",
-            "tags": {},
+            "tags": {
+                "en": "Custom classname"
+            },
             "descWithTags": "自定义类名",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
@@ -39,9 +65,11 @@
         },
         "style": {
             "defaultValue": null,
-            "description": "自定义样式",
+            "description": "自定义样式\n@en Custom stylesheet",
             "name": "style",
-            "tags": {},
+            "tags": {
+                "en": "Custom stylesheet"
+            },
             "descWithTags": "自定义样式",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
@@ -53,11 +81,16 @@
             }
         },
         "layout": {
-            "defaultValue": null,
-            "description": "",
+            "defaultValue": {
+                "value": "\"horizontal\""
+            },
+            "description": "表单项布局\n@en Form item layout",
             "name": "layout",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Form item layout",
+                "default": "\"horizontal\""
+            },
+            "descWithTags": "表单项布局",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -65,7 +98,7 @@
             "required": false,
             "type": {
                 "name": "enum",
-                "raw": "ILayout",
+                "raw": "\"horizontal\" | \"vertical\" | \"inline\"",
                 "value": [
                     {
                         "value": "\"horizontal\""
@@ -81,10 +114,12 @@
         },
         "form": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单实例\n@en Form instance",
             "name": "form",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Form instance"
+            },
+            "descWithTags": "表单实例",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -96,10 +131,12 @@
         },
         "initialValues": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单初始数据\n@en Form initial value",
             "name": "initialValues",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Form initial value"
+            },
+            "descWithTags": "表单初始数据",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -111,10 +148,12 @@
         },
         "onValuesChange": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单项数据变化时的回调\n@en Callback when the form item value changes",
             "name": "onValuesChange",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback when the form item value changes"
+            },
+            "descWithTags": "表单项数据变化时的回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -126,10 +165,12 @@
         },
         "onSubmit": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单项数据变化时的回调\n@en Callback when the form is submitted",
             "name": "onSubmit",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback when the form is submitted"
+            },
+            "descWithTags": "表单项数据变化时的回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -141,10 +182,12 @@
         },
         "onSubmitFailed": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单项数据变化时的回调\n@en Callback when the form is submitted failed",
             "name": "onSubmitFailed",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback when the form is submitted failed"
+            },
+            "descWithTags": "表单项数据变化时的回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -156,10 +199,12 @@
         },
         "disabled": {
             "defaultValue": null,
-            "description": "",
+            "description": "表单禁止输入\n@en disable all form items",
             "name": "disabled",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "disable all form items"
+            },
+            "descWithTags": "表单禁止输入",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                 "name": "IFormProps"
@@ -181,78 +226,89 @@
             },
             "required": false,
             "type": {
-                "name": "Ref<FormRef>"
+                "name": "Ref<IFormRef>"
             }
         }
     },
     "deps": {
-        "ILayout": "\"horizontal\"|\"vertical\"|\"inline\"",
         "IFormInstance": {
             "getFieldValue": {
                 "name": "getFieldValue",
                 "required": true,
-                "description": "",
+                "description": "获取单个表单项值\n@en Get field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(name: string) => any"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Get field value"
+                },
+                "descWithTags": "获取单个表单项值"
             },
             "getFieldsValue": {
                 "name": "getFieldsValue",
                 "required": true,
-                "description": "",
+                "description": "获取多个表单项值\n@en Get multiple field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(name?: string[]) => Record<string, any>"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Get multiple field value"
+                },
+                "descWithTags": "获取多个表单项值"
             },
             "resetFields": {
                 "name": "resetFields",
                 "required": true,
-                "description": "",
+                "description": "重置表单项\n@en Reset fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Reset fields"
+                },
+                "descWithTags": "重置表单项"
             },
             "setFieldsValue": {
                 "name": "setFieldsValue",
                 "required": true,
-                "description": "",
+                "description": "设置多个表单项值\n@en Set multiple field value",
                 "defaultValue": null,
                 "type": {
                     "name": "(value: Record<string, any>) => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Set multiple field value"
+                },
+                "descWithTags": "设置多个表单项值"
             },
             "validateFields": {
                 "name": "validateFields",
                 "required": true,
-                "description": "",
+                "description": "校验所有表单项\n@en Validate all fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => Promise<Record<string, any>>"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Validate all fields"
+                },
+                "descWithTags": "校验所有表单项"
             },
             "submit": {
                 "name": "submit",
                 "required": true,
-                "description": "",
+                "description": "提交表单\n@en Submit all fields",
                 "defaultValue": null,
                 "type": {
                     "name": "() => void"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Submit all fields"
+                },
+                "descWithTags": "提交表单"
             }
         },
         "IFieldError": {
@@ -312,22 +368,24 @@
                 "descWithTags": ""
             }
         },
-        "FormRef": {
+        "IFormRef": {
             "dom": {
                 "name": "dom",
                 "required": true,
-                "description": "最外层元素 DOM",
+                "description": "最外层元素 DOM\n@en The outermost element DOM",
                 "defaultValue": null,
                 "type": {
                     "name": "HTMLFormElement"
                 },
-                "tags": {},
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
                 "descWithTags": "最外层元素 DOM"
             }
         }
     },
     "depComps": {
-        "FormItem": {
+        "Item": {
             "description": "",
             "descriptionTags": {},
             "displayName": "FormItem",
@@ -335,10 +393,12 @@
             "props": {
                 "label": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项名\n@en The form item name",
                     "name": "label",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "The form item name"
+                    },
+                    "descWithTags": "表单项名",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -350,10 +410,12 @@
                 },
                 "style": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项Stylesheet\n@en The form item stylesheet",
                     "name": "style",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "The form item stylesheet"
+                    },
+                    "descWithTags": "表单项Stylesheet",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -365,10 +427,12 @@
                 },
                 "field": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项字段\n@en Form item field",
                     "name": "field",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "Form item field"
+                    },
+                    "descWithTags": "表单项字段",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -380,10 +444,12 @@
                 },
                 "required": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项是否必填\n@en Whether Form item is required",
                     "name": "required",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "Whether Form item is required"
+                    },
+                    "descWithTags": "表单项是否必填",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -395,10 +461,12 @@
                 },
                 "disabled": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项是否禁用\n@en Whether Form item is disabled",
                     "name": "disabled",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "Whether Form item is disabled"
+                    },
+                    "descWithTags": "表单项是否禁用",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -410,10 +478,12 @@
                 },
                 "layout": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项布局\n@en Form item layout",
                     "name": "layout",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "Form item layout"
+                    },
+                    "descWithTags": "表单项布局",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -421,7 +491,7 @@
                     "required": false,
                     "type": {
                         "name": "enum",
-                        "raw": "ILayout",
+                        "raw": "\"horizontal\" | \"vertical\" | \"inline\"",
                         "value": [
                             {
                                 "value": "\"horizontal\""
@@ -435,12 +505,31 @@
                         ]
                     }
                 },
+                "children": {
+                    "defaultValue": null,
+                    "description": "表单项子节点\n@en Form item children",
+                    "name": "children",
+                    "tags": {
+                        "en": "Form item children"
+                    },
+                    "descWithTags": "表单项子节点",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
+                        "name": "IFormItemProps"
+                    },
+                    "required": true,
+                    "type": {
+                        "name": "Element"
+                    }
+                },
                 "shouldUpdate": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项是否刷新\n@en Form item is updated",
                     "name": "shouldUpdate",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "Form item is updated"
+                    },
+                    "descWithTags": "表单项是否刷新",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -452,10 +541,12 @@
                 },
                 "rules": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项规则\n@en Form item rules",
                     "name": "rules",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "Form item rules"
+                    },
+                    "descWithTags": "表单项规则",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -467,25 +558,29 @@
                 },
                 "extra": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项下方节点\n@en Form item extra node",
                     "name": "extra",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "Form item extra node"
+                    },
+                    "descWithTags": "表单项下方节点",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
                     },
-                    "required": true,
+                    "required": false,
                     "type": {
                         "name": "Element"
                     }
                 },
                 "trigger": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "触发事件更新事件名称\n@en The function name when updating data",
                     "name": "trigger",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "The function name when updating data"
+                    },
+                    "descWithTags": "触发事件更新事件名称",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -497,25 +592,29 @@
                 },
                 "requiredIcon": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "自定义必填标识\n@en The required icon node",
                     "name": "requiredIcon",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "The required icon node"
+                    },
+                    "descWithTags": "自定义必填标识",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
                     },
-                    "required": true,
+                    "required": false,
                     "type": {
                         "name": "ReactNode"
                     }
                 },
                 "initialValue": {
                     "defaultValue": null,
-                    "description": "",
+                    "description": "表单项初始数据\n@en The initial value of form item",
                     "name": "initialValue",
-                    "tags": {},
-                    "descWithTags": "",
+                    "tags": {
+                        "en": "The initial value of form item"
+                    },
+                    "descWithTags": "表单项初始数据",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
                         "name": "IFormItemProps"
@@ -524,11 +623,83 @@
                     "type": {
                         "name": "any"
                     }
+                },
+                "displayType": {
+                    "defaultValue": null,
+                    "description": "手动指定为内置组件的类型\n@en Manually specified as the type of internal component",
+                    "name": "displayType",
+                    "tags": {
+                        "en": "Manually specified as the type of internal component"
+                    },
+                    "descWithTags": "手动指定为内置组件的类型",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
+                        "name": "IFormItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "enum",
+                        "raw": "FormInternalComponentType",
+                        "value": [
+                            {
+                                "value": "\"Input\""
+                            },
+                            {
+                                "value": "\"Textarea\""
+                            },
+                            {
+                                "value": "\"Checkbox\""
+                            },
+                            {
+                                "value": "\"CheckboxGroup\""
+                            },
+                            {
+                                "value": "\"DatePicker\""
+                            },
+                            {
+                                "value": "\"Picker\""
+                            },
+                            {
+                                "value": "\"Radio\""
+                            },
+                            {
+                                "value": "\"RadioGroup\""
+                            },
+                            {
+                                "value": "\"Slider\""
+                            },
+                            {
+                                "value": "\"Switch\""
+                            },
+                            {
+                                "value": "\"ImagePicker\""
+                            },
+                            {
+                                "value": "\"Rate\""
+                            },
+                            {
+                                "value": "\"Stepper\""
+                            }
+                        ]
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<IFormItemRef>"
+                    }
                 }
             },
             "deps": {
-                "ILayout": "\"horizontal\"|\"vertical\"|\"inline\"",
-                "IRules": "ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>",
                 "Element": {
                     "type": {
                         "name": "type",
@@ -563,18 +734,35 @@
                         "tags": {},
                         "descWithTags": ""
                     }
+                },
+                "IRules": "ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>",
+                "FormInternalComponentType": "\"Input\"|\"Textarea\"|\"Checkbox\"|\"CheckboxGroup\"|\"DatePicker\"|\"Picker\"|\"Radio\"|\"RadioGroup\"|\"Slider\"|\"Switch\"|\"ImagePicker\"|\"Rate\"|\"Stepper\"",
+                "IFormItemRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层元素 DOM\n@en The outermost element DOM",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outermost element DOM"
+                        },
+                        "descWithTags": "最外层元素 DOM"
+                    }
                 }
             },
             "depComps": {},
             "typeNameInfo": {
                 "props": "IFormItemProps",
-                "ref": ""
+                "ref": "IFormItemRef"
             }
         }
     },
     "typeNameInfo": {
         "props": "IFormProps",
-        "ref": "FormRef"
+        "ref": "IFormRef"
     },
     "isDefaultExport": true
 }

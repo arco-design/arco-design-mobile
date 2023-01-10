@@ -1,25 +1,12 @@
 import { componentWrapper, defaultLocale } from '@arco-design/mobile-utils';
 import React, { useRef, forwardRef, Ref, useImperativeHandle, useEffect } from 'react';
 import { ContextLayout } from '../context-provider';
-import FormItem from './form-item';
+import Item from './form-item';
 import { FormItemContext } from './form-item-context';
-import { IFormProps, InternalFormInstance } from './type';
+import { IFormProps, IFormRef, InternalFormInstance } from './type';
 import useForm from './useForm';
 
-export interface FormRef {
-    /** 最外层元素 DOM */
-    dom: HTMLFormElement | null;
-}
-
-/**
- * 表单组件用于集合数据录入
- * @en Form
- * @type 数据录入
- * @type_en Data Entry
- * @name 表单
- * @name_en Form
- */
-const Form = forwardRef((props: IFormProps, ref: Ref<FormRef>) => {
+const Form = forwardRef((props: IFormProps, ref: Ref<IFormRef>) => {
     const {
         className = '',
         style,
@@ -84,8 +71,22 @@ const Form = forwardRef((props: IFormProps, ref: Ref<FormRef>) => {
     );
 });
 
-export { FormItem, useForm };
+/**
+ * 表单组件用于集合数据录入
+ * @en Form, Form for collecting data input
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 表单
+ * @name_en Form
+ */
 export default componentWrapper(Form, {
-    FormItem,
+    Item,
+    /**
+     * 获取表单实例
+     * @desc {en} Form instance
+     * @param { IFormInstance} form 默认表单实例
+     * @returns {[IFormInstance]}
+     */
     useForm,
 });
+export { Item, useForm };

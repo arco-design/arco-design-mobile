@@ -1,8 +1,15 @@
 /* eslint-disable react/no-unused-class-component-methods */
-import React, { PureComponent, ReactNode, useContext, useRef, useState } from 'react';
-import { cls } from '@arco-design/mobile-utils';
-import { Validator } from '@arco-design/mobile-utils/utils/validator/validator';
-import { ValidatorError, ValidatorType } from '@arco-design/mobile-utils/utils/validator/type';
+import React, {
+    forwardRef,
+    PureComponent,
+    ReactNode,
+    Ref,
+    useContext,
+    useImperativeHandle,
+    useRef,
+    useState,
+} from 'react';
+import { cls, Validator, ValidatorType, ValidatorError } from '@arco-design/mobile-utils';
 import { FormItemContext } from './form-item-context';
 import { GlobalContext } from '../context-provider';
 import {
@@ -14,22 +21,10 @@ import {
     IFormItemInnerProps,
     IFormItemProps,
     ValidateStatus,
+    IFormItemRef,
+    FormInternalComponentType,
 } from './type';
 import { getErrorAndWarnings, isFieldRequired } from './utils';
-
-enum InternalComponentType {
-    Input = 'ADMInput',
-    Textarea = 'ADMTextarea',
-    Checkbox = 'ADMCheckbox',
-    CheckboxGroup = 'ADMCheckboxGroup',
-    DatePicker = 'ADMDatePicker',
-    Picker = 'ADMPicker',
-    Radio = 'ADMRadio',
-    RadioGroup = 'ADMRadioGroup',
-    Slider = 'ADMSlider',
-    Switch = 'ADMSwitch',
-    ImagePicker = 'ADMImagePicker',
-}
 
 interface IFromItemInnerState {
     validateStatus: ValidateStatus;
@@ -119,65 +114,98 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
         this.validateField();
     }
 
+    innerTriggerFunction = (_, value, ...args) => {
+        this.setFieldData(value);
+        const { children, trigger } = this.props;
+        if (trigger && children.props?.[trigger]) {
+            children.props?.[trigger](_, value, ...args);
+        }
+    };
+
+    innerTriggerFunctionWithValueFirst = (value, ...args) => {
+        this.setFieldData(value);
+        const { children, trigger } = this.props;
+        if (trigger && children.props?.[trigger]) {
+            children.props?.[trigger](value, ...args);
+        }
+    };
+
+    innerClearFunction(...args) {
+        const { children } = this.props;
+        this.setFieldData('');
+        if (children.props?.onClear) {
+            children.props?.onClear(...args);
+        }
+    }
+
     renderChildren() {
-        const { children, field, trigger = 'onChange', triggerPropsField = 'value' } = this.props;
+        const {
+            children,
+            field,
+            trigger = 'onChange',
+            triggerPropsField = 'value',
+            displayType,
+        } = this.props;
         const { getFieldValue } = this.context.form as IFormDataMethods;
         let props = {
             [triggerPropsField]: getFieldValue(field),
             disabled: this.props.disabled,
         };
-        switch (children.type.displayName) {
-            case InternalComponentType.Input:
-            case InternalComponentType.Textarea:
+        const childrenType = displayType || children.type?.displayName;
+        switch (childrenType) {
+            case FormInternalComponentType.Input:
+            case FormInternalComponentType.Textarea:
                 props = {
                     value: getFieldValue(field) || '',
-                    onInput: (_, newValue) => this.setFieldData(newValue),
-                    onClear: () => this.setFieldData(''),
+                    onInput: this.innerTriggerFunction,
+                    onClear: this.innerClearFunction,
                     disabled: this.props.disabled,
                 };
                 break;
-            case InternalComponentType.Checkbox:
-            case InternalComponentType.Radio:
-            case InternalComponentType.Slider:
-            case InternalComponentType.RadioGroup:
-            case InternalComponentType.CheckboxGroup:
+            case FormInternalComponentType.Checkbox:
+            case FormInternalComponentType.Radio:
+            case FormInternalComponentType.Slider:
+            case FormInternalComponentType.RadioGroup:
+            case FormInternalComponentType.CheckboxGroup:
                 props = {
                     value: getFieldValue(field),
-                    onChange: newValue => this.setFieldData(newValue),
+                    onChange: this.innerTriggerFunctionWithValueFirst,
                     disabled: this.props.disabled,
                 };
                 break;
-            case InternalComponentType.DatePicker:
+            case FormInternalComponentType.DatePicker:
                 props = {
                     currentTs: getFieldValue(field),
-                    onChange: (_, newValue) => this.setFieldData(newValue),
+                    onChange: this.innerTriggerFunction,
                     disabled: this.props.disabled,
                 };
                 break;
-            case InternalComponentType.Picker:
+            case FormInternalComponentType.Picker:
                 props = {
                     data: getFieldValue(field),
-                    onPickerChange: (_, newValue) => this.setFieldData(newValue),
+                    onPickerChange: this.innerTriggerFunction,
                     disabled: this.props.disabled,
                 };
                 break;
 
-            case InternalComponentType.Switch:
+            case FormInternalComponentType.Switch:
                 props = {
                     checked: Boolean(getFieldValue(field)),
-                    onChange: checked => this.setFieldData(checked),
+                    onChange: this.innerTriggerFunctionWithValueFirst,
                     disabled: this.props.disabled,
                 };
                 break;
-            case InternalComponentType.ImagePicker:
+            case FormInternalComponentType.ImagePicker:
                 props = {
                     images: getFieldValue(field),
-                    onChange: images => this.setFieldData(images),
+                    onChange: this.innerTriggerFunctionWithValueFirst,
                     disabled: this.props.disabled,
                 };
                 break;
             default:
-                const originTrigger = props[trigger];
+                const originTrigger = children.props[trigger];
+                // inject the validated result
+                props.error = this._errors;
                 props[trigger] = (newValue, ...args: any) => {
                     this.setFieldData(newValue);
                     originTrigger && originTrigger(newValue, ...args);
@@ -193,7 +221,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
 }
 FormItemInner.contextType = FormItemContext;
 
-export default function FormItem(props: IFormItemProps) {
+export default forwardRef((props: IFormItemProps, ref: Ref<IFormItemRef>) => {
     const {
         label,
         field,
@@ -203,6 +231,7 @@ export default function FormItem(props: IFormItemProps) {
         extra,
         requiredIcon,
         rules,
+        className = '',
         ...rest
     } = props;
     const { prefixCls } = useContext(GlobalContext);
@@ -228,13 +257,21 @@ export default function FormItem(props: IFormItemProps) {
         ? [{ type: ValidatorType.String, required: true }, ...(rules || [])]
         : rules;
     const isRequired = isFieldRequired(rules) || rest?.required;
+
+    useImperativeHandle(ref, () => ({
+        dom: formItemRef.current,
+    }));
+
     return (
         <div
             className={cls(
                 `${prefixCls}-form-item`,
                 `${prefixCls}-form-item-${itemLayout || layout}`,
+                className,
                 {
                     disabled: fieldDisabled,
+                    [`${prefixCls}-form-item-error`]: !!errors,
+                    [`${prefixCls}-form-item-warning`]: Boolean(!errors && warnings),
                 },
             )}
             style={style}
@@ -288,4 +325,4 @@ export default function FormItem(props: IFormItemProps) {
             {extra}
         </div>
     );
-}
+});
