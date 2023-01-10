@@ -273,6 +273,7 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
             stickyStyle,
             onStickyStateChange,
             onTopChange,
+            userSetStickyCssStyle,
         ],
     );
 

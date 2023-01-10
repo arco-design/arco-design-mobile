@@ -4,6 +4,9 @@
       "conventionalCommits": true,
       "message": "build: release version",
       "yes": true
+    },
+    "version": {
+      "exact": true
     }
   },
   "packages": [
