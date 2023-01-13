@@ -34,8 +34,8 @@ function generateSite({
 
     generateGuide(guidePagePath, srcPath, tokenInfo, path.resolve('sites/pc/static/md'), languages);
     languages.map(lang => {
-        generateComponents(compSrcPath, compPagePath, lang, latestVersion);
         generateCompositeComponents(compositeSrcPath, compositeCompPath, lang, latestVersion);
+        generateComponents(compSrcPath, compPagePath, lang, latestVersion);
     });
 }
 
