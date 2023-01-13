@@ -715,6 +715,19 @@ export interface ArcodesignToken extends Record<string, string> {
     'stepper-input-width': string;
     'stepper-input-height': string;
     'stepper-input-margin': string;
+    'keyboard-background': string;
+    'keyboard-content-padding': string;
+    'keyboard-unified-margin': string;
+    'keyboard-col-special-key-background': string;
+    'keyboard-col-special-key-color': string;
+    'keyboard-key-font-weight': string;
+    'keyboard-key-font-size': string;
+    'keyboard-key-line-height': string;
+    'keyboard-key-background': string;
+    'keyboard-key-active-background': string;
+    'keyboard-key-border-radius': string;
+    'keyboard-key-height': string;
+    'keyboard-key-color': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;

@@ -1,8 +1,8 @@
 @import '../../../style/mixin.less';
 
 .@{prefix}-keyboard {
-    background: #f2f3f5;
-    padding: 8px;
+    .use-var(background, keyboard-background);
+    .use-var(padding, keyboard-content-padding);
 
     &-wrapper {
         display: flex;
@@ -16,12 +16,12 @@
     &-row {
         display: flex;
         &:not(&:nth-last-child(1)) {
-            margin-bottom: 8px;
+            .use-var(margin-bottom, keyboard-unified-margin);
         }
 
         .@{prefix}-keyboard-key {
             &:not(&:nth-child(1)) {
-                margin-left: 8px;
+                .use-var(margin-left, keyboard-unified-margin);
             }
 
             &.special {
@@ -34,17 +34,17 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        margin-left: 8px;
+        .use-var(margin-left, keyboard-unified-margin);
 
         .@{prefix}-keyboard-key {
             &:not(&:nth-child(1)) {
-                margin-top: 8px;
+                .use-var(margin-top, keyboard-unified-margin);
             }
 
             &.special {
                 flex: 2.5 0 auto;
-                background: #165dff;
-                color: #ffffff;
+                .use-var(background, keyboard-col-special-key-background);
+                .use-var(color, keyboard-col-special-key-color);
             }
         }
     }
@@ -53,22 +53,23 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: 'PingFang SC';
-        font-weight: 500;
-        font-size: 22px;
-        line-height: 30px;
         flex: 1;
-        background: #ffffff;
-        border-radius: 4px;
-        height: 48px;
-        color: #1d2129;
+
+        .use-var(font-weight, keyboard-key-font-weight);
+        .use-var(font-size, keyboard-key-font-size);
+        .use-var(line-height, keyboard-key-line-height);
+        .use-var(background, keyboard-key-background);
+        .use-var(border-radius, keyboard-key-border-radius);
+        .use-var(height, keyboard-key-height);
+        .use-var(border-radius, keyboard-key-border-radius);
+        .use-var(color, keyboard-key-color);
 
         &:active {
-            background: #e5e6eb;
+            .use-var(background, keyboard-key-active-background);
         }
     }
 
     &-popup {
-      background: transparent;
+      display: none;
     }
 }

@@ -1,5 +1,5 @@
 import { CSSProperties, ReactNode } from 'react';
-import { PopupProps } from '../popup';
+import { PopupProps, PopupRef } from '../popup';
 
 export interface KeyboardProps extends PopupProps {
     numberKeyClass?: string;
@@ -36,10 +36,10 @@ export interface KeyboardProps extends PopupProps {
     onChange?: (data: string) => {};
 }
 
-export interface KeyboardRef {
+export interface KeyboardRef extends PopupRef {
     /**
      * 最外层 DOM 元素
      * @en The outer DOM element of the component
      */
-    dom: HTMLDivElement | null;
+    keyboard: HTMLDivElement | null;
 }

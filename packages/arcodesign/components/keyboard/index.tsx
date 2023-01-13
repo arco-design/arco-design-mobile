@@ -1,9 +1,19 @@
 import { cls } from '@arco-design/mobile-utils';
-import React, { useRef, forwardRef, Ref, useImperativeHandle, useMemo } from 'react';
+import React, {
+    useRef,
+    forwardRef,
+    Ref,
+    useImperativeHandle,
+    useMemo,
+    useCallback,
+    useEffect,
+} from 'react';
 import { ContextLayout } from '../context-provider';
-import Popup from '../popup';
+import Popup, { PopupRef } from '../popup';
 import { KeyboardProps, KeyboardRef } from './type';
 
+// 键盘乱序
+// @en let keyboard random
 const makeArrayRandom = (targetArray: Array<Array<any>>) => {
     const randomFn = () => {
         return Math.random() - 0.5;
@@ -12,12 +22,17 @@ const makeArrayRandom = (targetArray: Array<Array<any>>) => {
     return targetArray.sort(randomFn);
 };
 
+// 所有onchange事件会返回的字符
+// @en Characters that all onchange events will return
 const contentArray: Array<any> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.', '+', '-', '×', '÷'];
 
 /**
  * 数字键盘组件
+ * @en Keyboard component
  * @type 数据录入
+ * @type_en Data Entry
  * @name 数字键盘
+ * @name_en Keyboard
  */
 const Keyboard = forwardRef((props: KeyboardProps, ref: Ref<KeyboardRef>) => {
     const {
@@ -38,7 +53,8 @@ const Keyboard = forwardRef((props: KeyboardProps, ref: Ref<KeyboardRef>) => {
         onChange,
         ...resetProps
     } = props;
-    const domRef = useRef<HTMLTableElement | null>(null);
+    const popupRef = useRef<PopupRef>(null);
+    const keyboardRef = useRef<HTMLDivElement | null>(null);
     const deleteIcon = deleteButton || (
         <div
             onClick={() => {
@@ -48,8 +64,10 @@ const Keyboard = forwardRef((props: KeyboardProps, ref: Ref<KeyboardRef>) => {
             删除
         </div>
     );
+    // 3x4键盘的按键内容
+    // @en 3x4 Keyboard button content
     const displayData = useMemo(() => {
-        const keyboardIcon = <div onClick={close}>键盘</div>;
+        const keyboardIcon = <div onClick={() => close()}>键盘</div>;
         let finalData: Array<Array<any>> = [
             [1, 2, 3],
             [4, 5, 6],
@@ -72,26 +90,14 @@ const Keyboard = forwardRef((props: KeyboardProps, ref: Ref<KeyboardRef>) => {
         return randomOrder ? makeArrayRandom(finalData) : finalData;
     }, [type]);
 
+    // 右边一列
+    // @en Right column
     const rightColumn = useMemo(() => {
         switch (type) {
             case 'number':
                 return [];
             case 'confirm': {
-                const column = [deleteIcon];
-                if (!confirmButton) {
-                    const finish = (
-                        <div
-                            onClick={() => {
-                                confirmClosable && close();
-                                onConfirm?.();
-                            }}
-                        >
-                            完成
-                        </div>
-                    );
-                    column.push(finish);
-                }
-                return column;
+                return [deleteIcon];
             }
             case 'tool':
                 return ['+', '-', '×', '÷'];
@@ -100,8 +106,54 @@ const Keyboard = forwardRef((props: KeyboardProps, ref: Ref<KeyboardRef>) => {
         }
     }, [type]);
 
+    // 确认按钮需要在type为confirm时展示
+    // @en Display then confirm button when type is confirm
+    const getConfirmButton = useCallback(
+        (prefix: string) => {
+            if (type !== 'confirm') {
+                return null;
+            }
+            if (confirmButton) {
+                return confirmButton;
+            }
+            return (
+                <div
+                    onClick={() => {
+                        confirmClosable && close();
+                        onConfirm?.();
+                    }}
+                    className={cls(`${prefix}-key`, 'special')}
+                >
+                    完成
+                </div>
+            );
+        },
+        [type],
+    );
+
+    // 点击空白处关闭键盘
+    // @en Close keyboard when clicked the blank space
+    useEffect(() => {
+        const handlerDocumentClick = (e: MouseEvent) => {
+            if (!keyboardRef.current) {
+                return;
+            }
+            if (
+                !keyboardRef.current.contains(e.target as Node) &&
+                e.target !== keyboardRef.current
+            ) {
+                close();
+            }
+        };
+        document.addEventListener('click', handlerDocumentClick);
+        return () => {
+            document.removeEventListener('click', handlerDocumentClick);
+        };
+    }, []);
+
     useImperativeHandle(ref, () => ({
-        dom: domRef.current,
+        keyboard: keyboardRef.current,
+        ...popupRef.current!,
     }));
 
     const renderKeyboard = ({ prefixCls }) => {
@@ -115,9 +167,7 @@ const Keyboard = forwardRef((props: KeyboardProps, ref: Ref<KeyboardRef>) => {
                     {rightColumn.map((item, index) => {
                         return (
                             <button
-                                className={cls(`${prefix}-key`, {
-                                    special: type === 'confirm' && index === 1,
-                                })}
+                                className={cls(`${prefix}-key`)}
                                 key={index}
                                 onClick={() => {
                                     contentArray.includes(item) && onChange?.(String(item));
@@ -127,13 +177,14 @@ const Keyboard = forwardRef((props: KeyboardProps, ref: Ref<KeyboardRef>) => {
                             </button>
                         );
                     })}
-                    {confirmButton}
+                    {getConfirmButton(prefix)}
                 </div>
             ) : null;
         };
+
         return (
-            <Popup maskClass={`${prefix}-popup`} close={close} {...resetProps}>
-                <div className={cls(prefix, `${className}`)} style={style} ref={domRef}>
+            <Popup ref={popupRef} maskClass={`${prefix}-popup`} close={close} {...resetProps}>
+                <div className={cls(prefix, `${className}`)} style={style} ref={keyboardRef}>
                     {title}
                     <div className={`${prefix}-wrapper`}>
                         <div className={`${prefix}-key-wrapper`}>

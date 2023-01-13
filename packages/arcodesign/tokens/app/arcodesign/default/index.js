@@ -726,7 +726,20 @@ var tokens = {
   "stepper-disable-color": "#c9cdd4",
   "stepper-input-width": "0.8rem",
   "stepper-input-height": "0.56rem",
-  "stepper-input-margin": "0 1PX"
+  "stepper-input-margin": "0 1PX",
+  "keyboard-background": "#f2f3f5",
+  "keyboard-content-padding": "0.16rem",
+  "keyboard-unified-margin": "0.16rem",
+  "keyboard-col-special-key-background": "#165dff",
+  "keyboard-col-special-key-color": "#ffffff",
+  "keyboard-key-font-weight": "500",
+  "keyboard-key-font-size": "0.44rem",
+  "keyboard-key-line-height": "0.6rem",
+  "keyboard-key-background": "#ffffff",
+  "keyboard-key-active-background": "#e5e6eb",
+  "keyboard-key-border-radius": "0.08rem",
+  "keyboard-key-height": "0.96rem",
+  "keyboard-key-color": "#1d2129"
 };
 var _default = tokens;
 exports["default"] = _default;
