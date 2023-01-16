@@ -4,8 +4,8 @@ const utils = require('../../../utils');
 const childProcess = require('child_process');
 const languageUtils = require('../../../utils/language');
 const localeMap = require('../../../utils/language.json');
-const { renderNavIntro, renderReadmeTable, renderComponentsFAQ } = require('./helpers');
-const { renderComponentsDemos } = require('./utils');
+const { renderNavIntro, renderReadmeTable} = require('./helpers');
+const { renderComponentsDemos, renderComponentsFAQ } = require('./utils');
 
 function generateComponents(compSrcPath, compPagePath, language, latestVersion) {
     const compNames = fs.readdirSync(path.join(compSrcPath)).filter(name => {

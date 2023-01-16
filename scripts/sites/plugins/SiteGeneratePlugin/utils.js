@@ -79,16 +79,6 @@ function renderComponentsFAQ({
     return faqNodeStr;
 }
 
-/**
- * 解析「复合组件」依赖
- */
-function transCompositeCompDeps ({
-
-}) {
-
-}
-
-
 module.exports = {
     renderComponentsHeader,
     renderComponentsDemos,
