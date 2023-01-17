@@ -124,12 +124,14 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
         ellipsisRef.current.style.display = 'none';
         if (dangerouslyUseInnerHTML) {
             textRef.current.innerHTML = text;
+            textRef.current.classList.add(`${prefixCls}-js-content-text-pre`);
         } else {
             textRef.current.innerText = text;
         }
         if (!ellipsis) {
             return;
         }
+        textRef.current.classList.remove(`${prefixCls}-js-content-text-pre`);
         const { height } = domRef.current.getBoundingClientRect();
         const max = isNaN(Number(maxHeight)) ? lineHeightRef.current * maxLine : Number(maxHeight);
         if (height <= max) {
