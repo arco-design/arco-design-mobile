@@ -28,10 +28,11 @@ const Ellipsis = forwardRef((props: EllipsisProps, ref: Ref<EllipsisRef>) => {
         ellipsis = true,
         ellipsisNode = '...',
         collapseNode = '',
-        onCollapseNodeClick,
         endExcludes,
         reflowOnResize = false,
+        floatEllipsisNode = false,
         onReflow,
+        onCollapseNodeClick,
         onEllipsisNodeClick,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
@@ -40,10 +41,9 @@ const Ellipsis = forwardRef((props: EllipsisProps, ref: Ref<EllipsisRef>) => {
     const useNativeEllipsis =
         isSupportWebkitLineClamp() &&
         maxHeight === void 0 &&
-        ellipsisNode === '...' &&
         (!endExcludes || endExcludes.length === 0) &&
         !onReflow &&
-        !onEllipsisNodeClick;
+        (floatEllipsisNode || (ellipsisNode === '...' && !onEllipsisNodeClick));
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -61,7 +61,9 @@ const Ellipsis = forwardRef((props: EllipsisProps, ref: Ref<EllipsisRef>) => {
                             dangerouslyUseInnerHTML={dangerouslyUseInnerHTML}
                             text={text}
                             maxLine={maxLine}
+                            ellipsisNode={ellipsisNode}
                             collapseNode={collapseNode}
+                            onEllipsisNodeClick={onEllipsisNodeClick}
                             onCollapseNodeClick={onCollapseNodeClick}
                         />
                     ) : (

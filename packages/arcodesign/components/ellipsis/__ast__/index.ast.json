@@ -44,43 +44,6 @@
                 "name": "number"
             }
         },
-        "ellipsisNode": {
-            "defaultValue": {
-                "value": "\"...\""
-            },
-            "description": "自定义缩略符节点，文本缩略时插入文本尾部\n@en Customize the ellipsis node, insert at the end of the text when the text is omitted",
-            "name": "ellipsisNode",
-            "tags": {
-                "en": "Customize the ellipsis node, insert at the end of the text when the text is omitted",
-                "default": "\"...\""
-            },
-            "descWithTags": "自定义缩略符节点，文本缩略时插入文本尾部",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "EllipsisProps"
-            },
-            "required": false,
-            "type": {
-                "name": "ReactNode"
-            }
-        },
-        "collapseNode": {
-            "defaultValue": null,
-            "description": "自定义收起符节点，不为空且文本展开时插入文本尾部\n@en Customize the collapse node, when the value is not empty and the text is expanded, the node is  inserted at the end of the text",
-            "name": "collapseNode",
-            "tags": {
-                "en": "Customize the collapse node, when the value is not empty and the text is expanded, the node is  inserted at the end of the text"
-            },
-            "descWithTags": "自定义收起符节点，不为空且文本展开时插入文本尾部",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "EllipsisProps"
-            },
-            "required": false,
-            "type": {
-                "name": "ReactNode"
-            }
-        },
         "endExcludes": {
             "defaultValue": {
                 "value": "[]"
@@ -121,6 +84,26 @@
                 "name": "boolean"
             }
         },
+        "floatEllipsisNode": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "文本缩略时，缩略符节点是否浮在文本右下角（默认加渐变色背景）\n@en Whether the abbreviation node is floating in the lower right corner of the text (with a gradient background by default)",
+            "name": "floatEllipsisNode",
+            "tags": {
+                "en": "Whether the abbreviation node is floating in the lower right corner of the text (with a gradient background by default)",
+                "default": "false"
+            },
+            "descWithTags": "文本缩略时，缩略符节点是否浮在文本右下角（默认加渐变色背景）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "EllipsisProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "onReflow": {
             "defaultValue": null,
             "description": "文本缩略处理的完成回调\n@en Callback when text omission processing is complete",
@@ -136,40 +119,6 @@
             "required": false,
             "type": {
                 "name": "(ellipsis: boolean, text: string) => void"
-            }
-        },
-        "onEllipsisNodeClick": {
-            "defaultValue": null,
-            "description": "缩略节点点击事件\n@en Ellipsis node click event",
-            "name": "onEllipsisNodeClick",
-            "tags": {
-                "en": "Ellipsis node click event"
-            },
-            "descWithTags": "缩略节点点击事件",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "EllipsisProps"
-            },
-            "required": false,
-            "type": {
-                "name": "() => void"
-            }
-        },
-        "onCollapseNodeClick": {
-            "defaultValue": null,
-            "description": "收起节点点击事件\n@en Collapse node click event",
-            "name": "onCollapseNodeClick",
-            "tags": {
-                "en": "Collapse node click event"
-            },
-            "descWithTags": "收起节点点击事件",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "EllipsisProps"
-            },
-            "required": false,
-            "type": {
-                "name": "() => void"
             }
         },
         "text": {
@@ -247,6 +196,77 @@
             "required": false,
             "type": {
                 "name": "boolean"
+            }
+        },
+        "ellipsisNode": {
+            "defaultValue": {
+                "value": "\"...\""
+            },
+            "description": "自定义缩略符节点，文本缩略时插入文本尾部\n@en Customize the ellipsis node, insert at the end of the text when the text is omitted",
+            "name": "ellipsisNode",
+            "tags": {
+                "en": "Customize the ellipsis node, insert at the end of the text when the text is omitted",
+                "default": "\"...\""
+            },
+            "descWithTags": "自定义缩略符节点，文本缩略时插入文本尾部",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "collapseNode": {
+            "defaultValue": null,
+            "description": "自定义收起符节点，不为空且文本展开时插入文本尾部\n@en Customize the collapse node, when the value is not empty and the text is expanded, the node is  inserted at the end of the text",
+            "name": "collapseNode",
+            "tags": {
+                "en": "Customize the collapse node, when the value is not empty and the text is expanded, the node is  inserted at the end of the text"
+            },
+            "descWithTags": "自定义收起符节点，不为空且文本展开时插入文本尾部",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "onEllipsisNodeClick": {
+            "defaultValue": null,
+            "description": "缩略节点点击事件\n@en Ellipsis node click event",
+            "name": "onEllipsisNodeClick",
+            "tags": {
+                "en": "Ellipsis node click event"
+            },
+            "descWithTags": "缩略节点点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onCollapseNodeClick": {
+            "defaultValue": null,
+            "description": "收起节点点击事件\n@en Collapse node click event",
+            "name": "onCollapseNodeClick",
+            "tags": {
+                "en": "Collapse node click event"
+            },
+            "descWithTags": "收起节点点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
             }
         },
         "ref": {
