@@ -14,15 +14,15 @@ function renderComponentsHeader({
     language, // 语言
 }) {
     let readmeStr = [];
-    // try {
+    try {
         const readme = fs.readFileSync(path.join(compSrcPath, comp, `README${mdSuffix}.md`), 'utf8');
         const { source: introSource, } = renderNavIntro(readme, localeMap.compositeComp[language], localeMap.others[language]);
         readmeStr[0] = `<div className="demo-nav-intro" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
             introSource,
         )} }} />`;
-    // } catch (e) {
-    //     readmeStr = [];
-    // }
+    } catch (e) {
+        readmeStr = [];
+    }
     return readmeStr;
 }
 

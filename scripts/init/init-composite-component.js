@@ -4,7 +4,7 @@ const utils = require('../utils');
 
 const copyPath = 'scripts/init/_composite-template_';
 const compPathName = 'sites/composite-comp';
-const rootPath = path.join(path.resolve(__dirname, '../../'), compPathName);
+const rootPath = path.resolve(__dirname, '../../', compPathName)
 const compName = utils.getFolderName(process.argv[2]);
 const srcPath = path.join(rootPath, compName);
 

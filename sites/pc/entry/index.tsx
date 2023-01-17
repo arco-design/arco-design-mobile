@@ -66,7 +66,7 @@ function App() {
                         path="/components/:name"
                         render={({ history, match }) => {
                             const { name } = match.params;
-                            const Comp = demoDocs[name] || compositeDemoDocs[name];
+                            const Comp = demoDocs[name];
                             return Comp
                                 ? CompGenerator(
                                       <Demo
@@ -84,7 +84,44 @@ function App() {
                         path="/en-US/components/:name"
                         render={({ history, match }) => {
                             const { name } = match.params;
-                            const Comp = enDemoDocs[name] || enCompositeDemoDocs[name];
+                            const Comp = enDemoDocs[name];
+                            return Comp
+                                ? CompGenerator(
+                                      <Demo
+                                          type="doc"
+                                          name={name}
+                                          doc={<Comp language={LanguageSupport.EN} />}
+                                          language={LanguageSupport.EN}
+                                      />,
+                                      history,
+                                  )
+                                : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/components/composite/:name"
+                        render={({ history, match }) => {
+                            const { name } = match.params;
+                            const Comp = compositeDemoDocs[name];
+                            return Comp
+                                ? CompGenerator(
+                                      <Demo
+                                          type="doc"
+                                          name={name}
+                                          doc={<Comp language={LanguageSupport.CH} />}
+                                      />,
+                                      history,
+                                  )
+                                : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/en-US/components/composite/:name"
+                        render={({ history, match }) => {
+                            const { name } = match.params;
+                            const Comp = enCompositeDemoDocs[name];
                             return Comp
                                 ? CompGenerator(
                                       <Demo

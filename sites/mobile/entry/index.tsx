@@ -65,7 +65,7 @@ function App() {
                         path="/components/:name"
                         render={props => {
                             const { name } = props.match.params;
-                            const Comp = docs[name] || compositeDocs[name];
+                            const Comp = docs[name];
                             return Comp ? <Demo name={name} doc={<Comp />} /> : null;
                         }}
                         exact
@@ -74,7 +74,25 @@ function App() {
                         path="/en-US/components/:name"
                         render={props => {
                             const { name } = props.match.params;
-                            const Comp = enDocs[name] || enCompositeDocs[name];
+                            const Comp = enDocs[name];
+                            return Comp ? <Demo name={name} doc={<Comp />} /> : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/components/composite/:name"
+                        render={props => {
+                            const { name } = props.match.params;
+                            const Comp = compositeDocs[name];
+                            return Comp ? <Demo name={name} doc={<Comp />} /> : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/en-US/components/composite/:name"
+                        render={props => {
+                            const { name } = props.match.params;
+                            const Comp = enCompositeDocs[name];
                             return Comp ? <Demo name={name} doc={<Comp />} /> : null;
                         }}
                         exact

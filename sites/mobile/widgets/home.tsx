@@ -5,7 +5,7 @@ import compositeRoutes from '../pages/composite-comp/route';
 import enCompositeRoutes from '../pages/composite-comp/route-en-US';
 import { HistoryContext } from '../entry';
 import getUrlParam from '../../utils/getUrlParam';
-import { LanguageSupport } from '../../utils/language';
+import { commonLocaleMap, LanguageSupport } from '../../utils/language';
 import { getMenuOrder } from '../../utils/menu';
 
 export function Arrow() {
@@ -78,7 +78,13 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
                             <div
                                 className="menu-item"
                                 key={index}
-                                onClick={() => handleSubItemClick(route.key)}
+                                onClick={() =>
+                                    handleSubItemClick(
+                                        type === commonLocaleMap.CompositeComp[language]
+                                            ? `composite/${route.key}`
+                                            : route.key,
+                                    )
+                                }
                             >
                                 {route.name}
                                 <Arrow />

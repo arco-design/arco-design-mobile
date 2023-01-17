@@ -77,7 +77,7 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
         <div className="pc-site-wrapper">
             ${readmeStr[0] || ''}
             <div className="pc-site-content" id="demo-${comp}">
-                ${(demoSource).map(demo => demo.source).join(`\n${' '.repeat(12)}`)}
+                ${demoSource.map(demo => demo.source).join(`\n${' '.repeat(12)}`)}
                 ${readmeStr[1] || ''}
                 ${faqNodeStr || ''}
             </div>
