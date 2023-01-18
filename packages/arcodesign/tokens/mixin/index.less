@@ -38,7 +38,7 @@
     }
 }
 
-.text-medium-var(@color: currentColor, @stroke: 0.3PX) {
+.text-medium-var(@color, @stroke: 0.3PX) {
     .text-medium(@@color, @stroke);
     & when (@use-css-vars = 1) {
         .text-medium(var(~"--@{color}", @@color), @stroke);
