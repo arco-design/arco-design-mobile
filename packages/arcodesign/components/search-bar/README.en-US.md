@@ -32,6 +32,7 @@ SearchBar component
 |inputClass|Custom classname for input DOM|string|-|
 |inputStyle|Custom style for input DOM|CSSProperties|-|
 |nativeProps|Other unlisted native properties have lower priority than listed component properties|InputHTMLAttributes\<HTMLInputElement\>|-|
+|ariaLabel|accessible label|string|-|
 |id|Input id|string|-|
 |name|Input name|string|-|
 |className|Custom classname|string|-|

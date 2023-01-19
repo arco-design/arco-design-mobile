@@ -32,6 +32,7 @@
 |inputClass|输入框dom自定义类名|string|-|
 |inputStyle|输入框dom自定义样式|CSSProperties|-|
 |nativeProps|其他未列出的原生属性，优先级低于已列出的组件属性|InputHTMLAttributes\<HTMLInputElement\>|-|
+|ariaLabel|无障碍label|string|-|
 |id|输入框的id|string|-|
 |name|输入框的name|string|-|
 |className|自定义类名|string|-|

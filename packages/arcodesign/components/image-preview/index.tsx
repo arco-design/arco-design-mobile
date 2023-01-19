@@ -55,6 +55,11 @@ export interface PreviewImageProps {
      * @en Thumbnail fill mode (backgroundPosition), default value is top center
      */
     thumbPosition?: string;
+    /**
+     * 自定义DOM
+     * @en Custom dom
+     */
+    extraNode?: ReactNode;
 }
 
 export interface ImagePreviewProps
@@ -992,6 +997,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                             bottomOverlap={null}
                             {...getImageProps(image, index)}
                         />
+                        {image?.extraNode}
                     </div>
                 ))}
             </Carousel>
