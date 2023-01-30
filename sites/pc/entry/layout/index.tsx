@@ -7,6 +7,7 @@ import chCompRoutes from '../../pages/components/index.json';
 import enCompRoutes from '../../pages/components/index-en-US.json';
 import chReadmeRoutes from '../../pages/guide/index.json';
 import enReadmeRoutes from '../../pages/guide/index-en-US.json';
+import enCompositeCompRoutes from '../../pages/composite-comp/index.json';
 // import commonResRoutes from '../../pages/resource/index.json';
 import { LanguageSupport } from '../../../utils/language';
 import { getMenuOrder } from '../../../utils/menu';
@@ -42,6 +43,11 @@ export interface IMenu {
         key: string;
         children: ResChildren;
     };
+    compositeComp: {
+        name: string;
+        key: string;
+        items: Items;
+    };
 }
 
 export interface ILayoutProps {
@@ -55,15 +61,17 @@ const menuItemsMap = {
         compRoutes: chCompRoutes,
         readmeRoutes: chReadmeRoutes,
         // resRoutes: commonResRoutes,
+        compositeCompRoutes: enCompositeCompRoutes,
     },
     [LanguageSupport.EN]: {
         compRoutes: enCompRoutes,
         readmeRoutes: enReadmeRoutes,
         // resRoutes: commonResRoutes,
+        compositeCompRoutes: enCompositeCompRoutes,
     },
 };
 function initMenu(language: LanguageSupport) {
-    const { compRoutes, readmeRoutes } =
+    const { compRoutes, readmeRoutes, compositeCompRoutes } =
         menuItemsMap[language === LanguageSupport.EN ? LanguageSupport.EN : LanguageSupport.CH];
     const newCompRoutes = getMenuOrder(compRoutes, language);
     // if (language !== LanguageSupport.CH) {
@@ -88,6 +96,11 @@ function initMenu(language: LanguageSupport) {
         //     key: 'resource',
         //     children: resRoutes as ResChildren,
         // },
+        compositeComp: {
+            name: localeMap.CompositeComp[language],
+            key: 'compositeComp',
+            items: compositeCompRoutes as Items,
+        },
     };
     return menu;
 }
