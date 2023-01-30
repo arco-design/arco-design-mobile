@@ -49,10 +49,10 @@ const rules = {
 }
 
 export default function FormDemo() {
-    const [form] = Form.useForm();
+    const formRef = React.useRef();
     const [layout, setLayout] = React.useState('horizontal');
     const toSubmit = val => {
-        form.submit();
+        formRef.current.form.submit();
     };
     const onSubmit = (values, result) => {
         console.log('----submit Successfully', values, result);
@@ -75,9 +75,9 @@ export default function FormDemo() {
     };
     const handleInput = (e, value) => {
         if(/^[0-9]*$/.test(value)) {
-            form.setFieldValue('age', value);
+            formRef.current.form.setFieldValue('age', value);
         } else {
-            form.setFieldValue('age', 0);
+            formRef.current.form.setFieldValue('age', 0);
         }
     }
     const SendCode = () => (
@@ -93,7 +93,7 @@ export default function FormDemo() {
         <div>
             <Radio.Group options={options} value={layout} onChange={setLayout} />
             <Form
-                form={form}
+                ref={formRef}
                 onSubmit={onSubmit}
                 onSubmitFailed={onSubmitFailed}
                 layout={layout}

@@ -199,6 +199,11 @@ export interface FormRef {
      * @en The outermost element DOM
      */
     dom: HTMLFormElement | null;
+    /**
+     * Form对象实例
+     * @en Form object instance
+     */
+    form: IFormInstance;
 }
 
 export interface IFormItemContext {

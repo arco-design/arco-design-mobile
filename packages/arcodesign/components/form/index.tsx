@@ -39,6 +39,7 @@ const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
+        form,
     }));
 
     const contextValue = {
