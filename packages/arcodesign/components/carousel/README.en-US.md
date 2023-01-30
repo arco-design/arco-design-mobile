@@ -76,7 +76,7 @@ Carousel component, supports custom carousel index style and slider width. **Not
 |items|Carousel slider DOM|HTMLDivElement\[\]|
 |noLoop|The loop rotation is disabled internally under certain conditions, here indicates whether the loop is disabled|boolean|
 |updateData|Recalculate the layout manually|() =\> void|
-|changeIndex|Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index|(newIndex: number, rightNow?: boolean) =\> void|
+|changeIndex|Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index|(newIndex: number, rightNow?: boolean, direction?: "left" \| "right") =\> void|
 
 > CarouselListItem
 
