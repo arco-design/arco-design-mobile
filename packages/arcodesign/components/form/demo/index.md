@@ -4,7 +4,6 @@
 
 ```js
 import {
-    Cell,
     Form,
     Input,
     Textarea,

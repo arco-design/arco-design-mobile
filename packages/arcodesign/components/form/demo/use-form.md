@@ -4,21 +4,12 @@
 
 ```js
 import {
-    Cell,
     Form,
     Input,
-    Textarea,
-    Switch,
-    DatePicker,
     Radio,
     Button,
-    Checkbox,
-    Toast,
-    ImagePicker,
-    Rate,
-    Slider,
 } from '@arco-design/mobile-react';
-import { useForm } from '@arco-design/mobile-react/Form';
+import { useForm } from '@arco-design/mobile-react/esm/form';
 
 const options = [
     { label: 'horizontal', value: 'horizontal' },
