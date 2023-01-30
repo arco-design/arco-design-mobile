@@ -29,9 +29,9 @@ const rules = {
         {
             validator: (val, callback) => {
                 if (!val) {
-                    callback('请输入姓名');
+                    callback('Please input user name');
                 } else if (val.length > 20) {
-                    callback('最多输入20个字');
+                    callback('The maximum number of characters is 20');
                 } else {
                     callback();
                 }
@@ -40,7 +40,7 @@ const rules = {
     ],
 }
 
-export default function FormDemo2() {
+export default function FormDemo() {
     const [form] = useForm();
     const [layout, setLayout] = React.useState('horizontal');
     const toSubmit = val => {
@@ -58,9 +58,6 @@ export default function FormDemo2() {
         console.log('----submit failed value:', values);
         console.log('----submit error', errors);
     };
-
-
-    const [send, setSend] = React.useState('发送验证码');
     const [disable, setDisable] = React.useState(true);
     const handleClick = e => {
         e.preventDefault();
@@ -72,15 +69,7 @@ export default function FormDemo2() {
             form.setFieldValue('age', 0);
         }
     }
-    const SendCode = () => (
-        <button
-            style={{ position: 'absolute', right: 0, top: 0, fontSize: 16 }}
-            disabled={disable}
-            onClick={handleClick}
-        >
-            {send}
-        </button>
-    );
+
     return (
         <div>
             <Radio.Group options={options} value={layout} onChange={setLayout} />

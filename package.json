@@ -116,7 +116,7 @@
   "dependencies": {
     "@arco-design/transformable": "1.0.2",
     "axios": "^0.27.2",
-    "lodash.debounce": "^4.0.8",
+    "es6-promise": "^4.2.8",
     "lodash.throttle": "^4.1.1",
     "qrcode": "^1.4.4",
     "react": "^16.14.0",
