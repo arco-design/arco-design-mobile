@@ -8,7 +8,43 @@
         "name_en": "Form"
     },
     "displayName": "Form",
-    "methods": [],
+    "methods": [
+        {
+            "description": "获取表单实例",
+            "docblock": "获取表单实例\n@desc {en} Form instance\n@param form 默认表单实例\n@returns",
+            "descriptionTags": {
+                "params": [
+                    {
+                        "name": "form",
+                        "description": "默认表单实例",
+                        "type": "IFormInstance",
+                        "optional": false
+                    }
+                ],
+                "return": {
+                    "name": "",
+                    "description": "",
+                    "type": "[IFormInstance]",
+                    "optional": false
+                },
+                "desc": {
+                    "en": "Form instance"
+                }
+            },
+            "modifiers": [],
+            "name": "useForm",
+            "params": [
+                {
+                    "description": null,
+                    "name": "form?",
+                    "type": {
+                        "name": "IFormInstance"
+                    }
+                }
+            ],
+            "returns": null
+        }
+    ],
     "props": {
         "className": {
             "defaultValue": null,

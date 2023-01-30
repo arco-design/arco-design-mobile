@@ -1,6 +1,6 @@
 ### Data Entry
 
-# Form 
+# Form
 
 Form, Form for collecting data input
 
