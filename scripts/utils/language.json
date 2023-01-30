@@ -3,6 +3,10 @@
         "ch": "组件",
         "en": "Components"
     },
+    "compositeComp":{
+        "ch": "复合组件",
+        "en": "composite components"
+    },
     "developmentGuide": {
         "ch": "开发指南",
         "en": "development guide"

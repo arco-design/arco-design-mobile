@@ -7,6 +7,8 @@
     "init:react": "node scripts/sites/react-init.js",
     "init": "lerna bootstrap -- --legacy-peer-deps",
     "add": "node scripts/init/init-component.js",
+    "add-composite": "node scripts/init/init-composite-component.js",
+    "add-faq": "node scripts/init/init-faq.js",
     "start": "npm run init:react 16 && cross-env NODE_ENV=development webpack-dev-server --progress --config scripts/sites/webpack.dev.mobile.js",
     "start18": "npm run init:react 18 && cross-env NODE_ENV=development webpack-dev-server --progress --config scripts/sites/webpack.dev.mobile.js",
     "start:pc": "cross-env NODE_ENV=development webpack-dev-server --progress --config scripts/sites/webpack.dev.pc.js",
