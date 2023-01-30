@@ -25,6 +25,7 @@
 |参数|描述|类型|
 |----------|-------------|------|
 |dom|最外层元素 DOM|HTMLFormElement|
+|form|Form对象实例|IFormInstance|
 
 > 方法/Methods
 
@@ -38,6 +39,7 @@
 |----------|-------------|------|------|
 |label|表单项名|ReactNode|必填|
 |style|表单项Stylesheet|CSSProperties|-|
+|className|表单项样式|string|-|
 |field|表单项字段|string|必填|
 |required|表单项是否必填|boolean|-|
 |disabled|表单项是否禁用|boolean|-|
@@ -57,6 +59,7 @@
 |----------|-------------|------|
 |getFieldValue|获取单个表单项值|(name: string) =\> any|
 |getFieldsValue|获取多个表单项值|(name?: string\[\]) =\> Record\<string, any\>|
+|getFieldError|获取单个表单项的错误|(name: string) =\> ReactNode\[\]|
 |resetFields|重置表单项|() =\> void|
 |setFieldsValue|设置多个表单项值|(value: Record\<string, any\>) =\> void|
 |validateFields|校验所有表单项|() =\> Promise\<Record\<string, any\>\>|

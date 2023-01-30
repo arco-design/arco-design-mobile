@@ -258,6 +258,19 @@
                 },
                 "descWithTags": "获取多个表单项值"
             },
+            "getFieldError": {
+                "name": "getFieldError",
+                "required": true,
+                "description": "获取单个表单项的错误\n@en Get field errors",
+                "defaultValue": null,
+                "type": {
+                    "name": "(name: string) => ReactNode[]"
+                },
+                "tags": {
+                    "en": "Get field errors"
+                },
+                "descWithTags": "获取单个表单项的错误"
+            },
             "resetFields": {
                 "name": "resetFields",
                 "required": true,
@@ -381,6 +394,19 @@
                     "en": "The outermost element DOM"
                 },
                 "descWithTags": "最外层元素 DOM"
+            },
+            "form": {
+                "name": "form",
+                "required": true,
+                "description": "Form对象实例\n@en Form object instance",
+                "defaultValue": null,
+                "type": {
+                    "name": "IFormInstance"
+                },
+                "tags": {
+                    "en": "Form object instance"
+                },
+                "descWithTags": "Form对象实例"
             }
         }
     },
@@ -423,6 +449,23 @@
                     "required": false,
                     "type": {
                         "name": "CSSProperties"
+                    }
+                },
+                "className": {
+                    "defaultValue": null,
+                    "description": "表单项样式\n@en The form item class name",
+                    "name": "className",
+                    "tags": {
+                        "en": "The form item class name"
+                    },
+                    "descWithTags": "表单项样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
+                        "name": "FormItemProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
                     }
                 },
                 "field": {

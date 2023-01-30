@@ -24,8 +24,6 @@ export const defaultFormDataMethods = {
     submit: defaultFunc,
 
     getInternalHooks: () => {
-        defaultFunc();
-
         return {
             registerField: defaultFunc,
             setInitialValues: defaultFunc,

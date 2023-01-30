@@ -6,6 +6,8 @@ import { FormItemContext } from './form-item-context';
 import { FormProps, FormRef, InternalFormInstance } from './type';
 import useForm from './useForm';
 
+export * from './type';
+
 const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
     const {
         className = '',
@@ -28,14 +30,9 @@ const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
         onSubmitFailed,
     });
 
-    const mountRef = React.useRef<boolean>(true);
     useEffect(() => {
-        // just initialize once
-        mountRef.current && setInitialValues(initialValues || {});
-        if (!mountRef.current) {
-            mountRef.current = false;
-        }
-    }, [initialValues]);
+        setInitialValues(initialValues || {});
+    }, []);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -90,4 +87,3 @@ export default componentWrapper(Form, {
      */
     useForm,
 });
-export { Item, useForm };
