@@ -27,12 +27,6 @@ Form, Form for collecting data input
 |dom|The outermost element DOM|HTMLFormElement|
 |form|Form object instance|IFormInstance|
 
-> Methods
-
-|method|Description|Type|
-|----------|-------------|------|
-|useForm|Form instance|(form: IFormInstance) =\> \[IFormInstance\]|
-
 > Form.Item
 
 |Property|Description|Type|DefaultValue|
