@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.24.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.24.1...@arco-design/mobile-react@2.24.2) (2023-01-10)
+
+
+### Bug Fixes
+
+*  `Ellipsis` innerHTML keep wrap ([#80](https://github.com/arco-design/arco-design-mobile/issues/80)) ([29afadc](https://github.com/arco-design/arco-design-mobile/commit/29afadc571bba16fd2b8641622de1f2d0fbf5ba4))
+
+
+
+
+
+## [2.24.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.24.0...@arco-design/mobile-react@2.24.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* `Ellipsis` support floatEllipsisNode ([#76](https://github.com/arco-design/arco-design-mobile/issues/76)) ([cc8e3d6](https://github.com/arco-design/arco-design-mobile/commit/cc8e3d6df1eec5a528a47c255c49ca94a326ca18))
+
+
+
+
+
 # [2.24.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.23.0...@arco-design/mobile-react@2.24.0) (2022-12-20)
 
 

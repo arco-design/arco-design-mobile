@@ -193,6 +193,8 @@ export interface ArcodesignToken extends Record<string, string> {
     'button-mini-height': string;
     'button-mini-text-size': string;
     'ellipsis-default-text-size': string;
+    'ellipsis-float-ellipsis-node-background': string;
+    'ellipsis-float-ellipsis-node-padding-left': string;
     'checkbox-icon-color': string;
     'checkbox-icon-font-size': string;
     'checkbox-icon-margin-right': string;
