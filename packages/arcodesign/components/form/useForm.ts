@@ -2,14 +2,12 @@
 import { ReactNode, useRef } from 'react';
 import { Callbacks, IFieldError, FieldItem, IFormInstance } from './type';
 
-const defaultFunc: any = () => {
-    return 'arco';
-};
+const defaultFunc: any = () => {};
 
 export const defaultFormDataMethods = {
     getFieldValue: name => name,
     getFieldsValue: _names => {
-        return { arco: 'arco ' };
+        return {};
     },
     setFieldValue: (_name, _value) => {
         return true;

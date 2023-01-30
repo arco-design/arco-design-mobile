@@ -1,6 +1,6 @@
 ### Data Entry
 
-# Form
+# Form 
 
 Form, Form for collecting data input
 
@@ -41,12 +41,12 @@ Form, Form for collecting data input
 |field|Form item field|string|required|
 |required|Whether Form item is required|boolean|-|
 |disabled|Whether Form item is disabled|boolean|-|
-|layout|Form item layout|"horizontal" \| "vertical" \| "inline"|-|
+|layout|Form item layout|"horizontal" \| "vertical" \| "inline"|"horizontal"|
 |children|Form item children|Element|required|
 |shouldUpdate|Form item is updated|boolean \| IShouldUpdateFunc|-|
 |rules|Form item rules|IRules\[\]|-|
 |extra|Form item extra node|Element|-|
-|trigger|The function name when updating data|string|-|
+|trigger|The function name when updating data|string|"onChange"|
 |requiredIcon|The required icon node|ReactNode|-|
 |initialValue|The initial value of form item|any|-|
 |displayType|Manually specified as the type of internal component|"Input" \| "Textarea" \| "Checkbox" \| "CheckboxGroup" \| "DatePicker" \| "Picker" \| "Radio" \| "RadioGroup" \| "Slider" \| "Switch" \| "ImagePicker" \| "Rate" \| "Stepper"|-|
@@ -92,7 +92,7 @@ ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<Val
 "Input"|"Textarea"|"Checkbox"|"CheckboxGroup"|"DatePicker"|"Picker"|"Radio"|"RadioGroup"|"Slider"|"Switch"|"ImagePicker"|"Rate"|"Stepper"
 ```
 
-> IFormItemRef
+> FormItemRef
 
 |Property|Description|Type|
 |----------|-------------|------|

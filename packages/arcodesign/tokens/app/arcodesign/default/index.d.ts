@@ -10,6 +10,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'primary-color': string;
     'primary-disabled-color': string;
     'danger-color': string;
+    'warning-color': string;
     'disabled-color': string;
     'mask-background': string;
     'mask-content-color': string;

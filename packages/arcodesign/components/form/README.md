@@ -41,12 +41,12 @@
 |field|表单项字段|string|必填|
 |required|表单项是否必填|boolean|-|
 |disabled|表单项是否禁用|boolean|-|
-|layout|表单项布局|"horizontal" \| "vertical" \| "inline"|-|
+|layout|表单项布局|"horizontal" \| "vertical" \| "inline"|"horizontal"|
 |children|表单项子节点|Element|必填|
 |shouldUpdate|表单项是否刷新|boolean \| IShouldUpdateFunc|-|
 |rules|表单项规则|IRules\[\]|-|
 |extra|表单项下方节点|Element|-|
-|trigger|触发事件更新事件名称|string|-|
+|trigger|触发事件更新事件名称|string|"onChange"|
 |requiredIcon|自定义必填标识|ReactNode|-|
 |initialValue|表单项初始数据|any|-|
 |displayType|手动指定为内置组件的类型|"Input" \| "Textarea" \| "Checkbox" \| "CheckboxGroup" \| "DatePicker" \| "Picker" \| "Radio" \| "RadioGroup" \| "Slider" \| "Switch" \| "ImagePicker" \| "Rate" \| "Stepper"|-|
@@ -92,7 +92,7 @@ ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<Val
 "Input"|"Textarea"|"Checkbox"|"CheckboxGroup"|"DatePicker"|"Picker"|"Radio"|"RadioGroup"|"Slider"|"Switch"|"ImagePicker"|"Rate"|"Stepper"
 ```
 
-> IFormItemRef
+> FormItemRef
 
 |参数|描述|类型|
 |----------|-------------|------|

@@ -21,7 +21,7 @@ export enum FormInternalComponentType {
     Stepper = 'Stepper',
 }
 
-export interface IFormProps {
+export interface FormProps {
     /**
      * 自定义类名
      * @en Custom classname
@@ -188,7 +188,7 @@ export type InternalFormInstance = Omit<IFormInstance, 'validateFields'> & {
     getInternalHooks: () => InternalHooks;
 };
 
-export interface IFormRef {
+export interface FormRef {
     /**
      * 最外层元素 DOM
      * @en The outermost element DOM
@@ -220,7 +220,7 @@ export interface IFormItemContext {
 }
 
 export type IShouldUpdateFunc = (data: { preStore: FieldItem; curStore: FieldItem }) => boolean;
-export interface IFormItemProps {
+export interface FormItemProps {
     /**
      * 表单项名
      * @en The form item name
@@ -249,6 +249,7 @@ export interface IFormItemProps {
     /**
      * 表单项布局
      * @en Form item layout
+     * @default "horizontal"
      */
     layout?: 'horizontal' | 'vertical' | 'inline';
     /**
@@ -274,6 +275,7 @@ export interface IFormItemProps {
     /**
      * 触发事件更新事件名称
      * @en The function name when updating data
+     * @default "onChange"
      */
     trigger?: string;
     /**
@@ -293,7 +295,7 @@ export interface IFormItemProps {
     displayType?: FormInternalComponentType;
 }
 
-export interface IFormItemRef {
+export interface FormItemRef {
     /**
      * 最外层元素 DOM
      * @en The outermost element DOM
@@ -325,6 +327,7 @@ export interface IFormItemInnerProps {
     /**
      * 触发事件更新事件名称
      * @en The function name when updating data
+     * @default "onChange"
      */
     trigger?: string;
     /**
@@ -340,6 +343,7 @@ export interface IFormItemInnerProps {
     /**
      * 自定义表单项存储值的字段名
      * @en The field name for custom form item
+     * @default "value"
      */
     triggerPropsField?: string;
     /**
@@ -352,5 +356,9 @@ export interface IFormItemInnerProps {
      * @en The initial value of form item
      */
     initialValue?: FieldValue;
+    /**
+     * 手动指定为内置组件的类型
+     * @en Manually specified as the type of internal component
+     */
     displayType?: FormInternalComponentType;
 }

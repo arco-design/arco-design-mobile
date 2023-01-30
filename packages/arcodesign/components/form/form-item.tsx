@@ -19,9 +19,9 @@ import {
     IFormDataMethods,
     IFormItemContext,
     IFormItemInnerProps,
-    IFormItemProps,
+    FormItemProps,
     ValidateStatus,
-    IFormItemRef,
+    FormItemRef,
     FormInternalComponentType,
 } from './type';
 import { getErrorAndWarnings, isFieldRequired } from './utils';
@@ -219,7 +219,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
 }
 FormItemInner.contextType = FormItemContext;
 
-export default forwardRef((props: IFormItemProps, ref: Ref<IFormItemRef>) => {
+export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
     const {
         label,
         field,
