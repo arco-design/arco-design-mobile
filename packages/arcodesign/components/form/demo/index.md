@@ -48,7 +48,7 @@ const rules = {
     ],
 }
 
-export default function FormDemo() {
+export default function FormDemo1() {
     const formRef = React.useRef();
     const [layout, setLayout] = React.useState('horizontal');
     const toSubmit = val => {
