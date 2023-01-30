@@ -5,7 +5,8 @@
         "type": "数据录入",
         "type_en": "Data Entry",
         "name": "选择器",
-        "name_en": "Picker"
+        "name_en": "Picker",
+        "displayName": "Picker"
     },
     "displayName": "Picker",
     "methods": [],

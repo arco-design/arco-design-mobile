@@ -10,6 +10,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'primary-color': string;
     'primary-disabled-color': string;
     'danger-color': string;
+    'warning-color': string;
     'disabled-color': string;
     'mask-background': string;
     'mask-content-color': string;
@@ -717,6 +718,15 @@ export interface ArcodesignToken extends Record<string, string> {
     'stepper-input-width': string;
     'stepper-input-height': string;
     'stepper-input-margin': string;
+    'form-item-label-item-font-size': string;
+    'form-item-label-item-line-height': string;
+    'form-item-label-item-color': string;
+    'form-item-label-item-gutter': string;
+    'form-item-label-item-width': string;
+    'form-item-border-divider-color': string;
+    'form-item-label-item-required-asterisk-color': string;
+    'form-item-error-message-color': string;
+    'form-item-warning-message-color': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;

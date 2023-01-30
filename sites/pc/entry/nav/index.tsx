@@ -42,7 +42,7 @@ export default function Nav(props: INavProps) {
                     {Object.keys(menu).map(group => {
                         const _group = menu[group];
                         const itemRoute =
-                            _group.key === 'compositeComp' ? 'components/composite' : 'doc';
+                            _group.key === 'compositeComp' ? 'composite-components' : 'doc';
                         if (_group.items) {
                             return (
                                 <MenuItemGroup

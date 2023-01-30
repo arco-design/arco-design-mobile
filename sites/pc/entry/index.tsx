@@ -100,7 +100,7 @@ function App() {
                         exact
                     />
                     <Route
-                        path="/components/composite/:name"
+                        path="/composite-components/:name"
                         render={({ history, match }) => {
                             const { name } = match.params;
                             const Comp = compositeDemoDocs[name];
@@ -118,7 +118,7 @@ function App() {
                         exact
                     />
                     <Route
-                        path="/en-US/components/composite/:name"
+                        path="/en-US/composite-components/:name"
                         render={({ history, match }) => {
                             const { name } = match.params;
                             const Comp = enCompositeDemoDocs[name];

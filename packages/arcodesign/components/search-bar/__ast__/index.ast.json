@@ -444,6 +444,23 @@
                 "name": "InputHTMLAttributes<HTMLInputElement>"
             }
         },
+        "ariaLabel": {
+            "defaultValue": null,
+            "description": "无障碍label\n@en accessible label",
+            "name": "ariaLabel",
+            "tags": {
+                "en": "accessible label"
+            },
+            "descWithTags": "无障碍label",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
         "id": {
             "defaultValue": null,
             "description": "输入框的id\n@en Input id",
