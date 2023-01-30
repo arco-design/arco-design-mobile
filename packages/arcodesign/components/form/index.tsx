@@ -30,14 +30,9 @@ const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
         onSubmitFailed,
     });
 
-    const mountRef = React.useRef<boolean>(true);
     useEffect(() => {
-        // just initialize once
-        mountRef.current && setInitialValues(initialValues || {});
-        if (!mountRef.current) {
-            mountRef.current = false;
-        }
-    }, [initialValues]);
+        setInitialValues(initialValues || {});
+    }, []);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
