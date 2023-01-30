@@ -25,6 +25,7 @@ Form, Form for collecting data input
 |Property|Description|Type|
 |----------|-------------|------|
 |dom|The outermost element DOM|HTMLFormElement|
+|form|Form object instance|IFormInstance|
 
 > Methods
 
@@ -38,6 +39,7 @@ Form, Form for collecting data input
 |----------|-------------|------|------|
 |label|The form item name|ReactNode|required|
 |style|The form item stylesheet|CSSProperties|-|
+|className|The form item class name|string|-|
 |field|Form item field|string|required|
 |required|Whether Form item is required|boolean|-|
 |disabled|Whether Form item is disabled|boolean|-|
@@ -57,6 +59,7 @@ Form, Form for collecting data input
 |----------|-------------|------|
 |getFieldValue|Get field value|(name: string) =\> any|
 |getFieldsValue|Get multiple field value|(name?: string\[\]) =\> Record\<string, any\>|
+|getFieldError|Get field errors|(name: string) =\> ReactNode\[\]|
 |resetFields|Reset fields|() =\> void|
 |setFieldsValue|Set multiple field value|(value: Record\<string, any\>) =\> void|
 |validateFields|Validate all fields|() =\> Promise\<Record\<string, any\>\>|

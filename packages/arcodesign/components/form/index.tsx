@@ -6,6 +6,8 @@ import { FormItemContext } from './form-item-context';
 import { FormProps, FormRef, InternalFormInstance } from './type';
 import useForm from './useForm';
 
+export * from './type';
+
 const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
     const {
         className = '',
@@ -90,4 +92,3 @@ export default componentWrapper(Form, {
      */
     useForm,
 });
-export { Item, useForm };
