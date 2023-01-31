@@ -1000,7 +1000,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                             />
                         </div>
                     );
-                    return image?.extraNode ? (
+                    return image.extraNode ? (
                         <div className="preview-image-wrap-container" key={`outer-${index}`}>
                             {innerNode}
                             {image.extraNode}
