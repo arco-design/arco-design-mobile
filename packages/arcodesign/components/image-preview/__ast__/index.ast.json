@@ -931,6 +931,19 @@
                     "en": "Thumbnail fill mode (backgroundPosition), default value is top center"
                 },
                 "descWithTags": "缩略图填充方式（backgroundPosition），默认top center"
+            },
+            "extraNode": {
+                "name": "extraNode",
+                "required": false,
+                "description": "自定义DOM\n@en Custom dom",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "Custom dom"
+                },
+                "descWithTags": "自定义DOM"
             }
         },
         "ImagePreviewRef": {

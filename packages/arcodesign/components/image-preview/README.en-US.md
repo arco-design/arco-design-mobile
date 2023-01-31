@@ -75,6 +75,7 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |fit|Image layout, preview\-y is overflow scrolling with full width and height, preview\-x is overflow scrolling with full width and height|"preview\-y" \| "preview\-x"|
 |fallbackSrc|Transition image url|string|
 |thumbPosition|Thumbnail fill mode (backgroundPosition), default value is top center|string|
+|extraNode|Custom dom|ReactNode|
 
 > GlobalContextParams
 

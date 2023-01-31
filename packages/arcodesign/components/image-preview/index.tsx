@@ -55,6 +55,11 @@ export interface PreviewImageProps {
      * @en Thumbnail fill mode (backgroundPosition), default value is top center
      */
     thumbPosition?: string;
+    /**
+     * 自定义DOM
+     * @en Custom dom
+     */
+    extraNode?: ReactNode;
 }
 
 export interface ImagePreviewProps
@@ -978,22 +983,32 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
     ) {
         return (
             <Carousel autoPlay={false} loop={loop} lazyloadCount={lazyloadCount} {...carouselProps}>
-                {(allImages || []).map((image, index) => (
-                    <div
-                        key={index}
-                        className="preview-image-wrap"
-                        style={{ padding: `0 ${spaceBetween}px` }}
-                    >
-                        <BaseImage
-                            className="preview-image"
-                            fit={image.fit || fit || 'preview-y'}
-                            boxWidth={windowWidth - spaceBetween * 2}
-                            boxHeight={windowHeight}
-                            bottomOverlap={null}
-                            {...getImageProps(image, index)}
-                        />
-                    </div>
-                ))}
+                {(allImages || []).map((image, index) => {
+                    const innerNode = (
+                        <div
+                            key={index}
+                            className="preview-image-wrap"
+                            style={{ padding: `0 ${spaceBetween}px` }}
+                        >
+                            <BaseImage
+                                className="preview-image"
+                                fit={image.fit || fit || 'preview-y'}
+                                boxWidth={windowWidth - spaceBetween * 2}
+                                boxHeight={windowHeight}
+                                bottomOverlap={null}
+                                {...getImageProps(image, index)}
+                            />
+                        </div>
+                    );
+                    return image?.extraNode ? (
+                        <div className="preview-image-wrap-container" key={`outer-${index}`}>
+                            {innerNode}
+                            {image.extraNode}
+                        </div>
+                    ) : (
+                        innerNode
+                    );
+                })}
             </Carousel>
         );
     }
