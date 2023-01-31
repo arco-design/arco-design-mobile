@@ -6,6 +6,7 @@ import { FormItemContext } from './form-item-context';
 import { FormProps, FormRef, InternalFormInstance } from './type';
 import useForm from './useForm';
 
+export { default as useForm } from './useForm';
 export * from './type';
 
 const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
@@ -79,11 +80,4 @@ const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
  */
 export default componentWrapper(Form, {
     Item,
-    /**
-     * 获取表单实例
-     * @desc {en} Form instance
-     * @param { IFormInstance} form 默认表单实例
-     * @returns {[IFormInstance]}
-     */
-    useForm,
 });

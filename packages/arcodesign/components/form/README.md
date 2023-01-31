@@ -27,12 +27,6 @@
 |dom|最外层元素 DOM|HTMLFormElement|
 |form|Form对象实例|IFormInstance|
 
-> 方法/Methods
-
-|方法名|描述|类型|
-|----------|-------------|------|
-|useForm|获取表单实例|(form: IFormInstance) =\> \[IFormInstance\]|
-
 > Form.Item
 
 |参数|描述|类型|默认值|
