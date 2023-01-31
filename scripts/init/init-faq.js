@@ -1,4 +1,4 @@
-const { copyFaq } = require('./utils');
+const fs = require('fs-extra');
 const path = require('path');
 const utils = require('../utils');
 
