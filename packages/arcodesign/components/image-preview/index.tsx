@@ -983,23 +983,43 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
     ) {
         return (
             <Carousel autoPlay={false} loop={loop} lazyloadCount={lazyloadCount} {...carouselProps}>
-                {(allImages || []).map((image, index) => (
-                    <div
-                        key={index}
-                        className="preview-image-wrap"
-                        style={{ padding: `0 ${spaceBetween}px` }}
-                    >
-                        <BaseImage
-                            className="preview-image"
-                            fit={image.fit || fit || 'preview-y'}
-                            boxWidth={windowWidth - spaceBetween * 2}
-                            boxHeight={windowHeight}
-                            bottomOverlap={null}
-                            {...getImageProps(image, index)}
-                        />
-                        {image?.extraNode}
-                    </div>
-                ))}
+                {(allImages || []).map((image, index) =>
+                    image?.extraNode ? (
+                        <div className="preview-image-wrap-container">
+                            <div
+                                key={index}
+                                className="preview-image-wrap"
+                                style={{ padding: `0 ${spaceBetween}px` }}
+                            >
+                                <BaseImage
+                                    className="preview-image"
+                                    fit={image.fit || fit || 'preview-y'}
+                                    boxWidth={windowWidth - spaceBetween * 2}
+                                    boxHeight={windowHeight}
+                                    bottomOverlap={null}
+                                    {...getImageProps(image, index)}
+                                />
+                            </div>
+                            {image?.extraNode}
+                        </div>
+                    ) : (
+                        <div
+                            key={index}
+                            className="preview-image-wrap"
+                            style={{ padding: `0 ${spaceBetween}px` }}
+                        >
+                            <BaseImage
+                                className="preview-image"
+                                fit={image.fit || fit || 'preview-y'}
+                                boxWidth={windowWidth - spaceBetween * 2}
+                                boxHeight={windowHeight}
+                                bottomOverlap={null}
+                                {...getImageProps(image, index)}
+                            />
+                            {image?.extraNode}
+                        </div>
+                    ),
+                )}
             </Carousel>
         );
     }
