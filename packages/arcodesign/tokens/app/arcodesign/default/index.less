@@ -9,7 +9,8 @@
 @line-color: #e5e6eb;
 @primary-color: #165dff;
 @primary-disabled-color: #94bfff;
-@danger-color: #ee4d38;
+@danger-color: #f53f3f;
+@warning-color: #ff7d00;
 @disabled-color: #c9cdd4;
 @mask-background: rgba(0, 0, 0, 0.6);
 @mask-content-color: #ffffff;
@@ -502,7 +503,7 @@
 @swipe-load-label-text-font-size: ~`pxtorem(12)`;
 @notice-bar-wrapper-padding: 0 ~`pxtorem(16)`;
 @notice-bar-background: #fff7e8;
-@notice-bar-color: #ff7d00;
+@notice-bar-color: @warning-color;
 @notice-bar-gradient-background: linear-gradient(to right, #fff7e8, rgba(255, 247, 232, 0));
 @notice-bar-line-height: ~`pxtorem(20)`;
 @notice-bar-text-font-size: ~`pxtorem(14)`;
@@ -512,8 +513,8 @@
 @notice-bar-horizontal-padding: ~`pxtorem(8)`;
 @notice-bar-gradient-width: ~`pxtorem(8)`;
 @notify-success-background: #00B42A;
-@notify-error-background: #F53F3F;
-@notify-warn-background: #FF7D00;
+@notify-error-background: @danger-color;
+@notify-warn-background: @warning-color;
 @notify-font-color: #ffffff;
 @notify-info-font-color: @primary-color;
 @notify-font-size: ~`pxtorem(14)`;
@@ -532,7 +533,7 @@
 @steps-finish-icon-num-background: #E8F3FF;
 @steps-process-icon-num-background: @primary-color;
 @steps-wait-icon-num-background: #F2F3F5;
-@steps-error-icon-num-background: #F53F3F;
+@steps-error-icon-num-background: @danger-color;
 @steps-icon-svg-standard-font-size: 10PX;
 @steps-finish-icon-svg-color: @primary-color;
 @steps-error-icon-svg-color: #FFFFFF;
@@ -545,7 +546,7 @@
 @steps-process-dot-background: @primary-color;
 @steps-wait-dot-border-color: @sub-info-font-color;
 @steps-finish-title-color: @font-color;
-@steps-error-title-color: #F53F3F;
+@steps-error-title-color: @danger-color;
 @steps-process-title-color: @primary-color;
 @steps-wait-title-color: @sub-info-font-color;
 @steps-description-color: @sub-font-color;
@@ -576,7 +577,7 @@
 @swipe-action-icon-width: ~`pxtorem(20)`;
 @swipe-action-icon-height: ~`pxtorem(20)`;
 @swipe-action-icon-margin-right: ~`pxtorem(4)`;
-@badge-background-color: #F53F3F;
+@badge-background-color: @danger-color;
 @badge-text-color: #FFFFFF;
 @badge-font-size: 12PX;
 @badge-dot-width: 8PX;
@@ -717,4 +718,13 @@
 @stepper-input-width: ~`pxtorem(40)`;
 @stepper-input-height: ~`pxtorem(28)`;
 @stepper-input-margin: 0 1PX;
+@form-item-label-item-font-size: ~`pxtorem(16)`;
+@form-item-label-item-line-height: ~`pxtorem(54)`;
+@form-item-label-item-color: @font-color;
+@form-item-label-item-gutter: ~`pxtorem(16)`;
+@form-item-label-item-width: ~`pxtorem(96)`;
+@form-item-border-divider-color: rgba(0, 0, 0, 0.08);
+@form-item-label-item-required-asterisk-color: @danger-color;
+@form-item-error-message-color: @danger-color;
+@form-item-warning-message-color: @warning-color;
 

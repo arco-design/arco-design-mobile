@@ -843,9 +843,9 @@
         "cssKey": "badge-background-color",
         "desc": "徽标背景色",
         "override": "",
-        "value": "#F53F3F",
-        "jsValue": "#F53F3F",
-        "staticValue": "#F53F3F",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
         "localeDesc": {
             "ch": "徽标背景色",
             "en": "Badge background color"
@@ -2257,14 +2257,14 @@
     },
     "dangerColor": {
         "cssKey": "danger-color",
-        "desc": "基础警告态颜色",
+        "desc": "基础危险态颜色",
         "override": "",
-        "value": "#ee4d38",
-        "jsValue": "#ee4d38",
-        "staticValue": "#ee4d38",
+        "value": "#f53f3f",
+        "jsValue": "#f53f3f",
+        "staticValue": "#f53f3f",
         "localeDesc": {
-            "ch": "基础警告态颜色",
-            "en": "Base warning state color"
+            "ch": "基础危险态颜色",
+            "en": "Base dangerous state color"
         }
     },
     "dialogAndroidBodyFooterGutter": {
@@ -3203,6 +3203,110 @@
             "en": "Base font color"
         }
     },
+    "formItemBorderDividerColor": {
+        "cssKey": "form-item-border-divider-color",
+        "desc": "表单项分割线颜色",
+        "override": "",
+        "value": "rgba(0, 0, 0, 0.08)",
+        "jsValue": "rgba(0, 0, 0, 0.08)",
+        "staticValue": "rgba(0, 0, 0, 0.08)",
+        "localeDesc": {
+            "ch": "表单项分割线颜色",
+            "en": "Form item divider color"
+        }
+    },
+    "formItemErrorMessageColor": {
+        "cssKey": "form-item-error-message-color",
+        "desc": "表单项错误提示颜色",
+        "override": "",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
+        "localeDesc": {
+            "ch": "表单项错误提示颜色",
+            "en": "Form item error message color"
+        }
+    },
+    "formItemLabelItemColor": {
+        "cssKey": "form-item-label-item-color",
+        "desc": "表单项标签颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "表单项标签颜色",
+            "en": "Color of Form label"
+        }
+    },
+    "formItemLabelItemFontSize": {
+        "cssKey": "form-item-label-item-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem"
+    },
+    "formItemLabelItemGutter": {
+        "cssKey": "form-item-label-item-gutter",
+        "desc": "表单项标签右边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "表单项标签右边距",
+            "en": "Right padding of Form label"
+        }
+    },
+    "formItemLabelItemLineHeight": {
+        "cssKey": "form-item-label-item-line-height",
+        "desc": "表单项标签行高",
+        "override": "",
+        "value": "~`pxtorem(54)`",
+        "jsValue": "@getRem@54",
+        "staticValue": "1.08rem",
+        "localeDesc": {
+            "ch": "表单项标签行高",
+            "en": "Lineheight of Form label"
+        }
+    },
+    "formItemLabelItemRequiredAsteriskColor": {
+        "cssKey": "form-item-label-item-required-asterisk-color",
+        "desc": "表单项必选项星号颜色",
+        "override": "",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
+        "localeDesc": {
+            "ch": "表单项必选项星号颜色",
+            "en": "Form item asterisk color"
+        }
+    },
+    "formItemLabelItemWidth": {
+        "cssKey": "form-item-label-item-width",
+        "desc": "表单项标签宽度",
+        "override": "",
+        "value": "~`pxtorem(96)`",
+        "jsValue": "@getRem@96",
+        "staticValue": "1.92rem",
+        "localeDesc": {
+            "ch": "表单项标签宽度",
+            "en": "Right padding of Form label"
+        }
+    },
+    "formItemWarningMessageColor": {
+        "cssKey": "form-item-warning-message-color",
+        "desc": "表单项警告提示颜色",
+        "override": "",
+        "value": "@warning-color",
+        "jsValue": "@global@warningColor",
+        "staticValue": "#ff7d00",
+        "localeDesc": {
+            "ch": "表单项警告提示颜色",
+            "en": "Form item warning message color"
+        }
+    },
     "fullScreenZIndex": {
         "cssKey": "full-screen-z-index",
         "desc": "全屏组件zIndex基础值",
@@ -4107,8 +4211,8 @@
         "cssKey": "notice-bar-color",
         "desc": "通知栏文字颜色",
         "override": "",
-        "value": "#ff7d00",
-        "jsValue": "#ff7d00",
+        "value": "@warning-color",
+        "jsValue": "@global@warningColor",
         "staticValue": "#ff7d00",
         "localeDesc": {
             "ch": "通知栏文字颜色",
@@ -4227,9 +4331,9 @@
         "cssKey": "notify-error-background",
         "desc": "notify 错误通知背景色",
         "override": "",
-        "value": "#F53F3F",
-        "jsValue": "#F53F3F",
-        "staticValue": "#F53F3F",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
         "localeDesc": {
             "ch": "notify 错误通知背景色",
             "en": "Background color of error notify"
@@ -4299,9 +4403,9 @@
         "cssKey": "notify-warn-background",
         "desc": "notify 警告通知背景色",
         "override": "",
-        "value": "#FF7D00",
-        "jsValue": "#FF7D00",
-        "staticValue": "#FF7D00",
+        "value": "@warning-color",
+        "jsValue": "@global@warningColor",
+        "staticValue": "#ff7d00",
         "localeDesc": {
             "ch": "notify 警告通知背景色",
             "en": "Background color of wran notify"
@@ -6483,9 +6587,9 @@
         "cssKey": "steps-error-icon-num-background",
         "desc": "steps 无文字错误步骤背景色",
         "override": "",
-        "value": "#F53F3F",
-        "jsValue": "#F53F3F",
-        "staticValue": "#F53F3F",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
         "localeDesc": {
             "ch": "steps 无文字错误步骤背景色",
             "en": "Non-text steps background color in error state"
@@ -6519,9 +6623,9 @@
         "cssKey": "steps-error-title-color",
         "desc": "steps 错误步骤标题颜色",
         "override": "",
-        "value": "#F53F3F",
-        "jsValue": "#F53F3F",
-        "staticValue": "#F53F3F",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
         "localeDesc": {
             "ch": "steps 错误步骤标题颜色",
             "en": "Steps title color in error state"
@@ -8579,6 +8683,18 @@
         "localeDesc": {
             "ch": "渐隐过渡效果持续时长",
             "en": "Transition fade duration"
+        }
+    },
+    "warningColor": {
+        "cssKey": "warning-color",
+        "desc": "基础警告态颜色",
+        "override": "",
+        "value": "#ff7d00",
+        "jsValue": "#ff7d00",
+        "staticValue": "#ff7d00",
+        "localeDesc": {
+            "ch": "基础警告态颜色",
+            "en": "Base warning state color"
         }
     }
 }

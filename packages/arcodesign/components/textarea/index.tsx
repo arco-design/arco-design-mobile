@@ -7,7 +7,7 @@ import React, {
     useMemo,
     ReactNode,
 } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { BasicInputProps } from '../input/props';
 import { useInputLogic } from '../input/hooks';
@@ -95,14 +95,6 @@ export interface TextareaRef {
     resize: () => void;
 }
 
-/**
- * 多行文本输入框组件，支持自适应内容高度。
- * @en A multi-line textarea, supports adaptive content height.
- * @type 数据录入
- * @type_en Data Entry
- * @name 多行文本框
- * @name_en Textarea
- */
 const Textarea = forwardRef((props: TextareaProps, ref: Ref<TextareaRef>) => {
     const {
         id,
@@ -254,4 +246,13 @@ const Textarea = forwardRef((props: TextareaProps, ref: Ref<TextareaRef>) => {
     return <ContextLayout>{renderTextarea}</ContextLayout>;
 });
 
-export default Textarea;
+/**
+ * 多行文本输入框组件，支持自适应内容高度。
+ * @en A multi-line textarea, supports adaptive content height.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 多行文本框
+ * @name_en Textarea
+ * @displayName Textarea
+ */
+export default componentWrapper(Textarea, 'Textarea');

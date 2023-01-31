@@ -13,6 +13,10 @@ export const localeMap = {
         [LanguageSupport.CH]: '组件',
         [LanguageSupport.EN]: 'Components',
     },
+    CompositeComp: {
+        [LanguageSupport.CH]: '复合组件',
+        [LanguageSupport.EN]: 'Composite Components',
+    },
     Changelog: {
         [LanguageSupport.CH]: '更新日志',
         [LanguageSupport.EN]: 'Changelog',
