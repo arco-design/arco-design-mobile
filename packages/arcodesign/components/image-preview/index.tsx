@@ -983,26 +983,8 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
     ) {
         return (
             <Carousel autoPlay={false} loop={loop} lazyloadCount={lazyloadCount} {...carouselProps}>
-                {(allImages || []).map((image, index) =>
-                    image?.extraNode ? (
-                        <div className="preview-image-wrap-container">
-                            <div
-                                key={index}
-                                className="preview-image-wrap"
-                                style={{ padding: `0 ${spaceBetween}px` }}
-                            >
-                                <BaseImage
-                                    className="preview-image"
-                                    fit={image.fit || fit || 'preview-y'}
-                                    boxWidth={windowWidth - spaceBetween * 2}
-                                    boxHeight={windowHeight}
-                                    bottomOverlap={null}
-                                    {...getImageProps(image, index)}
-                                />
-                            </div>
-                            {image?.extraNode}
-                        </div>
-                    ) : (
+                {(allImages || []).map((image, index) => {
+                    const innerNode = (
                         <div
                             key={index}
                             className="preview-image-wrap"
@@ -1016,10 +998,17 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                                 bottomOverlap={null}
                                 {...getImageProps(image, index)}
                             />
-                            {image?.extraNode}
                         </div>
-                    ),
-                )}
+                    );
+                    return image?.extraNode ? (
+                        <div className="preview-image-wrap-container" key={`outer-${index}`}>
+                            {innerNode}
+                            {image.extraNode}
+                        </div>
+                    ) : (
+                        innerNode
+                    );
+                })}
             </Carousel>
         );
     }
