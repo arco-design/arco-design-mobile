@@ -10,7 +10,8 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|type|分成两种类型|"ios" \| "android"|跟随系统|
+|type|下拉刷新组件不同的实现方式，android \- 常规的外层容器 transform，ios \- 利用 ios scrollTop 负值实现下拉及回弹(性能优于transform)，仅ios可用。指定该属性值后优先级高于 useIosOptimize|"ios" \| "android"|跟随系统|
+|useIosOptimize|在 ios 上是否使用 scrollTop 负值实现下拉及回弹，而不是 transform，关闭后所有机型都使用 transform 的方式|boolean|false|
 |children|子元素|ReactNode|必填|
 |className|样式类名|string|-|
 |style|自定义样式|CSSProperties|-|

@@ -25,10 +25,9 @@ export default function PullRefreshDemo() {
         >
             <PullRefresh>Try to pull down</PullRefresh>
             <PullRefresh disabled>Disabled modal, unable to pull down (Android) or pull down to trigger system bounce (iOS)</PullRefresh>
-            <PullRefresh type="ios" finishText={null} >Try to pull down</PullRefresh>
+            <PullRefresh useIosOptimize finishText={null} >Try to pull down (using implementation after performance optimization on iOS and traditional transform implementation on Android)</PullRefresh>
 
             <PullRefresh
-                type="android"
                 onRefresh={async () => {
                     return new Promise(resolve => {
                         setTimeout(() => {
