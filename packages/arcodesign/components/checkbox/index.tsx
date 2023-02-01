@@ -8,7 +8,7 @@ export * from './type';
  * 复选项组
  * @en Checkbox group
  * @displayName CheckboxGroup
- *  */
+ */
 const Group = componentWrapper(componentGenerator(Checkbox), 'CheckboxGroup');
 
 /**
