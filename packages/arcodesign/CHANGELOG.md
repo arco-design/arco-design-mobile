@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.0...@arco-design/mobile-react@2.25.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* checkbox & radio exported type ([901681c](https://github.com/arco-design/arco-design-mobile/commit/901681ccfd4788b3e50954dbde6e4475ac1dbdc4))
+
+
+
+
+
 # [2.25.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.24.2...@arco-design/mobile-react@2.25.0) (2023-02-01)
 
 
