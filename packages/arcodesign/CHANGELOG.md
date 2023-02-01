@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.25.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.24.2...@arco-design/mobile-react@2.25.0) (2023-02-01)
+
+
+### Bug Fixes
+
+* `Carousel` optimize the method changeIndex ([0088985](https://github.com/arco-design/arco-design-mobile/commit/00889858f2826987db4930a84e297ac0399443c5))
+* `ImagePreview` add image prop extraNode ([#83](https://github.com/arco-design/arco-design-mobile/issues/83)) ([61006f9](https://github.com/arco-design/arco-design-mobile/commit/61006f96a81261c40b7984d03b008c091d5a8f9b))
+* `PullRefresh` optimize default value of the prop 'type' & add prop 'useIosOptimize' ([31b0ed1](https://github.com/arco-design/arco-design-mobile/commit/31b0ed12837b77d2b41cfff80879bbab83084846))
+
+
+### Features
+
+* add new component `Form` ([#77](https://github.com/arco-design/arco-design-mobile/issues/77)) ([54b5bda](https://github.com/arco-design/arco-design-mobile/commit/54b5bda1c66b8318b59c9031fb0634c93dd94c7b))
+
+
+
+
+
 ## [2.24.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.24.1...@arco-design/mobile-react@2.24.2) (2023-01-10)
 
 

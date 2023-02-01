@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.11...@arco-design/mobile-utils@2.13.0) (2023-02-01)
+
+
+### Bug Fixes
+
+* `Carousel` optimize the method changeIndex ([0088985](https://github.com/arco-design/arco-design-mobile/commit/00889858f2826987db4930a84e297ac0399443c5))
+
+
+### Features
+
+* add new component `Form` ([#77](https://github.com/arco-design/arco-design-mobile/issues/77)) ([54b5bda](https://github.com/arco-design/arco-design-mobile/commit/54b5bda1c66b8318b59c9031fb0634c93dd94c7b))
+
+
+
+
+
 ## [2.12.11](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.12.10...@arco-design/mobile-utils@2.12.11) (2023-01-10)
 
 
