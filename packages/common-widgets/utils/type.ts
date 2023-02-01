@@ -7,8 +7,8 @@
 export function componentWrapper<C, E extends {}>(
     Component: C,
     displayName: string,
-    extra: E,
-): C & E & { displayName: string };
+    extra?: E,
+): C & E & { displayName?: string };
 export function componentWrapper<C, E extends {}>(Component: C, extra: E): C & E;
 export function componentWrapper<C, E extends {}>(Component, params: string | E, extra?: E) {
     const Comp = Component as C & E & { displayName?: string };
