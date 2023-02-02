@@ -109,6 +109,7 @@ function App() {
                                       <Demo
                                           type="doc"
                                           name={name}
+                                          route="composite-components"
                                           doc={<Comp language={LanguageSupport.CH} />}
                                       />,
                                       history,
@@ -127,6 +128,7 @@ function App() {
                                       <Demo
                                           type="doc"
                                           name={name}
+                                          route="composite-components"
                                           doc={<Comp language={LanguageSupport.EN} />}
                                           language={LanguageSupport.EN}
                                       />,
