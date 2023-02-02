@@ -51,10 +51,10 @@ const devConfig = merge(baseConfig, {
         port: 8822,
         allowedHosts: "all",
         open: true,
-        ...(filterComp.length
+        ...(compileComps.length
             ? {
                 open: true,
-                openPage: `http://localhost:8822/#/components/${filterComp[0]}`,
+                openPage: `http://localhost:8822/#/components/${compileComps[0]}`,
             }
             : {}),
     },
