@@ -20,13 +20,21 @@ export interface IDemoProps {
     type: 'readme' | 'doc';
     showQRCode?: boolean;
     language?: LanguageSupport;
+    route?: string;
 }
 
 export default function Demo(props: IDemoProps) {
-    const { name, doc, type, showQRCode = true, language = LanguageSupport.CH } = props;
+    const {
+        name,
+        doc,
+        type,
+        showQRCode = true,
+        language = LanguageSupport.CH,
+        route = 'components',
+    } = props;
     const [update, setUpdate] = useState(0);
     const previewUrl = `${getUrlsByLanguage(language).MOBILE_DOC_PREFIX}${
-        name === 'readme' ? '' : `components/${name}`
+        name === 'readme' ? '' : `${route}/${name}`
     }`;
     // 是否为 demo icon 页
     const isIcon = name === 'icon';
@@ -157,9 +165,13 @@ export default function Demo(props: IDemoProps) {
 
     useEffect(() => {
         window.addEventListener('message', event => {
-            if (event?.data?.type === 'component') {
+            const routeType = event?.data?.type;
+            if (
+                event?.data?.type === 'components' ||
+                event?.data?.type === 'composite-components'
+            ) {
                 history.push(
-                    `${event?.data?.language === LanguageSupport.EN ? '/en-US' : ''}/components/${
+                    `${event?.data?.language === LanguageSupport.EN ? '/en-US' : ''}/${routeType}/${
                         event.data.data
                     }?hide_back=0`,
                 );

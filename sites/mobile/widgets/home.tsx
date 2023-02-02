@@ -47,18 +47,18 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
         };
     }, []);
 
-    function handleSubItemClick(route) {
+    function handleSubItemClick(type, route) {
         window.localStorage.setItem('home_scroll', `${route}__${window.pageYOffset}`);
         window.parent.postMessage(
             {
-                type: 'component',
+                type,
                 data: route,
                 language,
             },
             '*',
         );
         if (needJump) {
-            history.push(`${language === LanguageSupport.EN ? '/en-US' : ''}/components/${route}`);
+            history.push(`${language === LanguageSupport.EN ? '/en-US' : ''}/${type}/${route}`);
         }
     }
 
@@ -81,8 +81,9 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
                                 onClick={() =>
                                     handleSubItemClick(
                                         type === commonLocaleMap.CompositeComp[language]
-                                            ? `composite/${route.key}`
-                                            : route.key,
+                                            ? 'composite-components'
+                                            : 'components',
+                                        route.key,
                                     )
                                 }
                             >
