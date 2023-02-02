@@ -80,7 +80,7 @@ function App() {
                         exact
                     />
                     <Route
-                        path="/composite-components/:name"
+                        path="/components/composite/:name"
                         render={props => {
                             const { name } = props.match.params;
                             const Comp = compositeDocs[name];
@@ -89,7 +89,7 @@ function App() {
                         exact
                     />
                     <Route
-                        path="/en-US/composite-components/:name"
+                        path="/en-US/components/composite/:name"
                         render={props => {
                             const { name } = props.match.params;
                             const Comp = enCompositeDocs[name];
