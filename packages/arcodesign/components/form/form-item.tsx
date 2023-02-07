@@ -16,7 +16,6 @@ import {
     IFieldError,
     FieldItem,
     FieldValue,
-    IFormDataMethods,
     IFormItemContext,
     IFormItemInnerProps,
     FormItemProps,
@@ -33,6 +32,9 @@ interface IFromItemInnerState {
 }
 
 class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerState> {
+    // eslint-disable-next-line react/static-property-placement
+    context!: React.ContextType<typeof FormItemContext>;
+
     destroyField: () => void;
 
     private _errors: ReactNode[] = [];
@@ -109,7 +111,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
 
     setFieldData(value: FieldValue) {
         const { field } = this.props;
-        const { setFieldValue } = this.context.form as IFormDataMethods;
+        const { setFieldValue } = this.context.form;
         setFieldValue(field, value);
         this.validateField();
     }
@@ -146,7 +148,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
             triggerPropsField = 'value',
             displayType,
         } = this.props;
-        const { getFieldValue } = this.context.form as IFormDataMethods;
+        const { getFieldValue } = this.context.form;
         let props = {
             [triggerPropsField]: getFieldValue(field),
             disabled: this.props.disabled,

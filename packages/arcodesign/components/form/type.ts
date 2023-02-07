@@ -164,6 +164,11 @@ export interface IFormInstance {
      */
     resetFields: () => void;
     /**
+     * 设置单个表单项值
+     * @en Set field value
+     */
+    setFieldValue: (name: string, value: FieldValue) => boolean;
+    /**
      * 设置多个表单项值
      * @en Set multiple field value
      */
