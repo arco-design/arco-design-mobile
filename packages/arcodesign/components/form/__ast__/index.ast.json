@@ -248,6 +248,19 @@
                 },
                 "descWithTags": "重置表单项"
             },
+            "setFieldValue": {
+                "name": "setFieldValue",
+                "required": true,
+                "description": "设置单个表单项值\n@en Set field value",
+                "defaultValue": null,
+                "type": {
+                    "name": "(name: string, value: any) => boolean"
+                },
+                "tags": {
+                    "en": "Set field value"
+                },
+                "descWithTags": "设置单个表单项值"
+            },
             "setFieldsValue": {
                 "name": "setFieldsValue",
                 "required": true,
@@ -378,7 +391,7 @@
         "Item": {
             "description": "",
             "descriptionTags": {},
-            "displayName": "FormItem",
+            "displayName": "Item",
             "methods": [],
             "props": {
                 "label": {
@@ -748,8 +761,8 @@
                         "descWithTags": ""
                     }
                 },
-                "IRules": "ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>",
-                "FormInternalComponentType": "\"Input\"|\"Textarea\"|\"Checkbox\"|\"CheckboxGroup\"|\"DatePicker\"|\"Picker\"|\"Radio\"|\"RadioGroup\"|\"Slider\"|\"Switch\"|\"ImagePicker\"|\"Rate\"|\"Stepper\"",
+                "IRules": "ITypeRules<ValidatorType.Number> | ITypeRules<ValidatorType.String> | ITypeRules<ValidatorType.Array> | ITypeRules<ValidatorType.Boolean> | ITypeRules<ValidatorType.Object> | ITypeRules<ValidatorType.Custom>",
+                "FormInternalComponentType": "\"Input\" | \"Textarea\" | \"Checkbox\" | \"CheckboxGroup\" | \"DatePicker\" | \"Picker\" | \"Radio\" | \"RadioGroup\" | \"Slider\" | \"Switch\" | \"ImagePicker\" | \"Rate\" | \"Stepper\"",
                 "FormItemRef": {
                     "dom": {
                         "name": "dom",

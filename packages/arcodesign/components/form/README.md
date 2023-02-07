@@ -55,6 +55,7 @@
 |getFieldsValue|获取多个表单项值|(name?: string\[\]) =\> Record\<string, any\>|
 |getFieldError|获取单个表单项的错误|(name: string) =\> ReactNode\[\]|
 |resetFields|重置表单项|() =\> void|
+|setFieldValue|设置单个表单项值|(name: string, value: any) =\> boolean|
 |setFieldsValue|设置多个表单项值|(value: Record\<string, any\>) =\> void|
 |validateFields|校验所有表单项|() =\> Promise\<Record\<string, any\>\>|
 |submit|提交表单|() =\> void|
@@ -80,13 +81,13 @@
 > IRules
 
 ```
-ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
+ITypeRules<ValidatorType.Number> | ITypeRules<ValidatorType.String> | ITypeRules<ValidatorType.Array> | ITypeRules<ValidatorType.Boolean> | ITypeRules<ValidatorType.Object> | ITypeRules<ValidatorType.Custom>
 ```
 
 > FormInternalComponentType
 
 ```
-"Input"|"Textarea"|"Checkbox"|"CheckboxGroup"|"DatePicker"|"Picker"|"Radio"|"RadioGroup"|"Slider"|"Switch"|"ImagePicker"|"Rate"|"Stepper"
+"Input" | "Textarea" | "Checkbox" | "CheckboxGroup" | "DatePicker" | "Picker" | "Radio" | "RadioGroup" | "Slider" | "Switch" | "ImagePicker" | "Rate" | "Stepper"
 ```
 
 > FormItemRef

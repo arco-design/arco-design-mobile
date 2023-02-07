@@ -55,6 +55,7 @@ Form, Form for collecting data input
 |getFieldsValue|Get multiple field value|(name?: string\[\]) =\> Record\<string, any\>|
 |getFieldError|Get field errors|(name: string) =\> ReactNode\[\]|
 |resetFields|Reset fields|() =\> void|
+|setFieldValue|Set field value|(name: string, value: any) =\> boolean|
 |setFieldsValue|Set multiple field value|(value: Record\<string, any\>) =\> void|
 |validateFields|Validate all fields|() =\> Promise\<Record\<string, any\>\>|
 |submit|Submit all fields|() =\> void|
@@ -80,13 +81,13 @@ Form, Form for collecting data input
 > IRules
 
 ```
-ITypeRules<ValidatorType.Number>|ITypeRules<ValidatorType.String>|ITypeRules<ValidatorType.Array>|ITypeRules<ValidatorType.Boolean>|ITypeRules<ValidatorType.Object>|ITypeRules<ValidatorType.Custom>
+ITypeRules<ValidatorType.Number> | ITypeRules<ValidatorType.String> | ITypeRules<ValidatorType.Array> | ITypeRules<ValidatorType.Boolean> | ITypeRules<ValidatorType.Object> | ITypeRules<ValidatorType.Custom>
 ```
 
 > FormInternalComponentType
 
 ```
-"Input"|"Textarea"|"Checkbox"|"CheckboxGroup"|"DatePicker"|"Picker"|"Radio"|"RadioGroup"|"Slider"|"Switch"|"ImagePicker"|"Rate"|"Stepper"
+"Input" | "Textarea" | "Checkbox" | "CheckboxGroup" | "DatePicker" | "Picker" | "Radio" | "RadioGroup" | "Slider" | "Switch" | "ImagePicker" | "Rate" | "Stepper"
 ```
 
 > FormItemRef

@@ -138,7 +138,7 @@ const Textarea = forwardRef((props: TextareaProps, ref: Ref<TextareaRef>) => {
         }
         // 默认为过滤换行后的字符长度
         // @en The default is the character length after filtering newlines
-        const validValue = inputValue.replace(/\n/g, '');
+        const validValue = (inputValue || '').replace(/\n/g, '');
         return validValue ? String(validValue).length : 0;
     }, [inputValue, statisticsLengthCaculator]);
     const exceed = maxValueLength ? currentValueLength > maxValueLength : false;
