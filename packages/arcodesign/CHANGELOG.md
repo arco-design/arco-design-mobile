@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.1...@arco-design/mobile-react@2.25.2) (2023-02-08)
+
+
+### Bug Fixes
+
+* wrap style division in parentheses ([ebe7a8f](https://github.com/arco-design/arco-design-mobile/commit/ebe7a8f8ba6f51ac75b45488b672e48ca9c2e0bb))
+
+
+
+
+
 ## [2.25.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.0...@arco-design/mobile-react@2.25.1) (2023-02-01)
 
 
