@@ -1032,8 +1032,8 @@
                 "descWithTags": "秒"
             }
         },
-        "mode": "\"date\"|\"time\"|\"datetime\"",
-        "ItemType": "\"date\"|\"year\"|\"month\"|\"hour\"|\"minute\"|\"second\"",
+        "mode": "\"date\" | \"time\" | \"datetime\"",
+        "ItemType": "\"date\" | \"year\" | \"month\" | \"hour\" | \"minute\" | \"second\"",
         "PickerData": {
             "value": {
                 "name": "value",

@@ -876,7 +876,7 @@
                 "descWithTags": "级联状态下，该列对应的下一列数据"
             }
         },
-        "ValueType": "string|number",
+        "ValueType": "string | number",
         "PickerRef": {
             "dom": {
                 "name": "dom",
@@ -957,7 +957,7 @@
                 "descWithTags": "直接跳到当前最近一行（调用时将中断滚动）"
             }
         },
-        "PickerCellMovingStatus": "\"normal\"|\"moving\"|\"scrolling\""
+        "PickerCellMovingStatus": "\"normal\" | \"moving\" | \"scrolling\""
     },
     "depComps": {},
     "typeNameInfo": {

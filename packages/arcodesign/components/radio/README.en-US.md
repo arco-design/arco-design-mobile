@@ -52,7 +52,7 @@ Radio group
 > ValueType
 
 ```
-string|number
+string | number
 ```
 
 > IconType

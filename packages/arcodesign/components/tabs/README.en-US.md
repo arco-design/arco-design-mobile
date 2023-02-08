@@ -100,7 +100,7 @@ Used to let the user switch between different views. In order to optimize the re
 > TabData
 
 ```
-string|{ [x: string]: any; title: ReactNode; }
+string | { [x: string]: any; title: ReactNode; }
 ```
 
 > UnderlineStyle

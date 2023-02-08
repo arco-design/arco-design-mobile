@@ -59,7 +59,7 @@
 > DirectionType
 
 ```
-"left"|"right"|"top"|"bottom"
+"left" | "right" | "top" | "bottom"
 ```
 
 > GlobalContextParams

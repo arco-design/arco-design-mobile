@@ -804,7 +804,7 @@
         }
     },
     "deps": {
-        "DirectionType": "\"left\"|\"right\"|\"top\"|\"bottom\"",
+        "DirectionType": "\"left\" | \"right\" | \"top\" | \"bottom\"",
         "PopupSwiperRef": {
             "dom": {
                 "name": "dom",

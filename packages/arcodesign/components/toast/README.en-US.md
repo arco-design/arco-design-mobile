@@ -49,7 +49,7 @@ The toast component, supports calling methods in various scenarios.
 > ToastType
 
 ```
-"success"|"error"|"warn"
+"success" | "error" | "warn"
 ```
 
 > GlobalContextParams

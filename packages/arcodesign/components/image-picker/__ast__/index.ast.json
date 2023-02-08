@@ -1044,8 +1044,8 @@
                 "descWithTags": "图片加载失败时自动重试触发的回调"
             }
         },
-        "ImageStatus": "\"loaded\"|\"loading\"|\"error\"|\"init\"",
-        "ObjectPosition": "string|number|string & {}",
+        "ImageStatus": "\"loaded\" | \"loading\" | \"error\" | \"init\"",
+        "ObjectPosition": "string | number | string & {}",
         "SelectCallback": {
             "files": {
                 "name": "files",

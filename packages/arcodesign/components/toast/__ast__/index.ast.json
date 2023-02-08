@@ -647,7 +647,7 @@
         }
     },
     "deps": {
-        "ToastType": "\"success\"|\"error\"|\"warn\"",
+        "ToastType": "\"success\" | \"error\" | \"warn\"",
         "ToastRef": {
             "dom": {
                 "name": "dom",

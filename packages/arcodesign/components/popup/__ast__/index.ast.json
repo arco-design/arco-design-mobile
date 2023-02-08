@@ -657,7 +657,7 @@
         }
     },
     "deps": {
-        "DirectionType": "\"left\"|\"right\"|\"top\"|\"bottom\"",
+        "DirectionType": "\"left\" | \"right\" | \"top\" | \"bottom\"",
         "PopupRef": {
             "dom": {
                 "name": "dom",

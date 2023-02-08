@@ -303,7 +303,7 @@
         }
     },
     "deps": {
-        "ValueType": "string|number",
+        "ValueType": "string | number",
         "IconType": {
             "normal": {
                 "name": "normal",
@@ -886,7 +886,7 @@
                         "descWithTags": "自定义样式"
                     }
                 },
-                "ValueType": "string|number",
+                "ValueType": "string | number",
                 "IconType": {
                     "normal": {
                         "name": "normal",

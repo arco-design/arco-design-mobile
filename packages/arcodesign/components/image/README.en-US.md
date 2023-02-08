@@ -52,11 +52,11 @@ Enhanced img tag, provides a variety of image filling modes, and supports image 
 > ImageStatus
 
 ```
-"loading"|"loaded"|"init"|"error"
+"loading" | "loaded" | "init" | "error"
 ```
 
 > ObjectPosition
 
 ```
-string|number|string & {}
+string | number | string & {}
 ```

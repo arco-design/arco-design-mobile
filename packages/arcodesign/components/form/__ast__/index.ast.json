@@ -391,7 +391,7 @@
         "Item": {
             "description": "",
             "descriptionTags": {},
-            "displayName": "Item",
+            "displayName": "FormItem",
             "methods": [],
             "props": {
                 "label": {

@@ -40,7 +40,7 @@ The feedback information bar displayed after active operation can be called by m
 > NotifyType
 
 ```
-"success"|"error"|"warn"|"info"
+"success" | "error" | "warn" | "info"
 ```
 
 > GlobalContextParams

@@ -40,5 +40,5 @@
 > LoadMoreStatus
 
 ```
-"before-ready"|"prepare"|"loading"|"nomore"|"retry"
+"before-ready" | "prepare" | "loading" | "nomore" | "retry"
 ```

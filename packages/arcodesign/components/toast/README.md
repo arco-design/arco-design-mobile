@@ -49,7 +49,7 @@
 > ToastType
 
 ```
-"success"|"error"|"warn"
+"success" | "error" | "warn"
 ```
 
 > GlobalContextParams

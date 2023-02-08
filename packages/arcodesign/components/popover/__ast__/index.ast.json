@@ -838,7 +838,7 @@
         }
     },
     "deps": {
-        "Direction": "\"topLeft\"|\"topCenter\"|\"topRight\"|\"bottomLeft\"|\"bottomCenter\"|\"bottomRight\"",
+        "Direction": "\"topLeft\" | \"topCenter\" | \"topRight\" | \"bottomLeft\" | \"bottomCenter\" | \"bottomRight\"",
         "EdgeOffset": {
             "top": {
                 "name": "top",
@@ -2024,7 +2024,7 @@
                         "descWithTags": ""
                     }
                 },
-                "Direction": "\"topLeft\"|\"topCenter\"|\"topRight\"|\"bottomLeft\"|\"bottomCenter\"|\"bottomRight\"",
+                "Direction": "\"topLeft\" | \"topCenter\" | \"topRight\" | \"bottomLeft\" | \"bottomCenter\" | \"bottomRight\"",
                 "EdgeOffset": {
                     "top": {
                         "name": "top",

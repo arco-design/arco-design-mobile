@@ -393,7 +393,7 @@
         }
     },
     "deps": {
-        "NotifyType": "\"success\"|\"error\"|\"warn\"|\"info\"",
+        "NotifyType": "\"success\" | \"error\" | \"warn\" | \"info\"",
         "NotifyRef": {
             "dom": {
                 "name": "dom",

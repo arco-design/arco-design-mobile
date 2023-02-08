@@ -40,7 +40,7 @@
 > NotifyType
 
 ```
-"success"|"error"|"warn"|"info"
+"success" | "error" | "warn" | "info"
 ```
 
 > GlobalContextParams

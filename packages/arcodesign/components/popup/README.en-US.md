@@ -59,7 +59,7 @@ A full-screen menu based on a modal popup, supporting all directions. By default
 > DirectionType
 
 ```
-"left"|"right"|"top"|"bottom"
+"left" | "right" | "top" | "bottom"
 ```
 
 > GlobalContextParams

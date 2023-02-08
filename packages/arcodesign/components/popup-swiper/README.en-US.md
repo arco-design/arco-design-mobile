@@ -66,7 +66,7 @@ The popup with gesture closing function based on the popup encapsulation, has ot
 > DirectionType
 
 ```
-"left"|"right"|"top"|"bottom"
+"left" | "right" | "top" | "bottom"
 ```
 
 > GlobalContextParams

@@ -74,13 +74,13 @@ SearchBar component
 > SearchBarShape
 
 ```
-"square"|"round"
+"square" | "round"
 ```
 
 > SearchAssociationShowType
 
 ```
-"value"|"focus"|"default"|"always"
+"value" | "focus" | "default" | "always"
 ```
 
 > SearchAssociationBaseItem
@@ -92,5 +92,5 @@ SearchBar component
 > SearchAssociationHighlightMode
 
 ```
-"prefix"|"contain"|"none"|(content: string, keyword: string, defaultHighlightClassName: string) => ReactNode
+"prefix" | "contain" | "none" | (content: string, keyword: string, defaultHighlightClassName: string) => ReactNode
 ```
