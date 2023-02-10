@@ -1052,10 +1052,11 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
     // @en In iOS when resetting the style, the image will disappear and cause flickering, so put a image at the bottom
     // 优先过渡图，其次用原图
     // @en Prioritize the transition image, followed by the original image
-    function renderImagePlaceholder(src: string, index: number) {
+    function renderImagePlaceholder(src: string, index: number, fitCss?: string) {
         const { originWidth, originHeight, originLeft, originTop, hasOverflow } =
             imagesStatus[index] || {};
         const trans = hasOverflow ? {} : getStyleWithVendor({ transform: 'translateY(-50%)' });
+        const fitObj: CSSProperties | {} = fitCss ? { objectFit: fitCss } : {};
         return system === 'ios' && showPlaceholders[index] && originWidth && originHeight ? (
             <img
                 src={src}
@@ -1065,6 +1066,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                     height: originHeight,
                     left: originLeft,
                     top: originTop,
+                    ...fitObj,
                     ...trans,
                 }}
             />
@@ -1148,6 +1150,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                                     bottomOverlap: renderImagePlaceholder(
                                         image.fallbackSrc || image.src,
                                         index,
+                                        image.fit || fit,
                                     ),
                                     onLoad: (_, imageEle) => {
                                         imageDomsRef.current[index] = imageEle;
