@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.2...@arco-design/mobile-react@2.25.3) (2023-02-10)
+
+
+### Bug Fixes
+
+* `ImagePreview` fix display problems when passing fit layout ([#91](https://github.com/arco-design/arco-design-mobile/issues/91)) ([244107f](https://github.com/arco-design/arco-design-mobile/commit/244107fa4764141e8e57e871cad60f19f0592706))
+* `NavBar` support the prop 'onScrollChange' ([46f2a5c](https://github.com/arco-design/arco-design-mobile/commit/46f2a5cf6afa5abec235d9d6311f40c19f8c1bc0))
+
+
+
+
+
 ## [2.25.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.1...@arco-design/mobile-react@2.25.2) (2023-02-08)
 
 
