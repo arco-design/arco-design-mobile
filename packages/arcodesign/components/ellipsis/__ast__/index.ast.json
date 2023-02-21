@@ -249,7 +249,7 @@
             },
             "required": false,
             "type": {
-                "name": "() => void"
+                "name": "(e: MouseEvent<HTMLSpanElement, MouseEvent>) => void"
             }
         },
         "onCollapseNodeClick": {
@@ -266,7 +266,7 @@
             },
             "required": false,
             "type": {
-                "name": "() => void"
+                "name": "(e: MouseEvent<HTMLSpanElement, MouseEvent>) => void"
             }
         },
         "ref": {

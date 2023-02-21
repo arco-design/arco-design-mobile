@@ -22,8 +22,8 @@
 |dangerouslyUseInnerHTML|是否使用 innerHTML 插入文本（警告：务必确保 text 安全可靠，否则易导致 XSS 漏洞）|boolean|false|
 |ellipsisNode|自定义缩略符节点，文本缩略时插入文本尾部|ReactNode|"..."|
 |collapseNode|自定义收起符节点，不为空且文本展开时插入文本尾部|ReactNode|-|
-|onEllipsisNodeClick|缩略节点点击事件|() =\> void|-|
-|onCollapseNodeClick|收起节点点击事件|() =\> void|-|
+|onEllipsisNodeClick|缩略节点点击事件|(e: MouseEvent\<HTMLSpanElement, MouseEvent\>) =\> void|-|
+|onCollapseNodeClick|收起节点点击事件|(e: MouseEvent\<HTMLSpanElement, MouseEvent\>) =\> void|-|
 
 > 引用/Refs
 
