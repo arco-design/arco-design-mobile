@@ -8481,6 +8481,174 @@
             "en": "Textareaword count font size"
         }
     },
+    "timeLineAxisColor": {
+        "cssKey": "time-line-axis-color",
+        "desc": "时间轴轴线的颜色",
+        "override": "",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
+        "staticValue": "#e5e6eb",
+        "localeDesc": {
+            "ch": "时间轴轴线的颜色",
+            "en": "Color of the Axis of TimeLine"
+        }
+    },
+    "timeLineAxisWidth": {
+        "cssKey": "time-line-axis-width",
+        "desc": "时间轴轴线的宽度",
+        "override": "",
+        "value": "~`pxtorem(1)`",
+        "jsValue": "@getRem@1",
+        "staticValue": "0.02rem",
+        "localeDesc": {
+            "ch": "时间轴轴线的宽度",
+            "en": "Width of the Axis of TimeLine"
+        }
+    },
+    "timeLineContentBackgroundColor": {
+        "cssKey": "time-line-content-background-color",
+        "desc": "时间轴content的背景色",
+        "override": "",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
+        "staticValue": "#e5e6eb",
+        "localeDesc": {
+            "ch": "时间轴content的背景色",
+            "en": "Background color of the Content of TimeLine"
+        }
+    },
+    "timeLineContentBorderRadius": {
+        "cssKey": "time-line-content-border-radius",
+        "desc": "时间轴content的圆角值",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "时间轴content的圆角值",
+            "en": "Border radius of the Content of TimeLine"
+        }
+    },
+    "timeLineContentColor": {
+        "cssKey": "time-line-content-color",
+        "desc": "时间轴content的字体颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "时间轴content的字体颜色",
+            "en": "Font color of the Content of TimeLine"
+        }
+    },
+    "timeLineContentFontSize": {
+        "cssKey": "time-line-content-font-size",
+        "desc": "时间轴content的字体大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "时间轴content的字体大小",
+            "en": "Font size of the content of TimeLine"
+        }
+    },
+    "timeLineContentMarginBottom": {
+        "cssKey": "time-line-content-margin-bottom",
+        "desc": "时间轴content的下外边距（13 + 12 / 2）",
+        "override": "",
+        "value": "~`pxtorem(19)`",
+        "jsValue": "@getRem@19",
+        "staticValue": "0.38rem",
+        "localeDesc": {
+            "ch": "时间轴content的下外边距（13 + 12 / 2）",
+            "en": "Bottom margin of the Content of TimeLine"
+        }
+    },
+    "timeLineContentMarginLeft": {
+        "cssKey": "time-line-content-margin-left",
+        "desc": "时间轴content的左外边距",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "时间轴content的左外边距",
+            "en": "Left margin of the Content of TimeLine"
+        }
+    },
+    "timeLineContentMarginTop": {
+        "cssKey": "time-line-content-margin-top",
+        "desc": "时间轴content的上外边距（13 - 12 / 2）",
+        "override": "",
+        "value": "~`pxtorem(7)`",
+        "jsValue": "@getRem@7",
+        "staticValue": "0.14rem",
+        "localeDesc": {
+            "ch": "时间轴content的上外边距（13 - 12 / 2）",
+            "en": "Top margin of the Content of TimeLine"
+        }
+    },
+    "timeLineDotBackgroundColor": {
+        "cssKey": "time-line-dot-background-color",
+        "desc": "时间轴节点的背景色",
+        "override": "",
+        "value": "@background-color",
+        "jsValue": "@global@backgroundColor",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "时间轴节点的背景色",
+            "en": "Background color of the dot of TimeLine"
+        }
+    },
+    "timeLineDotBorderColor": {
+        "cssKey": "time-line-dot-border-color",
+        "desc": "时间轴节点的线颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "时间轴节点的线颜色",
+            "en": "Border color of the dot of TimeLine"
+        }
+    },
+    "timeLineDotWidth": {
+        "cssKey": "time-line-dot-width",
+        "desc": "时间轴节点的宽度",
+        "override": "",
+        "value": "~`pxtorem(9)`",
+        "jsValue": "@getRem@9",
+        "staticValue": "0.18rem",
+        "localeDesc": {
+            "ch": "时间轴节点的宽度",
+            "en": "Width of the dot of TimeLine"
+        }
+    },
+    "timeLineLabelColor": {
+        "cssKey": "time-line-label-color",
+        "desc": "时间轴label的字体颜色",
+        "override": "",
+        "value": "@sub-info-font-color",
+        "jsValue": "@global@subInfoFontColor",
+        "staticValue": "#86909c",
+        "localeDesc": {
+            "ch": "时间轴label的字体颜色",
+            "en": "Font color of the label of TimeLine"
+        }
+    },
+    "timeLineLabelFontSize": {
+        "cssKey": "time-line-label-font-size",
+        "desc": "时间轴label的字体大小",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "时间轴label的字体大小",
+            "en": "Font size of the label of TimeLine"
+        }
+    },
     "toastBackground": {
         "cssKey": "toast-background",
         "desc": "toast 背景色",
