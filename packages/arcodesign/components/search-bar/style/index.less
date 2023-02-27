@@ -30,7 +30,6 @@
   &-input {
     flex: 1;
     background-color: transparent;
-    -webkit-appearance: none;
     .use-var(height, search-bar-input-height);
     .use-var(caret-color, search-bar-input-caret-color);
     &-left {
@@ -47,6 +46,7 @@
       .use-var(color, search-bar-input-placeholder-color);
     }
 
+    &::-webkit-search-decoration,
     &::-webkit-search-cancel-button {
       display: none;
     }
