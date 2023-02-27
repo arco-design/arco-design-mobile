@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.25.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.3...@arco-design/mobile-react@2.25.4) (2023-02-27)
+
+
+### Bug Fixes
+
+* `Ellipsis` optimize click event type ([#94](https://github.com/arco-design/arco-design-mobile/issues/94)) ([e0e0369](https://github.com/arco-design/arco-design-mobile/commit/e0e03691d48f5a0f78e3be339a3f28b6f70c9798))
+* `SearchBar` disable default appearance of search input ([#97](https://github.com/arco-design/arco-design-mobile/issues/97)) ([648ccb3](https://github.com/arco-design/arco-design-mobile/commit/648ccb3024c092dd48c4c79c0c36b3b9ef61fb08))
+
+
+
+
+
 ## [2.25.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.2...@arco-design/mobile-react@2.25.3) (2023-02-10)
 
 
