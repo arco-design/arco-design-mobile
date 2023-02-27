@@ -5,10 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 exports.getRem = getRem;
+
 function getRem(px, baseFontSize) {
   var num = Math.round(px / Number(baseFontSize) * 1000000) / 1000000;
   return num ? "".concat(num, "rem") : num;
 }
+
 var tokens = {
   "prefix": "arco",
   "base-font-size": "50",
@@ -736,7 +738,21 @@ var tokens = {
   "form-item-border-divider-color": "rgba(0, 0, 0, 0.08)",
   "form-item-label-item-required-asterisk-color": "var(--danger-color)",
   "form-item-error-message-color": "var(--danger-color)",
-  "form-item-warning-message-color": "var(--warning-color)"
+  "form-item-warning-message-color": "var(--warning-color)",
+  "time-line-dot-width": "0.18rem",
+  "time-line-dot-border-color": "var(--primary-color)",
+  "time-line-dot-background-color": "var(--background-color)",
+  "time-line-axis-width": "0.02rem",
+  "time-line-axis-color": "var(--line-color)",
+  "time-line-label-font-size": "0.24rem",
+  "time-line-label-color": "var(--sub-info-font-color)",
+  "time-line-content-margin-top": "0.14rem",
+  "time-line-content-margin-bottom": "0.38rem",
+  "time-line-content-margin-left": "0.16rem",
+  "time-line-content-border-radius": "0.08rem",
+  "time-line-content-font-size": "0.32rem",
+  "time-line-content-background-color": "var(--line-color)",
+  "time-line-content-color": "var(--font-color)"
 };
 var _default = tokens;
 exports["default"] = _default;

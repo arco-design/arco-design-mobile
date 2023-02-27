@@ -3695,6 +3695,76 @@ function getCompTokens() {
          * @en Form item warning message color
          */
         formItemWarningMessageColor: useGlobal('warningColor'),
+        /**
+         * 时间轴节点的宽度
+         * @en Width of the dot of TimeLine
+         */
+        timeLineDotWidth: getRem(9),
+        /**
+         * 时间轴节点的线颜色
+         * @en Border color of the dot of TimeLine
+         */
+        timeLineDotBorderColor: useGlobal('primaryColor'),
+        /**
+         * 时间轴节点的背景色
+         * @en Background color of the dot of TimeLine
+         */
+        timeLineDotBackgroundColor: useGlobal('backgroundColor'),
+        /**
+         * 时间轴轴线的宽度
+         * @en Width of the Axis of TimeLine
+         */
+        timeLineAxisWidth: getRem(1),
+        /**
+         * 时间轴轴线的颜色
+         * @en Color of the Axis of TimeLine
+         */
+        timeLineAxisColor: useGlobal('lineColor'),
+        /**
+         * 时间轴label的字体大小
+         * @en Font size of the label of TimeLine
+         */
+        timeLineLabelFontSize: getRem(12),
+        /**
+         * 时间轴label的字体颜色
+         * @en Font color of the label of TimeLine
+         */
+        timeLineLabelColor: useGlobal('subInfoFontColor'),
+        /**
+         * 时间轴content的上外边距（13 - 12 / 2）
+         * @en Top margin of the Content of TimeLine
+         */
+        timeLineContentMarginTop: getRem(7),
+        /**
+         * 时间轴content的下外边距（13 + 12 / 2）
+         * @en Bottom margin of the Content of TimeLine
+         */
+        timeLineContentMarginBottom: getRem(19),
+        /**
+         * 时间轴content的左外边距
+         * @en Left margin of the Content of TimeLine
+         */
+        timeLineContentMarginLeft: getRem(8),
+        /**
+         * 时间轴content的圆角值
+         * @en Border radius of the Content of TimeLine
+         */
+        timeLineContentBorderRadius: getRem(4),
+        /**
+         * 时间轴content的字体大小
+         * @en Font size of the content of TimeLine
+         */
+        timeLineContentFontSize: getRem(16),
+        /**
+         * 时间轴content的背景色
+         * @en Background color of the Content of TimeLine
+         */
+        timeLineContentBackgroundColor: useGlobal('lineColor'),
+        /**
+         * 时间轴content的字体颜色
+         * @en Font color of the Content of TimeLine
+         */
+        timeLineContentColor: useGlobal('fontColor'),
     };
 }
 
