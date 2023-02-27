@@ -41,6 +41,10 @@ export const localeMap = {
         [LanguageSupport.CH]: '展开',
         [LanguageSupport.EN]: 'Expand',
     },
+    Collapse: {
+        [LanguageSupport.CH]: '收起',
+        [LanguageSupport.EN]: 'Collapse',
+    },
     Others: {
         [LanguageSupport.CH]: '其他',
         [LanguageSupport.EN]: 'Others',
