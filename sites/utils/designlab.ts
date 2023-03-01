@@ -1,3 +1,4 @@
+import { Promise } from 'es6-promise';
 import getUrlParam from './getUrlParam';
 
 export function isFromDesignLab() {
@@ -12,13 +13,44 @@ export function sendDesignLabMessage(params: Record<string, any>) {
     window.parent.postMessage(params, '*');
 }
 
+// refer to https://juejin.cn/post/7149842757903712293
+export function prepareValidStyleSheets() {
+    const sheets = document.styleSheets;
+    const promises: Promise<void>[] = [];
+    for (const i in sheets) {
+        try {
+            // @ts-ignore: no-unused-vars
+            const rules = sheets[i].rules || sheets[i].cssRules;
+        } catch (e) {
+            const href = sheets[i].href;
+            const curNode = sheets[i].ownerNode;
+            if (href) {
+                promises.push(
+                    new Promise(resolve =>
+                        fetch(href)
+                            .then(res => res.text())
+                            .then(text => {
+                                const newStyle = document.createElement('style');
+                                newStyle.textContent = text;
+                                document.head.appendChild(newStyle);
+                                curNode && curNode.parentNode?.removeChild(curNode);
+                            })
+                            .finally(() => resolve),
+                    ),
+                );
+            }
+        }
+    }
+    return Promise.all(promises);
+}
+
 // refer to https://stackoverflow.com/questions/2952667/find-all-css-rules-that-apply-to-an-element/37958301#37958301
 export function getUsedCssVars(el: HTMLElement, vars: string[]) {
     if (!el) {
         return;
     }
     try {
-        const sheets = document.styleSheets; // TODO fetch
+        const sheets = document.styleSheets;
         el.matches = el.matches || el.webkitMatchesSelector;
         if (typeof el.matches !== 'function') {
             return;
@@ -58,20 +90,22 @@ export function analyseStyleSheets(name: string) {
     const demoTitles = document.querySelectorAll(
         '.arcodesign-mobile-title',
     ) as NodeListOf<HTMLElement>;
-    const demoTokenInfoList: { title: string; tokens: string[] }[] = [];
-    if (demos && demos.length) {
-        demos.forEach((demo, index) => {
-            const vars: string[] = [];
-            getUsedCssVars(demo, vars);
-            demoTokenInfoList.push({
-                title: demoTitles && demoTitles[index] ? demoTitles[index].innerText : '未命名示例',
-                tokens: vars,
+    prepareValidStyleSheets().then(() => {
+        const demoTokenInfoList: { title: string; tokens: string[] }[] = [];
+        if (demos && demos.length) {
+            demos.forEach((demo, index) => {
+                const vars: string[] = [];
+                getUsedCssVars(demo, vars);
+                demoTokenInfoList.push({
+                    title: demoTitles && demoTitles[index] ? demoTitles[index].innerText : '',
+                    tokens: vars,
+                });
             });
+        }
+        sendDesignLabMessage({
+            event: 'get_used_token',
+            name,
+            tokens: demoTokenInfoList,
         });
-    }
-    sendDesignLabMessage({
-        event: 'get_used_token',
-        name,
-        tokens: demoTokenInfoList,
     });
 }
