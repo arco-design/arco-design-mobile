@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 export interface EllipsisBaseProps {
     /**
@@ -39,12 +39,12 @@ export interface EllipsisBaseProps {
      * 缩略节点点击事件
      * @en Ellipsis node click event
      */
-    onEllipsisNodeClick?: () => void;
+    onEllipsisNodeClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
     /**
      * 收起节点点击事件
      * @en Collapse node click event
      */
-    onCollapseNodeClick?: () => void;
+    onCollapseNodeClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
 export interface EllipsisRef {

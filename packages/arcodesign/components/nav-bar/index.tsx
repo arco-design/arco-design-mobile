@@ -125,6 +125,11 @@ export interface NavBarProps {
      */
     getComputedStyleByScroll?: (offset: number) => CSSProperties;
     /**
+     * 滚动时回调，设置该属性后将监听滚动容器的滚动事件
+     * @en Callback when scrolling. After setting this property, the scroll event of the scroll container will be monitored.
+     */
+    onScrollChange?: (offset: number) => void;
+    /**
      * 无障碍aria-label属性
      * @en Accessibility attribute aria-label
      * @default ""
@@ -165,6 +170,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
         extra,
         getScrollContainer,
         showOffset = 0,
+        onScrollChange,
         getComputedStyleByScroll,
         ariaLabel = '',
         ariaRole = 'banner',
@@ -178,6 +184,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
 
     const onElementScroll = (curOffset: number) => {
         setScrollToggleHide(curOffset < showOffset);
+        onScrollChange?.(curOffset);
 
         if (getComputedStyleByScroll) {
             const cstyle = getComputedStyleByScroll(curOffset);
@@ -201,7 +208,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
     };
 
     useEffect(() => {
-        const needBind = showOffset || getComputedStyleByScroll;
+        const needBind = showOffset || getComputedStyleByScroll || onScrollChange;
         const container = getValidScrollContainer(getScrollContainer);
         handleEleScroll();
         if (needBind && container) {
@@ -212,7 +219,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
                 container.removeEventListener('scroll', handleEleScroll, false);
             }
         };
-    }, [showOffset, getComputedStyleByScroll, getScrollContainer]);
+    }, [showOffset, getComputedStyleByScroll, onScrollChange, getScrollContainer]);
 
     function handleClickLeft(e: React.MouseEvent) {
         if (onClickLeft) {

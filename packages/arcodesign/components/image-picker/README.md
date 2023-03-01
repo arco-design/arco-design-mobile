@@ -91,13 +91,13 @@
 > ImageStatus
 
 ```
-"loaded"|"loading"|"error"|"init"
+"loaded" | "loading" | "error" | "init"
 ```
 
 > ObjectPosition
 
 ```
-string|number|string & {}
+string | number | string & {}
 ```
 
 > SelectCallback

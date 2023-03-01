@@ -3,8 +3,10 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
 import ContextProvider from '../../../packages/arcodesign/components/context-provider';
 import { LanguageSupport } from '../../utils/language';
-import docs from '../../pages';
-import enDocs from '../../pages/index-en-US';
+import docs from '../pages/components';
+import compositeDocs from '../pages/composite-comp';
+import enDocs from '../pages/components/index-en-US';
+import enCompositeDocs from '../pages/composite-comp/index-en-US';
 import Demo from '../widgets/demo';
 import Home from '../widgets/home';
 import TypicalDemo from '../widgets/typicalDemo';
@@ -59,6 +61,24 @@ function App() {
                         render={props => {
                             const { name } = props.match.params;
                             const Comp = enDocs[name];
+                            return Comp ? <Demo name={name} doc={<Comp />} /> : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/composite-components/:name"
+                        render={props => {
+                            const { name } = props.match.params;
+                            const Comp = compositeDocs[name];
+                            return Comp ? <Demo name={name} doc={<Comp />} /> : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/en-US/composite-components/:name"
+                        render={props => {
+                            const { name } = props.match.params;
+                            const Comp = enCompositeDocs[name];
                             return Comp ? <Demo name={name} doc={<Comp />} /> : null;
                         }}
                         exact

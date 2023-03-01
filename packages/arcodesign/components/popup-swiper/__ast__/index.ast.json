@@ -804,7 +804,7 @@
         }
     },
     "deps": {
-        "DirectionType": "\"left\"|\"right\"|\"top\"|\"bottom\"",
+        "DirectionType": "\"left\" | \"right\" | \"top\" | \"bottom\"",
         "PopupSwiperRef": {
             "dom": {
                 "name": "dom",
@@ -1098,6 +1098,28 @@
                 "defaultValue": null,
                 "type": {
                     "name": "{ placeholder: string; cancelBtn: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Stepper": {
+                "name": "Stepper",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ minusButtonName: string; addButtonName: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Form": {
+                "name": "Form",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ required: string; type: { email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; }; number: { min: string; max: string; equal: string; range: string; positive: string; negative: string; }; string: { ...; }; array: { ...; }; object: { ...; }; boolean: { ...; }; }"
                 },
                 "tags": {},
                 "descWithTags": ""

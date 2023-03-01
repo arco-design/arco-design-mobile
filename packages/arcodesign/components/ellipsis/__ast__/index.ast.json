@@ -131,7 +131,7 @@
             "descWithTags": "需要缩略的文本内容",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "BaseProps"
+                "name": "EllipsisBaseProps"
             },
             "required": true,
             "type": {
@@ -151,7 +151,7 @@
             "descWithTags": "是否开启缩略",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "BaseProps"
+                "name": "EllipsisBaseProps"
             },
             "required": false,
             "type": {
@@ -171,7 +171,7 @@
             "descWithTags": "最大显示行数",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "BaseProps"
+                "name": "EllipsisBaseProps"
             },
             "required": false,
             "type": {
@@ -191,7 +191,7 @@
             "descWithTags": "是否使用 innerHTML 插入文本（警告：务必确保 text 安全可靠，否则易导致 XSS 漏洞）",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "BaseProps"
+                "name": "EllipsisBaseProps"
             },
             "required": false,
             "type": {
@@ -211,7 +211,7 @@
             "descWithTags": "自定义缩略符节点，文本缩略时插入文本尾部",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "BaseProps"
+                "name": "EllipsisBaseProps"
             },
             "required": false,
             "type": {
@@ -228,7 +228,7 @@
             "descWithTags": "自定义收起符节点，不为空且文本展开时插入文本尾部",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "BaseProps"
+                "name": "EllipsisBaseProps"
             },
             "required": false,
             "type": {
@@ -245,11 +245,11 @@
             "descWithTags": "缩略节点点击事件",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "BaseProps"
+                "name": "EllipsisBaseProps"
             },
             "required": false,
             "type": {
-                "name": "() => void"
+                "name": "(e: MouseEvent<HTMLSpanElement, MouseEvent>) => void"
             }
         },
         "onCollapseNodeClick": {
@@ -262,11 +262,11 @@
             "descWithTags": "收起节点点击事件",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/ellipsis/type.ts",
-                "name": "BaseProps"
+                "name": "EllipsisBaseProps"
             },
             "required": false,
             "type": {
-                "name": "() => void"
+                "name": "(e: MouseEvent<HTMLSpanElement, MouseEvent>) => void"
             }
         },
         "ref": {

@@ -7,7 +7,7 @@ import React, {
     Ref,
     useImperativeHandle,
 } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import Picker, { PickerRef } from '../picker';
 import { PickerData, ValueType } from '../picker-view';
 import { ContextLayout } from '../context-provider';
@@ -34,14 +34,6 @@ export interface DatePickerRef {
     dom: HTMLDivElement | null;
 }
 
-/**
- * 日期时间选择器，基于`Picker`组件扩展，支持指定范围，单位可精确到秒。
- * @en Date picker, based on the `Picker` component, supports the specified range, the unit can be accurate to seconds.
- * @type 数据录入
- * @type_en Data Entry
- * @name 日期时间选择器
- * @name_en DatePicker
- */
 const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) => {
     const {
         currentTs: userSetCurrentTs = initDate,
@@ -285,5 +277,13 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         </ContextLayout>
     );
 });
-
-export default DatePicker;
+/**
+ * 日期时间选择器，基于`Picker`组件扩展，支持指定范围，单位可精确到秒。
+ * @en Date picker, based on the `Picker` component, supports the specified range, the unit can be accurate to seconds.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 日期时间选择器
+ * @name_en DatePicker
+ * @displayName DatePicker
+ */
+export default componentWrapper(DatePicker, 'DatePicker');

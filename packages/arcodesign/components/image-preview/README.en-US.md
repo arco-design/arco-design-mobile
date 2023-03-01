@@ -75,6 +75,7 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |fit|Image layout, preview\-y is overflow scrolling with full width and height, preview\-x is overflow scrolling with full width and height|"preview\-y" \| "preview\-x"|
 |fallbackSrc|Transition image url|string|
 |thumbPosition|Thumbnail fill mode (backgroundPosition), default value is top center|string|
+|extraNode|Custom dom|ReactNode|
 
 > GlobalContextParams
 
@@ -103,3 +104,5 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |Image|-|\{ loadError: string; \}|
 |ImagePicker|-|\{ loadError: string; \}|
 |SearchBar|-|\{ placeholder: string; cancelBtn: string; \}|
+|Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
+|Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|

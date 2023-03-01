@@ -1212,7 +1212,7 @@
                 "description": "手动更新当前选中索引，rightNow 表示是否立刻跳转到目标索引，否则执行过渡动画到目标索引\n@en Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index",
                 "defaultValue": null,
                 "type": {
-                    "name": "(newIndex: number, rightNow?: boolean) => void"
+                    "name": "(newIndex: number, rightNow?: boolean, direction?: \"left\" | \"right\") => void"
                 },
                 "tags": {
                     "en": "Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index"

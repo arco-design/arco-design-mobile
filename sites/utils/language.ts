@@ -35,4 +35,8 @@ export const commonLocaleMap = {
         [LanguageSupport.CH]: '导航',
         [LanguageSupport.EN]: 'Navigation',
     },
+    CompositeComp: {
+        [LanguageSupport.CH]: '复合组件',
+        [LanguageSupport.EN]: 'Composite Component',
+    },
 };

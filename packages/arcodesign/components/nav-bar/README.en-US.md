@@ -28,6 +28,9 @@ Navigation bar, supports ceiling and immersion, supports display at specified sc
 |extra|Additional render elements, level with inner|ReactNode|-|
 |getScrollContainer|Custom scrolling element, default is window if not input|() =\> HTMLElement \| Window|-|
 |getComputedStyleByScroll|Set a custom style according to the scroll offset value\. After setting this property, the scroll event of the scroll container will be monitored\.|(offset: number) =\> CSSProperties|-|
+|onScrollChange|Callback when scrolling\. After setting this property, the scroll event of the scroll container will be monitored\.|(offset: number) =\> void|-|
+|ariaLabel|Accessibility attribute aria\-label|string|""|
+|ariaRole|Accessibility attribute role|string|"banner"|
 
 > Refs
 

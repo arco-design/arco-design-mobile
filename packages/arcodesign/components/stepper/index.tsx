@@ -1,4 +1,4 @@
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { ContextLayout } from '../context-provider';
 import useButtonClick from './hooks/useButtonClick';
@@ -9,14 +9,6 @@ import { StepperProps, StepperRef } from './type';
 
 export * from './type';
 
-/**
- * 步进器组件，支持受控模式
- * @en Stepper component, provide controlled mode
- * @type 数据录入
- * @type_en Data Entry
- * @name 步进器
- * @name_en Stepper
- */
 const Stepper = forwardRef((props: StepperProps, ref: Ref<StepperRef>) => {
     const {
         className = '',
@@ -161,4 +153,13 @@ const Stepper = forwardRef((props: StepperProps, ref: Ref<StepperRef>) => {
     );
 });
 
-export default Stepper;
+/**
+ * 步进器组件，支持受控模式
+ * @en Stepper component, provide controlled mode
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 步进器
+ * @name_en Stepper
+ * @displayName Stepper
+ */
+export default componentWrapper(Stepper, 'Stepper');

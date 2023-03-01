@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useMemo } from 'react';
-import routes from '../../pages/route';
-import enRoutes from '../../pages/route-en-US';
+import routes from '../pages/components/route';
+import enRoutes from '../pages/components/route-en-US';
+import compositeRoutes from '../pages/composite-comp/route';
+import enCompositeRoutes from '../pages/composite-comp/route-en-US';
 import { HistoryContext } from '../entry';
 import getUrlParam from '../../utils/getUrlParam';
-import { LanguageSupport } from '../../utils/language';
+import { commonLocaleMap, LanguageSupport } from '../../utils/language';
 import { getMenuOrder } from '../../utils/menu';
 import { isFromDesignLab, sendDesignLabMessage } from '../../utils/designlab';
 
@@ -26,7 +28,9 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
     const history = useContext(HistoryContext);
     const actualRoutes = useMemo(() => {
         const langRoutes = language === LanguageSupport.EN ? enRoutes : routes;
-        return getMenuOrder(langRoutes, language);
+        const langCompositeRoutes =
+            language === LanguageSupport.EN ? enCompositeRoutes : compositeRoutes;
+        return getMenuOrder(langRoutes, language, langCompositeRoutes);
     }, [routes, enRoutes, language]);
     /** 区分iframe通信 */
     const needJump = getUrlParam('need_jump') !== '0';
@@ -49,18 +53,18 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
         };
     }, []);
 
-    function handleSubItemClick(route) {
+    function handleSubItemClick(type, route) {
         window.localStorage.setItem('home_scroll', `${route}__${window.pageYOffset}`);
         window.parent.postMessage(
             {
-                type: 'component',
+                type,
                 data: route,
                 language,
             },
             '*',
         );
         if (needJump) {
-            history.push(`${language === LanguageSupport.EN ? '/en-US' : ''}/components/${route}`);
+            history.push(`${language === LanguageSupport.EN ? '/en-US' : ''}/${type}/${route}`);
         }
     }
 
@@ -80,7 +84,14 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
                             <div
                                 className="menu-item"
                                 key={index}
-                                onClick={() => handleSubItemClick(route.key)}
+                                onClick={() =>
+                                    handleSubItemClick(
+                                        type === commonLocaleMap.CompositeComp[language]
+                                            ? 'composite-components'
+                                            : 'components',
+                                        route.key,
+                                    )
+                                }
                             >
                                 {route.name}
                                 <Arrow />

@@ -22,8 +22,8 @@ Text ellipsis component supports multi-line abbreviations, rich text, custom abb
 |dangerouslyUseInnerHTML|Whether to use innerHTML to insert text (warning: make sure the text is safe and reliable, otherwise it will easily lead to XSS vulnerabilities)|boolean|false|
 |ellipsisNode|Customize the ellipsis node, insert at the end of the text when the text is omitted|ReactNode|"..."|
 |collapseNode|Customize the collapse node, when the value is not empty and the text is expanded, the node is  inserted at the end of the text|ReactNode|-|
-|onEllipsisNodeClick|Ellipsis node click event|() =\> void|-|
-|onCollapseNodeClick|Collapse node click event|() =\> void|-|
+|onEllipsisNodeClick|Ellipsis node click event|(e: MouseEvent\<HTMLSpanElement, MouseEvent\>) =\> void|-|
+|onCollapseNodeClick|Collapse node click event|(e: MouseEvent\<HTMLSpanElement, MouseEvent\>) =\> void|-|
 
 > Refs
 

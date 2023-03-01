@@ -38,5 +38,5 @@
 > PercentPosition
 
 ```
-"left"|"innerLeft"|"right"|"follow"
+"left" | "innerLeft" | "right" | "follow"
 ```

@@ -10,7 +10,8 @@
     --line-color: #e5e6eb;
     --primary-color: #165dff;
     --primary-disabled-color: #94bfff;
-    --danger-color: #ee4d38;
+    --danger-color: #f53f3f;
+    --warning-color: #ff7d00;
     --disabled-color: #c9cdd4;
     --mask-background: rgba(0, 0, 0, 0.6);
     --mask-content-color: #ffffff;
@@ -503,7 +504,7 @@
     --swipe-load-label-text-font-size: ~`pxtorem(12)`;
     --notice-bar-wrapper-padding: 0 ~`pxtorem(16)`;
     --notice-bar-background: #fff7e8;
-    --notice-bar-color: #ff7d00;
+    --notice-bar-color: var(--warning-color);
     --notice-bar-gradient-background: linear-gradient(to right, #fff7e8, rgba(255, 247, 232, 0));
     --notice-bar-line-height: ~`pxtorem(20)`;
     --notice-bar-text-font-size: ~`pxtorem(14)`;
@@ -513,8 +514,8 @@
     --notice-bar-horizontal-padding: ~`pxtorem(8)`;
     --notice-bar-gradient-width: ~`pxtorem(8)`;
     --notify-success-background: #00B42A;
-    --notify-error-background: #F53F3F;
-    --notify-warn-background: #FF7D00;
+    --notify-error-background: var(--danger-color);
+    --notify-warn-background: var(--warning-color);
     --notify-font-color: #ffffff;
     --notify-info-font-color: var(--primary-color);
     --notify-font-size: ~`pxtorem(14)`;
@@ -533,7 +534,7 @@
     --steps-finish-icon-num-background: #E8F3FF;
     --steps-process-icon-num-background: var(--primary-color);
     --steps-wait-icon-num-background: #F2F3F5;
-    --steps-error-icon-num-background: #F53F3F;
+    --steps-error-icon-num-background: var(--danger-color);
     --steps-icon-svg-standard-font-size: 10PX;
     --steps-finish-icon-svg-color: var(--primary-color);
     --steps-error-icon-svg-color: #FFFFFF;
@@ -546,7 +547,7 @@
     --steps-process-dot-background: var(--primary-color);
     --steps-wait-dot-border-color: var(--sub-info-font-color);
     --steps-finish-title-color: var(--font-color);
-    --steps-error-title-color: #F53F3F;
+    --steps-error-title-color: var(--danger-color);
     --steps-process-title-color: var(--primary-color);
     --steps-wait-title-color: var(--sub-info-font-color);
     --steps-description-color: var(--sub-font-color);
@@ -577,7 +578,7 @@
     --swipe-action-icon-width: ~`pxtorem(20)`;
     --swipe-action-icon-height: ~`pxtorem(20)`;
     --swipe-action-icon-margin-right: ~`pxtorem(4)`;
-    --badge-background-color: #F53F3F;
+    --badge-background-color: var(--danger-color);
     --badge-text-color: #FFFFFF;
     --badge-font-size: 12PX;
     --badge-dot-width: 8PX;
@@ -718,4 +719,27 @@
     --stepper-input-width: ~`pxtorem(40)`;
     --stepper-input-height: ~`pxtorem(28)`;
     --stepper-input-margin: 0 1PX;
+    --form-item-label-item-font-size: ~`pxtorem(16)`;
+    --form-item-label-item-line-height: ~`pxtorem(54)`;
+    --form-item-label-item-color: var(--font-color);
+    --form-item-label-item-gutter: ~`pxtorem(16)`;
+    --form-item-label-item-width: ~`pxtorem(96)`;
+    --form-item-border-divider-color: rgba(0, 0, 0, 0.08);
+    --form-item-label-item-required-asterisk-color: var(--danger-color);
+    --form-item-error-message-color: var(--danger-color);
+    --form-item-warning-message-color: var(--warning-color);
+    --time-line-dot-width: ~`pxtorem(9)`;
+    --time-line-dot-border-color: var(--primary-color);
+    --time-line-dot-background-color: var(--background-color);
+    --time-line-axis-width: ~`pxtorem(1)`;
+    --time-line-axis-color: var(--line-color);
+    --time-line-label-font-size: ~`pxtorem(12)`;
+    --time-line-label-color: var(--sub-info-font-color);
+    --time-line-content-margin-top: ~`pxtorem(7)`;
+    --time-line-content-margin-bottom: ~`pxtorem(19)`;
+    --time-line-content-margin-left: ~`pxtorem(8)`;
+    --time-line-content-border-radius: ~`pxtorem(4)`;
+    --time-line-content-font-size: ~`pxtorem(16)`;
+    --time-line-content-background-color: var(--line-color);
+    --time-line-content-color: var(--font-color);
 }

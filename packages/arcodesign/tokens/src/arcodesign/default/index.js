@@ -48,10 +48,15 @@ function getGlobalTokens() {
          */
         primaryDisabledColor: '#94bfff',
         /**
+         * 基础危险态颜色
+         * @en Base dangerous state color
+         */
+        dangerColor: '#f53f3f',
+        /**
          * 基础警告态颜色
          * @en Base warning state color
          */
-        dangerColor: '#ee4d38',
+        warningColor: '#ff7d00',
         /**
          * 基础禁用态字体颜色
          * @en Base disabled font color
@@ -2583,7 +2588,7 @@ function getCompTokens() {
          * 通知栏文字颜色
          * @en NoticeBar font color
          */
-        noticeBarColor: '#ff7d00',
+        noticeBarColor: useGlobal('warningColor'),
         /**
          * 通知栏文字滚动时两侧渐变色
          * @en The gradient color on both sides of the NoticeBar text when scrolling
@@ -2634,12 +2639,12 @@ function getCompTokens() {
          * notify 错误通知背景色
          * @en Background color of error notify
          */
-        notifyErrorBackground: '#F53F3F',
+        notifyErrorBackground: useGlobal('dangerColor'),
         /**
          * notify 警告通知背景色
          * @en Background color of wran notify
          */
-        notifyWarnBackground: '#FF7D00',
+        notifyWarnBackground: useGlobal('warningColor'),
         /**
          * notify 字体颜色
          * @en Font color of notify
@@ -2735,7 +2740,7 @@ function getCompTokens() {
          * steps 无文字错误步骤背景色
          * @en Non-text steps background color in error state
          */
-        stepsErrorIconNumBackground: '#F53F3F',
+        stepsErrorIconNumBackground: useGlobal('dangerColor'),
         /**
          * steps 步骤默认图标大小
          * @en Steps icon size
@@ -2800,7 +2805,7 @@ function getCompTokens() {
          * steps 错误步骤标题颜色
          * @en Steps title color in error state
          */
-        stepsErrorTitleColor: '#F53F3F',
+        stepsErrorTitleColor: useGlobal('dangerColor'),
         /**
          * steps 进行中步骤标题颜色
          * @en Steps title color in processing state
@@ -2945,7 +2950,7 @@ function getCompTokens() {
          * 徽标背景色
          * @en Badge background color
          */
-        badgeBackgroundColor: '#F53F3F',
+        badgeBackgroundColor: useGlobal('dangerColor'),
         /**
          * 徽标文字颜色
          * @en Badge font color
@@ -3645,6 +3650,121 @@ function getCompTokens() {
          * @en Input margin of Stepper
          */
         stepperInputMargin: '0 1PX',
+        /*
+         * 表单项标签字号
+         * @en Font size of Form label
+         */
+        formItemLabelItemFontSize: getRem(16),
+        /**
+         * 表单项标签行高
+         * @en Lineheight of Form label
+         */
+        formItemLabelItemLineHeight: getRem(54),
+        /**
+         * 表单项标签颜色
+         * @en Color of Form label
+         */
+        formItemLabelItemColor: useGlobal('fontColor'),
+        /**
+         * 表单项标签右边距
+         * @en Right padding of Form label
+         */
+        formItemLabelItemGutter: getRem(16),
+        /**
+         * 表单项标签宽度
+         * @en Right padding of Form label
+         */
+        formItemLabelItemWidth: getRem(96),
+        /**
+         * 表单项分割线颜色
+         * @en Form item divider color
+         */
+        formItemBorderDividerColor: 'rgba(0, 0, 0, 0.08)',
+        /**
+         * 表单项必选项星号颜色
+         * @en Form item asterisk color
+         */
+        formItemLabelItemRequiredAsteriskColor: useGlobal('dangerColor'),
+        /**
+         * 表单项错误提示颜色
+         * @en Form item error message color
+         */
+        formItemErrorMessageColor: useGlobal('dangerColor'),
+        /**
+         * 表单项警告提示颜色
+         * @en Form item warning message color
+         */
+        formItemWarningMessageColor: useGlobal('warningColor'),
+        /**
+         * 时间轴节点的宽度
+         * @en Width of the dot of TimeLine
+         */
+        timeLineDotWidth: getRem(9),
+        /**
+         * 时间轴节点的线颜色
+         * @en Border color of the dot of TimeLine
+         */
+        timeLineDotBorderColor: useGlobal('primaryColor'),
+        /**
+         * 时间轴节点的背景色
+         * @en Background color of the dot of TimeLine
+         */
+        timeLineDotBackgroundColor: useGlobal('backgroundColor'),
+        /**
+         * 时间轴轴线的宽度
+         * @en Width of the Axis of TimeLine
+         */
+        timeLineAxisWidth: getRem(1),
+        /**
+         * 时间轴轴线的颜色
+         * @en Color of the Axis of TimeLine
+         */
+        timeLineAxisColor: useGlobal('lineColor'),
+        /**
+         * 时间轴label的字体大小
+         * @en Font size of the label of TimeLine
+         */
+        timeLineLabelFontSize: getRem(12),
+        /**
+         * 时间轴label的字体颜色
+         * @en Font color of the label of TimeLine
+         */
+        timeLineLabelColor: useGlobal('subInfoFontColor'),
+        /**
+         * 时间轴content的上外边距（13 - 12 / 2）
+         * @en Top margin of the Content of TimeLine
+         */
+        timeLineContentMarginTop: getRem(7),
+        /**
+         * 时间轴content的下外边距（13 + 12 / 2）
+         * @en Bottom margin of the Content of TimeLine
+         */
+        timeLineContentMarginBottom: getRem(19),
+        /**
+         * 时间轴content的左外边距
+         * @en Left margin of the Content of TimeLine
+         */
+        timeLineContentMarginLeft: getRem(8),
+        /**
+         * 时间轴content的圆角值
+         * @en Border radius of the Content of TimeLine
+         */
+        timeLineContentBorderRadius: getRem(4),
+        /**
+         * 时间轴content的字体大小
+         * @en Font size of the content of TimeLine
+         */
+        timeLineContentFontSize: getRem(16),
+        /**
+         * 时间轴content的背景色
+         * @en Background color of the Content of TimeLine
+         */
+        timeLineContentBackgroundColor: useGlobal('lineColor'),
+        /**
+         * 时间轴content的字体颜色
+         * @en Font color of the Content of TimeLine
+         */
+        timeLineContentColor: useGlobal('fontColor'),
     };
 }
 

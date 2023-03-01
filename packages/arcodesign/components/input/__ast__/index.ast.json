@@ -5,7 +5,8 @@
         "type": "数据录入",
         "type_en": "Data Entry",
         "name": "输入框",
-        "name_en": "Input"
+        "name_en": "Input",
+        "displayName": "Input"
     },
     "displayName": "Input",
     "methods": [],
@@ -96,6 +97,23 @@
             "required": false,
             "type": {
                 "name": "InputHTMLAttributes<HTMLInputElement>"
+            }
+        },
+        "ariaLabel": {
+            "defaultValue": null,
+            "description": "无障碍label\n@en accessible label",
+            "name": "ariaLabel",
+            "tags": {
+                "en": "accessible label"
+            },
+            "descWithTags": "无障碍label",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
             }
         },
         "id": {

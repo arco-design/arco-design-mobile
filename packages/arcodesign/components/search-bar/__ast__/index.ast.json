@@ -444,6 +444,23 @@
                 "name": "InputHTMLAttributes<HTMLInputElement>"
             }
         },
+        "ariaLabel": {
+            "defaultValue": null,
+            "description": "无障碍label\n@en accessible label",
+            "name": "ariaLabel",
+            "tags": {
+                "en": "accessible label"
+            },
+            "descWithTags": "无障碍label",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
         "id": {
             "defaultValue": null,
             "description": "输入框的id\n@en Input id",
@@ -975,8 +992,8 @@
         }
     },
     "deps": {
-        "SearchBarShape": "\"square\"|\"round\"",
-        "SearchAssociationShowType": "\"value\"|\"focus\"|\"default\"|\"always\"",
+        "SearchBarShape": "\"square\" | \"round\"",
+        "SearchAssociationShowType": "\"value\" | \"focus\" | \"default\" | \"always\"",
         "SearchAssociationBaseItem": {
             "content": {
                 "name": "content",
@@ -992,7 +1009,7 @@
                 "descWithTags": "基础内容"
             }
         },
-        "SearchAssociationHighlightMode": "\"prefix\"|\"contain\"|\"none\"|(content: string, keyword: string, defaultHighlightClassName: string) => ReactNode",
+        "SearchAssociationHighlightMode": "\"prefix\" | \"contain\" | \"none\" | (content: string, keyword: string, defaultHighlightClassName: string) => ReactNode",
         "SearchBarRef": {
             "dom": {
                 "name": "dom",

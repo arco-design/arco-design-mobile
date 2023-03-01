@@ -4,7 +4,8 @@ const utils = require('../../../utils');
 const childProcess = require('child_process');
 const languageUtils = require('../../../utils/language');
 const localeMap = require('../../../utils/language.json');
-const { renderDemoSource, renderNavIntro, renderReadmeTable } = require('./helpers');
+const { renderNavIntro, renderReadmeTable} = require('./helpers');
+const { renderComponentsDemos, renderComponentsFAQ } = require('./utils');
 
 function generateComponents(compSrcPath, compPagePath, language, latestVersion) {
     const compNames = fs.readdirSync(path.join(compSrcPath)).filter(name => {
@@ -16,19 +17,12 @@ function generateComponents(compSrcPath, compPagePath, language, latestVersion) 
     const importName = utils.getCompName(`icon${tsxFileSuffix}`);
     let compDocsImportStr = `import ${importName} from './icon${tsxFileSuffix ? `/index${tsxFileSuffix}` : ''}';\n`;
     let compDocsStr = `    'icon': ${importName},\n`;
-
     const compRoutes = {};
-
     compNames.forEach(comp => {
-        if (comp === 'locale') {
-            return;
-        }
         // 内部工具js不处理
         if (/^_/.test(comp)) {
             return;
         }
-
-        const docPath = path.join(compPagePath, comp);
 
         // 组件readme内容填充，readmeStr[0]为demo之前内容，readmeStr[1]为demo之后内容，中间用分割线隔开
         let readmeStr = [];
@@ -56,33 +50,22 @@ function generateComponents(compSrcPath, compPagePath, language, latestVersion) 
             readmeStr = [];
         }
 
-        // demo代码展示填充
+        // 渲染文档站 demo 内容部分
         const demoPath = path.join(compSrcPath, comp, 'demo');
-        let demos = null;
-        try {
-            demos = fs.readdirSync(path.join(demoPath));
-        } catch (e) {
-            return;
-        }
-        const demoSource = [];
-        demos.forEach(name => {
-            if (name.indexOf('.md') < 0) {
-                return;
-            }
-            const demoName = name.replace('.md', '');
-            const { order, source, codeSource, title } = renderDemoSource(demoPath, demoName, language || 'ch');
-            demoSource.push({
-                order,
-                source: `<Code codeSource="${encodeURIComponent(
-                    codeSource
-                )}" version="${latestVersion}" compKey="${comp}" demoKey="demo-${comp}" name="${title}" code={<div className="demo-code-wrapper" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
-                    source,
-                )} }} />} language={language || LanguageSupport.CH} />`,
-            });
-        });
+        const demoSource = renderComponentsDemos({
+            demoSrcPath: demoPath,
+            comp,
+            language,
+            latestVersion,
+        }) || [];
 
-        demoSource.sort((a, b) => a.order - b.order);
+        // 渲染文档站 faq 内容部分
+        const faqNodeStr = renderComponentsFAQ({
+            faqSrcPath: path.join(compSrcPath, comp, `FAQ${mdSuffix}.md`),
+            language,
+        })
 
+        // 创建 demo 目录写入 index 文件
         const entry = `import React from 'react';
 import Code from '../../../entry/code';
 import { LanguageSupport } from '../../../../utils/language';
@@ -96,17 +79,19 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
             <div className="pc-site-content" id="demo-${comp}">
                 ${demoSource.map(demo => demo.source).join(`\n${' '.repeat(12)}`)}
                 ${readmeStr[1] || ''}
+                ${faqNodeStr || ''}
             </div>
         </div>
     );
 }
 `;
+        const docPath = path.join(compPagePath, comp);
         fs.mkdirpSync(docPath);
         fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), entry, () => {
             console.log(`>>> Write sites file finished: ` + comp);
         });
 
-        // 入口文件内容填充
+        // 拼接组件入口文件内容
         if (demoSource.length) {
             const importName = utils.getCompName(comp);
             const route = utils.getFolderName(comp);
@@ -114,6 +99,8 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
             compDocsStr += `    '${route}': ${importName},\n`;
         }
     });
+
+    // 写入入口文件
     const docEntryStr = `${compDocsImportStr}
 const docs = {\n${compDocsStr}};
 
