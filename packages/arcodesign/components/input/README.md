@@ -28,6 +28,7 @@
 |disabled|输入框是否禁用|boolean|-|
 |readOnly|是否只读|boolean|-|
 |autoFocus|是否自动获取焦点|boolean|-|
+|blockChangeWhenCompositing|当 ios 输入中文时，输拼音的过程不触发onChange，仅确认选择后触发|boolean|false|
 |label|输入框左侧文本|ReactNode|-|
 |required|是否必填项|boolean|-|
 |validator|正则验证，不符合验证的不允许输入|RegExp \| ((value: string) =\> boolean)|-|

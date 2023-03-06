@@ -34,6 +34,7 @@ A multi-line textarea, supports adaptive content height.
 |disabled|Whether the input box is disabled|boolean|-|
 |readOnly|Read\-only|boolean|-|
 |autoFocus|Whether to automatically get the focus|boolean|-|
+|blockChangeWhenCompositing|When inputting Chinese on ios, onChange is not triggered during pinyin input, but only after confirming the selection|boolean|false|
 |label|text to the left of the input box|ReactNode|-|
 |required|Whether it is required|boolean|-|
 |validator|Regular validation, input is not allowed if it does not meet the validation|RegExp \| ((value: string) =\> boolean)|-|
