@@ -15,6 +15,7 @@ export { default as ContextProvider } from './context-provider';
 export { default as Dialog } from './dialog';
 export { default as CountDown } from './count-down';
 export { default as DatePicker } from './date-picker';
+export { default as Divider } from './divider';
 export { default as Dropdown } from './dropdown';
 export { default as DropdownMenu } from './dropdown-menu';
 export { default as Ellipsis } from './ellipsis';

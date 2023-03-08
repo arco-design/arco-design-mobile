@@ -1,0 +1,198 @@
+{
+    "description": "划分内容的装饰线",
+    "descriptionTags": {
+        "en": "A partitioning line element",
+        "type": "布局",
+        "type_en": "Layout",
+        "name": "分割线",
+        "name_en": "Divider"
+    },
+    "displayName": "Divider",
+    "methods": [],
+    "props": {
+        "hairline": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否使用 0.5px 线\n@en Whether to use hairline",
+            "name": "hairline",
+            "tags": {
+                "en": "Whether to use hairline",
+                "default": "true"
+            },
+            "descWithTags": "是否使用 0.5px 线",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/divider/index.tsx",
+                "name": "DividerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "content": {
+            "defaultValue": null,
+            "description": "文字\n@en Divider text",
+            "name": "content",
+            "tags": {
+                "en": "Divider text"
+            },
+            "descWithTags": "文字",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/divider/index.tsx",
+                "name": "DividerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "align": {
+            "defaultValue": {
+                "value": "'center'"
+            },
+            "description": "文字位置\n@en The position of text inside divider",
+            "name": "align",
+            "tags": {
+                "en": "The position of text inside divider",
+                "default": "'center'"
+            },
+            "descWithTags": "文字位置",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/divider/index.tsx",
+                "name": "DividerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"left\" | \"center\" | \"right\"",
+                "value": [
+                    {
+                        "value": "\"left\""
+                    },
+                    {
+                        "value": "\"center\""
+                    },
+                    {
+                        "value": "\"right\""
+                    }
+                ]
+            }
+        },
+        "width": {
+            "defaultValue": null,
+            "description": "分割线宽度（单边），仅在`align`为`center`时生效\n@en The width of divider, only take effect when `align` is `center`.",
+            "name": "width",
+            "tags": {
+                "en": "The width of divider, only take effect when `align` is `center`."
+            },
+            "descWithTags": "分割线宽度（单边），仅在`align`为`center`时生效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/divider/index.tsx",
+                "name": "DividerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "children": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "子元素，同 content，优先级低于 content\n@en Children element, same as `content`, with the priority lower than `content`",
+            "name": "children",
+            "tags": {
+                "en": "Children element, same as `content`, with the priority lower than `content`",
+                "default": "null"
+            },
+            "descWithTags": "子元素，同 content，优先级低于 content",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/divider/index.tsx",
+                "name": "DividerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<DividerRef>"
+            }
+        }
+    },
+    "deps": {
+        "DividerRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "最外层 DOM 元素"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "DividerProps",
+        "ref": "DividerRef"
+    },
+    "isDefaultExport": true
+}

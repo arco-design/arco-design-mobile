@@ -2735,6 +2735,100 @@
             "en": "Base disabled font color"
         }
     },
+    "dividerContentFontColor": {
+        "cssKey": "divider-content-font-color",
+        "desc": "分割线文本字体颜色",
+        "override": "",
+        "value": "@sub-font-color",
+        "jsValue": "@global@subFontColor",
+        "staticValue": "#4e5969",
+        "localeDesc": {
+            "ch": "分割线文本字体颜色",
+            "en": "Font color of divider content"
+        }
+    },
+    "dividerContentFontSize": {
+        "cssKey": "divider-content-font-size",
+        "desc": "分割线文本字体大小",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "分割线文本字体大小",
+            "en": "Font size of divider content"
+        }
+    },
+    "dividerContentPadding": {
+        "cssKey": "divider-content-padding",
+        "desc": "分割线文本左右padding",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "分割线文本左右padding",
+            "en": "Padding of content"
+        }
+    },
+    "dividerLeftWidth": {
+        "cssKey": "divider-left-width",
+        "desc": "分割线左对齐时左边长度",
+        "override": "",
+        "value": "~`pxtorem(28)`",
+        "jsValue": "@getRem@28",
+        "staticValue": "0.56rem",
+        "localeDesc": {
+            "ch": "分割线左对齐时左边长度"
+        }
+    },
+    "dividerLineColor": {
+        "cssKey": "divider-line-color",
+        "desc": "分割线线条颜色",
+        "override": "",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
+        "staticValue": "#e5e6eb",
+        "localeDesc": {
+            "ch": "分割线线条颜色",
+            "en": "Color of divider line"
+        }
+    },
+    "dividerLineThickness": {
+        "cssKey": "divider-line-thickness",
+        "desc": "分割线线条粗细",
+        "override": "",
+        "value": "1PX",
+        "jsValue": "1PX",
+        "staticValue": "1PX",
+        "localeDesc": {
+            "ch": "分割线线条粗细",
+            "en": "Thickness of divider line"
+        }
+    },
+    "dividerMargin": {
+        "cssKey": "divider-margin",
+        "desc": "分割线上下margin",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "分割线上下margin",
+            "en": "Top and Bottom margin of divider"
+        }
+    },
+    "dividerRightWidth": {
+        "cssKey": "divider-right-width",
+        "desc": "分割线右对齐时右边长度",
+        "override": "",
+        "value": "~`pxtorem(28)`",
+        "jsValue": "@getRem@28",
+        "staticValue": "0.56rem",
+        "localeDesc": {
+            "ch": "分割线右对齐时右边长度"
+        }
+    },
     "dropdownMaskBackgroundColor": {
         "cssKey": "dropdown-mask-background-color",
         "desc": "dropdown的弹出框中mask的背景颜色",
