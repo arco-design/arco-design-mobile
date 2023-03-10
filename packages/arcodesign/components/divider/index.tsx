@@ -56,6 +56,7 @@ const Divider = forwardRef((props: DividerProps, ref: Ref<DividerRef>) => {
     const { prefixCls } = useContext(GlobalContext);
     const prefix = `${prefixCls}-divider`;
     const children = props.content || props.children;
+    const hasCustomWidth = children && width !== undefined && align === 'center';
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -68,15 +69,11 @@ const Divider = forwardRef((props: DividerProps, ref: Ref<DividerRef>) => {
                     className={cls(prefix, className, {
                         [`${prefix}--hairline`]: hairline,
                         [`${prefix}--with-text ${prefix}--text-${align}`]: children,
+                        [`${prefix}--with-width`]: hasCustomWidth,
                     })}
                     style={{
                         ...style,
-                        ...(width !== undefined && align === 'center'
-                            ? {
-                                  flexBasis: width,
-                                  flexGrow: 0,
-                              }
-                            : {}),
+                        [hasCustomWidth ? 'flexBasis' : '']: width,
                     }}
                     ref={domRef}
                 >

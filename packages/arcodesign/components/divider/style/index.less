@@ -8,11 +8,12 @@
     .use-var(border-color, 'divider-line-color');
     border-width: 0;
     border-style: solid;
-    flex: 1;
 
     &::before,
     &::after {
-        flex: inherit;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: inherit;
         border-width: 0;
         border-color: inherit;
         border-style: inherit;
@@ -41,6 +42,13 @@
         &::after {
             content: '';
             .use-var(margin-left, 'divider-content-padding');
+        }
+    }
+
+    &--with-width {
+        &::before,
+        &::after {
+            flex-grow: 0;
         }
     }
 
