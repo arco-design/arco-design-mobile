@@ -11,11 +11,6 @@ export default function DividerDemo() {
             <Divider content="text" align="left" />
             <div className='demo-gap' />
             <Divider content="text" align="right" />
-            <div>
-                <div></div>
-                <div>text</div>
-                <div></div>
-            </div>
         </>
     );
 }
