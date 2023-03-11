@@ -1,7 +1,7 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle, useContext } from 'react';
 import { cls } from '@arco-design/mobile-utils';
 import { ContextLayout, GlobalContext } from '../context-provider';
-import { BaseProps } from '../_helpers';
+import { BaseProps, getStyleWithVendor } from '../_helpers';
 
 export interface DividerProps extends BaseProps {
     /**
@@ -73,7 +73,7 @@ const Divider = forwardRef((props: DividerProps, ref: Ref<DividerRef>) => {
                     })}
                     style={{
                         ...style,
-                        [hasCustomWidth ? 'flexBasis' : '']: width,
+                        ...(hasCustomWidth ? getStyleWithVendor({ flexBasis: width }) : {}),
                     }}
                     ref={domRef}
                 >
