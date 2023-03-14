@@ -1330,9 +1330,14 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         return (
             <div className={cls(`${prefix}-wrap`, className)} style={wrapStyle} ref={domRef}>
                 {needRefreshDom ? (
-                    <div className={`${prefix} wrap-placeholder`} ref={fakeWrapRef} />
+                    <div
+                        key="fake-carousel"
+                        className={`${prefix} wrap-placeholder`}
+                        ref={fakeWrapRef}
+                    />
                 ) : null}
                 <div
+                    key="carousel"
                     className={prefix}
                     onTouchEnd={handleTouchEnd}
                     onTouchCancel={handleTouchEnd}
