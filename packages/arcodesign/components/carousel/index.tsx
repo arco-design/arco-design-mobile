@@ -288,6 +288,12 @@ export interface CarouselProps {
      */
     allowEndBlank?: boolean;
     /**
+     * 在iOS下是否需要在切屏时做DOM强刷优化，用于修复iOS息屏时自动播放的蜜汁渲染问题
+     * @en Whether to do DOM forced refresh optimization when the screen is off under iOS, to fix the rendering problem of automatic playback when the iOS screen is off
+     * @default true
+     */
+    iOSVisibleOptimize?: boolean;
+    /**
      * 自定义手指滑动跟手的距离计算方式，posDis表示touchmove的距离，wrapSize表示容器在滑动方向的尺寸，childSize表示滑块在滑动方向的尺寸
      * @en Customize the calculation method of the finger swipe distance. posDis - touchmove distance, wrapSize - container size in the sliding direction, childSize - slider size in the sliding direction
      * @default (posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)
@@ -439,6 +445,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         allowEndBlank = false,
         bounceWhenNoLoop = false,
         bounceDampRate = 3,
+        iOSVisibleOptimize = true,
         distanceProcessor,
         getInnerScrollContainer,
         onChange,
@@ -523,7 +530,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
     const system = useSystem();
     // 开启自动循环时iOS会有渲染问题需要强刷dom，但不需要autoPlay的不用强刷，这里判断下
     // @en When the automatic loop is turned on, there will be rendering problems in iOS. Need to brush the dom, but if you don't need autoPlay, don't need to brush.
-    const needRefreshDom = !noInterval && system === 'ios';
+    const needRefreshDom = !noInterval && system === 'ios' && iOSVisibleOptimize;
 
     const setDirection = useCallback((newDirec: 'left' | 'right' | '') => {
         setStateDirection(direc => {
@@ -1379,6 +1386,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
                 </div>
                 {showIndicator && (total > 1 || !hideSingleIndicator) ? (
                     <div
+                        key="carousel-indicator"
                         className={cls(
                             `${prefix}-indicator pos-${indicatorPos}`,
                             { [`vertical ver-pos-${indicatorVerticalPos}`]: vertical },
