@@ -429,13 +429,15 @@ export const useProgress = (
     const [currentPercentage, setCurrentPercentage] = useState(0);
     const [transitionControl, setTransitionControl] = useState(false);
     const [count, setCount] = useState(0);
+    const latestPercentage = useRef(percentage);
     useEffect(() => {
         mountedTransition
             ? scrollWithAnimation(
                   0,
                   percentage,
                   progress => {
-                      setCurrentPercentage(Math.floor(progress));
+                      const targetProgress = (progress / percentage) * latestPercentage.current;
+                      setCurrentPercentage(Math.floor(targetProgress));
                   },
                   duration,
                   mountedBezier,
@@ -448,6 +450,7 @@ export const useProgress = (
     }, []);
 
     useEffect(() => {
+        latestPercentage.current = percentage;
         setCount(Math.floor(percentage / step));
     }, [percentage, step]);
 
