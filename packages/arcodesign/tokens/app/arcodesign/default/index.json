@@ -2806,16 +2806,16 @@
             "en": "Thickness of divider line"
         }
     },
-    "dividerMargin": {
-        "cssKey": "divider-margin",
-        "desc": "分割线上下margin",
+    "dividerPadding": {
+        "cssKey": "divider-padding",
+        "desc": "分割线上下padding",
         "override": "",
         "value": "~`pxtorem(16)`",
         "jsValue": "@getRem@16",
         "staticValue": "0.32rem",
         "localeDesc": {
-            "ch": "分割线上下margin",
-            "en": "Top and Bottom margin of divider"
+            "ch": "分割线上下padding",
+            "en": "Top and Bottom padding of divider"
         }
     },
     "dividerRightWidth": {

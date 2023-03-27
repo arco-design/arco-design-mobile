@@ -760,7 +760,7 @@ var tokens = {
   "divider-left-width": "0.56rem",
   "divider-right-width": "0.56rem",
   "divider-content-padding": "0.24rem",
-  "divider-margin": "0.32rem"
+  "divider-padding": "0.32rem"
 };
 var _default = tokens;
 exports["default"] = _default;

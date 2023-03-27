@@ -3799,10 +3799,10 @@ function getCompTokens() {
          */
         dividerContentPadding: getRem(12),
         /**
-         * 分割线上下margin
-         * @en Top and Bottom margin of divider
+         * 分割线上下padding
+         * @en Top and Bottom padding of divider
          */
-        dividerMargin: getRem(16),
+        dividerPadding: getRem(16),
     };
 }
 

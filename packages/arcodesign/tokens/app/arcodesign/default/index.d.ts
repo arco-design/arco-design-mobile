@@ -748,7 +748,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'divider-left-width': string;
     'divider-right-width': string;
     'divider-content-padding': string;
-    'divider-margin': string;
+    'divider-padding': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;
