@@ -8,16 +8,9 @@ import React, {
     CSSProperties,
 } from 'react';
 import { cls, scrollWithAnimation, nextTick } from '@arco-design/mobile-utils';
-import { TabData, TabCellProps, TabCellRef, TabCellUnderlineRef } from './type';
+import { TabData, TabCellProps, TabCellRef, TabCellUnderlineRef, OffsetRect } from './type';
 import { useSystem } from '../_helpers';
 import TabCellUnderline from './tab-cell-underline';
-
-interface OffsetRect {
-    left: number;
-    top: number;
-    width: number;
-    height: number;
-}
 
 const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     const {
@@ -59,6 +52,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         tabBarScrollChance,
         tabBarHasDivider,
         showUnderline,
+        underlineAdaptive,
         disabled,
         renderTabBarItem,
         renderTabBarInner,
@@ -234,10 +228,16 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         }
     }
 
-    function getTabCenterLeft(index: number) {
+    function getTabRect(index: number) {
         const currentTab = allCellRectRef.current[index] || {};
-        const currentTabWidth = (isVertical ? currentTab.width : currentTab.height) || 0;
-        const currentTabLeft = (isVertical ? currentTab.left : currentTab.top) || 0;
+        return {
+            left: (isVertical ? currentTab.left : currentTab.top) || 0,
+            width: (isVertical ? currentTab.width : currentTab.height) || 0,
+        };
+    }
+
+    function getTabCenterLeft(index: number) {
+        const { left: currentTabLeft, width: currentTabWidth } = getTabRect(index);
         return currentTabLeft + currentTabWidth / 2;
     }
 
@@ -292,12 +292,14 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
             translateZ,
             underlineSize,
             underlineThick,
+            underlineAdaptive,
             renderUnderline,
         };
         return (
             <TabCellUnderline
                 ref={underlineRef}
                 getTabCenterLeft={getTabCenterLeft}
+                getTabRect={getTabRect}
                 {...lineProps}
             />
         );
