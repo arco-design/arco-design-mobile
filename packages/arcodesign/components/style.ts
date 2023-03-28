@@ -16,6 +16,7 @@ import './context-provider/style';
 import './dialog/style';
 import './count-down/style';
 import './date-picker/style';
+import './divider/style';
 import './dropdown/style';
 import './dropdown-menu/style';
 import './ellipsis/style';
