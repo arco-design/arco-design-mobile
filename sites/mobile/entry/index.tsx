@@ -1,4 +1,4 @@
-import React, { createContext, useMemo } from 'react';
+import React, { createContext, useEffect, useMemo } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
 import tokens from '../../../packages/arcodesign/tokens/app/arcodesign/default';
@@ -21,6 +21,7 @@ import './index.less';
 setRootPixel();
 
 export const HistoryContext = createContext<any>(null);
+const useRtl = false;
 
 function App() {
     const { customTheme } = useTheme();
@@ -39,8 +40,12 @@ function App() {
     );
     const { locale } = useLocale();
 
+    useEffect(() => {
+        useRtl && document.documentElement.setAttribute('dir', 'rtl');
+    }, []);
+
     return (
-        <ContextProvider theme={theme} locale={locale}>
+        <ContextProvider theme={theme} locale={locale} useRtl={useRtl}>
             <HashRouter>
                 <Switch>
                     <Route

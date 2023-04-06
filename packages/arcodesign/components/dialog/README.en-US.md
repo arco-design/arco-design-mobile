@@ -110,6 +110,7 @@ A modal dialog, displayed in a floating layer, guides the user to perform relate
 |isDarkMode|Whether it is in dark mode|boolean|false|
 |theme|Theme variable\. The css variable will be replaced online after input\. The less variable needs to be set|Record\<string, string\>|-|
 |locale|Internationalized language configuration|ILocale|-|
+|useRtl|Whether to use rtl|boolean|false|
 
 > ConfirmOptions
 

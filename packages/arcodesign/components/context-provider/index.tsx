@@ -36,6 +36,12 @@ export interface GlobalContextParams {
      * @en Internationalized language configuration
      */
     locale?: ILocale;
+    /**
+     * 是否使用Rtl模式
+     * @en Whether to use rtl
+     * @default false
+     */
+    useRtl?: boolean;
 }
 
 export const defaultContext: GlobalContextParams = {
@@ -44,6 +50,7 @@ export const defaultContext: GlobalContextParams = {
     useDarkMode: false,
     isDarkMode: false,
     locale: defaultLocale,
+    useRtl: false,
 };
 
 export const GlobalContext = createContext<GlobalContextParams>(defaultContext);
