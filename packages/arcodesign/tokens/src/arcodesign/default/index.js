@@ -3765,6 +3765,44 @@ function getCompTokens() {
          * @en Font color of the Content of TimeLine
          */
         timeLineContentColor: useGlobal('fontColor'),
+        /**
+         * 分割线线条粗细
+         * @en Thickness of divider line
+         */
+        dividerLineThickness: '1PX',
+        /**
+         * 分割线线条颜色
+         * @en Color of divider line
+         */
+        dividerLineColor: useGlobal('lineColor'),
+        /**
+         * 分割线文本字体大小
+         * @en Font size of divider content
+         */
+        dividerContentFontSize: getRem(14),
+        /**
+         * 分割线文本字体颜色
+         * @en Font color of divider content
+         */
+        dividerContentFontColor: useGlobal('subFontColor'),
+        /**
+         * 分割线左对齐时左边长度
+         */
+        dividerLeftWidth: getRem(28),
+        /**
+         * 分割线右对齐时右边长度
+         */
+        dividerRightWidth: getRem(28),
+        /**
+         * 分割线文本左右padding
+         * @en Padding of content
+         */
+        dividerContentPadding: getRem(12),
+        /**
+         * 分割线上下padding
+         * @en Top and Bottom padding of divider
+         */
+        dividerPadding: getRem(16),
     };
 }
 

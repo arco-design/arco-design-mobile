@@ -752,7 +752,15 @@ var tokens = {
   "time-line-content-border-radius": "0.08rem",
   "time-line-content-font-size": "0.32rem",
   "time-line-content-background-color": "var(--line-color)",
-  "time-line-content-color": "var(--font-color)"
+  "time-line-content-color": "var(--font-color)",
+  "divider-line-thickness": "1PX",
+  "divider-line-color": "var(--line-color)",
+  "divider-content-font-size": "0.28rem",
+  "divider-content-font-color": "var(--sub-font-color)",
+  "divider-left-width": "0.56rem",
+  "divider-right-width": "0.56rem",
+  "divider-content-padding": "0.24rem",
+  "divider-padding": "0.32rem"
 };
 var _default = tokens;
 exports["default"] = _default;

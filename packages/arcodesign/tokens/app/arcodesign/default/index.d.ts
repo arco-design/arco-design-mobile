@@ -741,6 +741,14 @@ export interface ArcodesignToken extends Record<string, string> {
     'time-line-content-font-size': string;
     'time-line-content-background-color': string;
     'time-line-content-color': string;
+    'divider-line-thickness': string;
+    'divider-line-color': string;
+    'divider-content-font-size': string;
+    'divider-content-font-color': string;
+    'divider-left-width': string;
+    'divider-right-width': string;
+    'divider-content-padding': string;
+    'divider-padding': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;
