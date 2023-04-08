@@ -1,5 +1,5 @@
-import demoTest from '../../../../tests/demoTest';
-import mountTest from '../../../../tests/mountTest';
+import demoTest from '../../../tests/demoTest';
+import mountTest from '../../../tests/mountTest';
 import Form from '..';
 
 demoTest('form');
