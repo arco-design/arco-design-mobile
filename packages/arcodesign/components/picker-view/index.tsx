@@ -8,6 +8,7 @@ import React, {
     useCallback,
     useEffect,
 } from 'react';
+import { componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import MultiPicker from '../picker-view/components/multi-picker';
 import PickerCell, { PickerCellRef } from '../picker-view/components/picker-cell';
@@ -56,14 +57,6 @@ export interface PickerViewRef {
     scrollToCurrentIndex: () => void;
 }
 
-/**
- * 选择器视图组件，不含弹窗，方便使用方灵活定制选择器。
- * @en The picker view component, not has contain popup, which is convenient for the user to flexibly customize the picker.
- * @type 数据录入
- * @type_en Data Entry
- * @name 选择器视图
- * @name_en PickerView
- */
 const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) => {
     const {
         className = '',
@@ -269,5 +262,13 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         </ContextLayout>
     );
 });
-
-export default PickerView;
+/**
+ * 选择器视图组件，不含弹窗，方便使用方灵活定制选择器。
+ * @en The picker view component, not has contain popup, which is convenient for the user to flexibly customize the picker.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 选择器视图
+ * @name_en PickerView
+ * @displayName PickerView
+ */
+export default componentWrapper(PickerView, 'PickerView');

@@ -59,8 +59,8 @@ React & ReactDOM: **<a href="https://reactjs.org/docs/cdn-links.html" target="_b
 React Transition Group: **<a href="https://reactcommunity.org/react-transition-group/" target="_blank">Click here</a>**
 
 ```
-<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.24.0/dist/style.min.css">
-<script src="https://unpkg.com/@arco-design/mobile-react@2.24.0/dist/index.min.js"></script>
+<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.25.4/dist/style.min.css">
+<script src="https://unpkg.com/@arco-design/mobile-react@2.25.4/dist/index.min.js"></script>
 ```
 
 ## Full import

@@ -41,5 +41,5 @@ Using for starting an immediate action
 > ButtonColorStatus
 
 ```
-string|{ normal: string; active: string; disabled: string; }
+string | { normal: string; active: string; disabled: string; }
 ```

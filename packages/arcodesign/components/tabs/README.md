@@ -100,7 +100,7 @@
 > TabData
 
 ```
-string|{ [x: string]: any; title: ReactNode; }
+string | { [x: string]: any; title: ReactNode; }
 ```
 
 > UnderlineStyle

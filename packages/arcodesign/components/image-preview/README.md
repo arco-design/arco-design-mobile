@@ -75,6 +75,7 @@
 |fit|图片布局方式，preview\-y为宽度撑满高度溢出滚动，preview\-x为高度撑满宽度溢出滚动|"preview\-y" \| "preview\-x"|
 |fallbackSrc|过渡图url|string|
 |thumbPosition|缩略图填充方式（backgroundPosition），默认top center|string|
+|extraNode|自定义DOM|ReactNode|
 
 > GlobalContextParams
 
@@ -103,3 +104,5 @@
 |Image|-|\{ loadError: string; \}|
 |ImagePicker|-|\{ loadError: string; \}|
 |SearchBar|-|\{ placeholder: string; cancelBtn: string; \}|
+|Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
+|Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|

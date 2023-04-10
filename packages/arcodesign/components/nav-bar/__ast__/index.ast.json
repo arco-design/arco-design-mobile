@@ -332,6 +332,63 @@
                 "name": "(offset: number) => CSSProperties"
             }
         },
+        "onScrollChange": {
+            "defaultValue": null,
+            "description": "滚动时回调，设置该属性后将监听滚动容器的滚动事件\n@en Callback when scrolling. After setting this property, the scroll event of the scroll container will be monitored.",
+            "name": "onScrollChange",
+            "tags": {
+                "en": "Callback when scrolling. After setting this property, the scroll event of the scroll container will be monitored."
+            },
+            "descWithTags": "滚动时回调，设置该属性后将监听滚动容器的滚动事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(offset: number) => void"
+            }
+        },
+        "ariaLabel": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "无障碍aria-label属性\n@en Accessibility attribute aria-label",
+            "name": "ariaLabel",
+            "tags": {
+                "en": "Accessibility attribute aria-label",
+                "default": "\"\""
+            },
+            "descWithTags": "无障碍aria-label属性",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "ariaRole": {
+            "defaultValue": {
+                "value": "\"banner\""
+            },
+            "description": "无障碍role属性\n@en Accessibility attribute role",
+            "name": "ariaRole",
+            "tags": {
+                "en": "Accessibility attribute role",
+                "default": "\"banner\""
+            },
+            "descWithTags": "无障碍role属性",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
+                "name": "NavBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",

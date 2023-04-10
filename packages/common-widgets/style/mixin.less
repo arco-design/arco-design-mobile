@@ -189,7 +189,7 @@
     box-shadow: @border-map[@@direction][@x] @border-map[@@direction][@y] 0 @border-map[@@direction][@spread] @color inset;
 
     @media (min-resolution: 2dppx) {
-        box-shadow: @border-map[@@direction][@x]/2 @border-map[@@direction][@y]/2 0 @border-map[@@direction][@spread]/2 @color inset;
+        box-shadow: (@border-map[@@direction][@x]/2) (@border-map[@@direction][@y]/2) 0 (@border-map[@@direction][@spread]/2) @color inset;
     }
 
     // 因为 iOS 目前不支持 0.5px shadow offset/spread width

@@ -5,7 +5,8 @@
         "type": "数据录入",
         "type_en": "Data Entry",
         "name": "图片选择器",
-        "name_en": "ImagePicker"
+        "name_en": "ImagePicker",
+        "displayName": "ImagePicker"
     },
     "displayName": "ImagePicker",
     "methods": [],
@@ -1043,8 +1044,8 @@
                 "descWithTags": "图片加载失败时自动重试触发的回调"
             }
         },
-        "ImageStatus": "\"loaded\"|\"loading\"|\"error\"|\"init\"",
-        "ObjectPosition": "string|number|string & {}",
+        "ImageStatus": "\"loaded\" | \"loading\" | \"error\" | \"init\"",
+        "ObjectPosition": "string | number | string & {}",
         "SelectCallback": {
             "files": {
                 "name": "files",

@@ -28,6 +28,9 @@
 |extra|额外渲染元素，与inner平级|ReactNode|-|
 |getScrollContainer|自定义滚动元素，不传默认是window|() =\> HTMLElement \| Window|-|
 |getComputedStyleByScroll|根据滚动offset值设置自定义style，设置该属性后将监听滚动容器的滚动事件|(offset: number) =\> CSSProperties|-|
+|onScrollChange|滚动时回调，设置该属性后将监听滚动容器的滚动事件|(offset: number) =\> void|-|
+|ariaLabel|无障碍aria\-label属性|string|""|
+|ariaRole|无障碍role属性|string|"banner"|
 
 > 引用/Refs
 

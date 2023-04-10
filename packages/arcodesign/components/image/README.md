@@ -52,11 +52,11 @@
 > ImageStatus
 
 ```
-"loading"|"loaded"|"init"|"error"
+"loading" | "loaded" | "init" | "error"
 ```
 
 > ObjectPosition
 
 ```
-string|number|string & {}
+string | number | string & {}
 ```

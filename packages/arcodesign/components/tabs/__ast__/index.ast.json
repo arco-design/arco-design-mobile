@@ -1479,7 +1479,7 @@
         }
     },
     "deps": {
-        "TabData": "string|{ [x: string]: any; title: ReactNode; }",
+        "TabData": "string | { [x: string]: any; title: ReactNode; }",
         "UnderlineStyle": {
             "outer": {
                 "name": "outer",

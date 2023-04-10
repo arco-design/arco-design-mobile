@@ -38,5 +38,5 @@ Progress bar, which can display progress according to the percentage passed in f
 > PercentPosition
 
 ```
-"left"|"innerLeft"|"right"|"follow"
+"left" | "innerLeft" | "right" | "follow"
 ```

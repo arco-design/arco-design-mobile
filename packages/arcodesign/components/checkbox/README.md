@@ -54,7 +54,7 @@
 > ValueType
 
 ```
-string|number
+string | number
 ```
 
 > IconType

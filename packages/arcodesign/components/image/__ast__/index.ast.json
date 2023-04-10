@@ -610,8 +610,8 @@
         }
     },
     "deps": {
-        "ImageStatus": "\"loading\"|\"loaded\"|\"init\"|\"error\"",
-        "ObjectPosition": "string|number|string & {}",
+        "ImageStatus": "\"loading\" | \"loaded\" | \"init\" | \"error\"",
+        "ObjectPosition": "string | number | string & {}",
         "ImageRef": {
             "dom": {
                 "name": "dom",

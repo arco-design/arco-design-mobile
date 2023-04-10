@@ -3,11 +3,29 @@
 .@{prefix}-ellipsis {
     .use-var(font-size, ellipsis-default-text-size);
 
-    &-native.ellipsis {
+    &-native.ellipsis,
+    &-js-content-initial {
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
         word-break: break-word;
         -webkit-box-orient: vertical;
+        position: relative;
+    }
+
+    &-native-ellipsis-node {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        .use-var(background, ellipsis-float-ellipsis-node-background);
+        .use-var(padding-left, ellipsis-float-ellipsis-node-padding-left);
+    }
+
+    &-js-content-text-pre {
+        white-space: pre-line;
+    }
+    
+    &-js-content-ellipsis {
+        display: none;
     }
 }

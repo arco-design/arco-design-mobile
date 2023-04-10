@@ -383,7 +383,7 @@ export interface CarouselRef {
      * 手动更新当前选中索引，rightNow 表示是否立刻跳转到目标索引，否则执行过渡动画到目标索引
      * @en Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index
      * */
-    changeIndex: (newIndex: number, rightNow?: boolean) => void;
+    changeIndex: (newIndex: number, rightNow?: boolean, direction?: 'right' | 'left') => void;
 }
 
 /**
@@ -863,14 +863,31 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         return '';
     }
 
-    function changeIndex(newIndex: number, rightNow?: boolean) {
-        jumpTo(newIndex, true, rightNow);
+    function changeIndex(newIndex: number, rightNow?: boolean, direc?: 'right' | 'left') {
+        if (posAdjustingRef.current) {
+            return;
+        }
+        if (direc) {
+            setDirection(direc);
+            nextTick(() => {
+                jumpTo(newIndex, true, rightNow, direc);
+            });
+        } else {
+            jumpTo(newIndex, true, rightNow);
+        }
     }
 
-    function jumpTo(newIndex: number, autoJump = true, rightNow?: boolean) {
+    function jumpTo(
+        newIndex: number,
+        autoJump = true,
+        rightNow?: boolean,
+        direc?: 'right' | 'left',
+    ) {
         const oldIndex = getShownIndex(indexRef.current);
         const changedIndex = newIndex !== oldIndex ? getShownIndex(newIndex) : -1;
-        if (autoJump) {
+        if (direc) {
+            setDirection(direc);
+        } else if (autoJump) {
             setDirection(autoPlayDirection === 'reverse' ? 'right' : 'left');
         } else if (newIndex === indexRef.current) {
             setDirection(distanceRef.current > 0 ? 'right' : 'left');

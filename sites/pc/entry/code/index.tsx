@@ -94,7 +94,9 @@ export default function Code(props: IDocProps) {
                         }
                     />
                 </Tooltip>
-                <Tooltip content={localeMap.Expand[language]}>
+                <Tooltip
+                    content={showAll ? localeMap.Collapse[language] : localeMap.Expand[language]}
+                >
                     <Button
                         shape="circle"
                         size="small"

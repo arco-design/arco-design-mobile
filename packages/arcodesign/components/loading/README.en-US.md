@@ -30,5 +30,5 @@ Loading component, divided into four types, `circle` is a ring, `arc` is an arc 
 > LoadingType
 
 ```
-"spin"|"circle"|"arc"|"dot"
+"spin" | "circle" | "arc" | "dot"
 ```

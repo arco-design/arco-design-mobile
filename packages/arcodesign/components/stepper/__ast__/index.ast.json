@@ -5,7 +5,8 @@
         "type": "数据录入",
         "type_en": "Data Entry",
         "name": "步进器",
-        "name_en": "Stepper"
+        "name_en": "Stepper",
+        "displayName": "Stepper"
     },
     "displayName": "Stepper",
     "methods": [],

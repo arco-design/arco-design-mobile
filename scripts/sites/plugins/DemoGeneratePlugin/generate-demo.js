@@ -26,7 +26,7 @@ function renderSource(
     renderer.code = code => {
         const filename = `_${utils.getCompName(demoName)}`;
         const content = `import React from 'react';
-${code.replace(reg, `../../../${compFolder}`).replace(/\/esm\//g, '/')}`;
+${code.replace(reg, `../../../../../${compFolder}`).replace(/\/esm\//g, '/')}`;
 
         fs.mkdirpSync(`${sitePath}/${comp}`);
         fs.writeFile(path.join(docPath, `${filename}.js`), content, () => {
@@ -150,7 +150,7 @@ function generateRootDemo({
     });
 }
 function generateSiteDemo({
-    siteFolder = 'sites/pages',
+    siteFolder = 'sites/mobile/pages/components',
     srcFolder = 'packages/arcodesign',
     packageName = '@arco-design/mobile-react',
     filterComp = [],
@@ -240,7 +240,7 @@ function generateSiteDemo({
                 if (!/.less$/.test(style)) {
                     return;
                 }
-                importStr += `import '../../../${compFolder}/${comp}/demo/style/${style}';\n`;
+                importStr += `import '../../../../../${compFolder}/${comp}/demo/style/${style}';\n`;
             });
         }
         const readmeInfo = getReadmeInfo(path.join(compPath, comp, `README${mdSuffix}.md`));
@@ -298,14 +298,143 @@ export default docs;
         console.log('>>> Write home route file finished');
     });
 }
+
+function generateSiteCompositeDemo({
+    compositeSrc = 'sites/composite-comp',
+    compositeComp = 'sites/mobile/pages/composite-comp',
+    srcFolder = 'packages/arcodesign',
+    packageName = '@arco-design/mobile-react',
+    language = 'ch',
+    depsCompSet,
+}) {
+    const compFolder = srcFolder + '/components';
+    const sitePath = path.join(rootPath, compositeComp);
+    const compPath = path.join(rootPath, compositeSrc);
+    const suffix = language in languageUtils.lang2SuffixMap ? languageUtils.lang2SuffixMap[language] : '';
+    const tsxFileSuffix = suffix ? `-${suffix}` : suffix;
+    const compNames = fs.readdirSync(path.join(compPath)).filter(name => {
+        return fs.lstatSync(path.join(compPath, name)).isDirectory();
+    });
+    const demoCompSet = new Set();
+    const compRoutes = [];
+    let compDocsImportStr = '';
+    let compDocsStr = '';
+    compNames.forEach(comp => {
+        const routeInfo = {
+            name: comp,
+            key: comp,
+        };
+        compRoutes.push(routeInfo);
+        const docPath = path.join(sitePath, comp);
+        const demoPath = path.join(compPath, comp);
+        // 读取示例md文件并解析为组件
+        let demos = null;
+        try {
+            demos = fs.readdirSync(path.join(demoPath));
+        } catch (e) {
+            return;
+        }
+        const demoSource = [];
+        let importStr = `import React from 'react';\n`;
+        demos.forEach(name => {
+            if (name.indexOf('.md') < 0 || name.indexOf('README') >= 0) {
+                return;
+            }
+            const demoName = name.replace('.md', '');
+            const importDemoName = utils.getCompName(demoName);
+            const { order, source } = renderSource(
+                packageName,
+                sitePath,
+                compFolder,
+                docPath,
+                demoPath,
+                comp,
+                demoName,
+                depsCompSet,
+                language
+            );
+            importStr += `import ${importDemoName} from './_${importDemoName}';\n`;
+            demoSource.push({
+                order,
+                source: source.replace(
+                    /__CODE_RENDERER__/,
+                    `
+            <div className="arcodesign-mobile-demo-content" id="demo-order-${order}">
+                <${importDemoName} />
+            </div>`,
+                ),
+            });
+            if (demoSource.length) {
+                demoCompSet.add(comp);
+            }
+        });
+
+        demoSource.sort((a, b) => a.order - b.order);
+
+        const demoStylePath = path.join(demoPath, 'style');
+        if (fs.existsSync(demoStylePath)) {
+            const styles = fs.readdirSync(demoStylePath);
+            styles.forEach(style => {
+                if (!/.less$/.test(style)) {
+                    return;
+                }
+                importStr += `import '../../../../composite-comp/${comp}/style/${style}';\n`;
+            });
+        }
+        // 文件名作为组件名称
+        const entry = `${importStr}
+export default function Demo() {
+    return (
+        <div className="arcodesign-mobile-demo">
+            <div className="arcodesign-mobile-demo-nav">
+                <div className="arcodesign-mobile-demo-nav-inner">
+                    ${comp}
+                </div>
+            </div>
+            ${demoSource.map(demo => demo.source).join('\n')}
+        </div>
+    );
+}
+`;
+        if (demoSource.length) {
+            demoCompSet.add(comp);
+        }
+        fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), entry, () => {
+            console.log(`>>> Write demo file finished: ` + comp);
+        });
+    });
+
+    [...demoCompSet].map(e => {
+        // 入口文件内容填充
+        const importName = utils.getCompName(e);
+        const route = utils.getFolderName(e);
+        compDocsImportStr += `import ${importName} from './${e}${tsxFileSuffix ? `/index${tsxFileSuffix}` : ''}';\n`;
+        compDocsStr += `    '${route}': ${importName},\n`;
+    });
+const docEntryStr = `${compDocsImportStr}
+const docs = {\n${compDocsStr}};
+
+export default docs;
+`;
+    fs.writeFile(path.join(sitePath, `index${tsxFileSuffix}.tsx`), docEntryStr, () => {
+        console.log('>>> Write demo file finished');
+    });
+    const compInfoStr = JSON.stringify(compRoutes, null, 4);
+    fs.writeFile(path.join(sitePath, `route${tsxFileSuffix}.ts`), `export default ${compInfoStr}`, () => {
+        console.log('>>> Write home route file finished');
+    });
+}
+
 function generateDemo(options = {
-    siteFolder: 'sites/pages',
+    siteFolder: 'sites/mobile/pages/components',
     srcFolder: 'packages/arcodesign',
     packageName: '@arco-design/mobile-react',
     filterComp: [],
-    languages: ['ch', 'en']
+    languages: ['ch', 'en'],
+    compositeSrc: 'sites/composite-comp',
+    compositeComp: 'sites/mobile/pages/composite-comp',
 }) {
-    const { siteFolder = 'sites/pages', languages = ['ch', 'en'], ...restParams } = options;
+    const { siteFolder = 'sites/mobile/pages/components', languages = ['ch', 'en'], compositeSrc, compositeComp, ...restParams } = options;
     const depsCompSet = new Set();
     const sitePath = path.join(rootPath, siteFolder);
     console.log(`>>> Start generate demo files...`);
@@ -313,6 +442,7 @@ function generateDemo(options = {
     console.log(`>>> Clean demo files finished.`);
     console.log(`>>> Start generate demo entry files...`);
     languages.map(lang => generateSiteDemo({ ...restParams, depsCompSet, siteFolder, language: lang }));
+    languages.map(lang => generateSiteCompositeDemo({ compositeSrc, compositeComp, ...restParams, depsCompSet, siteFolder, language: lang}));
     console.log(`>>> Generate demo entry files finished.`);
     generateRootDemo(options, depsCompSet);
     console.log(`>>> Generate demo files finished.`);
