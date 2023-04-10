@@ -24,6 +24,12 @@ body,
 .arcodesign-mobile-demo-wrapper {
     width: 100%;
     font-size: 0;
+    &.hide-header {
+        .arcodesign-mobile-demo-nav-inner,
+        .arcodesign-demo-logo img {
+            display: none;
+        }
+    }
     .demo-content {
         box-sizing: border-box;
     }
@@ -60,7 +66,7 @@ body,
         height: inherit;
         text-align: center;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 17px;
         line-height: 44px;
         .onepx-border(bottom, rgb(237, 237, 237));
     }

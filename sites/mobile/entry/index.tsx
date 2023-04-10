@@ -1,7 +1,6 @@
-import React, { createContext, useMemo } from 'react';
+import React, { createContext } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
-import tokens from '../../../packages/arcodesign/tokens/app/arcodesign/default';
 import ContextProvider from '../../../packages/arcodesign/components/context-provider';
 import { LanguageSupport } from '../../utils/language';
 import docs from '../pages/components';
@@ -23,20 +22,7 @@ setRootPixel();
 export const HistoryContext = createContext<any>(null);
 
 function App() {
-    const { customTheme } = useTheme();
-    const actualTokens = useMemo(() => ({ ...tokens, ...customTheme }), [customTheme]);
-
-    const theme = useMemo(
-        () =>
-            Object.keys(actualTokens).reduce(
-                (acc, key) => ({
-                    ...acc,
-                    ...(key.startsWith('dark-') ? {} : { [key]: actualTokens[key] }),
-                }),
-                {},
-            ),
-        [actualTokens],
-    );
+    const { theme } = useTheme();
     const { locale } = useLocale();
 
     return (
