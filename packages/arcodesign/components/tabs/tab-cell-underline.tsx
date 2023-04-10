@@ -32,7 +32,9 @@ const TabCellUnderline = forwardRef(
             caterpillarProperty,
             underlineSize,
             underlineThick,
+            underlineAdaptive,
             renderUnderline,
+            getTabRect,
             getTabCenterLeft,
         } = props;
         const [underlineStyle, setUnderlineStyle] = useState<UnderlineStyle>({});
@@ -132,13 +134,27 @@ const TabCellUnderline = forwardRef(
             distance,
             animationKey,
             caterpillarDelay,
+            underlineSize,
+            underlineThick,
+            underlineAdaptive,
         ]);
 
-        function getLineLeft(index: number) {
+        function getLineWidth(index: number) {
+            if (underlineAdaptive) {
+                return getTabRect(index).width;
+            }
             const offsetSize = isVertical
                 ? lineRef.current?.offsetWidth
                 : lineRef.current?.offsetHeight;
             const lineWidth = offsetSize || 0;
+            return lineWidth;
+        }
+
+        function getLineLeft(index: number) {
+            if (underlineAdaptive) {
+                return getTabRect(index).left;
+            }
+            const lineWidth = getLineWidth(index);
             return getTabCenterLeft(index) - lineWidth / 2;
         }
 
@@ -169,8 +185,8 @@ const TabCellUnderline = forwardRef(
             const moveRatio = wrapWidth ? distance / wrapWidth : 0;
             const leftOffset = moveRatio * (currentLeft - descLeft);
             const direc = isVertical ? 'X' : 'Y';
-            const transStyle =
-                useCaterpillar && !jumpingDis
+            const transStyle: CSSProperties =
+                useCaterpillar && !jumpingDis && !underlineAdaptive
                     ? caterpillarProperty === 'size'
                         ? {
                               [isVertical ? 'width' : 'height']: `${
@@ -182,6 +198,19 @@ const TabCellUnderline = forwardRef(
                               transform: `scale${direc}(${getLineScale(moveRatio)})`,
                           }
                     : {};
+            let adaptiveStyle: CSSProperties = {};
+            let adaptiveOuterStyle: CSSProperties = {};
+            if (underlineAdaptive) {
+                const currentWidth = getLineWidth(activeIndex);
+                const descWidth = getLineWidth(descIndex);
+                const widthOffset = moveRatio * (currentWidth - descWidth);
+                adaptiveStyle = {
+                    [isVertical ? 'width' : 'height']:
+                        distance > 0 ? currentWidth - widthOffset : currentWidth + widthOffset,
+                    willChange: 'width',
+                };
+                adaptiveOuterStyle = isVertical ? { width: 'auto' } : { height: 'auto' };
+            }
             const outerSize = isVertical
                 ? {
                       width: underlineSize,
@@ -197,23 +226,27 @@ const TabCellUnderline = forwardRef(
                         distance > 0 ? currentLeft - leftOffset : currentLeft + leftOffset
                     }px)${translateZStr}`,
                     ...outerSize,
+                    ...adaptiveOuterStyle,
                 },
                 inner: {
                     ...transStyle,
+                    ...adaptiveStyle,
                 },
             };
         }
 
         function getUnderlineStyle(): UnderlineStyle {
             const transStyle: CSSProperties = {};
-            if (useCaterpillar) {
-                transStyle.animationDuration = `${duration}ms`;
-            }
-            if (caterpillarRef.current && animationKey) {
-                transStyle.animationName = animationKey;
-            }
-            if (caterpillarDelay) {
-                transStyle.animationDelay = `-${caterpillarDelay}ms`;
+            if (!underlineAdaptive) {
+                if (useCaterpillar) {
+                    transStyle.animationDuration = `${duration}ms`;
+                }
+                if (caterpillarRef.current && animationKey) {
+                    transStyle.animationName = animationKey;
+                }
+                if (caterpillarDelay) {
+                    transStyle.animationDelay = `-${caterpillarDelay}ms`;
+                }
             }
             const lineStyle: UnderlineStyle = getLineStyle();
             return {

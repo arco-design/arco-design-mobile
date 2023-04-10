@@ -44,6 +44,7 @@ SearchBar component
 |disabled|Whether the input box is disabled|boolean|-|
 |readOnly|Read\-only|boolean|-|
 |autoFocus|Whether to automatically get the focus|boolean|-|
+|blockChangeWhenCompositing|When inputting Chinese on ios, onChange is not triggered during pinyin input, but only after confirming the selection|boolean|false|
 |validator|Regular validation, input is not allowed if it does not meet the validation|RegExp \| ((value: string) =\> boolean)|-|
 |blurBeforeFocus|Blur before focusing, that is, the keyboard will be re\-bounced when switching between different inputs\. It is often used to reload the keyboard when the input type is switched\. It is valid on Android\.|boolean|-|
 |clearable|whether there is a clear button|boolean|-|

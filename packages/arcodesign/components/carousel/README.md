@@ -54,6 +54,7 @@
 |stopPropagation|触摸事件是否需要 stopPropagation|boolean|true|
 |fakeItem|是否需要fake首尾item，用于offsetBetween不等于0时循环轮播的衔接|boolean|false|
 |allowEndBlank|滑动到最后时是否允许留白，仅在loop=false且设置了width时有效|boolean|false|
+|iOSVisibleOptimize|在iOS下是否需要在切屏时做DOM强刷优化，用于修复iOS息屏时自动播放的蜜汁渲染问题|boolean|true|
 |distanceProcessor|自定义手指滑动跟手的距离计算方式，posDis表示touchmove的距离，wrapSize表示容器在滑动方向的尺寸，childSize表示滑块在滑动方向的尺寸|(posDis: number, wrapSize: number, childSize: number) =\> number|(posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)|
 |getInnerScrollContainer|组件内部的滚动容器，用于豁免滑动事件响应|() =\> HTMLElement \| HTMLElement\[\]|-|
 |onTouchStopped|当轮播不支持循环且滑到最前面或最后面，还想再滑动时触发|(direction: 1 \| \-1) =\> void|-|

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
 import ContextProvider from '../../../packages/arcodesign/components/context-provider';
@@ -20,12 +20,18 @@ import './index.less';
 
 setRootPixel();
 
+const useRtl = false;
+
 function App() {
     const { theme } = useTheme();
     const { locale } = useLocale();
 
+    useEffect(() => {
+        useRtl && document.documentElement.setAttribute('dir', 'rtl');
+    }, []);
+
     return (
-        <ContextProvider theme={theme} locale={locale}>
+        <ContextProvider theme={theme} locale={locale} useRtl={useRtl}>
             <HashRouter>
                 <Switch>
                     <Route

@@ -38,6 +38,7 @@ export function useInputLogic(
         preventEventWhenClearing = true,
         onClear,
         autoFocus,
+        blockChangeWhenCompositing,
     } = props;
     const [inputValue, setInputValue] = useState(value || defaultValue || '');
     const [showClear, toggleClear] = useState(
@@ -45,6 +46,7 @@ export function useInputLogic(
             clearShowType === 'always' ||
             (clearShowType === 'value' && Boolean(value || defaultValue)),
     );
+    const compositingRef = useRef(false);
     /**
      * clear相关问题背景
      * 如果点击clear按钮之前已经是focusing状态了，那么在点完clear按钮之后会手动聚焦一下
@@ -67,6 +69,7 @@ export function useInputLogic(
     const actualInputValue = value !== void 0 ? value : inputValue;
     const system = useSystem();
     const wrapRef = useRef<HTMLDivElement | null>(null);
+    const needComposition = system === 'ios' && blockChangeWhenCompositing;
 
     useEffect(() => {
         if (autoFocus) {
@@ -75,6 +78,26 @@ export function useInputLogic(
             }, 200);
         }
     }, []);
+
+    useEffect(() => {
+        const handleCompositionStart = () => {
+            compositingRef.current = true;
+        };
+        const handleCompositionEnd = e => {
+            compositingRef.current = false;
+            handleChange(e);
+        };
+        if (inputRef.current && needComposition) {
+            inputRef.current.addEventListener('compositionstart', handleCompositionStart);
+            inputRef.current.addEventListener('compositionend', handleCompositionEnd);
+        }
+        return () => {
+            if (inputRef.current && needComposition) {
+                inputRef.current.removeEventListener('compositionstart', handleCompositionStart);
+                inputRef.current.removeEventListener('compositionend', handleCompositionEnd);
+            }
+        };
+    }, [needComposition]);
 
     useEffect(() => {
         // 处理受控模式下的showClear
@@ -104,6 +127,9 @@ export function useInputLogic(
     }
 
     function handleChange(e: React.ChangeEvent<InputEleType>) {
+        if (needComposition && compositingRef.current) {
+            return;
+        }
         const newValue = e.target.value;
         changeValue(newValue, () => {
             onChange && onChange(e, newValue);

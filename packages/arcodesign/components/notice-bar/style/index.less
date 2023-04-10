@@ -40,12 +40,12 @@
     }
 
     &-left-part {
-        .use-var(padding-right, notice-bar-horizontal-padding);
+        .use-var-with-rtl(padding-right, notice-bar-horizontal-padding);
     }
 
     &-right-part,
     &-close {
-        .use-var(padding-left, notice-bar-horizontal-padding);
+        .use-var-with-rtl(padding-left, notice-bar-horizontal-padding);
     }
 
     &-content {
@@ -60,6 +60,9 @@
 
             &.animate {
                 animation: marquee linear both;
+                [dir="rtl"] & {
+                    animation-name: marquee-reverse;
+                }
             }
         }
         .@{prefix}-carousel {
@@ -99,13 +102,23 @@
     }
 
     @keyframes marquee {
-
         0% {
             transform: translate3d(0, 0, 0);
         }
 
         100% {
             transform: translate3d(-100%, 0, 0);
+        }
+    }
+
+    @keyframes marquee-reverse {
+
+        0% {
+            transform: translate3d(0, 0, 0);
+        }
+
+        100% {
+            transform: translate3d(100%, 0, 0);
         }
     }
 }

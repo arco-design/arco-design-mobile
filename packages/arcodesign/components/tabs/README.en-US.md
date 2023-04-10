@@ -46,6 +46,7 @@ Used to let the user switch between different views. In order to optimize the re
 |hideTabBarBeforeMounted|Whether to hide the TabBar before the component is loaded to prevent redundant scrolling effects when overflowing|boolean|-|
 |overflowThreshold|When the number of TabBars is greater than or equal to the number of TabBars, it is considered to overflow, which is used for ssr first screen rendering optimization before dom loading is completed|number|5|
 |showUnderline|Whether to display underline|boolean|true|
+|underlineAdaptive|Whether the underline is adaptive according to the length of the tab cell|boolean|false|
 |stopTouchThreshold|Minimum threshold to trigger onTouchStopped|number|0|
 |touchSideDisableThreshold|The distance from the edge of the screen to disable the tabs swipe event when you start swiping right|number|0|
 |stopPropagation|In swipe mode, whether the touch event need stopPropagation|boolean|true|
@@ -145,6 +146,7 @@ string | { [x: string]: any; title: ReactNode; }
 |hideTabBarBeforeMounted|Whether to hide the TabBar before the component is loaded to prevent redundant scrolling effects when overflowing|boolean|-|
 |overflowThreshold|When the number of TabBars is greater than or equal to the number of TabBars, it is considered to overflow, which is used for ssr first screen rendering optimization before dom loading is completed|number|5|
 |showUnderline|Whether to display underline|boolean|true|
+|underlineAdaptive|Whether the underline is adaptive according to the length of the tab cell|boolean|false|
 |mode|Tabs switching mode, swipe is sliding mode, scroll is scroll listening mode|"swipe" \| "scroll"|"swipe"|
 |tabBarClass|Custom classname of TabBar outer container|string|-|
 |tabBarStyle|Custom style of TabBar outer container|CSSProperties|-|

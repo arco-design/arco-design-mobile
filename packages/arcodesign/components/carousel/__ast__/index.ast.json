@@ -875,6 +875,26 @@
                 "name": "boolean"
             }
         },
+        "iOSVisibleOptimize": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "在iOS下是否需要在切屏时做DOM强刷优化，用于修复iOS息屏时自动播放的蜜汁渲染问题\n@en Whether to do DOM forced refresh optimization when the screen is off under iOS, to fix the rendering problem of automatic playback when the iOS screen is off",
+            "name": "iOSVisibleOptimize",
+            "tags": {
+                "en": "Whether to do DOM forced refresh optimization when the screen is off under iOS, to fix the rendering problem of automatic playback when the iOS screen is off",
+                "default": "true"
+            },
+            "descWithTags": "在iOS下是否需要在切屏时做DOM强刷优化，用于修复iOS息屏时自动播放的蜜汁渲染问题",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "distanceProcessor": {
             "defaultValue": {
                 "value": "(posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)"

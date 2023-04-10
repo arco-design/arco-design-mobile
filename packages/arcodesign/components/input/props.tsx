@@ -63,6 +63,12 @@ export interface BasicInputProps<T = HTMLInputElement> {
      */
     autoFocus?: boolean;
     /**
+     * 当 ios 输入中文时，输拼音的过程不触发onChange，仅确认选择后触发
+     * @en When inputting Chinese on ios, onChange is not triggered during pinyin input, but only after confirming the selection
+     * @default false
+     */
+    blockChangeWhenCompositing?: boolean;
+    /**
      * 输入框左侧文本
      * @en text to the left of the input box
      */

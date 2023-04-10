@@ -46,6 +46,7 @@
 |hideTabBarBeforeMounted|在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果|boolean|-|
 |overflowThreshold|TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化|number|5|
 |showUnderline|是否展示下划线|boolean|true|
+|underlineAdaptive|下划线是否根据 tab cell 长度自适应|boolean|false|
 |stopTouchThreshold|触发onTouchStopped的最小阈值|number|0|
 |touchSideDisableThreshold|距离屏幕边缘多远开始向右滑动时禁用tabs滑动事件|number|0|
 |stopPropagation|swipe 模式下，触摸事件是否需要 stopPropagation|boolean|true|
@@ -145,6 +146,7 @@ string | { [x: string]: any; title: ReactNode; }
 |hideTabBarBeforeMounted|在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果|boolean|-|
 |overflowThreshold|TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化|number|5|
 |showUnderline|是否展示下划线|boolean|true|
+|underlineAdaptive|下划线是否根据 tab cell 长度自适应|boolean|false|
 |mode|tabs切换模式，swipe为滑动模式，scroll为滚动监听模式|"swipe" \| "scroll"|"swipe"|
 |tabBarClass|TabBar外层容器自定义类名|string|-|
 |tabBarStyle|TabBar外层容器自定义样式|CSSProperties|-|
