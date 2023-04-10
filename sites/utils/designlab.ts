@@ -13,6 +13,7 @@ export function sendDesignLabMessage(params: Record<string, any>) {
     window.parent.postMessage(params, '*');
 }
 
+// 获取当前页面的完整stylesheets，处理跨域时无法获取stylesheets内容的情况
 // refer to https://juejin.cn/post/7149842757903712293
 export function prepareValidStyleSheets() {
     const sheets = document.styleSheets;
@@ -22,6 +23,8 @@ export function prepareValidStyleSheets() {
             // @ts-ignore: no-unused-vars
             const rules = sheets[i].rules || sheets[i].cssRules;
         } catch (e) {
+            // 当stylesheets来自跨域资源时，取cssRules会报错
+            // 此时用fetch请求资源，用style标签承接内容，并替换掉原有的资源引入
             const href = sheets[i].href;
             const curNode = sheets[i].ownerNode;
             if (href) {
@@ -44,6 +47,7 @@ export function prepareValidStyleSheets() {
     return Promise.all(promises);
 }
 
+// 从stylesheets中获取当前页面使用到的css vars，并转为小驼峰格式供designlab使用
 // refer to https://stackoverflow.com/questions/2952667/find-all-css-rules-that-apply-to-an-element/37958301#37958301
 export function getUsedCssVars(el: HTMLElement, vars: string[]) {
     if (!el) {
@@ -92,6 +96,7 @@ export function analyseStyleSheets(name: string) {
     ) as NodeListOf<HTMLElement>;
     prepareValidStyleSheets().then(() => {
         const demoTokenInfoList: { title: string; tokens: string[] }[] = [];
+        // 获取移动端demo中使用到的css变量，并通知给designlab
         if (demos && demos.length) {
             demos.forEach((demo, index) => {
                 const vars: string[] = [];
