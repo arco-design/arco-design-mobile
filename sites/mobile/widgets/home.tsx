@@ -3,7 +3,7 @@ import routes from '../pages/components/route';
 import enRoutes from '../pages/components/route-en-US';
 import compositeRoutes from '../pages/composite-comp/route';
 import enCompositeRoutes from '../pages/composite-comp/route-en-US';
-import { HistoryContext } from '../entry';
+import { HistoryContext } from '../entry/context';
 import getUrlParam from '../../utils/getUrlParam';
 import { commonLocaleMap, LanguageSupport } from '../../utils/language';
 import { getMenuOrder } from '../../utils/menu';

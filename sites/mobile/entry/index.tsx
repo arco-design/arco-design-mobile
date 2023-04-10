@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
 import ContextProvider from '../../../packages/arcodesign/components/context-provider';
@@ -15,11 +15,10 @@ import '../../../packages/arcodesign/components/style';
 import '../../../packages/arcodesign/tools/touch2mouse';
 import { render } from '../../../packages/arcodesign/components/_helpers';
 import useLocale from './useLocale';
+import { HistoryContext } from './context';
 import './index.less';
 
 setRootPixel();
-
-export const HistoryContext = createContext<any>(null);
 
 function App() {
     const { theme } = useTheme();

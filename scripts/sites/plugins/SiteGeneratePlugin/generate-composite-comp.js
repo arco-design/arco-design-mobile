@@ -14,7 +14,6 @@ function generateCompositeComponents(compSrcPath, compPagePath, language, latest
     let compDocsImportStr = '';
     let compDocsStr = '';
     const compRoutes = [];
-    const compLinkComposite = {};
     compNames.forEach(comp => {
         // 拼装 route json
         const routeInfo = {

@@ -1,4 +1,4 @@
-import React, { createContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import demoDocs from '../pages/components';
 import enDemoDocs from '../pages/components/index-en-US';
@@ -10,9 +10,8 @@ import readmeDocs from '../pages/guide';
 import { LanguageSupport } from '../../utils/language';
 import { render } from '../../../packages/arcodesign/components/_helpers';
 import { showGA } from '../../utils/ga';
+import { HistoryContext } from './context';
 import './index.less';
-
-export const HistoryContext = createContext<any>(null);
 
 function CompGenerator(children, history) {
     return <HistoryContext.Provider value={history}>{children}</HistoryContext.Provider>;

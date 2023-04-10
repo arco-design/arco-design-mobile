@@ -43,6 +43,7 @@ const devConfig = merge(genBaseConfig(baseConfig, 'home'), {
         },
         port: 8824,
         allowedHosts: "all",
+        open: true
     },
     plugins: [
         new HtmlWebpackPlugin({

@@ -43,6 +43,7 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
             directory: path.join(__dirname, "./")
         },
         port: 8823,
+        open: true,
         allowedHosts: "all",
     },
     plugins: [

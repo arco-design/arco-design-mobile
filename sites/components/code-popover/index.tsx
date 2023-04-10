@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useCallback, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import QRCode from 'qrcode';
+import { QRCodeCanvas } from 'qrcode.react';
 import './index.less';
 
 export interface CodePopoverProps {
@@ -15,22 +15,12 @@ export default function CodePopover(props: PropsWithChildren<CodePopoverProps>) 
     const domRef = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState<[number, number]>([0, 0]);
     const [visible, setVisible] = useState(false);
-    const [codeUrl, setCodeUrl] = useState('');
 
     const updatePosition = useCallback(() => {
         const rect = domRef.current?.getBoundingClientRect();
         const { left = 0, width = 0, bottom = 0 } = rect || {};
         setPosition([left + width / 2, bottom]);
     }, []);
-
-    useEffect(() => {
-        if (url) {
-            QRCode.toDataURL(url, { margin: 1 }, (err, newUrl) => {
-                err && console.error(err);
-                setCodeUrl(newUrl || '');
-            });
-        }
-    }, [url]);
 
     useEffect(() => {
         if (visible) {
@@ -53,7 +43,7 @@ export default function CodePopover(props: PropsWithChildren<CodePopoverProps>) 
                 >
                     <div className="home-code-popover-content">
                         {text}
-                        {codeUrl ? <img className="code" src={codeUrl} /> : null}
+                        {url && <QRCodeCanvas value={url} className="code" />}
                     </div>
                 </div>
             ) : null,
