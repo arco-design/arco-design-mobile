@@ -8,7 +8,7 @@ import React, {
     CSSProperties,
     useMemo,
 } from 'react';
-import { cls, defaultLocale, handleUnit, nextTick } from '@arco-design/mobile-utils';
+import { cls, defaultLocale, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Loading from '../loading';
 import { useSystem, useWindowSize, getStyleWithVendor, useMountedState } from '../_helpers';
@@ -253,9 +253,6 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
 
     const attrs = useMemo(() => {
         const imageStyle: CSSProperties = {};
-        if (radius) {
-            imageStyle.borderRadius = handleUnit(radius);
-        }
         if (!isPreview) {
             imageStyle.objectFit = fit as CSSProperties['objectFit'];
             imageStyle.objectPosition = position;
@@ -439,6 +436,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                             'has-loaded': hasLoadedRef.current,
                         })}
                         style={getStyleWithVendor({
+                            borderRadius: radius,
                             transitionDuration: `${animateDuration}ms`,
                         })}
                         onClick={onClick}

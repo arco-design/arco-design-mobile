@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,7 +8,7 @@ const utils = require('../utils');
 const baseConfig = require('./webpack.common.js');
 const sitePath = path.resolve(__dirname, '../../sites');
 
-const filterComp = (process.env.FILTER_COMP || '').split(' ')
+const compileComps = (process.env.FILTER_COMP || '').split(' ')
     .filter(e => e)
     .map(utils.getFolderName);
 
@@ -51,17 +50,18 @@ const devConfig = merge(baseConfig, {
         },
         port: 8822,
         allowedHosts: "all",
-        ...(filterComp.length
+        open: true,
+        ...(compileComps.length
             ? {
                 open: true,
-                openPage: `http://localhost:8822/#/components/${filterComp[0]}`,
+                openPage: `http://localhost:8822/#/components/${compileComps[0]}`,
             }
             : {}),
     },
     plugins: [
         new VConsolePlugin({ enable: true }),
         new DemoGeneratePlugin({
-            filterComp,
+            compileComps
         }),
         new TokenGeneratePlugin(),
         new HtmlWebpackPlugin({
