@@ -26,7 +26,7 @@ function setWindowScrollTop(top, node) {
     }
 }
 
-export default function StickyTabs() {
+export default function StickyTabsPosition() {
 
     const fixedLimitRef = React.useRef(0);
     const positionRef = React.useRef({});
@@ -44,24 +44,22 @@ export default function StickyTabs() {
     }
 
     const onChange = (tab, index) => {
-        const scrollTop = getWindowScrollTop(document.getElementById('sticky-tabs-wrapper'));
+        const scrollTop = getWindowScrollTop(document.getElementById('sticky-tabs-wrapper-position'));
         positionRef.current[activeRef.current] = scrollTop;
-        console.log(scrollTop, ', scrollTop');
         activeRef.current = index;
     };
 
     const onAfterChange = (tab, index) => {
-        console.log(tab, index, ', index')
         const scrollY = positionRef.current[index];
-        const windowScrollTop = Math.ceil(getWindowScrollTop(document.getElementById('sticky-tabs-wrapper')));
+        const windowScrollTop = Math.ceil(getWindowScrollTop(document.getElementById('sticky-tabs-wrapper-position')));
         if (windowScrollTop >= fixedLimitRef.current) {
             const newScrollY = Math.max(scrollY, fixedLimitRef.current + 1);
-            setWindowScrollTop(newScrollY, document.getElementById('sticky-tabs-wrapper'));
+            setWindowScrollTop(newScrollY, document.getElementById('sticky-tabs-wrapper-position'));
         }
     };
 
     return (
-        <div id='sticky-tabs-wrapper'>
+        <div id='sticky-tabs-wrapper-position'>
             <div className='placeholder'>
                 placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder
             </div>
@@ -69,7 +67,7 @@ export default function StickyTabs() {
                 className='sticky-tabs'
                 tabs={tabData}
                 renderTabBar={(TabBar) => (
-                    <Sticky getScrollContainer={() => document.getElementById('sticky-tabs-wrapper')} topOffset={0}>{TabBar}</Sticky>
+                    <Sticky getScrollContainer={() => document.getElementById('sticky-tabs-wrapper-position')} topOffset={0}>{TabBar}</Sticky>
                 )}
                 onChange={onChange}
                 onAfterChange={onAfterChange}
