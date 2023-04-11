@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.13.4...@arco-design/mobile-utils@2.14.0) (2023-04-11)
+
+
+### Features
+
+* `Carousel` & `NoticeBar` & `Input` & `Cell` rtl adaption ([bbd2fbb](https://github.com/arco-design/arco-design-mobile/commit/bbd2fbb3689a807f0d37b7ac51ac131e37224ae6))
+
+
+
+
+
 ## [2.13.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.13.3...@arco-design/mobile-utils@2.13.4) (2023-02-27)
 
 **Note:** Version bump only for package @arco-design/mobile-utils

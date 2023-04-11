@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.4...@arco-design/mobile-react@2.26.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* `Carousel` fix confused rendering due to missing keys ([565b51e](https://github.com/arco-design/arco-design-mobile/commit/565b51ef84382fec04d9ecfd4264600a332913bc))
+* `Image` border radius ([#107](https://github.com/arco-design/arco-design-mobile/issues/107)) ([6f1fe3e](https://github.com/arco-design/arco-design-mobile/commit/6f1fe3e4d72330d7e65ea95a58e79231779ae2f7))
+* `Progress` state error when updating progress before animation done ([#105](https://github.com/arco-design/arco-design-mobile/issues/105)) ([a8d2398](https://github.com/arco-design/arco-design-mobile/commit/a8d2398f9139316985bd3c8ea1fd6760412bea5b))
+* `Tabs` support the prop "underlineAdaptive" ([b81b535](https://github.com/arco-design/arco-design-mobile/commit/b81b535e4933e0d51e0bcf8d7135b39d706f0b24))
+* add prop "blockChangeWhenCompositing" for input type components ([a082a02](https://github.com/arco-design/arco-design-mobile/commit/a082a02143cd53f61e757be7bd26391f8d04e6f6))
+
+
+### Features
+
+* `Carousel` & `NoticeBar` & `Input` & `Cell` rtl adaption ([bbd2fbb](https://github.com/arco-design/arco-design-mobile/commit/bbd2fbb3689a807f0d37b7ac51ac131e37224ae6))
+* add new component `Divider` ([#102](https://github.com/arco-design/arco-design-mobile/issues/102)) ([2ad2830](https://github.com/arco-design/arco-design-mobile/commit/2ad2830b3851cb1e7e8d96edda3a75f27edf2e7a))
+
+
+
+
+
 ## [2.25.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.3...@arco-design/mobile-react@2.25.4) (2023-02-27)
 
 
