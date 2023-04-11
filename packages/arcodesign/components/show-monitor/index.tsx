@@ -4,7 +4,6 @@ import React, {
     Ref,
     useImperativeHandle,
     useEffect,
-    MutableRefObject,
     useCallback,
     useMemo,
 } from 'react';
@@ -121,7 +120,7 @@ export interface ShowMonitorRef {
 
 type TListenerEntity = {
     node: HTMLDivElement;
-    isVisible: MutableRefObject<boolean>;
+    isVisible: boolean;
     overflow: boolean;
     once: boolean;
     offset: number | [number, number] | [number, number, number, number];
@@ -144,6 +143,24 @@ const wrapperNodeList: (HTMLElement | Window)[] = [];
  */
 const listeners: TListenerEntityList = {};
 const onOnceEmittedListeners: TListenerEntityList = {};
+/**
+ * Intersection Observer 同一 root 节点下的监听队列
+ * @en Intersection Observer Listening queue under the same root node
+ */
+const ioListeners: {
+    root: HTMLElement;
+    key: string;
+    listener: IntersectionObserver;
+}[] = [];
+/**
+ * Intersection Observer 监听 visible 状态队列
+ * @en Intersection Observer listens to the visible status queue
+ */
+const ioVisibleList: ({
+    node: HTMLDivElement;
+    isVisible: boolean;
+    once: boolean;
+} & Pick<ShowMonitorProps, 'onVisibleChange'>)[] = [];
 let throttlingVisibleChange: () => void;
 
 /**
@@ -182,11 +199,6 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
      * @en Parent node of the local scroll element
      */
     const domRefParent = useRef<HTMLElement | Document | null>(null);
-    /**
-     * 当前元素是否在可视区域内
-     * @en Whether the current element is in the visible area
-     */
-    const isVisible = useRef<boolean>(false);
     /**
      * 保存当前节点信息，类似于 class component 中 this
      * @en Save current node information, similar to this in class component
@@ -227,11 +239,8 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
          * @en Reset the initial visible state of the element to false, and re-detect the visibility of the element, the priority is lower than 'disabled'(Usually used to re-listen when elements inside ShowMonitor change)
          */
         flushVisibleStatus() {
-            isVisible.current = false;
-            if (isSupportNativeApi && io.current && domRef.current) {
-                disabled
-                    ? io.current.unobserve(domRef.current)
-                    : io.current.observe(domRef.current);
+            if (isSupportNativeApi) {
+                disabled ? ioUnobserve() : ioObserve();
             } else if (listener.current) {
                 const key = wrapperKey.current;
                 if (once && onOnceEmittedListeners?.[key]) {
@@ -287,7 +296,7 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
          * 当前元素 visible 对比之前发生改变，触发回调函数
          * @en The current element visible is changed before the comparison, and the callback function is triggered
          */
-        curVisible !== preVisible.current &&
+        curVisible !== preVisible &&
             handleCheckChildrenExist() &&
             onCompVisibleChange(curVisible, node);
         const key = wrapperKey.current;
@@ -302,11 +311,7 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
          * 当前元素不可见 -> 可见，且 once, 触发回调函数
          * @en The current element is invisible -> visible, and once, triggers the callback function
          */
-        curVisible &&
-            !preVisible.current &&
-            compOnce &&
-            onOnceEmittedListeners[key].push(component);
-        preVisible.current = curVisible;
+        curVisible && !preVisible && compOnce && onOnceEmittedListeners[key].push(component);
     }
 
     const checkVisibleHandler = useCallback(() => {
@@ -323,25 +328,97 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
         return isChildrenExist.current && domRef.current && domRef.current.children.length;
     }
 
-    function handleObserverStatusChange(entries) {
-        const { isIntersecting } = entries[0];
-        /**
-         * 当前元素 visible 对比之前发生改变，触发回调函数
-         * @en Callback when the visible status of current element changes before the comparison
-         */
-        isIntersecting !== isVisible.current &&
-            handleCheckChildrenExist() &&
-            onVisibleChange(isIntersecting, domRef.current!);
-        /**
-         * 当前元素不可见 -> 可见，且 once, 触发回调函数
-         * @en The current element is invisible -> visible, and once, triggers the callback
-         */
-        isIntersecting &&
-            !isVisible.current &&
-            once &&
-            domRef.current &&
-            io.current?.unobserve(domRef.current);
-        isVisible.current = isIntersecting;
+    function handleObserverStatusChange(entries: IntersectionObserverEntry[]) {
+        entries.forEach(entry => {
+            const { isIntersecting, target } = entry;
+            const visibleItem = ioVisibleList.find(item => item.node === target);
+            if (visibleItem) {
+                const {
+                    isVisible: curVisible,
+                    onVisibleChange: onCompVisibleChange,
+                    once: onceEmit,
+                } = visibleItem;
+                /**
+                 * 当前元素 visible 对比之前发生改变，触发回调函数
+                 * @en Callback when the visible status of current element changes before the comparison
+                 */
+                isIntersecting !== curVisible &&
+                    handleCheckChildrenExist() &&
+                    onCompVisibleChange(isIntersecting, target as HTMLDivElement);
+                /**
+                 * 当前元素状态由不可见变为可见，且只触发一次
+                 * @en The current element is invisible -> visible, and once, triggers the callback
+                 */
+                isIntersecting &&
+                    !curVisible &&
+                    onceEmit &&
+                    target &&
+                    ioUnobserve(target as HTMLDivElement);
+                visibleItem.isVisible = isIntersecting;
+            }
+        });
+    }
+
+    /**
+     * 获取 io 单例
+     * @en Get the io singleton
+     */
+    function getIOSingleton(ioOptions: {
+        root: HTMLElement;
+        rootMargin: string;
+        threshold: number;
+    }) {
+        const { root, rootMargin, threshold: ioThreshold } = ioOptions;
+        const ioKey = JSON.stringify({ rootMargin, threshold: ioThreshold });
+
+        const _ioListener = ioListeners.find(
+            ioListener => ioListener.root === root && ioListener.key === ioKey,
+        );
+
+        if (!_ioListener) {
+            ioListeners.push({
+                root,
+                key: ioKey,
+                listener: (io.current = new IntersectionObserver(
+                    handleObserverStatusChange,
+                    ioOptions,
+                )),
+            });
+        } else {
+            io.current = _ioListener.listener;
+        }
+    }
+
+    function ioObserve() {
+        if (domRef.current && io.current) {
+            const curIdx = ioVisibleList.findIndex(
+                ioVisibleItem => ioVisibleItem.node === domRef.current,
+            );
+            if (curIdx !== -1) {
+                ioVisibleList[curIdx].isVisible = false;
+            } else {
+                ioVisibleList.push({
+                    node: domRef.current,
+                    isVisible: false,
+                    once,
+                    onVisibleChange,
+                });
+            }
+            io.current.observe(domRef.current);
+        }
+    }
+
+    function ioUnobserve(target?: HTMLDivElement) {
+        const targetNode = target || domRef.current;
+        if (io.current && targetNode) {
+            const curIdx = ioVisibleList.findIndex(
+                ioVisibleItem => ioVisibleItem.node === targetNode,
+            );
+            if (curIdx !== -1) {
+                ioVisibleList.splice(curIdx, 1);
+            }
+            io.current.unobserve(targetNode!);
+        }
     }
 
     /**
@@ -350,16 +427,11 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
      */
     useEffect(() => {
         if (isSupportNativeApi) {
-            // 非首次下
+            // 非首次 render 下
             // @en Not for the first time
-            if (io.current && domRef.current) {
-                // 禁用监听 || 监听
-                disabled
-                    ? io.current.unobserve(domRef.current)
-                    : io.current.observe(domRef.current);
-            }
+            disabled ? ioUnobserve() : ioObserve();
         } else {
-            // 非首次下
+            // 非首次 render 下
             // @en Not for the first time
             if (wrapperKey.current !== -1 && listener.current && listeners[wrapperKey.current]) {
                 // 禁用监听，找到对应listener并删除
@@ -408,11 +480,13 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
                         parent!,
                     ) === -1;
                 const overflowRoot = isHTMLElement ? parent : null;
-                const root = overflow
-                    ? overflowRoot
-                    : scrollPort.current === window
-                    ? null
-                    : (scrollPort.current as HTMLElement);
+                const root = (
+                    overflow
+                        ? overflowRoot
+                        : scrollPort.current === window
+                        ? null
+                        : scrollPort.current
+                ) as HTMLElement;
                 let rootMargin = '';
                 if (Array.isArray(offset)) {
                     if (offset.length === 2) {
@@ -426,12 +500,14 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
                 } else {
                     rootMargin = `${offset}px`;
                 }
-                io.current = new IntersectionObserver(handleObserverStatusChange, {
-                    root: root as HTMLElement,
+
+                getIOSingleton({
+                    root,
                     rootMargin,
                     threshold,
                 });
-                !disabled && io.current.observe(domRef.current);
+
+                !disabled && ioObserve();
             }
         } else {
             // 节流后回调函数
@@ -478,7 +554,7 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
             }
             listener.current = {
                 node: domRef.current!,
-                isVisible,
+                isVisible: false,
                 overflow,
                 once,
                 offset,
@@ -496,7 +572,7 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
     useEffect(() => {
         return () => {
             if (isSupportNativeApi) {
-                domRef.current && io.current?.unobserve(domRef.current);
+                ioUnobserve();
             } else {
                 if (overflow) {
                     const parent = domRefParent.current;
