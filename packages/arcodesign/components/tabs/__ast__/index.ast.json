@@ -772,6 +772,26 @@
                 "name": "boolean"
             }
         },
+        "underlineAdaptive": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "下划线是否根据 tab cell 长度自适应\n@en Whether the underline is adaptive according to the length of the tab cell",
+            "name": "underlineAdaptive",
+            "tags": {
+                "en": "Whether the underline is adaptive according to the length of the tab cell",
+                "default": "false"
+            },
+            "descWithTags": "下划线是否根据 tab cell 长度自适应",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "stopTouchThreshold": {
             "defaultValue": {
                 "value": "0"
@@ -2028,6 +2048,22 @@
                     "default": "true"
                 },
                 "descWithTags": "是否展示下划线"
+            },
+            "underlineAdaptive": {
+                "name": "underlineAdaptive",
+                "required": false,
+                "description": "下划线是否根据 tab cell 长度自适应\n@en Whether the underline is adaptive according to the length of the tab cell",
+                "defaultValue": {
+                    "value": "false"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the underline is adaptive according to the length of the tab cell",
+                    "default": "false"
+                },
+                "descWithTags": "下划线是否根据 tab cell 长度自适应"
             },
             "mode": {
                 "name": "mode",

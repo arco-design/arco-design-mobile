@@ -250,6 +250,37 @@
     }
 }
 
+.prop-with-rtl(@origin-property) {
+    @property-map: {
+        @left: right;
+        @right: left;
+        @margin-left: margin-right;
+        @margin-right: margin-left;
+        @padding-left: padding-right;
+        @padding-right: padding-left;
+    }
+    @property-name: @property-map[@@origin-property];
+}
+
+.set-prop-with-rtl(@property, @value, @rules: {
+    @{property}: initial;
+}) {
+    @{property}: @value;
+    [dir="rtl"] & {
+        @rules();
+        @new-property: .prop-with-rtl(@property)[@property-name];
+        @{new-property}: @value;
+    }
+}
+
+.set-value-with-rtl(@property, @value) {
+    @{property}: @value;
+    [dir="rtl"] & {
+        @new-value: .prop-with-rtl(@value)[@property-name];
+        @{property}: @new-value;
+    }
+}
+
 .set-loading-color(@color) {
     .bg-color-with-config {
         background: @color;

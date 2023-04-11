@@ -9,9 +9,10 @@ import React, {
     CSSProperties,
     ReactNode,
     useMemo,
+    useContext,
 } from 'react';
 import { nextTick, cls } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { ContextLayout, GlobalContext } from '../context-provider';
 import {
     useRefState,
     useListenResize,
@@ -288,6 +289,12 @@ export interface CarouselProps {
      */
     allowEndBlank?: boolean;
     /**
+     * 在iOS下是否需要在切屏时做DOM强刷优化，用于修复iOS息屏时自动播放的蜜汁渲染问题
+     * @en Whether to do DOM forced refresh optimization when the screen is off under iOS, to fix the rendering problem of automatic playback when the iOS screen is off
+     * @default true
+     */
+    iOSVisibleOptimize?: boolean;
+    /**
      * 自定义手指滑动跟手的距离计算方式，posDis表示touchmove的距离，wrapSize表示容器在滑动方向的尺寸，childSize表示滑块在滑动方向的尺寸
      * @en Customize the calculation method of the finger swipe distance. posDis - touchmove distance, wrapSize - container size in the sliding direction, childSize - slider size in the sliding direction
      * @default (posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)
@@ -439,6 +446,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         allowEndBlank = false,
         bounceWhenNoLoop = false,
         bounceDampRate = 3,
+        iOSVisibleOptimize = true,
         distanceProcessor,
         getInnerScrollContainer,
         onChange,
@@ -454,6 +462,8 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         onPageVisibleChange,
     } = props;
 
+    const { useRtl } = useContext(GlobalContext);
+    const horizontalUseRtl = !vertical && useRtl;
     const domRef = useRef<HTMLDivElement | null>(null);
     const wrapRef = useRef<HTMLDivElement | null>(null);
     const innerRef = useRef<HTMLDivElement | null>(null);
@@ -480,7 +490,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
     );
     const [transforms, transformsRef, setTransforms] = useRefState<number[]>([]);
     const [direction, directionRef, setStateDirection] = useRefState<'left' | 'right' | ''>(
-        autoPlayDirection === 'reverse' && autoPlay ? 'right' : 'left',
+        (autoPlayDirection === 'reverse' || horizontalUseRtl) && autoPlay ? 'right' : 'left',
     );
     const lastDirectionRef = useRef('');
     const lastShownIndexRef = useRef(-1);
@@ -494,6 +504,9 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         }
         return arr;
     }, [shownTotal]);
+    const rtlRatio = horizontalUseRtl ? -1 : 1;
+    const leftDirec = horizontalUseRtl ? 'right' : 'left';
+    const rightDirec = horizontalUseRtl ? 'left' : 'right';
     const leftOffset = typeof offsetBetween === 'number' ? offsetBetween : offsetBetween.left || 0;
     const rightOffset =
         typeof offsetBetween === 'number' ? offsetBetween : offsetBetween.right || 0;
@@ -523,7 +536,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
     const system = useSystem();
     // 开启自动循环时iOS会有渲染问题需要强刷dom，但不需要autoPlay的不用强刷，这里判断下
     // @en When the automatic loop is turned on, there will be rendering problems in iOS. Need to brush the dom, but if you don't need autoPlay, don't need to brush.
-    const needRefreshDom = !noInterval && system === 'ios';
+    const needRefreshDom = !noInterval && system === 'ios' && iOSVisibleOptimize;
 
     const setDirection = useCallback((newDirec: 'left' | 'right' | '') => {
         setStateDirection(direc => {
@@ -610,10 +623,11 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
                 return;
             }
             setDirection(posDis >= 0 ? 'right' : 'left');
+            const comparedPos = posDis * rtlRatio;
             if (
                 noLoop &&
-                ((indexRef.current === 0 && posDis > 0) ||
-                    (indexRef.current === total - 1 && posDis < 0))
+                ((indexRef.current === 0 && comparedPos > 0) ||
+                    (indexRef.current === total - 1 && comparedPos < 0))
             ) {
                 triggerTouchStopped(posDis);
                 if (bounceWhenNoLoop && bounceDampRate) {
@@ -638,6 +652,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             stopPropagation,
             bounceWhenNoLoop,
             bounceDampRate,
+            horizontalUseRtl,
             onTouchMove,
             triggerTouchStopped,
         ],
@@ -772,7 +787,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         } else {
             getFakeChild();
         }
-    }, [index, direction, childSize, total]);
+    }, [index, direction, childSize, total, horizontalUseRtl]);
 
     useEffect(() => {
         nextTick(() => {
@@ -797,7 +812,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             return;
         }
         setCurrentFakeIndex();
-    }, [posAdjusting, index, direction, total, childSize]);
+    }, [posAdjusting, index, direction, total, childSize, horizontalUseRtl]);
 
     function getShownIndex(nowIndex: number) {
         const validIndex = nowIndex === total ? 0 : nowIndex;
@@ -855,19 +870,25 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
     function getDefaultDirection() {
         const nowIndex = indexRef.current;
         if (nowIndex === total - 1) {
-            return 'left';
+            return horizontalUseRtl ? 'right' : 'left';
         }
         if (nowIndex === 0) {
-            return 'right';
+            return horizontalUseRtl ? 'left' : 'right';
         }
         return '';
     }
 
-    function changeIndex(newIndex: number, rightNow?: boolean, direc?: 'right' | 'left') {
+    function changeIndex(newIndex: number, rightNow?: boolean, userSetDirec?: 'right' | 'left') {
         if (posAdjustingRef.current) {
             return;
         }
-        if (direc) {
+        if (userSetDirec) {
+            // rtl 模式取反
+            const direcMap: Record<string, 'right' | 'left'> = {
+                left: leftDirec,
+                right: rightDirec,
+            };
+            const direc = direcMap[userSetDirec];
             setDirection(direc);
             nextTick(() => {
                 jumpTo(newIndex, true, rightNow, direc);
@@ -888,7 +909,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         if (direc) {
             setDirection(direc);
         } else if (autoJump) {
-            setDirection(autoPlayDirection === 'reverse' ? 'right' : 'left');
+            setDirection(autoPlayDirection === 'reverse' || horizontalUseRtl ? 'right' : 'left');
         } else if (newIndex === indexRef.current) {
             setDirection(distanceRef.current > 0 ? 'right' : 'left');
         } else {
@@ -970,16 +991,16 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         const newTransform = transformsRef.current.slice();
         const dis = Math.max(0, childSize);
         allChildren.forEach((_, childIndex) => {
-            if (nowIndex === 0 && directionRef.current === 'right' && childIndex === total - 1) {
+            if (nowIndex === 0 && directionRef.current === rightDirec && childIndex === total - 1) {
                 movedChildRef.current = childIndex;
-                newTransform[childIndex] = -1 * total * dis;
+                newTransform[childIndex] = -1 * total * dis * rtlRatio;
             } else if (
                 nowIndex === total - 1 &&
-                directionRef.current === 'left' &&
+                directionRef.current === leftDirec &&
                 childIndex === 0
             ) {
                 movedChildRef.current = childIndex;
-                newTransform[childIndex] = total * dis;
+                newTransform[childIndex] = total * dis * rtlRatio;
             } else if (nowIndex >= 0 && nowIndex < total) {
                 newTransform[childIndex] = 0;
             }
@@ -1015,14 +1036,14 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         touchStartedRef.current = false;
         touchMovedRef.current = false;
         const touchEndTime = new Date().getTime();
-        const speed = (distance / (touchEndTime - touchStartTimeRef.current)) * 1000;
-        const maxSlice = childSize * percentToChange;
         const dis = Math.abs(distance);
-        const needJump =
-            (dis > maxSlice && dis > distanceToChange) || Math.abs(speed) > speedToChange;
-        if (distance > 0 && needJump) {
+        const speed = (dis / (touchEndTime - touchStartTimeRef.current)) * 1000;
+        const maxSlice = childSize * percentToChange;
+        const needJump = (dis > maxSlice && dis > distanceToChange) || speed > speedToChange;
+        const comparedDis = distance * rtlRatio;
+        if (comparedDis > 0 && needJump) {
             jumpTo(index - 1, false);
-        } else if (distance < 0 && needJump) {
+        } else if (comparedDis < 0 && needJump) {
             jumpTo(index + 1, false);
         } else {
             jumpTo(index, false);
@@ -1039,18 +1060,21 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
     function getInnerStyle(): CSSProperties {
         const transitionStyle = getStyleWithVendor(getSlideTransitionStyle());
         const innerSize = childSize * total;
-        const dis = index * childSize * -1 + distance + leftOffset;
-        const minTransform = childSize > 0 ? leftOffset : 0;
-        const maxTransform = allowEndBlank ? dis : -1 * innerSize + wrapSize - rightOffset;
+        const dis = index * childSize * -1 * rtlRatio + distance + rtlRatio * leftOffset;
+        const min = childSize > 0 ? leftOffset : 0;
+        const max = allowEndBlank ? dis * rtlRatio : -1 * innerSize + wrapSize - rightOffset;
+        const minTransform = horizontalUseRtl ? -1 * max : min;
+        const maxTransform = horizontalUseRtl ? -1 * min : max;
+        const comparedDis = rtlRatio * distance;
         const noLoopDis =
             bounceWhenNoLoop &&
-            ((index === 0 && distance > 0) || (index === total - 1 && distance < 0))
+            ((index === 0 && comparedDis > 0) || (index === total - 1 && comparedDis < 0))
                 ? Math.min(minTransform + distance, Math.max(maxTransform + distance, dis))
                 : Math.min(minTransform, Math.max(maxTransform, dis));
         // noLoop时需要在最后也露出spaceBetween的空白，所以当滑到最后一个时transform向左移动相应宽度
         // @en When noLoop is used, the blank space of spaceBetween needs to be exposed at the end, so when sliding to the last one, the transform value moves to the left by the corresponding width
         const translateDis = noLoop
-            ? noLoopDis - (total > 1 && index === total - 1 ? spaceBetween : 0)
+            ? noLoopDis - (total > 1 && index === total - 1 ? spaceBetween : 0) * rtlRatio
             : dis;
         const transStr = childSize > 0 ? `${translateDis}px` : `-${index * 100}%`;
         if (vertical) {
@@ -1098,9 +1122,9 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
     // @en When the front or last slider is manually placed to the rear or the front through transform, it can be considered as the total or -1 module in the display layer
     function getShownChildIndex(curIndex: number) {
         let childIndex = curIndex;
-        if (transforms[childIndex] > 0) {
+        if (transforms[childIndex] * rtlRatio > 0) {
             childIndex = total;
-        } else if (transforms[childIndex] < 0) {
+        } else if (transforms[childIndex] * rtlRatio < 0) {
             childIndex = -1;
         }
         return childIndex;
@@ -1120,19 +1144,22 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             setFakeIndexes(newIndexes);
             return;
         }
-        if ((index === 1 && direction === 'right') || (index === 0 && direction !== 'right')) {
+        if (
+            (index === 1 && direction === rightDirec) ||
+            (index === 0 && direction !== rightDirec)
+        ) {
             newIndexes[0] = { index: total - 1, side: 'left' };
         }
-        if ((index === 0 && direction === 'right') || index === -1) {
+        if ((index === 0 && direction === rightDirec) || index === -1) {
             newIndexes[1] = { index: total - 2, side: 'left' };
         }
         if (
-            (index === total - 2 && direction === 'left') ||
-            (index === total - 1 && direction !== 'left')
+            (index === total - 2 && direction === leftDirec) ||
+            (index === total - 1 && direction !== leftDirec)
         ) {
             newIndexes[2] = { index: 0, side: 'right' };
         }
-        if ((index === total - 1 && direction === 'left') || index === total) {
+        if ((index === total - 1 && direction === leftDirec) || index === total) {
             newIndexes[3] = { index: 1, side: 'right' };
         }
         setFakeIndexes(newIndexes);
@@ -1142,10 +1169,11 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         const dis = index - childIndex;
         const prefix = dis > 0 ? 1 : -1;
         const transPercent = 1 - inactiveValidScale;
+        const ratioWithRtl = ratio * rtlRatio;
         let trans = 0;
         if (Math.abs(dis) > 1) {
-            trans = (prefix * (Math.abs(dis) - 1) - ratio) * transPercent;
-        } else if ((dis === -1 && ratio > 0) || (dis === 1 && ratio < 0)) {
+            trans = (prefix * (Math.abs(dis) - 1) - ratioWithRtl) * transPercent * rtlRatio;
+        } else if ((dis === -1 && ratioWithRtl > 0) || (dis === 1 && ratioWithRtl < 0)) {
             trans = -1 * ratio * transPercent;
         }
         return `translate${vertical ? 'Y' : 'X'}(${trans * 100}%)`;
@@ -1156,8 +1184,8 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         // active滑块前后两侧的滑块，根据滑动距离等比放大
         // @en The front and rear sides of the active slider, and zoom in proportionally according to the sliding distance
         if (
-            (childIndex === index - 1 && direction === 'right') ||
-            (childIndex === index + 1 && direction === 'left')
+            (childIndex === index - 1 && direction === rightDirec) ||
+            (childIndex === index + 1 && direction === leftDirec)
         ) {
             return originScale + (1 - originScale) * Math.abs(ratio);
         }
@@ -1184,11 +1212,11 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         } else if (dis <= -1) {
             // 当前active之前的卡片，origin均靠最右
             // @en The cards in front of the currently active card, the origin is on the far right
-            origin = 1;
+            origin = horizontalUseRtl ? 0 : 1;
         } else if (dis >= 1) {
             // 当前active之后的卡片，origin均靠最左
             // @en The cards after the currently active card, the origin is on the far left
-            origin = 0;
+            origin = horizontalUseRtl ? 1 : 0;
         }
         const originStr = `${origin * 100}%`;
         return vertical ? `center ${originStr}` : `${originStr} center`;
@@ -1217,8 +1245,8 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
 
     function getItemFakeStyle(childIndex: number): CSSProperties {
         const styleMap = {
-            leftDirec: vertical ? 'bottom' : 'right',
-            rightDirec: vertical ? 'top' : 'left',
+            leftDirec: vertical ? 'top' : leftDirec,
+            rightDirec: vertical ? 'bottom' : rightDirec,
             otherDirec: vertical ? 'left' : 'top',
             trans: vertical ? 'Y' : 'X',
         };
@@ -1227,12 +1255,16 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             [styleMap.otherDirec]: 0,
             ...(childIndex >= 0
                 ? {
-                      [styleMap.rightDirec]: childSize > 0 ? '100%' : `${total * 100}%`,
-                      transform: `translate${styleMap.trans}(${(childIndex - total) * 100}%)`,
+                      [styleMap.leftDirec]: childSize > 0 ? '100%' : `${total * 100}%`,
+                      transform: `translate${styleMap.trans}(${
+                          (childIndex - total) * rtlRatio * 100
+                      }%)`,
                   }
                 : {
-                      [styleMap.leftDirec]: '100%',
-                      transform: `translate${styleMap.trans}(${(childIndex + 1) * 100}%)`,
+                      [styleMap.rightDirec]: '100%',
+                      transform: `translate${styleMap.trans}(${
+                          (childIndex + 1) * rtlRatio * 100
+                      }%)`,
                   }),
         };
     }
@@ -1241,10 +1273,12 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         const initialStartSpace = spaceBetween + leftOffset;
         const initialEndSpace = spaceBetween + rightOffset;
         const initalSize = vertical ? userSetBoxHeight : '100%';
+        const horizontalPaddingStart = horizontalUseRtl ? 'paddingRight' : 'paddingLeft';
+        const horizontalPaddingEnd = horizontalUseRtl ? 'paddingLeft' : 'paddingRight';
         const styleMap = {
             size: vertical ? 'height' : 'width',
-            paddingStart: vertical ? 'paddingTop' : 'paddingLeft',
-            paddingEnd: vertical ? 'paddingBottom' : 'paddingRight',
+            paddingStart: vertical ? 'paddingTop' : horizontalPaddingStart,
+            paddingEnd: vertical ? 'paddingBottom' : horizontalPaddingEnd,
             translate: vertical ? 'translateY' : 'translateX',
         };
         // bugfix: item 为半透明状态下 fakeItem 和普通 item 重叠露馅问题
@@ -1311,6 +1345,8 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         return (
             <div
                 key={`${fakeIndex}${posIndex}`}
+                data-fake-index={fakeIndex}
+                data-index={posIndex}
                 className={cls(`${prefix}-item carousel-item fake-item fake-${side}`, { vertical })}
                 style={getItemStyle(posIndex, true)}
             >
@@ -1330,9 +1366,14 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         return (
             <div className={cls(`${prefix}-wrap`, className)} style={wrapStyle} ref={domRef}>
                 {needRefreshDom ? (
-                    <div className={`${prefix} wrap-placeholder`} ref={fakeWrapRef} />
+                    <div
+                        key="fake-carousel"
+                        className={`${prefix} wrap-placeholder`}
+                        ref={fakeWrapRef}
+                    />
                 ) : null}
                 <div
+                    key="carousel"
                     className={prefix}
                     onTouchEnd={handleTouchEnd}
                     onTouchCancel={handleTouchEnd}
@@ -1374,8 +1415,11 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
                 </div>
                 {showIndicator && (total > 1 || !hideSingleIndicator) ? (
                     <div
+                        key="carousel-indicator"
                         className={cls(
-                            `${prefix}-indicator pos-${indicatorPos}`,
+                            `${prefix}-indicator pos-${indicatorPos} ${prefix}-indicator-${
+                                vertical ? 'vertical' : 'horizontal'
+                            }`,
                             { [`vertical ver-pos-${indicatorVerticalPos}`]: vertical },
                             {
                                 inverse:

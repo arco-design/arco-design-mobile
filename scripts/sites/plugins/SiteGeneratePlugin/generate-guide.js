@@ -9,7 +9,13 @@ const localeMap = require('../../../utils/language.json');
 
 let readmeRoutes = {};
 
-function generateGuide(guidePagePath, srcPath, tokenInfo, extraMdPath = path.resolve('sites/pc/static/md'), languages = ['ch']) {
+function generateGuide({
+    guidePagePath,
+    srcPath,
+    tokenInfo,
+    extraMdPath = path.resolve('sites/pc/static/md'),
+    languages = ['ch']
+} = {}) {
     readmeRoutes = {};
     // 解析其他文件夹下的md文件
     const siteMdNames = fs.existsSync(extraMdPath) ? fs.readdirSync(extraMdPath).filter(name => {
@@ -18,7 +24,7 @@ function generateGuide(guidePagePath, srcPath, tokenInfo, extraMdPath = path.res
     let mdEntryImportStr = '';
     let mdEntryDocsStr = '';
     // 组件库README
-    languages.map(lang => {
+    languages.forEach(lang => {
         const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
         const dashFileSuffix= fileSuffix ? `-${fileSuffix}` : '';
         const upperFileSuffix = fileSuffix ? utils.getCompName(fileSuffix) : '';
@@ -31,7 +37,7 @@ function generateGuide(guidePagePath, srcPath, tokenInfo, extraMdPath = path.res
     // 组件库CHANGELOG
     const changelogPath = path.join(srcPath, 'CHANGELOG.md');
     if (fs.existsSync(changelogPath)) {
-        languages.map(lang => {
+        languages.forEach(lang => {
             const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
             const dashFileSuffix= fileSuffix ? `-${fileSuffix}` : '';
             const upperFileSuffix = fileSuffix ? utils.getCompName(fileSuffix) : '';
@@ -49,7 +55,7 @@ function generateGuide(guidePagePath, srcPath, tokenInfo, extraMdPath = path.res
     }
 
     if (tokenInfo) {
-        languages.map(lang => {
+        languages.forEach(lang => {
             const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
             const dashFileSuffix= fileSuffix ? `-${fileSuffix}` : '';
             const upperFileSuffix = fileSuffix ? utils.getCompName(fileSuffix) : '';
@@ -90,7 +96,7 @@ export default docs;\n`;
     });
 
     // 写readme routes文件
-    languages.map(lang => {
+    languages.forEach(lang => {
         const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
         const dashFileSuffix= fileSuffix ? `-${fileSuffix}` : '';
         fs.writeFile(

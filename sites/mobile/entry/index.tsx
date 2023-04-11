@@ -1,7 +1,6 @@
-import React, { createContext, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
-import tokens from '../../../packages/arcodesign/tokens/app/arcodesign/default';
 import ContextProvider from '../../../packages/arcodesign/components/context-provider';
 import { LanguageSupport } from '../../utils/language';
 import docs from '../pages/components';
@@ -16,31 +15,23 @@ import '../../../packages/arcodesign/components/style';
 import '../../../packages/arcodesign/tools/touch2mouse';
 import { render } from '../../../packages/arcodesign/components/_helpers';
 import useLocale from './useLocale';
+import { HistoryContext } from './context';
 import './index.less';
 
 setRootPixel();
 
-export const HistoryContext = createContext<any>(null);
+const useRtl = false;
 
 function App() {
-    const { customTheme } = useTheme();
-    const actualTokens = useMemo(() => ({ ...tokens, ...customTheme }), [customTheme]);
-
-    const theme = useMemo(
-        () =>
-            Object.keys(actualTokens).reduce(
-                (acc, key) => ({
-                    ...acc,
-                    ...(key.startsWith('dark-') ? {} : { [key]: actualTokens[key] }),
-                }),
-                {},
-            ),
-        [actualTokens],
-    );
+    const { theme } = useTheme();
     const { locale } = useLocale();
 
+    useEffect(() => {
+        useRtl && document.documentElement.setAttribute('dir', 'rtl');
+    }, []);
+
     return (
-        <ContextProvider theme={theme} locale={locale}>
+        <ContextProvider theme={theme} locale={locale} useRtl={useRtl}>
             <HashRouter>
                 <Switch>
                     <Route

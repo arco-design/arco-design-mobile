@@ -33,7 +33,7 @@
 
     .cell-label {
         .use-var(color, cell-label-color);
-        .use-var(margin-right, cell-label-gutter);
+        .use-var-with-rtl(margin-right, cell-label-gutter);
     }
 
     .cell-desc {
@@ -61,7 +61,7 @@
     }
 
     .cell-label-icon {
-        .use-var(margin-right, cell-label-icon-gutter);
+        .use-var-with-rtl(margin-right, cell-label-icon-gutter);
         font-size: 0;
         .@{prefix}-icon {
             line-height: initial;
@@ -71,7 +71,7 @@
     }
 
     .cell-arrow-icon {
-        .use-var(margin-left, cell-arrow-gutter);
+        .use-var-with-rtl(margin-left, cell-arrow-gutter);
         font-size: 0;
         .@{prefix}-icon {
             .use-var(font-size, cell-arrow-font-size);
@@ -88,7 +88,9 @@
     }
 
     .@{prefix}-input-wrap {
-        padding-left: 0;
+        .set-prop-with-rtl(padding-left, 0, {
+            .use-var(padding-left, input-horizontal-padding);
+        });
     }
 }
 

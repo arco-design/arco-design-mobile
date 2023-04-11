@@ -13,10 +13,13 @@ export default function InputDemo() {
             placeholder="Please enter a nickname"
             clearable
             border="none"
+            onChange={(_, value) => console.log('input changed 1', value)}
         />
         <Input
             value={input}
             onInput={(_, value) => setInput(value)}
+            onChange={(_, value) => console.log('input changed 2', value)}
+            blockChangeWhenCompositing={true}
             label="Nickname"
             placeholder="Please enter nickname"
             clearable
@@ -28,6 +31,8 @@ export default function InputDemo() {
         />
         <Input
             label="Nickname"
+            onChange={(_, value) => console.log('input changed 3', value)}
+            blockChangeWhenCompositing={true}
             placeholder="Please enter nickname"
             border="none"
             inputStyle={{ textAlign: 'right' }}

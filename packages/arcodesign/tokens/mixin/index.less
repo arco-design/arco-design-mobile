@@ -2,7 +2,7 @@
 @import './vars-switch.less';
 @import './pxtorem.less';
 
-.rem (@property; @values...) {
+.rem(@property; @values...) {
     @{property}: ~`(function () {
         var baseFontSize=@{base-font-size};
         var sizeList = @{values};
@@ -13,6 +13,15 @@
             return pxtorem(item);
         }).join(' ');
     }())`;
+}
+
+.rem-with-rtl(@property; @values...) {
+    .rem(@property; @values...);
+    [dir="rtl"] & {
+        @{property}: initial;
+        @new-property: .prop-with-rtl(@property)[@property-name];
+        .rem(@new-property; @values...);
+    }
 }
 
 // for hack dark mode
@@ -28,6 +37,15 @@
     @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
     & when (@use-css-vars = 1) {
         @{property}: ~"@{preValues}" ~"var(--@{variables})" ~"@{nextValues}";
+    }
+}
+
+.use-var-with-rtl(@property, @variables, @preValues: '', @nextValues: '') {
+    .use-var(@property, @variables, @preValues, @nextValues);
+    [dir="rtl"] & {
+        @{property}: initial;
+        @new-property: .prop-with-rtl(@property)[@property-name];
+        .use-var(@new-property, @variables, @preValues, @nextValues);
     }
 }
 

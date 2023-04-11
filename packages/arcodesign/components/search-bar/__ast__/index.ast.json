@@ -648,6 +648,26 @@
                 "name": "boolean"
             }
         },
+        "blockChangeWhenCompositing": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "当 ios 输入中文时，输拼音的过程不触发onChange，仅确认选择后触发\n@en When inputting Chinese on ios, onChange is not triggered during pinyin input, but only after confirming the selection",
+            "name": "blockChangeWhenCompositing",
+            "tags": {
+                "en": "When inputting Chinese on ios, onChange is not triggered during pinyin input, but only after confirming the selection",
+                "default": "false"
+            },
+            "descWithTags": "当 ios 输入中文时，输拼音的过程不触发onChange，仅确认选择后触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "validator": {
             "defaultValue": null,
             "description": "正则验证，不符合验证的不允许输入\n@en Regular validation, input is not allowed if it does not meet the validation",

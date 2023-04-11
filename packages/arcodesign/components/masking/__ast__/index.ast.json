@@ -761,6 +761,22 @@
                     "en": "Internationalized language configuration"
                 },
                 "descWithTags": "国际化语言包配置"
+            },
+            "useRtl": {
+                "name": "useRtl",
+                "required": false,
+                "description": "是否使用Rtl模式\n@en Whether to use rtl",
+                "defaultValue": {
+                    "value": "false"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to use rtl",
+                    "default": "false"
+                },
+                "descWithTags": "是否使用Rtl模式"
             }
         },
         "ILocale": {

@@ -139,6 +139,26 @@
             "type": {
                 "name": "ILocale"
             }
+        },
+        "useRtl": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否使用Rtl模式\n@en Whether to use rtl",
+            "name": "useRtl",
+            "tags": {
+                "en": "Whether to use rtl",
+                "default": "false"
+            },
+            "descWithTags": "是否使用Rtl模式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
         }
     },
     "deps": {
