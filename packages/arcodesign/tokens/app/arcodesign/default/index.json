@@ -4061,8 +4061,8 @@
             "en": "Keyboard background color"
         }
     },
-    "keyboardColSpecialKeyBackground": {
-        "cssKey": "keyboard-col-special-key-background",
+    "keyboardConfirmKeyBackground": {
+        "cssKey": "keyboard-confirm-key-background",
         "desc": "键盘右边一列确认键背景色",
         "override": "",
         "value": "#165dff",
@@ -4073,8 +4073,8 @@
             "en": "Keyboard right column confirm background"
         }
     },
-    "keyboardColSpecialKeyColor": {
-        "cssKey": "keyboard-col-special-key-color",
+    "keyboardConfirmKeyColor": {
+        "cssKey": "keyboard-confirm-key-color",
         "desc": "键盘右边一列确认键字体颜色",
         "override": "",
         "value": "#ffffff",

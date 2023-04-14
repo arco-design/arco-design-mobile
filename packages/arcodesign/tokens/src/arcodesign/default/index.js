@@ -3784,12 +3784,12 @@ function getCompTokens() {
          * 键盘右边一列确认键背景色
          * @en Keyboard right column confirm background
          */
-        keyboardColSpecialKeyBackground: '#165dff',
+        keyboardConfirmKeyBackground: '#165dff',
         /**
          * 键盘右边一列确认键字体颜色
          * @en Keyboard right column confirm color
          */
-        keyboardColSpecialKeyColor: '#ffffff',
+        keyboardConfirmKeyColor: '#ffffff',
         /**
          * 键盘按钮字重
          * @en Keyboard key button font weight

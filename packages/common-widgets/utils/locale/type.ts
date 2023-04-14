@@ -55,6 +55,9 @@ export interface ILocale {
         minusButtonName: string;
         addButtonName: string;
     };
+    Keyboard: {
+        confirm: string;
+    };
     Form: {
         required: string;
         type: {

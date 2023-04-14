@@ -76,6 +76,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 * [官方文档](https://arco.design/mobile/react)
 * [组件文档](https://arco.design/mobile/react/arco-design/pc/)
+* [Figma 设计资源](https://www.figma.com/community/file/1143750379727993941)
 * [Awesome Arco](https://github.com/arco-design/awesome-arco)
 
 # 浏览器兼容性

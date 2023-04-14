@@ -744,8 +744,8 @@ export interface ArcodesignToken extends Record<string, string> {
     'keyboard-background': string;
     'keyboard-content-padding': string;
     'keyboard-unified-margin': string;
-    'keyboard-col-special-key-background': string;
-    'keyboard-col-special-key-color': string;
+    'keyboard-confirm-key-background': string;
+    'keyboard-confirm-key-color': string;
     'keyboard-key-font-weight': string;
     'keyboard-key-font-size': string;
     'keyboard-key-line-height': string;

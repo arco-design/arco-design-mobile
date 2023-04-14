@@ -12,7 +12,6 @@
         flex: 2 0 auto;
     }
 
-
     &-row {
         display: flex;
         &:not(&:nth-last-child(1)) {
@@ -24,7 +23,7 @@
                 .use-var(margin-left, keyboard-unified-margin);
             }
 
-            &.special {
+            &-special {
                 flex: 2.1 0 auto;
             }
         }
@@ -41,10 +40,10 @@
                 .use-var(margin-top, keyboard-unified-margin);
             }
 
-            &.special {
+            &-confirm {
                 flex: 2.5 0 auto;
-                .use-var(background, keyboard-col-special-key-background);
-                .use-var(color, keyboard-col-special-key-color);
+                .use-var(background, keyboard-confirm-key-background);
+                .use-var(color, keyboard-confirm-key-color);
             }
         }
     }

@@ -52,4 +52,6 @@ export { default as IconShopping } from './IconShopping';
 export { default as IconSubway } from './IconSubway';
 export { default as IconGift } from './IconGift';
 export { default as IconStarHalf } from './IconStarHalf';
+export { default as IconKeyboard } from './IconKeyboard';
+export { default as IconKeyboardDelete } from './IconKeyboardDelete';
 export * from './type';

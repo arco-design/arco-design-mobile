@@ -54,6 +54,9 @@ const localeConfig: ILocale = {
         minusButtonName: '减少',
         addButtonName: '增加',
     },
+    Keyboard: {
+        confirm: '完成',
+    },
     Form: {
         required: '%s 为必填项',
         type: {

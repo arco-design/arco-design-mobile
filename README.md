@@ -76,6 +76,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 * [Documentation website](https://arco.design/mobile/react)
 * [Components documentation](https://arco.design/mobile/react/arco-design/pc/)
+* [Figma component library](https://www.figma.com/community/file/1143750379727993941)
 * [Awesome Arco](https://github.com/arco-design/awesome-arco)
 
 # Browser Support
