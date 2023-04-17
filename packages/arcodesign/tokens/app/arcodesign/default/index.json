@@ -3974,7 +3974,7 @@
         "staticValue": "#86909c",
         "localeDesc": {
             "ch": "索引栏标题字体颜色",
-            "en": "IndexBar title background color"
+            "en": "IndexBar title text color"
         }
     },
     "indexBarGroupTitleFontSize": {

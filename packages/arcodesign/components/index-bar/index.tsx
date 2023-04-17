@@ -114,7 +114,7 @@ const IndexBar = forwardRef(
 
         // 要滚动到哪个指定的index
         const handleScrollIntoIndex = (params: IndexBarScrollParams) => {
-            const { index, type, rightNow = false, extraScrollOffset = 0 } = params;
+            const { index, type, rightNow = false } = params;
             // 不传index默认走第一个index
             const formatIndex = index ?? indexes?.[0];
             const containerDom = containerRef.current;
@@ -126,7 +126,7 @@ const IndexBar = forwardRef(
             if (groupDom) {
                 handleChangeActiveIndex(formatIndex, type);
                 const duration = rightNow ? 0 : scrollDuration;
-                const targetScrollTop = groupDom.offsetTop + extraScrollOffset;
+                const targetScrollTop = groupDom.offsetTop;
                 // 将屏幕滚动到groupDom
                 // 手动触发需要禁用handleScroll事件
                 if (type === 'manual') {
@@ -209,14 +209,11 @@ const IndexBar = forwardRef(
             }, 100);
 
             // 页面挂载时，如果是传入了defaultIndex，则滚动到对应位置
-            // TODO: 在挂载的时候立刻scroll的话，会出现错误的一个index被sticky了
-            // 暂不清楚原因，因此额外移动了1px
             if (activeIndex) {
                 handleScrollIntoIndex({
                     index: activeIndex,
                     rightNow: true,
                     type: 'manual',
-                    extraScrollOffset: 1,
                 });
             }
             containerRef.current?.addEventListener('scroll', handleScroll);

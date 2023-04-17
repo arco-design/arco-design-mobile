@@ -3607,7 +3607,7 @@ function getCompTokens() {
         indexBarGroupTitleBackground: '#f7f8fa',
         /**
          * 索引栏标题字体颜色
-         * @en IndexBar title background color
+         * @en IndexBar title text color
          */
         indexBarGroupTitleFontColor: useGlobal('subInfoFontColor'),
         /**

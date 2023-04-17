@@ -204,8 +204,10 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
                 height: containerHeight,
             } = containerRect;
 
-            const disFromTop = placeholderClientRect.top - containerTop;
-            const disFromBottom = placeholderClientRect.top + calculatedHeight - containerBottom;
+            const disFromTop = Math.round(placeholderClientRect.top - containerTop);
+            const disFromBottom = Math.round(
+                placeholderClientRect.top + calculatedHeight - containerBottom,
+            );
             const topFollowDifference =
                 followBottom - followOffset - calculatedHeight - topOffset - containerTop;
             const bottomFollowDifference =

@@ -32,7 +32,6 @@ export interface IndexBarScrollParams {
     index: IndexBarIndexType;
     type: IndexBarChangeTrigger;
     rightNow?: boolean;
-    extraScrollOffset?: number;
 }
 
 export interface IndexBarSideBarProps {
