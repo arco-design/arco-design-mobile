@@ -56,7 +56,7 @@ export default function IndexBarDemo() {
     const renderIndexBarWithGroups = () => {
         return (
             <IndexBar
-                className="custom-indexbar-height"
+                className="custom-index-bar-height"
                 groups={formatLocationData}
                 tipType="toast"
                 onGroupItemClick={(index, itemData) => Toast.toast(itemData.content)}
@@ -67,7 +67,7 @@ export default function IndexBarDemo() {
     // 使用IndexBar的jsx写法
     const renderIndexBarWithJsx = () => {
         return (
-            <IndexBar className="custom-indexbar-height" tipType="sweat" ref={customIndexBarRef}>
+            <IndexBar className="custom-index-bar-height" tipType="sweat" ref={customIndexBarRef}>
                 {jsxData.map(item => {
                     return (
                         <IndexBar.Group

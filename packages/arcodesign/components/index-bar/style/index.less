@@ -1,8 +1,8 @@
 @import '../../../style/mixin.less';
 
-.@{prefix}-indexbar {
+.@{prefix}-index-bar {
     position: relative;
-    .use-var(background, indexbar-background);
+    .use-var(background, index-bar-background);
     overflow: hidden;
     &-container {
         height: 100%;
@@ -15,22 +15,23 @@
 
     &-group {
         &-active {
-            .use-var(color, indexbar-group-active-color);
+            .use-var(color, index-bar-group-active-color);
         }
         &-title {
-            .use-var(padding-left, indexbar-group-left-spacing);
-            .use-var(height, indexbar-group-title-height);
-            .use-var(background, indexbar-group-title-background);
-            .use-var(font-size, indexbar-group-title-font-size);
+            .use-var(padding-left, index-bar-group-left-spacing);
+            .use-var(height, index-bar-group-title-height);
+            .use-var(background, index-bar-group-title-background);
+            .use-var(font-size, index-bar-group-title-font-size);
+            .use-var(color, index-bar-group-title-font-color);
             display: flex;
             align-items: center;
         }
         &-item {
-            .use-var(height, indexbar-group-item-height);
+            .use-var(height, index-bar-group-item-height);
             display: flex;
             align-items: center;
-            .use-var(margin-left, indexbar-group-left-spacing);
-            .use-var(font-size, indexbar-group-item-font-size);
+            .use-var(margin-left, index-bar-group-left-spacing);
+            .use-var(font-size, index-bar-group-item-font-size);
 
             &:not(:last-child) {
                 .onepx-border-var(bottom, line-color);
@@ -46,7 +47,7 @@
         // 保证侧边栏的层级比item的底边一像素的border要高
         z-index: 2;
         right: 0;
-        .use-var(margin-right, indexbar-sidebar-margin-right);
+        .use-var(margin-right, index-bar-sidebar-margin-right);
         top: 50%;
         transform: translateY(-50%);
         user-select: none;
@@ -56,15 +57,15 @@
             justify-content: flex-end;
             align-items: center;
             position: relative;
-            .use-var(padding, indexbar-sidebar-item-padding);
+            .use-var(padding, index-bar-sidebar-item-padding);
             cursor: pointer;
 
             &-wrapper {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                .use-var(width, indexbar-sidebar-item-width);
-                .use-var(font-size, indexbar-sidebar-item-font-size);
+                .use-var(width, index-bar-sidebar-item-width);
+                .use-var(font-size, index-bar-sidebar-item-font-size);
             }
 
             &:last-child {
@@ -72,51 +73,52 @@
             }
         }
         &-active {
-            .use-var(color, indexbar-sidebar-active-color);
+            .use-var(color, index-bar-sidebar-active-color);
         }
 
         &-sweat {
             // 水滴形状不方便自定义高度
             position: absolute;
-            .use-var(height, indexbar-sidebar-sweat-radius);
-            .use-var(min-width, indexbar-sidebar-sweat-radius);
-            .use-var(line-height, indexbar-sidebar-sweat-radius);
+            .use-var(height, index-bar-sidebar-sweat-radius);
+            .use-var(min-width, index-bar-sidebar-sweat-radius);
+            .use-var(line-height, index-bar-sidebar-sweat-radius);
             border-radius: 9999px;
             text-align: center;
-            .use-var(padding, indexbar-sidebar-sweat-padding);
-            .use-var(background, indexbar-sidebar-sweat-background);
-            .use-var(right, indexbar-sidebar-sweat-right);
-            .use-var(font-size, indexbar-sidebar-sweat-font-size);
-            .use-var(color, indexbar-sidebar-sweat-color);
+            .use-var(padding, index-bar-sidebar-sweat-padding);
+            .use-var(background, index-bar-sidebar-sweat-background);
+            .use-var(right, index-bar-sidebar-sweat-right);
+            .use-var(font-size, index-bar-sidebar-sweat-font-size);
+            .use-var(color, index-bar-sidebar-sweat-color);
             &::before {
                 content: '';
                 position: absolute;
                 top: 0;
                 bottom: 0;
                 margin: auto;
-                .use-var(right, indexbar-sidebar-sweat-triangle-position);
+                .use-var(right, index-bar-sidebar-sweat-triangle-position);
                 width: 0;
                 height: 0;
-                .use-var(border, indexbar-sidebar-sweat-triangle-border);
+                .use-var(border, index-bar-sidebar-sweat-triangle-border);
                 border: 18px solid transparent;
-                .use-var(border-left-color, indexbar-sidebar-sweat-background);
+                .use-var(border-left-color, index-bar-sidebar-sweat-background);
+                border-radius: 4px;
             }
         }
 
         &-toast {
             position: absolute;
-            .use-var(background, indexbar-sidebar-toast-background);
-            .use-var(color, indexbar-sidebar-toast-color);
+            .use-var(background, index-bar-sidebar-toast-background);
+            .use-var(color, index-bar-sidebar-toast-color);
             left: 50%;
             top: 50%;
-            .use-var(min-width, indexbar-sidebar-toast-height);
-            .use-var(height, indexbar-sidebar-toast-height);
-            .use-var(line-height, indexbar-sidebar-toast-height);
+            .use-var(min-width, index-bar-sidebar-toast-height);
+            .use-var(height, index-bar-sidebar-toast-height);
+            .use-var(line-height, index-bar-sidebar-toast-height);
             transform: translate(-50%, -50%);
             text-align: center;
-            .use-var(padding, indexbar-sidebar-toast-padding);
-            .use-var(font-size, indexbar-sidebar-toast-font-size);
-            .use-var(border-radius, indexbar-sidebar-toast-radius);
+            .use-var(padding, index-bar-sidebar-toast-padding);
+            .use-var(font-size, index-bar-sidebar-toast-font-size);
+            .use-var(border-radius, index-bar-sidebar-toast-radius);
         }
     }
 }

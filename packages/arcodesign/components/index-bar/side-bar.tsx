@@ -40,13 +40,13 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
         if (propsRenderTip) {
             return propsRenderTip(index);
         }
-        return <div className={`${prefixCls}-indexbar-sidebar-${type}`}>{index}</div>;
+        return <div className={`${prefixCls}-index-bar-sidebar-${type}`}>{index}</div>;
     };
 
     const node = (
         <div
-            className={cls(`${prefixCls}-indexbar-sidebar`, {
-                [`${prefixCls}-indexbar-sidebar-touching`]: isTouching,
+            className={cls(`${prefixCls}-index-bar-sidebar`, {
+                [`${prefixCls}-index-bar-sidebar-touching`]: isTouching,
             })}
             onTouchStart={() => handleTouchingStart()}
             onTouchEnd={() => handleTouchingStop()}
@@ -59,8 +59,8 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
                 renderSideBarTip(activeIndex, 'toast')}
             {indexes.map(index => (
                 <div
-                    className={cls(`${prefixCls}-indexbar-sidebar-item`, {
-                        [`${prefixCls}-indexbar-sidebar-active`]: activeIndex === index,
+                    className={cls(`${prefixCls}-index-bar-sidebar-item`, {
+                        [`${prefixCls}-index-bar-sidebar-active`]: activeIndex === index,
                     })}
                     key={index}
                     onTouchStart={() => onClick(index)}
@@ -70,7 +70,7 @@ export function IndexBarSideBar(props: IndexBarSideBarProps) {
                         isTouching &&
                         activeIndex === index &&
                         renderSideBarTip(index, 'sweat')}
-                    <div className={`${prefixCls}-indexbar-sidebar-item-wrapper`}>
+                    <div className={`${prefixCls}-index-bar-sidebar-item-wrapper`}>
                         {renderSideBarItem(index)}
                     </div>
                 </div>

@@ -12,7 +12,7 @@ import React, {
 } from 'react';
 import { ContextLayout } from '../context-provider';
 import { IndexBarContext } from './context';
-import { IndexBarGroup } from './group';
+import { IndexBarGroup as Group } from './group';
 import { IndexBarSideBar } from './side-bar';
 import type {
     IndexBarBaseData,
@@ -35,19 +35,12 @@ export type {
     IndexBarProps,
     IndexBarRef,
     IndexBarGroupProps,
+    IndexBarGroupRef,
     IndexBarChangeTrigger,
     IndexBarIndexType,
     IndexBarTipType,
 } from './type';
 
-/**
- * 索引栏组件
- * @en IndexBar component
- * @type 导航
- * @type_en Navigation
- * @name 索引栏
- * @name_en SearchBar
- */
 const IndexBar = forwardRef(
     <Data extends IndexBarBaseData = IndexBarBaseData>(
         props: IndexBarProps<Data>,
@@ -183,7 +176,7 @@ const IndexBar = forwardRef(
                 return formatChildren;
             }
             return groups?.map(group => (
-                <IndexBarGroup
+                <Group
                     index={group.index}
                     key={group.index}
                     list={group.list}
@@ -238,11 +231,11 @@ const IndexBar = forwardRef(
                 {({ prefixCls }) => (
                     <IndexBarContext.Provider value={contextValue}>
                         <div
-                            className={cls(`${prefixCls}-indexbar`, className)}
+                            className={cls(`${prefixCls}-index-bar`, className)}
                             style={style}
                             ref={domRef}
                         >
-                            <div className={`${prefixCls}-indexbar-container`} ref={containerRef}>
+                            <div className={`${prefixCls}-index-bar-container`} ref={containerRef}>
                                 {renderChildren()}
                             </div>
                             {!disableSidebar && (
@@ -270,4 +263,12 @@ const IndexBar = forwardRef(
     },
 );
 
-export default componentWrapper(IndexBar, { Group: IndexBarGroup });
+/**
+ * 索引栏组件
+ * @en IndexBar component
+ * @type 导航
+ * @type_en Navigation
+ * @name 索引栏
+ * @name_en SearchBar
+ */
+export default componentWrapper(IndexBar, { Group });

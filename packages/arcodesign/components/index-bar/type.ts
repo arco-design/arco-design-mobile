@@ -1,5 +1,6 @@
 import React, { CSSProperties, ReactElement, ReactNode } from 'react';
 import { StickyRef } from '../sticky';
+import { BaseRef } from '../_helpers';
 
 export type IndexBarIndexType = string | number;
 
@@ -84,6 +85,8 @@ export interface IndexBarGroupProps<Data extends IndexBarBaseData> extends Index
     renderGroupItem?: (index: IndexBarIndexType, itemData: Data, itemIndex: number) => ReactNode;
 }
 
+export interface IndexBarGroupRef extends BaseRef {}
+
 export interface IndexBarProps<Data extends IndexBarBaseData> {
     /**
      * 自定义类名
@@ -103,11 +106,13 @@ export interface IndexBarProps<Data extends IndexBarBaseData> {
     /**
      * 是否开启侧边栏功能
      * @en Whether to enable the sidebar function
+     * @default false
      */
     disableSidebar?: boolean;
     /**
      * 是否开启索引的自动吸顶效果
      * @en Whether to enable the automatic ceiling effect of the index
+     * @default true
      */
     sticky?: boolean;
     /**
@@ -123,11 +128,13 @@ export interface IndexBarProps<Data extends IndexBarBaseData> {
     /**
      * 侧边栏索引提示的样式类型 - sweat 水滴形 - toast 轻提示 - none 关闭提示
      * @en Style type of sidebar index hint - sweat: teardrop - toast: light hint - none: turn off hint
+     * @default "toast"
      */
     tipType?: IndexBarTipType;
     /**
      * 手动调用scrollToIndex时，滚动动画的执行时间
      * @en Execution time of scrolling animation when scrollToIndex is called manually
+     * @default 0
      */
     scrollDuration?: number;
     /**
