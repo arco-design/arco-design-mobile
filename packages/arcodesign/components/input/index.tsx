@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref, useImperativeHandle, useRef } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { BasicInputProps } from './props';
 import { useInputLogic } from './hooks';
@@ -31,6 +31,11 @@ export interface InputProps extends BasicInputProps {
      *  @en Other unlisted native properties have lower priority than listed component properties
      */
     nativeProps?: React.InputHTMLAttributes<HTMLInputElement>;
+    /**
+     * 无障碍label
+     * @en accessible label
+     */
+    ariaLabel?: string;
 }
 
 export interface InputRef {
@@ -46,14 +51,6 @@ export interface InputRef {
     input: HTMLInputElement | null;
 }
 
-/**
- * 输入框组件，支持添加前后缀。
- * @en The input box, supports adding prefixes and suffixes.
- * @type 数据录入
- * @type_en Data Entry
- * @name 输入框
- * @name_en Input
- */
 const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
     const {
         id,
@@ -69,6 +66,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
         inputClass,
         inputStyle,
         nativeProps = {},
+        ariaLabel = '',
     } = props;
     const inputRef = useRef<HTMLInputElement | null>(null);
     const {
@@ -115,6 +113,8 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
                 onInput={handleInput}
                 onKeyDown={handleKeyDown}
                 onClick={handleClick}
+                aria-disabled={disabled}
+                aria-label={ariaLabel}
             />,
         );
     }
@@ -122,4 +122,13 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
     return <ContextLayout>{renderInput}</ContextLayout>;
 });
 
-export default Input;
+/**
+ * 输入框组件，支持添加前后缀。
+ * @en The input box, supports adding prefixes and suffixes.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 输入框
+ * @name_en Input
+ * @displayName Input
+ */
+export default componentWrapper(Input, 'Input');

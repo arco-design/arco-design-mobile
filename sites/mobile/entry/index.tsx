@@ -1,44 +1,37 @@
-import React, { createContext, useMemo } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
-import tokens from '../../../packages/arcodesign/tokens/app/arcodesign/default';
 import ContextProvider from '../../../packages/arcodesign/components/context-provider';
 import { LanguageSupport } from '../../utils/language';
-import docs from '../../pages';
-import enDocs from '../../pages/index-en-US';
+import docs from '../pages/components';
+import compositeDocs from '../pages/composite-comp';
+import enDocs from '../pages/components/index-en-US';
+import enCompositeDocs from '../pages/composite-comp/index-en-US';
 import Demo from '../widgets/demo';
 import Home from '../widgets/home';
 import TypicalDemo from '../widgets/typicalDemo';
 import useTheme from './useTheme';
 import '../../../packages/arcodesign/components/style';
 import '../../../packages/arcodesign/tools/touch2mouse';
+import { render } from '../../../packages/arcodesign/components/_helpers';
 import useLocale from './useLocale';
+import { HistoryContext } from './context';
 import './index.less';
 
 setRootPixel();
 
-export const HistoryContext = createContext<any>(null);
+const useRtl = false;
 
 function App() {
-    const { customTheme } = useTheme();
-    const actualTokens = useMemo(() => ({ ...tokens, ...customTheme }), [customTheme]);
-
-    const theme = useMemo(
-        () =>
-            Object.keys(actualTokens).reduce(
-                (acc, key) => ({
-                    ...acc,
-                    ...(key.startsWith('dark-') ? {} : { [key]: actualTokens[key] }),
-                }),
-                {},
-            ),
-        [actualTokens],
-    );
+    const { theme } = useTheme();
     const { locale } = useLocale();
 
+    useEffect(() => {
+        useRtl && document.documentElement.setAttribute('dir', 'rtl');
+    }, []);
+
     return (
-        <ContextProvider theme={theme} locale={locale}>
+        <ContextProvider theme={theme} locale={locale} useRtl={useRtl}>
             <HashRouter>
                 <Switch>
                     <Route
@@ -77,6 +70,24 @@ function App() {
                         }}
                         exact
                     />
+                    <Route
+                        path="/composite-components/:name"
+                        render={props => {
+                            const { name } = props.match.params;
+                            const Comp = compositeDocs[name];
+                            return Comp ? <Demo name={name} doc={<Comp />} /> : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/en-US/composite-components/:name"
+                        render={props => {
+                            const { name } = props.match.params;
+                            const Comp = enCompositeDocs[name];
+                            return Comp ? <Demo name={name} doc={<Comp />} /> : null;
+                        }}
+                        exact
+                    />
                     <Route path="/typical-demo" render={() => <TypicalDemo />} exact />
                     <Route
                         path="/en-US/typical-demo"
@@ -97,4 +108,4 @@ function App() {
     );
 }
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+render(<App />, document.querySelector('#app')!);

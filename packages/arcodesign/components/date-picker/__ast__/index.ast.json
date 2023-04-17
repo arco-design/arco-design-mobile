@@ -5,7 +5,8 @@
         "type": "数据录入",
         "type_en": "Data Entry",
         "name": "日期时间选择器",
-        "name_en": "DatePicker"
+        "name_en": "DatePicker",
+        "displayName": "DatePicker"
     },
     "displayName": "DatePicker",
     "methods": [],
@@ -1031,8 +1032,8 @@
                 "descWithTags": "秒"
             }
         },
-        "mode": "\"date\"|\"time\"|\"datetime\"",
-        "ItemType": "\"date\"|\"year\"|\"month\"|\"hour\"|\"minute\"|\"second\"",
+        "mode": "\"date\" | \"time\" | \"datetime\"",
+        "ItemType": "\"date\" | \"year\" | \"month\" | \"hour\" | \"minute\" | \"second\"",
         "PickerData": {
             "value": {
                 "name": "value",

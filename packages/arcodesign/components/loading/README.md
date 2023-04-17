@@ -30,5 +30,5 @@
 > LoadingType
 
 ```
-"spin"|"circle"|"arc"|"dot"
+"spin" | "circle" | "arc" | "dot"
 ```

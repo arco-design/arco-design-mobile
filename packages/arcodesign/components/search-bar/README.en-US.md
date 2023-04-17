@@ -32,6 +32,7 @@ SearchBar component
 |inputClass|Custom classname for input DOM|string|-|
 |inputStyle|Custom style for input DOM|CSSProperties|-|
 |nativeProps|Other unlisted native properties have lower priority than listed component properties|InputHTMLAttributes\<HTMLInputElement\>|-|
+|ariaLabel|accessible label|string|-|
 |id|Input id|string|-|
 |name|Input name|string|-|
 |className|Custom classname|string|-|
@@ -43,6 +44,7 @@ SearchBar component
 |disabled|Whether the input box is disabled|boolean|-|
 |readOnly|Read\-only|boolean|-|
 |autoFocus|Whether to automatically get the focus|boolean|-|
+|blockChangeWhenCompositing|When inputting Chinese on ios, onChange is not triggered during pinyin input, but only after confirming the selection|boolean|false|
 |validator|Regular validation, input is not allowed if it does not meet the validation|RegExp \| ((value: string) =\> boolean)|-|
 |blurBeforeFocus|Blur before focusing, that is, the keyboard will be re\-bounced when switching between different inputs\. It is often used to reload the keyboard when the input type is switched\. It is valid on Android\.|boolean|-|
 |clearable|whether there is a clear button|boolean|-|
@@ -73,13 +75,13 @@ SearchBar component
 > SearchBarShape
 
 ```
-"square"|"round"
+"square" | "round"
 ```
 
 > SearchAssociationShowType
 
 ```
-"value"|"focus"|"default"|"always"
+"value" | "focus" | "default" | "always"
 ```
 
 > SearchAssociationBaseItem
@@ -91,5 +93,5 @@ SearchBar component
 > SearchAssociationHighlightMode
 
 ```
-"prefix"|"contain"|"none"|(content: string, keyword: string, defaultHighlightClassName: string) => ReactNode
+"prefix" | "contain" | "none" | (content: string, keyword: string, defaultHighlightClassName: string) => ReactNode
 ```

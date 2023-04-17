@@ -1,6 +1,7 @@
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BuildContextPlugin = require('./plugins/BuildContextPlugin')
 const baseConfig = require('./webpack.common.js');
 const genBaseConfig = require('./genBaseConfig');
 
@@ -16,13 +17,33 @@ const devConfig = merge(genBaseConfig(baseConfig, 'home'), {
         filename: '[name].js',
         chunkFilename: '[name].js',
     },
+    cache: {
+        type: 'filesystem',
+        buildDependencies: {
+            config: [__filename],
+        },
+    },
+    snapshot: {
+        managedPaths: [path.resolve(__dirname, '../../node_modules')],
+        buildDependencies: {
+            timestamp: true
+        },
+        module: {
+            hash: true
+        },
+        resolve: {
+            hash: true,
+        },
+    },
     devtool: 'source-map',
     devServer: {
         host: '0.0.0.0',
-        contentBase: './',
-        inline: true,
+        static: {
+            directory: path.join(__dirname, "./")
+        },
         port: 8824,
-        disableHostCheck: true
+        allowedHosts: "all",
+        open: true
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -30,9 +51,10 @@ const devConfig = merge(genBaseConfig(baseConfig, 'home'), {
             chunks: ['index'],
             filename: 'index.html',
         }),
+        new BuildContextPlugin(),
     ],
     externals: [
-        { "Arco": 'Arco'},
+        { "Arco": 'Arco' },
         { "react": "React" },
         { "react-dom": "ReactDOM" },
     ]

@@ -459,7 +459,7 @@
         }
     },
     "deps": {
-        "ButtonColorStatus": "string|{ normal: string; active: string; disabled: string; }",
+        "ButtonColorStatus": "string | { normal: string; active: string; disabled: string; }",
         "ButtonRef": {
             "dom": {
                 "name": "dom",

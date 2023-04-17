@@ -36,6 +36,8 @@ ImagePicker Component
 |onClick|click event|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
 |onLongPress|long press event|(e: TouchEvent\<HTMLElement\>, image: ImagePickItem, index: number) =\> void|-|
 |selectAdapter|Select Adaptor|() =\> Promise\<SelectCallback\>|-|
+|onSelectClick|Select Icon Click Event|() =\> void|-|
+|onDeleteClick|Delete Icon Click Event|(index: number) =\> void|-|
 
 > Refs
 
@@ -89,13 +91,13 @@ ImagePicker Component
 > ImageStatus
 
 ```
-"loaded"|"loading"|"error"|"init"
+"loaded" | "loading" | "error" | "init"
 ```
 
 > ObjectPosition
 
 ```
-string|number|string & {}
+string | number | string & {}
 ```
 
 > SelectCallback

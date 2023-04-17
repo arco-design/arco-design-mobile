@@ -1,0 +1,560 @@
+{
+    "description": "步进器组件，支持受控模式",
+    "descriptionTags": {
+        "en": "Stepper component, provide controlled mode",
+        "type": "数据录入",
+        "type_en": "Data Entry",
+        "name": "步进器",
+        "name_en": "Stepper",
+        "displayName": "Stepper"
+    },
+    "displayName": "Stepper",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "inputStyle": {
+            "defaultValue": null,
+            "description": "input样式\n@en Input stylesheet",
+            "name": "inputStyle",
+            "tags": {
+                "en": "Input stylesheet"
+            },
+            "descWithTags": "input样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "inputClass": {
+            "defaultValue": null,
+            "description": "input类名\n@en Input class",
+            "name": "inputClass",
+            "tags": {
+                "en": "Input class"
+            },
+            "descWithTags": "input类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "value": {
+            "defaultValue": null,
+            "description": "绑定值，传入即受控\n@en Bundled value (Controlled)",
+            "name": "value",
+            "tags": {
+                "en": "Bundled value (Controlled)"
+            },
+            "descWithTags": "绑定值，传入即受控",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "defaultValue": {
+            "defaultValue": {
+                "value": "1"
+            },
+            "description": "默认值\n@en Default value",
+            "name": "defaultValue",
+            "tags": {
+                "en": "Default value",
+                "default": "1"
+            },
+            "descWithTags": "默认值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "allowEmpty": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否允许内容为空\n@en Whether the content is allowed to be empty",
+            "name": "allowEmpty",
+            "tags": {
+                "en": "Whether the content is allowed to be empty",
+                "default": "false"
+            },
+            "descWithTags": "是否允许内容为空",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "digits": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "格式化到小数点后固定位数，设置为 0 表示格式化到整数\n@en Formatted to a decimal point after a fixed number of digits, set to 0 indicates formatting to an integer",
+            "name": "digits",
+            "tags": {
+                "en": "Formatted to a decimal point after a fixed number of digits, set to 0 indicates formatting to an integer",
+                "default": "0"
+            },
+            "descWithTags": "格式化到小数点后固定位数，设置为 0 表示格式化到整数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "disabled": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否禁用步进器\n@en Whether to disable the stepper",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to disable the stepper",
+                "default": "false"
+            },
+            "descWithTags": "是否禁用步进器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "inputReadonly": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "输入框只读状态\n@en Input read only status",
+            "name": "inputReadonly",
+            "tags": {
+                "en": "Input read only status",
+                "default": "false"
+            },
+            "descWithTags": "输入框只读状态",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "max": {
+            "defaultValue": {
+                "value": "Infinity"
+            },
+            "description": "最大值\n@en Max value",
+            "name": "max",
+            "tags": {
+                "en": "Max value",
+                "default": "Infinity"
+            },
+            "descWithTags": "最大值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "min": {
+            "defaultValue": {
+                "value": "1"
+            },
+            "description": "最小值\n@en Min value",
+            "name": "min",
+            "tags": {
+                "en": "Min value",
+                "default": "1"
+            },
+            "descWithTags": "最小值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "equalLimitDisabled": {
+            "defaultValue": null,
+            "description": "是否允许操作大于/小于极限值时，操作结果等于极限值\n@en If an operation is allowed to be greater more/less than the limit value, the result of the operation is equal to the limit value",
+            "name": "equalLimitDisabled",
+            "tags": {
+                "en": "If an operation is allowed to be greater more/less than the limit value, the result of the operation is equal to the limit value"
+            },
+            "descWithTags": "是否允许操作大于/小于极限值时，操作结果等于极限值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "step": {
+            "defaultValue": {
+                "value": "1"
+            },
+            "description": "递增/减值\n@en Incremental/Impairment value",
+            "name": "step",
+            "tags": {
+                "en": "Incremental/Impairment value",
+                "default": "1"
+            },
+            "descWithTags": "递增/减值",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "theme": {
+            "defaultValue": {
+                "value": "\"default\""
+            },
+            "description": "边框风格\n@en Border style",
+            "name": "theme",
+            "tags": {
+                "en": "Border style",
+                "default": "\"default\""
+            },
+            "descWithTags": "边框风格",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"square\" | \"round\" | \"default\"",
+                "value": [
+                    {
+                        "value": "\"square\""
+                    },
+                    {
+                        "value": "\"round\""
+                    },
+                    {
+                        "value": "\"default\""
+                    }
+                ]
+            }
+        },
+        "formatter": {
+            "defaultValue": null,
+            "description": "格式化内部值（优先级最高）\n@en Format the inner value",
+            "name": "formatter",
+            "tags": {
+                "en": "Format the inner value"
+            },
+            "descWithTags": "格式化内部值（优先级最高）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(innerValue: number) => number | Promise<number>"
+            }
+        },
+        "addButton": {
+            "defaultValue": null,
+            "description": "增加按钮\n@en Add button",
+            "name": "addButton",
+            "tags": {
+                "en": "Add button"
+            },
+            "descWithTags": "增加按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "minusButton": {
+            "defaultValue": null,
+            "description": "删除按钮\n@en Delete button",
+            "name": "minusButton",
+            "tags": {
+                "en": "Delete button"
+            },
+            "descWithTags": "删除按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "renderContent": {
+            "defaultValue": null,
+            "description": "自定义输入框函数\n@en The function of customizing the input",
+            "name": "renderContent",
+            "tags": {
+                "en": "The function of customizing the input"
+            },
+            "descWithTags": "自定义输入框函数",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(innerValue: number) => ReactNode"
+            }
+        },
+        "onBlur": {
+            "defaultValue": null,
+            "description": "输入框失去焦点时触发\n@en Triggers when the input loses focus",
+            "name": "onBlur",
+            "tags": {
+                "en": "Triggers when the input loses focus"
+            },
+            "descWithTags": "输入框失去焦点时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: FocusEvent<HTMLInputElement, Element>) => void"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "数据变化时的触发\n@en Triggers when the data change",
+            "name": "onChange",
+            "tags": {
+                "en": "Triggers when the data change"
+            },
+            "descWithTags": "数据变化时的触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(value: number) => void"
+            }
+        },
+        "onFocus": {
+            "defaultValue": null,
+            "description": "输入框获得焦点时触发\n@en Triggers when the input gets focus",
+            "name": "onFocus",
+            "tags": {
+                "en": "Triggers when the input gets focus"
+            },
+            "descWithTags": "输入框获得焦点时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: FocusEvent<HTMLInputElement, Element>) => void"
+            }
+        },
+        "onAddButtonClick": {
+            "defaultValue": null,
+            "description": "点击增加按钮时触发\n@en Triggers when the add button is clicked",
+            "name": "onAddButtonClick",
+            "tags": {
+                "en": "Triggers when the add button is clicked"
+            },
+            "descWithTags": "点击增加按钮时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "onMinusButtonClick": {
+            "defaultValue": null,
+            "description": "点击减少按钮时触发\n@en Triggers when the minus button is clicked",
+            "name": "onMinusButtonClick",
+            "tags": {
+                "en": "Triggers when the minus button is clicked"
+            },
+            "descWithTags": "点击减少按钮时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "点击最外侧dom时触发\n@en Triggers when the most out dom is clicked",
+            "name": "onClick",
+            "tags": {
+                "en": "Triggers when the most out dom is clicked"
+            },
+            "descWithTags": "点击最外侧dom时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<Element, MouseEvent>) => void"
+            }
+        },
+        "onInput": {
+            "defaultValue": null,
+            "description": "输入框输入时触发\n@en Triggers when the input is inputting",
+            "name": "onInput",
+            "tags": {
+                "en": "Triggers when the input is inputting"
+            },
+            "descWithTags": "输入框输入时触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/stepper/type.ts",
+                "name": "StepperProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: ChangeEvent<Element>) => void"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<StepperRef>"
+            }
+        }
+    },
+    "deps": {
+        "StepperRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层元素 DOM\n@en The most out element dom",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The most out element dom"
+                },
+                "descWithTags": "最外层元素 DOM"
+            },
+            "input": {
+                "name": "input",
+                "required": true,
+                "description": "输入框 DOM\n@en Input dom",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLInputElement"
+                },
+                "tags": {
+                    "en": "Input dom"
+                },
+                "descWithTags": "输入框 DOM"
+            },
+            "changeValue": {
+                "name": "changeValue",
+                "required": true,
+                "description": "改变内部值的方法\n@en The function of changing inner value",
+                "defaultValue": null,
+                "type": {
+                    "name": "(newValue: number) => void"
+                },
+                "tags": {
+                    "en": "The function of changing inner value"
+                },
+                "descWithTags": "改变内部值的方法"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "StepperProps",
+        "ref": "StepperRef"
+    },
+    "isDefaultExport": true
+}

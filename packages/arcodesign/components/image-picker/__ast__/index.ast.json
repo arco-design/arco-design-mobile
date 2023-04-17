@@ -5,7 +5,8 @@
         "type": "数据录入",
         "type_en": "Data Entry",
         "name": "图片选择器",
-        "name_en": "ImagePicker"
+        "name_en": "ImagePicker",
+        "displayName": "ImagePicker"
     },
     "displayName": "ImagePicker",
     "methods": [],
@@ -468,6 +469,40 @@
             "required": false,
             "type": {
                 "name": "() => Promise<SelectCallback>"
+            }
+        },
+        "onSelectClick": {
+            "defaultValue": null,
+            "description": "选图点击事件\n@en Select Icon Click Event",
+            "name": "onSelectClick",
+            "tags": {
+                "en": "Select Icon Click Event"
+            },
+            "descWithTags": "选图点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onDeleteClick": {
+            "defaultValue": null,
+            "description": "删除点击事件\n@en Delete Icon Click Event",
+            "name": "onDeleteClick",
+            "tags": {
+                "en": "Delete Icon Click Event"
+            },
+            "descWithTags": "删除点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: number) => void"
             }
         },
         "ref": {
@@ -1009,8 +1044,8 @@
                 "descWithTags": "图片加载失败时自动重试触发的回调"
             }
         },
-        "ImageStatus": "\"loaded\"|\"loading\"|\"error\"|\"init\"",
-        "ObjectPosition": "string|number|string & {}",
+        "ImageStatus": "\"loaded\" | \"loading\" | \"error\" | \"init\"",
+        "ObjectPosition": "string | number | string & {}",
         "SelectCallback": {
             "files": {
                 "name": "files",

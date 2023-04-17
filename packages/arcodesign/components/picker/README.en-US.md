@@ -76,11 +76,11 @@ The selector component, in the form of a popup layer.
 > ValueType
 
 ```
-string|number
+string | number
 ```
 
 > PickerCellMovingStatus
 
 ```
-"normal"|"moving"|"scrolling"
+"normal" | "moving" | "scrolling"
 ```

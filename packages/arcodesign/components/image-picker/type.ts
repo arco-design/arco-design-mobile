@@ -169,6 +169,16 @@ export interface ImagePickerProps {
      * @en Select Adaptor
      */
     selectAdapter?: () => Promise<SelectCallback>;
+    /**
+     * 选图点击事件
+     * @en Select Icon Click Event
+     */
+    onSelectClick?: () => void;
+    /**
+     * 删除点击事件
+     * @en Delete Icon Click Event
+     */
+    onDeleteClick?: (index: number) => void;
 }
 
 export interface ImagePickerRef {

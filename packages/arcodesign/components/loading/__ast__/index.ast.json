@@ -227,7 +227,7 @@
         }
     },
     "deps": {
-        "LoadingType": "\"spin\"|\"circle\"|\"arc\"|\"dot\"",
+        "LoadingType": "\"spin\" | \"circle\" | \"arc\" | \"dot\"",
         "LoadingRef": {
             "dom": {
                 "name": "dom",

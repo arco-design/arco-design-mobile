@@ -139,6 +139,26 @@
             "type": {
                 "name": "ILocale"
             }
+        },
+        "useRtl": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否使用Rtl模式\n@en Whether to use rtl",
+            "name": "useRtl",
+            "tags": {
+                "en": "Whether to use rtl",
+                "default": "false"
+            },
+            "descWithTags": "是否使用Rtl模式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
         }
     },
     "deps": {
@@ -262,6 +282,39 @@
                 "defaultValue": null,
                 "type": {
                     "name": "{ loadError: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "SearchBar": {
+                "name": "SearchBar",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ placeholder: string; cancelBtn: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Stepper": {
+                "name": "Stepper",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ minusButtonName: string; addButtonName: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Form": {
+                "name": "Form",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ required: string; type: { email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; }; number: { min: string; max: string; equal: string; range: string; positive: string; negative: string; }; string: { ...; }; array: { ...; }; object: { ...; }; boolean: { ...; }; }"
                 },
                 "tags": {},
                 "descWithTags": ""

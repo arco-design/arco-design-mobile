@@ -270,6 +270,10 @@ const CircleProgress = forwardRef((props: CircleProgressProps, ref: Ref<CirclePr
     function renderCircleProgress({ prefixCls }) {
         return (
             <div
+                role="progressbar"
+                aria-valuemin={0}
+                aria-valuemax={100}
+                aria-valuenow={percentage}
                 className={cls(
                     `${prefixCls}-circle-progress`,
                     disabled ? `${prefixCls}-circle-progress-disabled` : '',

@@ -18,7 +18,7 @@ import { StepsProps, StepsRef } from './type';
 export * from './type';
 
 export const StepsContext = createContext<
-    Pick<StepsProps, 'iconType' | 'current' | 'direction' | 'status'> & {
+    Pick<StepsProps, 'iconType' | 'current' | 'direction' | 'status' | 'align'> & {
         index?: number;
         changeIndex: (newIndex: number) => void;
     }
@@ -30,6 +30,7 @@ const Steps = forwardRef((props: StepsProps, ref: Ref<StepsRef>) => {
         style,
         children,
         direction = 'horizontal',
+        align: userSetAlign,
         iconType = 'number',
         current,
         defaultIndex = 0,
@@ -38,6 +39,8 @@ const Steps = forwardRef((props: StepsProps, ref: Ref<StepsRef>) => {
         onClick,
         onChange,
     } = props;
+    const defaultAlign = direction === 'vertical' ? 'start' : 'center';
+    const align = userSetAlign !== void 0 ? userSetAlign : defaultAlign;
     const [innerIndex, setInnerIndex] = useState(Number(defaultIndex));
     const [activeIndex, activeRefIndex, setActiveIndex] = useRefState(
         current === void 0 ? innerIndex : current,
@@ -68,6 +71,7 @@ const Steps = forwardRef((props: StepsProps, ref: Ref<StepsRef>) => {
                     direction,
                     index,
                     status: activeIndex === index ? status : void 0,
+                    align,
                     changeIndex,
                 }}
                 key={index}
@@ -75,7 +79,7 @@ const Steps = forwardRef((props: StepsProps, ref: Ref<StepsRef>) => {
                 {child}
             </StepsContext.Provider>
         ),
-        [iconType, activeIndex, direction],
+        [iconType, activeIndex, direction, align],
     );
 
     return (

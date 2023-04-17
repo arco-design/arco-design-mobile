@@ -12,7 +12,7 @@
 |----------|-------------|------|------|
 |className|自定义类名|string|-|
 |style|自定义样式|CSSProperties|-|
-|tabs|TabBar内容数组，除必填项外也可附加其他数据|TabData\[\]|必填|
+|tabs|TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹|TabData\[\]|必填|
 |children|TabPane内容|ReactNode|-|
 |activeTab|当前活动tab index，传入则为受控|number|-|
 |defaultActiveTab|初始tab index值|number|0|
@@ -46,6 +46,7 @@
 |hideTabBarBeforeMounted|在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果|boolean|-|
 |overflowThreshold|TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化|number|5|
 |showUnderline|是否展示下划线|boolean|true|
+|underlineAdaptive|下划线是否根据 tab cell 长度自适应|boolean|false|
 |stopTouchThreshold|触发onTouchStopped的最小阈值|number|0|
 |touchSideDisableThreshold|距离屏幕边缘多远开始向右滑动时禁用tabs滑动事件|number|0|
 |stopPropagation|swipe 模式下，触摸事件是否需要 stopPropagation|boolean|true|
@@ -83,6 +84,7 @@
 |underlineSize|TabBar下划线长度|ReactText|-|
 |underlineThick|TabBar下划线厚度|ReactText|-|
 |underlineInnerStyle|TabBar下划线内部样式，作用于 tab\-cell\-underline\-inner|CSSProperties|-|
+|tabBarStopPropagation|当前 TabBar 的触摸事件是否需要 stopPropagation|boolean|true|
 
 > 引用/Refs
 
@@ -99,7 +101,7 @@
 > TabData
 
 ```
-string|{ [x: string]: any; title: ReactNode; }
+string | { [x: string]: any; title: ReactNode; }
 ```
 
 > UnderlineStyle
@@ -123,7 +125,8 @@ string|{ [x: string]: any; title: ReactNode; }
 |cellTrans|TabBar是否启用过渡效果|boolean|必填|
 |distance|手指滑动距离|number|必填|
 |jumpingDis|下划线已滑动的距离|number|必填|
-|tabs|TabBar内容数组，除必填项外也可附加其他数据|TabData\[\]|必填|
+|tabBarStopPropagation|当前 TabBar 的触摸事件是否需要 stopPropagation|boolean|必填|
+|tabs|TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹|TabData\[\]|必填|
 |disabled|是否禁用切换，包括点击TabBar切换和滑动切换|boolean|-|
 |tabBarPosition|TabBar位置|"top" \| "bottom" \| "left" \| "right"|"top"|
 |tabBarArrange|TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右|"start" \| "center" \| "end"|"center"|
@@ -143,6 +146,7 @@ string|{ [x: string]: any; title: ReactNode; }
 |hideTabBarBeforeMounted|在组件加载完成前是否隐藏TabBar，防止溢出时多余的滚动效果|boolean|-|
 |overflowThreshold|TabBar个数大于等于多少时认为会溢出，用于dom加载完成之前的ssr首屏渲染优化|number|5|
 |showUnderline|是否展示下划线|boolean|true|
+|underlineAdaptive|下划线是否根据 tab cell 长度自适应|boolean|false|
 |mode|tabs切换模式，swipe为滑动模式，scroll为滚动监听模式|"swipe" \| "scroll"|"swipe"|
 |tabBarClass|TabBar外层容器自定义类名|string|-|
 |tabBarStyle|TabBar外层容器自定义样式|CSSProperties|-|

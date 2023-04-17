@@ -115,7 +115,7 @@ Bubble menu
 > Direction
 
 ```
-"topLeft"|"topCenter"|"topRight"|"bottomLeft"|"bottomCenter"|"bottomRight"
+"topLeft" | "topCenter" | "topRight" | "bottomLeft" | "bottomCenter" | "bottomRight"
 ```
 
 > EdgeOffset

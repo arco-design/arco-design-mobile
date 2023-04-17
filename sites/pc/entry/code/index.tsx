@@ -4,6 +4,7 @@ import { LanguageSupport } from '../../../utils/language';
 
 import { CodeInfo, getCodePenData } from './codeBox';
 import { localeMap } from '../../../utils/locale';
+import { clickReportGA } from '../../../utils/ga';
 import Sandbox from './sandbox';
 import './index.less';
 
@@ -18,7 +19,7 @@ export interface IDocProps {
 }
 
 export default function Code(props: IDocProps) {
-    const { code, language = LanguageSupport.CH, version, compKey } = props;
+    const { code, language = LanguageSupport.CH, version, compKey, demoKey } = props;
     const [showAll, setShowAll] = useState(false);
     const demoDomRef = useRef(null);
     const codeData: CodeInfo = {
@@ -29,10 +30,18 @@ export default function Code(props: IDocProps) {
     };
 
     function handleClickSpreadBtn() {
+        clickReportGA({
+            click_content: 'expand',
+            component_name: `${demoKey}${name}`,
+        });
         setShowAll(!showAll);
     }
 
     function handleClickCopyBtn() {
+        clickReportGA({
+            click_content: 'copy',
+            component_name: `${demoKey}${name}`,
+        });
         window.copyToClipboard(decodeURIComponent(props.codeSource));
         Message.success(localeMap.CopySuccess[language]);
     }
@@ -41,6 +50,10 @@ export default function Code(props: IDocProps) {
         if (!demoDomRef || !demoDomRef.current) {
             return;
         }
+        clickReportGA({
+            click_content: 'codePen',
+            component_name: `${demoKey}${name}`,
+        });
         (demoDomRef.current as any).submit();
     }
 
@@ -81,7 +94,9 @@ export default function Code(props: IDocProps) {
                         }
                     />
                 </Tooltip>
-                <Tooltip content={localeMap.Expand[language]}>
+                <Tooltip
+                    content={showAll ? localeMap.Collapse[language] : localeMap.Expand[language]}
+                >
                     <Button
                         shape="circle"
                         size="small"

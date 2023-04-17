@@ -395,7 +395,7 @@
         }
     },
     "deps": {
-        "PercentPosition": "\"left\"|\"innerLeft\"|\"right\"|\"follow\"",
+        "PercentPosition": "\"left\" | \"innerLeft\" | \"right\" | \"follow\"",
         "ProgressRef": {
             "dom": {
                 "name": "dom",

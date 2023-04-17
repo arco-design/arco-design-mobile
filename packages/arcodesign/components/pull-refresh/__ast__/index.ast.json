@@ -14,14 +14,14 @@
             "defaultValue": {
                 "value": "跟随系统"
             },
-            "description": "分成两种类型\n@en Divided into two types\n@default_en follow the system",
+            "description": "下拉刷新组件不同的实现方式，android - 常规的外层容器 transform，ios - 利用 ios scrollTop 负值实现下拉及回弹(性能优于transform)，仅ios可用。指定该属性值后优先级高于 useIosOptimize\n@en Different implementation methods of PullRefresh, android - conventional outer container transform, ios - use ios scrollTop negative value to achieve pull-down and rebound (performance is better than transform), only available for ios. After specifying value, the priority is higher than useIosOptimize\n@default_en Follow the system",
             "name": "type",
             "tags": {
-                "en": "Divided into two types",
+                "en": "Different implementation methods of PullRefresh, android - conventional outer container transform, ios - use ios scrollTop negative value to achieve pull-down and rebound (performance is better than transform), only available for ios. After specifying value, the priority is higher than useIosOptimize",
                 "default": "跟随系统",
-                "default_en": "follow the system"
+                "default_en": "Follow the system"
             },
-            "descWithTags": "分成两种类型",
+            "descWithTags": "下拉刷新组件不同的实现方式，android - 常规的外层容器 transform，ios - 利用 ios scrollTop 负值实现下拉及回弹(性能优于transform)，仅ios可用。指定该属性值后优先级高于 useIosOptimize",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/index.tsx",
                 "name": "PullRefreshProps"
@@ -38,6 +38,26 @@
                         "value": "\"android\""
                     }
                 ]
+            }
+        },
+        "useIosOptimize": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "在 ios 上是否使用 scrollTop 负值实现下拉及回弹，而不是 transform，关闭后所有机型都使用 transform 的方式\n@en Whether to use the negative value of scrollTop on ios to achieve pull-down and rebound instead of transform. After closing, all models use transform",
+            "name": "useIosOptimize",
+            "tags": {
+                "en": "Whether to use the negative value of scrollTop on ios to achieve pull-down and rebound instead of transform. After closing, all models use transform",
+                "default": "false"
+            },
+            "descWithTags": "在 ios 上是否使用 scrollTop 负值实现下拉及回弹，而不是 transform，关闭后所有机型都使用 transform 的方式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/index.tsx",
+                "name": "PullRefreshProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
             }
         },
         "children": {
@@ -58,14 +78,11 @@
             }
         },
         "className": {
-            "defaultValue": {
-                "value": "\"\""
-            },
+            "defaultValue": null,
             "description": "样式类名\n@en Custom classname",
             "name": "className",
             "tags": {
-                "en": "Custom classname",
-                "default": "\"\""
+                "en": "Custom classname"
             },
             "descWithTags": "样式类名",
             "parent": {
@@ -75,6 +92,23 @@
             "required": false,
             "type": {
                 "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom style",
+            "name": "style",
+            "tags": {
+                "en": "Custom style"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/pull-refresh/model.ts",
+                "name": "PullRefreshBasicProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
             }
         },
         "disabled": {

@@ -1,6 +1,7 @@
 import { nextTick } from '@arco-design/mobile-utils';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { ReactDOMRender } from '../_helpers/render';
+import { GlobalContextParams } from '../context-provider';
 
 export interface NotifyBaseProps {
     getContainer?: () => HTMLElement;
@@ -13,7 +14,7 @@ export interface NotifyBaseProps {
 
 export function notify<P extends NotifyBaseProps>(Component: React.FC<P>, type?: string) {
     type Config = Omit<P, 'visible' | 'close'>;
-    return (originConfig: string | Config) => {
+    return (originConfig: string | Config, context?: GlobalContextParams) => {
         const config =
             typeof originConfig === 'string'
                 ? ({
@@ -31,15 +32,14 @@ export function notify<P extends NotifyBaseProps>(Component: React.FC<P>, type?:
         } else {
             document.body.appendChild(div);
         }
-        function render(props) {
-            ReactDOM.render(<Component {...props} />, div);
-        }
+
+        const { render, unmount } = new ReactDOMRender(Component, div, context);
 
         function destroy() {
             const { onClose } = config;
             onClose && onClose();
-            const unmountResult = ReactDOM.unmountComponentAtNode(div);
-            if (unmountResult && div.parentNode) {
+            unmount();
+            if (div.parentNode) {
                 div.parentNode.removeChild(div);
             }
         }

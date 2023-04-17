@@ -100,7 +100,13 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
                 textContainer.appendChild(nodes[i]);
                 const { height } = container.getBoundingClientRect();
                 if (height > max) {
-                    break;
+                    if (nodes[i].childNodes && nodes[i].childNodes.length) {
+                        break;
+                    } else {
+                        textContainer.removeChild(nodes[i]);
+                        handleOnReflow(true, textContainer.innerHTML);
+                        return;
+                    }
                 }
                 i++;
             }
@@ -118,12 +124,14 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
         ellipsisRef.current.style.display = 'none';
         if (dangerouslyUseInnerHTML) {
             textRef.current.innerHTML = text;
+            textRef.current.classList.add(`${prefixCls}-js-content-text-pre`);
         } else {
             textRef.current.innerText = text;
         }
         if (!ellipsis) {
             return;
         }
+        textRef.current.classList.remove(`${prefixCls}-js-content-text-pre`);
         const { height } = domRef.current.getBoundingClientRect();
         const max = isNaN(Number(maxHeight)) ? lineHeightRef.current * maxLine : Number(maxHeight);
         if (height <= max) {
@@ -175,7 +183,26 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
 
     return (
         <div ref={domRef} className={`${prefixCls}-js`}>
-            <span ref={textRef} className={`${prefixCls}-js-content`} />
+            <span ref={textRef} className={`${prefixCls}-js-content`}>
+                {dangerouslyUseInnerHTML ? (
+                    <span
+                        className={`${prefixCls}-js-content-initial`}
+                        style={{
+                            WebkitLineClamp: maxLine,
+                        }}
+                        dangerouslySetInnerHTML={{ __html: text }}
+                    />
+                ) : (
+                    <span
+                        className={`${prefixCls}-js-content-initial`}
+                        style={{
+                            WebkitLineClamp: maxLine,
+                        }}
+                    >
+                        {text}
+                    </span>
+                )}
+            </span>
             <span
                 ref={ellipsisRef}
                 className={`${prefixCls}-js-content-ellipsis`}

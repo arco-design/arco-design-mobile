@@ -36,6 +36,12 @@ export interface GlobalContextParams {
      * @en Internationalized language configuration
      */
     locale?: ILocale;
+    /**
+     * 是否使用Rtl模式
+     * @en Whether to use rtl
+     * @default false
+     */
+    useRtl?: boolean;
 }
 
 export const defaultContext: GlobalContextParams = {
@@ -44,6 +50,7 @@ export const defaultContext: GlobalContextParams = {
     useDarkMode: false,
     isDarkMode: false,
     locale: defaultLocale,
+    useRtl: false,
 };
 
 export const GlobalContext = createContext<GlobalContextParams>(defaultContext);
@@ -51,6 +58,8 @@ export const GlobalContext = createContext<GlobalContextParams>(defaultContext);
 export interface ContextProviderProps extends GlobalContextParams {
     children: React.ReactNode;
 }
+
+export type WithGlobalContext<T> = T & { context?: GlobalContextParams };
 
 /**
  * 全局数据控制组件，用于替换全局数据。
@@ -123,3 +132,20 @@ export default function ContextProvider(props: ContextProviderProps) {
 }
 
 export const ContextLayout = GlobalContext.Consumer;
+
+export function CompWithGlobalContext<P extends JSX.IntrinsicAttributes>(
+    Component: React.FunctionComponent<P>,
+) {
+    return function (props: WithGlobalContext<P>) {
+        const { context: propsContext, ...others } = props;
+        return (
+            <ContextLayout>
+                {context => (
+                    <ContextProvider {...{ ...context, ...propsContext }}>
+                        <Component {...(others as P)} />
+                    </ContextProvider>
+                )}
+            </ContextLayout>
+        );
+    };
+}

@@ -1,7 +1,7 @@
 const path = require('path');
-const childProcess = require('child_process');
 const { generateGuide } = require('./generate-guide');
 const { generateComponents } = require('./generate-components');
+const { generateCompositeComponents } = require('./generate-composite-comp');
 const rootPath = path.resolve(__dirname, '../../../../');
 const fs = require('fs-extra');
 
@@ -13,24 +13,57 @@ function generateSite({
     languages = ['ch', 'en'],
     tokenInfo,
     latestVersion = '0.0.0',
+    compositeSrc = 'sites/composite-comp',
+    compositeComp = 'sites/pc/pages/composite-comp',
+    compileComps = [],
+    compileGuides = []
 } = {}) {
     const srcPath = path.join(rootPath, srcFolder);
     const compSrcPath = path.join(rootPath, srcFolder, 'components');
     const compPagePath = path.join(rootPath, compPageFolder);
     const guidePagePath = path.join(rootPath, guidePageFolder);
     const resourcePagePath = path.join(rootPath, resourcePageFolder);
-    // 更新内容
-
-    fs.removeSync(compPagePath);
-    fs.removeSync(guidePagePath);
+    const compositeCompPath = path.join(rootPath, compositeComp);
+    const compositeSrcPath = path.join(rootPath, compositeSrc);
+    // 单组件编译
+    if (compileComps.length) {
+        compileComps.forEach(comp => {
+            const compPath = path.join(compPagePath, comp);
+            fs.removeSync(compPath)
+        });
+    } else {
+        fs.removeSync(compPagePath);
+        fs.mkdirpSync(compPagePath);
+    }
+    // 单README编译
+    if (compileGuides.length) {
+        compileGuides.forEach(guide => {
+            const guidePath = path.join(guidePagePath, guide);
+            fs.removeSync(guidePath)
+        });
+    } else {
+        fs.removeSync(guidePagePath);
+        fs.mkdirpSync(guidePagePath);
+    }
     fs.removeSync(resourcePagePath);
-    fs.mkdirpSync(compPagePath);
-    fs.mkdirpSync(guidePagePath);
     fs.mkdirpSync(resourcePagePath);
 
-    generateGuide(guidePagePath, srcPath, tokenInfo, path.resolve('sites/pc/static/md'), languages);
-    languages.map(lang => {
-        generateComponents(compSrcPath, compPagePath, lang, latestVersion);
+    generateGuide({
+        guidePagePath,
+        srcPath,
+        tokenInfo,
+        extraMdPath: path.resolve('sites/pc/static/md'),
+        languages
+    });
+    languages.forEach(language => {
+        generateCompositeComponents(compositeSrcPath, compositeCompPath, language, latestVersion);
+        generateComponents({
+            compSrcPath,
+            compPagePath,
+            language,
+            latestVersion,
+            compileComps
+        });
     });
 }
 

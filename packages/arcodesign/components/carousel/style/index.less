@@ -96,8 +96,8 @@
         box-sizing: border-box;
 
         &.pos-start {
-            .use-var(left, carousel-indicator-safe-padding);
-            text-align: left;
+            .use-var-with-rtl(left, carousel-indicator-safe-padding);
+            .set-value-with-rtl(text-align, left);
         }
 
         &.pos-center {
@@ -107,11 +107,11 @@
         }
 
         &.pos-end {
-            .use-var(right, carousel-indicator-safe-padding);
-            text-align: right;
+            .use-var-with-rtl(right, carousel-indicator-safe-padding);
+            .set-value-with-rtl(text-align, right);
         }
 
-        &.vertical {
+        &-vertical {
 
             .indicator {
                 display: block;
@@ -120,12 +120,12 @@
                 .use-var(width, carousel-square-indicator-height);
 
                 &:not(:last-of-type) {
-                    margin-right: 0;
+                    margin: 0;
                     .use-var(margin-bottom, carousel-square-indicator-gutter);
                 }
 
                 &.type-circle:not(:last-of-type) {
-                    margin-right: 0;
+                    margin: 0;
                     .use-var(margin-bottom, carousel-circle-indicator-gutter);
                 }
             }
@@ -144,13 +144,15 @@
             }
 
             &.ver-pos-left {
-                .use-var(left, carousel-indicator-position);
+                left: auto;
                 right: auto;
+                .use-var-with-rtl(left, carousel-indicator-position);
             }
 
             &.ver-pos-right {
                 left: auto;
-                .use-var(right, carousel-indicator-position);
+                right: auto;
+                .use-var-with-rtl(right, carousel-indicator-position);
             }
         }
 
@@ -174,18 +176,21 @@
         }
 
         .indicator {
-            display: inline-block;
-            .use-var(width, carousel-square-indicator-width);
-            .use-var(height, carousel-square-indicator-height);
             transition: all .2s;
             .use-var(background-color, carousel-indicator-background);
 
             &.active {
                 .use-var(background-color, carousel-indicator-active-background);
             }
+        }
+
+        &-horizontal .indicator {
+            display: inline-block;
+            .use-var(width, carousel-square-indicator-width);
+            .use-var(height, carousel-square-indicator-height);
 
             &:not(:last-of-type) {
-                .use-var(margin-right, carousel-square-indicator-gutter);
+                .use-var-with-rtl(margin-right, carousel-square-indicator-gutter);
             }
         }
 
@@ -196,7 +201,7 @@
             border-radius: 50%;
 
             &:not(:last-of-type) {
-                .use-var(margin-right, carousel-circle-indicator-gutter);
+                .use-var-with-rtl(margin-right, carousel-circle-indicator-gutter);
             }
         }
     }

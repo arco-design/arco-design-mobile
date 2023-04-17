@@ -46,11 +46,11 @@
 > ValueType
 
 ```
-string|number
+string | number
 ```
 
 > PickerCellMovingStatus
 
 ```
-"normal"|"moving"|"scrolling"
+"normal" | "moving" | "scrolling"
 ```

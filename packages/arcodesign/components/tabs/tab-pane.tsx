@@ -3,7 +3,6 @@ import React, {
     forwardRef,
     Ref,
     useImperativeHandle,
-    ReactNodeArray,
     CSSProperties,
     useState,
     useEffect,
@@ -11,67 +10,8 @@ import React, {
 } from 'react';
 import lodashThrottle from 'lodash.throttle';
 import { cls, scrollWithAnimation, getScrollContainerRect } from '@arco-design/mobile-utils';
-import { TabsProps } from '.';
 import { getStyleWithVendor } from '../_helpers';
-
-export interface TabPaneProps
-    extends Pick<
-        TabsProps,
-        | 'duration'
-        | 'transitionDuration'
-        | 'lazyloadCount'
-        | 'hideContentStyle'
-        | 'renderHideContent'
-        | 'mode'
-        | 'tabPaneClass'
-        | 'tabPaneStyle'
-        | 'tabPaneExtra'
-        | 'getScrollContainer'
-        | 'scrollThrottle'
-        | 'scrollOffset'
-        | 'goLastWhenScrollBottom'
-        | 'scrollVertical'
-        | 'translateZ'
-        | 'fullScreen'
-        | 'autoHeight'
-        | 'onScroll'
-    > {
-    prefixCls?: string;
-    panes: ReactNodeArray;
-    activeIndex: number;
-    activeIndexRef: React.MutableRefObject<number>;
-    tabDirection: 'horizontal' | 'vertical';
-    distance: number;
-    wrapWidth: number;
-    wrapHeight: number;
-    handlePaneTouchEnd: (e) => void;
-    paneTrans: boolean;
-    swipeable: boolean;
-    changeIndex: (newIndex: number, from?: string) => void;
-}
-
-export interface TabPaneRef {
-    /**
-     * 外层元素 DOM
-     * @en Outer element DOM
-     */
-    dom: HTMLDivElement | null;
-    /**
-     * 获取当前 transitionDuration
-     * @en Get the current transitionDuration
-     */
-    getTransition: () => number;
-    /**
-     * 滚动到指定 Tab，仅滚动监听模式下可用
-     * @en Scroll to the specified Tab, only available in scroll monitor mode
-     */
-    scrollToIndex: (index: number, rightNow?: boolean) => void;
-    /**
-     * autoHeight=true时，更新当前tabpane高度
-     * @en Update the current tabpane height, which takes effect when autoHeight=true
-     */
-    setCurrentHeight: () => void;
-}
+import { TabPaneProps, TabPaneRef } from './type';
 
 const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
     const {
@@ -222,8 +162,8 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
         const sizeAttr = scrollVertical ? 'offsetHeight' : 'offsetWidth';
         const maxTopDis = isGlobal
             ? Math.max(document.documentElement[scrollSizeAttr], document.body[scrollSizeAttr]) -
-                scrollTop -
-                (scrollVertical ? window.innerHeight : window.innerWidth)
+              scrollTop -
+              (scrollVertical ? window.innerHeight : window.innerWidth)
             : scrollEle[scrollSizeAttr] - scrollTop - scrollEle[sizeAttr];
         const normalizedTopDis = Math.min(maxTopDis, topDis);
         clearTimeout(timerRef.current);

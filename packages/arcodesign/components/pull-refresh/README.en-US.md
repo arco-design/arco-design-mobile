@@ -10,9 +10,11 @@ PullRefresh component that pulls down to refresh data.
 
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
-|type|Divided into two types|"ios" \| "android"|follow the system|
+|type|Different implementation methods of PullRefresh, android \- conventional outer container transform, ios \- use ios scrollTop negative value to achieve pull\-down and rebound (performance is better than transform), only available for ios\. After specifying value, the priority is higher than useIosOptimize|"ios" \| "android"|Follow the system|
+|useIosOptimize|Whether to use the negative value of scrollTop on ios to achieve pull\-down and rebound instead of transform\. After closing, all models use transform|boolean|false|
 |children|Children element|ReactNode|required|
-|className|Custom classname|string|""|
+|className|Custom classname|string|-|
+|style|Custom style|CSSProperties|-|
 |disabled|Whether to be disabled|boolean|false|
 |finishDelay|After the loading is completed, the time to display the loading completion (ms)|number|300|
 |loosingText|Displayed element when pulled down to releasable (Invalid in type iOS)|ReactNode|-|
