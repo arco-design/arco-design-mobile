@@ -10,12 +10,14 @@
     "displayName": "Keyboard",
     "methods": [],
     "props": {
-        "numberKeyClass": {
+        "normalKeyClass": {
             "defaultValue": null,
-            "description": "",
-            "name": "numberKeyClass",
-            "tags": {},
-            "descWithTags": "",
+            "description": "常规键位自定义类名\n@en Custom classname for normal keys",
+            "name": "normalKeyClass",
+            "tags": {
+                "en": "Custom classname for normal keys"
+            },
+            "descWithTags": "常规键位自定义类名",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -25,12 +27,14 @@
                 "name": "string"
             }
         },
-        "numberKeyStyle": {
+        "normalKeyStyle": {
             "defaultValue": null,
-            "description": "",
-            "name": "numberKeyStyle",
-            "tags": {},
-            "descWithTags": "",
+            "description": "常规键位自定义样式\n@en Custom style for normal keys",
+            "name": "normalKeyStyle",
+            "tags": {
+                "en": "Custom style for normal keys"
+            },
+            "descWithTags": "常规键位自定义样式",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -76,14 +80,15 @@
         },
         "type": {
             "defaultValue": {
-                "value": "'number'"
+                "value": "\"number\""
             },
-            "description": "",
+            "description": "键盘展示类型，不同类型有不同布局。number - 纯数字常规键盘，confirm - 带确认按钮的键盘，tool - 带运算符的键盘\n@en Keyboard display type, different types have different layouts. number - a regular keyboard with pure numbers, confirm - a keyboard with a confirm button, tool - a keyboard with operators",
             "name": "type",
             "tags": {
-                "default": "'number'"
+                "en": "Keyboard display type, different types have different layouts. number - a regular keyboard with pure numbers, confirm - a keyboard with a confirm button, tool - a keyboard with operators",
+                "default": "\"number\""
             },
-            "descWithTags": "",
+            "descWithTags": "键盘展示类型，不同类型有不同布局。number - 纯数字常规键盘，confirm - 带确认按钮的键盘，tool - 带运算符的键盘",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -109,12 +114,13 @@
             "defaultValue": {
                 "value": "false"
             },
-            "description": "",
+            "description": "是否打乱键盘中的数字展示位置\n@en Whether to scramble number placements in the keyboard",
             "name": "randomOrder",
             "tags": {
+                "en": "Whether to scramble number placements in the keyboard",
                 "default": "false"
             },
-            "descWithTags": "",
+            "descWithTags": "是否打乱键盘中的数字展示位置",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -126,10 +132,12 @@
         },
         "title": {
             "defaultValue": null,
-            "description": "",
+            "description": "键盘顶部展示标题内容，样式纯自定义\n@en The title content displayed on the top of the keyboard, the style is purely customized",
             "name": "title",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "The title content displayed on the top of the keyboard, the style is purely customized"
+            },
+            "descWithTags": "键盘顶部展示标题内容，样式纯自定义",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -139,12 +147,14 @@
                 "name": "ReactNode"
             }
         },
-        "columns": {
+        "rightColumns": {
             "defaultValue": null,
-            "description": "",
-            "name": "columns",
-            "tags": {},
-            "descWithTags": "",
+            "description": "自定义渲染数字右侧（第四列）的内容\n@en Custom rendering of the content to the right of the number (fourth column)",
+            "name": "rightColumns",
+            "tags": {
+                "en": "Custom rendering of the content to the right of the number (fourth column)"
+            },
+            "descWithTags": "自定义渲染数字右侧（第四列）的内容",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -155,11 +165,16 @@
             }
         },
         "confirmClosable": {
-            "defaultValue": null,
-            "description": "",
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "点击确认后是否自动关闭键盘\n@en Whether to automatically close the keyboard after clicking confirm button",
             "name": "confirmClosable",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Whether to automatically close the keyboard after clicking confirm button",
+                "default": "false"
+            },
+            "descWithTags": "点击确认后是否自动关闭键盘",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -171,10 +186,12 @@
         },
         "confirmButton": {
             "defaultValue": null,
-            "description": "",
+            "description": "自定义渲染确认按钮内部内容\n@en Customize the internal content of the confirm button",
             "name": "confirmButton",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Customize the internal content of the confirm button"
+            },
+            "descWithTags": "自定义渲染确认按钮内部内容",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -186,10 +203,29 @@
         },
         "deleteButton": {
             "defaultValue": null,
-            "description": "",
+            "description": "自定义渲染删除按钮内部内容\n@en Customize the internal content of the delete button",
             "name": "deleteButton",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Customize the internal content of the delete button"
+            },
+            "descWithTags": "自定义渲染删除按钮内部内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
+                "name": "KeyboardProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "keyboardButton": {
+            "defaultValue": null,
+            "description": "自定义渲染收起键盘按钮内部内容\n@en Customize the internal content of the keyboard button",
+            "name": "keyboardButton",
+            "tags": {
+                "en": "Customize the internal content of the keyboard button"
+            },
+            "descWithTags": "自定义渲染收起键盘按钮内部内容",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -201,10 +237,12 @@
         },
         "close": {
             "defaultValue": null,
-            "description": "关闭菜单方法",
+            "description": "收起键盘回调\n@en Callback for closing the keyboard",
             "name": "close",
-            "tags": {},
-            "descWithTags": "关闭菜单方法",
+            "tags": {
+                "en": "Callback for closing the keyboard"
+            },
+            "descWithTags": "收起键盘回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -216,10 +254,12 @@
         },
         "onConfirm": {
             "defaultValue": null,
-            "description": "",
+            "description": "点击确认按钮回调\n@en Callback for clicking the confirm button",
             "name": "onConfirm",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback for clicking the confirm button"
+            },
+            "descWithTags": "点击确认按钮回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -231,10 +271,12 @@
         },
         "onDelete": {
             "defaultValue": null,
-            "description": "",
+            "description": "点击删除按钮回调\n@en Callback for clicking the delete button",
             "name": "onDelete",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback for clicking the delete button"
+            },
+            "descWithTags": "点击删除按钮回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
@@ -246,17 +288,19 @@
         },
         "onChange": {
             "defaultValue": null,
-            "description": "",
+            "description": "点击常规按钮回调\n@en Callback for clicking the normal button",
             "name": "onChange",
-            "tags": {},
-            "descWithTags": "",
+            "tags": {
+                "en": "Callback for clicking the normal button"
+            },
+            "descWithTags": "点击常规按钮回调",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/keyboard/type.ts",
                 "name": "KeyboardProps"
             },
             "required": false,
             "type": {
-                "name": "(data: string) => {}"
+                "name": "(data: ReactText) => {}"
             }
         },
         "direction": {
@@ -829,7 +873,7 @@
         }
     },
     "deps": {
-        "DirectionType": "\"left\"|\"right\"|\"top\"|\"bottom\"",
+        "DirectionType": "\"left\" | \"right\" | \"top\" | \"bottom\"",
         "KeyboardRef": {
             "keyboard": {
                 "name": "keyboard",

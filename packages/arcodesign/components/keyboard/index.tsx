@@ -33,8 +33,8 @@ const splitArray = (target: Array<number>) => {
     }, []);
 };
 
-// 所有onchange事件会返回的字符
-// @en Characters that all onchange events will return
+// 纯数字类字符
+// @en Pure numeric characters
 const contentArray: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
 /**

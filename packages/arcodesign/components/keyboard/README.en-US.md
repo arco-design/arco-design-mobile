@@ -10,21 +10,22 @@ Keyboard component
 
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
-|numberKeyClass|-|string|-|
-|numberKeyStyle|-|CSSProperties|-|
+|normalKeyClass|Custom classname for normal keys|string|-|
+|normalKeyStyle|Custom style for normal keys|CSSProperties|-|
 |className|Custom classname|string|-|
 |style|Custom stylesheet|CSSProperties|-|
-|type|-|"number" \| "confirm" \| "tool"|'number'|
-|randomOrder|-|boolean|required|
-|title|-|ReactNode|-|
-|columns|-|ReactNode|-|
-|confirmClosable|-|boolean|-|
-|confirmButton|-|ReactNode|-|
-|deleteButton|-|ReactNode|-|
-|close|关闭菜单方法|(e?: MouseEvent\<HTMLElement, MouseEvent\>) =\> \{\}|required|
-|onConfirm|-|() =\> \{\}|-|
-|onDelete|-|() =\> \{\}|-|
-|onChange|-|(data: string) =\> \{\}|-|
+|type|Keyboard display type, different types have different layouts\. number \- a regular keyboard with pure numbers, confirm \- a keyboard with a confirm button, tool \- a keyboard with operators|"number" \| "confirm" \| "tool"|"number"|
+|randomOrder|Whether to scramble number placements in the keyboard|boolean|required|
+|title|The title content displayed on the top of the keyboard, the style is purely customized|ReactNode|-|
+|rightColumns|Custom rendering of the content to the right of the number (fourth column)|ReactNode|-|
+|confirmClosable|Whether to automatically close the keyboard after clicking confirm button|boolean|false|
+|confirmButton|Customize the internal content of the confirm button|ReactNode|-|
+|deleteButton|Customize the internal content of the delete button|ReactNode|-|
+|keyboardButton|Customize the internal content of the keyboard button|ReactNode|-|
+|close|Callback for closing the keyboard|(e?: MouseEvent\<HTMLElement, MouseEvent\>) =\> \{\}|required|
+|onConfirm|Callback for clicking the confirm button|() =\> \{\}|-|
+|onDelete|Callback for clicking the delete button|() =\> \{\}|-|
+|onChange|Callback for clicking the normal button|(data: ReactText) =\> \{\}|-|
 |direction|The direction the menu slides out|"left" \| "right" \| "top" \| "bottom"|"bottom"|
 |needBottomOffset|Whether the content of the menu that slides out from the bottom fits the bottom of ipx|boolean|false|
 |translateZ|\[To be deprecated\] Enable translateZ forced promotion|boolean|false|
@@ -67,5 +68,5 @@ Keyboard component
 > DirectionType
 
 ```
-"left"|"right"|"top"|"bottom"
+"left" | "right" | "top" | "bottom"
 ```

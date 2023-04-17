@@ -10,21 +10,22 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|numberKeyClass|-|string|-|
-|numberKeyStyle|-|CSSProperties|-|
+|normalKeyClass|常规键位自定义类名|string|-|
+|normalKeyStyle|常规键位自定义样式|CSSProperties|-|
 |className|自定义类名|string|-|
 |style|自定义样式|CSSProperties|-|
-|type|-|"number" \| "confirm" \| "tool"|'number'|
-|randomOrder|-|boolean|必填|
-|title|-|ReactNode|-|
-|columns|-|ReactNode|-|
-|confirmClosable|-|boolean|-|
-|confirmButton|-|ReactNode|-|
-|deleteButton|-|ReactNode|-|
-|close|关闭菜单方法|(e?: MouseEvent\<HTMLElement, MouseEvent\>) =\> \{\}|必填|
-|onConfirm|-|() =\> \{\}|-|
-|onDelete|-|() =\> \{\}|-|
-|onChange|-|(data: string) =\> \{\}|-|
+|type|键盘展示类型，不同类型有不同布局。number \- 纯数字常规键盘，confirm \- 带确认按钮的键盘，tool \- 带运算符的键盘|"number" \| "confirm" \| "tool"|"number"|
+|randomOrder|是否打乱键盘中的数字展示位置|boolean|必填|
+|title|键盘顶部展示标题内容，样式纯自定义|ReactNode|-|
+|rightColumns|自定义渲染数字右侧（第四列）的内容|ReactNode|-|
+|confirmClosable|点击确认后是否自动关闭键盘|boolean|false|
+|confirmButton|自定义渲染确认按钮内部内容|ReactNode|-|
+|deleteButton|自定义渲染删除按钮内部内容|ReactNode|-|
+|keyboardButton|自定义渲染收起键盘按钮内部内容|ReactNode|-|
+|close|收起键盘回调|(e?: MouseEvent\<HTMLElement, MouseEvent\>) =\> \{\}|必填|
+|onConfirm|点击确认按钮回调|() =\> \{\}|-|
+|onDelete|点击删除按钮回调|() =\> \{\}|-|
+|onChange|点击常规按钮回调|(data: ReactText) =\> \{\}|-|
 |direction|菜单滑出方向|"left" \| "right" \| "top" \| "bottom"|"bottom"|
 |needBottomOffset|从底部滑出的菜单内容是否适配ipx底部|boolean|false|
 |translateZ|\[即将废弃\] 开启translateZ强制提升|boolean|false|
@@ -67,5 +68,5 @@
 > DirectionType
 
 ```
-"left"|"right"|"top"|"bottom"
+"left" | "right" | "top" | "bottom"
 ```
