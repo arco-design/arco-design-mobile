@@ -3791,6 +3791,11 @@ function getCompTokens() {
          */
         keyboardConfirmKeyColor: '#ffffff',
         /**
+         * 键盘右边一列确认键字体大小
+         * @en Keyboard right column confirm font size
+         */
+        keyboardConfirmKeyFontSize: getRem(18),
+        /**
          * 键盘按钮字重
          * @en Keyboard key button font weight
          */
@@ -3800,6 +3805,11 @@ function getCompTokens() {
          * @en Keyboard key button font size
          */
         keyboardKeyFontSize: getRem(22),
+        /**
+         * 键盘按钮中的图标大小
+         * @en Keyboard key button icon size
+         */
+        keyboardKeyIconSize: getRem(26),
         /**
          * 键盘按钮字体行高
          * @en Keyboard key button font line height

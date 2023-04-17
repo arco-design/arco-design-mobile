@@ -4085,6 +4085,18 @@
             "en": "Keyboard right column confirm color"
         }
     },
+    "keyboardConfirmKeyFontSize": {
+        "cssKey": "keyboard-confirm-key-font-size",
+        "desc": "键盘右边一列确认键字体大小",
+        "override": "",
+        "value": "~`pxtorem(18)`",
+        "jsValue": "@getRem@18",
+        "staticValue": "0.36rem",
+        "localeDesc": {
+            "ch": "键盘右边一列确认键字体大小",
+            "en": "Keyboard right column confirm font size"
+        }
+    },
     "keyboardContentPadding": {
         "cssKey": "keyboard-content-padding",
         "desc": "键盘内边距",
@@ -4179,6 +4191,18 @@
         "localeDesc": {
             "ch": "键盘按钮高度",
             "en": "Keyboard key button height"
+        }
+    },
+    "keyboardKeyIconSize": {
+        "cssKey": "keyboard-key-icon-size",
+        "desc": "键盘按钮中的图标大小",
+        "override": "",
+        "value": "~`pxtorem(26)`",
+        "jsValue": "@getRem@26",
+        "staticValue": "0.52rem",
+        "localeDesc": {
+            "ch": "键盘按钮中的图标大小",
+            "en": "Keyboard key button icon size"
         }
     },
     "keyboardKeyLineHeight": {

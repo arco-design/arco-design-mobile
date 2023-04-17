@@ -14,6 +14,8 @@ import { IconKeyboard, IconKeyboardDelete } from '../icon';
 import Popup, { PopupRef } from '../popup';
 import { ColumnData, ColumnObjData, KeyboardProps, KeyboardRef } from './type';
 
+export * from './type';
+
 // 键盘乱序
 // @en let keyboard random
 const makeArrayRandom = (targetArray: Array<number>) => {
