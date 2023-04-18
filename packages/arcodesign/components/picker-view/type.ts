@@ -54,7 +54,7 @@ export interface PickerViewProps {
      * 值, 格式是[value1, value2, value3], 对应数据源的相应级层value
      * @en Value, the format is [value1, value2, value3], corresponding to the corresponding level value of the data source
      */
-    value: ValueType[];
+    value?: ValueType[];
     /**
      * 每列数据选择变化后的回调函数
      * @en The callback function after each column data selection changes

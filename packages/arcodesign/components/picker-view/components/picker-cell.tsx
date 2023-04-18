@@ -8,7 +8,6 @@ import React, {
     forwardRef,
     Ref,
     useImperativeHandle,
-    ReactNode,
 } from 'react';
 import { cls } from '@arco-design/mobile-utils';
 import { ValueType, PickerData, PickerCellMovingStatus } from '../type';

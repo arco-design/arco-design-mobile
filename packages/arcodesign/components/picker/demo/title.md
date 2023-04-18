@@ -18,7 +18,7 @@ export default function PickerDemo() {
         }]
     }
     , {
-        label: 'Liaoning test',
+        label: 'Liaoning',
         value: 'Liaoning',
         children: [{
             label: 'Shenyang',
@@ -28,7 +28,7 @@ export default function PickerDemo() {
                     value: 'Shenhe'
                 },
                 {
-                    label: 'Hunnan test',
+                    label: 'Hunnan',
                     value: 'Hunnan'
                 },
                 {
@@ -100,10 +100,6 @@ export default function PickerDemo() {
                     if (pickerRef.current) {
                         console.info('-----demo getAllColumnValues', pickerRef.current.getAllColumnValues());
                     }
-                }}
-                onChange={(value, label) => {
-                    console.log(value, ', value');
-                    console.log(label, ', label');
                 }}
                 value={[]}
                 cols={3}

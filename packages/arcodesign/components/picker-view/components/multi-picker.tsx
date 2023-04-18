@@ -4,7 +4,7 @@ import { PickerData, ValueType } from '../type';
 export interface MultiPickerProps {
     prefixCls: string;
     data: PickerData[][];
-    selectedValue: ValueType[];
+    selectedValue?: ValueType[];
     children: any;
     itemHeight: number;
     onValueChange: (value: ValueType[], index: number, data: PickerData[]) => void;

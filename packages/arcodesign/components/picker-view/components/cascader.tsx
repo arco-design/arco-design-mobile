@@ -13,7 +13,7 @@ export interface CascaderProps {
     disabled: boolean;
     itemHeight: number;
     wrapperHeight: number;
-    selectedValue: ValueType[];
+    selectedValue?: ValueType[];
     rows?: number;
     hideEmptyCols?: boolean;
     onValueChange?: (value: ValueType[], index: number, data: PickerData[]) => void;
@@ -76,7 +76,8 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
     function _formatData() {
         const childrenTree = arrayTreeFilter(
             data,
-            (item: PickerData, level: number) => item.value === selectedValue[level],
+            (item: PickerData, level: number) => item.value === selectedValue?.[level],
+            { fallbackChildIndex: 0 },
         ).map(item => item.children);
 
         const needPad = cols - childrenTree.length;
