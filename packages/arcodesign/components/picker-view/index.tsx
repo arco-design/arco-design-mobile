@@ -7,8 +7,8 @@ import React, {
     useMemo,
     useCallback,
     useEffect,
-    ReactNode,
 } from 'react';
+import { componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import MultiPicker from '../picker-view/components/multi-picker';
 import PickerCell, { PickerCellRef } from '../picker-view/components/picker-cell';
@@ -36,11 +36,6 @@ export interface PickerViewRef {
      */
     getAllColumnValues: () => ValueType[];
     /**
-     * 获取所有列的 label
-     * @en Get all column values
-     */
-    getAllColumnLabels: () => ReactNode[];
-    /**
      * 获取第 n 列的值
      * @en Get the value of the nth column
      */
@@ -62,14 +57,6 @@ export interface PickerViewRef {
     scrollToCurrentIndex: () => void;
 }
 
-/**
- * 选择器视图组件，不含弹窗，方便使用方灵活定制选择器。
- * @en The picker view component, not has contain popup, which is convenient for the user to flexibly customize the picker.
- * @type 数据录入
- * @type_en Data Entry
- * @name 选择器视图
- * @name_en PickerView
- */
 const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) => {
     const {
         className = '',
@@ -81,7 +68,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         disabled = false,
         clickable = true,
         value,
-        label,
         hideEmptyCols = false,
         onPickerChange,
         touchToStop = false,
@@ -96,8 +82,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
     const scrollValueRef = useRef(value);
     const pickerCellsRef = useRef<PickerCellRef[]>([]);
     const cascaderRef = useRef<CascaderRef>(null);
-    const [pickerLabel, setPickerLabel] = useState<ReactNode[]>(label);
-    const scrollLabelRef = useRef(label);
 
     const innerData = useMemo(() => {
         let newData: PickerData[][];
@@ -129,12 +113,7 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         scrollValueRef.current = scrollValue;
     }, [scrollValue]);
 
-    useEffect(() => {
-        scrollLabelRef.current = pickerLabel;
-    }, [pickerLabel]);
-
     const getAllColumnValues = () => scrollValueRef.current;
-    const getAllColumnLabels = () => scrollLabelRef.current;
 
     function getColumnValue(index = 0) {
         return scrollValueRef.current[index];
@@ -158,38 +137,23 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         dom: domRef.current,
         getCellMovingStatus,
         getAllColumnValues,
-        getAllColumnLabels,
         getColumnValue,
         updateLayout,
         resetValue,
         scrollToCurrentIndex,
     }));
 
-    function _onPickerChange(val: ValueType[], index: number, lab: ReactNode[]) {
+    function _onValueChange(val: ValueType[], index: number, newData: PickerData[]) {
         setScrollValue(val);
-        setPickerLabel(lab);
 
         if (onPickerChange) {
-            onPickerChange(val, index, label);
-        }
-    }
-
-    function _onValueChange(val: ValueType[], index: number, lab: ReactNode[]) {
-        setScrollValue(val);
-        setPickerLabel(lab);
-
-        if (onPickerChange) {
-            onPickerChange(val, index, label);
+            onPickerChange(val, index, newData);
         }
     }
 
     useEffect(() => {
         setScrollValue(value);
     }, [value, setScrollValue]);
-
-    useEffect(() => {
-        setPickerLabel(pickerLabel);
-    }, [pickerLabel, setPickerLabel]);
 
     const updateWrapperHeight = useCallback(() => {
         if (wrapperRef && wrapperRef.current) {
@@ -237,7 +201,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
                             data={data as PickerData[]}
                             selectedValue={scrollValue}
                             onValueChange={_onValueChange}
-                            onPickerChange={_onPickerChange}
                             clickable={clickable}
                             itemHeight={itemHeight}
                             wrapperHeight={wrapperHeight}
@@ -254,7 +217,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
                             itemHeight={itemHeight}
                             selectedValue={scrollValue}
                             onValueChange={_onValueChange}
-                            onPickerChange={_onPickerChange}
                         >
                             {innerData.map((item, index) => (
                                 <PickerCell
@@ -290,5 +252,13 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         </ContextLayout>
     );
 });
-
-export default PickerView;
+/**
+ * 选择器视图组件，不含弹窗，方便使用方灵活定制选择器。
+ * @en The picker view component, not has contain popup, which is convenient for the user to flexibly customize the picker.
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 选择器视图
+ * @name_en PickerView
+ * @displayName PickerView
+ */
+export default componentWrapper(PickerView, 'PickerView');

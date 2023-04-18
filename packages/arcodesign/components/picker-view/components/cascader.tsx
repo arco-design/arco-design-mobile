@@ -1,4 +1,4 @@
-import React, { forwardRef, ReactNode, Ref, useImperativeHandle, useMemo, useRef } from 'react';
+import React, { forwardRef, Ref, useImperativeHandle, useMemo, useRef } from 'react';
 import { arrayTreeFilter } from '@arco-design/mobile-utils';
 import { PickerData, ValueType, PickerCellMovingStatus } from '../type';
 import MultiPicker from './multi-picker';
@@ -16,8 +16,7 @@ export interface CascaderProps {
     selectedValue: ValueType[];
     rows?: number;
     hideEmptyCols?: boolean;
-    onValueChange: (value: ValueType[], index: number, label: ReactNode[]) => void;
-    onPickerChange?: (value: ValueType[], index: number, label: ReactNode[]) => void;
+    onValueChange?: (value: ValueType[], index: number, data: PickerData[]) => void;
     touchToStop?: boolean | number;
 }
 export interface CascaderRef {
@@ -37,7 +36,6 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
         wrapperHeight,
         rows,
         hideEmptyCols,
-        onPickerChange,
         onValueChange,
         selectedValue = [],
         touchToStop,
@@ -57,7 +55,7 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
         pickerCellsRef.current.forEach(cell => cell.scrollToCurrentIndex());
     }
 
-    function _onValueChange(value: ValueType[], index: number, label: ReactNode[]) {
+    function _onValueChange(value: ValueType[], index: number, newData: PickerData[]) {
         const children: PickerData[] = arrayTreeFilter(
             data,
             (item: PickerData, level: number) => level <= index && item.value === value[level],
@@ -68,10 +66,11 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
         for (i = index + 1; i < cols && child && child.children; i++) {
             child = child.children[0];
             value[i] = child.value;
-            label[i] = child.label;
+            newData[i] = child;
         }
         value.length = i;
-        onValueChange?.(value, index, label);
+        newData.length = i;
+        onValueChange?.(value, index, newData);
     }
 
     function _formatData() {
@@ -101,7 +100,6 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
             selectedValue={selectedValue}
             itemHeight={itemHeight}
             onValueChange={_onValueChange}
-            onPickerChange={onPickerChange}
         >
             {formatData.map((item, index) => (
                 <PickerCell

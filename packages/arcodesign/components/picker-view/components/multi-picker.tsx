@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { PickerData, ValueType } from '../type';
 
 export interface MultiPickerProps {
@@ -7,68 +7,52 @@ export interface MultiPickerProps {
     selectedValue: ValueType[];
     children: any;
     itemHeight: number;
-    onValueChange: (value: ValueType[], index: number, label: ReactNode[]) => void;
-    onPickerChange?: (value: ValueType[], index: number, label: ReactNode[]) => void;
+    onValueChange: (value: ValueType[], index: number, data: PickerData[]) => void;
 }
 
 export default function MultiPicker(props: MultiPickerProps) {
-    const { prefixCls, onValueChange, onPickerChange, children, itemHeight, selectedValue, data } =
-        props;
+    const { prefixCls, onValueChange, children, itemHeight, selectedValue, data } = props;
 
-    function getValueOrLabel(key: string = 'value') {
-        if (selectedValue && selectedValue.length && key === 'value') {
-            return selectedValue;
-        }
-        if (data) {
-            return data.map((item: PickerData[]) => item && item[0] && item[0][key]);
-        }
-        if (!children) {
-            return [];
-        }
-        return React.Children.map(children, (child: any) => {
-            const childrenArray: any = React.Children.toArray(
-                child.children || child.props.children,
-            );
-            return childrenArray && childrenArray[0] && childrenArray[0].props[key];
+    function getCurrentData() {
+        return (data || []).map((item, itemIndex) => {
+            const curSelected = selectedValue?.[itemIndex];
+            const cur = curSelected ? (item || []).find(i => i.value === curSelected) : undefined;
+            return cur || item?.[0];
         });
     }
 
     function onChange({
         index,
         value,
-        label,
+        changedData,
         callback,
     }: {
         index: number;
         value: ValueType;
-        label: ReactNode;
-        callback?: (value: ValueType[], index: number, label: ReactNode) => void;
+        changedData: PickerData;
+        callback?: (value: ValueType[], index: number, data: PickerData[]) => void;
     }) {
-        const newValue = getValueOrLabel().concat() as ValueType[];
-        const newLabel = getValueOrLabel('label').concat() as ReactNode[];
+        const newData = getCurrentData().concat();
+        newData[index] = changedData;
+        const newValue = newData.map(d => d?.value);
         newValue[index] = value;
-        newLabel[index] = label;
         if (callback) {
-            callback(newValue, index, newLabel);
+            callback(newValue, index, newData);
         }
     }
 
-    function _onValueChange(value: ValueType, index: number, label: ReactNode) {
-        onChange({ index, value, callback: onValueChange, label });
-    }
-
-    function _onScrollChange(value: ValueType, index: number, label: ReactNode) {
-        onChange({ index, value, callback: onPickerChange, label });
+    function _onValueChange(value: ValueType, index: number, changedData: PickerData) {
+        onChange({ index, value, callback: onValueChange, changedData });
     }
 
     function renderChild() {
-        const value = getValueOrLabel();
+        const curData = getCurrentData();
+        const value = curData.map(d => d?.value);
+
         return React.Children.map(children, (col: any, index) =>
             React.cloneElement(col, {
-                onScrollChange: (val: ValueType, label: ReactNode) =>
-                    _onScrollChange(val, index, label),
-                onValueChange: (val: ValueType, label: ReactNode) =>
-                    _onValueChange(val, index, label),
+                onValueChange: (val: ValueType, changedData: PickerData) =>
+                    _onValueChange(val, index, changedData),
                 selectedValue: value[index],
             }),
         );

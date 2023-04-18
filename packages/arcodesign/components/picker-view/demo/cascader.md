@@ -74,16 +74,6 @@ export default function PickerViewDemo() {
         children: [{
             label: 'Kunming',
             value: 'Kunming',
-            children: [{
-                label: 'Wuhua',
-                value: 'Wuhua'
-            }, {
-                label: 'Guandu',
-                value: 'Guandu'
-            }, {
-                label: 'Chenggong',
-                value: 'Chenggong'
-            }]
         }]
     },
     ];
@@ -94,7 +84,10 @@ export default function PickerViewDemo() {
             data={data}
             value={value}
             cols={3}
-            onPickerChange={value => setValue(value)}
+            onPickerChange={(value, index, data) => {
+                console.log('value: ' + value, index, data);
+                setValue(value);
+            }}
         />
     );
 }

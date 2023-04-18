@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 export type PickerCellMovingStatus = 'normal' | 'moving' | 'scrolling';
 export type ValueType = string | number;
@@ -56,15 +56,10 @@ export interface PickerViewProps {
      */
     value: ValueType[];
     /**
-     * 值对应的 label
-     * @en Value
-     */
-    label: ReactNode[];
-    /**
      * 每列数据选择变化后的回调函数
      * @en The callback function after each column data selection changes
      */
-    onPickerChange?: (value: ValueType[], index: number, label: ReactNode[]) => void;
+    onPickerChange?: (value: ValueType[], index: number, data: PickerData[]) => void;
     /**
      * 每列样式
      * @en Stylesheet per column
