@@ -83,4 +83,5 @@
 |ImagePicker|-|\{ loadError: string; \}|
 |SearchBar|-|\{ placeholder: string; cancelBtn: string; \}|
 |Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
+|Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|

@@ -23,7 +23,7 @@ export default function IconMore(props: IconProps) {
                     viewBox="0 0 48 48"
                     {...other}
                 >
-                    <path d="M35 21h6v6h-6zM7 21h6v6H7zm14 0h6v6h-6z" />
+                    <path d="M35 21h6v6h-6zM7 21h6v6H7zM21 21h6v6h-6z" />
                 </svg>
             )}
         </ContextLayout>

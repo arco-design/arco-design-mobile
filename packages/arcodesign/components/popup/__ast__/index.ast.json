@@ -982,6 +982,17 @@
                 "tags": {},
                 "descWithTags": ""
             },
+            "Keyboard": {
+                "name": "Keyboard",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ confirm: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
             "Form": {
                 "name": "Form",
                 "required": true,

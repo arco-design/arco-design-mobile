@@ -27,6 +27,7 @@ export { default as ShowMonitor } from './show-monitor';
 export { default as ImagePicker } from './image-picker';
 export { default as ImagePreview } from './image-preview';
 export { default as IndexBar } from './index-bar';
+export { default as Keyboard } from './keyboard';
 export { default as LoadMore } from './load-more';
 export { default as Loading } from './loading';
 export { default as Masking } from './masking';

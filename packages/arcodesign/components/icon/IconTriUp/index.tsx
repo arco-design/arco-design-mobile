@@ -23,9 +23,7 @@ export default function IconTriUp(props: IconProps) {
                     xmlns="http://www.w3.org/2000/svg"
                     {...other}
                 >
-                    <defs>
-                        <style />
-                    </defs>
+                    <defs />
                     <path d="M195.456 682.667h633.088a21.333 21.333 0 0016.235-35.158L528.256 275.115a21.333 21.333 0 00-32.512 0L179.221 647.509a21.333 21.333 0 0016.235 35.158z" />
                 </svg>
             )}

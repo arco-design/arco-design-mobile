@@ -4385,6 +4385,186 @@
             "en": "Input vertical padding of wrapper layer"
         }
     },
+    "keyboardBackground": {
+        "cssKey": "keyboard-background",
+        "desc": "键盘背景颜色",
+        "override": "",
+        "value": "#f2f3f5",
+        "jsValue": "#f2f3f5",
+        "staticValue": "#f2f3f5",
+        "localeDesc": {
+            "ch": "键盘背景颜色",
+            "en": "Keyboard background color"
+        }
+    },
+    "keyboardConfirmKeyBackground": {
+        "cssKey": "keyboard-confirm-key-background",
+        "desc": "键盘右边一列确认键背景色",
+        "override": "",
+        "value": "#165dff",
+        "jsValue": "#165dff",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "键盘右边一列确认键背景色",
+            "en": "Keyboard right column confirm background"
+        }
+    },
+    "keyboardConfirmKeyColor": {
+        "cssKey": "keyboard-confirm-key-color",
+        "desc": "键盘右边一列确认键字体颜色",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "键盘右边一列确认键字体颜色",
+            "en": "Keyboard right column confirm color"
+        }
+    },
+    "keyboardConfirmKeyFontSize": {
+        "cssKey": "keyboard-confirm-key-font-size",
+        "desc": "键盘右边一列确认键字体大小",
+        "override": "",
+        "value": "~`pxtorem(18)`",
+        "jsValue": "@getRem@18",
+        "staticValue": "0.36rem",
+        "localeDesc": {
+            "ch": "键盘右边一列确认键字体大小",
+            "en": "Keyboard right column confirm font size"
+        }
+    },
+    "keyboardContentPadding": {
+        "cssKey": "keyboard-content-padding",
+        "desc": "键盘内边距",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "键盘内边距",
+            "en": "Keyboard padding"
+        }
+    },
+    "keyboardKeyActiveBackground": {
+        "cssKey": "keyboard-key-active-background",
+        "desc": "键盘按钮背景色激活状态下",
+        "override": "",
+        "value": "#e5e6eb",
+        "jsValue": "#e5e6eb",
+        "staticValue": "#e5e6eb",
+        "localeDesc": {
+            "ch": "键盘按钮背景色激活状态下",
+            "en": "Keyboard key button background in active"
+        }
+    },
+    "keyboardKeyBackground": {
+        "cssKey": "keyboard-key-background",
+        "desc": "键盘按钮背景色",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "键盘按钮背景色",
+            "en": "Keyboard key button background"
+        }
+    },
+    "keyboardKeyBorderRadius": {
+        "cssKey": "keyboard-key-border-radius",
+        "desc": "键盘按钮圆角",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "键盘按钮圆角",
+            "en": "Keyboard key button rounded"
+        }
+    },
+    "keyboardKeyColor": {
+        "cssKey": "keyboard-key-color",
+        "desc": "键盘按钮字体颜色",
+        "override": "",
+        "value": "#1d2129",
+        "jsValue": "#1d2129",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "键盘按钮字体颜色",
+            "en": "Keyboard key button font color"
+        }
+    },
+    "keyboardKeyFontSize": {
+        "cssKey": "keyboard-key-font-size",
+        "desc": "键盘按钮字体大小",
+        "override": "",
+        "value": "~`pxtorem(22)`",
+        "jsValue": "@getRem@22",
+        "staticValue": "0.44rem",
+        "localeDesc": {
+            "ch": "键盘按钮字体大小",
+            "en": "Keyboard key button font size"
+        }
+    },
+    "keyboardKeyFontWeight": {
+        "cssKey": "keyboard-key-font-weight",
+        "desc": "键盘按钮字重",
+        "override": "",
+        "value": "500",
+        "jsValue": "500",
+        "staticValue": "500",
+        "localeDesc": {
+            "ch": "键盘按钮字重",
+            "en": "Keyboard key button font weight"
+        }
+    },
+    "keyboardKeyHeight": {
+        "cssKey": "keyboard-key-height",
+        "desc": "键盘按钮高度",
+        "override": "",
+        "value": "~`pxtorem(48)`",
+        "jsValue": "@getRem@48",
+        "staticValue": "0.96rem",
+        "localeDesc": {
+            "ch": "键盘按钮高度",
+            "en": "Keyboard key button height"
+        }
+    },
+    "keyboardKeyIconSize": {
+        "cssKey": "keyboard-key-icon-size",
+        "desc": "键盘按钮中的图标大小",
+        "override": "",
+        "value": "~`pxtorem(26)`",
+        "jsValue": "@getRem@26",
+        "staticValue": "0.52rem",
+        "localeDesc": {
+            "ch": "键盘按钮中的图标大小",
+            "en": "Keyboard key button icon size"
+        }
+    },
+    "keyboardKeyLineHeight": {
+        "cssKey": "keyboard-key-line-height",
+        "desc": "键盘按钮字体行高",
+        "override": "",
+        "value": "~`pxtorem(30)`",
+        "jsValue": "@getRem@30",
+        "staticValue": "0.6rem",
+        "localeDesc": {
+            "ch": "键盘按钮字体行高",
+            "en": "Keyboard key button font line height"
+        }
+    },
+    "keyboardUnifiedMargin": {
+        "cssKey": "keyboard-unified-margin",
+        "desc": "键盘统一边距",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "键盘统一边距",
+            "en": "Keyboard unified margin"
+        }
+    },
     "lineColor": {
         "cssKey": "line-color",
         "desc": "基础线条颜色",

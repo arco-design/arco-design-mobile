@@ -28,6 +28,7 @@ import './image/style';
 import './show-monitor/style';
 import './image-preview/style';
 import './index-bar/style';
+import './keyboard/style';
 import './load-more/style';
 import './loading/style';
 import './masking/style';
