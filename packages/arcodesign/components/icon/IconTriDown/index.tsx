@@ -23,9 +23,7 @@ export default function IconTriDown(props: IconProps) {
                     xmlns="http://www.w3.org/2000/svg"
                     {...other}
                 >
-                    <defs>
-                        <style />
-                    </defs>
+                    <defs />
                     <path d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z" />
                 </svg>
             )}

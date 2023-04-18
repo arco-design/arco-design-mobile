@@ -9,7 +9,7 @@ import React, {
     useCallback,
     ReactNode,
 } from 'react';
-import { cls } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
 import {
     useSliderStyle,
@@ -252,6 +252,11 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
             })}
             style={style}
             ref={domRef}
+            role="slider"
+            aria-valuemin={min}
+            aria-valuemax={max}
+            aria-valuenow={Array.isArray(valueGroup) ? valueGroup[0] : valueGroup}
+            aria-disabled={disabled}
         >
             {isHorizontal ? renderPrefixLabel : renderSuffixLabel}
             <div className={`${prefixCls}-slider-wrapper`}>
@@ -281,14 +286,6 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
     );
 });
 
-/**
- * 滑动型输入器，展示当前值和可选范围。
- * @en Slide input component, displays the current value and optional range.
- * @name 滑动输入条
- * @name_en Slider
- * @type 数据录入
- * @type_en Data Entry
- */
 const SliderWrapper = forwardRef((props: SliderProps, ref: Ref<SliderRef>) => {
     const { prefixCls = '' } = useContext(GlobalContext);
     const defaultProps = useContext(SliderContext);
@@ -304,4 +301,14 @@ const SliderWrapper = forwardRef((props: SliderProps, ref: Ref<SliderRef>) => {
         </SliderContext.Provider>
     );
 });
-export default SliderWrapper;
+
+/**
+ * 滑动型输入器，展示当前值和可选范围。
+ * @en Slide input component, displays the current value and optional range.
+ * @name 滑动输入条
+ * @name_en Slider
+ * @type 数据录入
+ * @type_en Data Entry
+ * @displayName Slider
+ */
+export default componentWrapper(SliderWrapper, 'Slider');

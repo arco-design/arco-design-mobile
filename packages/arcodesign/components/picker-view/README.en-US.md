@@ -46,11 +46,11 @@ The picker view component, not has contain popup, which is convenient for the us
 > ValueType
 
 ```
-string|number
+string | number
 ```
 
 > PickerCellMovingStatus
 
 ```
-"normal"|"moving"|"scrolling"
+"normal" | "moving" | "scrolling"
 ```

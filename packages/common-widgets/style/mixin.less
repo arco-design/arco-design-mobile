@@ -31,7 +31,7 @@
     height: 100%;
 }
 
-.text-medium(@color, @stroke: 0.3PX) {
+.text-medium(@color: currentColor, @stroke: 0.3PX) {
     font-weight: bold;
     .android &,
     &.android,
@@ -189,7 +189,7 @@
     box-shadow: @border-map[@@direction][@x] @border-map[@@direction][@y] 0 @border-map[@@direction][@spread] @color inset;
 
     @media (min-resolution: 2dppx) {
-        box-shadow: @border-map[@@direction][@x]/2 @border-map[@@direction][@y]/2 0 @border-map[@@direction][@spread]/2 @color inset;
+        box-shadow: (@border-map[@@direction][@x]/2) (@border-map[@@direction][@y]/2) 0 (@border-map[@@direction][@spread]/2) @color inset;
     }
 
     // 因为 iOS 目前不支持 0.5px shadow offset/spread width
@@ -250,6 +250,37 @@
     }
 }
 
+.prop-with-rtl(@origin-property) {
+    @property-map: {
+        @left: right;
+        @right: left;
+        @margin-left: margin-right;
+        @margin-right: margin-left;
+        @padding-left: padding-right;
+        @padding-right: padding-left;
+    }
+    @property-name: @property-map[@@origin-property];
+}
+
+.set-prop-with-rtl(@property, @value, @rules: {
+    @{property}: initial;
+}) {
+    @{property}: @value;
+    [dir="rtl"] & {
+        @rules();
+        @new-property: .prop-with-rtl(@property)[@property-name];
+        @{new-property}: @value;
+    }
+}
+
+.set-value-with-rtl(@property, @value) {
+    @{property}: @value;
+    [dir="rtl"] & {
+        @new-value: .prop-with-rtl(@value)[@property-name];
+        @{property}: @new-value;
+    }
+}
+
 .set-loading-color(@color) {
     .bg-color-with-config {
         background: @color;
@@ -300,7 +331,11 @@
     .process-title-color-with-config {
         color: @color;
     }
-    .finish-tail-color-with-config:after {
+
+    .finish-tail-color-with-config::before,
+    .finish-tail-color-with-config::after,
+    .process-tail-color-with-config::before,
+    .error-tail-color-with-config::before {
         background: @color;
     }
 }

@@ -843,9 +843,9 @@
         "cssKey": "badge-background-color",
         "desc": "徽标背景色",
         "override": "",
-        "value": "#F53F3F",
-        "jsValue": "#F53F3F",
-        "staticValue": "#F53F3F",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
         "localeDesc": {
             "ch": "徽标背景色",
             "en": "Badge background color"
@@ -2257,14 +2257,14 @@
     },
     "dangerColor": {
         "cssKey": "danger-color",
-        "desc": "基础警告态颜色",
+        "desc": "基础危险态颜色",
         "override": "",
-        "value": "#ee4d38",
-        "jsValue": "#ee4d38",
-        "staticValue": "#ee4d38",
+        "value": "#f53f3f",
+        "jsValue": "#f53f3f",
+        "staticValue": "#f53f3f",
         "localeDesc": {
-            "ch": "基础警告态颜色",
-            "en": "Base warning state color"
+            "ch": "基础危险态颜色",
+            "en": "Base dangerous state color"
         }
     },
     "dialogAndroidBodyFooterGutter": {
@@ -2735,6 +2735,100 @@
             "en": "Base disabled font color"
         }
     },
+    "dividerContentFontColor": {
+        "cssKey": "divider-content-font-color",
+        "desc": "分割线文本字体颜色",
+        "override": "",
+        "value": "@sub-font-color",
+        "jsValue": "@global@subFontColor",
+        "staticValue": "#4e5969",
+        "localeDesc": {
+            "ch": "分割线文本字体颜色",
+            "en": "Font color of divider content"
+        }
+    },
+    "dividerContentFontSize": {
+        "cssKey": "divider-content-font-size",
+        "desc": "分割线文本字体大小",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "分割线文本字体大小",
+            "en": "Font size of divider content"
+        }
+    },
+    "dividerContentPadding": {
+        "cssKey": "divider-content-padding",
+        "desc": "分割线文本左右padding",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "分割线文本左右padding",
+            "en": "Padding of content"
+        }
+    },
+    "dividerLeftWidth": {
+        "cssKey": "divider-left-width",
+        "desc": "分割线左对齐时左边长度",
+        "override": "",
+        "value": "~`pxtorem(28)`",
+        "jsValue": "@getRem@28",
+        "staticValue": "0.56rem",
+        "localeDesc": {
+            "ch": "分割线左对齐时左边长度"
+        }
+    },
+    "dividerLineColor": {
+        "cssKey": "divider-line-color",
+        "desc": "分割线线条颜色",
+        "override": "",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
+        "staticValue": "#e5e6eb",
+        "localeDesc": {
+            "ch": "分割线线条颜色",
+            "en": "Color of divider line"
+        }
+    },
+    "dividerLineThickness": {
+        "cssKey": "divider-line-thickness",
+        "desc": "分割线线条粗细",
+        "override": "",
+        "value": "1PX",
+        "jsValue": "1PX",
+        "staticValue": "1PX",
+        "localeDesc": {
+            "ch": "分割线线条粗细",
+            "en": "Thickness of divider line"
+        }
+    },
+    "dividerPadding": {
+        "cssKey": "divider-padding",
+        "desc": "分割线上下padding",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "分割线上下padding",
+            "en": "Top and Bottom padding of divider"
+        }
+    },
+    "dividerRightWidth": {
+        "cssKey": "divider-right-width",
+        "desc": "分割线右对齐时右边长度",
+        "override": "",
+        "value": "~`pxtorem(28)`",
+        "jsValue": "@getRem@28",
+        "staticValue": "0.56rem",
+        "localeDesc": {
+            "ch": "分割线右对齐时右边长度"
+        }
+    },
     "dropdownMaskBackgroundColor": {
         "cssKey": "dropdown-mask-background-color",
         "desc": "dropdown的弹出框中mask的背景颜色",
@@ -3155,6 +3249,30 @@
             "en": "Ellipsis default font size"
         }
     },
+    "ellipsisFloatEllipsisNodeBackground": {
+        "cssKey": "ellipsis-float-ellipsis-node-background",
+        "desc": "文字缩略组件浮动模式下的缩略符背景色",
+        "override": "",
+        "value": "linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)",
+        "jsValue": "linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)",
+        "staticValue": "linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)",
+        "localeDesc": {
+            "ch": "文字缩略组件浮动模式下的缩略符背景色",
+            "en": "Background of floating ellipsis node"
+        }
+    },
+    "ellipsisFloatEllipsisNodePaddingLeft": {
+        "cssKey": "ellipsis-float-ellipsis-node-padding-left",
+        "desc": "文字缩略组件浮动模式下的缩略符左边距",
+        "override": "",
+        "value": "20PX",
+        "jsValue": "20PX",
+        "staticValue": "20PX",
+        "localeDesc": {
+            "ch": "文字缩略组件浮动模式下的缩略符左边距",
+            "en": "Padding left of floating ellipsis node"
+        }
+    },
     "fixedZIndex": {
         "cssKey": "fixed-z-index",
         "desc": "固定组件zIndex基础值",
@@ -3177,6 +3295,110 @@
         "localeDesc": {
             "ch": "基础字体颜色",
             "en": "Base font color"
+        }
+    },
+    "formItemBorderDividerColor": {
+        "cssKey": "form-item-border-divider-color",
+        "desc": "表单项分割线颜色",
+        "override": "",
+        "value": "rgba(0, 0, 0, 0.08)",
+        "jsValue": "rgba(0, 0, 0, 0.08)",
+        "staticValue": "rgba(0, 0, 0, 0.08)",
+        "localeDesc": {
+            "ch": "表单项分割线颜色",
+            "en": "Form item divider color"
+        }
+    },
+    "formItemErrorMessageColor": {
+        "cssKey": "form-item-error-message-color",
+        "desc": "表单项错误提示颜色",
+        "override": "",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
+        "localeDesc": {
+            "ch": "表单项错误提示颜色",
+            "en": "Form item error message color"
+        }
+    },
+    "formItemLabelItemColor": {
+        "cssKey": "form-item-label-item-color",
+        "desc": "表单项标签颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "表单项标签颜色",
+            "en": "Color of Form label"
+        }
+    },
+    "formItemLabelItemFontSize": {
+        "cssKey": "form-item-label-item-font-size",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem"
+    },
+    "formItemLabelItemGutter": {
+        "cssKey": "form-item-label-item-gutter",
+        "desc": "表单项标签右边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "表单项标签右边距",
+            "en": "Right padding of Form label"
+        }
+    },
+    "formItemLabelItemLineHeight": {
+        "cssKey": "form-item-label-item-line-height",
+        "desc": "表单项标签行高",
+        "override": "",
+        "value": "~`pxtorem(54)`",
+        "jsValue": "@getRem@54",
+        "staticValue": "1.08rem",
+        "localeDesc": {
+            "ch": "表单项标签行高",
+            "en": "Lineheight of Form label"
+        }
+    },
+    "formItemLabelItemRequiredAsteriskColor": {
+        "cssKey": "form-item-label-item-required-asterisk-color",
+        "desc": "表单项必选项星号颜色",
+        "override": "",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
+        "localeDesc": {
+            "ch": "表单项必选项星号颜色",
+            "en": "Form item asterisk color"
+        }
+    },
+    "formItemLabelItemWidth": {
+        "cssKey": "form-item-label-item-width",
+        "desc": "表单项标签宽度",
+        "override": "",
+        "value": "~`pxtorem(96)`",
+        "jsValue": "@getRem@96",
+        "staticValue": "1.92rem",
+        "localeDesc": {
+            "ch": "表单项标签宽度",
+            "en": "Right padding of Form label"
+        }
+    },
+    "formItemWarningMessageColor": {
+        "cssKey": "form-item-warning-message-color",
+        "desc": "表单项警告提示颜色",
+        "override": "",
+        "value": "@warning-color",
+        "jsValue": "@global@warningColor",
+        "staticValue": "#ff7d00",
+        "localeDesc": {
+            "ch": "表单项警告提示颜色",
+            "en": "Form item warning message color"
         }
     },
     "fullScreenZIndex": {
@@ -3671,6 +3893,342 @@
             "en": "The animation curve when the image is loaded and displayed"
         }
     },
+    "indexBarBackground": {
+        "cssKey": "index-bar-background",
+        "desc": "索引栏背景颜色",
+        "override": "",
+        "value": "white",
+        "jsValue": "white",
+        "staticValue": "white",
+        "localeDesc": {
+            "ch": "索引栏背景颜色",
+            "en": "IndexBar background color"
+        }
+    },
+    "indexBarGroupActiveColor": {
+        "cssKey": "index-bar-group-active-color",
+        "desc": "索引栏，激活状态下的，索引文字颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "索引栏，激活状态下的，索引文字颜色",
+            "en": "IndexBar, In active state, index text color"
+        }
+    },
+    "indexBarGroupItemFontSize": {
+        "cssKey": "index-bar-group-item-font-size",
+        "desc": "索引栏内容子项字号大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "索引栏内容子项字号大小",
+            "en": "IndexBar content sub-item font size"
+        }
+    },
+    "indexBarGroupItemHeight": {
+        "cssKey": "index-bar-group-item-height",
+        "desc": "索引栏内容子项高度",
+        "override": "",
+        "value": "~`pxtorem(54)`",
+        "jsValue": "@getRem@54",
+        "staticValue": "1.08rem",
+        "localeDesc": {
+            "ch": "索引栏内容子项高度",
+            "en": "IndexBar content subitem height"
+        }
+    },
+    "indexBarGroupLeftSpacing": {
+        "cssKey": "index-bar-group-left-spacing",
+        "desc": "索引栏内容左填充宽度",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "索引栏内容左填充宽度",
+            "en": "IndexBar content left padding width"
+        }
+    },
+    "indexBarGroupTitleBackground": {
+        "cssKey": "index-bar-group-title-background",
+        "desc": "索引栏标题背景颜色",
+        "override": "",
+        "value": "#f7f8fa",
+        "jsValue": "#f7f8fa",
+        "staticValue": "#f7f8fa",
+        "localeDesc": {
+            "ch": "索引栏标题背景颜色",
+            "en": "IndexBar title background color"
+        }
+    },
+    "indexBarGroupTitleFontColor": {
+        "cssKey": "index-bar-group-title-font-color",
+        "desc": "索引栏标题字体颜色",
+        "override": "",
+        "value": "@sub-info-font-color",
+        "jsValue": "@global@subInfoFontColor",
+        "staticValue": "#86909c",
+        "localeDesc": {
+            "ch": "索引栏标题字体颜色",
+            "en": "IndexBar title text color"
+        }
+    },
+    "indexBarGroupTitleFontSize": {
+        "cssKey": "index-bar-group-title-font-size",
+        "desc": "索引栏索引标题字号",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "索引栏索引标题字号",
+            "en": "IndexBar index title font size"
+        }
+    },
+    "indexBarGroupTitleHeight": {
+        "cssKey": "index-bar-group-title-height",
+        "desc": "索引栏索引标题高度",
+        "override": "",
+        "value": "~`pxtorem(24)`",
+        "jsValue": "@getRem@24",
+        "staticValue": "0.48rem",
+        "localeDesc": {
+            "ch": "索引栏索引标题高度",
+            "en": "IndexBar index header height"
+        }
+    },
+    "indexBarSidebarActiveColor": {
+        "cssKey": "index-bar-sidebar-active-color",
+        "desc": "索引栏侧边栏激活索引颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "索引栏侧边栏激活索引颜色",
+            "en": "IndexBar sidebar active index color"
+        }
+    },
+    "indexBarSidebarItemFontSize": {
+        "cssKey": "index-bar-sidebar-item-font-size",
+        "desc": "索引栏侧边栏子项字号大小",
+        "override": "",
+        "value": "~`pxtorem(10)`",
+        "jsValue": "@getRem@10",
+        "staticValue": "0.2rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏子项字号大小",
+            "en": "The font size of the subitems in the sidebar of the IndexBar"
+        }
+    },
+    "indexBarSidebarItemLineHeight": {
+        "cssKey": "index-bar-sidebar-item-line-height",
+        "desc": "索引栏侧边栏子项字号行高",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏子项字号行高",
+            "en": "The line height of the subitems in the sidebar of the IndexBar"
+        }
+    },
+    "indexBarSidebarItemPadding": {
+        "cssKey": "index-bar-sidebar-item-padding",
+        "desc": "索引栏侧边栏子项高度",
+        "override": "",
+        "value": "~`pxtorem(2)` ~`pxtorem(8)`",
+        "jsValue": "@getRem@2 @getRem@8",
+        "staticValue": "0.04rem 0.16rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏子项高度",
+            "en": "IndexBar sidebar child item height"
+        }
+    },
+    "indexBarSidebarItemWidth": {
+        "cssKey": "index-bar-sidebar-item-width",
+        "desc": "索引栏侧边栏子项宽度",
+        "override": "",
+        "value": "~`pxtorem(10)`",
+        "jsValue": "@getRem@10",
+        "staticValue": "0.2rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏子项宽度",
+            "en": "IndexBar sidebar child item width"
+        }
+    },
+    "indexBarSidebarSweatBackground": {
+        "cssKey": "index-bar-sidebar-sweat-background",
+        "desc": "索引栏侧边栏水滴提示气泡背景颜色",
+        "override": "",
+        "value": "#323232",
+        "jsValue": "#323232",
+        "staticValue": "#323232",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴提示气泡背景颜色",
+            "en": "IndexBar sidebar water drop prompt bubble background color"
+        }
+    },
+    "indexBarSidebarSweatColor": {
+        "cssKey": "index-bar-sidebar-sweat-color",
+        "desc": "索引栏侧边栏水滴提示文案颜色",
+        "override": "",
+        "value": "white",
+        "jsValue": "white",
+        "staticValue": "white",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴提示文案颜色",
+            "en": "The color of the water drop prompt text in the sidebar of the IndexBar"
+        }
+    },
+    "indexBarSidebarSweatFontSize": {
+        "cssKey": "index-bar-sidebar-sweat-font-size",
+        "desc": "索引栏侧边栏水滴字号大小",
+        "override": "",
+        "value": "~`pxtorem(24)`",
+        "jsValue": "@getRem@24",
+        "staticValue": "0.48rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴字号大小",
+            "en": "IndexBar sidebar water drop font size"
+        }
+    },
+    "indexBarSidebarSweatPadding": {
+        "cssKey": "index-bar-sidebar-sweat-padding",
+        "desc": "索引栏侧边栏水滴提示气泡的内边距",
+        "override": "",
+        "value": "0 ~`pxtorem(8)`",
+        "jsValue": "0 @getRem@8",
+        "staticValue": "0 0.16rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴提示气泡的内边距",
+            "en": "The inner margin of the water drop prompt bubble in the sidebar of the IndexBar"
+        }
+    },
+    "indexBarSidebarSweatRadius": {
+        "cssKey": "index-bar-sidebar-sweat-radius",
+        "desc": "索引栏侧边栏水滴直径",
+        "override": "",
+        "value": "~`pxtorem(50)`",
+        "jsValue": "@getRem@50",
+        "staticValue": "1rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴直径",
+            "en": "IndexBar sidebar droplet diameter"
+        }
+    },
+    "indexBarSidebarSweatRight": {
+        "cssKey": "index-bar-sidebar-sweat-right",
+        "desc": "索引栏侧边栏水滴离侧边栏的距离",
+        "override": "",
+        "value": "~`pxtorem(36)`",
+        "jsValue": "@getRem@36",
+        "staticValue": "0.72rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏水滴离侧边栏的距离",
+            "en": "The distance between the water droplets in the sidebar of the IndexBar and the sidebar"
+        }
+    },
+    "indexBarSidebarSweatTriangleBorder": {
+        "cssKey": "index-bar-sidebar-sweat-triangle-border",
+        "desc": "索引栏侧边栏三角气泡的border",
+        "override": "",
+        "value": "~`pxtorem(18)` solid transparent",
+        "jsValue": "@getRem@18 solid transparent",
+        "staticValue": "0.36rem solid transparent",
+        "localeDesc": {
+            "ch": "索引栏侧边栏三角气泡的border",
+            "en": "The border of the triangle bubble in the sidebar of the IndexBar"
+        }
+    },
+    "indexBarSidebarSweatTrianglePosition": {
+        "cssKey": "index-bar-sidebar-sweat-triangle-position",
+        "desc": "索引栏侧边栏三角气泡位置",
+        "override": "",
+        "value": "~`pxtorem(-27)`",
+        "jsValue": "@getRem@-27",
+        "staticValue": "-0.54rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏三角气泡位置",
+            "en": "The position of the triangle bubble in the sidebar of the IndexBar"
+        }
+    },
+    "indexBarSidebarToastBackground": {
+        "cssKey": "index-bar-sidebar-toast-background",
+        "desc": "索引栏侧边栏轻提示背景颜色",
+        "override": "",
+        "value": "#323232",
+        "jsValue": "#323232",
+        "staticValue": "#323232",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示背景颜色",
+            "en": "IndexBar sidebar light prompt background color"
+        }
+    },
+    "indexBarSidebarToastColor": {
+        "cssKey": "index-bar-sidebar-toast-color",
+        "desc": "索引栏侧边栏轻提示文案颜色",
+        "override": "",
+        "value": "white",
+        "jsValue": "white",
+        "staticValue": "white",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示文案颜色",
+            "en": "The color of the light prompt copy in the sidebar of the IndexBar"
+        }
+    },
+    "indexBarSidebarToastFontSize": {
+        "cssKey": "index-bar-sidebar-toast-font-size",
+        "desc": "索引栏侧边栏轻提示字号大小",
+        "override": "",
+        "value": "~`pxtorem(24)`",
+        "jsValue": "@getRem@24",
+        "staticValue": "0.48rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示字号大小",
+            "en": "IndexBar sidebar light prompt font size"
+        }
+    },
+    "indexBarSidebarToastHeight": {
+        "cssKey": "index-bar-sidebar-toast-height",
+        "desc": "索引栏侧边栏轻提示方框高度",
+        "override": "",
+        "value": "~`pxtorem(48)`",
+        "jsValue": "@getRem@48",
+        "staticValue": "0.96rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示方框高度",
+            "en": "The height of the light prompt box in the sidebar of the IndexBar"
+        }
+    },
+    "indexBarSidebarToastPadding": {
+        "cssKey": "index-bar-sidebar-toast-padding",
+        "desc": "索引栏侧边栏轻提示内边距",
+        "override": "",
+        "value": "0 ~`pxtorem(8)`",
+        "jsValue": "0 @getRem@8",
+        "staticValue": "0 0.16rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示内边距",
+            "en": "IndexBar sidebar light prompt padding"
+        }
+    },
+    "indexBarSidebarToastRadius": {
+        "cssKey": "index-bar-sidebar-toast-radius",
+        "desc": "索引栏侧边栏轻提示圆角大小",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏轻提示圆角大小",
+            "en": "The sidebar of the IndexBar lightly prompts the size of the rounded corners"
+        }
+    },
     "inputCaretColor": {
         "cssKey": "input-caret-color",
         "desc": "输入框 光标颜色",
@@ -3693,6 +4251,18 @@
         "localeDesc": {
             "ch": "输入框 清除图标颜色",
             "en": "Input clear icon color"
+        }
+    },
+    "inputClearIconFontSize": {
+        "cssKey": "input-clear-icon-font-size",
+        "desc": "输入框 清除图标大小",
+        "override": "",
+        "value": "16PX",
+        "jsValue": "16PX",
+        "staticValue": "16PX",
+        "localeDesc": {
+            "ch": "输入框 清除图标大小",
+            "en": "Input clear icon font size"
         }
     },
     "inputDisabledBackground": {
@@ -3813,6 +4383,186 @@
         "localeDesc": {
             "ch": "输入框 外包层垂直内边距",
             "en": "Input vertical padding of wrapper layer"
+        }
+    },
+    "keyboardBackground": {
+        "cssKey": "keyboard-background",
+        "desc": "键盘背景颜色",
+        "override": "",
+        "value": "#f2f3f5",
+        "jsValue": "#f2f3f5",
+        "staticValue": "#f2f3f5",
+        "localeDesc": {
+            "ch": "键盘背景颜色",
+            "en": "Keyboard background color"
+        }
+    },
+    "keyboardConfirmKeyBackground": {
+        "cssKey": "keyboard-confirm-key-background",
+        "desc": "键盘右边一列确认键背景色",
+        "override": "",
+        "value": "#165dff",
+        "jsValue": "#165dff",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "键盘右边一列确认键背景色",
+            "en": "Keyboard right column confirm background"
+        }
+    },
+    "keyboardConfirmKeyColor": {
+        "cssKey": "keyboard-confirm-key-color",
+        "desc": "键盘右边一列确认键字体颜色",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "键盘右边一列确认键字体颜色",
+            "en": "Keyboard right column confirm color"
+        }
+    },
+    "keyboardConfirmKeyFontSize": {
+        "cssKey": "keyboard-confirm-key-font-size",
+        "desc": "键盘右边一列确认键字体大小",
+        "override": "",
+        "value": "~`pxtorem(18)`",
+        "jsValue": "@getRem@18",
+        "staticValue": "0.36rem",
+        "localeDesc": {
+            "ch": "键盘右边一列确认键字体大小",
+            "en": "Keyboard right column confirm font size"
+        }
+    },
+    "keyboardContentPadding": {
+        "cssKey": "keyboard-content-padding",
+        "desc": "键盘内边距",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "键盘内边距",
+            "en": "Keyboard padding"
+        }
+    },
+    "keyboardKeyActiveBackground": {
+        "cssKey": "keyboard-key-active-background",
+        "desc": "键盘按钮背景色激活状态下",
+        "override": "",
+        "value": "#e5e6eb",
+        "jsValue": "#e5e6eb",
+        "staticValue": "#e5e6eb",
+        "localeDesc": {
+            "ch": "键盘按钮背景色激活状态下",
+            "en": "Keyboard key button background in active"
+        }
+    },
+    "keyboardKeyBackground": {
+        "cssKey": "keyboard-key-background",
+        "desc": "键盘按钮背景色",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "键盘按钮背景色",
+            "en": "Keyboard key button background"
+        }
+    },
+    "keyboardKeyBorderRadius": {
+        "cssKey": "keyboard-key-border-radius",
+        "desc": "键盘按钮圆角",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "键盘按钮圆角",
+            "en": "Keyboard key button rounded"
+        }
+    },
+    "keyboardKeyColor": {
+        "cssKey": "keyboard-key-color",
+        "desc": "键盘按钮字体颜色",
+        "override": "",
+        "value": "#1d2129",
+        "jsValue": "#1d2129",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "键盘按钮字体颜色",
+            "en": "Keyboard key button font color"
+        }
+    },
+    "keyboardKeyFontSize": {
+        "cssKey": "keyboard-key-font-size",
+        "desc": "键盘按钮字体大小",
+        "override": "",
+        "value": "~`pxtorem(22)`",
+        "jsValue": "@getRem@22",
+        "staticValue": "0.44rem",
+        "localeDesc": {
+            "ch": "键盘按钮字体大小",
+            "en": "Keyboard key button font size"
+        }
+    },
+    "keyboardKeyFontWeight": {
+        "cssKey": "keyboard-key-font-weight",
+        "desc": "键盘按钮字重",
+        "override": "",
+        "value": "500",
+        "jsValue": "500",
+        "staticValue": "500",
+        "localeDesc": {
+            "ch": "键盘按钮字重",
+            "en": "Keyboard key button font weight"
+        }
+    },
+    "keyboardKeyHeight": {
+        "cssKey": "keyboard-key-height",
+        "desc": "键盘按钮高度",
+        "override": "",
+        "value": "~`pxtorem(48)`",
+        "jsValue": "@getRem@48",
+        "staticValue": "0.96rem",
+        "localeDesc": {
+            "ch": "键盘按钮高度",
+            "en": "Keyboard key button height"
+        }
+    },
+    "keyboardKeyIconSize": {
+        "cssKey": "keyboard-key-icon-size",
+        "desc": "键盘按钮中的图标大小",
+        "override": "",
+        "value": "~`pxtorem(26)`",
+        "jsValue": "@getRem@26",
+        "staticValue": "0.52rem",
+        "localeDesc": {
+            "ch": "键盘按钮中的图标大小",
+            "en": "Keyboard key button icon size"
+        }
+    },
+    "keyboardKeyLineHeight": {
+        "cssKey": "keyboard-key-line-height",
+        "desc": "键盘按钮字体行高",
+        "override": "",
+        "value": "~`pxtorem(30)`",
+        "jsValue": "@getRem@30",
+        "staticValue": "0.6rem",
+        "localeDesc": {
+            "ch": "键盘按钮字体行高",
+            "en": "Keyboard key button font line height"
+        }
+    },
+    "keyboardUnifiedMargin": {
+        "cssKey": "keyboard-unified-margin",
+        "desc": "键盘统一边距",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "键盘统一边距",
+            "en": "Keyboard unified margin"
         }
     },
     "lineColor": {
@@ -4071,8 +4821,8 @@
         "cssKey": "notice-bar-color",
         "desc": "通知栏文字颜色",
         "override": "",
-        "value": "#ff7d00",
-        "jsValue": "#ff7d00",
+        "value": "@warning-color",
+        "jsValue": "@global@warningColor",
         "staticValue": "#ff7d00",
         "localeDesc": {
             "ch": "通知栏文字颜色",
@@ -4191,9 +4941,9 @@
         "cssKey": "notify-error-background",
         "desc": "notify 错误通知背景色",
         "override": "",
-        "value": "#F53F3F",
-        "jsValue": "#F53F3F",
-        "staticValue": "#F53F3F",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
         "localeDesc": {
             "ch": "notify 错误通知背景色",
             "en": "Background color of error notify"
@@ -4263,9 +5013,9 @@
         "cssKey": "notify-warn-background",
         "desc": "notify 警告通知背景色",
         "override": "",
-        "value": "#FF7D00",
-        "jsValue": "#FF7D00",
-        "staticValue": "#FF7D00",
+        "value": "@warning-color",
+        "jsValue": "@global@warningColor",
+        "staticValue": "#ff7d00",
         "localeDesc": {
             "ch": "notify 警告通知背景色",
             "en": "Background color of wran notify"
@@ -6191,6 +6941,174 @@
             "en": "Label distance  of horizoverticalntal slider from the right of the mark"
         }
     },
+    "stepperButtonIconSize": {
+        "cssKey": "stepper-button-icon-size",
+        "desc": "步进器按钮图标尺寸",
+        "override": "",
+        "value": "~`pxtorem(10)`",
+        "jsValue": "@getRem@10",
+        "staticValue": "0.2rem",
+        "localeDesc": {
+            "ch": "步进器按钮图标尺寸",
+            "en": "Button icon size of Stepper"
+        }
+    },
+    "stepperButtonSize": {
+        "cssKey": "stepper-button-size",
+        "desc": "步进器按钮尺寸",
+        "override": "",
+        "value": "~`pxtorem(28)`",
+        "jsValue": "@getRem@28",
+        "staticValue": "0.56rem",
+        "localeDesc": {
+            "ch": "步进器按钮尺寸",
+            "en": "Button size of Stepper"
+        }
+    },
+    "stepperContentColor": {
+        "cssKey": "stepper-content-color",
+        "desc": "步进器内容字体颜色",
+        "override": "",
+        "value": "#1d2129",
+        "jsValue": "#1d2129",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "步进器内容字体颜色",
+            "en": "Content text color of Stepper"
+        }
+    },
+    "stepperDefaultBackgroundColor": {
+        "cssKey": "stepper-default-background-color",
+        "desc": "步进器默认背景颜色",
+        "override": "",
+        "value": "#f7f8fa",
+        "jsValue": "#f7f8fa",
+        "staticValue": "#f7f8fa",
+        "localeDesc": {
+            "ch": "步进器默认背景颜色",
+            "en": "Background default colr of Stepper"
+        }
+    },
+    "stepperDisableColor": {
+        "cssKey": "stepper-disable-color",
+        "desc": "步进器禁用状态字体颜色",
+        "override": "",
+        "value": "#c9cdd4",
+        "jsValue": "#c9cdd4",
+        "staticValue": "#c9cdd4",
+        "localeDesc": {
+            "ch": "步进器禁用状态字体颜色",
+            "en": "Text color of Stepper in disable status"
+        }
+    },
+    "stepperFontSize": {
+        "cssKey": "stepper-font-size",
+        "desc": "步进器字体大小",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "步进器字体大小",
+            "en": "Font size of Stepper"
+        }
+    },
+    "stepperInputHeight": {
+        "cssKey": "stepper-input-height",
+        "desc": "步进器输入框长度",
+        "override": "",
+        "value": "~`pxtorem(28)`",
+        "jsValue": "@getRem@28",
+        "staticValue": "0.56rem",
+        "localeDesc": {
+            "ch": "步进器输入框长度",
+            "en": "Input height of Stepper"
+        }
+    },
+    "stepperInputMargin": {
+        "cssKey": "stepper-input-margin",
+        "desc": "步进器输入框外边距",
+        "override": "",
+        "value": "0 1PX",
+        "jsValue": "0 1PX",
+        "staticValue": "0 1PX",
+        "localeDesc": {
+            "ch": "步进器输入框外边距",
+            "en": "Input margin of Stepper"
+        }
+    },
+    "stepperInputWidth": {
+        "cssKey": "stepper-input-width",
+        "desc": "步进器输入框宽度",
+        "override": "",
+        "value": "~`pxtorem(40)`",
+        "jsValue": "@getRem@40",
+        "staticValue": "0.8rem",
+        "localeDesc": {
+            "ch": "步进器输入框宽度",
+            "en": "Input width of Stepper"
+        }
+    },
+    "stepperRoundButtonBorderRadius": {
+        "cssKey": "stepper-round-button-border-radius",
+        "desc": "步进器圆角按钮边框半径",
+        "override": "",
+        "value": "50%",
+        "jsValue": "50%",
+        "staticValue": "50%",
+        "localeDesc": {
+            "ch": "步进器圆角按钮边框半径",
+            "en": "Round button border radius of Stepper"
+        }
+    },
+    "stepperRoundInputBackgroundColor": {
+        "cssKey": "stepper-round-input-background-color",
+        "desc": "步进器圆角输入框背景颜色",
+        "override": "",
+        "value": "transparent",
+        "jsValue": "transparent",
+        "staticValue": "transparent",
+        "localeDesc": {
+            "ch": "步进器圆角输入框背景颜色",
+            "en": "Rount input background color of Stepper"
+        }
+    },
+    "stepperSquareBackgroundColor": {
+        "cssKey": "stepper-square-background-color",
+        "desc": "步进器方角样式背景颜色",
+        "override": "",
+        "value": "#ffffff",
+        "jsValue": "#ffffff",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "步进器方角样式背景颜色",
+            "en": "Background color of Stepper square style"
+        }
+    },
+    "stepperSquareBorder": {
+        "cssKey": "stepper-square-border",
+        "desc": "步进器方角边框样式",
+        "override": "",
+        "value": "1PX solid #f2f3f5",
+        "jsValue": "1PX solid #f2f3f5",
+        "staticValue": "1PX solid #f2f3f5",
+        "localeDesc": {
+            "ch": "步进器方角边框样式",
+            "en": "Square border style of Stepper"
+        }
+    },
+    "stepperSquareBorderRadius": {
+        "cssKey": "stepper-square-border-radius",
+        "desc": "步进器方角边框半径",
+        "override": "",
+        "value": "~`pxtorem(2)`",
+        "jsValue": "@getRem@2",
+        "staticValue": "0.04rem",
+        "localeDesc": {
+            "ch": "步进器方角边框半径",
+            "en": "Square border radius of Stepper"
+        }
+    },
     "stepsDescriptionColor": {
         "cssKey": "steps-description-color",
         "desc": "steps 步骤默认描述文字颜色",
@@ -6279,9 +7197,9 @@
         "cssKey": "steps-error-icon-num-background",
         "desc": "steps 无文字错误步骤背景色",
         "override": "",
-        "value": "#F53F3F",
-        "jsValue": "#F53F3F",
-        "staticValue": "#F53F3F",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
         "localeDesc": {
             "ch": "steps 无文字错误步骤背景色",
             "en": "Non-text steps background color in error state"
@@ -6315,9 +7233,9 @@
         "cssKey": "steps-error-title-color",
         "desc": "steps 错误步骤标题颜色",
         "override": "",
-        "value": "#F53F3F",
-        "jsValue": "#F53F3F",
-        "staticValue": "#F53F3F",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#f53f3f",
         "localeDesc": {
             "ch": "steps 错误步骤标题颜色",
             "en": "Steps title color in error state"
@@ -6527,6 +7445,18 @@
             "en": "Custom icon color of Steps in processing state"
         }
     },
+    "stepsTailBorderRadius": {
+        "cssKey": "steps-tail-border-radius",
+        "desc": "steps 分割线圆角值",
+        "override": "",
+        "value": "2PX",
+        "jsValue": "2PX",
+        "staticValue": "2PX",
+        "localeDesc": {
+            "ch": "steps 分割线圆角值",
+            "en": "Border radius of steps dividing"
+        }
+    },
     "stepsTailFinishBackground": {
         "cssKey": "steps-tail-finish-background",
         "desc": "steps 步骤分割线完成态颜色",
@@ -6539,13 +7469,37 @@
             "en": "Steps dividing line color in finish state"
         }
     },
+    "stepsTailHorizontalGutter": {
+        "cssKey": "steps-tail-horizontal-gutter",
+        "desc": "steps 水平分割线与图标中心点的距离",
+        "override": "",
+        "value": "18PX",
+        "jsValue": "18PX",
+        "staticValue": "18PX",
+        "localeDesc": {
+            "ch": "steps 水平分割线与图标中心点的距离",
+            "en": "The distance between the horizontal dividing line and the center point of the icon"
+        }
+    },
+    "stepsTailHorizontalLeft": {
+        "cssKey": "steps-tail-horizontal-left",
+        "desc": "steps 水平分割线的向右偏移距离，一般是 stepsIconHeight 值的一半",
+        "override": "",
+        "value": "9PX",
+        "jsValue": "9PX",
+        "staticValue": "9PX",
+        "localeDesc": {
+            "ch": "steps 水平分割线的向右偏移距离，一般是 stepsIconHeight 值的一半",
+            "en": "The offset distance to the right of the horizontal dividing line of steps, generally half the value of stepsIconHeight"
+        }
+    },
     "stepsTailHorizontalPadding": {
         "cssKey": "steps-tail-horizontal-padding",
         "desc": "steps 水平分割线左右间距",
         "override": "",
-        "value": "0 ~`pxtorem(18)`",
-        "jsValue": "0 @getRem@18",
-        "staticValue": "0 0.36rem",
+        "value": "0 @steps-tail-horizontal-gutter",
+        "jsValue": "0 @global@stepsTailHorizontalGutter",
+        "staticValue": "0 18PX",
         "localeDesc": {
             "ch": "steps 水平分割线左右间距",
             "en": "Left and right spacing of the horizontal dividing line of Steps"
@@ -6575,13 +7529,25 @@
             "en": "Steps dividing line thickness"
         }
     },
+    "stepsTailVerticalGutter": {
+        "cssKey": "steps-tail-vertical-gutter",
+        "desc": "steps 垂直分割线与图标中心点的距离",
+        "override": "",
+        "value": "14PX",
+        "jsValue": "14PX",
+        "staticValue": "14PX",
+        "localeDesc": {
+            "ch": "steps 垂直分割线与图标中心点的距离",
+            "en": "The distance between the vertical dividing line and the center point of the icon"
+        }
+    },
     "stepsTailVerticalPadding": {
         "cssKey": "steps-tail-vertical-padding",
         "desc": "steps 垂直分割线上下间距",
         "override": "",
-        "value": "~`pxtorem(14)` 0",
-        "jsValue": "@getRem@14 0",
-        "staticValue": "0.28rem 0",
+        "value": "@steps-tail-vertical-gutter 0",
+        "jsValue": "@global@stepsTailVerticalGutter 0",
+        "staticValue": "14PX 0",
         "localeDesc": {
             "ch": "steps 垂直分割线上下间距",
             "en": "Left and right spacing of the vertical dividing line of Steps"
@@ -6591,12 +7557,12 @@
         "cssKey": "steps-tail-vertical-top",
         "desc": "steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半",
         "override": "",
-        "value": "~`pxtorem(9)`",
-        "jsValue": "@getRem@9",
-        "staticValue": "0.18rem",
+        "value": "9PX",
+        "jsValue": "9PX",
+        "staticValue": "9PX",
         "localeDesc": {
             "ch": "steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半",
-            "en": "Left and right spacing of the vertical dividing line of Steps"
+            "en": "The offset distance to the bottom of the vertical dividing line of steps, generally half the value of stepsIconHeight"
         }
     },
     "stepsTitleFontSize": {
@@ -8125,6 +9091,174 @@
             "en": "Textareaword count font size"
         }
     },
+    "timeLineAxisColor": {
+        "cssKey": "time-line-axis-color",
+        "desc": "时间轴轴线的颜色",
+        "override": "",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
+        "staticValue": "#e5e6eb",
+        "localeDesc": {
+            "ch": "时间轴轴线的颜色",
+            "en": "Color of the Axis of TimeLine"
+        }
+    },
+    "timeLineAxisWidth": {
+        "cssKey": "time-line-axis-width",
+        "desc": "时间轴轴线的宽度",
+        "override": "",
+        "value": "~`pxtorem(1)`",
+        "jsValue": "@getRem@1",
+        "staticValue": "0.02rem",
+        "localeDesc": {
+            "ch": "时间轴轴线的宽度",
+            "en": "Width of the Axis of TimeLine"
+        }
+    },
+    "timeLineContentBackgroundColor": {
+        "cssKey": "time-line-content-background-color",
+        "desc": "时间轴content的背景色",
+        "override": "",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
+        "staticValue": "#e5e6eb",
+        "localeDesc": {
+            "ch": "时间轴content的背景色",
+            "en": "Background color of the Content of TimeLine"
+        }
+    },
+    "timeLineContentBorderRadius": {
+        "cssKey": "time-line-content-border-radius",
+        "desc": "时间轴content的圆角值",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "时间轴content的圆角值",
+            "en": "Border radius of the Content of TimeLine"
+        }
+    },
+    "timeLineContentColor": {
+        "cssKey": "time-line-content-color",
+        "desc": "时间轴content的字体颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "时间轴content的字体颜色",
+            "en": "Font color of the Content of TimeLine"
+        }
+    },
+    "timeLineContentFontSize": {
+        "cssKey": "time-line-content-font-size",
+        "desc": "时间轴content的字体大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "时间轴content的字体大小",
+            "en": "Font size of the content of TimeLine"
+        }
+    },
+    "timeLineContentMarginBottom": {
+        "cssKey": "time-line-content-margin-bottom",
+        "desc": "时间轴content的下外边距（13 + 12 / 2）",
+        "override": "",
+        "value": "~`pxtorem(19)`",
+        "jsValue": "@getRem@19",
+        "staticValue": "0.38rem",
+        "localeDesc": {
+            "ch": "时间轴content的下外边距（13 + 12 / 2）",
+            "en": "Bottom margin of the Content of TimeLine"
+        }
+    },
+    "timeLineContentMarginLeft": {
+        "cssKey": "time-line-content-margin-left",
+        "desc": "时间轴content的左外边距",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "时间轴content的左外边距",
+            "en": "Left margin of the Content of TimeLine"
+        }
+    },
+    "timeLineContentMarginTop": {
+        "cssKey": "time-line-content-margin-top",
+        "desc": "时间轴content的上外边距（13 - 12 / 2）",
+        "override": "",
+        "value": "~`pxtorem(7)`",
+        "jsValue": "@getRem@7",
+        "staticValue": "0.14rem",
+        "localeDesc": {
+            "ch": "时间轴content的上外边距（13 - 12 / 2）",
+            "en": "Top margin of the Content of TimeLine"
+        }
+    },
+    "timeLineDotBackgroundColor": {
+        "cssKey": "time-line-dot-background-color",
+        "desc": "时间轴节点的背景色",
+        "override": "",
+        "value": "@background-color",
+        "jsValue": "@global@backgroundColor",
+        "staticValue": "#ffffff",
+        "localeDesc": {
+            "ch": "时间轴节点的背景色",
+            "en": "Background color of the dot of TimeLine"
+        }
+    },
+    "timeLineDotBorderColor": {
+        "cssKey": "time-line-dot-border-color",
+        "desc": "时间轴节点的线颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165dff",
+        "localeDesc": {
+            "ch": "时间轴节点的线颜色",
+            "en": "Border color of the dot of TimeLine"
+        }
+    },
+    "timeLineDotWidth": {
+        "cssKey": "time-line-dot-width",
+        "desc": "时间轴节点的宽度",
+        "override": "",
+        "value": "~`pxtorem(9)`",
+        "jsValue": "@getRem@9",
+        "staticValue": "0.18rem",
+        "localeDesc": {
+            "ch": "时间轴节点的宽度",
+            "en": "Width of the dot of TimeLine"
+        }
+    },
+    "timeLineLabelColor": {
+        "cssKey": "time-line-label-color",
+        "desc": "时间轴label的字体颜色",
+        "override": "",
+        "value": "@sub-info-font-color",
+        "jsValue": "@global@subInfoFontColor",
+        "staticValue": "#86909c",
+        "localeDesc": {
+            "ch": "时间轴label的字体颜色",
+            "en": "Font color of the label of TimeLine"
+        }
+    },
+    "timeLineLabelFontSize": {
+        "cssKey": "time-line-label-font-size",
+        "desc": "时间轴label的字体大小",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "时间轴label的字体大小",
+            "en": "Font size of the label of TimeLine"
+        }
+    },
     "toastBackground": {
         "cssKey": "toast-background",
         "desc": "toast 背景色",
@@ -8327,6 +9461,18 @@
         "localeDesc": {
             "ch": "渐隐过渡效果持续时长",
             "en": "Transition fade duration"
+        }
+    },
+    "warningColor": {
+        "cssKey": "warning-color",
+        "desc": "基础警告态颜色",
+        "override": "",
+        "value": "#ff7d00",
+        "jsValue": "#ff7d00",
+        "staticValue": "#ff7d00",
+        "localeDesc": {
+            "ch": "基础警告态颜色",
+            "en": "Base warning state color"
         }
     }
 }

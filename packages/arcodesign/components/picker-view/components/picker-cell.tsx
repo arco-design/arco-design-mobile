@@ -365,11 +365,13 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
                 onTouchStart={_handleItemTouchStart}
                 onTouchEnd={_handleColumnTouchEnd}
                 onTouchCancel={_handleColumnTouchEnd}
+                aria-disabled={disabled}
             >
                 {data.map((item, index) => {
                     const dis = Math.abs(index - currentIndex);
                     return (
                         <div
+                            aria-label={index === currentIndex ? `${item.value}` : ''}
                             key={`${index}_${item.value}`}
                             className={cls(`${prefixCls}-column-item`, {
                                 selected: index === currentIndex,

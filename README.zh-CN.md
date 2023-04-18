@@ -12,7 +12,7 @@
 基于 [Arco Design](https://arco.design/mobile/react) 的 React UI 组件库。
 
 
-![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=sass&logoColor=ffffff)
+![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=less&logoColor=ffffff)
 ![](https://img.shields.io/badge/-Typescript-blue?logo=typescript&logoColor=white)
 ![](https://img.shields.io/badge/-React.js-blue?logo=react&logoColor=white)
 
@@ -76,6 +76,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 * [官方文档](https://arco.design/mobile/react)
 * [组件文档](https://arco.design/mobile/react/arco-design/pc/)
+* [Figma 设计资源](https://www.figma.com/community/file/1143750379727993941)
 * [Awesome Arco](https://github.com/arco-design/awesome-arco)
 
 # 浏览器兼容性

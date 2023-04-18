@@ -5,7 +5,8 @@
         "type": "数据录入",
         "type_en": "Data Entry",
         "name": "输入框",
-        "name_en": "Input"
+        "name_en": "Input",
+        "displayName": "Input"
     },
     "displayName": "Input",
     "methods": [],
@@ -96,6 +97,23 @@
             "required": false,
             "type": {
                 "name": "InputHTMLAttributes<HTMLInputElement>"
+            }
+        },
+        "ariaLabel": {
+            "defaultValue": null,
+            "description": "无障碍label\n@en accessible label",
+            "name": "ariaLabel",
+            "tags": {
+                "en": "accessible label"
+            },
+            "descWithTags": "无障碍label",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/index.tsx",
+                "name": "InputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
             }
         },
         "id": {
@@ -311,6 +329,26 @@
                 "en": "Whether to automatically get the focus"
             },
             "descWithTags": "是否自动获取焦点",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
+                "name": "BasicInputProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "blockChangeWhenCompositing": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "当 ios 输入中文时，输拼音的过程不触发onChange，仅确认选择后触发\n@en When inputting Chinese on ios, onChange is not triggered during pinyin input, but only after confirming the selection",
+            "name": "blockChangeWhenCompositing",
+            "tags": {
+                "en": "When inputting Chinese on ios, onChange is not triggered during pinyin input, but only after confirming the selection",
+                "default": "false"
+            },
+            "descWithTags": "当 ios 输入中文时，输拼音的过程不触发onChange，仅确认选择后触发",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
                 "name": "BasicInputProps"

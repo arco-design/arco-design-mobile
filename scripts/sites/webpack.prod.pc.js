@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SiteGeneratePlugin = require('./plugins/SiteGeneratePlugin');
 const baseConfig = require('./webpack.common.js');
@@ -29,7 +29,7 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
         }),
     ],
     externals: [
-        { "arco": 'arco'},
+        { "arco": 'arco' },
         { "react": "React" },
         { "react-dom": "ReactDOM" },
     ]

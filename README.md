@@ -11,7 +11,7 @@
 
 A comprehensive React UI components library based on the [Arco Design](https://arco.design/mobile/react) system.
 
-![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=sass&logoColor=ffffff)
+![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=less&logoColor=ffffff)
 ![](https://img.shields.io/badge/-Typescript-blue?logo=typescript&logoColor=white)
 ![](https://img.shields.io/badge/-React.js-blue?logo=react&logoColor=white)
 
@@ -76,6 +76,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 * [Documentation website](https://arco.design/mobile/react)
 * [Components documentation](https://arco.design/mobile/react/arco-design/pc/)
+* [Figma component library](https://www.figma.com/community/file/1143750379727993941)
 * [Awesome Arco](https://github.com/arco-design/awesome-arco)
 
 # Browser Support

@@ -132,6 +132,10 @@ export const Checkbox = forwardRef(
             <ContextLayout>
                 {({ prefixCls }) => (
                     <div
+                        role="checkbox"
+                        aria-checked={checked}
+                        aria-disabled={disabled}
+                        tabIndex={0}
                         ref={domRef}
                         style={style}
                         className={cls(

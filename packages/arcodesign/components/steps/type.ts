@@ -19,6 +19,11 @@ export interface StepProps {
      * @en Specify the step status. When this item is not input, the status will be automatically specified according to the current property of steps
      */
     status?: 'finish' | 'error' | 'wait' | 'process';
+    /**
+     * 指定对齐方式，不配置该项时，会跟随 Steps 的 align 属性值
+     * @en Specify the step alignment. When this item is not input, it will be automatically specified according to the align property of steps
+     */
+    align?: 'center' | 'start';
 }
 
 export interface StepsProps {
@@ -38,6 +43,13 @@ export interface StepsProps {
      * @default horizontal
      */
     direction?: 'vertical' | 'horizontal';
+    /**
+     * 步骤条对齐方式
+     * @en Step alignment
+     * @default direction="horizontal" 时默认为 "center"，direction="vertical" 时默认为 "start"
+     * @default_en "center" when direction="horizontal" and "start" when direction="vertical"
+     */
+    align?: 'center' | 'start';
     /**
      * 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 status 属性覆盖状态，传入则受控
      * @en Specify the current step, counting from 0. In the step children elements, the status can be overwritten through the status, and it is controlled if it is input

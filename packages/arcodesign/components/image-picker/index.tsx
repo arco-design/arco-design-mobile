@@ -1,6 +1,6 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { Promise } from 'es6-promise';
-import { cls, defaultLocale } from '@arco-design/mobile-utils';
+import { cls, defaultLocale, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { IconClose } from '../icon';
 import Image from '../image';
@@ -10,14 +10,6 @@ import { AdapterFile, ImagePickerProps, ImagePickerRef, ImagePickItem } from './
 
 export * from './type';
 
-/**
- * 图片选择器组件
- * @en ImagePicker Component
- * @type 数据录入
- * @type_en Data Entry
- * @name 图片选择器
- * @name_en ImagePicker
- */
 const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef>) => {
     const {
         className = '',
@@ -46,6 +38,8 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         onLimitExceed,
         upload,
         selectAdapter,
+        onSelectClick,
+        onDeleteClick,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
@@ -128,6 +122,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     };
 
     const handleDelete = (index: number) => {
+        onDeleteClick && onDeleteClick(index);
         onChange(images.filter((_i, j) => j !== index));
     };
 
@@ -138,7 +133,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         image: ImagePickItem,
         index: number,
     ) => {
-        e.preventDefault();
         timeOutEvent = setTimeout(() => {
             timeOutEvent = 0;
             onLongPress?.(e, image, index);
@@ -155,10 +149,13 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         }
     };
 
-    const handleSelect = () => {
-        selectAdapter
-            ? selectAdapter().then(({ files }) => handleChange({ target: { files } }, true))
-            : fileRef.current?.click();
+    const handleSelect = (e: React.MouseEvent) => {
+        if (e.target !== fileRef.current) {
+            onSelectClick && onSelectClick();
+            selectAdapter
+                ? selectAdapter().then(({ files }) => handleChange({ target: { files } }, true))
+                : fileRef.current?.click();
+        }
     };
 
     const getGridData = (prefixCls, locale) => {
@@ -276,4 +273,13 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     );
 });
 
-export default ImagePicker;
+/**
+ * 图片选择器组件
+ * @en ImagePicker Component
+ * @type 数据录入
+ * @type_en Data Entry
+ * @name 图片选择器
+ * @name_en ImagePicker
+ * @displayName ImagePicker
+ */
+export default componentWrapper(ImagePicker, 'ImagePicker');

@@ -79,13 +79,13 @@ Date picker, based on the `Picker` component, supports the specified range, the 
 > mode
 
 ```
-"date"|"time"|"datetime"
+"date" | "time" | "datetime"
 ```
 
 > ItemType
 
 ```
-"date"|"year"|"month"|"hour"|"minute"|"second"
+"date" | "year" | "month" | "hour" | "minute" | "second"
 ```
 
 > PickerData

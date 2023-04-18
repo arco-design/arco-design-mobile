@@ -38,7 +38,14 @@
                     "description": null,
                     "name": "originConfig",
                     "type": {
-                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                        "name": "string | Pick<WithGlobalContext<ToastProps & RefAttributes<ToastRef>>, \"getContainer\" | \"onClose\" | \"content\" | ... 15 more ... | \"context\">"
+                    }
+                },
+                {
+                    "description": null,
+                    "name": "context?",
+                    "type": {
+                        "name": "GlobalContextParams"
                     }
                 }
             ],
@@ -73,7 +80,14 @@
                     "description": null,
                     "name": "originConfig",
                     "type": {
-                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                        "name": "string | Pick<WithGlobalContext<ToastProps & RefAttributes<ToastRef>>, \"getContainer\" | \"onClose\" | \"content\" | ... 15 more ... | \"context\">"
+                    }
+                },
+                {
+                    "description": null,
+                    "name": "context?",
+                    "type": {
+                        "name": "GlobalContextParams"
                     }
                 }
             ],
@@ -108,7 +122,14 @@
                     "description": null,
                     "name": "originConfig",
                     "type": {
-                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                        "name": "string | Pick<WithGlobalContext<ToastProps & RefAttributes<ToastRef>>, \"getContainer\" | \"onClose\" | \"content\" | ... 15 more ... | \"context\">"
+                    }
+                },
+                {
+                    "description": null,
+                    "name": "context?",
+                    "type": {
+                        "name": "GlobalContextParams"
                     }
                 }
             ],
@@ -143,7 +164,14 @@
                     "description": null,
                     "name": "originConfig",
                     "type": {
-                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                        "name": "string | Pick<WithGlobalContext<ToastProps & RefAttributes<ToastRef>>, \"getContainer\" | \"onClose\" | \"content\" | ... 15 more ... | \"context\">"
+                    }
+                },
+                {
+                    "description": null,
+                    "name": "context?",
+                    "type": {
+                        "name": "GlobalContextParams"
                     }
                 }
             ],
@@ -178,7 +206,14 @@
                     "description": null,
                     "name": "originConfig",
                     "type": {
-                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                        "name": "string | Pick<WithGlobalContext<ToastProps & RefAttributes<ToastRef>>, \"getContainer\" | \"onClose\" | \"content\" | ... 15 more ... | \"context\">"
+                    }
+                },
+                {
+                    "description": null,
+                    "name": "context?",
+                    "type": {
+                        "name": "GlobalContextParams"
                     }
                 }
             ],
@@ -213,7 +248,14 @@
                     "description": null,
                     "name": "originConfig",
                     "type": {
-                        "name": "string | Pick<ToastProps & RefAttributes<ToastRef>, \"getContainer\" | \"onClose\" | \"content\" | \"type\" | \"loading\" | \"ref\" | \"className\" | ... 10 more ... | \"key\">"
+                        "name": "string | Pick<WithGlobalContext<ToastProps & RefAttributes<ToastRef>>, \"getContainer\" | \"onClose\" | \"content\" | ... 15 more ... | \"context\">"
+                    }
+                },
+                {
+                    "description": null,
+                    "name": "context?",
+                    "type": {
+                        "name": "GlobalContextParams"
                     }
                 }
             ],
@@ -605,7 +647,7 @@
         }
     },
     "deps": {
-        "ToastType": "\"success\"|\"error\"|\"warn\"",
+        "ToastType": "\"success\" | \"error\" | \"warn\"",
         "ToastRef": {
             "dom": {
                 "name": "dom",
@@ -619,6 +661,299 @@
                     "en": "The outermost element DOM"
                 },
                 "descWithTags": "最外层元素 DOM"
+            }
+        },
+        "GlobalContextParams": {
+            "prefixCls": {
+                "name": "prefixCls",
+                "required": false,
+                "description": "组件类名前缀\n@en Component classname prefix",
+                "defaultValue": {
+                    "value": "\"arco\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Component classname prefix",
+                    "default": "\"arco\""
+                },
+                "descWithTags": "组件类名前缀"
+            },
+            "system": {
+                "name": "system",
+                "required": false,
+                "description": "手动控制当前所在系统，传入后将直接使用传入的值，ssr场景需指定系统初始值时适用\n@en Manually control the current system, and the incoming value will be used directly after being passed in. It is applicable when the initial value of the system needs to be specified in the ssr scenario.",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"\" | \"pc\" | \"android\" | \"ios\"",
+                    "value": [
+                        {
+                            "value": "\"\""
+                        },
+                        {
+                            "value": "\"pc\""
+                        },
+                        {
+                            "value": "\"android\""
+                        },
+                        {
+                            "value": "\"ios\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Manually control the current system, and the incoming value will be used directly after being passed in. It is applicable when the initial value of the system needs to be specified in the ssr scenario.",
+                    "default": "\"\""
+                },
+                "descWithTags": "手动控制当前所在系统，传入后将直接使用传入的值，ssr场景需指定系统初始值时适用"
+            },
+            "useDarkMode": {
+                "name": "useDarkMode",
+                "required": false,
+                "description": "是否使用暗黑模式\n@en Whether to use dark mode",
+                "defaultValue": {
+                    "value": "false"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to use dark mode",
+                    "default": "false"
+                },
+                "descWithTags": "是否使用暗黑模式"
+            },
+            "isDarkMode": {
+                "name": "isDarkMode",
+                "required": false,
+                "description": "是否处于暗黑模式，指定后以指定的值为准\n@en Whether it is in dark mode",
+                "defaultValue": {
+                    "value": "false"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether it is in dark mode",
+                    "default": "false"
+                },
+                "descWithTags": "是否处于暗黑模式，指定后以指定的值为准"
+            },
+            "theme": {
+                "name": "theme",
+                "required": false,
+                "description": "主题变量，传入后将在线替换css变量，需设置less变量 @use-css-vars: 1\n@en Theme variable. The css variable will be replaced online after input. The less variable needs to be set\n@use-css-vars : 1",
+                "defaultValue": null,
+                "type": {
+                    "name": "Record<string, string>"
+                },
+                "tags": {
+                    "en": "Theme variable. The css variable will be replaced online after input. The less variable needs to be set",
+                    "use-css-vars": ": 1"
+                },
+                "descWithTags": "主题变量，传入后将在线替换css变量，需设置less变量 @use-css-vars: 1"
+            },
+            "locale": {
+                "name": "locale",
+                "required": false,
+                "description": "国际化语言包配置\n@en Internationalized language configuration",
+                "defaultValue": null,
+                "type": {
+                    "name": "ILocale"
+                },
+                "tags": {
+                    "en": "Internationalized language configuration"
+                },
+                "descWithTags": "国际化语言包配置"
+            },
+            "useRtl": {
+                "name": "useRtl",
+                "required": false,
+                "description": "是否使用Rtl模式\n@en Whether to use rtl",
+                "defaultValue": {
+                    "value": "false"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether to use rtl",
+                    "default": "false"
+                },
+                "descWithTags": "是否使用Rtl模式"
+            }
+        },
+        "ILocale": {
+            "locale": {
+                "name": "locale",
+                "required": true,
+                "description": "语言类型\n@en Language Type",
+                "defaultValue": null,
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Language Type"
+                },
+                "descWithTags": "语言类型"
+            },
+            "LoadMore": {
+                "name": "LoadMore",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ loadMoreText: string; loadingText: string; prepareText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Picker": {
+                "name": "Picker",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ okText: string; cancelText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Tag": {
+                "name": "Tag",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ addTag: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Dialog": {
+                "name": "Dialog",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ okText: string; cancelText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "SwipeLoad": {
+                "name": "SwipeLoad",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ normalText: string; activeText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "PullRefresh": {
+                "name": "PullRefresh",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ loadingText: string; pullingText: string; finishText: string; loosingText: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "DropdownMenu": {
+                "name": "DropdownMenu",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ select: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Pagination": {
+                "name": "Pagination",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ previousPage: string; nextPage: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Image": {
+                "name": "Image",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ loadError: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "ImagePicker": {
+                "name": "ImagePicker",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ loadError: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "SearchBar": {
+                "name": "SearchBar",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ placeholder: string; cancelBtn: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Stepper": {
+                "name": "Stepper",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ minusButtonName: string; addButtonName: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Keyboard": {
+                "name": "Keyboard",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ confirm: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Form": {
+                "name": "Form",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ required: string; type: { email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; }; number: { min: string; max: string; equal: string; range: string; positive: string; negative: string; }; string: { ...; }; array: { ...; }; object: { ...; }; boolean: { ...; }; }"
+                },
+                "tags": {},
+                "descWithTags": ""
             }
         }
     },

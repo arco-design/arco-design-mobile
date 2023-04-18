@@ -19,6 +19,7 @@ Carousel component, supports custom carousel index style and slider width. **Not
 |animateDurationSlide|Animation duration(ms) after the finger is released When manually switching the carousel slider|number|300|
 |loop|Whether to enable circular rotation, it does not take effect when the slider width is specified|boolean|true|
 |autoPlay|Whether to enable autoplay|boolean|true|
+|autoPlayDirection|Direction when playing auto|"normal" \| "reverse"|"normal"|
 |swipeable|Whether to respond to gesture swipe|boolean|true|
 |stayDuration|The stay duration of each slider when autoplay is turned on|number|4000|
 |boxWidth|Width of the box, the default value is 100% based on the parent container|ReactText|-|
@@ -53,6 +54,7 @@ Carousel component, supports custom carousel index style and slider width. **Not
 |stopPropagation|Whether the touch event requires stopPropagation|boolean|true|
 |fakeItem|Whether to fake the first and last items, which is used for the connection of the circular rotation when the offsetBetween is not equal to 0|boolean|false|
 |allowEndBlank|Whether to allow white space when sliding to the end, only valid when loop=false and width is set|boolean|false|
+|iOSVisibleOptimize|Whether to do DOM forced refresh optimization when the screen is off under iOS, to fix the rendering problem of automatic playback when the iOS screen is off|boolean|true|
 |distanceProcessor|Customize the calculation method of the finger swipe distance\. posDis \- touchmove distance, wrapSize \- container size in the sliding direction, childSize \- slider size in the sliding direction|(posDis: number, wrapSize: number, childSize: number) =\> number|(posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)|
 |getInnerScrollContainer|The scroll container inside the component, used to exempt the sliding event response|() =\> HTMLElement \| HTMLElement\[\]|-|
 |onTouchStopped|Triggered when the carousel does not support looping and slides to the front or back, but want to slide again|(direction: 1 \| \-1) =\> void|-|
@@ -75,7 +77,7 @@ Carousel component, supports custom carousel index style and slider width. **Not
 |items|Carousel slider DOM|HTMLDivElement\[\]|
 |noLoop|The loop rotation is disabled internally under certain conditions, here indicates whether the loop is disabled|boolean|
 |updateData|Recalculate the layout manually|() =\> void|
-|changeIndex|Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index|(newIndex: number, rightNow?: boolean) =\> void|
+|changeIndex|Manually update the currently selected index, rightNow indicates whether to jump to the target index immediately, otherwise perform a transition animation to the target index|(newIndex: number, rightNow?: boolean, direction?: "left" \| "right") =\> void|
 
 > CarouselListItem
 

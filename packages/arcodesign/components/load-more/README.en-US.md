@@ -40,5 +40,5 @@ Pull-up loading component, supports `scroll` and `click` two trigger loading met
 > LoadMoreStatus
 
 ```
-"before-ready"|"prepare"|"loading"|"nomore"|"retry"
+"before-ready" | "prepare" | "loading" | "nomore" | "retry"
 ```

@@ -1,0 +1,80 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-keyboard {
+    .use-var(background, keyboard-background);
+    .use-var(padding, keyboard-content-padding);
+    .noselect();
+
+    &-wrapper {
+        display: flex;
+    }
+
+    &-key-wrapper {
+        flex: 2 0 auto;
+    }
+
+    &-row {
+        display: flex;
+        &:not(&:nth-last-child(1)) {
+            .use-var(margin-bottom, keyboard-unified-margin);
+        }
+
+        .@{prefix}-keyboard-key {
+            &:not(&:nth-child(1)) {
+                .use-var(margin-left, keyboard-unified-margin);
+            }
+
+            &-special {
+                flex: 2.1 0 auto;
+            }
+        }
+    }
+
+    &-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .use-var(margin-left, keyboard-unified-margin);
+
+        .@{prefix}-keyboard-key {
+            &:not(&:nth-child(1)) {
+                .use-var(margin-top, keyboard-unified-margin);
+            }
+
+            &-confirm {
+                flex: 2.5 0 auto;
+                .use-var(background, keyboard-confirm-key-background);
+                .use-var(color, keyboard-confirm-key-color);
+                .use-var(font-size, keyboard-confirm-key-font-size);
+            }
+        }
+    }
+
+    &-key {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
+        .use-var(font-weight, keyboard-key-font-weight);
+        .use-var(font-size, keyboard-key-font-size);
+        .use-var(line-height, keyboard-key-line-height);
+        .use-var(background, keyboard-key-background);
+        .use-var(border-radius, keyboard-key-border-radius);
+        .use-var(height, keyboard-key-height);
+        .use-var(border-radius, keyboard-key-border-radius);
+        .use-var(color, keyboard-key-color);
+
+        &:active {
+            .use-var(background, keyboard-key-active-background);
+        }
+
+        .@{prefix}-icon {
+            .use-var(font-size, keyboard-key-icon-size);
+        }
+    }
+
+    &-popup {
+      display: none;
+    }
+}

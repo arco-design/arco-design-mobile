@@ -19,6 +19,7 @@
 |animateDurationSlide|手动切换轮播滑块时，当手指释放后，动画的执行时间(ms)|number|300|
 |loop|是否开启循环轮播，当指定轮播滑块宽度时该属性不生效|boolean|true|
 |autoPlay|是否开启自动播放|boolean|true|
+|autoPlayDirection|自动播放方向|"normal" \| "reverse"|"normal"|
 |swipeable|是否响应手势滑动|boolean|true|
 |stayDuration|开启自动播放时，每一个滑块的停留时间(ms)|number|4000|
 |boxWidth|指定容器宽度，默认为基于父容器100%|ReactText|-|
@@ -53,6 +54,7 @@
 |stopPropagation|触摸事件是否需要 stopPropagation|boolean|true|
 |fakeItem|是否需要fake首尾item，用于offsetBetween不等于0时循环轮播的衔接|boolean|false|
 |allowEndBlank|滑动到最后时是否允许留白，仅在loop=false且设置了width时有效|boolean|false|
+|iOSVisibleOptimize|在iOS下是否需要在切屏时做DOM强刷优化，用于修复iOS息屏时自动播放的蜜汁渲染问题|boolean|true|
 |distanceProcessor|自定义手指滑动跟手的距离计算方式，posDis表示touchmove的距离，wrapSize表示容器在滑动方向的尺寸，childSize表示滑块在滑动方向的尺寸|(posDis: number, wrapSize: number, childSize: number) =\> number|(posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)|
 |getInnerScrollContainer|组件内部的滚动容器，用于豁免滑动事件响应|() =\> HTMLElement \| HTMLElement\[\]|-|
 |onTouchStopped|当轮播不支持循环且滑到最前面或最后面，还想再滑动时触发|(direction: 1 \| \-1) =\> void|-|
@@ -75,7 +77,7 @@
 |items|轮播图每个子项的 DOM|HTMLDivElement\[\]|
 |noLoop|在某些条件下内部会禁用循环轮播，这里表示循环是否被禁用|boolean|
 |updateData|手动重新计算布局|() =\> void|
-|changeIndex|手动更新当前选中索引，rightNow 表示是否立刻跳转到目标索引，否则执行过渡动画到目标索引|(newIndex: number, rightNow?: boolean) =\> void|
+|changeIndex|手动更新当前选中索引，rightNow 表示是否立刻跳转到目标索引，否则执行过渡动画到目标索引|(newIndex: number, rightNow?: boolean, direction?: "left" \| "right") =\> void|
 
 > CarouselListItem
 

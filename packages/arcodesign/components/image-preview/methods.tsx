@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { appendElementById, removeElement } from '@arco-design/mobile-utils';
+import { ReactDOMRender } from '../_helpers/render';
+import { GlobalContextParams } from '../context-provider';
 
 export interface OpenBaseProps {
     onClose?: () => void;
@@ -11,7 +12,7 @@ export interface OpenBaseProps {
 
 export function open<P extends OpenBaseProps>(Component: React.FunctionComponent<P>) {
     type Config = Omit<P, 'close'>;
-    return (config: Config) => {
+    return (config: Config, context?: GlobalContextParams) => {
         const baseProps: Config & {
             // 从config继承的属性
             // @en Properties inherited from config
@@ -36,10 +37,7 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         const id = `_ARCO_IMAGE_PREVIEW_DIV_${baseProps.key || ''}_`;
         const { child: div } = appendElementById(id, baseProps.getContainer);
         let leaving = false;
-
-        function render(props: P) {
-            ReactDOM.render(<Component {...props} getContainer={() => div} />, div);
-        }
+        const { render } = new ReactDOMRender(Component, div, context);
 
         function update(newConfig: Config) {
             dynamicProps = {

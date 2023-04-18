@@ -1,0 +1,80 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-stepper {
+    display: flex;
+    .use-var(font-size, stepper-font-size);
+
+    &.@{prefix}-square {
+        .use-var(border, stepper-square-border);
+        .use-var(border-radius, stepper-square-border-radius);
+
+        .@{prefix}-stepper {
+            &-add-button,
+            &-minus-button,
+            &-input {
+                .use-var(background, stepper-square-background-color);
+            }
+            &-input {
+                .use-var(border-left, stepper-square-border);
+                .use-var(border-right, stepper-square-border);
+            }
+        }
+    }
+
+    &.@{prefix}-round {
+        .@{prefix}-stepper {
+            &-minus-button,
+            &-add-button {
+                .use-var(border-radius, stepper-round-button-border-radius);
+            }
+            &-input {
+                .use-var(background, stepper-round-input-background-color);
+            }
+        }
+    }
+
+    &-minus-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .use-var(font-size, stepper-button-icon-size);
+        .use-var(width, stepper-button-size);
+        .use-var(height, stepper-button-size);
+        .use-var(background, stepper-default-background-color);
+
+        &-icon {
+            .use-var(color, stepper-content-color);
+
+            &.disabled {
+                .use-var(color, stepper-disable-color);
+            }
+        }
+    }
+
+    &-input {
+        text-align: center;
+        .use-var(width, stepper-input-width);
+        .use-var(height, stepper-input-height);
+        .use-var(background, stepper-default-background-color);
+        .use-var(color, stepper-content-color);
+        .use-var(margin, stepper-input-margin);
+    }
+
+    &-add-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .use-var(font-size, stepper-button-icon-size);
+        .use-var(width, stepper-button-size);
+        .use-var(height, stepper-button-size);
+        .use-var(background, stepper-default-background-color);
+
+        &-icon {
+            .use-var(color, stepper-content-color);
+
+            &.disabled {
+                .use-var(color, stepper-disable-color);
+            }
+        }
+    }
+}

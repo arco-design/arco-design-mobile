@@ -5,7 +5,8 @@
         "name": "复选框",
         "name_en": "Checkbox",
         "type": "数据录入",
-        "type_en": "Data Entry"
+        "type_en": "Data Entry",
+        "displayName": "Checkbox"
     },
     "displayName": "Checkbox",
     "methods": [],
@@ -302,7 +303,7 @@
         }
     },
     "deps": {
-        "ValueType": "string|number",
+        "ValueType": "string | number",
         "IconType": {
             "normal": {
                 "name": "normal",
@@ -377,7 +378,8 @@
         "Group": {
             "description": "复选项组",
             "descriptionTags": {
-                "en": "Checkbox group"
+                "en": "Checkbox group",
+                "displayName": "CheckboxGroup"
             },
             "displayName": "Group",
             "methods": [],
@@ -930,7 +932,7 @@
                         "descWithTags": "自定义样式"
                     }
                 },
-                "ValueType": "string|number",
+                "ValueType": "string | number",
                 "IconType": {
                     "normal": {
                         "name": "normal",

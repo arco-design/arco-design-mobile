@@ -48,10 +48,15 @@ function getGlobalTokens() {
          */
         primaryDisabledColor: '#94bfff',
         /**
+         * 基础危险态颜色
+         * @en Base dangerous state color
+         */
+        dangerColor: '#f53f3f',
+        /**
          * 基础警告态颜色
          * @en Base warning state color
          */
-        dangerColor: '#ee4d38',
+        warningColor: '#ff7d00',
         /**
          * 基础禁用态字体颜色
          * @en Base disabled font color
@@ -427,6 +432,11 @@ function getCompTokens() {
          * @en Input clear icon color
          */
         inputClearIconColor: useGlobal('disabledColor'),
+        /**
+         * 输入框 清除图标大小
+         * @en Input clear icon font size
+         */
+        inputClearIconFontSize: '16PX',
         /**
          *  输入框 前置内容右内边距
          * @en Input right padding of label
@@ -976,6 +986,17 @@ function getCompTokens() {
          * @en Ellipsis default font size
          */
         ellipsisDefaultTextSize: getRem(16),
+        /**
+         * 文字缩略组件浮动模式下的缩略符背景色
+         * @en Background of floating ellipsis node
+         */
+        ellipsisFloatEllipsisNodeBackground:
+            'linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)',
+        /**
+         * 文字缩略组件浮动模式下的缩略符左边距
+         * @en Padding left of floating ellipsis node
+         */
+        ellipsisFloatEllipsisNodePaddingLeft: '20PX',
         /**
          * checkbox图标颜色
          * @en Checkbox icon color
@@ -2567,7 +2588,7 @@ function getCompTokens() {
          * 通知栏文字颜色
          * @en NoticeBar font color
          */
-        noticeBarColor: '#ff7d00',
+        noticeBarColor: useGlobal('warningColor'),
         /**
          * 通知栏文字滚动时两侧渐变色
          * @en The gradient color on both sides of the NoticeBar text when scrolling
@@ -2618,12 +2639,12 @@ function getCompTokens() {
          * notify 错误通知背景色
          * @en Background color of error notify
          */
-        notifyErrorBackground: '#F53F3F',
+        notifyErrorBackground: useGlobal('dangerColor'),
         /**
          * notify 警告通知背景色
          * @en Background color of wran notify
          */
-        notifyWarnBackground: '#FF7D00',
+        notifyWarnBackground: useGlobal('warningColor'),
         /**
          * notify 字体颜色
          * @en Font color of notify
@@ -2651,20 +2672,40 @@ function getCompTokens() {
          */
         stepsPadding: `${getRem(16)} 0`,
         /**
+         * steps 分割线圆角值
+         * @en Border radius of steps dividing
+         */
+        stepsTailBorderRadius: '2PX',
+        /**
+         * steps 水平分割线与图标中心点的距离
+         * @en The distance between the horizontal dividing line and the center point of the icon
+         */
+        stepsTailHorizontalGutter: '18PX',
+        /**
+         * steps 垂直分割线与图标中心点的距离
+         * @en The distance between the vertical dividing line and the center point of the icon
+         */
+        stepsTailVerticalGutter: '14PX',
+        /**
          * steps 水平分割线左右间距
          * @en Left and right spacing of the horizontal dividing line of Steps
          */
-        stepsTailHorizontalPadding: `0 ${getRem(18)}`,
+        stepsTailHorizontalPadding: `0 ${useGlobal('stepsTailHorizontalGutter')}`,
         /**
          * steps 垂直分割线上下间距
          * @en Left and right spacing of the vertical dividing line of Steps
          */
-        stepsTailVerticalPadding: `${getRem(14)} 0`,
+        stepsTailVerticalPadding: `${useGlobal('stepsTailVerticalGutter')} 0`,
+        /**
+         * steps 水平分割线的向右偏移距离，一般是 stepsIconHeight 值的一半
+         * @en The offset distance to the right of the horizontal dividing line of steps, generally half the value of stepsIconHeight
+         */
+        stepsTailHorizontalLeft: '9PX',
         /**
          * steps 垂直分割线的向下偏移距离，一般是 stepsIconHeight 值的一半
-         * @en Left and right spacing of the vertical dividing line of Steps
+         * @en The offset distance to the bottom of the vertical dividing line of steps, generally half the value of stepsIconHeight
          */
-        stepsTailVerticalTop: getRem(9),
+        stepsTailVerticalTop: '9PX',
         /**
          * steps 步骤分割线默认粗细
          * @en Steps dividing line thickness
@@ -2699,7 +2740,7 @@ function getCompTokens() {
          * steps 无文字错误步骤背景色
          * @en Non-text steps background color in error state
          */
-        stepsErrorIconNumBackground: '#F53F3F',
+        stepsErrorIconNumBackground: useGlobal('dangerColor'),
         /**
          * steps 步骤默认图标大小
          * @en Steps icon size
@@ -2764,7 +2805,7 @@ function getCompTokens() {
          * steps 错误步骤标题颜色
          * @en Steps title color in error state
          */
-        stepsErrorTitleColor: '#F53F3F',
+        stepsErrorTitleColor: useGlobal('dangerColor'),
         /**
          * steps 进行中步骤标题颜色
          * @en Steps title color in processing state
@@ -2909,7 +2950,7 @@ function getCompTokens() {
          * 徽标背景色
          * @en Badge background color
          */
-        badgeBackgroundColor: '#F53F3F',
+        badgeBackgroundColor: useGlobal('dangerColor'),
         /**
          * 徽标文字颜色
          * @en Badge font color
@@ -3539,6 +3580,444 @@ function getCompTokens() {
          * @en Border radius of the close button of ImagePicker
          */
         imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
+        /**
+         * 索引栏背景颜色
+         * @en IndexBar background color
+         */
+        indexBarBackground: 'white',
+        /**
+         * 索引栏，激活状态下的，索引文字颜色
+         * @en IndexBar, In active state, index text color
+         */
+        indexBarGroupActiveColor: useGlobal('primaryColor'),
+        /**
+         * 索引栏内容左填充宽度
+         * @en IndexBar content left padding width
+         */
+        indexBarGroupLeftSpacing: getRem(16),
+        /**
+         * 索引栏索引标题高度
+         * @en IndexBar index header height
+         */
+        indexBarGroupTitleHeight: getRem(24),
+        /**
+         * 索引栏标题背景颜色
+         * @en IndexBar title background color
+         */
+        indexBarGroupTitleBackground: '#f7f8fa',
+        /**
+         * 索引栏标题字体颜色
+         * @en IndexBar title text color
+         */
+        indexBarGroupTitleFontColor: useGlobal('subInfoFontColor'),
+        /**
+         * 索引栏索引标题字号
+         * @en IndexBar index title font size
+         */
+        indexBarGroupTitleFontSize: getRem(14),
+        /**
+         * 索引栏内容子项高度
+         * @en IndexBar content subitem height
+         */
+        indexBarGroupItemHeight: getRem(54),
+        /**
+         * 索引栏内容子项字号大小
+         * @en IndexBar content sub-item font size
+         */
+        indexBarGroupItemFontSize: getRem(16),
+        /**
+         * 索引栏侧边栏激活索引颜色
+         * @en IndexBar sidebar active index color
+         */
+        indexBarSidebarActiveColor: useGlobal('primaryColor'),
+        /**
+         * 索引栏侧边栏子项字号大小
+         * @en The font size of the subitems in the sidebar of the IndexBar
+         */
+        indexBarSidebarItemFontSize: getRem(10),
+        /**
+         * 索引栏侧边栏子项字号行高
+         * @en The line height of the subitems in the sidebar of the IndexBar
+         */
+        indexBarSidebarItemLineHeight: getRem(14),
+        /**
+         * 索引栏侧边栏子项高度
+         * @en IndexBar sidebar child item height
+         */
+        indexBarSidebarItemPadding: `${getRem(2)} ${getRem(8)}`,
+        /**
+         * 索引栏侧边栏子项宽度
+         * @en IndexBar sidebar child item width
+         */
+        indexBarSidebarItemWidth: getRem(10),
+        /**
+         * 索引栏侧边栏水滴提示气泡的内边距
+         * @en The inner margin of the water drop prompt bubble in the sidebar of the IndexBar
+         */
+        indexBarSidebarSweatPadding: `0 ${getRem(8)}`,
+        /**
+         * 索引栏侧边栏水滴提示气泡背景颜色
+         * @en IndexBar sidebar water drop prompt bubble background color
+         */
+        indexBarSidebarSweatBackground: '#323232',
+        /**
+         * 索引栏侧边栏水滴提示文案颜色
+         * @en The color of the water drop prompt text in the sidebar of the IndexBar
+         */
+        indexBarSidebarSweatColor: 'white',
+        /**
+         * 索引栏侧边栏水滴离侧边栏的距离
+         * @en The distance between the water droplets in the sidebar of the IndexBar and the sidebar
+         */
+        indexBarSidebarSweatRight: getRem(36),
+        /**
+         * 索引栏侧边栏水滴字号大小
+         * @en IndexBar sidebar water drop font size
+         */
+        indexBarSidebarSweatFontSize: getRem(24),
+        /**
+         * 索引栏侧边栏水滴直径
+         * @en IndexBar sidebar droplet diameter
+         */
+        indexBarSidebarSweatRadius: getRem(50),
+        /**
+         * 索引栏侧边栏三角气泡位置
+         * @en The position of the triangle bubble in the sidebar of the IndexBar
+         */
+        indexBarSidebarSweatTrianglePosition: getRem(-27),
+        /**
+         * 索引栏侧边栏三角气泡的border
+         * @en The border of the triangle bubble in the sidebar of the IndexBar
+         */
+        indexBarSidebarSweatTriangleBorder: `${getRem(18)} solid transparent`,
+        /**
+         * 索引栏侧边栏轻提示背景颜色
+         * @en IndexBar sidebar light prompt background color
+         */
+        indexBarSidebarToastBackground: '#323232',
+        /**
+         * 索引栏侧边栏轻提示文案颜色
+         * @en The color of the light prompt copy in the sidebar of the IndexBar
+         */
+        indexBarSidebarToastColor: 'white',
+        /**
+         * 索引栏侧边栏轻提示方框高度
+         * @en The height of the light prompt box in the sidebar of the IndexBar
+         */
+        indexBarSidebarToastHeight: getRem(48),
+        /**
+         * 索引栏侧边栏轻提示圆角大小
+         * @en The sidebar of the IndexBar lightly prompts the size of the rounded corners
+         */
+        indexBarSidebarToastRadius: getRem(4),
+        /**
+         * 索引栏侧边栏轻提示内边距
+         * @en IndexBar sidebar light prompt padding
+         */
+        indexBarSidebarToastPadding: `0 ${getRem(8)}`,
+        /**
+         * 索引栏侧边栏轻提示字号大小
+         * @en IndexBar sidebar light prompt font size
+         */
+        indexBarSidebarToastFontSize: getRem(24),
+        /**
+         * 步进器字体大小
+         * @en Font size of Stepper
+         */
+        stepperFontSize: getRem(14),
+        /**
+         * 步进器方角边框样式
+         * @en Square border style of Stepper
+         */
+        stepperSquareBorder: '1PX solid #f2f3f5',
+        /**
+         * 步进器方角边框半径
+         * @en Square border radius of Stepper
+         */
+        stepperSquareBorderRadius: getRem(2),
+        /**
+         * 步进器方角样式背景颜色
+         * @en Background color of Stepper square style
+         */
+        stepperSquareBackgroundColor: '#ffffff',
+        /**
+         * 步进器圆角按钮边框半径
+         * @en Round button border radius of Stepper
+         */
+        stepperRoundButtonBorderRadius: '50%',
+        /**
+         * 步进器圆角输入框背景颜色
+         * @en Rount input background color of Stepper
+         */
+        stepperRoundInputBackgroundColor: 'transparent',
+        /**
+         * 步进器按钮尺寸
+         * @en Button size of Stepper
+         */
+        stepperButtonSize: getRem(28),
+        /**
+         * 步进器按钮图标尺寸
+         * @en Button icon size of Stepper
+         */
+        stepperButtonIconSize: getRem(10),
+        /**
+         * 步进器默认背景颜色
+         * @en Background default colr of Stepper
+         */
+        stepperDefaultBackgroundColor: '#f7f8fa',
+        /**
+         * 步进器内容字体颜色
+         * @en Content text color of Stepper
+         */
+        stepperContentColor: '#1d2129',
+        /**
+         * 步进器禁用状态字体颜色
+         * @en Text color of Stepper in disable status
+         */
+        stepperDisableColor: '#c9cdd4',
+        /**
+         * 步进器输入框宽度
+         * @en Input width of Stepper
+         */
+        stepperInputWidth: getRem(40),
+        /**
+         * 步进器输入框长度
+         * @en Input height of Stepper
+         */
+        stepperInputHeight: getRem(28),
+        /**
+         * 步进器输入框外边距
+         * @en Input margin of Stepper
+         */
+        stepperInputMargin: '0 1PX',
+        /*
+         * 表单项标签字号
+         * @en Font size of Form label
+         */
+        formItemLabelItemFontSize: getRem(16),
+        /**
+         * 表单项标签行高
+         * @en Lineheight of Form label
+         */
+        formItemLabelItemLineHeight: getRem(54),
+        /**
+         * 表单项标签颜色
+         * @en Color of Form label
+         */
+        formItemLabelItemColor: useGlobal('fontColor'),
+        /**
+         * 表单项标签右边距
+         * @en Right padding of Form label
+         */
+        formItemLabelItemGutter: getRem(16),
+        /**
+         * 表单项标签宽度
+         * @en Right padding of Form label
+         */
+        formItemLabelItemWidth: getRem(96),
+        /**
+         * 表单项分割线颜色
+         * @en Form item divider color
+         */
+        formItemBorderDividerColor: 'rgba(0, 0, 0, 0.08)',
+        /**
+         * 表单项必选项星号颜色
+         * @en Form item asterisk color
+         */
+        formItemLabelItemRequiredAsteriskColor: useGlobal('dangerColor'),
+        /**
+         * 表单项错误提示颜色
+         * @en Form item error message color
+         */
+        formItemErrorMessageColor: useGlobal('dangerColor'),
+        /**
+         * 表单项警告提示颜色
+         * @en Form item warning message color
+         */
+        formItemWarningMessageColor: useGlobal('warningColor'),
+        /**
+         * 时间轴节点的宽度
+         * @en Width of the dot of TimeLine
+         */
+        timeLineDotWidth: getRem(9),
+        /**
+         * 时间轴节点的线颜色
+         * @en Border color of the dot of TimeLine
+         */
+        timeLineDotBorderColor: useGlobal('primaryColor'),
+        /**
+         * 时间轴节点的背景色
+         * @en Background color of the dot of TimeLine
+         */
+        timeLineDotBackgroundColor: useGlobal('backgroundColor'),
+        /**
+         * 时间轴轴线的宽度
+         * @en Width of the Axis of TimeLine
+         */
+        timeLineAxisWidth: getRem(1),
+        /**
+         * 时间轴轴线的颜色
+         * @en Color of the Axis of TimeLine
+         */
+        timeLineAxisColor: useGlobal('lineColor'),
+        /**
+         * 时间轴label的字体大小
+         * @en Font size of the label of TimeLine
+         */
+        timeLineLabelFontSize: getRem(12),
+        /**
+         * 时间轴label的字体颜色
+         * @en Font color of the label of TimeLine
+         */
+        timeLineLabelColor: useGlobal('subInfoFontColor'),
+        /**
+         * 时间轴content的上外边距（13 - 12 / 2）
+         * @en Top margin of the Content of TimeLine
+         */
+        timeLineContentMarginTop: getRem(7),
+        /**
+         * 时间轴content的下外边距（13 + 12 / 2）
+         * @en Bottom margin of the Content of TimeLine
+         */
+        timeLineContentMarginBottom: getRem(19),
+        /**
+         * 时间轴content的左外边距
+         * @en Left margin of the Content of TimeLine
+         */
+        timeLineContentMarginLeft: getRem(8),
+        /**
+         * 时间轴content的圆角值
+         * @en Border radius of the Content of TimeLine
+         */
+        timeLineContentBorderRadius: getRem(4),
+        /**
+         * 时间轴content的字体大小
+         * @en Font size of the content of TimeLine
+         */
+        timeLineContentFontSize: getRem(16),
+        /**
+         * 时间轴content的背景色
+         * @en Background color of the Content of TimeLine
+         */
+        timeLineContentBackgroundColor: useGlobal('lineColor'),
+        /**
+         * 时间轴content的字体颜色
+         * @en Font color of the Content of TimeLine
+         */
+        timeLineContentColor: useGlobal('fontColor'),
+        /**
+         * 键盘背景颜色
+         * @en Keyboard background color
+         */
+        keyboardBackground: '#f2f3f5',
+        /**
+         * 键盘内边距
+         * @en Keyboard padding
+         */
+        keyboardContentPadding: getRem(8),
+        /**
+         * 键盘统一边距
+         * @en Keyboard unified margin
+         */
+        keyboardUnifiedMargin: getRem(8),
+        /**
+         * 键盘右边一列确认键背景色
+         * @en Keyboard right column confirm background
+         */
+        keyboardConfirmKeyBackground: '#165dff',
+        /**
+         * 键盘右边一列确认键字体颜色
+         * @en Keyboard right column confirm color
+         */
+        keyboardConfirmKeyColor: '#ffffff',
+        /**
+         * 键盘右边一列确认键字体大小
+         * @en Keyboard right column confirm font size
+         */
+        keyboardConfirmKeyFontSize: getRem(18),
+        /**
+         * 键盘按钮字重
+         * @en Keyboard key button font weight
+         */
+        keyboardKeyFontWeight: '500',
+        /**
+         * 键盘按钮字体大小
+         * @en Keyboard key button font size
+         */
+        keyboardKeyFontSize: getRem(22),
+        /**
+         * 键盘按钮中的图标大小
+         * @en Keyboard key button icon size
+         */
+        keyboardKeyIconSize: getRem(26),
+        /**
+         * 键盘按钮字体行高
+         * @en Keyboard key button font line height
+         */
+        keyboardKeyLineHeight: getRem(30),
+        /**
+         * 键盘按钮背景色
+         * @en Keyboard key button background
+         */
+        keyboardKeyBackground: '#ffffff',
+        /**
+         * 键盘按钮背景色激活状态下
+         * @en Keyboard key button background in active
+         */
+        keyboardKeyActiveBackground: '#e5e6eb',
+        /**
+         * 键盘按钮圆角
+         * @en Keyboard key button rounded
+         */
+        keyboardKeyBorderRadius: getRem(4),
+        /**
+         * 键盘按钮高度
+         * @en Keyboard key button height
+         */
+        keyboardKeyHeight: getRem(48),
+        /**
+         * 键盘按钮字体颜色
+         * @en Keyboard key button font color
+         */
+        keyboardKeyColor: '#1d2129',
+        /**
+         * 分割线线条粗细
+         * @en Thickness of divider line
+         */
+        dividerLineThickness: '1PX',
+        /**
+         * 分割线线条颜色
+         * @en Color of divider line
+         */
+        dividerLineColor: useGlobal('lineColor'),
+        /**
+         * 分割线文本字体大小
+         * @en Font size of divider content
+         */
+        dividerContentFontSize: getRem(14),
+        /**
+         * 分割线文本字体颜色
+         * @en Font color of divider content
+         */
+        dividerContentFontColor: useGlobal('subFontColor'),
+        /**
+         * 分割线左对齐时左边长度
+         */
+        dividerLeftWidth: getRem(28),
+        /**
+         * 分割线右对齐时右边长度
+         */
+        dividerRightWidth: getRem(28),
+        /**
+         * 分割线文本左右padding
+         * @en Padding of content
+         */
+        dividerContentPadding: getRem(12),
+        /**
+         * 分割线上下padding
+         * @en Top and Bottom padding of divider
+         */
+        dividerPadding: getRem(16),
     };
 }
 

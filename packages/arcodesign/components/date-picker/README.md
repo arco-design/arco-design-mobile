@@ -79,13 +79,13 @@
 > mode
 
 ```
-"date"|"time"|"datetime"
+"date" | "time" | "datetime"
 ```
 
 > ItemType
 
 ```
-"date"|"year"|"month"|"hour"|"minute"|"second"
+"date" | "year" | "month" | "hour" | "minute" | "second"
 ```
 
 > PickerData

@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { nextTick } from '@arco-design/mobile-utils';
+import { ReactDOMRender } from '../_helpers/render';
+import { GlobalContextParams } from '../context-provider';
 
 export interface ToastBaseProps {
     getContainer?: () => HTMLElement;
@@ -18,7 +19,7 @@ export function toast<P extends ToastBaseProps>(
     type?: string,
 ) {
     type Config = Omit<P, 'visible' | 'close'>;
-    return (originConfig: string | Config) => {
+    return (originConfig: string | Config, context?: GlobalContextParams) => {
         const config =
             typeof originConfig === 'string'
                 ? ({
@@ -34,16 +35,13 @@ export function toast<P extends ToastBaseProps>(
 
         const div = document.createElement('div');
         document.body.appendChild(div);
+        const { render, unmount } = new ReactDOMRender(Component, div, context);
 
-        function render(props) {
-            ReactDOM.render(<Component {...props} />, div);
-        }
-
-        function destory() {
+        function destroy() {
             const { onClose } = config;
             onClose && onClose();
-            const unmountResult = ReactDOM.unmountComponentAtNode(div);
-            if (unmountResult && div.parentNode) {
+            unmount();
+            if (div.parentNode) {
                 div.parentNode.removeChild(div);
             }
         }
@@ -52,7 +50,7 @@ export function toast<P extends ToastBaseProps>(
             ...config,
             close,
             getContainer: () => div,
-            onClose: destory,
+            onClose: destroy,
             visible: false,
         };
         let leaving = false;

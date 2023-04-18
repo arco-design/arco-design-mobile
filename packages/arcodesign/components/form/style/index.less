@@ -1,0 +1,91 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-form {
+    &-item {
+        display: flex;
+        align-items: flex-start;
+        border-top: 1px solid var(--form-item-border-divider-color);
+        // padding: 16px 0;
+        &:first-child {
+            border: none;
+        }
+
+    }
+
+    &-label-item {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: flex-start;
+        .use-var(font-size, form-item-label-item-font-size);
+        .use-var(line-height, form-item-label-item-line-height);
+        .use-var(color, form-item-label-item-color);
+        .use-var(padding-right, form-item-label-item-gutter);
+        .use-var(width, form-item-label-item-width);
+
+        &-required-asterisk {
+            position: absolute;
+            left: -0.6em;
+            top: 0;
+
+            .use-var(font-size, form-item-label-item-font-size);
+            .use-var(line-height, form-item-label-item-line-height);
+            .use-var(color, form-item-label-item-required-asterisk-color);
+        }
+        .disabled & {
+            .use-var(color, input-disabled-color);
+        }
+    }
+    &-item-control {
+        padding: 16px 0;
+        .arco-input-wrap, .arco-input {
+            padding: 0;
+        }
+        &-wrapper {
+            width: 100%;
+            flex: 1;
+            position: relative;
+            .arco-input-wrap {
+                .use-var(height, input-text-line-height);
+            }
+        }
+    }
+    &-item-message {
+        .rem(font-size, 12);
+        .use-var(color, form-item-label-item-required-asterisk-color);
+        .rem(margin-top, -5);
+        svg,
+        span {
+            vertical-align: middle;
+        }
+
+        svg {
+            .rem(margin-right, 4);
+        }
+        margin-bottom: 16px;
+    }
+    &-item-error-message {
+        .use-var(color, form-item-error-message-color);
+    }
+
+    &-item-warning-message {
+        .use-var(color, form-item-warning-message-color);
+    }
+
+    &-item.@{prefix}-form-item-vertical {
+        display: block;
+        .arco-input-wrap {
+            padding-left: 0;
+        }
+        .@{prefix}-form-label-item {
+            width: auto;
+            margin-top: 16px;
+            .use-var(height, form-item-label-item-font-size);
+            .use-var( line-height, form-item-label-item-font-size);
+            &-required-asterisk {
+                .use-var(height, form-item-label-item-font-size);
+                .use-var( line-height, form-item-label-item-font-size);
+            }
+        }
+    }
+}

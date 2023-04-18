@@ -34,19 +34,23 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: [
-                                autoprefixer({
-                                    overrideBrowserslist: ['Android >= 4.3', 'iOS >= 8'],
-                                }),
-                            ],
+                            postcssOptions:{
+                                plugins: [
+                                    autoprefixer({
+                                        overrideBrowserslist: ['Android >= 4.3', 'iOS >= 8'],
+                                    }),
+                                ],
+                            }
                         },
                     },
                     {
                         loader: 'less-loader',
                         options: {
-                            javascriptEnabled: true,
-                            modifyVars: {
-                                '@use-css-vars': 1
+                            lessOptions: {
+                                javascriptEnabled: true,
+                                modifyVars: {
+                                    '@use-css-vars': 1
+                                }
                             }
                         },
                     },
@@ -59,21 +63,20 @@ module.exports = {
             },
             {
                 test: /\.md$/,
-                loader: 'raw-loader',
+                type: "asset",
             },
             {
                 test: /\.(ttf|eot|svg|woff|woff2)(\?.+)?$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 100000,
-                },
+                type: 'asset/resource'
             },
             {
                 test: /\.(png|jpg|gif|webp)$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 1024 * 10,
-                },
+                type: "asset",
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 10 * 1024
+                    }
+                }
             },
         ],
     },
@@ -87,7 +90,6 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash].css',
-            allChunks: true,
         }),
     ],
 };

@@ -131,17 +131,19 @@ function generateToken({ appName = 'arcodesign', outputFilter } = {}) {
             const globalReg = /@global@(\S+)/g;
             const cssKey = getVarsKey(key);
             const lessValue = token[key]
-                .replace(remReg, `~\`pxtorem($1)\``)
-                .replace(globalReg, (_, $1) => `@${getVarsKey($1)}`);
+                .replace(globalReg, (_, $1) => `@${getVarsKey($1)}`)
+                .replace(remReg, `~\`pxtorem($1)\``);
             const staticValue = token[key]
-                .replace(remReg, (_, $1) => getRem($1, token.baseFontSize))
-                .replace(globalReg, (_, $1) => `${token[$1]}`);
+                .replace(globalReg, (_, $1) => `${token[$1]}`)
+                .replace(remReg, (_, $1) => getRem($1, token.baseFontSize));
             cssVars += `    --${cssKey}: ${token[key]
-                .replace(remReg, `~\`pxtorem($1)\``)
-                .replace(globalReg, (_, $1) => `var(--${getVarsKey($1)})`)};\n`;
+                .replace(globalReg, (_, $1) => `var(--${getVarsKey($1)})`)
+                .replace(remReg, `~\`pxtorem($1)\``)};\n`;
             lessVars += `@${cssKey}: ${lessValue};\n`;
             dtsVars += `    '${cssKey}': string;\n`;
-            jsVars += `    "${cssKey}": \`${staticValue}\`,\n`;
+            jsVars += `    "${cssKey}": \`${token[key]
+                .replace(globalReg, (_, $1) => `var(--${getVarsKey($1)})`)
+                .replace(remReg, (_, $1) => getRem($1, token.baseFontSize))}\`,\n`;
             const descInfo = getTokenDescByComment(key, appName, tokenContent, coreTokenContent);
             if (!descInfo.ignore) {
                 tokenInfo[theme][key] = {

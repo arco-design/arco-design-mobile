@@ -426,7 +426,7 @@
         }
     },
     "deps": {
-        "LoadMoreStatus": "\"before-ready\"|\"prepare\"|\"loading\"|\"nomore\"|\"retry\"",
+        "LoadMoreStatus": "\"before-ready\" | \"prepare\" | \"loading\" | \"nomore\" | \"retry\"",
         "LoadMoreRef": {
             "dom": {
                 "name": "dom",

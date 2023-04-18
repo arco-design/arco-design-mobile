@@ -228,6 +228,12 @@ export interface TabsProps {
      */
     showUnderline?: boolean;
     /**
+     * 下划线是否根据 tab cell 长度自适应
+     * @en Whether the underline is adaptive according to the length of the tab cell
+     * @default false
+     */
+    underlineAdaptive?: boolean;
+    /**
      * 触发onTouchStopped的最小阈值
      * @en Minimum threshold to trigger onTouchStopped
      * @default 0
@@ -431,6 +437,12 @@ export interface TabsProps {
      * @en Tabbar underline inner style, applied to tab-cell-underline-inner
      */
     underlineInnerStyle?: React.CSSProperties;
+    /**
+     * 当前 TabBar 的触摸事件是否需要 stopPropagation
+     * @en Does the touch event of the current TabBar require stopPropagation
+     * @default true
+     */
+    tabBarStopPropagation?: boolean;
 }
 
 export interface TabsRef {
@@ -505,6 +517,7 @@ export interface TabCellProps
         | 'mode'
         | 'overflowThreshold'
         | 'showUnderline'
+        | 'underlineAdaptive'
         | 'disabled'
         | 'renderTabBarItem'
         | 'renderTabBarInner'
@@ -560,6 +573,11 @@ export interface TabCellProps
      * @en The distance the underline has been swiped
      */
     jumpingDis: number;
+    /**
+     * 当前 TabBar 的触摸事件是否需要 stopPropagation
+     * @en Does the touch event of the current TabBar require stopPropagation
+     */
+    tabBarStopPropagation: boolean;
 }
 
 export interface TabCellRef {
@@ -654,6 +672,13 @@ export interface TabPaneRef {
     setCurrentHeight: () => void;
 }
 
+export interface OffsetRect {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+}
+
 export interface TabCellUnderlineProps
     extends Pick<
         TabCellProps,
@@ -673,9 +698,14 @@ export interface TabCellUnderlineProps
         | 'underlineSize'
         | 'underlineThick'
         | 'renderUnderline'
+        | 'underlineAdaptive'
     > {
     prefix: string;
     showLine: boolean;
+    getTabRect: (index: number) => {
+        left: number;
+        width: number;
+    };
     getTabCenterLeft: (index: number) => number;
 }
 

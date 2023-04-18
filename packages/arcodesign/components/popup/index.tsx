@@ -1,6 +1,6 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import Masking, { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
 import { open } from './methods';
 
@@ -109,6 +109,8 @@ export function methodsGenerator<P extends OpenBaseProps>(Comp: React.FunctionCo
     };
 }
 
+const PopupWithGlobalContext = CompWithGlobalContext(Popup);
+
 /**
  * 基于模态弹窗的的全屏菜单，支持各个方向。默认做了防滚动穿透处理，如果弹层内容中需要滚动，则需将滚动容器传入`getScrollContainer`属性以在未滚动到顶部或底部时释放滚动。
  * @en A full-screen menu based on a modal popup, supporting all directions. By default, anti-scroll penetration processing is performed. If scrolling is required in the content of the popup layer, you need to pass the scroll container to the `getScrollContainer` property to release scrolling when it is not scrolled to the top or bottom.
@@ -117,4 +119,4 @@ export function methodsGenerator<P extends OpenBaseProps>(Comp: React.FunctionCo
  * @name 弹出层
  * @name_en Popup
  */
-export default componentWrapper(Popup, methodsGenerator(Popup));
+export default componentWrapper(Popup, methodsGenerator(PopupWithGlobalContext));

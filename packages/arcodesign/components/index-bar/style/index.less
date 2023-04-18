@@ -1,0 +1,122 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-index-bar {
+    position: relative;
+    .use-var(background, index-bar-background);
+    overflow: hidden;
+    &-container {
+        height: 100%;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &-group {
+        &-active {
+            .use-var(color, index-bar-group-active-color);
+        }
+        &-title {
+            .use-var(padding-left, index-bar-group-left-spacing);
+            .use-var(height, index-bar-group-title-height);
+            .use-var(background, index-bar-group-title-background);
+            .use-var(font-size, index-bar-group-title-font-size);
+            .use-var(color, index-bar-group-title-font-color);
+            display: flex;
+            align-items: center;
+        }
+        &-item {
+            .use-var(height, index-bar-group-item-height);
+            display: flex;
+            align-items: center;
+            .use-var(margin-left, index-bar-group-left-spacing);
+            .use-var(font-size, index-bar-group-item-font-size);
+
+            &:not(:last-child) {
+                .onepx-border-var(bottom, line-color);
+            }
+        }
+    }
+
+    &-sidebar {
+        &-touching {
+            left: 0;
+        }
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%) translateZ(0);
+        user-select: none;
+
+        &-item {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            .use-var(padding, index-bar-sidebar-item-padding);
+            cursor: pointer;
+
+            &-wrapper {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                .use-var(width, index-bar-sidebar-item-width);
+                .use-var(font-size, index-bar-sidebar-item-font-size);
+                .use-var(line-height, index-bar-sidebar-item-line-height);
+            }
+
+            &:last-child {
+                padding-bottom: 0px;
+            }
+        }
+        &-active {
+            .use-var(color, index-bar-sidebar-active-color);
+        }
+
+        &-sweat {
+            position: absolute;
+            .use-var(height, index-bar-sidebar-sweat-radius);
+            .use-var(min-width, index-bar-sidebar-sweat-radius);
+            .use-var(line-height, index-bar-sidebar-sweat-radius);
+            border-radius: 9999px;
+            text-align: center;
+            .use-var(padding, index-bar-sidebar-sweat-padding);
+            .use-var(background, index-bar-sidebar-sweat-background);
+            .use-var(right, index-bar-sidebar-sweat-right);
+            .use-var(font-size, index-bar-sidebar-sweat-font-size);
+            .use-var(color, index-bar-sidebar-sweat-color);
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                .use-var(right, index-bar-sidebar-sweat-triangle-position);
+                width: 0;
+                height: 0;
+                .use-var(border, index-bar-sidebar-sweat-triangle-border);
+                border: 18px solid transparent;
+                .use-var(border-left-color, index-bar-sidebar-sweat-background);
+                border-radius: 4px;
+            }
+        }
+
+        &-toast {
+            position: absolute;
+            .use-var(background, index-bar-sidebar-toast-background);
+            .use-var(color, index-bar-sidebar-toast-color);
+            left: 50%;
+            top: 50%;
+            .use-var(min-width, index-bar-sidebar-toast-height);
+            .use-var(height, index-bar-sidebar-toast-height);
+            .use-var(line-height, index-bar-sidebar-toast-height);
+            transform: translate(-50%, -50%);
+            text-align: center;
+            .use-var(padding, index-bar-sidebar-toast-padding);
+            .use-var(font-size, index-bar-sidebar-toast-font-size);
+            .use-var(border-radius, index-bar-sidebar-toast-radius);
+        }
+    }
+}

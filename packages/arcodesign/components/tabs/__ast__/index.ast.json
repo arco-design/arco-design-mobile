@@ -772,6 +772,26 @@
                 "name": "boolean"
             }
         },
+        "underlineAdaptive": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "下划线是否根据 tab cell 长度自适应\n@en Whether the underline is adaptive according to the length of the tab cell",
+            "name": "underlineAdaptive",
+            "tags": {
+                "en": "Whether the underline is adaptive according to the length of the tab cell",
+                "default": "false"
+            },
+            "descWithTags": "下划线是否根据 tab cell 长度自适应",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "stopTouchThreshold": {
             "defaultValue": {
                 "value": "0"
@@ -1442,6 +1462,26 @@
                 "name": "CSSProperties"
             }
         },
+        "tabBarStopPropagation": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "当前 TabBar 的触摸事件是否需要 stopPropagation\n@en Does the touch event of the current TabBar require stopPropagation",
+            "name": "tabBarStopPropagation",
+            "tags": {
+                "en": "Does the touch event of the current TabBar require stopPropagation",
+                "default": "true"
+            },
+            "descWithTags": "当前 TabBar 的触摸事件是否需要 stopPropagation",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
+                "name": "TabsProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",
@@ -1459,7 +1499,7 @@
         }
     },
     "deps": {
-        "TabData": "string|{ [x: string]: any; title: ReactNode; }",
+        "TabData": "string | { [x: string]: any; title: ReactNode; }",
         "UnderlineStyle": {
             "outer": {
                 "name": "outer",
@@ -1627,6 +1667,19 @@
                     "en": "The distance the underline has been swiped"
                 },
                 "descWithTags": "下划线已滑动的距离"
+            },
+            "tabBarStopPropagation": {
+                "name": "tabBarStopPropagation",
+                "required": true,
+                "description": "当前 TabBar 的触摸事件是否需要 stopPropagation\n@en Does the touch event of the current TabBar require stopPropagation",
+                "defaultValue": null,
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Does the touch event of the current TabBar require stopPropagation"
+                },
+                "descWithTags": "当前 TabBar 的触摸事件是否需要 stopPropagation"
             },
             "tabs": {
                 "name": "tabs",
@@ -1995,6 +2048,22 @@
                     "default": "true"
                 },
                 "descWithTags": "是否展示下划线"
+            },
+            "underlineAdaptive": {
+                "name": "underlineAdaptive",
+                "required": false,
+                "description": "下划线是否根据 tab cell 长度自适应\n@en Whether the underline is adaptive according to the length of the tab cell",
+                "defaultValue": {
+                    "value": "false"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "tags": {
+                    "en": "Whether the underline is adaptive according to the length of the tab cell",
+                    "default": "false"
+                },
+                "descWithTags": "下划线是否根据 tab cell 长度自适应"
             },
             "mode": {
                 "name": "mode",

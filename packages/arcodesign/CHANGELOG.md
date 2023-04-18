@@ -3,6 +3,188 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.26.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.4...@arco-design/mobile-react@2.26.0) (2023-04-11)
+
+
+### Bug Fixes
+
+* `Carousel` fix confused rendering due to missing keys ([565b51e](https://github.com/arco-design/arco-design-mobile/commit/565b51ef84382fec04d9ecfd4264600a332913bc))
+* `Image` border radius ([#107](https://github.com/arco-design/arco-design-mobile/issues/107)) ([6f1fe3e](https://github.com/arco-design/arco-design-mobile/commit/6f1fe3e4d72330d7e65ea95a58e79231779ae2f7))
+* `Progress` state error when updating progress before animation done ([#105](https://github.com/arco-design/arco-design-mobile/issues/105)) ([a8d2398](https://github.com/arco-design/arco-design-mobile/commit/a8d2398f9139316985bd3c8ea1fd6760412bea5b))
+* `Tabs` support the prop "underlineAdaptive" ([b81b535](https://github.com/arco-design/arco-design-mobile/commit/b81b535e4933e0d51e0bcf8d7135b39d706f0b24))
+* add prop "blockChangeWhenCompositing" for input type components ([a082a02](https://github.com/arco-design/arco-design-mobile/commit/a082a02143cd53f61e757be7bd26391f8d04e6f6))
+
+
+### Features
+
+* `Carousel` & `NoticeBar` & `Input` & `Cell` rtl adaption ([bbd2fbb](https://github.com/arco-design/arco-design-mobile/commit/bbd2fbb3689a807f0d37b7ac51ac131e37224ae6))
+* add new component `Divider` ([#102](https://github.com/arco-design/arco-design-mobile/issues/102)) ([2ad2830](https://github.com/arco-design/arco-design-mobile/commit/2ad2830b3851cb1e7e8d96edda3a75f27edf2e7a))
+
+
+
+
+
+## [2.25.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.3...@arco-design/mobile-react@2.25.4) (2023-02-27)
+
+
+### Bug Fixes
+
+* `Ellipsis` optimize click event type ([#94](https://github.com/arco-design/arco-design-mobile/issues/94)) ([e0e0369](https://github.com/arco-design/arco-design-mobile/commit/e0e03691d48f5a0f78e3be339a3f28b6f70c9798))
+* `SearchBar` disable default appearance of search input ([#97](https://github.com/arco-design/arco-design-mobile/issues/97)) ([648ccb3](https://github.com/arco-design/arco-design-mobile/commit/648ccb3024c092dd48c4c79c0c36b3b9ef61fb08))
+
+
+
+
+
+## [2.25.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.2...@arco-design/mobile-react@2.25.3) (2023-02-10)
+
+
+### Bug Fixes
+
+* `ImagePreview` fix display problems when passing fit layout ([#91](https://github.com/arco-design/arco-design-mobile/issues/91)) ([244107f](https://github.com/arco-design/arco-design-mobile/commit/244107fa4764141e8e57e871cad60f19f0592706))
+* `NavBar` support the prop 'onScrollChange' ([46f2a5c](https://github.com/arco-design/arco-design-mobile/commit/46f2a5cf6afa5abec235d9d6311f40c19f8c1bc0))
+
+
+
+
+
+## [2.25.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.1...@arco-design/mobile-react@2.25.2) (2023-02-08)
+
+
+### Bug Fixes
+
+* wrap style division in parentheses ([ebe7a8f](https://github.com/arco-design/arco-design-mobile/commit/ebe7a8f8ba6f51ac75b45488b672e48ca9c2e0bb))
+
+
+
+
+
+## [2.25.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.0...@arco-design/mobile-react@2.25.1) (2023-02-01)
+
+
+### Bug Fixes
+
+* checkbox & radio exported type ([901681c](https://github.com/arco-design/arco-design-mobile/commit/901681ccfd4788b3e50954dbde6e4475ac1dbdc4))
+
+
+
+
+
+# [2.25.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.24.2...@arco-design/mobile-react@2.25.0) (2023-02-01)
+
+
+### Bug Fixes
+
+* `Carousel` optimize the method changeIndex ([0088985](https://github.com/arco-design/arco-design-mobile/commit/00889858f2826987db4930a84e297ac0399443c5))
+* `ImagePreview` add image prop extraNode ([#83](https://github.com/arco-design/arco-design-mobile/issues/83)) ([61006f9](https://github.com/arco-design/arco-design-mobile/commit/61006f96a81261c40b7984d03b008c091d5a8f9b))
+* `PullRefresh` optimize default value of the prop 'type' & add prop 'useIosOptimize' ([31b0ed1](https://github.com/arco-design/arco-design-mobile/commit/31b0ed12837b77d2b41cfff80879bbab83084846))
+
+
+### Features
+
+* add new component `Form` ([#77](https://github.com/arco-design/arco-design-mobile/issues/77)) ([54b5bda](https://github.com/arco-design/arco-design-mobile/commit/54b5bda1c66b8318b59c9031fb0634c93dd94c7b))
+
+
+
+
+
+## [2.24.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.24.1...@arco-design/mobile-react@2.24.2) (2023-01-10)
+
+
+### Bug Fixes
+
+*  `Ellipsis` innerHTML keep wrap ([#80](https://github.com/arco-design/arco-design-mobile/issues/80)) ([29afadc](https://github.com/arco-design/arco-design-mobile/commit/29afadc571bba16fd2b8641622de1f2d0fbf5ba4))
+
+
+
+
+
+## [2.24.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.24.0...@arco-design/mobile-react@2.24.1) (2023-01-04)
+
+
+### Bug Fixes
+
+* `Ellipsis` support floatEllipsisNode ([#76](https://github.com/arco-design/arco-design-mobile/issues/76)) ([cc8e3d6](https://github.com/arco-design/arco-design-mobile/commit/cc8e3d6df1eec5a528a47c255c49ca94a326ca18))
+
+
+
+
+
+# [2.24.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.23.0...@arco-design/mobile-react@2.24.0) (2022-12-20)
+
+
+### Bug Fixes
+
+* support accessibility mode ([#65](https://github.com/arco-design/arco-design-mobile/issues/65)) ([fa7789c](https://github.com/arco-design/arco-design-mobile/commit/fa7789c1866341244cbffcbef1d1be375880bd82))
+
+
+### Features
+
+* component function support custom context ([#52](https://github.com/arco-design/arco-design-mobile/issues/52)) ([e5bd260](https://github.com/arco-design/arco-design-mobile/commit/e5bd260f6df128f8cd44e26464f1b5e5e6deff11))
+
+
+
+
+
+# [2.23.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.3...@arco-design/mobile-react@2.23.0) (2022-11-29)
+
+
+### Bug Fixes
+
+* `ImagePicker` add click event ([#67](https://github.com/arco-design/arco-design-mobile/issues/67)) ([0f76fda](https://github.com/arco-design/arco-design-mobile/commit/0f76fda245ac9a171525800c1d170c93411f2820))
+
+
+### Features
+
+* add new component `Stepper` ([#46](https://github.com/arco-design/arco-design-mobile/issues/46)) ([a6ce795](https://github.com/arco-design/arco-design-mobile/commit/a6ce7958345ca5170cf00b7efa5cf74d02ebe93d))
+
+
+
+
+
+## [2.22.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.2...@arco-design/mobile-react@2.22.3) (2022-11-23)
+
+
+### Bug Fixes
+
+* `Carousel` supports autoPlayDirection ([#72](https://github.com/arco-design/arco-design-mobile/issues/72)) ([527aaf4](https://github.com/arco-design/arco-design-mobile/commit/527aaf4bdf86fe4cf995bd8e4bd2580e9db8c942))
+* flexible.js support umd ([#73](https://github.com/arco-design/arco-design-mobile/issues/73)) ([d3f35c0](https://github.com/arco-design/arco-design-mobile/commit/d3f35c093a579bb404fff91dbf6437cdd93f19f7))
+
+
+
+
+
+## [2.22.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.22.0...@arco-design/mobile-react@2.22.2) (2022-11-09)
+
+
+### Bug Fixes
+
+* `PullRefresh` support custom style ([edac495](https://github.com/arco-design/arco-design-mobile/commit/edac4954526b8f2e3a86c9742752222e19f899f8))
+* `Steps` optimize style & support custom alignment ([617c570](https://github.com/arco-design/arco-design-mobile/commit/617c57003135215787897b48c07d2b674c482828))
+* `Tabs` fix touch event on foldable screen ([a67fa71](https://github.com/arco-design/arco-design-mobile/commit/a67fa71c8944e27aa43d6353e4a24e4ba676cec3))
+* optimize .text-medium mixin ([ab62ab2](https://github.com/arco-design/arco-design-mobile/commit/ab62ab2cdb51174cbd2106467bbf1a3db4694982))
+
+
+
+
+
+# [2.22.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.3...@arco-design/mobile-react@2.22.0) (2022-10-28)
+
+
+### Bug Fixes
+
+*  `SwipeAction` prevent touchmove by gesture ([#59](https://github.com/arco-design/arco-design-mobile/issues/59)) ([c9ef474](https://github.com/arco-design/arco-design-mobile/commit/c9ef474312eb9f9af736431f16147cfb56dee623))
+* `Tabs` supports tabBarStopPropagation ([#62](https://github.com/arco-design/arco-design-mobile/issues/62)) ([ba24d17](https://github.com/arco-design/arco-design-mobile/commit/ba24d178320e12b0aa95e5d75feb34e5e5163af4))
+
+
+### Features
+
+* add support for react18 ([#57](https://github.com/arco-design/arco-design-mobile/issues/57)) ([7cbb4fc](https://github.com/arco-design/arco-design-mobile/commit/7cbb4fcd5bd8c2809141bf0546f42ecf3367fd73))
+
+
+
+
+
 ## [2.21.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.21.2...@arco-design/mobile-react@2.21.3) (2022-09-30)
 
 

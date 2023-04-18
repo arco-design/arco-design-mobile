@@ -3,7 +3,7 @@
 #### 3
 
 ```js
-import { Cell, IconSound, IconNotice } from '@arco-design/mobile-react';
+import { Cell } from '@arco-design/mobile-react';
 
 export default function CellDemo() {
     return (<>
