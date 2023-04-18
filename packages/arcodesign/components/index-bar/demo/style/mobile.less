@@ -1,0 +1,26 @@
+@import '../../../../style/mixin.less';
+
+#demo-index-bar {
+    padding-bottom: 0px;
+    .arcodesign-mobile-title {
+        display: none;
+    }
+    .arcodesign-mobile-demo-content {
+        padding: 0;
+        background: transparent;
+        .rem(font-size, 16);
+    }
+    .arcodesign-mobile-demo-nav-inner::after {
+        border-bottom-color: transparent;
+    }
+
+    .custom-index-bar-height {
+        height: 480px;
+    }
+    .arco-tab-cell.vertical.line {
+        .rem(font-size, 16);
+        &:not(.last) {
+            .rem(margin-right, 139);
+        }
+    }
+}

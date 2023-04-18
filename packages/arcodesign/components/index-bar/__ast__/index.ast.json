@@ -1,0 +1,661 @@
+{
+    "description": "索引栏组件",
+    "descriptionTags": {
+        "en": "IndexBar component",
+        "type": "导航",
+        "type_en": "Navigation",
+        "name": "索引栏",
+        "name_en": "SearchBar"
+    },
+    "displayName": "IndexBar",
+    "methods": [],
+    "props": {
+        "className": {
+            "defaultValue": null,
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname"
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": null,
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "defaultIndex": {
+            "defaultValue": null,
+            "description": "默认要激活的索引\n@en Index to activate by default",
+            "name": "defaultIndex",
+            "tags": {
+                "en": "Index to activate by default"
+            },
+            "descWithTags": "默认要激活的索引",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactText"
+            }
+        },
+        "disableSidebar": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否开启侧边栏功能\n@en Whether to enable the sidebar function",
+            "name": "disableSidebar",
+            "tags": {
+                "en": "Whether to enable the sidebar function",
+                "default": "false"
+            },
+            "descWithTags": "是否开启侧边栏功能",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "sticky": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否开启索引的自动吸顶效果\n@en Whether to enable the automatic ceiling effect of the index",
+            "name": "sticky",
+            "tags": {
+                "en": "Whether to enable the automatic ceiling effect of the index",
+                "default": "true"
+            },
+            "descWithTags": "是否开启索引的自动吸顶效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "groups": {
+            "defaultValue": null,
+            "description": "索引栏内容\n@en IndexBar contents",
+            "name": "groups",
+            "tags": {
+                "en": "IndexBar contents"
+            },
+            "descWithTags": "索引栏内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "IndexBarGroupItem<IndexBarBaseData>[]"
+            }
+        },
+        "children": {
+            "defaultValue": null,
+            "description": "自定义内容的渲染，内容必须是IndexBar.Group组件\n@en Rendering of custom content, the content must be an IndexBar.Group component",
+            "name": "children",
+            "tags": {
+                "en": "Rendering of custom content, the content must be an IndexBar.Group component"
+            },
+            "descWithTags": "自定义内容的渲染，内容必须是IndexBar.Group组件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "tipType": {
+            "defaultValue": {
+                "value": "\"toast\""
+            },
+            "description": "侧边栏索引提示的样式类型 - sweat 水滴形 - toast 轻提示 - none 关闭提示\n@en Style type of sidebar index hint - sweat: teardrop - toast: light hint - none: turn off hint",
+            "name": "tipType",
+            "tags": {
+                "en": "Style type of sidebar index hint - sweat: teardrop - toast: light hint - none: turn off hint",
+                "default": "\"toast\""
+            },
+            "descWithTags": "侧边栏索引提示的样式类型 - sweat 水滴形 - toast 轻提示 - none 关闭提示",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "IndexBarTipType",
+                "value": [
+                    {
+                        "value": "\"none\""
+                    },
+                    {
+                        "value": "\"sweat\""
+                    },
+                    {
+                        "value": "\"toast\""
+                    }
+                ]
+            }
+        },
+        "scrollDuration": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "手动调用scrollToIndex时，滚动动画的执行时间\n@en Execution time of scrolling animation when scrollToIndex is called manually",
+            "name": "scrollDuration",
+            "tags": {
+                "en": "Execution time of scrolling animation when scrollToIndex is called manually",
+                "default": "0"
+            },
+            "descWithTags": "手动调用scrollToIndex时，滚动动画的执行时间",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "scrollBezier": {
+            "defaultValue": null,
+            "description": "手动调用scrollToIndex时，滚动的动画曲线\n@en When scrollToIndex is called manually, the scrolling animation curve",
+            "name": "scrollBezier",
+            "tags": {
+                "en": "When scrollToIndex is called manually, the scrolling animation curve"
+            },
+            "descWithTags": "手动调用scrollToIndex时，滚动的动画曲线",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "[number, number, number, number]"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "激活的索引改变时的回调，第一个参数是新的索引，第二个参数是改变方式：- swipe 手动滑动页面触发变化 - sidebar 侧边栏点击触发变化 - manual 手动调用scrollToIndex触发\n@en Callback when the active index changes, the first parameter is the new index, and the second parameter is the change method: - swipe: triggers the change by manually sliding the page - sidebar: triggers the change by clicking on the sidebar - manual: triggers by manually calling scrollToIndex",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when the active index changes, the first parameter is the new index, and the second parameter is the change method: - swipe: triggers the change by manually sliding the page - sidebar: triggers the change by clicking on the sidebar - manual: triggers by manually calling scrollToIndex"
+            },
+            "descWithTags": "激活的索引改变时的回调，第一个参数是新的索引，第二个参数是改变方式：- swipe 手动滑动页面触发变化 - sidebar 侧边栏点击触发变化 - manual 手动调用scrollToIndex触发",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: ReactText, trigger: IndexBarChangeTrigger) => void"
+            }
+        },
+        "onGroupItemClick": {
+            "defaultValue": null,
+            "description": "IndexBar.Group中某个子项被点击时的回调，使用JSX的写法时该回调不会生效，请在IndexBar.Group上绑定对应属性\n@en The callback when a sub-item in IndexBar.Group is clicked, the callback will not take effect when using JSX writing, please bind the corresponding property on IndexBar.Group",
+            "name": "onGroupItemClick",
+            "tags": {
+                "en": "The callback when a sub-item in IndexBar.Group is clicked, the callback will not take effect when using JSX writing, please bind the corresponding property on IndexBar.Group"
+            },
+            "descWithTags": "IndexBar.Group中某个子项被点击时的回调，使用JSX的写法时该回调不会生效，请在IndexBar.Group上绑定对应属性",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: ReactText, itemData: IndexBarBaseData, itemIndex: number) => void"
+            }
+        },
+        "renderSideBarItem": {
+            "defaultValue": null,
+            "description": "自定义侧边栏每个子项的内容渲染\n@en Customize the content rendering of each sub-item in the sidebar",
+            "name": "renderSideBarItem",
+            "tags": {
+                "en": "Customize the content rendering of each sub-item in the sidebar"
+            },
+            "descWithTags": "自定义侧边栏每个子项的内容渲染",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: ReactText) => ReactNode"
+            }
+        },
+        "renderSideBar": {
+            "defaultValue": null,
+            "description": "自定义侧边栏渲染\n@en Custom sidebar rendering",
+            "name": "renderSideBar",
+            "tags": {
+                "en": "Custom sidebar rendering"
+            },
+            "descWithTags": "自定义侧边栏渲染",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(Content: ReactNode) => ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
+            }
+        },
+        "renderTip": {
+            "defaultValue": null,
+            "description": "自定义使用侧边栏改变索引时，渲染提示的内容\n@en Customize the content of the rendering prompt when changing the index using the sidebar",
+            "name": "renderTip",
+            "tags": {
+                "en": "Customize the content of the rendering prompt when changing the index using the sidebar"
+            },
+            "descWithTags": "自定义使用侧边栏改变索引时，渲染提示的内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: ReactText) => ReactNode"
+            }
+        },
+        "renderStickyItem": {
+            "defaultValue": null,
+            "description": "自定义IndexBar.Group的索引标题内容渲染，使用JSX的写法时该回调不会生效，请在IndexBar.Group上绑定对应属性\n@en Customize the rendering of the index title content of IndexBar.Group. When using JSX writing, the callback will not take effect. Please bind the corresponding property on IndexBar.Group",
+            "name": "renderStickyItem",
+            "tags": {
+                "en": "Customize the rendering of the index title content of IndexBar.Group. When using JSX writing, the callback will not take effect. Please bind the corresponding property on IndexBar.Group"
+            },
+            "descWithTags": "自定义IndexBar.Group的索引标题内容渲染，使用JSX的写法时该回调不会生效，请在IndexBar.Group上绑定对应属性",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: ReactText) => ReactNode"
+            }
+        },
+        "renderGroupItem": {
+            "defaultValue": null,
+            "description": "自定义IndexBar.Group的子项内容渲染，使用JSX的写法时该回调不会生效，请在IndexBar.Group上绑定对应属性\n@en Customize the rendering of sub-items of IndexBar.Group. This callback will not take effect when using JSX. Please bind the corresponding properties on IndexBar.Group",
+            "name": "renderGroupItem",
+            "tags": {
+                "en": "Customize the rendering of sub-items of IndexBar.Group. This callback will not take effect when using JSX. Please bind the corresponding properties on IndexBar.Group"
+            },
+            "descWithTags": "自定义IndexBar.Group的子项内容渲染，使用JSX的写法时该回调不会生效，请在IndexBar.Group上绑定对应属性",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                "name": "IndexBarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(index: ReactText, itemData: IndexBarBaseData, itemIndex: number) => ReactNode"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<IndexBarRef>"
+            }
+        }
+    },
+    "deps": {
+        "IndexBarGroupItem": {
+            "Data": {
+                "name": "Data",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "any"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "index": {
+                "name": "index",
+                "required": true,
+                "description": "IndexBarGroup对应的索引\n@en Index corresponding to IndexBarGroup",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "Index corresponding to IndexBarGroup"
+                },
+                "descWithTags": "IndexBarGroup对应的索引"
+            },
+            "list": {
+                "name": "list",
+                "required": false,
+                "description": "IndexBarGroup中要渲染的列表数据，如果已经传递了children这个属性，则list这个属性不会生效\n@en The list data to be rendered in IndexBarGroup, if the children attribute has been passed, the list attribute will not take effect",
+                "defaultValue": null,
+                "type": {
+                    "name": "IndexBarBaseData[]"
+                },
+                "tags": {
+                    "en": "The list data to be rendered in IndexBarGroup, if the children attribute has been passed, the list attribute will not take effect"
+                },
+                "descWithTags": "IndexBarGroup中要渲染的列表数据，如果已经传递了children这个属性，则list这个属性不会生效"
+            }
+        },
+        "IndexBarBaseData": {
+            "content": {
+                "name": "content",
+                "required": true,
+                "description": "内容\n@en content",
+                "defaultValue": null,
+                "type": {
+                    "name": "ReactNode"
+                },
+                "tags": {
+                    "en": "content"
+                },
+                "descWithTags": "内容"
+            }
+        },
+        "IndexBarTipType": "\"none\" | \"sweat\" | \"toast\"",
+        "IndexBarChangeTrigger": "\"swipe\" | \"manual\" | \"sidebar\"",
+        "IndexBarRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "最外层 DOM 元素"
+            },
+            "scrollToIndex": {
+                "name": "scrollToIndex",
+                "required": true,
+                "description": "手动滚动到指定的索引位置\n@en Manually scroll to the specified index position",
+                "defaultValue": null,
+                "type": {
+                    "name": "(index?: ReactText, rightNow?: boolean) => void"
+                },
+                "tags": {
+                    "en": "Manually scroll to the specified index position"
+                },
+                "descWithTags": "手动滚动到指定的索引位置"
+            },
+            "recalculatePosition": {
+                "name": "recalculatePosition",
+                "required": true,
+                "description": "局部滚动模式下，如果容器外部还有嵌套滚动，可主动调用此方法，让 sticky 的元素主动更新 fixed 位置\n@en In the local scrolling mode, if there is nested scrolling outside the container, this method can be actively called to make the sticky element actively update the fixed position",
+                "defaultValue": null,
+                "type": {
+                    "name": "(index?: ReactText) => void"
+                },
+                "tags": {
+                    "en": "In the local scrolling mode, if there is nested scrolling outside the container, this method can be actively called to make the sticky element actively update the fixed position"
+                },
+                "descWithTags": "局部滚动模式下，如果容器外部还有嵌套滚动，可主动调用此方法，让 sticky 的元素主动更新 fixed 位置"
+            }
+        }
+    },
+    "depComps": {
+        "Group": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "IndexBarGroup",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": null,
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname"
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": null,
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "children": {
+                    "defaultValue": null,
+                    "description": "自定义内容的渲染，有自定义内容优先渲染自定义内容，否则渲染list传递的数据\n@en Rendering of custom content, if there is custom content, the custom content is rendered first, otherwise the data passed by the list is rendered",
+                    "name": "children",
+                    "tags": {
+                        "en": "Rendering of custom content, if there is custom content, the custom content is rendered first, otherwise the data passed by the list is rendered"
+                    },
+                    "descWithTags": "自定义内容的渲染，有自定义内容优先渲染自定义内容，否则渲染list传递的数据",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "listKey": {
+                    "defaultValue": null,
+                    "description": "自定义提取List的key作为列表渲染的key，默认选取listItem的所在数组位置\n@en Customize the extracted key of the List as the key for list rendering, and select the array position where the listItem is located by default",
+                    "name": "listKey",
+                    "tags": {
+                        "en": "Customize the extracted key of the List as the key for list rendering, and select the array position where the listItem is located by default"
+                    },
+                    "descWithTags": "自定义提取List的key作为列表渲染的key，默认选取listItem的所在数组位置",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(data: IndexBarBaseData, listItemIndex: number) => ReactText"
+                    }
+                },
+                "onGroupItemClick": {
+                    "defaultValue": null,
+                    "description": "IndexBar.Group中某个子项被点击时的回调\n@en Callback when a child item in IndexBar.Group is clicked",
+                    "name": "onGroupItemClick",
+                    "tags": {
+                        "en": "Callback when a child item in IndexBar.Group is clicked"
+                    },
+                    "descWithTags": "IndexBar.Group中某个子项被点击时的回调",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(index: ReactText, itemData: IndexBarBaseData, itemIndex: number) => void"
+                    }
+                },
+                "renderStickyItem": {
+                    "defaultValue": null,
+                    "description": "自定义IndexBar.Group的索引标题内容渲染\n@en Customize IndexBar.Group's index title content rendering",
+                    "name": "renderStickyItem",
+                    "tags": {
+                        "en": "Customize IndexBar.Group's index title content rendering"
+                    },
+                    "descWithTags": "自定义IndexBar.Group的索引标题内容渲染",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(index: ReactText) => ReactNode"
+                    }
+                },
+                "renderGroupItem": {
+                    "defaultValue": null,
+                    "description": "自定义IndexBar.Group的子项内容渲染\n@en Customize the rendering of sub-items of IndexBar.Group",
+                    "name": "renderGroupItem",
+                    "tags": {
+                        "en": "Customize the rendering of sub-items of IndexBar.Group"
+                    },
+                    "descWithTags": "自定义IndexBar.Group的子项内容渲染",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "(index: ReactText, itemData: IndexBarBaseData, itemIndex: number) => ReactNode"
+                    }
+                },
+                "index": {
+                    "defaultValue": null,
+                    "description": "IndexBarGroup对应的索引\n@en Index corresponding to IndexBarGroup",
+                    "name": "index",
+                    "tags": {
+                        "en": "Index corresponding to IndexBarGroup"
+                    },
+                    "descWithTags": "IndexBarGroup对应的索引",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupItem"
+                    },
+                    "required": true,
+                    "type": {
+                        "name": "ReactText"
+                    }
+                },
+                "list": {
+                    "defaultValue": null,
+                    "description": "IndexBarGroup中要渲染的列表数据，如果已经传递了children这个属性，则list这个属性不会生效\n@en The list data to be rendered in IndexBarGroup, if the children attribute has been passed, the list attribute will not take effect",
+                    "name": "list",
+                    "tags": {
+                        "en": "The list data to be rendered in IndexBarGroup, if the children attribute has been passed, the list attribute will not take effect"
+                    },
+                    "descWithTags": "IndexBarGroup中要渲染的列表数据，如果已经传递了children这个属性，则list这个属性不会生效",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/index-bar/type.ts",
+                        "name": "IndexBarGroupItem"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "IndexBarBaseData[]"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<IndexBarGroupRef>"
+                    }
+                }
+            },
+            "deps": {
+                "IndexBarBaseData": {
+                    "content": {
+                        "name": "content",
+                        "required": true,
+                        "description": "内容\n@en content",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "ReactNode"
+                        },
+                        "tags": {
+                            "en": "content"
+                        },
+                        "descWithTags": "内容"
+                    }
+                },
+                "IndexBarGroupRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "组件外层dom元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "组件外层dom元素"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "IndexBarGroupProps",
+                "ref": "IndexBarGroupRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "IndexBarProps",
+        "ref": "IndexBarRef"
+    },
+    "isDefaultExport": true
+}

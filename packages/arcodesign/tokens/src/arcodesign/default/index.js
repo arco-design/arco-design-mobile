@@ -3581,6 +3581,146 @@ function getCompTokens() {
          */
         imagePickerCloseBorderRadius: `0 ${getRem(2)}`,
         /**
+         * 索引栏背景颜色
+         * @en IndexBar background color
+         */
+        indexBarBackground: 'white',
+        /**
+         * 索引栏，激活状态下的，索引文字颜色
+         * @en IndexBar, In active state, index text color
+         */
+        indexBarGroupActiveColor: useGlobal('primaryColor'),
+        /**
+         * 索引栏内容左填充宽度
+         * @en IndexBar content left padding width
+         */
+        indexBarGroupLeftSpacing: getRem(16),
+        /**
+         * 索引栏索引标题高度
+         * @en IndexBar index header height
+         */
+        indexBarGroupTitleHeight: getRem(24),
+        /**
+         * 索引栏标题背景颜色
+         * @en IndexBar title background color
+         */
+        indexBarGroupTitleBackground: '#f7f8fa',
+        /**
+         * 索引栏标题字体颜色
+         * @en IndexBar title text color
+         */
+        indexBarGroupTitleFontColor: useGlobal('subInfoFontColor'),
+        /**
+         * 索引栏索引标题字号
+         * @en IndexBar index title font size
+         */
+        indexBarGroupTitleFontSize: getRem(14),
+        /**
+         * 索引栏内容子项高度
+         * @en IndexBar content subitem height
+         */
+        indexBarGroupItemHeight: getRem(54),
+        /**
+         * 索引栏内容子项字号大小
+         * @en IndexBar content sub-item font size
+         */
+        indexBarGroupItemFontSize: getRem(16),
+        /**
+         * 索引栏侧边栏激活索引颜色
+         * @en IndexBar sidebar active index color
+         */
+        indexBarSidebarActiveColor: useGlobal('primaryColor'),
+        /**
+         * 索引栏侧边栏子项字号大小
+         * @en The font size of the subitems in the sidebar of the IndexBar
+         */
+        indexBarSidebarItemFontSize: getRem(10),
+        /**
+         * 索引栏侧边栏子项字号行高
+         * @en The line height of the subitems in the sidebar of the IndexBar
+         */
+        indexBarSidebarItemLineHeight: getRem(14),
+        /**
+         * 索引栏侧边栏子项高度
+         * @en IndexBar sidebar child item height
+         */
+        indexBarSidebarItemPadding: `${getRem(2)} ${getRem(8)}`,
+        /**
+         * 索引栏侧边栏子项宽度
+         * @en IndexBar sidebar child item width
+         */
+        indexBarSidebarItemWidth: getRem(10),
+        /**
+         * 索引栏侧边栏水滴提示气泡的内边距
+         * @en The inner margin of the water drop prompt bubble in the sidebar of the IndexBar
+         */
+        indexBarSidebarSweatPadding: `0 ${getRem(8)}`,
+        /**
+         * 索引栏侧边栏水滴提示气泡背景颜色
+         * @en IndexBar sidebar water drop prompt bubble background color
+         */
+        indexBarSidebarSweatBackground: '#323232',
+        /**
+         * 索引栏侧边栏水滴提示文案颜色
+         * @en The color of the water drop prompt text in the sidebar of the IndexBar
+         */
+        indexBarSidebarSweatColor: 'white',
+        /**
+         * 索引栏侧边栏水滴离侧边栏的距离
+         * @en The distance between the water droplets in the sidebar of the IndexBar and the sidebar
+         */
+        indexBarSidebarSweatRight: getRem(36),
+        /**
+         * 索引栏侧边栏水滴字号大小
+         * @en IndexBar sidebar water drop font size
+         */
+        indexBarSidebarSweatFontSize: getRem(24),
+        /**
+         * 索引栏侧边栏水滴直径
+         * @en IndexBar sidebar droplet diameter
+         */
+        indexBarSidebarSweatRadius: getRem(50),
+        /**
+         * 索引栏侧边栏三角气泡位置
+         * @en The position of the triangle bubble in the sidebar of the IndexBar
+         */
+        indexBarSidebarSweatTrianglePosition: getRem(-27),
+        /**
+         * 索引栏侧边栏三角气泡的border
+         * @en The border of the triangle bubble in the sidebar of the IndexBar
+         */
+        indexBarSidebarSweatTriangleBorder: `${getRem(18)} solid transparent`,
+        /**
+         * 索引栏侧边栏轻提示背景颜色
+         * @en IndexBar sidebar light prompt background color
+         */
+        indexBarSidebarToastBackground: '#323232',
+        /**
+         * 索引栏侧边栏轻提示文案颜色
+         * @en The color of the light prompt copy in the sidebar of the IndexBar
+         */
+        indexBarSidebarToastColor: 'white',
+        /**
+         * 索引栏侧边栏轻提示方框高度
+         * @en The height of the light prompt box in the sidebar of the IndexBar
+         */
+        indexBarSidebarToastHeight: getRem(48),
+        /**
+         * 索引栏侧边栏轻提示圆角大小
+         * @en The sidebar of the IndexBar lightly prompts the size of the rounded corners
+         */
+        indexBarSidebarToastRadius: getRem(4),
+        /**
+         * 索引栏侧边栏轻提示内边距
+         * @en IndexBar sidebar light prompt padding
+         */
+        indexBarSidebarToastPadding: `0 ${getRem(8)}`,
+        /**
+         * 索引栏侧边栏轻提示字号大小
+         * @en IndexBar sidebar light prompt font size
+         */
+        indexBarSidebarToastFontSize: getRem(24),
+        /**
          * 步进器字体大小
          * @en Font size of Stepper
          */
