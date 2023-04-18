@@ -32,7 +32,7 @@ export function arrayTreeFilter<T>(
     let level = 0;
 
     do {
-        let foundItem: T = children.filter(item => filterFn(item, level))[0];
+        let foundItem: T | undefined = children.find(item => filterFn(item, level));
         if (!foundItem && options.fallbackChildIndex !== undefined) {
             foundItem = children[options.fallbackChildIndex];
         }

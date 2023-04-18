@@ -93,9 +93,6 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
             const newValue = newData?.value;
 
             if (newValue !== currentValue) {
-                // if (!('selectedValue' in props)) {
-                //     setCurrentValue(newValue);
-                // }
                 setCurrentValue(newValue);
                 if (onValueChange) {
                     onValueChange(newValue, newData);
