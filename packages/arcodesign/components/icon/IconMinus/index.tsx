@@ -23,9 +23,7 @@ export default function IconMinus(props: IconProps) {
                     xmlns="http://www.w3.org/2000/svg"
                     {...other}
                 >
-                    <defs>
-                        <style />
-                    </defs>
+                    <defs />
                     <path d="M115.2 467.2h819.2c6.4 0 6.4 6.4 6.4 6.4V544c0 6.4-6.4 6.4-6.4 6.4H96c-6.4 0-6.4-6.4-6.4-6.4v-64c0-6.4 6.4-6.4 6.4-6.4 6.4-6.4 6.4-6.4 19.2-6.4z" />
                 </svg>
             )}

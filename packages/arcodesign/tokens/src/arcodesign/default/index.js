@@ -3766,6 +3766,81 @@ function getCompTokens() {
          */
         timeLineContentColor: useGlobal('fontColor'),
         /**
+         * 键盘背景颜色
+         * @en Keyboard background color
+         */
+        keyboardBackground: '#f2f3f5',
+        /**
+         * 键盘内边距
+         * @en Keyboard padding
+         */
+        keyboardContentPadding: getRem(8),
+        /**
+         * 键盘统一边距
+         * @en Keyboard unified margin
+         */
+        keyboardUnifiedMargin: getRem(8),
+        /**
+         * 键盘右边一列确认键背景色
+         * @en Keyboard right column confirm background
+         */
+        keyboardConfirmKeyBackground: '#165dff',
+        /**
+         * 键盘右边一列确认键字体颜色
+         * @en Keyboard right column confirm color
+         */
+        keyboardConfirmKeyColor: '#ffffff',
+        /**
+         * 键盘右边一列确认键字体大小
+         * @en Keyboard right column confirm font size
+         */
+        keyboardConfirmKeyFontSize: getRem(18),
+        /**
+         * 键盘按钮字重
+         * @en Keyboard key button font weight
+         */
+        keyboardKeyFontWeight: '500',
+        /**
+         * 键盘按钮字体大小
+         * @en Keyboard key button font size
+         */
+        keyboardKeyFontSize: getRem(22),
+        /**
+         * 键盘按钮中的图标大小
+         * @en Keyboard key button icon size
+         */
+        keyboardKeyIconSize: getRem(26),
+        /**
+         * 键盘按钮字体行高
+         * @en Keyboard key button font line height
+         */
+        keyboardKeyLineHeight: getRem(30),
+        /**
+         * 键盘按钮背景色
+         * @en Keyboard key button background
+         */
+        keyboardKeyBackground: '#ffffff',
+        /**
+         * 键盘按钮背景色激活状态下
+         * @en Keyboard key button background in active
+         */
+        keyboardKeyActiveBackground: '#e5e6eb',
+        /**
+         * 键盘按钮圆角
+         * @en Keyboard key button rounded
+         */
+        keyboardKeyBorderRadius: getRem(4),
+        /**
+         * 键盘按钮高度
+         * @en Keyboard key button height
+         */
+        keyboardKeyHeight: getRem(48),
+        /**
+         * 键盘按钮字体颜色
+         * @en Keyboard key button font color
+         */
+        keyboardKeyColor: '#1d2129',
+        /**
          * 分割线线条粗细
          * @en Thickness of divider line
          */

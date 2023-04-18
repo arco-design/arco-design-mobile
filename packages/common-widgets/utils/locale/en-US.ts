@@ -55,6 +55,9 @@ const localeConfig: ILocale = {
         minusButtonName: 'decrease',
         addButtonName: 'increase',
     },
+    Keyboard: {
+        confirm: 'Done',
+    },
     Form: {
         required: '%s is required',
         type: {
