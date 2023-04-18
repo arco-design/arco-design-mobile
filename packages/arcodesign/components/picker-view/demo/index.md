@@ -28,7 +28,10 @@ export default function PickerViewDemo() {
         <PickerView
             data={data}
             value={value}
-            onPickerChange={value => setValue(value)}
+            onPickerChange={(value, index, data) => {
+                console.log('value: ' + value, index, data);
+                setValue(value);
+            }}
             cascade={false}
         />
     );

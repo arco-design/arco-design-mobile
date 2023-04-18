@@ -11,7 +11,7 @@ export default function InputDemo() {
         <Input
             prefix={<div className="demo-input-money">¥</div>}
             placeholder="0.00"
-            type="tel"
+            type="number"
             border="none"
         />
         <Input

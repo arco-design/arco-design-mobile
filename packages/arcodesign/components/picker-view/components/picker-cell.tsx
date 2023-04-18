@@ -21,7 +21,7 @@ export interface PickerCellProps {
     itemHeight: number;
     wrapperHeight: number;
     selectedValue?: ValueType;
-    onValueChange?: (value: ValueType) => void;
+    onValueChange?: (value: ValueType, data: PickerData) => void;
     disabled: boolean;
     hideEmptyCols?: boolean;
     /**
@@ -88,16 +88,14 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         // index有改变时再抛出
         // @en Throws again when index changes
         if (currentIndex !== nowItemIndex) {
-            setCurrentIndex(nowItemIndex);
-            const newValue = data[nowItemIndex] && data[nowItemIndex].value;
+            setCurrentIndex(Math.max(nowItemIndex, 0));
+            const newData = data[nowItemIndex];
+            const newValue = newData?.value;
 
             if (newValue !== currentValue) {
-                // if (!('selectedValue' in props)) {
-                //     setCurrentValue(newValue);
-                // }
                 setCurrentValue(newValue);
                 if (onValueChange) {
-                    onValueChange(newValue);
+                    onValueChange(newValue, newData);
                 }
             }
         }
@@ -341,7 +339,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     useLayoutEffect(() => {
         if ('selectedValue' in props) {
             const curIndex = data.findIndex((item: PickerData) => item.value === selectedValue);
-            setCurrentIndex(curIndex);
+            setCurrentIndex(Math.max(curIndex, 0));
 
             if (curIndex >= 0) {
                 _scrollToIndexWithChange(curIndex);

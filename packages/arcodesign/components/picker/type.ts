@@ -63,7 +63,7 @@ export interface PickerProps
      * 每列数据选择变化后的回调函数
      * @en The callback after each column data selection changes
      */
-    onPickerChange?: (value: ValueType[], index: number) => void;
+    onPickerChange?: (value: ValueType[], index: number, data: PickerData[]) => void;
     /**
      * 每列样式
      * @en Stylesheet per column

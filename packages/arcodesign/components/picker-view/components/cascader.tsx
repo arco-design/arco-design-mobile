@@ -13,11 +13,10 @@ export interface CascaderProps {
     disabled: boolean;
     itemHeight: number;
     wrapperHeight: number;
-    selectedValue: ValueType[];
+    selectedValue?: ValueType[];
     rows?: number;
     hideEmptyCols?: boolean;
-    onValueChange?: (value: ValueType[], index: number) => void;
-    onPickerChange?: (value: ValueType[], index: number) => void;
+    onValueChange?: (value: ValueType[], index: number, data: PickerData[]) => void;
     touchToStop?: boolean | number;
 }
 export interface CascaderRef {
@@ -37,7 +36,6 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
         wrapperHeight,
         rows,
         hideEmptyCols,
-        onPickerChange,
         onValueChange,
         selectedValue = [],
         touchToStop,
@@ -57,7 +55,7 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
         pickerCellsRef.current.forEach(cell => cell.scrollToCurrentIndex());
     }
 
-    function _onValueChange(value: ValueType[], index: number) {
+    function _onValueChange(value: ValueType[], index: number, newData: PickerData[]) {
         const children: PickerData[] = arrayTreeFilter(
             data,
             (item: PickerData, level: number) => level <= index && item.value === value[level],
@@ -68,15 +66,18 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
         for (i = index + 1; i < cols && child && child.children; i++) {
             child = child.children[0];
             value[i] = child.value;
+            newData[i] = child;
         }
         value.length = i;
-        onValueChange?.(value, index);
+        newData.length = i;
+        onValueChange?.(value, index, newData);
     }
 
     function _formatData() {
         const childrenTree = arrayTreeFilter(
             data,
-            (item: PickerData, level: number) => item.value === selectedValue[level],
+            (item: PickerData, level: number) => item.value === selectedValue?.[level],
+            { fallbackChildIndex: 0 },
         ).map(item => item.children);
 
         const needPad = cols - childrenTree.length;
@@ -100,7 +101,6 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
             selectedValue={selectedValue}
             itemHeight={itemHeight}
             onValueChange={_onValueChange}
-            onPickerChange={onPickerChange}
         >
             {formatData.map((item, index) => (
                 <PickerCell

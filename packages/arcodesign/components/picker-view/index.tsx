@@ -14,7 +14,7 @@ import MultiPicker from '../picker-view/components/multi-picker';
 import PickerCell, { PickerCellRef } from '../picker-view/components/picker-cell';
 import Cascader, { CascaderRef } from '../picker-view/components/cascader';
 import { PickerViewProps, ValueType, PickerData, PickerCellMovingStatus } from './type';
-import { useMountedState } from '../_helpers';
+import { useLatestRef, useMountedState } from '../_helpers';
 
 export * from './type';
 export { MultiPicker, PickerCell, Cascader };
@@ -39,7 +39,7 @@ export interface PickerViewRef {
      * 获取第 n 列的值
      * @en Get the value of the nth column
      */
-    getColumnValue: (index: number) => ValueType;
+    getColumnValue: (index: number) => ValueType | undefined;
     /**
      * 手动更新元素布局
      * @en Manually update the element layout
@@ -79,7 +79,7 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
     const wrapperRef = useRef<HTMLDivElement>(null);
     const domRef = useRef<HTMLDivElement | null>(null);
     const barRef = useRef<HTMLDivElement | null>(null);
-    const scrollValueRef = useRef(value);
+    const scrollValueRef = useLatestRef(scrollValue);
     const pickerCellsRef = useRef<PickerCellRef[]>([]);
     const cascaderRef = useRef<CascaderRef>(null);
 
@@ -109,14 +109,10 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         return newData;
     }, [data]);
 
-    useEffect(() => {
-        scrollValueRef.current = scrollValue;
-    }, [scrollValue]);
-
-    const getAllColumnValues = () => scrollValueRef.current;
+    const getAllColumnValues = () => scrollValueRef.current || [];
 
     function getColumnValue(index = 0) {
-        return scrollValueRef.current[index];
+        return scrollValueRef.current?.[index];
     }
 
     function getCellMovingStatus() {
@@ -143,25 +139,17 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         scrollToCurrentIndex,
     }));
 
-    function _onPickerChange(val: ValueType[], index: number) {
+    function _onValueChange(val: ValueType[], index: number, newData: PickerData[]) {
         setScrollValue(val);
 
         if (onPickerChange) {
-            onPickerChange(val, index);
-        }
-    }
-
-    function _onValueChange(val: ValueType[], index: number) {
-        setScrollValue(val);
-
-        if (onPickerChange) {
-            onPickerChange(val, index);
+            onPickerChange(val, index, newData);
         }
     }
 
     useEffect(() => {
         setScrollValue(value);
-    }, [value, setScrollValue]);
+    }, [value]);
 
     const updateWrapperHeight = useCallback(() => {
         if (wrapperRef && wrapperRef.current) {
@@ -209,7 +197,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
                             data={data as PickerData[]}
                             selectedValue={scrollValue}
                             onValueChange={_onValueChange}
-                            onPickerChange={_onPickerChange}
                             clickable={clickable}
                             itemHeight={itemHeight}
                             wrapperHeight={wrapperHeight}
@@ -226,7 +213,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
                             itemHeight={itemHeight}
                             selectedValue={scrollValue}
                             onValueChange={_onValueChange}
-                            onPickerChange={_onPickerChange}
                         >
                             {innerData.map((item, index) => (
                                 <PickerCell
