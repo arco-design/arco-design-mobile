@@ -4025,13 +4025,25 @@
             "en": "The font size of the subitems in the sidebar of the IndexBar"
         }
     },
+    "indexBarSidebarItemLineHeight": {
+        "cssKey": "index-bar-sidebar-item-line-height",
+        "desc": "索引栏侧边栏子项字号行高",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "索引栏侧边栏子项字号行高",
+            "en": "The line height of the subitems in the sidebar of the IndexBar"
+        }
+    },
     "indexBarSidebarItemPadding": {
         "cssKey": "index-bar-sidebar-item-padding",
         "desc": "索引栏侧边栏子项高度",
         "override": "",
-        "value": "~`pxtorem(2)` 0",
-        "jsValue": "@getRem@2 0",
-        "staticValue": "0.04rem 0",
+        "value": "~`pxtorem(2)` ~`pxtorem(8)`",
+        "jsValue": "@getRem@2 @getRem@8",
+        "staticValue": "0.04rem 0.16rem",
         "localeDesc": {
             "ch": "索引栏侧边栏子项高度",
             "en": "IndexBar sidebar child item height"
@@ -4041,24 +4053,12 @@
         "cssKey": "index-bar-sidebar-item-width",
         "desc": "索引栏侧边栏子项宽度",
         "override": "",
-        "value": "~`pxtorem(13)`",
-        "jsValue": "@getRem@13",
-        "staticValue": "0.26rem",
+        "value": "~`pxtorem(10)`",
+        "jsValue": "@getRem@10",
+        "staticValue": "0.2rem",
         "localeDesc": {
             "ch": "索引栏侧边栏子项宽度",
             "en": "IndexBar sidebar child item width"
-        }
-    },
-    "indexBarSidebarMarginRight": {
-        "cssKey": "index-bar-sidebar-margin-right",
-        "desc": "索引栏侧边栏离右侧距离",
-        "override": "",
-        "value": "~`pxtorem(8)`",
-        "jsValue": "@getRem@8",
-        "staticValue": "0.16rem",
-        "localeDesc": {
-            "ch": "索引栏侧边栏离右侧距离",
-            "en": "The distance from the sidebar of the IndexBar to the right"
         }
     },
     "indexBarSidebarSweatBackground": {
@@ -4125,9 +4125,9 @@
         "cssKey": "index-bar-sidebar-sweat-right",
         "desc": "索引栏侧边栏水滴离侧边栏的距离",
         "override": "",
-        "value": "~`pxtorem(36.4)`",
-        "jsValue": "@getRem@36.4",
-        "staticValue": "0.728rem",
+        "value": "~`pxtorem(36)`",
+        "jsValue": "@getRem@36",
+        "staticValue": "0.72rem",
         "localeDesc": {
             "ch": "索引栏侧边栏水滴离侧边栏的距离",
             "en": "The distance between the water droplets in the sidebar of the IndexBar and the sidebar"
@@ -4149,9 +4149,9 @@
         "cssKey": "index-bar-sidebar-sweat-triangle-position",
         "desc": "索引栏侧边栏三角气泡位置",
         "override": "",
-        "value": "~`pxtorem(-28.5)`",
-        "jsValue": "@getRem@-28.5",
-        "staticValue": "-0.57rem",
+        "value": "~`pxtorem(-27)`",
+        "jsValue": "@getRem@-27",
+        "staticValue": "-0.54rem",
         "localeDesc": {
             "ch": "索引栏侧边栏三角气泡位置",
             "en": "The position of the triangle bubble in the sidebar of the IndexBar"

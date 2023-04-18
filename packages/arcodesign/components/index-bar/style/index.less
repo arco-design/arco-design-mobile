@@ -44,12 +44,10 @@
             left: 0;
         }
         position: absolute;
-        // 保证侧边栏的层级比item的底边一像素的border要高
         z-index: 2;
         right: 0;
-        .use-var(margin-right, index-bar-sidebar-margin-right);
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) translateZ(0);
         user-select: none;
 
         &-item {
@@ -66,6 +64,7 @@
                 justify-content: center;
                 .use-var(width, index-bar-sidebar-item-width);
                 .use-var(font-size, index-bar-sidebar-item-font-size);
+                .use-var(line-height, index-bar-sidebar-item-line-height);
             }
 
             &:last-child {
@@ -77,7 +76,6 @@
         }
 
         &-sweat {
-            // 水滴形状不方便自定义高度
             position: absolute;
             .use-var(height, index-bar-sidebar-sweat-radius);
             .use-var(min-width, index-bar-sidebar-sweat-radius);

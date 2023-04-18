@@ -1,4 +1,4 @@
-## 基础样式 @en{Basic Style}
+## 基础用法 @en{Basic Usage}
 
 #### 1
 

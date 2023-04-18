@@ -3631,25 +3631,25 @@ function getCompTokens() {
          */
         indexBarSidebarActiveColor: useGlobal('primaryColor'),
         /**
-         * 索引栏侧边栏离右侧距离
-         * @en The distance from the sidebar of the IndexBar to the right
-         */
-        indexBarSidebarMarginRight: getRem(8),
-        /**
          * 索引栏侧边栏子项字号大小
          * @en The font size of the subitems in the sidebar of the IndexBar
          */
         indexBarSidebarItemFontSize: getRem(10),
         /**
+         * 索引栏侧边栏子项字号行高
+         * @en The line height of the subitems in the sidebar of the IndexBar
+         */
+        indexBarSidebarItemLineHeight: getRem(14),
+        /**
          * 索引栏侧边栏子项高度
          * @en IndexBar sidebar child item height
          */
-        indexBarSidebarItemPadding: `${getRem(2)} 0`,
+        indexBarSidebarItemPadding: `${getRem(2)} ${getRem(8)}`,
         /**
          * 索引栏侧边栏子项宽度
          * @en IndexBar sidebar child item width
          */
-        indexBarSidebarItemWidth: getRem(13),
+        indexBarSidebarItemWidth: getRem(10),
         /**
          * 索引栏侧边栏水滴提示气泡的内边距
          * @en The inner margin of the water drop prompt bubble in the sidebar of the IndexBar
@@ -3669,7 +3669,7 @@ function getCompTokens() {
          * 索引栏侧边栏水滴离侧边栏的距离
          * @en The distance between the water droplets in the sidebar of the IndexBar and the sidebar
          */
-        indexBarSidebarSweatRight: getRem(36.4),
+        indexBarSidebarSweatRight: getRem(36),
         /**
          * 索引栏侧边栏水滴字号大小
          * @en IndexBar sidebar water drop font size
@@ -3684,7 +3684,7 @@ function getCompTokens() {
          * 索引栏侧边栏三角气泡位置
          * @en The position of the triangle bubble in the sidebar of the IndexBar
          */
-        indexBarSidebarSweatTrianglePosition: getRem(-28.5),
+        indexBarSidebarSweatTrianglePosition: getRem(-27),
         /**
          * 索引栏侧边栏三角气泡的border
          * @en The border of the triangle bubble in the sidebar of the IndexBar
