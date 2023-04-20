@@ -118,7 +118,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
 
     innerTriggerFunction = (_, value, ...args) => {
         this.setFieldData(value);
-        const { children, trigger } = this.props;
+        const { children, trigger = 'onChange' } = this.props;
         if (trigger && children.props?.[trigger]) {
             children.props?.[trigger](_, value, ...args);
         }
@@ -126,7 +126,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
 
     innerTriggerFunctionWithValueFirst = (value, ...args) => {
         this.setFieldData(value);
-        const { children, trigger } = this.props;
+        const { children, trigger = 'onChange' } = this.props;
         if (trigger && children.props?.[trigger]) {
             children.props?.[trigger](value, ...args);
         }
