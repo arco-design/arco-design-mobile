@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.14.0...@arco-design/mobile-utils@2.15.0) (2023-04-25)
+
+
+### Bug Fixes
+
+* `PickerView` support the complete data currently selected in "onPickerChange" & code optimization ([#60](https://github.com/arco-design/arco-design-mobile/issues/60)) ([b90bbd2](https://github.com/arco-design/arco-design-mobile/commit/b90bbd24bd1fee554ef095144b25b6f36132fa0f))
+
+
+### Features
+
+* add new component `Keyboard` ([#79](https://github.com/arco-design/arco-design-mobile/issues/79)) ([44cea7f](https://github.com/arco-design/arco-design-mobile/commit/44cea7fe8e4febde454a83edfda9a546409213ed))
+
+
+
+
+
 # [2.14.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.13.4...@arco-design/mobile-utils@2.14.0) (2023-04-11)
 
 

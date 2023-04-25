@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.27.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.26.0...@arco-design/mobile-react@2.27.0) (2023-04-25)
+
+
+### Bug Fixes
+
+* `PickerView` support the complete data currently selected in "onPickerChange" & code optimization ([#60](https://github.com/arco-design/arco-design-mobile/issues/60)) ([b90bbd2](https://github.com/arco-design/arco-design-mobile/commit/b90bbd24bd1fee554ef095144b25b6f36132fa0f))
+* import style from dependent components ([8d6e0b0](https://github.com/arco-design/arco-design-mobile/commit/8d6e0b0a892b9cbd4ab521c5ef1b91439825ae18))
+
+
+### Features
+
+* add new component `IndexBar` ([#63](https://github.com/arco-design/arco-design-mobile/issues/63)) ([a76e57a](https://github.com/arco-design/arco-design-mobile/commit/a76e57a6fdeeb10255fe99ae37689f186d6ce471))
+* add new component `Keyboard` ([#79](https://github.com/arco-design/arco-design-mobile/issues/79)) ([44cea7f](https://github.com/arco-design/arco-design-mobile/commit/44cea7fe8e4febde454a83edfda9a546409213ed))
+
+
+
+
+
 # [2.26.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.25.4...@arco-design/mobile-react@2.26.0) (2023-04-11)
 
 
