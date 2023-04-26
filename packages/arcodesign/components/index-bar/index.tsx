@@ -1,5 +1,4 @@
-import { cls, componentWrapper } from '@arco-design/mobile-utils';
-import { scrollWithAnimation } from '@arco-design/mobile-utils/utils';
+import { cls, componentWrapper, scrollWithAnimation } from '@arco-design/mobile-utils';
 import lodashThrottle from 'lodash.throttle';
 import React, {
     useRef,
