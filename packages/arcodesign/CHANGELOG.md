@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.0...@arco-design/mobile-react@2.27.1) (2023-04-26)
+
+
+### Bug Fixes
+
+* `IndexBar` modify utils deps ([#115](https://github.com/arco-design/arco-design-mobile/issues/115)) ([b322d71](https://github.com/arco-design/arco-design-mobile/commit/b322d716e8dc6a107afb2a8b84edfcc0f5daddc2))
+
+
+
+
+
 # [2.27.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.26.0...@arco-design/mobile-react@2.27.0) (2023-04-25)
 
 
