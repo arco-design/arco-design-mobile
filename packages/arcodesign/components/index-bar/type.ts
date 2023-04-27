@@ -12,7 +12,7 @@ export interface IndexBarBaseData {
     content: ReactNode;
 }
 
-interface IndexBarGroupItem<Data extends IndexBarBaseData> {
+interface IndexBarGroupItem<Data extends IndexBarBaseData = IndexBarBaseData> {
     /**
      * IndexBarGroup对应的索引
      * @en Index corresponding to IndexBarGroup
@@ -46,7 +46,8 @@ export interface IndexBarSideBarProps {
     renderTip?: (index: IndexBarIndexType) => ReactNode;
 }
 
-export interface IndexBarGroupProps<Data extends IndexBarBaseData> extends IndexBarGroupItem<Data> {
+export interface IndexBarGroupProps<Data extends IndexBarBaseData = IndexBarBaseData>
+    extends IndexBarGroupItem<Data> {
     /**
      * 自定义类名
      * @en Custom classname
@@ -86,7 +87,7 @@ export interface IndexBarGroupProps<Data extends IndexBarBaseData> extends Index
 
 export interface IndexBarGroupRef extends BaseRef {}
 
-export interface IndexBarProps<Data extends IndexBarBaseData> {
+export interface IndexBarProps<Data extends IndexBarBaseData = IndexBarBaseData> {
     /**
      * 自定义类名
      * @en Custom classname
