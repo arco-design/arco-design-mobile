@@ -254,7 +254,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
                         [`${prefixCls}-nav-bar-hide`]: scrollToggleHide,
                     })}
                     style={{
-                        paddingTop: fixed && statusBarHeight ? `${statusBarHeight}px` : '',
+                        paddingTop: fixed && statusBarHeight ? `${statusBarHeight}px` : '0px',
                         ...(style || {}),
                         ...(relBackground ? { background: relBackground } : {}),
                     }}
@@ -267,7 +267,7 @@ const NavBar = forwardRef((props: NavBarProps, ref: Ref<NavBarRef>) => {
                             [`${prefixCls}-nav-bar-wrapper-border`]: hasBottomLine,
                         })}
                         style={{
-                            paddingTop: statusBarHeight ? `${statusBarHeight}px` : '',
+                            paddingTop: statusBarHeight ? `${statusBarHeight}px` : '0px',
                             ...customStyle,
                         }}
                     >
