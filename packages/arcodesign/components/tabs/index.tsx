@@ -108,6 +108,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         fullScreen,
         autoHeight,
         tabBarStopPropagation = true,
+        swipeEnergySaving = false,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const cellRef = useRef<TabCellRef | null>(null);
@@ -481,6 +482,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
                             tabPaneExtra={tabPaneExtra}
                             autoHeight={autoHeight}
                             onScroll={onScroll}
+                            swipeEnergySaving={swipeEnergySaving}
                             {...commonProps}
                         />
                     </div>

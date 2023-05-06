@@ -42,6 +42,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
         translateZ,
         fullScreen,
         autoHeight,
+        swipeEnergySaving,
         changeIndex,
         onScroll,
     } = props;
@@ -50,6 +51,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
     const autoScrollingRef = useRef(false);
     const timerRef = useRef(0);
     const [shownIndexes, setShownIndexes] = useState<[number, number]>([activeIndex, activeIndex]);
+    const [shownActiveIndex, setShownActiveIndex] = useState(activeIndex);
     const prefix = `${prefixCls}-tab-pane`;
     const handleTouchEnd = swipeable ? handlePaneTouchEnd : void 0;
     const [currentPaneHeight, setCurrentPaneHeight] = useState<number | string>('auto');
@@ -138,6 +140,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
     }
 
     function calcShownIndexes() {
+        setShownActiveIndex(activeIndex);
         if (typeof lazyloadCount === 'number') {
             setShownIndexes([activeIndex - lazyloadCount, activeIndex + lazyloadCount]);
             return;
@@ -237,10 +240,40 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
                   }
                 : {};
         return getStyleWithVendor({
-            ...sizeStyle,
+            ...(swipeEnergySaving ? {} : sizeStyle),
             transitionDuration: `${getTransition()}ms`,
             ...heightStyle,
             ...commonStyle,
+        });
+    }
+
+    function getEnergySavingPaneStyle(index: number): CSSProperties | undefined {
+        if (mode === 'scroll' || !swipeEnergySaving) {
+            return undefined;
+        }
+        if (index !== shownActiveIndex) {
+            return {
+                position: 'absolute',
+                left: '-100%',
+                top: '-100%',
+            };
+        }
+        const translateStr = translateZ ? ' translateZ(0)' : '';
+        const sizeStyle =
+            tabDirection === 'vertical'
+                ? {
+                      transform: `translateX(${
+                          distance - wrapWidth * (activeIndex - index)
+                      }px)${translateStr}`,
+                  }
+                : {
+                      transform: `translateY(${
+                          distance - wrapHeight * (activeIndex - index)
+                      }px)${translateStr}`,
+                  };
+        return getStyleWithVendor({
+            ...sizeStyle,
+            transitionDuration: `${getTransition()}ms`,
         });
     }
 
@@ -250,25 +283,34 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
             className: cls(prefix, `mode-${mode}`, { 'full-screen': fullScreen }),
             ref: r => (panesRef.current[index] = r),
         };
+        const energySavingStyle = getEnergySavingPaneStyle(index);
         // 是滚动模式或在加载范围内，直接渲染
         // @en Render directly when in scroll mode or in loading scope
         if (mode === 'scroll' || (index >= shownIndexes[0] && index <= shownIndexes[1])) {
-            return <div {...contentProps}>{pane}</div>;
+            return (
+                <div {...contentProps} style={energySavingStyle}>
+                    {pane}
+                </div>
+            );
         }
+        const energySavingHideStyle = {
+            ...energySavingStyle,
+            ...(hideContentStyle || {}),
+        };
         // 不在加载范围内，视renderHideContent和hideContentStyle情况而定
         // @en Not in the loading range, depending on renderHideContent and hideContentStyle
         if (renderHideContent) {
             return (
-                <div {...contentProps} style={hideContentStyle || {}}>
+                <div {...contentProps} style={energySavingHideStyle}>
                     {renderHideContent(index, pane)}
                 </div>
             );
         }
         if (hideContentStyle === null) {
-            return <div {...contentProps} />;
+            return <div {...contentProps} style={energySavingStyle} />;
         }
         return (
-            <div {...contentProps} style={hideContentStyle}>
+            <div {...contentProps} style={energySavingHideStyle}>
                 {pane}
             </div>
         );
@@ -279,7 +321,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
             className={cls(
                 `${prefix}-container`,
                 tabDirection,
-                `mode-${mode}`,
+                swipeEnergySaving ? `mode-${mode}-energy-saving` : `mode-${mode}`,
                 tabPaneClass,
                 { 'full-screen': fullScreen },
                 {

@@ -1,4 +1,4 @@
-## 吸顶效果 @en{Fixed to the top}
+## 吸顶+懒加载 @en{Fixed to the top + lazyload}
 
 #### 3
 

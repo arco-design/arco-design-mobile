@@ -330,6 +330,12 @@ export interface TabsProps {
      */
     translateZ?: boolean;
     /**
+     * 是否启用滑动节能模式，开启后TabPane外层容器不会随panes数量撑开并提升为合成层，仅滑动当前选中的pane，其他pane在选中前将被隐藏
+     * @en Whether to enable the energy-saving sliding mode. After opening, the outer container of the TabPane will not expand with the number of panes and be promoted to a composite layer. Only the currently selected pane will be slid, and other panes will be hidden before being selected.
+     * @default false
+     */
+    swipeEnergySaving?: boolean;
+    /**
      * 当滑到第一页或最后一页，还想再滑动时触发
      * @en Triggered when swiping to the first or last page and want to swipe again
      */
@@ -634,6 +640,7 @@ export interface TabPaneProps
         | 'fullScreen'
         | 'autoHeight'
         | 'onScroll'
+        | 'swipeEnergySaving'
     > {
     prefixCls?: string;
     panes: ReactNodeArray;
