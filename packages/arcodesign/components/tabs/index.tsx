@@ -191,6 +191,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         // 利用受控手动更改index时，给cell line加上动画
         // @en Animate the cell line when changeing the index
         setCellTrans(true);
+        changeFromRef.current = 'manual';
     }, [activeTab]);
 
     useUpdateEffect(() => {
