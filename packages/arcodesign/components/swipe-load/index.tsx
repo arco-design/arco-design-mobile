@@ -10,6 +10,7 @@ import React, {
 import { cls, fingerDisToLabelDis, defaultLocale } from '@arco-design/mobile-utils';
 import { ContextLayout, GlobalContext } from '../context-provider';
 import { SwipeLoadProps, SwipeLoadRef } from './type';
+import { setStyleWithVendor } from '../_helpers';
 import { useAddListener } from '../_helpers/hooks';
 
 export * from './type';
@@ -37,6 +38,18 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
         normalText = '',
         activeText = '',
         initPos = 0,
+        bounceWhenBumpBoundary = false,
+        bounceDampRate = 3,
+        bounceAnimateDuration = 300,
+        damping,
+        bounceDistanceProcessor,
+        getScrollContainer,
+        getBounceContainer,
+        onTouchStart,
+        onTouchEnd,
+        onTouchCancel,
+        onTouchMove,
+        renderLabel,
     } = props;
     const { locale = defaultLocale } = useContext(GlobalContext);
     const [disableState, setDisableState] = useState(disabled);
@@ -46,13 +59,15 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
     const loadingLabelRef = useRef<HTMLDivElement>(null);
     const showLoadMoreRef = useRef(false);
     const ifToRightRef = useRef(false);
+    const bouncingRef = useRef(false);
     const offsetRef = useRef(0);
     const domRef = useRef<HTMLDivElement | null>(null);
     const { current: wrapperEl } = domRef;
-    useAddListener(wrapperEl, 'touchstart', props.onTouchStart);
-    useAddListener(wrapperEl, 'touchend', props.onTouchEnd);
-    useAddListener(wrapperEl, 'touchcancel', props.onTouchCancel);
-    useAddListener(wrapperEl, 'touchmove', props.onTouchMove);
+    useAddListener(wrapperEl, 'touchstart', onTouchStart);
+    useAddListener(wrapperEl, 'touchend', onTouchEnd);
+    useAddListener(wrapperEl, 'touchcancel', onTouchCancel);
+    useAddListener(wrapperEl, 'touchmove', onTouchMove);
+
     useEffect(() => {
         if (disabled || !containerRef.current || disableState) {
             return;
@@ -67,11 +82,7 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
         } else if (containerRef.current.childNodes.length === 1) {
             // 传入一个子元素 滑动单个元素
             // @en Pass in a child element swipe the single element
-            if (props.getScrollContainer) {
-                scrollContainer = props.getScrollContainer();
-            } else {
-                scrollContainer = containerRef.current.firstChild;
-            }
+            scrollContainer = getScrollContainer?.() ?? containerRef.current.firstChild;
         } else {
             // 传入多个子元素(列表元素为例) 组件控制自行滑动 不推荐
             // @en Pass in multiple sub-elements (list elements as an example) Component control slides by itself which is not recommended
@@ -89,15 +100,18 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
         if (!loadingCurrent) {
             return;
         }
+        const bounceScrollContainer: HTMLElement = getBounceContainer?.() || scrollContainer;
         // 初始不显示标签
         // @en Initially no labels are displayed
         loadingCurrent.style.display = 'none';
         let startX = 0;
         let endX = 0;
+        let bounceDistance = 0;
         // 触摸页面确定X起始坐标
         // @en Determine the X starting coordinate on touchstart
         const touchstart = (e: TouchEvent) => {
-            startX = e.touches[0].pageX;
+            const evt = e.touches[0];
+            startX = evt.clientX || 0;
         };
         // 页面滑动确定X终止坐标，更新手指的X坐标，改变loading中的文字和大小
         // @en Determine the X end coordinate, update the X coordinate of the finger, change the text and size in the loading on touchmove
@@ -107,10 +121,25 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
             if (!scrollContainer.scrollLeft) {
                 scrollContainer.scrollLeft = 1;
             }
-            endX = e.touches[0].pageX;
+            endX = e.touches[0].clientX || 0;
             const diff = endX - startX;
             offsetRef.current = diff;
-            const labelDiff = fingerDisToLabelDis(Math.abs(diff), props.damping);
+            const labelDiff = fingerDisToLabelDis(Math.abs(diff), damping);
+            // 滑动到最左侧，处理回弹效果
+            // @en Swipe to the far left to handle the rebound effect
+            if (diff > 0 && scrollContainer.scrollLeft <= 1 && bounceWhenBumpBoundary) {
+                e.stopPropagation();
+                e.cancelBubble && e.preventDefault();
+                bouncingRef.current = true;
+                const processor =
+                    bounceDistanceProcessor ||
+                    (dis => Math.min(dis, bounceScrollContainer.offsetWidth) / bounceDampRate);
+                bounceDistance = processor(diff);
+                setStyleWithVendor(bounceScrollContainer, {
+                    transition: 'none',
+                    transform: `translateX(${bounceDistance}px) translateZ(0)`,
+                });
+            }
             // 向左滑动到尽头 '更多'标签加载 根据scrollLeft判断 滚动容器到达边缘触发 非滚动容器不判断
             // @en Swipe left to the end and the 'more' label is loaded. Judging by scrollLeft, the scroll container reaches the edge and the non-scroll container does not judge
             if (
@@ -145,12 +174,14 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
                             ? activeText || locale.SwipeLoad.activeText
                             : normalText || locale.SwipeLoad.normalText;
                 }
-                loadingCurrent.style.transition = 'all 0.02s';
-                loadingCurrent.style.webkitTransform = `translateX(-${labelRightMargin}px)`;
-                loadingCurrent.style.transform = `translateX(-${labelRightMargin}px)`;
-                scrollContainer.style.transition = 'all 0.03s';
-                scrollContainer.style.webkitTransform = `translateX(-${listRightMargin}px)`;
-                scrollContainer.style.transform = `translateX(-${listRightMargin}px)`;
+                setStyleWithVendor(loadingCurrent, {
+                    transition: 'none',
+                    transform: `translateX(-${labelRightMargin}px) translateZ(0)`,
+                });
+                setStyleWithVendor(scrollContainer, {
+                    transition: 'none',
+                    transform: `translateX(-${listRightMargin}px) translateZ(0)`,
+                });
             }
             if (
                 diff > 0 &&
@@ -172,21 +203,34 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
                 ifToRightRef.current = true;
             }
         };
+
         // 露出标签 反方向滑动隐藏'更多'标签
         // @en Reveal the label,  swipe in opposite direction to hide 'more' tab
-
         const touchend = () => {
             const diff = endX - startX;
             offsetRef.current = diff;
             const labelDiff = fingerDisToLabelDis(Math.abs(diff));
             const resumeAnimation = () => {
-                scrollContainer.style.transition = `all ${labelAnimationDuration}ms ${labelAnimationFunction}`;
-                scrollContainer.style.webkitTransform = 'translateX(0px)';
-                scrollContainer.style.transform = 'translateX(0px)';
-                loadingCurrent.style.transition = `all ${labelAnimationDuration}ms ${labelAnimationFunction}`;
-                loadingCurrent.style.webkitTransform = 'translateX(0px)';
-                loadingCurrent.style.transform = 'translateX(0px)';
-                showLoadMoreRef.current = false;
+                if (showLoadMoreRef.current) {
+                    showLoadMoreRef.current = false;
+                    const scrollTransitionCssStyle = `all ${labelAnimationDuration}ms ${labelAnimationFunction}`;
+                    const scrollTransformCssStyle = 'translateX(0px) translateZ(0)';
+                    setStyleWithVendor(scrollContainer, {
+                        transition: scrollTransitionCssStyle,
+                        transform: scrollTransformCssStyle,
+                    });
+                    setStyleWithVendor(loadingCurrent, {
+                        transition: scrollTransitionCssStyle,
+                        transform: scrollTransformCssStyle,
+                    });
+                }
+                if (bouncingRef.current) {
+                    bouncingRef.current = false;
+                    setStyleWithVendor(bounceScrollContainer, {
+                        transition: `all ${bounceAnimateDuration}ms`,
+                        transform: 'translateX(0px) translateZ(0)',
+                    });
+                }
                 ifToRightRef.current = false;
                 setTimeout(() => {
                     loadingCurrent.style.display = 'none';
@@ -219,7 +263,14 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
             scrollContainer.removeEventListener('touchmove', touchmove);
             scrollContainer.removeEventListener('touchend', touchend);
         };
-    }, [disabled]);
+    }, [
+        disabled,
+        getScrollContainer,
+        getBounceContainer,
+        bounceWhenBumpBoundary,
+        bounceDampRate,
+        bounceAnimateDuration,
+    ]);
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
     }));
@@ -234,7 +285,7 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
                      * 用户可以自行渲染label样式
                      * @en Users can render the label style by themselves
                      */}
-                    {props.renderLabel ? (
+                    {renderLabel ? (
                         <div
                             className={cls(`${prefixCls}-custom-loading-area`)}
                             ref={loadingRef}
@@ -247,9 +298,7 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
                              * 判断自定义渲染label函数的参数个数 传入offset则根据位置渲染
                              * @en Determine the number of parameters of the custom rendering label function, and pass in the offset to render according to the position
                              */}
-                            {props.renderLabel.length
-                                ? props.renderLabel(labelOffsetState)
-                                : props.renderLabel()}
+                            {renderLabel.length ? renderLabel(labelOffsetState) : renderLabel()}
                         </div>
                     ) : (
                         <div
