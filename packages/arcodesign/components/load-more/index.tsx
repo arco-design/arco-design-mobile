@@ -207,6 +207,9 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     );
 
     useEffect(() => {
+        if (!blockWhenLoading || nowStatus !== 'loading') {
+            lastScrollEndRef.current = false;
+        }
         statusRef.current = nowStatus;
     }, [nowStatus]);
 
