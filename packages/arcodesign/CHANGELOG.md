@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.1...@arco-design/mobile-react@2.27.2) (2023-05-10)
+
+
+### Bug Fixes
+
+* `LoadMore` status reset time for controlled mode ([#121](https://github.com/arco-design/arco-design-mobile/issues/121)) ([f141e7f](https://github.com/arco-design/arco-design-mobile/commit/f141e7f8e91944f5d68bb5fbf59238d5d48b8eda))
+* `NavBar` fix warning in nextjs ssr ([#118](https://github.com/arco-design/arco-design-mobile/issues/118)) ([57c2838](https://github.com/arco-design/arco-design-mobile/commit/57c283852f26e06fb4d38dc8753cff7a34232a98))
+* `ShowMonitor` support observer singleton ([#113](https://github.com/arco-design/arco-design-mobile/issues/113)) ([7099b30](https://github.com/arco-design/arco-design-mobile/commit/7099b307935357e496b902f6148ea0854da2912a))
+* `SwipeLoad` support bounce animate ([#29](https://github.com/arco-design/arco-design-mobile/issues/29)) ([cad1a6b](https://github.com/arco-design/arco-design-mobile/commit/cad1a6ba19e6d45a33233281fba863434f553ce2))
+* `Tabs` enable auto scroll when activeTab changed in scroll mode ([#116](https://github.com/arco-design/arco-design-mobile/issues/116)) ([07374f1](https://github.com/arco-design/arco-design-mobile/commit/07374f105f99418d447fc494c90d99d876601f9b))
+
+
+
+
+
 ## [2.27.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.0...@arco-design/mobile-react@2.27.1) (2023-04-26)
 
 

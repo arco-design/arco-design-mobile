@@ -23,6 +23,11 @@
 |getScrollContainer|得到滚动容器|() =\> HTMLElement|-|
 |normalText|标签初始文案|string|"更多"|
 |activeText|触发跳转文案|string|"释放查看"|
+|bounceWhenBumpBoundary|触碰左侧边界时是否需要回弹效果|boolean|false|
+|bounceDampRate|当开启回弹效果时的阻尼系数|number|3|
+|bounceAnimateDuration|当开启回弹效果时的动画毫秒时间|number|300|
+|getBounceContainer|回弹效果开启时需要回弹的容器，默认为 getScrollContainer 返回的容器或容器的一个子元素|() =\> HTMLElement|-|
+|bounceDistanceProcessor|当开启回弹效果时自定义手指滑动跟手的距离计算方式，dis表示touchmove的距离|(dis: number) =\> number|(dis) => Math.min(dis, bounceScrollContainer.offsetWidth) / bounceDampRate|
 |onTouchStart|抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突|(e?: TouchEvent) =\> void|-|
 |onTouchMove|抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突|(e?: TouchEvent) =\> void|-|
 |onTouchEnd|抛出外层touch事件，便于自定义，常用于阻止划动退出，切换tab等手势冲突|(e?: TouchEvent) =\> void|-|

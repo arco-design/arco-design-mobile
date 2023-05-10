@@ -23,6 +23,11 @@ After swiping to the left to reach the edge of the screen, the loading is trigge
 |getScrollContainer|Scroll container|() =\> HTMLElement|-|
 |normalText|Label initial text|string|"More"|
 |activeText|Text when triggering jump|string|"Release to view"|
+|bounceWhenBumpBoundary|Whether a bounce effect is required when touching the left boundary|boolean|false|
+|bounceDampRate|Damping coefficient when the rebound effect is turned on|number|3|
+|bounceAnimateDuration|Animation in milliseconds when the bounce effect is turned on|number|300|
+|getBounceContainer|The container that needs to be rebounded when the rebound effect is enabled, the default is the container returned by getScrollContainer or a child element of the container|() =\> HTMLElement|-|
+|bounceDistanceProcessor|When the rebound effect is turned on, customize the calculation method of the distance between the finger sliding and the hand, and dis indicates the distance of touchmove|(dis: number) =\> number|(dis) => Math.min(dis, bounceScrollContainer.offsetWidth) / bounceDampRate|
 |onTouchStart|Throw the outer touchstart event, which is easy to customize\. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc\.|(e?: TouchEvent) =\> void|-|
 |onTouchMove|Throws the outer touchmove event, which is easy to customize\. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc\.|(e?: TouchEvent) =\> void|-|
 |onTouchEnd|Throws the outer touchend event, which is easy to customize\. It is often used to prevent gesture conflicts such as swiping to exit, switching tabs, etc\.|(e?: TouchEvent) =\> void|-|

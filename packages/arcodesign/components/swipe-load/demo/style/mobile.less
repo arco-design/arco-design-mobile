@@ -4,36 +4,47 @@
     .list-container {
         width: 100%;
         .use-var(background, line-color);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
+
     .course-list {
         display: inline-flex;
         align-items: flex-start;
         padding: 12px 0;
     }
+
     .list-item,
     .list-item-color {
         height: 72px;
         margin-right: 10px;
         .use-var(background, background-color);
     }
+
     .list-item-color {
         .use-var(background, primary-disabled-color);
     }
+
     .mylabel-start,
     .mylabel-end {
         width: 100px;
         height: 96px;
         transition: background 0.2s;
         .use-var(background, background-color);
+
         &.end {
             .use-var(background, line-color);
         }
     }
+
     .mylabel-single {
         width: 100px;
         height: 88px;
         .use-var(background, primary-disabled-color);
     }
+
     .single-element {
         height: 88px;
         .use-var(background, primary-disabled-color);
