@@ -64,6 +64,7 @@ Used to let the user switch between different views. In order to optimize the re
 |tabPaneStyle|Custom style of TabPane outer container|CSSProperties|-|
 |tabPaneExtra|Extra rendering elements of TabPane, which shoule be absolute positioning|ReactNode|-|
 |translateZ|Whether TabPane and TabBar open translateZ|boolean|true|
+|swipeEnergySaving|Whether to enable the energy\-saving sliding mode\. After opening, the outer container of the TabPane will not expand with the number of panes and be promoted to a composite layer\. Only the currently selected pane will be slid, and other panes will be hidden before being selected\.|boolean|false|
 |onTouchStopped|Triggered when swiping to the first or last page and want to swipe again|(direction: 1 \| \-1) =\> void|-|
 |onChange|Callback when tab changes|(tab: TabData, index: number, from?: string) =\> void|-|
 |onAfterChange|Callback when the tab changes and the animation is completed|(tab: TabData, index: number, from?: string) =\> void|-|

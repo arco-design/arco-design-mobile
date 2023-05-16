@@ -64,6 +64,7 @@
 |tabPaneStyle|TabPane外层容器自定义样式|CSSProperties|-|
 |tabPaneExtra|TabPane额外渲染元素，需绝对定位|ReactNode|-|
 |translateZ|TabPane和TabBar开启translateZ|boolean|true|
+|swipeEnergySaving|是否启用滑动节能模式，开启后TabPane外层容器不会随panes数量撑开并提升为合成层，仅滑动当前选中的pane，其他pane在选中前将被隐藏|boolean|false|
 |onTouchStopped|当滑到第一页或最后一页，还想再滑动时触发|(direction: 1 \| \-1) =\> void|-|
 |onChange|tab变化回调|(tab: TabData, index: number, from?: string) =\> void|-|
 |onAfterChange|tab变化且动画执行完毕后回调|(tab: TabData, index: number, from?: string) =\> void|-|
