@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.2...@arco-design/mobile-react@2.27.3) (2023-05-16)
+
+
+### Bug Fixes
+
+* `Tabs` support swipe energy-saving mode ([50a440b](https://github.com/arco-design/arco-design-mobile/commit/50a440bc808c418a01160d8dcbaa2a870a5a4b97))
+
+
+
+
+
 ## [2.27.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.1...@arco-design/mobile-react@2.27.2) (2023-05-10)
 
 
