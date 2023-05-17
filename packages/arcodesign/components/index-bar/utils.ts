@@ -1,11 +1,10 @@
 import { Children, isValidElement, ReactElement, ReactNode } from 'react';
-import { IndexBarGroup } from './group';
 import { IndexBarIndexType } from './type';
 
 export function filterValidIndexBarChild(children: ReactNode) {
     const validChildren: ReactElement[] = [];
     Children.forEach(children, child => {
-        if (!isValidElement(child) || child.type !== IndexBarGroup) {
+        if (!isValidElement(child)) {
             console.warn('<IndexBar /> only accept <IndexBar.Group /> as the children');
             return;
         }

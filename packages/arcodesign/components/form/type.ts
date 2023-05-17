@@ -5,6 +5,8 @@ export type FieldValue = any;
 export type FieldItem = Record<string, any>;
 export type ILayout = 'horizontal' | 'vertical' | 'inline';
 
+// 注意：自动识别form关联组件的依据，请勿轻易改变代码结构
+// Notice: Automatically identify the basis of the associated component of the form, DO NOT change the code structure.
 export enum FormInternalComponentType {
     Input = 'Input',
     Textarea = 'Textarea',
