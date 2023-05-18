@@ -324,8 +324,9 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
         onOnceEmittedListeners[key] = [];
     }, []);
 
-    function handleCheckChildrenExist() {
-        return isChildrenExist.current && domRef.current && domRef.current.children.length;
+    function handleCheckChildrenExist(target?: Element) {
+        const dom = target || domRef.current;
+        return isChildrenExist.current && dom?.children.length;
     }
 
     function handleObserverStatusChange(entries: IntersectionObserverEntry[]) {
@@ -343,7 +344,7 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
                  * @en Callback when the visible status of current element changes before the comparison
                  */
                 isIntersecting !== curVisible &&
-                    handleCheckChildrenExist() &&
+                    handleCheckChildrenExist(target) &&
                     onCompVisibleChange(isIntersecting, target as HTMLDivElement);
                 /**
                  * 当前元素状态由不可见变为可见，且只触发一次
