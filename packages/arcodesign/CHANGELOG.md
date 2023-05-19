@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.3...@arco-design/mobile-react@2.27.4) (2023-05-19)
+
+
+### Bug Fixes
+
+* `IndexBar` remove redundant children judgement ([#123](https://github.com/arco-design/arco-design-mobile/issues/123)) ([cbba80d](https://github.com/arco-design/arco-design-mobile/commit/cbba80dcdb7d7b58e893ab9bd08cc3388008a6f3))
+* `ShowMonitor` fix disable observe when remount ([#125](https://github.com/arco-design/arco-design-mobile/issues/125)) ([73a5572](https://github.com/arco-design/arco-design-mobile/commit/73a5572961c7c2d6956c6c9406e486412b99e1c8))
+
+
+
+
+
 ## [2.27.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.2...@arco-design/mobile-react@2.27.3) (2023-05-16)
 
 
