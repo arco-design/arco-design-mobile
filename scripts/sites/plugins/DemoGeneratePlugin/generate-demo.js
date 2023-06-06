@@ -11,7 +11,7 @@ const compositeCompFolder = 'sites/mobile/pages/composite-comp';
 const compositeFolder = 'sites/composite-comp';
 const srcFolder = 'packages/arcodesign';
 const packageName = '@arco-design/mobile-react';
-const compFolder = path.join(srcFolder, 'components');
+const compFolder = path.posix.join(srcFolder, 'components');
 const compPath = path.join(rootPath, compFolder);
 const sitePath = path.join(rootPath, siteFolder);
 const compositeCompPath = path.join(rootPath, compositeCompFolder);
@@ -25,7 +25,7 @@ function renderSource({ comp, demoName, depsCompSet, language, compileEnv, demoP
     const reg = new RegExp(packageName, 'g');
 
     let order = 0;
-    
+
     renderer.code = code => {
         const filename = `_${utils.getCompName(demoName)}`;
         const content = `import React from 'react';
@@ -165,9 +165,9 @@ function generateSiteDemo({
         return new Promise((resolve) => {
             // 内部工具js不处理
             if (/^_/.test(comp)) {
-                return resolve()
+                return resolve();
             }
-        
+
             depsCompSet.add(comp);
 
             const docPath = path.join(sitePath, comp);
@@ -181,7 +181,7 @@ function generateSiteDemo({
             }
             const demoSource = [];
             let importStr = `import React from 'react';\n`;
-            
+
             demos.forEach(name => {
                 if (name.indexOf('.md') < 0) {
                     return resolve();
@@ -256,7 +256,7 @@ function generateSiteDemo({
     });
 
     Promise.all(promises).then(() => {
-       console.log(`>>> Generate ${language} demo files finished`);
+        console.log(`>>> Generate ${language} demo files finished`);
     });
 
     if (!compileComps.length) {
@@ -343,9 +343,9 @@ function generateSiteCompositeDemo({
                     demoCompSet.add(comp);
                 }
             });
-    
+
             demoSource.sort((a, b) => a.order - b.order);
-    
+
             const demoStylePath = path.join(demoPath, 'style');
             if (fs.existsSync(demoStylePath)) {
                 const styles = fs.readdirSync(demoStylePath);
@@ -379,7 +379,7 @@ function generateSiteCompositeDemo({
     });
 
     Promise.all(promises).then(() => {
-        console.log(`>>> Generate ${language} composite demo files finished`)
+        console.log(`>>> Generate ${language} composite demo files finished`);
     });
 
     [...demoCompSet].map(e => {
@@ -389,7 +389,7 @@ function generateSiteCompositeDemo({
         compDocsImportStr += `import ${importName} from './${e}${tsxFileSuffix ? `/index${tsxFileSuffix}` : ''}';\n`;
         compDocsStr += `    '${route}': ${importName},\n`;
     });
-const docEntryStr = `${compDocsImportStr}
+    const docEntryStr = `${compDocsImportStr}
 const docs = {\n${compDocsStr}};
 
 export default docs;
