@@ -429,3 +429,11 @@ export function convertCssDuration(ele: HTMLElement, property: string) {
     }
     return 0;
 }
+
+export function safeGetComputedStyle(element: HTMLElement) {
+    try {
+        return window.getComputedStyle(element);
+    } catch (e) {
+        return {} as CSSStyleDeclaration;
+    }
+}

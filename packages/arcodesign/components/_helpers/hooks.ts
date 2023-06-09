@@ -4,7 +4,7 @@
  * @name_en General Hooks
  */
 import React, { useState, useRef, useEffect, useCallback, useContext } from 'react';
-import { getSystem, scrollWithAnimation } from '@arco-design/mobile-utils';
+import { getSystem, scrollWithAnimation, safeGetComputedStyle } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
 import { BezierType } from '../progress';
 
@@ -163,7 +163,7 @@ export function usePopupScroll(
                 scrollRef.current = actualEle.reduce(
                     (acc, nowEle) => [
                         ...acc,
-                        ...(nowEle && window.getComputedStyle(nowEle).overflow !== 'hidden'
+                        ...(nowEle && safeGetComputedStyle(nowEle).overflow !== 'hidden'
                             ? [
                                   {
                                       ele: nowEle,
