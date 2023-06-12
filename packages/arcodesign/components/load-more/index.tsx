@@ -215,7 +215,12 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     useUpdateEffect(() => {
         // 当状态被设置为 prepare ，且页面总长度不足一屏时，再触发一次 getData
         // @en When the state is set to prepare and the total page length is less than one screen, trigger getData again
-        if (trigger === 'scroll' && nowStatus === 'prepare' && checkNeedTrigger(0, threshold)) {
+        const scrollTop = getScrollContainerAttribute('scrollTop', getScrollContainer);
+        if (
+            trigger === 'scroll' &&
+            nowStatus === 'prepare' &&
+            checkNeedTrigger(scrollTop, threshold)
+        ) {
             triggerGetData('pageEnd');
         }
     }, [nowStatus]);
