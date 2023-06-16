@@ -87,7 +87,7 @@ export interface LoadMoreProps {
      * @en When multiple loadmore, calculate the real scrollHeight
      * @default () => window
      */
-    getMoreScrollContainer?: () => HTMLElement | Window | null;
+    scrollHeightNode?: () => HTMLElement | Window | null;
     /**
      * 触发loading的时机，当为click时，点击后将触发getData
      * @en The timing of triggering loading, when it is click, getData will be triggered after clicking
@@ -173,7 +173,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         defaultStatus = 'prepare',
         status,
         getScrollContainer,
-        getMoreScrollContainer,
+        scrollHeightNode,
         trigger = 'scroll',
         threshold = 200,
         throttle = 0,
@@ -279,9 +279,9 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     );
 
     function checkNeedTrigger(top: number, ths: number) {
-        const scrollHeight = getMoreScrollContainer
-            ? getScrollContainerAttribute('offsetHeight', getMoreScrollContainer) +
-              getScrollContainerAttribute('offsetTop', getMoreScrollContainer)
+        const scrollHeight = scrollHeightNode
+            ? getScrollContainerAttribute('offsetHeight', scrollHeightNode) +
+              getScrollContainerAttribute('offsetTop', scrollHeightNode)
             : getScrollContainerAttribute('scrollHeight', getScrollContainer);
         const clientHeight = getScrollContainerAttribute('clientHeight', getScrollContainer);
         return scrollHeight - top - clientHeight <= ths;

@@ -71,7 +71,7 @@ export default function LoadMoreDemo() {
                 ))}
             </div>
             <LoadMore
-                getMoreScrollContainer={() => domRef.current}
+                scrollHeightNode={() => domRef.current}
                 style={{ paddingTop: 16, paddingBottom: 44 }}
                 getData={getData}
                 threshold={0}
@@ -82,7 +82,7 @@ export default function LoadMoreDemo() {
                 ))}
             </div>
             <LoadMore
-                getMoreScrollContainer={() => domRef2.current}
+                scrollHeightNode={() => domRef2.current}
                 style={{ paddingTop: 16, paddingBottom: 44 }}
                 getData={getData2}
                 threshold={0}
