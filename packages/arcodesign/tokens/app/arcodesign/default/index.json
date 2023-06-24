@@ -7927,6 +7927,18 @@
             "en": "The horizontal offset of switch button when the switch is on in Android"
         }
     },
+    "switchAndroidCheckedInnerTransformRtl": {
+        "cssKey": "switch-android-checked-inner-transform-rtl",
+        "desc": "switch 安卓开关打开时横向偏移量",
+        "override": "",
+        "value": "translateX(-16PX)",
+        "jsValue": "translateX(-16PX)",
+        "staticValue": "translateX(-16PX)",
+        "localeDesc": {
+            "ch": "switch 安卓开关打开时横向偏移量",
+            "en": "The horizontal offset of switch button when the switch is on in Android"
+        }
+    },
     "switchAndroidDisabledBackground": {
         "cssKey": "switch-android-disabled-background",
         "desc": "switch 安卓开关默认关闭禁用点击时背景色",
@@ -8138,6 +8150,18 @@
         "value": "translateX(~`pxtorem(20)`)",
         "jsValue": "translateX(@getRem@20)",
         "staticValue": "translateX(0.4rem)",
+        "localeDesc": {
+            "ch": "switch iOS 开关打开时横向偏移量",
+            "en": "The horizontal offset of switch button when the switch is on in iOS"
+        }
+    },
+    "switchIosCheckedInnerTransformRtl": {
+        "cssKey": "switch-ios-checked-inner-transform-rtl",
+        "desc": "switch iOS 开关打开时横向偏移量",
+        "override": "",
+        "value": "translateX(~`pxtorem(-20)`)",
+        "jsValue": "translateX(@getRem@-20)",
+        "staticValue": "translateX(-0.4rem)",
         "localeDesc": {
             "ch": "switch iOS 开关打开时横向偏移量",
             "en": "The horizontal offset of switch button when the switch is on in iOS"

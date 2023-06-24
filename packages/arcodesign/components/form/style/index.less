@@ -20,12 +20,12 @@
         .use-var(font-size, form-item-label-item-font-size);
         .use-var(line-height, form-item-label-item-line-height);
         .use-var(color, form-item-label-item-color);
-        .use-var(padding-right, form-item-label-item-gutter);
+        .use-var-with-rtl(padding-right, form-item-label-item-gutter);
         .use-var(width, form-item-label-item-width);
 
         &-required-asterisk {
             position: absolute;
-            left: -0.6em;
+            .set-prop-with-rtl(left, -0.6em);
             top: 0;
 
             .use-var(font-size, form-item-label-item-font-size);
@@ -60,7 +60,7 @@
         }
 
         svg {
-            .rem(margin-right, 4);
+            .rem-with-rtl(margin-right, 4);
         }
         margin-bottom: 16px;
     }
@@ -75,7 +75,7 @@
     &-item.@{prefix}-form-item-vertical {
         display: block;
         .arco-input-wrap {
-            padding-left: 0;
+            .set-prop-with-rtl(padding-left, 0);
         }
         .@{prefix}-form-label-item {
             width: auto;

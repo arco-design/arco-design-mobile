@@ -270,6 +270,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'switch-android-fully-border-radius': string;
     'switch-android-semi-border-radius': string;
     'switch-android-checked-inner-transform': string;
+    'switch-android-checked-inner-transform-rtl': string;
     'switch-android-text-font-size': string;
     'switch-android-text-gap-size': string;
     'switch-android-background': string;
@@ -285,6 +286,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'switch-ios-fully-border-radius': string;
     'switch-ios-semi-border-radius': string;
     'switch-ios-checked-inner-transform': string;
+    'switch-ios-checked-inner-transform-rtl': string;
     'switch-ios-text-font-size': string;
     'switch-ios-text-gap-size': string;
     'switch-ios-background': string;
