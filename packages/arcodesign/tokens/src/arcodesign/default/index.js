@@ -4018,6 +4018,59 @@ function getCompTokens() {
          * @en Top and Bottom padding of divider
          */
         dividerPadding: getRem(16),
+        /**
+         * 骨架屏元素圆角
+         * @en Skeleton element border radius
+         */
+        skeletonBorderRadius: getRem(0),
+        /**
+         * 骨架屏元素背景色
+         * @en Skeleton element background color
+         */
+        skeletonBackgroundColor: '#F2F3F5',
+        /**
+         * 骨架屏扫光高亮色
+         * @en Skeleton element gradient animation highlight color
+         */
+        skeletonGradientAnimationColor: 'rgba(255, 255, 255, 0.6)',
+        /**
+         * 骨架屏标题高度
+         * @en Skeleton title height
+         */
+        skeletonTitleHeight: getRem(16),
+        /**
+         * 骨架屏段落行高度
+         * @en Skeleton paragraph line height
+         */
+        skeletonParagraphHeight: getRem(16),
+        /**
+         * 骨架屏各段落行间距
+         * @en Margin top between skeleton paragraph lines
+         */
+        skeletonParagraphMarginTop: getRem(12),
+        /**
+         * 骨架屏金刚位图标区宽度
+         * @en Skeleton grid item icon width
+         */
+        skeletonGridIconWidth: getRem(32),
+        /**
+         * 骨架屏金刚位文字区宽度
+         * @en Skeleton grid item text width
+         */
+        skeletonGridTextWidth: getRem(64),
+        /**
+         * 骨架屏金刚位文字区高度
+         * @en Skeleton grid item text height
+         */
+        skeletonGridTextHeight: getRem(16),
+        /**
+         * 骨架屏元素外边距，中尺寸
+         */
+        skeletonGutterMedium: getRem(8),
+        /**
+         * 骨架屏元素外边距，大尺寸
+         */
+        skeletonGutterLarge: getRem(20),
     };
 }
 

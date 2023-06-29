@@ -1,0 +1,141 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-skeleton {
+    position: relative;
+}
+
+.@{prefix}-skeleton-title {
+    .use-var(height, 'skeleton-title-height');
+}
+
+.@{prefix}-skeleton-paragraph {
+    &-line {
+        width: 100%;
+        .use-var(height, 'skeleton-paragraph-height');
+
+        &:last-child:not(:first-child):not(:nth-child(2)) {
+            width: 58%;
+        }
+    }
+
+    &-line + &-line {
+        .use-var(margin-top, 'skeleton-paragraph-margin-top');
+    }
+}
+
+.@{prefix}-skeleton-avatar {
+    .@{prefix}-avatar {
+        background-color: transparent;
+        overflow: hidden;
+    }
+    .@{prefix}-skeleton-item {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.@{prefix}-skeleton-content {
+    width: 100%;
+
+    .@{prefix}-skeleton-title + .@{prefix}-skeleton-paragraph {
+        .use-var(margin-top, 'skeleton-gutter-large');
+    }
+}
+
+.@{prefix}-skeleton-with-avatar {
+    display: flex;
+    align-items: flex-start;
+
+    .@{prefix}-skeleton-content {
+        .@{prefix}-skeleton-title {
+            .use-var(margin-top, 'skeleton-gutter-medium');
+        }
+    }
+
+    .@{prefix}-skeleton-avatar + .@{prefix}-skeleton-content {
+        .use-var(margin-left, 'skeleton-gutter-medium');
+    }
+}
+
+.@{prefix}-skeleton-grid {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &-icon {
+        .use-var(width, 'skeleton-grid-icon-width');
+        .use-var(height, 'skeleton-grid-icon-width');
+    }
+    &-text {
+        .use-var(margin-top, 'skeleton-gutter-medium');
+        .use-var(width, 'skeleton-grid-text-width');
+        .use-var(height, 'skeleton-grid-text-height');
+    }
+}
+
+.@{prefix}-skeleton-node {
+    display: inline-block;
+    width: auto;
+}
+
+.@{prefix}-skeleton-item {
+    position: relative;
+    overflow: hidden;
+    .use-var(border-radius, 'skeleton-border-radius');
+    .use-var(background-color, 'skeleton-background-color');
+}
+
+.@{prefix}-skeleton-animation-item {
+    position: absolute;
+    width: 200vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 25%,
+        @skeleton-gradient-animation-color 40%,
+        rgba(255, 255, 255, 0) 55%
+    );
+    & when (@use-css-vars = 1) {
+        background-image: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 25%,
+            var(--skeleton-gradient-animation-color) 40%,
+            rgba(255, 255, 255, 0) 55%
+        );
+    }
+    animation: gradient 2s linear infinite;
+}
+.@{prefix}-skeleton-animation-breath {
+    animation: breath 2s linear infinite;
+}
+
+@keyframes gradient {
+    0% {
+        transform: translateX(-200%) skewX(-45deg);
+    }
+
+    100% {
+        transform: translateX(200%) skewX(-45deg);
+    }
+}
+
+@keyframes breath {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

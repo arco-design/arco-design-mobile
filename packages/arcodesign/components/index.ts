@@ -44,6 +44,7 @@ export { default as Portal } from './portal';
 export { default as Progress } from './progress';
 export { default as PullRefresh } from './pull-refresh';
 export { default as SearchBar } from './search-bar';
+export { default as Skeleton } from './skeleton';
 export { default as Stepper } from './stepper';
 export { default as Steps } from './steps';
 export { default as Sticky } from './sticky';

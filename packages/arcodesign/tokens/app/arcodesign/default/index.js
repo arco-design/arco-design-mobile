@@ -803,7 +803,18 @@ var tokens = {
   "divider-left-width": "0.56rem",
   "divider-right-width": "0.56rem",
   "divider-content-padding": "0.24rem",
-  "divider-padding": "0.32rem"
+  "divider-padding": "0.32rem",
+  "skeleton-border-radius": "0",
+  "skeleton-background-color": "#F2F3F5",
+  "skeleton-gradient-animation-color": "rgba(255, 255, 255, 0.6)",
+  "skeleton-title-height": "0.32rem",
+  "skeleton-paragraph-height": "0.32rem",
+  "skeleton-paragraph-margin-top": "0.24rem",
+  "skeleton-grid-icon-width": "0.64rem",
+  "skeleton-grid-text-width": "1.28rem",
+  "skeleton-grid-text-height": "0.32rem",
+  "skeleton-gutter-medium": "0.16rem",
+  "skeleton-gutter-large": "0.4rem"
 };
 var _default = tokens;
 exports["default"] = _default;

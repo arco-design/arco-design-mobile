@@ -45,6 +45,7 @@ import './portal/style';
 import './progress/style';
 import './pull-refresh/style';
 import './search-bar/style';
+import './skeleton/style';
 import './stepper/style';
 import './steps/style';
 import './sticky/style';

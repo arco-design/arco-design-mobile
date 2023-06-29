@@ -1,0 +1,477 @@
+{
+    "description": "在内容加载过程中展示一组占位图形。",
+    "descriptionTags": {
+        "en": "Display a set of placeholder graphics during content loading",
+        "type": "信息展示",
+        "type_en": "Data Display",
+        "name": "骨架屏",
+        "name_en": "Skeleton"
+    },
+    "displayName": "Skeleton",
+    "methods": [],
+    "props": {
+        "animation": {
+            "defaultValue": null,
+            "description": "加载动画效果，可选“扫光”、“呼吸”两种效果，不传入表示不展示动画效果\n@en Animation of loading effect, 'gradient' and 'breath' effects are optional, default is no animation effect if not passed",
+            "name": "animation",
+            "tags": {
+                "en": "Animation of loading effect, 'gradient' and 'breath' effects are optional, default is no animation effect if not passed"
+            },
+            "descWithTags": "加载动画效果，可选“扫光”、“呼吸”两种效果，不传入表示不展示动画效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"gradient\" | \"breath\"",
+                "value": [
+                    {
+                        "value": "\"gradient\""
+                    },
+                    {
+                        "value": "\"breath\""
+                    }
+                ]
+            }
+        },
+        "title": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否显示标题占位图\n@en Show title placeholder",
+            "name": "title",
+            "tags": {
+                "en": "Show title placeholder",
+                "default": "true"
+            },
+            "descWithTags": "是否显示标题占位图",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | SkeletonTitleProps"
+            }
+        },
+        "paragraph": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否显示段落占位图\n@en Show paragraph placeholder",
+            "name": "paragraph",
+            "tags": {
+                "en": "Show paragraph placeholder",
+                "default": "true"
+            },
+            "descWithTags": "是否显示段落占位图",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | SkeletonParagraphProps"
+            }
+        },
+        "avatar": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否显示头像占位图\n@en Show Avatar placeholder",
+            "name": "avatar",
+            "tags": {
+                "en": "Show Avatar placeholder",
+                "default": "false"
+            },
+            "descWithTags": "是否显示头像占位图",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | SkeletonAvatarProps"
+            }
+        },
+        "grid": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否显示金刚位占位图（该参数非空时，不展示标题/段落/头像占位符）\n@en Show Grid placeholder. When it's value is present, the paragraph, avatar or title placeholder will not be displayed",
+            "name": "grid",
+            "tags": {
+                "en": "Show Grid placeholder. When it's value is present, the paragraph, avatar or title placeholder will not be displayed",
+                "default": "false"
+            },
+            "descWithTags": "是否显示金刚位占位图（该参数非空时，不展示标题/段落/头像占位符）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | SkeletonGridProps"
+            }
+        },
+        "children": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "子元素\n@en Children element",
+            "name": "children",
+            "tags": {
+                "en": "Children element",
+                "default": "null"
+            },
+            "descWithTags": "子元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<SkeletonRef>"
+            }
+        }
+    },
+    "deps": {
+        "SkeletonTitleProps": {
+            "width": {
+                "name": "width",
+                "required": false,
+                "description": "标题占位图宽度\n@en The width of title",
+                "defaultValue": {
+                    "value": "'38%'"
+                },
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "The width of title",
+                    "default": "'38%'"
+                },
+                "descWithTags": "标题占位图宽度"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "SkeletonParagraphProps": {
+            "rows": {
+                "name": "rows",
+                "required": false,
+                "description": "段落占位图的行数\n@en Number of lines for paragraph",
+                "defaultValue": {
+                    "value": "3"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Number of lines for paragraph",
+                    "default": "3"
+                },
+                "descWithTags": "段落占位图的行数"
+            },
+            "width": {
+                "name": "width",
+                "required": false,
+                "description": "段落占位图宽度，若为数组格式对应每行宽度，否则表示最后一行的宽度\n@en The width of paragraph. If width is an Array, it corresponds to the width of each line, otherwise it indicates the width of the last line",
+                "defaultValue": {
+                    "value": "'58%'"
+                },
+                "type": {
+                    "name": "string | number | ReactText[]"
+                },
+                "tags": {
+                    "en": "The width of paragraph. If width is an Array, it corresponds to the width of each line, otherwise it indicates the width of the last line",
+                    "default": "'58%'"
+                },
+                "descWithTags": "段落占位图宽度，若为数组格式对应每行宽度，否则表示最后一行的宽度"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "SkeletonAvatarProps": {
+            "shape": {
+                "name": "shape",
+                "required": false,
+                "description": "头像形状\n@en Shape of avatar",
+                "defaultValue": {
+                    "value": "'circle'"
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"circle\" | \"square\"",
+                    "value": [
+                        {
+                            "value": "\"circle\""
+                        },
+                        {
+                            "value": "\"square\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Shape of avatar",
+                    "default": "'circle'"
+                },
+                "descWithTags": "头像形状"
+            },
+            "size": {
+                "name": "size",
+                "required": false,
+                "description": "头像尺寸\n@en Size of avatar",
+                "defaultValue": {
+                    "value": "'smaller'"
+                },
+                "type": {
+                    "name": "enum",
+                    "raw": "\"medium\" | \"large\" | \"small\" | \"smaller\" | \"ultra-small\"",
+                    "value": [
+                        {
+                            "value": "\"medium\""
+                        },
+                        {
+                            "value": "\"large\""
+                        },
+                        {
+                            "value": "\"small\""
+                        },
+                        {
+                            "value": "\"smaller\""
+                        },
+                        {
+                            "value": "\"ultra-small\""
+                        }
+                    ]
+                },
+                "tags": {
+                    "en": "Size of avatar",
+                    "default": "'smaller'"
+                },
+                "descWithTags": "头像尺寸"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "SkeletonGridProps": {
+            "columns": {
+                "name": "columns",
+                "required": false,
+                "description": "金刚位列数\n@en columns of grid",
+                "defaultValue": {
+                    "value": "4"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "columns of grid",
+                    "default": "4"
+                },
+                "descWithTags": "金刚位列数"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "SkeletonRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "最外层 DOM 元素"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "SkeletonProps",
+        "ref": "SkeletonRef"
+    },
+    "isDefaultExport": true
+}

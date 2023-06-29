@@ -6629,6 +6629,136 @@
             "en": "Size of the rounded corners of the square SearchBar"
         }
     },
+    "skeletonBackgroundColor": {
+        "cssKey": "skeleton-background-color",
+        "desc": "骨架屏元素背景色",
+        "override": "",
+        "value": "#F2F3F5",
+        "jsValue": "#F2F3F5",
+        "staticValue": "#F2F3F5",
+        "localeDesc": {
+            "ch": "骨架屏元素背景色",
+            "en": "Skeleton element background color"
+        }
+    },
+    "skeletonBorderRadius": {
+        "cssKey": "skeleton-border-radius",
+        "desc": "骨架屏元素圆角",
+        "override": "",
+        "value": "~`pxtorem(0)`",
+        "jsValue": "@getRem@0",
+        "staticValue": "0",
+        "localeDesc": {
+            "ch": "骨架屏元素圆角",
+            "en": "Skeleton element border radius"
+        }
+    },
+    "skeletonGradientAnimationColor": {
+        "cssKey": "skeleton-gradient-animation-color",
+        "desc": "骨架屏扫光高亮色",
+        "override": "",
+        "value": "rgba(255, 255, 255, 0.6)",
+        "jsValue": "rgba(255, 255, 255, 0.6)",
+        "staticValue": "rgba(255, 255, 255, 0.6)",
+        "localeDesc": {
+            "ch": "骨架屏扫光高亮色",
+            "en": "Skeleton element gradient animation highlight color"
+        }
+    },
+    "skeletonGridIconWidth": {
+        "cssKey": "skeleton-grid-icon-width",
+        "desc": "骨架屏金刚位图标区宽度",
+        "override": "",
+        "value": "~`pxtorem(32)`",
+        "jsValue": "@getRem@32",
+        "staticValue": "0.64rem",
+        "localeDesc": {
+            "ch": "骨架屏金刚位图标区宽度",
+            "en": "Skeleton grid item icon width"
+        }
+    },
+    "skeletonGridTextHeight": {
+        "cssKey": "skeleton-grid-text-height",
+        "desc": "骨架屏金刚位文字区高度",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "骨架屏金刚位文字区高度",
+            "en": "Skeleton grid item text height"
+        }
+    },
+    "skeletonGridTextWidth": {
+        "cssKey": "skeleton-grid-text-width",
+        "desc": "骨架屏金刚位文字区宽度",
+        "override": "",
+        "value": "~`pxtorem(64)`",
+        "jsValue": "@getRem@64",
+        "staticValue": "1.28rem",
+        "localeDesc": {
+            "ch": "骨架屏金刚位文字区宽度",
+            "en": "Skeleton grid item text width"
+        }
+    },
+    "skeletonGutterLarge": {
+        "cssKey": "skeleton-gutter-large",
+        "desc": "骨架屏元素外边距，大尺寸",
+        "override": "",
+        "value": "~`pxtorem(20)`",
+        "jsValue": "@getRem@20",
+        "staticValue": "0.4rem",
+        "localeDesc": {
+            "ch": "骨架屏元素外边距，大尺寸"
+        }
+    },
+    "skeletonGutterMedium": {
+        "cssKey": "skeleton-gutter-medium",
+        "desc": "骨架屏元素外边距，中尺寸",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "骨架屏元素外边距，中尺寸"
+        }
+    },
+    "skeletonParagraphHeight": {
+        "cssKey": "skeleton-paragraph-height",
+        "desc": "骨架屏段落行高度",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "骨架屏段落行高度",
+            "en": "Skeleton paragraph line height"
+        }
+    },
+    "skeletonParagraphMarginTop": {
+        "cssKey": "skeleton-paragraph-margin-top",
+        "desc": "骨架屏各段落行间距",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "骨架屏各段落行间距",
+            "en": "Margin top between skeleton paragraph lines"
+        }
+    },
+    "skeletonTitleHeight": {
+        "cssKey": "skeleton-title-height",
+        "desc": "骨架屏标题高度",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "骨架屏标题高度",
+            "en": "Skeleton title height"
+        }
+    },
     "sliderHasMarkPaddingBottom": {
         "cssKey": "slider-has-mark-padding-bottom",
         "desc": "slider 有标记时的底部内边距",
