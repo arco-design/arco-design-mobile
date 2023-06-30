@@ -1389,11 +1389,6 @@ function getCompTokens() {
          */
         switchAndroidCheckedInnerTransform: `translateX(16PX)`,
         /**
-         * switch 安卓开关打开时横向偏移量(RTL)
-         * @en The horizontal offset of switch button when the switch is on in Android
-         */
-        switchAndroidCheckedInnerTransformRtl: `translateX(-16PX)`,
-        /**
          * switch 安卓开关文字大小
          * @en Switch font size in Android
          */
@@ -1470,11 +1465,6 @@ function getCompTokens() {
          * @en The horizontal offset of switch button when the switch is on in iOS
          */
         switchIosCheckedInnerTransform: `translateX(${getRem(20)})`,
-        /**
-         * switch iOS 开关打开时横向偏移量(RTL)
-         * @en The horizontal offset of switch button when the switch is on in iOS
-         */
-        switchIosCheckedInnerTransformRtl: `translateX(${getRem(-20)})`,
         /**
          * switch iOS 开关文字大小
          * @en Switch font size in iOS
