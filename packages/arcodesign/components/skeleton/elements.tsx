@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { cls, isArray } from '@arco-design/mobile-utils';
 import { useListenResize } from '../_helpers';
-import { ContextLayout } from '../context-provider';
+import { GlobalContext } from '../context-provider';
 import Avatar from '../avatar';
 import {
     SkeletonAvatarProps,
@@ -56,6 +56,7 @@ function useOffset<T extends HTMLElement, K extends React.MutableRefObject<T | n
 
 export const SkeletonNode = forwardRef((props: SkeletonNodeProps, ref: Ref<SkeletonRef>) => {
     const { className = '', style, children } = props;
+    const { useRtl, prefixCls } = useContext(GlobalContext);
     const { animation } = useContext(SkeletonContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const isGradientAnimation = animation === 'gradient';
@@ -66,33 +67,30 @@ export const SkeletonNode = forwardRef((props: SkeletonNodeProps, ref: Ref<Skele
     }));
 
     return (
-        <ContextLayout>
-            {({ prefixCls }) => (
-                <div
-                    className={cls(
-                        `${prefixCls}-skeleton-item`,
-                        `${prefixCls}-skeleton-node`,
-                        animation && `${prefixCls}-skeleton-animation-${animation}`,
-                        className,
-                    )}
-                    style={style}
-                    ref={domRef}
-                >
-                    {children}
-                    {isGradientAnimation && (
-                        <div
-                            className={`${prefixCls}-skeleton-animation-item`}
-                            style={{ left: 0 - offset }}
-                        />
-                    )}
-                </div>
+        <div
+            className={cls(
+                `${prefixCls}-skeleton-item`,
+                `${prefixCls}-skeleton-node`,
+                animation && `${prefixCls}-skeleton-animation-${animation}`,
+                className,
             )}
-        </ContextLayout>
+            style={style}
+            ref={domRef}
+        >
+            {children}
+            {isGradientAnimation && (
+                <div
+                    className={`${prefixCls}-skeleton-animation-item`}
+                    style={{ [useRtl ? 'right' : 'left']: 0 - offset }}
+                />
+            )}
+        </div>
     );
 });
 
 export const SkeletonTitle = forwardRef((props: SkeletonTitleProps, ref: Ref<SkeletonRef>) => {
     const { className = '', style, width = '38%' } = props;
+    const { useRtl, prefixCls } = useContext(GlobalContext);
     const { animation } = useContext(SkeletonContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const isGradientAnimation = animation === 'gradient';
@@ -103,33 +101,30 @@ export const SkeletonTitle = forwardRef((props: SkeletonTitleProps, ref: Ref<Ske
     }));
 
     return (
-        <ContextLayout>
-            {({ prefixCls }) => (
-                <div
-                    className={cls(
-                        `${prefixCls}-skeleton-item`,
-                        `${prefixCls}-skeleton-title`,
-                        animation && `${prefixCls}-skeleton-animation-${animation}`,
-                        className,
-                    )}
-                    style={{ width, ...style }}
-                    ref={domRef}
-                >
-                    {isGradientAnimation && (
-                        <div
-                            className={`${prefixCls}-skeleton-animation-item`}
-                            style={{ left: 0 - offset }}
-                        />
-                    )}
-                </div>
+        <div
+            className={cls(
+                `${prefixCls}-skeleton-item`,
+                `${prefixCls}-skeleton-title`,
+                animation && `${prefixCls}-skeleton-animation-${animation}`,
+                className,
             )}
-        </ContextLayout>
+            style={{ width, ...style }}
+            ref={domRef}
+        >
+            {isGradientAnimation && (
+                <div
+                    className={`${prefixCls}-skeleton-animation-item`}
+                    style={{ [useRtl ? 'right' : 'left']: 0 - offset }}
+                />
+            )}
+        </div>
     );
 });
 
 export const SkeletonParagraph = forwardRef(
     (props: SkeletonParagraphProps, ref: Ref<SkeletonRef>) => {
         const { className = '', style, rows = 3, width } = props;
+        const { useRtl, prefixCls } = useContext(GlobalContext);
         const { animation } = useContext(SkeletonContext);
         const domRef = useRef<HTMLDivElement | null>(null);
         const lineDomRefs = useRef<HTMLDivElement[]>([]);
@@ -151,43 +146,40 @@ export const SkeletonParagraph = forwardRef(
         };
 
         return (
-            <ContextLayout>
-                {({ prefixCls }) => (
+            <div
+                className={cls(`${prefixCls}-skeleton-paragraph`, className)}
+                style={style}
+                ref={domRef}
+            >
+                {Array.from(new Array(rows)).map((_, idx) => (
                     <div
-                        className={cls(`${prefixCls}-skeleton-paragraph`, className)}
-                        style={style}
-                        ref={domRef}
+                        key={idx}
+                        className={cls(
+                            `${prefixCls}-skeleton-item`,
+                            `${prefixCls}-skeleton-paragraph-line`,
+                            animation && `${prefixCls}-skeleton-animation-${animation}`,
+                        )}
+                        style={{
+                            width: getWidth(idx),
+                        }}
+                        ref={el => el && (lineDomRefs.current[idx] = el)}
                     >
-                        {Array.from(new Array(rows)).map((_, idx) => (
+                        {isGradientAnimation && (
                             <div
-                                key={idx}
-                                className={cls(
-                                    `${prefixCls}-skeleton-item`,
-                                    `${prefixCls}-skeleton-paragraph-line`,
-                                    animation && `${prefixCls}-skeleton-animation-${animation}`,
-                                )}
-                                style={{
-                                    width: getWidth(idx),
-                                }}
-                                ref={el => el && (lineDomRefs.current[idx] = el)}
-                            >
-                                {isGradientAnimation && (
-                                    <div
-                                        className={`${prefixCls}-skeleton-animation-item`}
-                                        style={{ left: 0 - (offsets[idx] || 0) }}
-                                    />
-                                )}
-                            </div>
-                        ))}
+                                className={`${prefixCls}-skeleton-animation-item`}
+                                style={{ [useRtl ? 'right' : 'left']: 0 - (offsets[idx] || 0) }}
+                            />
+                        )}
                     </div>
-                )}
-            </ContextLayout>
+                ))}
+            </div>
         );
     },
 );
 
 export const SkeletonAvatar = forwardRef((props: SkeletonAvatarProps, ref: Ref<SkeletonRef>) => {
     const { className = '', style, shape = 'circle', size = 'smaller' } = props;
+    const { useRtl, prefixCls } = useContext(GlobalContext);
     const { animation } = useContext(SkeletonContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const isGradientAnimation = animation === 'gradient';
@@ -198,33 +190,30 @@ export const SkeletonAvatar = forwardRef((props: SkeletonAvatarProps, ref: Ref<S
     }));
 
     return (
-        <ContextLayout>
-            {({ prefixCls }) => (
-                <div className={cls(`${prefixCls}-skeleton-avatar`, className)} ref={domRef}>
-                    <Avatar src="" shape={shape} size={size}>
+        <div className={cls(`${prefixCls}-skeleton-avatar`, className)} ref={domRef}>
+            <Avatar src="" shape={shape} size={size}>
+                <div
+                    className={cls(
+                        `${prefixCls}-skeleton-item`,
+                        animation && `${prefixCls}-skeleton-animation-${animation}`,
+                    )}
+                    style={style}
+                >
+                    {isGradientAnimation && (
                         <div
-                            className={cls(
-                                `${prefixCls}-skeleton-item`,
-                                animation && `${prefixCls}-skeleton-animation-${animation}`,
-                            )}
-                            style={style}
-                        >
-                            {isGradientAnimation && (
-                                <div
-                                    className={`${prefixCls}-skeleton-animation-item`}
-                                    style={{ left: 0 - offset }}
-                                />
-                            )}
-                        </div>
-                    </Avatar>
+                            className={`${prefixCls}-skeleton-animation-item`}
+                            style={{ [useRtl ? 'right' : 'left']: 0 - offset }}
+                        />
+                    )}
                 </div>
-            )}
-        </ContextLayout>
+            </Avatar>
+        </div>
     );
 });
 
 export const SkeletonGrid = forwardRef((props: SkeletonGridProps, ref: Ref<SkeletonRef>) => {
     const { className = '', style, columns = 4 } = props;
+    const { useRtl, prefixCls } = useContext(GlobalContext);
     const { animation } = useContext(SkeletonContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const iconDomRefs = useRef<HTMLDivElement[]>([]);
@@ -238,49 +227,43 @@ export const SkeletonGrid = forwardRef((props: SkeletonGridProps, ref: Ref<Skele
     }));
 
     return (
-        <ContextLayout>
-            {({ prefixCls }) => (
-                <div
-                    className={cls(`${prefixCls}-skeleton-grid`, className)}
-                    style={style}
-                    ref={domRef}
-                >
-                    {Array.from(new Array(columns)).map((_, idx) => (
-                        <div key={idx} className={cls(`${prefixCls}-skeleton-grid-item`)}>
+        <div className={cls(`${prefixCls}-skeleton-grid`, className)} style={style} ref={domRef}>
+            {Array.from(new Array(columns)).map((_, idx) => (
+                <div key={idx} className={cls(`${prefixCls}-skeleton-grid-item`)}>
+                    <div
+                        className={cls(
+                            `${prefixCls}-skeleton-item`,
+                            `${prefixCls}-skeleton-grid-icon`,
+                            animation && `${prefixCls}-skeleton-animation-${animation}`,
+                        )}
+                        ref={el => el && (iconDomRefs.current[idx] = el)}
+                    >
+                        {isGradientAnimation && (
                             <div
-                                className={cls(
-                                    `${prefixCls}-skeleton-item`,
-                                    `${prefixCls}-skeleton-grid-icon`,
-                                    animation && `${prefixCls}-skeleton-animation-${animation}`,
-                                )}
-                                ref={el => el && (iconDomRefs.current[idx] = el)}
-                            >
-                                {isGradientAnimation && (
-                                    <div
-                                        className={`${prefixCls}-skeleton-animation-item`}
-                                        style={{ left: 0 - (iconOffsets?.[idx] || 0) }}
-                                    />
-                                )}
-                            </div>
+                                className={`${prefixCls}-skeleton-animation-item`}
+                                style={{
+                                    [useRtl ? 'right' : 'left']: 0 - (iconOffsets?.[idx] || 0),
+                                }}
+                            />
+                        )}
+                    </div>
+                    <div
+                        className={cls(
+                            `${prefixCls}-skeleton-item`,
+                            `${prefixCls}-skeleton-grid-text`,
+                            animation && `${prefixCls}-skeleton-animation-${animation}`,
+                        )}
+                        ref={el => el && (textDomRefs.current[idx] = el)}
+                    >
+                        {isGradientAnimation && (
                             <div
-                                className={cls(
-                                    `${prefixCls}-skeleton-item`,
-                                    `${prefixCls}-skeleton-grid-text`,
-                                    animation && `${prefixCls}-skeleton-animation-${animation}`,
-                                )}
-                                ref={el => el && (textDomRefs.current[idx] = el)}
-                            >
-                                {isGradientAnimation && (
-                                    <div
-                                        className={`${prefixCls}-skeleton-animation-item`}
-                                        style={{ left: 0 - (textOffsets?.[idx] || 0) }}
-                                    />
-                                )}
-                            </div>
-                        </div>
-                    ))}
+                                className={`${prefixCls}-skeleton-animation-item`}
+                                style={{ right: 0 - (textOffsets?.[idx] || 0) }}
+                            />
+                        )}
+                    </div>
                 </div>
-            )}
-        </ContextLayout>
+            ))}
+        </div>
     );
 });

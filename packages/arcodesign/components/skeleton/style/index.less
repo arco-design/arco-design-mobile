@@ -53,7 +53,7 @@
     }
 
     .@{prefix}-skeleton-avatar + .@{prefix}-skeleton-content {
-        .use-var(margin-left, 'skeleton-gutter-medium');
+        .use-var-with-rtl(margin-left, 'skeleton-gutter-medium');
     }
 }
 
@@ -95,7 +95,8 @@
     width: 200vw;
     height: 100%;
     top: 0;
-    left: 0;
+    .set-prop-with-rtl(left, 0);
+
     background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 25%,
@@ -111,6 +112,9 @@
         );
     }
     animation: gradient 2s linear infinite;
+    [dir='rtl'] & {
+        animation-name: gradient-reverse;
+    }
 }
 .@{prefix}-skeleton-animation-breath {
     animation: breath 2s linear infinite;
@@ -123,6 +127,16 @@
 
     100% {
         transform: translateX(200%) skewX(-45deg);
+    }
+}
+
+@keyframes gradient-reverse {
+    0% {
+        transform: translateX(200%) skewX(45deg);
+    }
+
+    100% {
+        transform: translateX(-200%) skewX(45deg);
     }
 }
 
