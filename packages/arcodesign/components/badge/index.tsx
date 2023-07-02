@@ -106,7 +106,7 @@ const Badge = forwardRef((props: BadgeProps, ref: Ref<BadgeRef>) => {
     return (
         <ContextLayout>
             {({ prefixCls }) => (
-                <Transition in={visible} timeout={timeout} type="scale">
+                <Transition in={visible} timeout={timeout} type="scale" nodeRef={domRef}>
                     <div
                         className={cls(`${prefixCls}-badge`, className, {
                             [`${prefixCls}-badge-dot dot`]: dot,
