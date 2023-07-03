@@ -1097,6 +1097,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                         type="fade"
                         mountOnEnter
                         unmountOnExit
+                        nodeRef={domRef}
                     >
                         <div
                             className={cls(
