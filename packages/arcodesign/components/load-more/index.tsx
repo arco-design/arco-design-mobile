@@ -85,7 +85,6 @@ export interface LoadMoreProps {
     /**
      * 当多个 loadmore 在同一页面时，通过传入节点的 offsetHeight + offsetTop 代替 scrollHeight
      * @en When multiple loadmores are on the same page, pass in the offsetHeight + offsetTop of the node instead of scrollHeight
-     * @default () => window
      */
     getOffsetNode?: () => HTMLElement | Window | null;
     /**

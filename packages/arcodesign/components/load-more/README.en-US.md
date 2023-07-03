@@ -20,6 +20,7 @@ Pull-up loading component, supports `scroll` and `click` two trigger loading met
 |defaultStatus|The component is loaded in the initial state\. Inputing in "before\-ready" will load the component first without requesting data|"before\-ready" \| "prepare"|"prepare"|
 |status|Current state, the component is controlledc  when it is input|"before\-ready" \| "prepare" \| "loading" \| "nomore" \| "retry"|-|
 |getScrollContainer|Scrolling container to be calculated|() =\> HTMLElement \| Window|() => window|
+|getOffsetNode|When multiple loadmores are on the same page, pass in the offsetHeight \+ offsetTop of the node instead of scrollHeight|() =\> HTMLElement \| Window|-|
 |trigger|The timing of triggering loading, when it is click, getData will be triggered after clicking|"scroll" \| "click"|"scroll"|
 |threshold|Scroll to how far from the bottom of the list to trigger getData, valid when the trigger state timing is 'scroll'|number|200|
 |getData|The request data method, after the asynchronous task ends, the callback can be called according to the task result to modify the internal state of loadmore|(callback: (status: LoadMoreStatus) =\> void) =\> void|-|
