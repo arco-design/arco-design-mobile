@@ -7,6 +7,7 @@ import { Transition, Cell } from '@arco-design/mobile-react';
 
 export default function TransitionDemo() {
     const [visible, setVisible] = React.useState(false);
+    const domRef = React.useRef();
     return (<>
         <Cell.Group bordered={false}>
             <Cell label="Open custom mask" showArrow onClick={() => setVisible(true)} />
@@ -17,10 +18,12 @@ export default function TransitionDemo() {
             type="fade"
             mountOnEnter={true}
             unmountOnExit={true}
+            nodeRef={domRef}
         >
             <div
                 className="demo-transition-mask"
                 onClick={() => setVisible(false)}
+                ref={domRef}
             ></div>
         </Transition>
     </>);
