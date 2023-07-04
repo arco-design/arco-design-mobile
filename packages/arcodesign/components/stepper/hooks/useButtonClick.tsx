@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useUpdateEffect } from '../../_helpers';
+import React, { useEffect, useState } from 'react';
 import { StepperProps } from '../type';
 
 function correctCalculation(leftNumber: number, rightNumber: number, operator: '-' | '+') {
@@ -63,9 +62,14 @@ export default function useButtonClick(
 
     // 当前值改变时，更新按钮状态
     // Changes button status when value changed
-    useUpdateEffect(() => {
-        setMinusButtonDisable(actualInputValue <= min);
-        setAddButtonDisable(actualInputValue >= max);
+    useEffect(() => {
+        if (disabled) {
+            setMinusButtonDisable(disabled);
+            setAddButtonDisable(disabled);
+        } else {
+            setMinusButtonDisable(actualInputValue <= min);
+            setAddButtonDisable(actualInputValue >= max);
+        }
     }, [actualInputValue]);
 
     return {
