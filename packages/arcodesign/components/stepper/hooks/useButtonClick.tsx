@@ -31,9 +31,9 @@ export default function useButtonClick(
         onAddButtonClick,
         onMinusButtonClick,
     } = params;
-    const minusDisable = actualInputValue === min || disabled;
+    const minusDisable = actualInputValue <= min || disabled;
     const [minusButtonDisable, setMinusButtonDisable] = useState(minusDisable);
-    const addDisable = actualInputValue === max || disabled;
+    const addDisable = actualInputValue >= max || disabled;
     const [addButtonDisable, setAddButtonDisable] = useState(addDisable);
 
     const handleMinusButtonClick = (e: React.MouseEvent) => {
