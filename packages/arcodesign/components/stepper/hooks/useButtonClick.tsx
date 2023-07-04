@@ -70,7 +70,7 @@ export default function useButtonClick(
             setMinusButtonDisable(actualInputValue <= min);
             setAddButtonDisable(actualInputValue >= max);
         }
-    }, [actualInputValue]);
+    }, [actualInputValue, disabled]);
 
     return {
         minusButtonDisable,
