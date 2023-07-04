@@ -25,7 +25,7 @@ const calcOffset = (dom?: HTMLElement | null) => {
     if (!dom) {
         return 0;
     }
-    return dom.offsetTop + dom.offsetLeft + 0.5 * dom.offsetHeight;
+    return dom.offsetTop + dom.offsetLeft;
 };
 
 function useOffset<T extends HTMLElement, K extends React.MutableRefObject<T | null> | T[]>(
@@ -258,7 +258,9 @@ export const SkeletonGrid = forwardRef((props: SkeletonGridProps, ref: Ref<Skele
                         {isGradientAnimation && (
                             <div
                                 className={`${prefixCls}-skeleton-animation-item`}
-                                style={{ right: 0 - (textOffsets?.[idx] || 0) }}
+                                style={{
+                                    [useRtl ? 'right' : 'left']: 0 - (textOffsets?.[idx] || 0),
+                                }}
                             />
                         )}
                     </div>
