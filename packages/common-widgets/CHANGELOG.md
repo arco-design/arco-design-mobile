@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.15.4...@arco-design/mobile-utils@2.15.5) (2023-07-04)
+
+
+### Bug Fixes
+
+* error caught when using "getComputedStyle" ([#129](https://github.com/arco-design/arco-design-mobile/issues/129)) ([daa8f67](https://github.com/arco-design/arco-design-mobile/commit/daa8f67961d9d2751a14c0c3f7759b54fe0579cb))
+
+
+
+
+
 ## [2.15.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.15.3...@arco-design/mobile-utils@2.15.4) (2023-05-19)
 
 **Note:** Version bump only for package @arco-design/mobile-utils

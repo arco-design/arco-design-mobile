@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.27.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.4...@arco-design/mobile-react@2.27.5) (2023-07-04)
+
+
+### Bug Fixes
+
+* `ImagePreview` fix long picture display problem ([#137](https://github.com/arco-design/arco-design-mobile/issues/137)) ([3df1f71](https://github.com/arco-design/arco-design-mobile/commit/3df1f71a8b1f63ed5e1986284f2746438de59d70))
+* `LoadMore` fix the inaccurate scrollheight when using multiple loadmore ([#130](https://github.com/arco-design/arco-design-mobile/issues/130)) ([da76f12](https://github.com/arco-design/arco-design-mobile/commit/da76f125734579a1921a3ace0964d5ff845cd545))
+* `Stepper` disable status ([#134](https://github.com/arco-design/arco-design-mobile/issues/134)) ([71dabe7](https://github.com/arco-design/arco-design-mobile/commit/71dabe71f3508ac8cb9a800d8ac1be01df509f28))
+* error caught when using "getComputedStyle" ([#129](https://github.com/arco-design/arco-design-mobile/issues/129)) ([daa8f67](https://github.com/arco-design/arco-design-mobile/commit/daa8f67961d9d2751a14c0c3f7759b54fe0579cb))
+* transition in StrictMode ([#131](https://github.com/arco-design/arco-design-mobile/issues/131)) ([084448b](https://github.com/arco-design/arco-design-mobile/commit/084448b0e4b43ea7d8632e232c1665ce00449c3d))
+
+
+
+
+
 ## [2.27.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.3...@arco-design/mobile-react@2.27.4) (2023-05-19)
 
 
