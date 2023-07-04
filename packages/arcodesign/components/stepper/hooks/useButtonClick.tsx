@@ -31,12 +31,10 @@ export default function useButtonClick(
         onAddButtonClick,
         onMinusButtonClick,
     } = params;
-    const [minusButtonDisable, setMinusButtonDisable] = useState(
-        () => actualInputValue === min || disabled,
-    );
-    const [addButtonDisable, setAddButtonDisable] = useState(
-        () => actualInputValue === max || disabled,
-    );
+    const minusDisable = actualInputValue <= min || disabled;
+    const [minusButtonDisable, setMinusButtonDisable] = useState(minusDisable);
+    const addDisable = actualInputValue >= max || disabled;
+    const [addButtonDisable, setAddButtonDisable] = useState(addDisable);
 
     const handleMinusButtonClick = (e: React.MouseEvent) => {
         if (minusButtonDisable) {
@@ -63,9 +61,9 @@ export default function useButtonClick(
     // 当前值改变时，更新按钮状态
     // Changes button status when value changed
     useEffect(() => {
-        setMinusButtonDisable(actualInputValue <= min);
-        setAddButtonDisable(actualInputValue >= max);
-    }, [actualInputValue]);
+        setMinusButtonDisable(minusDisable);
+        setAddButtonDisable(addDisable);
+    }, [minusDisable, addDisable]);
 
     return {
         minusButtonDisable,
