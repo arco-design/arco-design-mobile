@@ -9,7 +9,7 @@ export default function SkeletonDemo() {
     const [loading, setLoading] = React.useState(true);
     return (
         <div>
-            <Cell.Group bordered={false}>
+            <Cell.Group>
                 <Cell label="loading">
                     <Switch checked={loading} onChange={setLoading} />
                 </Cell>
@@ -38,7 +38,7 @@ export default function SkeletonDemo() {
                     />
                 </Skeleton>
             ) : (
-                <div style={{padding: '0.32rem', fontSize: '0.28rem'}}>actual content</div>
+                <div style={{ fontSize: '0.28rem' }}>actual content</div>
             )}
         </div>
     );

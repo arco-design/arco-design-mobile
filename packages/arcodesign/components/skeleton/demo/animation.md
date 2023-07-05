@@ -10,24 +10,29 @@ const options = [
     { label: 'breath', value: 'breath' },
 ];
 
-const themes = [
-    { label: 'light', value: 'light' },
-    { label: 'dark', value: 'dark' },
-];
+const color = 'rgba(148, 191, 255, 20%)';
 
 export default function SkeletonDemo() {
     const [type, setType] = React.useState('gradient');
-    const [theme, setTheme] = React.useState('light');
+    const [checked, setChecked] = React.useState(true);
     return (
-        <div className={theme}>
-            <Radio.Group options={options} value={type} onChange={setType} />
-            <Radio.Group
-                options={themes}
-                value={theme}
-                onChange={setTheme}
-                style={{ marginBottom: 20 }}
+        <div>
+            <Cell.Group>
+                <Cell label="show animation">
+                    <Switch checked={checked} onChange={setChecked} />
+                </Cell>
+                {checked && (
+                    <Cell label="type">
+                        <Radio.Group options={options} value={type} onChange={setType} />
+                    </Cell>
+                )}
+            </Cell.Group>
+            <Skeleton
+                showAnimation={checked}
+                animation={type}
+                animationGradientColor={color}
+                backgroundColor={type === 'breath' ? color : ''}
             />
-            <Skeleton animation={type} />
         </div>
     );
 }

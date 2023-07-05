@@ -6,6 +6,6 @@
 import { Skeleton } from '@arco-design/mobile-react';
 
 export default function SkeletonDemo() {
-    return <Skeleton grid />
+    return <Skeleton grid />;
 }
 ```

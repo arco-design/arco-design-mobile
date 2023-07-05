@@ -4029,10 +4029,15 @@ function getCompTokens() {
          */
         skeletonBackgroundColor: '#F2F3F5',
         /**
-         * 骨架屏扫光高亮色
+         * 骨架屏扫光动效高亮色
          * @en Skeleton element gradient animation highlight color
          */
-        skeletonGradientAnimationColor: 'rgba(255, 255, 255, 0.6)',
+        skeletonGradientAnimationColor: 'rgba(0, 0, 0, 0.04)',
+        /**
+         * 骨架屏呼吸动效透明度
+         * @en Skeleton element breath animation opacity
+         */
+        skeletonBreathOpacity: '0.3',
         /**
          * 骨架屏标题高度
          * @en Skeleton title height
@@ -4048,6 +4053,11 @@ function getCompTokens() {
          * @en Margin top between skeleton paragraph lines
          */
         skeletonParagraphMarginTop: getRem(12),
+        /**
+         * 骨架屏头像大小
+         * @en Skeleton avatar size
+         */
+        skeletonAvatarSize: getRem(32),
         /**
          * 骨架屏金刚位图标区宽度
          * @en Skeleton grid item icon width

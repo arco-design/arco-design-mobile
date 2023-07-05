@@ -1,6 +1,7 @@
 import React from 'react';
-import { SkeletonContextParams } from './type';
+import { SkeletonContextParams, SkeletonProps } from './type';
 
 export const SkeletonContext = React.createContext<SkeletonContextParams>({
-    animation: undefined,
+    showAnimation: true,
+    animation: 'gradient' as SkeletonProps['animation'],
 });

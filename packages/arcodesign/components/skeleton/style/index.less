@@ -2,6 +2,7 @@
 
 .@{prefix}-skeleton {
     position: relative;
+    .use-var(color, skeleton-gradient-animation-color);
 }
 
 .@{prefix}-skeleton-title {
@@ -12,10 +13,6 @@
     &-line {
         width: 100%;
         .use-var(height, 'skeleton-paragraph-height');
-
-        &:last-child:not(:first-child):not(:nth-child(2)) {
-            width: 58%;
-        }
     }
 
     &-line + &-line {
@@ -23,15 +20,10 @@
     }
 }
 
-.@{prefix}-skeleton-avatar {
-    .@{prefix}-avatar {
-        background-color: transparent;
-        overflow: hidden;
-    }
-    .@{prefix}-skeleton-item {
-        width: 100%;
-        height: 100%;
-    }
+.@{prefix}-skeleton-avatar.@{prefix}-skeleton-item {
+    .use-var(width, 'skeleton-avatar-size');
+    .use-var(height, 'skeleton-avatar-size');
+    border-radius: 100%;
 }
 
 .@{prefix}-skeleton-content {
@@ -45,6 +37,10 @@
 .@{prefix}-skeleton-with-avatar {
     display: flex;
     align-items: flex-start;
+
+    .@{prefix}-skeleton-avatar {
+        flex: none;
+    }
 
     .@{prefix}-skeleton-content {
         .@{prefix}-skeleton-title {
@@ -80,7 +76,6 @@
 
 .@{prefix}-skeleton-node {
     display: inline-block;
-    width: auto;
 }
 
 .@{prefix}-skeleton-item {
@@ -95,22 +90,13 @@
     width: 200vw;
     height: 100%;
     top: 0;
-    .set-prop-with-rtl(left, 0);
-
+    left: 0;
     background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 25%,
-        @skeleton-gradient-animation-color 40%,
+        currentColor 40%,
         rgba(255, 255, 255, 0) 55%
     );
-    & when (@use-css-vars = 1) {
-        background-image: linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0) 25%,
-            var(--skeleton-gradient-animation-color) 40%,
-            rgba(255, 255, 255, 0) 55%
-        );
-    }
     transform-origin: top left;
     animation: gradient 2s linear infinite;
     [dir='rtl'] & {
@@ -147,7 +133,7 @@
     }
 
     50% {
-        opacity: 0.3;
+        .use-var(opacity, skeleton-breath-opacity);
     }
 
     100% {

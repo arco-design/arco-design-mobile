@@ -6629,6 +6629,18 @@
             "en": "Size of the rounded corners of the square SearchBar"
         }
     },
+    "skeletonAvatarSize": {
+        "cssKey": "skeleton-avatar-size",
+        "desc": "骨架屏头像大小",
+        "override": "",
+        "value": "~`pxtorem(32)`",
+        "jsValue": "@getRem@32",
+        "staticValue": "0.64rem",
+        "localeDesc": {
+            "ch": "骨架屏头像大小",
+            "en": "Skeleton avatar size"
+        }
+    },
     "skeletonBackgroundColor": {
         "cssKey": "skeleton-background-color",
         "desc": "骨架屏元素背景色",
@@ -6653,15 +6665,27 @@
             "en": "Skeleton element border radius"
         }
     },
+    "skeletonBreathOpacity": {
+        "cssKey": "skeleton-breath-opacity",
+        "desc": "骨架屏呼吸动效透明度",
+        "override": "",
+        "value": "0.3",
+        "jsValue": "0.3",
+        "staticValue": "0.3",
+        "localeDesc": {
+            "ch": "骨架屏呼吸动效透明度",
+            "en": "Skeleton element breath animation opacity"
+        }
+    },
     "skeletonGradientAnimationColor": {
         "cssKey": "skeleton-gradient-animation-color",
-        "desc": "骨架屏扫光高亮色",
+        "desc": "骨架屏扫光动效高亮色",
         "override": "",
-        "value": "rgba(255, 255, 255, 0.6)",
-        "jsValue": "rgba(255, 255, 255, 0.6)",
-        "staticValue": "rgba(255, 255, 255, 0.6)",
+        "value": "rgba(0, 0, 0, 0.04)",
+        "jsValue": "rgba(0, 0, 0, 0.04)",
+        "staticValue": "rgba(0, 0, 0, 0.04)",
         "localeDesc": {
-            "ch": "骨架屏扫光高亮色",
+            "ch": "骨架屏扫光动效高亮色",
             "en": "Skeleton element gradient animation highlight color"
         }
     },

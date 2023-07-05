@@ -3,11 +3,11 @@ import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
 import { SkeletonProps, SkeletonRef } from './type';
 import {
-    SkeletonAvatar,
-    SkeletonGrid,
-    SkeletonNode,
-    SkeletonParagraph,
-    SkeletonTitle,
+    SkeletonAvatar as Avatar,
+    SkeletonGrid as Grid,
+    SkeletonNode as Node,
+    SkeletonParagraph as Paragraph,
+    SkeletonTitle as Title,
 } from './elements';
 import { SkeletonContext } from './skeleton-context';
 
@@ -23,11 +23,14 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<SkeletonRef>) => {
         className = '',
         style,
         children,
-        animation,
         title = true,
         paragraph = true,
         avatar = false,
         grid,
+        showAnimation = true,
+        animation = 'gradient',
+        animationGradientColor,
+        backgroundColor,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const { prefixCls } = useContext(GlobalContext);
@@ -41,14 +44,14 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<SkeletonRef>) => {
     const hasParagraph = !!paragraph;
     const hasAvatar = !!avatar;
     const content = isGrid ? (
-        <SkeletonGrid {...getComponentProps(grid)} />
+        <Grid {...getComponentProps(grid)} />
     ) : (
         <>
-            {hasAvatar && <SkeletonAvatar {...getComponentProps(avatar)} />}
+            {hasAvatar && <Avatar {...getComponentProps(avatar)} />}
             {(hasTitle || hasParagraph) && (
                 <div className={`${prefixCls}-skeleton-content`}>
-                    {hasTitle && <SkeletonTitle {...getComponentProps(title)} />}
-                    {hasParagraph && <SkeletonParagraph {...getComponentProps(paragraph)} />}
+                    {hasTitle && <Title {...getComponentProps(title)} />}
+                    {hasParagraph && <Paragraph {...getComponentProps(paragraph)} />}
                 </div>
             )}
         </>
@@ -63,10 +66,10 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<SkeletonRef>) => {
                 },
                 className,
             )}
-            style={style}
+            style={{ color: animationGradientColor, ...style }}
             ref={domRef}
         >
-            <SkeletonContext.Provider value={{ animation }}>
+            <SkeletonContext.Provider value={{ showAnimation, animation, backgroundColor }}>
                 {content}
                 {children}
             </SkeletonContext.Provider>
@@ -83,9 +86,9 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<SkeletonRef>) => {
  * @name_en Skeleton
  */
 export default componentWrapper(Skeleton, {
-    Node: SkeletonNode,
-    Title: SkeletonTitle,
-    Paragraph: SkeletonParagraph,
-    Avatar: SkeletonAvatar,
-    Grid: SkeletonGrid,
+    Node,
+    Title,
+    Paragraph,
+    Avatar,
+    Grid,
 });

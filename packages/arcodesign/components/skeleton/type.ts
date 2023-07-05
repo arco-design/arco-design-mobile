@@ -1,12 +1,6 @@
 import { BaseProps, SimpleBaseProps } from '../_helpers';
-import { AvatarProps } from '../avatar';
 
 export interface SkeletonProps extends SimpleBaseProps {
-    /**
-     * 加载动画效果，可选“扫光”、“呼吸”两种效果，不传入表示不展示动画效果
-     * @en Animation of loading effect, 'gradient' and 'breath' effects are optional, default is no animation effect if not passed
-     */
-    animation?: 'gradient' | 'breath';
     /**
      * 是否显示标题占位图
      * @en Show title placeholder
@@ -26,11 +20,35 @@ export interface SkeletonProps extends SimpleBaseProps {
      */
     avatar?: boolean | SkeletonAvatarProps;
     /**
-     * 是否显示金刚位占位图（该参数非空时，不展示标题/段落/头像占位符）
-     * @en Show Grid placeholder. When it's value is present, the paragraph, avatar or title placeholder will not be displayed
+     * 是否显示金刚位占位图（如该参数非空时，默认展示四列金刚位，且不展示标题/段落/头像占位符）
+     * @en Show Grid placeholder. When it's value is present, the paragraph, avatar or title placeholder will not be displayed, and four columns will be displayed by default
      * @default false
      */
     grid?: boolean | SkeletonGridProps;
+    /**
+     * 是否展示动画效果
+     * @en Show loading effect
+     * @default true
+     */
+    showAnimation?: boolean;
+    /**
+     * 加载动画效果，可选“扫光”、“呼吸”两种效果
+     * @en Animation of loading effect, 'gradient' and 'breath' effects are optional
+     * @default "gradient"
+     */
+    animation?: 'gradient' | 'breath';
+    /**
+     * 扫光动效高光颜色
+     * @en Highlight color of gradient animation
+     * @default "rgba(0, 0, 0, 0.04)"
+     */
+    animationGradientColor?: string;
+    /**
+     * 占位块背景色
+     * @en Background color of skeleton item
+     * @default "#F7F8FA"
+     */
+    backgroundColor?: string;
     /**
      * 子元素
      * @en Children element
@@ -43,7 +61,7 @@ export interface SkeletonTitleProps extends SimpleBaseProps {
     /**
      * 标题占位图宽度
      * @en The width of title
-     * @default '38%'
+     * @default "40%"
      */
     width?: number | string;
 }
@@ -58,25 +76,12 @@ export interface SkeletonParagraphProps extends SimpleBaseProps {
     /**
      * 段落占位图宽度，若为数组格式对应每行宽度，否则表示最后一行的宽度
      * @en The width of paragraph. If width is an Array, it corresponds to the width of each line, otherwise it indicates the width of the last line
-     * @default '58%'
+     * @default "60%"
      */
     width?: number | string | Array<number | string>;
 }
 
-export interface SkeletonAvatarProps extends SimpleBaseProps {
-    /**
-     * 头像形状
-     * @en Shape of avatar
-     * @default 'circle'
-     */
-    shape?: AvatarProps['shape'];
-    /**
-     * 头像尺寸
-     * @en Size of avatar
-     * @default 'smaller'
-     */
-    size?: AvatarProps['size'];
-}
+export interface SkeletonAvatarProps extends SimpleBaseProps {}
 
 export interface SkeletonGridProps extends SimpleBaseProps {
     /**
@@ -98,8 +103,7 @@ export interface SkeletonRef {
 }
 
 export interface SkeletonContextParams {
-    /**
-     * 是否开启动效
-     */
-    animation?: SkeletonProps['animation'];
+    backgroundColor?: string;
+    showAnimation: boolean;
+    animation: SkeletonProps['animation'];
 }
