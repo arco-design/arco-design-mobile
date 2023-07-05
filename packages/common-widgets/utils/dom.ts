@@ -74,7 +74,8 @@ export function scrollWithAnimation(
     bezier: [number, number, number, number] = [0.34, 0.69, 0.1, 1],
     type: 'by' | 'to' = 'to',
 ) {
-    const targetTop = Math.max(0, type === 'by' ? initTop + target : target);
+    const newT = type === 'by' ? initTop + target : target;
+    const targetTop = target >= 0 ? Math.max(0, newT) : newT;
     const start = Date.now();
     const fn = () => {
         const p = (Date.now() - start) / duration;
