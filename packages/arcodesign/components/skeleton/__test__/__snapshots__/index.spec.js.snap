@@ -1,147 +1,142 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`skeleton demo test skeleton demo: animation.md renders correctly 1`] = `
-<div
-  class="light"
->
+<div>
   <div
-    class="arco-radio-group"
+    class="arco-cell-group all-border-box"
   >
     <div
-      aria-checked="true"
-      aria-disabled="false"
-      class="arco-radio shape-circle inline"
-      role="checkbox"
-      tabindex="0"
+      class="cell-group-body bordered"
     >
       <div
-        class="radio-icon checked"
+        class="arco-cell all-border-box bordered"
       >
-        <svg
-          class="arco-icon arco-icon-circle-checked "
-          height="1em"
-          viewBox="0 0 20 20"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="arco-cell-inner"
         >
-          <path
-            clip-rule="evenodd"
-            d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
+          <div
+            class="cell-label"
+          >
+            <div
+              class="cell-title"
+            >
+              show animation
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              aria-checked="true"
+              aria-disabled="false"
+              class="arco-switch all-border-box type-pc system-pc fully checked"
+              role="switch"
+              tabindex="0"
+            >
+              <div
+                class="arco-switch-inner"
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <div
-        class="radio-text"
+        class="arco-cell all-border-box bordered"
       >
-        gradient
-      </div>
-    </div>
-    <div
-      aria-checked="false"
-      aria-disabled="false"
-      class="arco-radio shape-circle inline"
-      role="checkbox"
-      tabindex="0"
-    >
-      <div
-        class="radio-icon"
-      >
-        <svg
-          class="arco-icon arco-icon-circle-unchecked "
-          height="1em"
-          viewBox="0 0 20 20"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="arco-cell-inner"
         >
-          <path
-            d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
-            fill="currentColor"
-          />
-        </svg>
-      </div>
-      <div
-        class="radio-text"
-      >
-        breath
-      </div>
-    </div>
-  </div>
-  <div
-    class="arco-radio-group"
-    style="margin-bottom:20px"
-  >
-    <div
-      aria-checked="true"
-      aria-disabled="false"
-      class="arco-radio shape-circle inline"
-      role="checkbox"
-      tabindex="0"
-    >
-      <div
-        class="radio-icon checked"
-      >
-        <svg
-          class="arco-icon arco-icon-circle-checked "
-          height="1em"
-          viewBox="0 0 20 20"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </div>
-      <div
-        class="radio-text"
-      >
-        light
-      </div>
-    </div>
-    <div
-      aria-checked="false"
-      aria-disabled="false"
-      class="arco-radio shape-circle inline"
-      role="checkbox"
-      tabindex="0"
-    >
-      <div
-        class="radio-icon"
-      >
-        <svg
-          class="arco-icon arco-icon-circle-unchecked "
-          height="1em"
-          viewBox="0 0 20 20"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
-            fill="currentColor"
-          />
-        </svg>
-      </div>
-      <div
-        class="radio-text"
-      >
-        dark
+          <div
+            class="cell-label"
+          >
+            <div
+              class="cell-title"
+            >
+              type
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              class="arco-radio-group"
+            >
+              <div
+                aria-checked="true"
+                aria-disabled="false"
+                class="arco-radio shape-circle inline"
+                role="checkbox"
+                tabindex="0"
+              >
+                <div
+                  class="radio-icon checked"
+                >
+                  <svg
+                    class="arco-icon arco-icon-circle-checked "
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="radio-text"
+                >
+                  gradient
+                </div>
+              </div>
+              <div
+                aria-checked="false"
+                aria-disabled="false"
+                class="arco-radio shape-circle inline"
+                role="checkbox"
+                tabindex="0"
+              >
+                <div
+                  class="radio-icon"
+                >
+                  <svg
+                    class="arco-icon arco-icon-circle-unchecked "
+                    height="1em"
+                    viewBox="0 0 20 20"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="radio-text"
+                >
+                  breath
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div
     class="arco-skeleton"
+    style="color:rgba(148, 191, 255, 20%)"
   >
     <div
       class="arco-skeleton-content"
     >
       <div
         class="arco-skeleton-item arco-skeleton-title arco-skeleton-animation-gradient"
-        style="width:38%"
+        style="width:40%;background-color:"
       >
         <div
           class="arco-skeleton-animation-item"
@@ -153,6 +148,7 @@ exports[`skeleton demo test skeleton demo: animation.md renders correctly 1`] = 
       >
         <div
           class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+          style="background-color:"
         >
           <div
             class="arco-skeleton-animation-item"
@@ -161,6 +157,7 @@ exports[`skeleton demo test skeleton demo: animation.md renders correctly 1`] = 
         </div>
         <div
           class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+          style="background-color:"
         >
           <div
             class="arco-skeleton-animation-item"
@@ -169,6 +166,7 @@ exports[`skeleton demo test skeleton demo: animation.md renders correctly 1`] = 
         </div>
         <div
           class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+          style="width:60%;background-color:"
         >
           <div
             class="arco-skeleton-animation-item"
@@ -186,39 +184,53 @@ exports[`skeleton demo test skeleton demo: avatar.md renders correctly 1`] = `
   class="arco-skeleton arco-skeleton-with-avatar"
 >
   <div
-    class="arco-skeleton-avatar"
+    class="arco-skeleton-item arco-skeleton-avatar arco-skeleton-animation-gradient"
   >
     <div
-      class="arco-avatar-wrapper smaller circle arco-avatar-wrapper-shape-circle"
-    >
-      <div
-        class="arco-avatar arco-avatar-size-smaller smaller arco-avatar-shape-circle circle"
-      >
-        <div
-          class="arco-skeleton-item"
-        />
-      </div>
-    </div>
+      class="arco-skeleton-animation-item"
+      style="left:0"
+    />
   </div>
   <div
     class="arco-skeleton-content"
   >
     <div
-      class="arco-skeleton-item arco-skeleton-title"
-      style="width:38%"
-    />
+      class="arco-skeleton-item arco-skeleton-title arco-skeleton-animation-gradient"
+      style="width:40%"
+    >
+      <div
+        class="arco-skeleton-animation-item"
+        style="left:0"
+      />
+    </div>
     <div
       class="arco-skeleton-paragraph"
     >
       <div
-        class="arco-skeleton-item arco-skeleton-paragraph-line"
-      />
+        class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
       <div
-        class="arco-skeleton-item arco-skeleton-paragraph-line"
-      />
+        class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
       <div
-        class="arco-skeleton-item arco-skeleton-paragraph-line"
-      />
+        class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+        style="width:60%"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -230,7 +242,7 @@ exports[`skeleton demo test skeleton demo: custom.md renders correctly 1`] = `
     class="arco-cell-group all-border-box"
   >
     <div
-      class="cell-group-body"
+      class="cell-group-body bordered"
     >
       <div
         class="arco-cell all-border-box bordered"
@@ -338,24 +350,12 @@ exports[`skeleton demo test skeleton demo: custom.md renders correctly 1`] = `
       style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px"
     >
       <div
-        class="arco-skeleton-avatar"
+        class="arco-skeleton-item arco-skeleton-avatar arco-skeleton-animation-gradient"
       >
         <div
-          class="arco-avatar-wrapper smaller square arco-avatar-wrapper-shape-square"
-        >
-          <div
-            class="arco-avatar arco-avatar-size-smaller smaller arco-avatar-shape-square square"
-          >
-            <div
-              class="arco-skeleton-item arco-skeleton-animation-gradient"
-            >
-              <div
-                class="arco-skeleton-animation-item"
-                style="left:0"
-              />
-            </div>
-          </div>
-        </div>
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
       </div>
       <div
         class="arco-skeleton-item arco-skeleton-node arco-skeleton-animation-gradient"
@@ -372,7 +372,7 @@ exports[`skeleton demo test skeleton demo: custom.md renders correctly 1`] = `
     </div>
     <div
       class="arco-skeleton-item arco-skeleton-title arco-skeleton-animation-gradient"
-      style="width:38%;margin-bottom:20px"
+      style="width:40%;margin-bottom:20px"
     >
       <div
         class="arco-skeleton-animation-item"
@@ -444,41 +444,81 @@ exports[`skeleton demo test skeleton demo: grid.md renders correctly 1`] = `
       class="arco-skeleton-grid-item"
     >
       <div
-        class="arco-skeleton-item arco-skeleton-grid-icon"
-      />
+        class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
       <div
-        class="arco-skeleton-item arco-skeleton-grid-text"
-      />
+        class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
     </div>
     <div
       class="arco-skeleton-grid-item"
     >
       <div
-        class="arco-skeleton-item arco-skeleton-grid-icon"
-      />
+        class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
       <div
-        class="arco-skeleton-item arco-skeleton-grid-text"
-      />
+        class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
     </div>
     <div
       class="arco-skeleton-grid-item"
     >
       <div
-        class="arco-skeleton-item arco-skeleton-grid-icon"
-      />
+        class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
       <div
-        class="arco-skeleton-item arco-skeleton-grid-text"
-      />
+        class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
     </div>
     <div
       class="arco-skeleton-grid-item"
     >
       <div
-        class="arco-skeleton-item arco-skeleton-grid-icon"
-      />
+        class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
       <div
-        class="arco-skeleton-item arco-skeleton-grid-text"
-      />
+        class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -492,21 +532,42 @@ exports[`skeleton demo test skeleton demo: index.md renders correctly 1`] = `
     class="arco-skeleton-content"
   >
     <div
-      class="arco-skeleton-item arco-skeleton-title"
-      style="width:38%"
-    />
+      class="arco-skeleton-item arco-skeleton-title arco-skeleton-animation-gradient"
+      style="width:40%"
+    >
+      <div
+        class="arco-skeleton-animation-item"
+        style="left:0"
+      />
+    </div>
     <div
       class="arco-skeleton-paragraph"
     >
       <div
-        class="arco-skeleton-item arco-skeleton-paragraph-line"
-      />
+        class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
       <div
-        class="arco-skeleton-item arco-skeleton-paragraph-line"
-      />
+        class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
       <div
-        class="arco-skeleton-item arco-skeleton-paragraph-line"
-      />
+        class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
+        style="width:60%"
+      >
+        <div
+          class="arco-skeleton-animation-item"
+          style="left:0"
+        />
+      </div>
     </div>
   </div>
 </div>

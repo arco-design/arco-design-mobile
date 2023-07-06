@@ -37,10 +37,6 @@ describe('Skeleton', () => {
     it('should render correctly when set avatar', () => {
         const comp = mount(<Skeleton avatar />);
         expect(comp.find(`.${prefix}-avatar`).length).toBe(1);
-        comp.setProps({
-            avatar: { shape: 'square' },
-        });
-        expect(comp.find(`.${defaultContext.prefixCls}-avatar-shape-square`).length).toBe(1);
     });
     it('should render correctly when set grid', () => {
         const comp = mount(<Skeleton grid={{ columns: 5 }} />);
@@ -66,11 +62,6 @@ describe('Skeleton', () => {
                 </Skeleton.Node>
             </Skeleton>,
         );
-        expect(comp.find(`.${prefix}-animation-gradient`).length).toBe(0);
-        expect(comp.find(`.${prefix}-animation-breath`).length).toBe(0);
-        comp.setProps({
-            animation: 'gradient',
-        });
         expect(comp.find(`.${prefix}-animation-gradient`).length).toBe(5);
         expect(comp.find(`.${prefix}-animation-breath`).length).toBe(0);
         comp.setProps({
@@ -78,5 +69,10 @@ describe('Skeleton', () => {
         });
         expect(comp.find(`.${prefix}-animation-gradient`).length).toBe(0);
         expect(comp.find(`.${prefix}-animation-breath`).length).toBe(5);
+        comp.setProps({
+            showAnimation: false,
+        });
+        expect(comp.find(`.${prefix}-animation-gradient`).length).toBe(0);
+        expect(comp.find(`.${prefix}-animation-breath`).length).toBe(0);
     });
 });
