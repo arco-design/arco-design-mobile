@@ -25,7 +25,7 @@ export default function SkeletonDemo() {
                             marginBottom: 20,
                         }}
                     >
-                        <Skeleton.Avatar shape="square" />
+                        <Skeleton.Avatar />
                         <Skeleton.Node style={{ borderRadius: 10 }}>
                             <div style={{ width: 250, height: 50 }} />
                         </Skeleton.Node>

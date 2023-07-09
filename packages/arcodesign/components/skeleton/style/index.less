@@ -24,6 +24,7 @@
     .use-var(width, 'skeleton-avatar-size');
     .use-var(height, 'skeleton-avatar-size');
     border-radius: 100%;
+    transform: translateZ(0);
 }
 
 .@{prefix}-skeleton-content {
@@ -87,18 +88,21 @@
 
 .@{prefix}-skeleton-animation-item {
     position: absolute;
-    width: 200vw;
+    width: 100vw;
     height: 100%;
     top: 0;
     left: 0;
     background-image: linear-gradient(
         90deg,
-        rgba(255, 255, 255, 0) 25%,
-        currentColor 40%,
-        rgba(255, 255, 255, 0) 55%
+        rgba(255, 255, 255, 0) 35%,
+        currentColor 50%,
+        rgba(255, 255, 255, 0) 65%
     );
     transform-origin: top left;
-    animation: gradient 2s linear infinite;
+    animation-name: gradient;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
     [dir='rtl'] & {
         animation-name: gradient-reverse;
     }
@@ -109,21 +113,21 @@
 
 @keyframes gradient {
     0% {
-        transform: translateX(-200%) skewX(-45deg);
+        transform: translateX(-65%) skewX(-45deg);
     }
 
     100% {
-        transform: translateX(200%) skewX(-45deg);
+        transform: translateX(135%) skewX(-45deg);
     }
 }
 
 @keyframes gradient-reverse {
     0% {
-        transform: translateX(200%) skewX(45deg);
+        transform: translateX(65%) skewX(45deg);
     }
 
     100% {
-        transform: translateX(-200%) skewX(45deg);
+        transform: translateX(-135%) skewX(45deg);
     }
 }
 

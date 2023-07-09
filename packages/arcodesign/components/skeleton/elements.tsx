@@ -34,7 +34,7 @@ function useOffset<T extends HTMLElement, K extends React.MutableRefObject<T | n
     dom?: K,
     useRtl?: boolean,
 ) {
-    const [offset, setOffset] = useState<number | number[]>(0);
+    const [offset, setOffset] = useState<number | number[]>();
     const calcLayout = () => {
         const isList = Array.isArray(dom);
         if (
@@ -62,7 +62,8 @@ function useOffset<T extends HTMLElement, K extends React.MutableRefObject<T | n
 export const SkeletonNode = forwardRef((props: SkeletonNodeProps, ref: Ref<SkeletonRef>) => {
     const { className = '', style, children } = props;
     const { useRtl, prefixCls } = useContext(GlobalContext);
-    const { backgroundColor, showAnimation, animation } = useContext(SkeletonContext);
+    const { backgroundColor, showAnimation, animation, gradientWidth } =
+        useContext(SkeletonContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const isGradientAnimation = showAnimation && animation === 'gradient';
     const offset = useOffset(isGradientAnimation ? domRef : undefined, useRtl);
@@ -83,10 +84,10 @@ export const SkeletonNode = forwardRef((props: SkeletonNodeProps, ref: Ref<Skele
             ref={domRef}
         >
             {children}
-            {isGradientAnimation && (
+            {isGradientAnimation && offset !== undefined && (
                 <div
                     className={`${prefixCls}-skeleton-animation-item`}
-                    style={{ left: 0 - offset }}
+                    style={{ left: 0 - offset, width: gradientWidth }}
                 />
             )}
         </div>
@@ -96,7 +97,8 @@ export const SkeletonNode = forwardRef((props: SkeletonNodeProps, ref: Ref<Skele
 export const SkeletonTitle = forwardRef((props: SkeletonTitleProps, ref: Ref<SkeletonRef>) => {
     const { className = '', style, width = '40%' } = props;
     const { useRtl, prefixCls } = useContext(GlobalContext);
-    const { backgroundColor, showAnimation, animation } = useContext(SkeletonContext);
+    const { backgroundColor, showAnimation, animation, gradientWidth } =
+        useContext(SkeletonContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const isGradientAnimation = showAnimation && animation === 'gradient';
     const offset = useOffset(isGradientAnimation ? domRef : undefined, useRtl);
@@ -116,10 +118,10 @@ export const SkeletonTitle = forwardRef((props: SkeletonTitleProps, ref: Ref<Ske
             style={{ width, backgroundColor, ...style }}
             ref={domRef}
         >
-            {isGradientAnimation && (
+            {isGradientAnimation && offset !== undefined && (
                 <div
                     className={`${prefixCls}-skeleton-animation-item`}
-                    style={{ left: 0 - offset }}
+                    style={{ left: 0 - offset, width: gradientWidth }}
                 />
             )}
         </div>
@@ -130,7 +132,8 @@ export const SkeletonParagraph = forwardRef(
     (props: SkeletonParagraphProps, ref: Ref<SkeletonRef>) => {
         const { className = '', style, rows = 3, width = '60%' } = props;
         const { useRtl, prefixCls } = useContext(GlobalContext);
-        const { backgroundColor, showAnimation, animation } = useContext(SkeletonContext);
+        const { backgroundColor, showAnimation, animation, gradientWidth } =
+            useContext(SkeletonContext);
         const domRef = useRef<HTMLDivElement | null>(null);
         const lineDomRefs = useRef<HTMLDivElement[]>([]);
         const isGradientAnimation = showAnimation && animation === 'gradient';
@@ -170,10 +173,10 @@ export const SkeletonParagraph = forwardRef(
                         }}
                         ref={el => el && (lineDomRefs.current[idx] = el)}
                     >
-                        {isGradientAnimation && (
+                        {isGradientAnimation && offsets !== undefined && (
                             <div
                                 className={`${prefixCls}-skeleton-animation-item`}
-                                style={{ left: 0 - (offsets[idx] || 0) }}
+                                style={{ left: 0 - (offsets[idx] || 0), width: gradientWidth }}
                             />
                         )}
                     </div>
@@ -186,7 +189,8 @@ export const SkeletonParagraph = forwardRef(
 export const SkeletonAvatar = forwardRef((props: SkeletonAvatarProps, ref: Ref<SkeletonRef>) => {
     const { className = '', style } = props;
     const { useRtl, prefixCls } = useContext(GlobalContext);
-    const { backgroundColor, showAnimation, animation } = useContext(SkeletonContext);
+    const { backgroundColor, showAnimation, animation, gradientWidth } =
+        useContext(SkeletonContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const isGradientAnimation = showAnimation && animation === 'gradient';
     const offset = useOffset(isGradientAnimation ? domRef : undefined, useRtl);
@@ -206,10 +210,10 @@ export const SkeletonAvatar = forwardRef((props: SkeletonAvatarProps, ref: Ref<S
             style={{ backgroundColor, ...style }}
             ref={domRef}
         >
-            {isGradientAnimation && (
+            {isGradientAnimation && offset !== undefined && (
                 <div
                     className={`${prefixCls}-skeleton-animation-item`}
-                    style={{ left: 0 - offset }}
+                    style={{ left: 0 - offset, width: gradientWidth }}
                 />
             )}
         </div>
@@ -219,7 +223,8 @@ export const SkeletonAvatar = forwardRef((props: SkeletonAvatarProps, ref: Ref<S
 export const SkeletonGrid = forwardRef((props: SkeletonGridProps, ref: Ref<SkeletonRef>) => {
     const { className = '', style, columns = 4 } = props;
     const { useRtl, prefixCls } = useContext(GlobalContext);
-    const { backgroundColor, showAnimation, animation } = useContext(SkeletonContext);
+    const { backgroundColor, showAnimation, animation, gradientWidth } =
+        useContext(SkeletonContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const iconDomRefs = useRef<HTMLDivElement[]>([]);
     const textDomRefs = useRef<HTMLDivElement[]>([]);
@@ -244,11 +249,12 @@ export const SkeletonGrid = forwardRef((props: SkeletonGridProps, ref: Ref<Skele
                         style={{ backgroundColor }}
                         ref={el => el && (iconDomRefs.current[idx] = el)}
                     >
-                        {isGradientAnimation && (
+                        {isGradientAnimation && iconOffsets !== undefined && (
                             <div
                                 className={`${prefixCls}-skeleton-animation-item`}
                                 style={{
                                     left: 0 - (iconOffsets?.[idx] || 0),
+                                    width: gradientWidth,
                                 }}
                             />
                         )}
@@ -262,11 +268,12 @@ export const SkeletonGrid = forwardRef((props: SkeletonGridProps, ref: Ref<Skele
                         style={{ backgroundColor }}
                         ref={el => el && (textDomRefs.current[idx] = el)}
                     >
-                        {isGradientAnimation && (
+                        {isGradientAnimation && textOffsets !== undefined && (
                             <div
                                 className={`${prefixCls}-skeleton-animation-item`}
                                 style={{
                                     left: 0 - (textOffsets?.[idx] || 0),
+                                    width: gradientWidth,
                                 }}
                             />
                         )}
