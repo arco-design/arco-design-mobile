@@ -6,11 +6,13 @@ import React, {
     useState,
     useEffect,
     CSSProperties,
+    useContext,
 } from 'react';
 import { cls, scrollWithAnimation, nextTick } from '@arco-design/mobile-utils';
 import { TabData, TabCellProps, TabCellRef, TabCellUnderlineRef, OffsetRect } from './type';
 import { useSystem } from '../_helpers';
 import TabCellUnderline from './tab-cell-underline';
+import { GlobalContext } from '../context-provider';
 
 const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     const {
@@ -62,6 +64,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         tabBarStopPropagation,
     } = props;
     const prefix = `${prefixCls}-tab-cell`;
+    const { useRtl } = useContext(GlobalContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const underlineRef = useRef<TabCellUnderlineRef>(null);
     const allCellRectRef = useRef<OffsetRect[]>([]);
@@ -252,14 +255,16 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         if (!isVertical) {
             return {};
         }
+        const marginStart = useRtl ? 'marginRight' : 'marginLeft';
+        const marginEnd = useRtl ? 'marginLeft' : 'marginRight';
         if (index === 0) {
             return {
-                marginRight: cellGutter,
-                marginLeft: getCellPadding('left'),
+                [marginEnd]: cellGutter,
+                [marginStart]: getCellPadding('left'),
             };
         }
         return {
-            marginRight: index === tabs.length - 1 ? void 0 : cellGutter,
+            [marginEnd]: index === tabs.length - 1 ? void 0 : cellGutter,
         };
     }
 

@@ -45,6 +45,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
         swipeEnergySaving,
         changeIndex,
         onScroll,
+        rtlRatio,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const panesRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -224,7 +225,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
                 ? {
                       width: `${100 * panes.length}%`,
                       transform: `translateX(${
-                          distance - wrapWidth * activeIndex
+                          distance - wrapWidth * activeIndex * rtlRatio
                       }px)${translateStr}`,
                   }
                 : {
@@ -263,7 +264,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
             tabDirection === 'vertical'
                 ? {
                       transform: `translateX(${
-                          distance - wrapWidth * (activeIndex - index)
+                          distance - wrapWidth * (activeIndex - index) * rtlRatio
                       }px)${translateStr}`,
                   }
                 : {

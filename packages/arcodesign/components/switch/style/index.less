@@ -33,17 +33,23 @@
         &.checked {
             .use-var(background-color, switch-android-checked-background);
             .@{prefix}-switch-text {
-                right: auto;
-                .use-var(left, switch-android-text-gap-size);
+                .set-prop-with-rtl(right, auto);
+                .use-var-with-rtl(left, switch-android-text-gap-size);
             }
             .@{prefix}-switch-inner {
                 .use-var(transform, switch-android-checked-inner-transform);
+                [dir="rtl"] & {
+                    .use-var(transform, switch-android-checked-inner-transform, "rotate(180deg)");
+                }
             }
         }
         .@{prefix}-switch-inner {
             .use-var(width, switch-android-inner-diameter-size);
             .use-var(height, switch-android-inner-diameter-size);
             .use-var(box-shadow, switch-android-inner-box-shadow);
+            [dir="rtl"] & {
+                transform: rotate(180deg);
+            }
         }
 
         &.disabled {
@@ -58,7 +64,7 @@
         }
         .@{prefix}-switch-text {
             .use-var(font-size, switch-android-text-font-size);
-            .use-var(right, switch-android-text-gap-size);
+            .use-var-with-rtl(right, switch-android-text-gap-size);
         }
     }
 
@@ -80,12 +86,15 @@
         &.checked {
             .use-var(background-color, switch-ios-checked-background);
             .@{prefix}-switch-text {
-                right: auto;
-                .use-var(left, switch-ios-text-gap-size);
+                .set-prop-with-rtl(right, auto);
+                .use-var-with-rtl(left, switch-ios-text-gap-size);
             }
             .@{prefix}-switch-inner {
                 .use-var(transform, switch-ios-checked-inner-transform);
                 .use-var(box-shadow, switch-ios-inner-box-shadow);
+                [dir="rtl"] & {
+                    .use-var(transform, switch-ios-checked-inner-transform, "rotate(180deg)");
+                }
             }
         }
 
@@ -94,12 +103,15 @@
         }
         .@{prefix}-switch-text {
             .use-var(font-size, switch-ios-text-font-size);
-            .use-var(right, switch-ios-text-gap-size);
+            .use-var-with-rtl(right, switch-ios-text-gap-size);
         }
         .@{prefix}-switch-inner {
             .use-var(width, switch-ios-inner-diameter-size);
             .use-var(height, switch-ios-inner-diameter-size);
             .onepx-border-var(all, switch-ios-inner-border-color, 50%);
+            [dir="rtl"] & {
+                transform: rotate(180deg);
+            }
         }
 
         &.disabled {
@@ -127,7 +139,7 @@
 
     &-inner {
         position: relative;
-        left: 0;
+        .set-prop-with-rtl(left, 0);
         top: 0;
         display: flex;
         align-items: center;

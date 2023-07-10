@@ -654,6 +654,7 @@ export interface TabPaneProps
     paneTrans: boolean;
     swipeable: boolean;
     changeIndex: (newIndex: number, from?: string) => void;
+    rtlRatio: number;
 }
 
 export interface TabPaneRef {

@@ -29,7 +29,7 @@
     }
 
     .checkbox-icon + .checkbox-text {
-        .use-var(margin-left, checkbox-icon-margin-right);
+        .use-var-with-rtl(margin-left, checkbox-icon-margin-right);
     }
 
     &.disabled .checkbox-text {
@@ -48,11 +48,11 @@
 
 .@{prefix}-checkbox-group {
     .@{prefix}-checkbox:not(:last-child) {
-        .use-var(margin-right, checkbox-group-gutter);
+        .use-var-with-rtl(margin-right, checkbox-group-gutter);
 
         &.block,
         &.justify {
-            margin-right: 0;
+            .set-prop-with-rtl(margin-right, 0);
         }
     }
 }

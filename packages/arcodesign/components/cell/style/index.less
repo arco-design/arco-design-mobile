@@ -54,7 +54,7 @@
 
         .cell-text {
             width: 100%;
-            text-align: right;
+            .set-value-with-rtl(text-align, right);
             .use-var(font-size, cell-content-font-size);
             .text-overflow(2);
         }
@@ -71,6 +71,9 @@
     }
 
     .cell-arrow-icon {
+        [dir="rtl"] & {
+            transform: scale(-1);
+        }
         .use-var-with-rtl(margin-left, cell-arrow-gutter);
         font-size: 0;
         .@{prefix}-icon {

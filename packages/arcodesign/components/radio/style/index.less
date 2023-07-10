@@ -29,7 +29,7 @@
     }
 
     .radio-icon + .radio-text {
-        .use-var(margin-left, checkbox-icon-margin-right);
+        .use-var-with-rtl(margin-left, checkbox-icon-margin-right);
     }
 
     &.disabled .radio-text {
@@ -48,6 +48,6 @@
 
 .@{prefix}-radio-group {
     .@{prefix}-radio:not(:last-child, .block) {
-        .use-var(margin-right, checkbox-group-gutter);
+        .use-var-with-rtl(margin-right, checkbox-group-gutter);
     }
 }
