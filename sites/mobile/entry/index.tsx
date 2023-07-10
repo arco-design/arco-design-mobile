@@ -20,7 +20,7 @@ import './index.less';
 
 setRootPixel();
 
-const useRtl = true;
+const useRtl = false;
 
 function App() {
     const { theme } = useTheme();
