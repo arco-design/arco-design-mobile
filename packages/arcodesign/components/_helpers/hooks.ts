@@ -49,6 +49,18 @@ export function useMountedState<S>(initialState: S | (() => S)) {
     return result;
 }
 
+export function useSameRefState<T>(
+    initialValue: T,
+): [T, React.MutableRefObject<T>, (data: T) => void] {
+    const [state, setState] = useState<T>(initialValue);
+    const stateRef = useRef<T>(state);
+    const setStateProxy = (data: T) => {
+        stateRef.current = data;
+        setState(data);
+    };
+    return [state, stateRef, setStateProxy];
+}
+
 export function useRefState<T>(
     initialValue: T | (() => T),
 ): [T, React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>] {

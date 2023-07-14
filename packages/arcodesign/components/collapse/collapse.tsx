@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { cls, convertCssDuration, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
-import { useRefState, useUpdateEffect } from '../_helpers';
+import { useRefState, useSameRefState, useUpdateEffect } from '../_helpers';
 import IconArrowDown from '../icon/IconArrowDown';
 import { CollapseProps, CollapseRef } from './type';
 import { allContexts, CollapseKeyContext } from './utils';
@@ -41,8 +41,7 @@ export const Collapse = forwardRef((props: CollapseProps, ref: Ref<CollapseRef>)
     const { key: groupKey } = useContext(CollapseKeyContext);
     const CollapseContext = allContexts[groupKey] || {};
     const groupContext = useContext(CollapseContext) || {};
-    const [opened, setOpened] = useState(false);
-    const openedRef = useRef(false);
+    const [opened, openedRef, setOpened] = useSameRefState(false);
 
     useEffect(() => {
         let show = false;
@@ -56,7 +55,6 @@ export const Collapse = forwardRef((props: CollapseProps, ref: Ref<CollapseRef>)
         } else {
             show = itemActive;
         }
-        openedRef.current = show;
         setOpened(show);
     }, [value, active, itemActive, groupContext.isGroup, groupContext.value]);
 
