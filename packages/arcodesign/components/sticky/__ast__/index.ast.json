@@ -423,6 +423,19 @@
                     "en": "In the local scrolling mode, if there is nested scrolling outside the container, this method can be actively called to make the sticky element actively update the fixed position"
                 },
                 "descWithTags": "局部滚动模式下，如果容器外部还有嵌套滚动，可主动调用此方法，让 sticky 的元素主动更新 fixed 位置"
+            },
+            "updatePlaceholderLayout": {
+                "name": "updatePlaceholderLayout",
+                "required": true,
+                "description": "手动更新占位模块的高度\n@en Manually update the height of the placeholder",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Manually update the height of the placeholder"
+                },
+                "descWithTags": "手动更新占位模块的高度"
             }
         }
     },

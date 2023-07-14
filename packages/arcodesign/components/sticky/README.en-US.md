@@ -33,6 +33,7 @@ Sticky layout component, The sticky-to-top effect of the element relative to the
 |----------|-------------|------|
 |dom|The outermost element DOM|HTMLDivElement|
 |recalculatePosition|In the local scrolling mode, if there is nested scrolling outside the container, this method can be actively called to make the sticky element actively update the fixed position|() =\> void|
+|updatePlaceholderLayout|Manually update the height of the placeholder|() =\> void|
 
 > StickyEventPayload
 
