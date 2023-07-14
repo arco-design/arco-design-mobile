@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.28.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.5...@arco-design/mobile-react@2.28.0) (2023-07-14)
+
+
+### Bug Fixes
+
+* `Collapse` update with the latest opened ([#140](https://github.com/arco-design/arco-design-mobile/issues/140)) ([b963787](https://github.com/arco-design/arco-design-mobile/commit/b96378761557f4d90f09f789f662e9d3588c3cbd))
+* `ImagePreview` fix scroll through ([ea3f9bc](https://github.com/arco-design/arco-design-mobile/commit/ea3f9bc5d0980f70c81e2de99084e0a11187b3c1))
+* `Sticky` support the method "updatePlaceholderLayout" ([842b4fe](https://github.com/arco-design/arco-design-mobile/commit/842b4fe6084b3ae282bd54850e381fbe34bd826f))
+
+
+### Features
+
+* RTL support for `Badge`, `Button`, `Cell`, `Checkbox`, `Form`, `Radio`, `Rate`, `Switch` and `Tabs` ([#135](https://github.com/arco-design/arco-design-mobile/issues/135)) ([97de976](https://github.com/arco-design/arco-design-mobile/commit/97de976ba514ec0f48103bd4f0c535ebceb8981a))
+
+
+
+
+
 ## [2.27.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.4...@arco-design/mobile-react@2.27.5) (2023-07-04)
 
 
