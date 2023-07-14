@@ -982,7 +982,13 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         getImageProps: (image: PreviewImageProps, index: number) => ImageProps,
     ) {
         return (
-            <Carousel autoPlay={false} loop={loop} lazyloadCount={lazyloadCount} {...carouselProps}>
+            <Carousel
+                autoPlay={false}
+                loop={loop}
+                lazyloadCount={lazyloadCount}
+                stopPropagation={false}
+                {...carouselProps}
+            >
                 {(allImages || []).map((image, index) => {
                     const innerNode = (
                         <div
