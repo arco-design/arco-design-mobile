@@ -41,7 +41,8 @@ export const Collapse = forwardRef((props: CollapseProps, ref: Ref<CollapseRef>)
     const { key: groupKey } = useContext(CollapseKeyContext);
     const CollapseContext = allContexts[groupKey] || {};
     const groupContext = useContext(CollapseContext) || {};
-    const [opened, openedRef, setOpened] = useRefState(false);
+    const [opened, setOpened] = useState(false);
+    const openedRef = useRef(false);
 
     useEffect(() => {
         let show = false;
