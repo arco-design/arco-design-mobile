@@ -808,6 +808,8 @@ var tokens = {
   "skeleton-background-color": "#F2F3F5",
   "skeleton-gradient-animation-color": "rgba(0, 0, 0, 0.04)",
   "skeleton-breath-opacity": "0.3",
+  "skeleton-gradient-animation-duration": "1.5s",
+  "skeleton-breath-animation-duration": "2s",
   "skeleton-title-height": "0.32rem",
   "skeleton-paragraph-height": "0.32rem",
   "skeleton-paragraph-margin-top": "0.24rem",

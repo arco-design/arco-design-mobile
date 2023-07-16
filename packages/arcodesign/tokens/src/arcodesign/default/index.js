@@ -4039,6 +4039,16 @@ function getCompTokens() {
          */
         skeletonBreathOpacity: '0.3',
         /**
+         * 骨架屏扫光动效时间
+         * @en Skeleton element gradient animation duration
+         */
+        skeletonGradientAnimationDuration: '1.5s',
+        /**
+         * 骨架屏呼吸动效时间
+         * @en Skeleton element breath animation duration
+         */
+        skeletonBreathAnimationDuration: '2s',
+        /**
          * 骨架屏标题高度
          * @en Skeleton title height
          */

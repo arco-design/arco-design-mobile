@@ -6665,6 +6665,18 @@
             "en": "Skeleton element border radius"
         }
     },
+    "skeletonBreathAnimationDuration": {
+        "cssKey": "skeleton-breath-animation-duration",
+        "desc": "骨架屏呼吸动效时间",
+        "override": "",
+        "value": "2s",
+        "jsValue": "2s",
+        "staticValue": "2s",
+        "localeDesc": {
+            "ch": "骨架屏呼吸动效时间",
+            "en": "Skeleton element breath animation duration"
+        }
+    },
     "skeletonBreathOpacity": {
         "cssKey": "skeleton-breath-opacity",
         "desc": "骨架屏呼吸动效透明度",
@@ -6687,6 +6699,18 @@
         "localeDesc": {
             "ch": "骨架屏扫光动效高亮色",
             "en": "Skeleton element gradient animation highlight color"
+        }
+    },
+    "skeletonGradientAnimationDuration": {
+        "cssKey": "skeleton-gradient-animation-duration",
+        "desc": "骨架屏扫光动效时间",
+        "override": "",
+        "value": "1.5s",
+        "jsValue": "1.5s",
+        "staticValue": "1.5s",
+        "localeDesc": {
+            "ch": "骨架屏扫光动效时间",
+            "en": "Skeleton element gradient animation duration"
         }
     },
     "skeletonGridIconWidth": {

@@ -103,12 +103,14 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-duration: 1.5s;
+    .use-var(animation-duration, 'skeleton-gradient-animation-duration');
     [dir='rtl'] & {
         animation-name: gradient-reverse;
     }
 }
 .@{prefix}-skeleton-animation-breath {
-    animation: breath 2s linear infinite;
+    animation: breath linear infinite;
+    .use-var(animation-duration, 'skeleton-breath-animation-duration');
 }
 
 @keyframes gradient {
