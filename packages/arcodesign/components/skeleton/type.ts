@@ -106,5 +106,4 @@ export interface SkeletonContextParams {
     backgroundColor?: string;
     showAnimation: boolean;
     animation: SkeletonProps['animation'];
-    gradientWidth?: number;
 }

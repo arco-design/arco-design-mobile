@@ -1,12 +1,4 @@
-import React, {
-    useRef,
-    forwardRef,
-    Ref,
-    useImperativeHandle,
-    useContext,
-    useEffect,
-    useState,
-} from 'react';
+import React, { useRef, forwardRef, Ref, useImperativeHandle, useContext } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
 import { SkeletonProps, SkeletonRef } from './type';
@@ -42,7 +34,6 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<SkeletonRef>) => {
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const { prefixCls } = useContext(GlobalContext);
-    const [gradientWidth, setGradientWidth] = useState<number>();
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -66,13 +57,6 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<SkeletonRef>) => {
         </>
     );
 
-    useEffect(() => {
-        if (showAnimation && animation === 'gradient') {
-            const width = domRef.current?.clientHeight || 0;
-            width > window.innerWidth && setGradientWidth(width);
-        }
-    }, []);
-
     return (
         <div
             className={cls(
@@ -85,9 +69,7 @@ const Skeleton = forwardRef((props: SkeletonProps, ref: Ref<SkeletonRef>) => {
             style={{ color: animationGradientColor, ...style }}
             ref={domRef}
         >
-            <SkeletonContext.Provider
-                value={{ showAnimation, animation, backgroundColor, gradientWidth }}
-            >
+            <SkeletonContext.Provider value={{ showAnimation, animation, backgroundColor }}>
                 {content}
                 {children}
             </SkeletonContext.Provider>
