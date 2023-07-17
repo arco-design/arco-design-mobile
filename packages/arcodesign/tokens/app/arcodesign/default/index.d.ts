@@ -805,8 +805,8 @@ export interface ArcodesignToken extends Record<string, string> {
     'skeleton-grid-icon-width': string;
     'skeleton-grid-text-width': string;
     'skeleton-grid-text-height': string;
-    'skeleton-gutter-medium': string;
-    'skeleton-gutter-large': string;
+    'skeleton-medium-gutter': string;
+    'skeleton-large-gutter': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;

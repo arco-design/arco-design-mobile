@@ -4086,11 +4086,11 @@ function getCompTokens() {
         /**
          * 骨架屏元素外边距，中尺寸
          */
-        skeletonGutterMedium: getRem(8),
+        skeletonMediumGutter: getRem(8),
         /**
          * 骨架屏元素外边距，大尺寸
          */
-        skeletonGutterLarge: getRem(20),
+        skeletonLargeGutter: getRem(20),
     };
 }
 

@@ -817,8 +817,8 @@ var tokens = {
   "skeleton-grid-icon-width": "0.64rem",
   "skeleton-grid-text-width": "1.28rem",
   "skeleton-grid-text-height": "0.32rem",
-  "skeleton-gutter-medium": "0.16rem",
-  "skeleton-gutter-large": "0.4rem"
+  "skeleton-medium-gutter": "0.16rem",
+  "skeleton-large-gutter": "0.4rem"
 };
 var _default = tokens;
 exports["default"] = _default;
