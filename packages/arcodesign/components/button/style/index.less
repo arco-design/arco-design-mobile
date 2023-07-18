@@ -101,7 +101,7 @@
 .set-button-type(@index) when (@index > 0) {
     @type: extract(@type-map, @index);
 
-    &&-type-@{type} {
+    &-type-@{type} {
         .use-var(background, 'button-@{type}-background');
         .use-var(color, 'button-@{type}-text-color');
         &-disabled {
@@ -122,7 +122,7 @@
 .set-button-size(@index) when (@index > 0) {
     @size: extract(@size-map, @index);
 
-    &&-size-@{size} {
+    &-size-@{size} {
         .use-var(padding, "button-@{size}-padding");
         .button-size-height("button-@{size}-height");
         .button-text-size("button-@{size}-text-size");
