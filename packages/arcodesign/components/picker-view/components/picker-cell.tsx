@@ -106,17 +106,20 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         setTransformY(transY);
         // 处理连续滑动的情况：
         // @en handle the case of continuous sliding:
-        // 如果上一次callback还未执行，先cancel掉上一次回调，只执行最近的一次回调
-        // @en If the last callback has not been executed, cancel the last callback first, and only execute the latest callback
+        // 如果上一次callback还未执行，先cancel掉上一次回调，只执行最近的一次回调，且将 transDuration 设置为 0（否则会出现跳动的bug）
+        // @en If the last callback has not been executed, cancel the last callback first, and only execute the latest callback, and set transDuration to 0 (otherwise there will be jumping bugs)
         if (latestCallbackTimer.current) {
             clearTimeout(latestCallbackTimer.current);
         }
 
-        latestCallbackTimer.current = window.setTimeout(() => {
-            movingStatusRef.current = 'normal';
-            setTransitionDuration('');
-            callback();
-        }, transDuration);
+        latestCallbackTimer.current = window.setTimeout(
+            () => {
+                movingStatusRef.current = 'normal';
+                setTransitionDuration('');
+                callback();
+            },
+            latestCallbackTimer.current ? 0 : transDuration,
+        );
     }
 
     function _scrollToIndex(itemIndex: number, transDuration = 0, callback = () => {}) {
