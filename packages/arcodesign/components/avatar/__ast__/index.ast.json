@@ -89,7 +89,7 @@
                 "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
                 "name": "AvatarProps"
             },
-            "required": true,
+            "required": false,
             "type": {
                 "name": "string"
             }
