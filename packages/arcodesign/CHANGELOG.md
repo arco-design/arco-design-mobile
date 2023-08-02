@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.0...@arco-design/mobile-react@2.28.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* `Avatar` make the prop "src" optional ([f99bbc8](https://github.com/arco-design/arco-design-mobile/commit/f99bbc812223ae6c8960b1d712040f1b221efb72))
+* add [@types](https://github.com/types) to peerDependencies ([42f3d5a](https://github.com/arco-design/arco-design-mobile/commit/42f3d5ab19144702d7c371c6cbd1aa031a690abe))
+
+
+
+
+
 # [2.28.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.5...@arco-design/mobile-react@2.28.0) (2023-07-14)
 
 
