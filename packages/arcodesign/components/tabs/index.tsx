@@ -9,7 +9,7 @@ import React, {
     useCallback,
     useContext,
 } from 'react';
-import { cls, nextTick } from '@arco-design/mobile-utils';
+import { cls, nextTick, getOffset } from '@arco-design/mobile-utils';
 import { ContextLayout, GlobalContext } from '../context-provider';
 import TabCell from './tab-cell';
 import TabPane from './tab-pane';
@@ -369,9 +369,10 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
     }
 
     function updateLayout() {
+        const { width, height } = getOffset(domRef.current);
         cellRef.current && cellRef.current.resetUnderlineStyle();
-        setWrapWidth(domRef.current ? domRef.current.offsetWidth : 0);
-        setWrapHeight(domRef.current ? domRef.current.offsetHeight : 0);
+        setWrapWidth(width || domRef.current?.offsetWidth || 0);
+        setWrapHeight(height || domRef.current?.offsetHeight || 0);
         paneRef.current && paneRef.current.setCurrentHeight();
     }
 
