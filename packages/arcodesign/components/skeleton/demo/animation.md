@@ -10,7 +10,7 @@ const options = [
     { label: 'breath', value: 'breath' },
 ];
 
-const color = 'rgba(148, 191, 255, 20%)';
+const color = 'rgba(0, 0, 0, 4%)';
 
 export default function SkeletonDemo() {
     const [type, setType] = React.useState('gradient');
