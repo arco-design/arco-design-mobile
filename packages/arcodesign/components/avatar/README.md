@@ -12,7 +12,7 @@
 |----------|-------------|------|------|
 |shape|形状|"circle" \| "square"|"circle"|
 |size|尺寸|"medium" \| "large" \| "small" \| "smaller" \| "ultra\-small"|"small"|
-|src|图片头像的资源地址|string|必填|
+|src|图片头像的资源地址|string|-|
 |imageProps|图片头像组件参数，透传给Image组件|Partial\<ImageProps & RefAttributes\<ImageRef\>\>|-|
 |decoration|图片头像上的装饰|ReactNode|null|
 |textAvatar|文字头像，中文建议取两个字，英文建议在三个字以下|string|""|
