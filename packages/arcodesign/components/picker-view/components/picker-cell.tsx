@@ -36,6 +36,8 @@ export interface PickerCellRef {
     scrollToCurrentIndex: () => void;
 }
 
+export type UnmountCallbackRef = () => number;
+
 const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) => {
     const {
         prefixCls,
@@ -70,6 +72,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     const rowCount = Math.max(rows % 2 === 0 ? rows + 1 : rows, 3);
     const isTouchMoveRef = useRef(false);
     const isTouchStopped = useRef(false);
+    const unmountCallbackRef = useRef<UnmountCallbackRef | null>(null);
     const timeRef = useRef<number | null>(null);
 
     const colStyle = useMemo(
@@ -112,14 +115,20 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
             clearTimeout(latestCallbackTimer.current);
         }
 
-        latestCallbackTimer.current = window.setTimeout(
-            () => {
-                movingStatusRef.current = 'normal';
-                setTransitionDuration('');
-                callback();
-            },
-            latestCallbackTimer.current ? 0 : transDuration,
-        );
+        const setNormalStatus = () => {
+            movingStatusRef.current = 'normal';
+            setTransitionDuration('');
+            callback();
+        };
+
+        unmountCallbackRef.current = () => {
+            setNormalStatus();
+            return latestCallbackTimer.current;
+        };
+
+        latestCallbackTimer.current = window.setTimeout(() => {
+            setNormalStatus();
+        }, transDuration);
     }
 
     function _scrollToIndex(itemIndex: number, transDuration = 0, callback = () => {}) {
@@ -325,6 +334,13 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         }
         _scrollToIndexWithChange(itemIndex, 200);
     }
+
+    useEffect(() => {
+        return () => {
+            const timerId = unmountCallbackRef.current?.();
+            timerId && clearTimeout(timerId);
+        };
+    }, []);
 
     useEffect(() => {
         if (wrapRef.current) {
