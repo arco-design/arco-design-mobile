@@ -47,6 +47,6 @@ return ( <ContextProvider system="android">
 
 The component called by the method is not a subcomponent under the root node of the page, so the configuration of ContextProvider needs to be passed to the method, such as: `Toast.toast({ content: 'Tips' }, { prefixCls: 'aa' })`. (Supported after `2.24.0`)
 
-## Q: Disable autoFocus of Input/Textarea/SearchBar
+## Q: AutoFocus does not work when using Input/Textarea/SearchBar
 
 autoFocus is not supported on some models, the bottom layer of the component can only try focus, but whether it can focus or not depends on the model
