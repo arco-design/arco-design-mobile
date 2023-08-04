@@ -1,6 +1,6 @@
-@import "../static/style/public.less";
-@import "../static/style/prism.css";
-@import "../../../packages/arcodesign/style/mixin.less";
+@import '../static/style/public.less';
+@import '../static/style/prism.css';
+@import '../../../packages/arcodesign/style/mixin.less';
 
 .arcodesign-pc-site-wrap {
     height: 100%;
@@ -80,7 +80,7 @@
         }
 
         .demo-code-content {
-            font-family: Menlo,Consolas;
+            font-family: Menlo, Consolas;
             font-size: 12px;
             color: #4e5969;
             background-color: #f2f3f5;
@@ -123,8 +123,10 @@
         width: 100%;
 
         .demo-code-wrapper {
-
             .demo-code-title {
+                &:nth-child(n + 2) {
+                    margin-top: 24px;
+                }
                 font-size: 20px;
                 margin-bottom: 12px;
                 font-weight: 500;
@@ -154,7 +156,7 @@
                     overflow-y: hidden;
                     font-size: 13px;
                     line-height: 22px;
-                    font-family: Menlo,Consolas;
+                    font-family: Menlo, Consolas;
                     box-sizing: border-box;
                     white-space: pre-wrap;
                 }
@@ -218,7 +220,6 @@
                 }
 
                 th {
-
                     &.props-names {
                         width: 22%;
                     }
@@ -249,7 +250,7 @@
             code {
                 line-height: 22px;
                 font-size: 13px;
-                font-family: Menlo,Consolas;
+                font-family: Menlo, Consolas;
                 white-space: pre-wrap;
                 word-break: normal;
             }
@@ -304,7 +305,6 @@
 }
 
 .arco-menu-group .arco-menu-group-title {
-
     .arco-menu-indent {
         width: 0;
     }

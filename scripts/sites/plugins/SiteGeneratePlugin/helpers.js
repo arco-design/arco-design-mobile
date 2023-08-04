@@ -13,7 +13,9 @@ function renderSiteMdSource(md, language = 'ch') {
     renderer.heading = (text, level) => {
         name = text;
         if (level === 1) {
-            return `<p class="demo-doc-type">${utils.getUpperPhase(localeMap.developmentGuide[language]) || '开发指南'}</p>
+            return `<p class="demo-doc-type">${
+                utils.getUpperPhase(localeMap.developmentGuide[language]) || '开发指南'
+            }</p>
             <h1 class="demo-doc-name">${text}</h1>`;
         }
         return `<h${level}>${text}</h${level}>`;
@@ -37,9 +39,8 @@ function renderSiteMdSource(md, language = 'ch') {
  */
 function renderSiteFAQSource(md, language = 'ch') {
     const renderer = new marked.Renderer();
-    return marked(md, { renderer })
+    return marked(md, { renderer });
 }
-
 
 /** 渲染组件 nav intro */
 function renderNavIntro(
@@ -49,7 +50,6 @@ function renderNavIntro(
     classNames = '',
     idPrefix = '',
 ) {
-
     if (!readme) {
         return {
             source: '',
@@ -76,7 +76,7 @@ function renderNavIntro(
         return '';
     };
     renderer.paragraph = text => {
-        return `<p class="demo-comp-desc">${text}</p>`;
+        return `<p class="demo-comp-desc">${text.replace('\n', '<br>')}</p>`;
     };
     const result = marked(readme, { renderer });
     return {
@@ -120,7 +120,9 @@ function renderReadmeTable(readme, language = 'ch') {
             ? headerMatch.findIndex(item => item.indexOf(localeMap.type[language] || '类型') >= 0)
             : -1;
         const defaultIndex = headerMatch
-            ? headerMatch.findIndex(item => item.indexOf(localeMap.defaultValue[language]  || '默认值') >= 0)
+            ? headerMatch.findIndex(
+                  item => item.indexOf(localeMap.defaultValue[language] || '默认值') >= 0,
+              )
             : -1;
         let newBody = body;
         // “类型”这一列body为蓝色字体
@@ -138,7 +140,10 @@ function renderReadmeTable(readme, language = 'ch') {
 
         // 设置特定列定宽
         const newHeader = header
-            .replace(/<th>(参数|名称|默认值|Property|DefaultValue)<\/th>/g, '<th class="props-names">$1</th>')
+            .replace(
+                /<th>(参数|名称|默认值|Property|DefaultValue)<\/th>/g,
+                '<th class="props-names">$1</th>',
+            )
             .replace(/<th>(类型|Type)<\/th>/g, '<th class="props-type">$1</th>');
         return `<table><thead>${newHeader}</thead><tbody>${newBody}</tbody></table>`;
     };

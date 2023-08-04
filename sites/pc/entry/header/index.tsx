@@ -1,8 +1,9 @@
-import React, { useCallback, useRef, useState, useContext } from 'react';
+import React, { useCallback, useRef, useState, useContext, useMemo } from 'react';
 import { AutoComplete, Input, Space, Tag, Spin, Dropdown, Button, Menu, Tooltip } from 'arco';
 import debounce from 'lodash.debounce';
+import { useLocation } from 'react-router-dom';
 import { LanguageLocaleMap, LanguageSupport } from '../../../utils/language';
-import { getUrlsByLanguage } from '../../../utils/url';
+import { getPathname, getUrlsByLanguage } from '../../../utils/url';
 import { HistoryContext } from '../context';
 import { IMenu } from '../layout';
 import { localeMap } from '../../../utils/locale';
@@ -10,19 +11,6 @@ import './index.less';
 
 const { Option } = AutoComplete;
 const logo = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/arco-design/arco-logo.svg';
-
-const headerMenu = (language: LanguageSupport) => [
-    {
-        text: localeMap.Home[language],
-        url: getUrlsByLanguage(language).HOME,
-    },
-    {
-        text: localeMap.Components[language],
-        url: '',
-        active: true,
-    },
-    $githubLink$,
-];
 
 type ChildrenItem = {
     name: string;
@@ -55,10 +43,49 @@ export default function Header(props: IHeaderProps) {
     const [loading, setLoading] = useState(true);
     const contentDom = useRef<HTMLDivElement | null>(null);
     const input = useRef(null);
+    const { pathname } = useLocation();
 
-    const flattenMeta: ChildrenItem[] = Object.keys(menu.components.children).reduce((pre, cur) => {
-        return pre.concat(menu.components.children[cur]);
-    }, [] as ChildrenItem[]);
+    const headerMenu = useMemo(() => {
+        const header = [
+            {
+                text: localeMap.Home[language],
+                url: getUrlsByLanguage(language).HOME,
+            },
+            {
+                text: localeMap.Components[language],
+                url: getUrlsByLanguage(language).DOC_SITE,
+                active: true,
+            },
+            {
+                text: localeMap.Resource[language],
+                url: getUrlsByLanguage(language).RESOURCE_PAGE,
+                active: false,
+            },
+            $githubLink$,
+        ];
+        const initHeaderActive = () => {
+            header.forEach(item => {
+                item.active = false;
+            });
+        };
+        switch (getPathname(pathname)) {
+            case 'resource':
+                initHeaderActive();
+                header[2].active = true;
+                break;
+            default:
+                initHeaderActive();
+                header[1].active = true;
+                break;
+        }
+        return header;
+    }, [language, pathname]);
+
+    const flattenMeta: ChildrenItem[] = menu.components
+        ? Object.keys(menu.components.children).reduce((pre, cur) => {
+              return pre.concat(menu.components!.children[cur]);
+          }, [] as ChildrenItem[])
+        : [];
 
     function highlightStr(compName: string, query: string) {
         const regExp = new RegExp(`(${query})`, 'gi');
@@ -240,7 +267,7 @@ export default function Header(props: IHeaderProps) {
                     </div>
                     <div className="arcodesign-pc-header-nav-bar">
                         <div className="arcodesign-pc-header-tabs">
-                            {headerMenu(language).map((menuItem, key) => (
+                            {headerMenu.map((menuItem, key) => (
                                 <div className="arcodesign-pc-header-tabs-item" key={key}>
                                     <div
                                         className={`arcodesign-pc-header-tabs-item-inner ${

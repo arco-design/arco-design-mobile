@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'arco';
+import { useLocation } from 'react-router-dom';
 import Header from '../header';
 import Nav from '../nav';
 import Footer from '../footer';
@@ -8,11 +9,13 @@ import enCompRoutes from '../../pages/components/index-en-US.json';
 import chReadmeRoutes from '../../pages/guide/index.json';
 import enReadmeRoutes from '../../pages/guide/index-en-US.json';
 import enCompositeCompRoutes from '../../pages/composite-comp/index.json';
-// import commonResRoutes from '../../pages/resource/index.json';
+import chResRoutes from '../../pages/resource/index.json';
+// import chResRoutes from '../../pages/resource/in';
 import { LanguageSupport } from '../../../utils/language';
 import { getMenuOrder } from '../../../utils/menu';
 import { localeMap } from '../../../utils/locale';
 import './index.less';
+import { getPathname } from '../../../utils/url';
 
 type Items = {
     name: string;
@@ -28,12 +31,12 @@ type ResChildren = {
 };
 
 export interface IMenu {
-    doc: {
+    doc?: {
         name: string;
         key: string;
         items: Items;
     };
-    components: {
+    components?: {
         name: string;
         key: string;
         children: CompChildren;
@@ -43,7 +46,7 @@ export interface IMenu {
         key: string;
         children: ResChildren;
     };
-    compositeComp: {
+    compositeComp?: {
         name: string;
         key: string;
         items: Items;
@@ -60,26 +63,21 @@ const menuItemsMap = {
     [LanguageSupport.CH]: {
         compRoutes: chCompRoutes,
         readmeRoutes: chReadmeRoutes,
-        // resRoutes: commonResRoutes,
+        resRoutes: chResRoutes,
         compositeCompRoutes: enCompositeCompRoutes,
     },
     [LanguageSupport.EN]: {
         compRoutes: enCompRoutes,
         readmeRoutes: enReadmeRoutes,
-        // resRoutes: commonResRoutes,
+        resRoutes: chResRoutes,
         compositeCompRoutes: enCompositeCompRoutes,
     },
 };
-function initMenu(language: LanguageSupport) {
+
+const getPcMenu = (language: LanguageSupport) => {
     const { compRoutes, readmeRoutes, compositeCompRoutes } =
         menuItemsMap[language === LanguageSupport.EN ? LanguageSupport.EN : LanguageSupport.CH];
     const newCompRoutes = getMenuOrder(compRoutes, language);
-    // if (language !== LanguageSupport.CH) {
-    //     // 公共hooks转换为英文
-    //     resRoutes.hooks.map(
-    //         (_, index) => (resRoutes.hooks[index].name = localeMap.GeneralHooks[language]),
-    //     );
-    // }
     const menu: IMenu = {
         doc: {
             name: localeMap.DevelopmentGuide[language],
@@ -91,29 +89,55 @@ function initMenu(language: LanguageSupport) {
             key: 'components',
             children: newCompRoutes as CompChildren,
         },
-        // resource: {
-        //     name: localeMap.DevelopmentResource[language],
-        //     key: 'resource',
-        //     children: resRoutes as ResChildren,
-        // },
         compositeComp: {
             name: localeMap.CompositeComp[language],
             key: 'compositeComp',
             items: compositeCompRoutes as Items,
         },
     };
+
     return menu;
+};
+
+const getResourceMenu = (language: LanguageSupport) => {
+    const { resRoutes } =
+        menuItemsMap[language === LanguageSupport.EN ? LanguageSupport.EN : LanguageSupport.CH];
+    if (language !== LanguageSupport.CH) {
+        // 公共hooks转换为英文
+        resRoutes.hooks.map(
+            (_, index) => (resRoutes.hooks[index].name = localeMap.GeneralHooks[language]),
+        );
+    }
+    const menu: IMenu = {
+        resource: {
+            name: localeMap.DevelopmentResource[language],
+            key: 'resource',
+            children: resRoutes as ResChildren,
+        },
+    };
+    return menu;
+};
+
+function initMenu(language: LanguageSupport, pathname: string) {
+    switch (getPathname(pathname)) {
+        case 'resource':
+            return getResourceMenu(language);
+        default:
+            return getPcMenu(language);
+    }
 }
+
 export default function Layout(props: ILayoutProps) {
     const { children, name, type, language: defaultLanguage = LanguageSupport.CH } = props;
     const [menuCollapse, setMenuCollapse] = useState(false);
     const [navHeight, setNavHeight] = useState(241);
     const [language, setLanguage] = useState(defaultLanguage);
-    const [menu, setMenu] = useState(initMenu(defaultLanguage));
+    const { pathname } = useLocation();
+    const [menu, setMenu] = useState(() => initMenu(defaultLanguage, pathname));
 
     useEffect(() => {
-        setMenu(initMenu(language));
-    }, [language]);
+        setMenu(initMenu(language, pathname));
+    }, [language, pathname]);
     useEffect(() => {
         if (language === defaultLanguage) {
             return;

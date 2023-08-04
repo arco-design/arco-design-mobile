@@ -25,6 +25,10 @@ export const localeMap = {
         [LanguageSupport.CH]: '首页',
         [LanguageSupport.EN]: 'Home',
     },
+    Resource: {
+        [LanguageSupport.CH]: '资源',
+        [LanguageSupport.EN]: 'Source',
+    },
     DevelopmentResource: {
         [LanguageSupport.CH]: '开发资源',
         [LanguageSupport.EN]: 'Development Resource',

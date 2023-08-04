@@ -8,31 +8,29 @@ export default defineConfig({
     mode: 'development',
     server: {
         port: 8822,
-        open: '/vite/mobile/#/'
+        open: '/vite/mobile/#/',
     },
     build: {
         rollupOptions: {
             input: {
-                index: path.resolve(__dirname, '../../vite/mobile/index.html')
-            }
-        }
+                index: path.resolve(__dirname, '../../vite/mobile/index.html'),
+            },
+        },
     },
     resolve: {
-        alias: [{
-            find: '~@arco-design/mobile-utils',
-            replacement: '/packages/common-widgets'
-        }]
+        alias: [
+            {
+                find: '~@arco-design/mobile-utils',
+                replacement: '/packages/common-widgets',
+            },
+        ],
     },
     css: {
         preprocessorOptions: {
             less: {
-                javascriptEnabled: true
-            }
-        }
+                javascriptEnabled: true,
+            },
+        },
     },
-    plugins: [
-        commonjs(),
-        reactRefresh(),
-        demoGeneratePlugin()
-    ]
+    plugins: [commonjs(), reactRefresh(), demoGeneratePlugin()],
 });

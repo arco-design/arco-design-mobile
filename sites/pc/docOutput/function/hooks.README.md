@@ -1,14 +1,20 @@
-/**
- * @type hooks
- * @name 公共hooks
- * @name_en General Hooks
- */
-import React, { useState, useRef, useEffect, useCallback, useContext } from 'react';
-import { getSystem, scrollWithAnimation } from '@arco-design/mobile-utils';
-import { GlobalContext } from '../context-provider';
-import { BezierType } from '../progress';
+### hooks 公共hooks
 
-export function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen = true) {
+------
+
+# useListenResize
+======
+
+## 类型
+
+```
+(resizeHandler: () => void, deps?: any[], needListen?: boolean) => void
+```
+
+## 源码
+
+```
+function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen = true) {
     useEffect(() => {
         if (!needListen) {
             return () => {};
@@ -21,17 +27,41 @@ export function useListenResize(resizeHandler: () => void, deps: any[] = [], nee
         };
     }, [...deps, needListen]);
 }
+```
 
-/**
- * useState自定义封装，统一处理在组件卸载后还使用setState的行为
- * tips：在unmount后有异步处理未完成的场景使用，不推荐无脑替换useState
- * @desc {en} Custom encapsulation of useState, uniformly handle the behavior of using setState after the component is unloaded
- * @desc {en} Tips: Use in scenarios where asynchronous processing is not completed after unmount. It is not recommended to replace useState without brains
- * @param initialState 初始状态
- * @param initialState {en} Initial State
- * @returns 什么东西
- */
-export function useMountedState<S>(initialState: S | (() => S)) {
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|resizeHandler|\-|() =\> void|必填|
+|deps|\-|any\[\]|-|
+|needListen|\-|boolean|-|
+
+> 输出
+
+描述：无
+
+------
+
+# useMountedState
+
+useState自定义封装，统一处理在组件卸载后还使用setState的行为
+tips：在unmount后有异步处理未完成的场景使用，不推荐无脑替换useState
+
+======
+
+## 类型
+
+```
+(initialState: S | (() => S)) => [S, Dispatch<SetStateAction<S>>]
+```
+
+## 源码
+
+```
+function useMountedState<S>(initialState: S | (() => S)) {
     const [state, setState] = useState<S>(initialState);
     const leavingRef = useRef(false);
     const setValidState = useCallback<typeof setState>(value => {
@@ -49,8 +79,35 @@ export function useMountedState<S>(initialState: S | (() => S)) {
     const result: [S, typeof setState] = [state, setValidState];
     return result;
 }
+```
 
-export function useRefState<T>(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|initialState|初始状态|S \| (() =\> S)|必填|
+
+> 输出
+
+描述：什么东西
+
+------
+
+# useRefState
+======
+
+## 类型
+
+```
+(initialValue: T | (() => T)) => [T, MutableRefObject<T>, Dispatch<SetStateAction<T>>]
+```
+
+## 源码
+
+```
+function useRefState<T>(
     initialValue: T | (() => T),
 ): [T, React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>] {
     const [state, setState] = useState<T>(initialValue);
@@ -60,8 +117,35 @@ export function useRefState<T>(
     }, [state]);
     return [state, stateRef, setState];
 }
+```
 
-export function useRefMountedState<T>(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|initialValue|\-|T \| (() =\> T)|必填|
+
+> 输出
+
+描述：无
+
+------
+
+# useRefMountedState
+======
+
+## 类型
+
+```
+(initialValue: T | (() => T)) => [T, MutableRefObject<T>, Dispatch<SetStateAction<T>>]
+```
+
+## 源码
+
+```
+function useRefMountedState<T>(
     initialValue: T | (() => T),
 ): [T, React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>] {
     const [state, setState] = useMountedState<T>(initialValue);
@@ -71,8 +155,35 @@ export function useRefMountedState<T>(
     }, [state]);
     return [state, stateRef, setState];
 }
+```
 
-export function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] = []) {
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|initialValue|\-|T \| (() =\> T)|必填|
+
+> 输出
+
+描述：无
+
+------
+
+# useUpdateEffect
+======
+
+## 类型
+
+```
+(effect: () => void | (() => void), dependencies?: any[]) => void
+```
+
+## 源码
+
+```
+function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] = []) {
     const isInitialMount = useRef(true);
     useEffect(() => {
         if (isInitialMount.current) {
@@ -82,24 +193,104 @@ export function useUpdateEffect(effect: () => void | (() => void), dependencies:
         }
     }, dependencies);
 }
+```
 
-export function useForceUpdate() {
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|effect|\-|() =\> void \| (() =\> void)|必填|
+|dependencies|\-|any\[\]|-|
+
+> 输出
+
+描述：无
+
+------
+
+# useForceUpdate
+======
+
+## 类型
+
+```
+() => () => void
+```
+
+## 源码
+
+```
+function useForceUpdate() {
     const [, setTick] = useState(0);
     const update = useCallback(() => {
         setTick(tick => tick + 1);
     }, []);
     return update;
 }
+```
 
-export function useLatestRef<T>(variable: T) {
+======
+
+> 输入
+
+无
+
+> 输出
+
+描述：无
+
+------
+
+# useLatestRef
+======
+
+## 类型
+
+```
+(variable: T) => MutableRefObject<T>
+```
+
+## 源码
+
+```
+function useLatestRef<T>(variable: T) {
     const variableRef = useRef(variable);
     useEffect(() => {
         variableRef.current = variable;
     }, [variable]);
     return variableRef;
 }
+```
 
-export function useSystem() {
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|variable|\-|T|必填|
+
+> 输出
+
+描述：无
+
+------
+
+# useSystem
+======
+
+## 类型
+
+```
+() => "" | "pc" | "android" | "ios"
+```
+
+## 源码
+
+```
+function useSystem() {
     const { system: currentSystem } = useContext(GlobalContext);
     const [system, setSystem] = useState(() => currentSystem || getSystem());
     useEffect(() => {
@@ -107,8 +298,33 @@ export function useSystem() {
     }, [currentSystem]);
     return system;
 }
+```
 
-export function useWindowSize(listenResize?: boolean) {
+======
+
+> 输入
+
+无
+
+> 输出
+
+描述：无
+
+------
+
+# useWindowSize
+======
+
+## 类型
+
+```
+(listenResize?: boolean) => { windowWidth: number; windowHeight: number; }
+```
+
+## 源码
+
+```
+function useWindowSize(listenResize?: boolean) {
     const [windowWidth, setWindowWidth] = useState(0);
     const [windowHeight, setWindowHeight] = useState(0);
 
@@ -124,15 +340,35 @@ export function useWindowSize(listenResize?: boolean) {
 
     return { windowWidth, windowHeight };
 }
+```
 
-export interface PopupScrollRefType {
-    ele: HTMLElement;
-    maxScrollX: number;
-    maxScrollY: number;
-}
+======
 
-/* eslint-disable max-lines-per-function */
-export function usePopupScroll(
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|listenResize|\-|boolean|-|
+
+> 输出
+
+描述：无
+
+------
+
+# usePopupScroll
+======
+
+## 类型
+
+```
+(visible: boolean, popupDom: HTMLDivElement, getScrollContainer?: () => HTMLElement | HTMLElement[], orientationDirection?: "top" | "bottom" | "left" | "right", preventCallback?: (e: TouchEvent, direction: "x" | "y") => void, onTouchMove?: (e: TouchEvent, prevented: boolean, direction: "x" | "y") => void, gestureOutOfControl?: boolean) => void
+```
+
+## 源码
+
+```
+function usePopupScroll(
     visible: boolean,
     popupDom: HTMLDivElement | null,
     getScrollContainer?: () => (HTMLElement | null)[] | HTMLElement | null,
@@ -317,8 +553,41 @@ export function usePopupScroll(
         };
     }, [visible, popupDom, handleTouchStart, handleTouchMove]);
 }
+```
 
-export function useSwiperInnerScroll(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|visible|\-|boolean|必填|
+|popupDom|\-|HTMLDivElement|必填|
+|getScrollContainer|\-|() =\> HTMLElement \| HTMLElement\[\]|-|
+|orientationDirection|\-|"top" \| "bottom" \| "left" \| "right"|top|
+|preventCallback|\-|(e: TouchEvent, direction: "x" \| "y") =\> void|-|
+|onTouchMove|\-|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> void|-|
+|gestureOutOfControl|\-|boolean|-|
+
+> 输出
+
+描述：无
+
+------
+
+# useSwiperInnerScroll
+======
+
+## 类型
+
+```
+(getInnerScrollContainer?: () => HTMLElement | HTMLElement[]) => void
+```
+
+## 源码
+
+```
+function useSwiperInnerScroll(
     getInnerScrollContainer?: () => (HTMLElement | null)[] | HTMLElement | null,
 ) {
     const stopFunc = useCallback((e: TouchEvent) => e.stopPropagation(), []);
@@ -345,8 +614,35 @@ export function useSwiperInnerScroll(
         };
     }, [getInnerScrollContainer]);
 }
+```
 
-export function useAddListener(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|getInnerScrollContainer|\-|() =\> HTMLElement \| HTMLElement\[\]|-|
+
+> 输出
+
+描述：无
+
+------
+
+# useAddListener
+======
+
+## 类型
+
+```
+(dom: HTMLDivElement, event: string, handler: any, options?: { capture: boolean; }) => void
+```
+
+## 源码
+
+```
+function useAddListener(
     dom: HTMLDivElement | null,
     event: string,
     handler,
@@ -364,36 +660,38 @@ export function useAddListener(
         };
     }, [handler]);
 }
+```
 
-/**
- * 统计同时出现的全屏组件
- * @en Count simultaneous full-screen components
- */
-let arcoFullScreenCount = 0;
-let arcoFullScreenOriginOverflow = '';
+======
 
-export function usePreventBodyScroll(
-    visible: boolean,
-    preventBodyScroll: boolean,
-    initialBodyOverflow?: string,
-) {
-    // 新出现一个全屏组件则计数+1，并设置body hidden样式
-    // @en When a new full-screen component appears, count + 1 and set the body hidden style
-    const addFullScreen = useCallback(() => {
-        const count = arcoFullScreenCount;
-        // 在当前没有全屏组件出现时，记下body overflow的初始值
-        // @en Note the initial value of body overflow when no full-screen components are currently present
-        if (!count) {
-            arcoFullScreenOriginOverflow =
-                initialBodyOverflow !== void 0 ? initialBodyOverflow : document.body.style.overflow;
-        }
-        arcoFullScreenCount += 1;
-        document.body.style.overflow = 'hidden';
-    }, []);
-    /**
-     * 移除一个全屏组件时，根据剩余是否还有全屏组件判断是否需要还原overflow样式
-     * @en When removing a full-screen component, determine whether the overflow style needs to be restored according to whether there are any remaining full-screen components.
-     */
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|dom|\-|HTMLDivElement|必填|
+|event|\-|string|必填|
+|handler|\-|any|必填|
+|options|\-|\{ capture: boolean; \}|-|
+
+> 输出
+
+描述：无
+
+------
+
+# usePreventBodyScroll
+======
+
+## 类型
+
+```
+(visible: boolean, preventBodyScroll: boolean, initialBodyOverflow?: string) => void
+```
+
+## 源码
+
+```
+const
     const removeFullScreen = useCallback(() => {
         const newCount = arcoFullScreenCount - 1;
         arcoFullScreenCount = newCount;
@@ -419,8 +717,130 @@ export function usePreventBodyScroll(
         };
     }, [visible]);
 }
+```
 
-export const useProgress = (
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|visible|\-|boolean|必填|
+|preventBodyScroll|\-|boolean|必填|
+|initialBodyOverflow|\-|string|-|
+
+> 输出
+
+描述：无
+
+------
+
+# useSingleAndDoubleClick
+======
+
+## 类型
+
+```
+(onClick: (e: MouseEvent<Element, MouseEvent>) => void, onDoubleClick: (e: MouseEvent<Element, MouseEvent>) => void, delay?: number) => (e: MouseEvent<Element, MouseEvent>) => void
+```
+
+## 源码
+
+```
+function useSingleAndDoubleClick(
+    onClick: (e: React.MouseEvent) => void,
+    onDoubleClick: (e: React.MouseEvent) => void,
+    delay = 200,
+) {
+    const [clickTimes, setClickTimes] = useState(0);
+    const eventRef = useRef<React.MouseEvent>();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (clickTimes === 1) onClick(eventRef.current!);
+            setClickTimes(0);
+        }, delay);
+
+        if (clickTimes === 2) onDoubleClick(eventRef.current!);
+
+        return () => clearTimeout(timer);
+    }, [clickTimes]);
+
+    return (e: React.MouseEvent) => {
+        eventRef.current = e;
+        setClickTimes(prev => prev + 1);
+    };
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|onClick|\-|(e: MouseEvent\<Element, MouseEvent\>) =\> void|必填|
+|onDoubleClick|\-|(e: MouseEvent\<Element, MouseEvent\>) =\> void|必填|
+|delay|\-|number|200|
+
+> 输出
+
+描述：无
+
+------
+
+# useGenSvgKey
+======
+
+## 类型
+
+```
+(userSetSvgKey: string) => { svgKey: string; }
+```
+
+## 源码
+
+```
+function useGenSvgKey(userSetSvgKey: string) {
+    const [innerSvgKey, setInnerSvgKey] = useState('');
+    const svgKey = userSetSvgKey || innerSvgKey;
+
+    useEffect(() => {
+        setInnerSvgKey(`inner-${arcoSvgKeyCount}`);
+        arcoSvgKeyCount += 1;
+    }, []);
+
+    return { svgKey };
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|userSetSvgKey|\-|string|必填|
+
+> 输出
+
+描述：无
+
+------
+
+# useProgress
+======
+
+## 类型
+
+```
+(mountedTransition: boolean, percentage: number, duration: number, mountedBezier: BezierType, step: number) => [number, boolean]
+```
+
+## 源码
+
+```
+const useProgress = (
     mountedTransition: boolean,
     percentage: number,
     duration: number,
@@ -460,43 +880,21 @@ export const useProgress = (
     }, [count, percentage, step]);
 
     return [currentPercentage, transitionControl];
-};
-
-export function useSingleAndDoubleClick(
-    onClick: (e: React.MouseEvent) => void,
-    onDoubleClick: (e: React.MouseEvent) => void,
-    delay = 200,
-) {
-    const [clickTimes, setClickTimes] = useState(0);
-    const eventRef = useRef<React.MouseEvent>();
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (clickTimes === 1) onClick(eventRef.current!);
-            setClickTimes(0);
-        }, delay);
-
-        if (clickTimes === 2) onDoubleClick(eventRef.current!);
-
-        return () => clearTimeout(timer);
-    }, [clickTimes]);
-
-    return (e: React.MouseEvent) => {
-        eventRef.current = e;
-        setClickTimes(prev => prev + 1);
-    };
 }
+```
 
-let arcoSvgKeyCount = 0;
+======
 
-export function useGenSvgKey(userSetSvgKey: string) {
-    const [innerSvgKey, setInnerSvgKey] = useState('');
-    const svgKey = userSetSvgKey || innerSvgKey;
+> 输入
 
-    useEffect(() => {
-        setInnerSvgKey(`inner-${arcoSvgKeyCount}`);
-        arcoSvgKeyCount += 1;
-    }, []);
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|mountedTransition|\-|boolean|必填|
+|percentage|\-|number|必填|
+|duration|\-|number|必填|
+|mountedBezier|\-|BezierType|必填|
+|step|\-|number|必填|
 
-    return { svgKey };
-}
+> 输出
+
+描述：无

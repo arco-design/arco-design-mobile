@@ -2,7 +2,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SiteGeneratePlugin = require('./plugins/SiteGeneratePlugin');
-const BuildContextPlugin = require('./plugins/BuildContextPlugin')
+const BuildContextPlugin = require('./plugins/BuildContextPlugin');
 const baseConfig = require('./webpack.common.js');
 const genBaseConfig = require('./genBaseConfig');
 
@@ -27,10 +27,10 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
     snapshot: {
         managedPaths: [path.resolve(__dirname, '../../node_modules')],
         buildDependencies: {
-            timestamp: true
+            timestamp: true,
         },
         module: {
-            hash: true
+            hash: true,
         },
         resolve: {
             hash: true,
@@ -40,11 +40,11 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
     devServer: {
         host: '0.0.0.0',
         static: {
-            directory: path.join(__dirname, "./")
+            directory: path.join(__dirname, './'),
         },
         port: 8823,
         open: true,
-        allowedHosts: "all",
+        allowedHosts: 'all',
     },
     plugins: [
         new SiteGeneratePlugin(),
@@ -55,11 +55,7 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
         }),
         new BuildContextPlugin(),
     ],
-    externals: [
-        { "arco": 'arco' },
-        { "react": "React" },
-        { "react-dom": "ReactDOM" },
-    ]
-})
+    externals: [{ arco: 'arco' }, { react: 'React' }, { 'react-dom': 'ReactDOM' }],
+});
 
 module.exports = devConfig;

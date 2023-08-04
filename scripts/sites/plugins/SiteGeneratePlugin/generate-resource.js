@@ -8,72 +8,60 @@ const utils = require('../../../utils');
 const languageUtils = require('../../../utils/language');
 const localeMap = require('../../../utils/language.json');
 
-
-function readFileName (path) {
+function readFileName(path) {
     const pathName = path.replace(/\.readme.*\.md/i, '');
     const matchRes = path.match(/\.readme(.*)\.md/i);
-    if(matchRes.length > 1) {
-        const fileSuffix = matchRes[1].replace(/\./, '-')
-        const lang = fileSuffix.slice(1) in languageUtils.suffix2LangMap ? languageUtils.suffix2LangMap[fileSuffix.slice(1)] : 'ch';
+    if (matchRes.length > 1) {
+        const fileSuffix = matchRes[1].replace(/\./, '-');
+        const lang =
+            fileSuffix.slice(1) in languageUtils.suffix2LangMap
+                ? languageUtils.suffix2LangMap[fileSuffix.slice(1)]
+                : 'ch';
         return { pathName, fileSuffix, language: lang };
     }
-    return { pathName, fileSuffix: '' }
+    return { pathName, fileSuffix: '' };
 }
+
 function generateResource(resourcePagePath, docPath) {
     let resourceImportStr = '';
     let resourceDocStr = '';
     const resourceRoutes = {};
     // 公用开发资源
-    const hooksSourceMdPath = path.join(docPath, 'hooks');
-    const utilsSourceMdPath = path.join(docPath, 'utils');
+    const functionSourceMdPath = path.join(docPath, 'function');
     const mixinSourceMdPath = path.join(docPath, 'mixin');
-    const hooksSourceOutput = path.join(resourcePagePath, 'hooks');
-    const utilsSourceOutput = path.join(resourcePagePath, 'utils');
+    const functionSourceOutput = path.join(resourcePagePath, 'function');
     const mixinSourceOutput = path.join(resourcePagePath, 'mixin');
-    fs.removeSync(resourcePagePath)
-    fs.mkdirpSync(hooksSourceOutput);
-    fs.mkdirpSync(utilsSourceOutput);
+    fs.removeSync(resourcePagePath);
+    fs.mkdirpSync(functionSourceOutput);
     fs.mkdirpSync(mixinSourceOutput);
-    const hooksSource = fs.readdirSync(hooksSourceMdPath);
-    const utilsSource = fs.readdirSync(utilsSourceMdPath);
+    const functionSource = fs.readdirSync(functionSourceMdPath);
     const mixinSource = fs.readdirSync(mixinSourceMdPath);
-    hooksSource.forEach(hook => {
-        const { pathName: mdFileName, fileSuffix: tsxFileSuffix, language } = readFileName(hook.slice());
-        const { importStr, docStr } = generateResourcePage(
-            path.join(hooksSourceMdPath, hook),
-            mdFileName,
-            path.join(hooksSourceOutput, mdFileName),
-            resourceRoutes,
-            'hooks',
-            {
-                tsxFileSuffix,
-                language
-            }
-        );
-        resourceImportStr += importStr;
-        resourceDocStr += docStr;
-    });
-    utilsSource.forEach(util => {
+
+    functionSource.forEach(util => {
         const { pathName, fileSuffix: tsxFileSuffix, language } = readFileName(util.slice());
         const mdFileName = pathName.replace(/-(\w)/g, function (_, $1) {
-                return $1.toUpperCase();
-            });
+            return $1.toUpperCase();
+        });
         const { importStr, docStr } = generateResourcePage(
-            path.join(utilsSourceMdPath, util),
+            path.join(functionSourceMdPath, util),
             mdFileName,
-            path.join(utilsSourceOutput, mdFileName),
+            path.join(functionSourceOutput, mdFileName),
             resourceRoutes,
-            'utils',
+            'function',
             {
                 tsxFileSuffix,
-                language
-            }
+                language,
+            },
         );
         resourceImportStr += importStr;
         resourceDocStr += docStr;
     });
     mixinSource.forEach(mixin => {
-        const { pathName: mdFileName, fileSuffix: tsxFileSuffix, language } = readFileName(mixin.slice());
+        const {
+            pathName: mdFileName,
+            fileSuffix: tsxFileSuffix,
+            language,
+        } = readFileName(mixin.slice());
         const { importStr, docStr } = generateResourcePage(
             path.join(mixinSourceMdPath, mixin),
             mdFileName,
@@ -82,8 +70,8 @@ function generateResource(resourcePagePath, docPath) {
             'mixin',
             {
                 tsxFileSuffix,
-                language
-            }
+                language,
+            },
         );
         resourceImportStr += importStr;
         resourceDocStr += docStr;
@@ -107,7 +95,7 @@ export default docs;
 }
 
 // demo部分
-function renderFuncSource(md) {
+function renderFuncSource(md, type) {
     if (!md) {
         return {
             source: '',
@@ -117,7 +105,10 @@ function renderFuncSource(md) {
     let codeSource = '';
     renderer.code = code => {
         codeSource = code;
-        const formatScript = prism.highlight(code, prism.languages.jsx, 'jsx');
+        const formatScript =
+            type === 'mixin'
+                ? prism.highlight(code, prism.languages.less, 'less')
+                : prism.highlight(code, prism.languages.jsx, 'jsx');
         return `<div class="demo-code-content">
             <pre><code class="demo-code">${formatScript}</code></pre>
         </div>`;
@@ -147,7 +138,14 @@ function renderFuncSource(md) {
  * @param {生成结果文件夹} outputFolder
  * @param {解析类型} type
  */
-function generateResourcePage(filePath, mdFilename, outputFolder, resourceRoutes, type = 'utils', {tsxFileSuffix = '', language = 'ch'}) {
+function generateResourcePage(
+    filePath,
+    mdFilename,
+    outputFolder,
+    resourceRoutes,
+    type = 'utils',
+    { tsxFileSuffix = '', language = 'ch' },
+) {
     let importStr = '';
     let docStr = '';
     const md = fs.readFileSync(filePath, 'utf8');
@@ -183,7 +181,7 @@ export default function Demo() {
         );
 
         // 代码
-        const { source: codeSource, source } = renderFuncSource(funcSplit[1]);
+        const { source: codeSource, source } = renderFuncSource(funcSplit[1], type);
 
         // 属性等
         const { source: propsSource } = renderReadmeTable(funcSplit[2]);
@@ -192,9 +190,9 @@ export default function Demo() {
             readmeStr[0] = `<div className="demo-nav-intro" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
                 introSource,
             )} }} />`;
-            readmeStr[1] = `<Code codeSource="${encodeURIComponent(
-                codeSource,
-            )}" code={<div className="demo-code-wrapper
+            readmeStr[1] = `<Code codeSource="${encodeURIComponent(codeSource)}" ${
+                type === 'mixin' ? 'showCodePen={false}' : ''
+            } code={<div className="demo-code-wrapper
                 no-padding-top
             " dangerouslySetInnerHTML={{ __html: ${JSON.stringify(source)} }} />} />`;
             readmeStr[2] = `<div className="demo-props" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
@@ -227,8 +225,12 @@ export default function Demo() {
             }
         });
         const mdCompName = `${prefix}${utils.getCompName(`${mdFilename}${tsxFileSuffix}`)}`;
-        const mdDocName = `${prefix.toLowerCase()}-${utils.getFolderName(mdFilename)}${tsxFileSuffix}`;
-        importStr += `import ${mdCompName} from './${type}/${mdFilename}${tsxFileSuffix ? `/index${tsxFileSuffix}` : ''}';\n`;
+        const mdDocName = `${prefix.toLowerCase()}-${utils.getFolderName(
+            mdFilename,
+        )}${tsxFileSuffix}`;
+        importStr += `import ${mdCompName} from './${type}/${mdFilename}${
+            tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
+        }';\n`;
         docStr += `    '${mdDocName}': ${mdCompName},\n`;
         const resourceRoute = {
             name: nameStr,
