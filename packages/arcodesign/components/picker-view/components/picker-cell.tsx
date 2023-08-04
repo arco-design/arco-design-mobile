@@ -36,8 +36,6 @@ export interface PickerCellRef {
     scrollToCurrentIndex: () => void;
 }
 
-export type UnmountCallbackRef = () => number;
-
 const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) => {
     const {
         prefixCls,
@@ -72,7 +70,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     const rowCount = Math.max(rows % 2 === 0 ? rows + 1 : rows, 3);
     const isTouchMoveRef = useRef(false);
     const isTouchStopped = useRef(false);
-    const unmountCallbackRef = useRef<UnmountCallbackRef | null>(null);
+    const unmountCallbackRef = useRef<() => void>();
     const timeRef = useRef<number | null>(null);
 
     const colStyle = useMemo(
@@ -109,26 +107,23 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         setTransformY(transY);
         // 处理连续滑动的情况：
         // @en handle the case of continuous sliding:
-        // 如果上一次callback还未执行，先cancel掉上一次回调，只执行最近的一次回调，且将 transDuration 设置为 0（否则会出现跳动的bug）
-        // @en If the last callback has not been executed, cancel the last callback first, and only execute the latest callback, and set transDuration to 0 (otherwise there will be jumping bugs)
+        // 如果上一次callback还未执行，先cancel掉上一次回调，只执行最近的一次回调
+        // @en If the last callback has not been executed, cancel the last callback first, and only execute the latest callback
         if (latestCallbackTimer.current) {
             clearTimeout(latestCallbackTimer.current);
         }
 
         const setNormalStatus = () => {
+            // 如果timer顺利执行，则在unmount时不再重复执行
+            // @en If the timer is successfully executed, it will not be repeated when unmounting
+            unmountCallbackRef.current = undefined;
             movingStatusRef.current = 'normal';
             setTransitionDuration('');
             callback();
         };
 
-        unmountCallbackRef.current = () => {
-            setNormalStatus();
-            return latestCallbackTimer.current;
-        };
-
-        latestCallbackTimer.current = window.setTimeout(() => {
-            setNormalStatus();
-        }, transDuration);
+        unmountCallbackRef.current = setNormalStatus;
+        latestCallbackTimer.current = window.setTimeout(setNormalStatus, transDuration);
     }
 
     function _scrollToIndex(itemIndex: number, transDuration = 0, callback = () => {}) {
@@ -337,7 +332,10 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
 
     useEffect(() => {
         return () => {
-            const timerId = unmountCallbackRef.current?.();
+            // 卸载组件时，如果timer中还有未执行的onchange操作，则立刻执行该操作并移除timer
+            // @en When unloading the component, if there is an unexecuted onchange operation in the timer, execute it immediately and remove the timer
+            const timerId = latestCallbackTimer.current;
+            unmountCallbackRef.current?.();
             timerId && clearTimeout(timerId);
         };
     }, []);
