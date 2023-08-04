@@ -12,7 +12,7 @@ Avatar component supports two shapes of circle and square, supports pictures or 
 |----------|-------------|------|------|
 |shape|Shapre|"circle" \| "square"|"circle"|
 |size|Size|"medium" \| "large" \| "small" \| "smaller" \| "ultra\-small"|"small"|
-|src|resource of avatar picture|string|required|
+|src|resource of avatar picture|string|-|
 |imageProps|Image avatar component props, transparently passed to the Image component|Partial\<ImageProps & RefAttributes\<ImageRef\>\>|-|
 |decoration|the decoration for image avatar|ReactNode|null|
 |textAvatar|Text Avatar, two characters in Chinese, and three characters or less in English are recommended\.|string|""|

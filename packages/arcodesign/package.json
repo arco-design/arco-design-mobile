@@ -1,6 +1,6 @@
 {
     "name": "@arco-design/mobile-react",
-    "version": "2.28.0",
+    "version": "2.28.1",
     "description": "",
     "main": "cjs/index.js",
     "module": "esm/index.js",
@@ -15,7 +15,7 @@
     "author": "taoyiyue@bytedance.com",
     "license": "ISC",
     "dependencies": {
-        "@arco-design/mobile-utils": "2.16.0",
+        "@arco-design/mobile-utils": "2.16.1",
         "@arco-design/transformable": "^1.0.0",
         "lodash.throttle": "^4.1.1",
         "resize-observer-polyfill": "^1.5.1"
@@ -28,12 +28,26 @@
         "jest": "^25.3.0"
     },
     "peerDependencies": {
+        "@types/react": ">=16.9.0",
+        "@types/react-dom": ">=16.9.0",
+        "@types/react-transition-group": ">=4.3.0",
         "react": ">=16.9.0",
         "react-dom": ">=16.9.0",
         "react-transition-group": ">=4.3.0"
     },
+    "peerDependenciesMeta": {
+        "@types/react": {
+            "optional": true
+        },
+        "@types/react-dom": {
+            "optional": true
+        },
+        "@types/react-transition-group": {
+            "optional": true
+        }
+    },
     "publishConfig": {
         "access": "public"
     },
-    "gitHead": "6809000ae9f4310979628d4bd43a728d34266899"
+    "gitHead": "b6af06950fab57bee31ce7370a020191b2a93c11"
 }

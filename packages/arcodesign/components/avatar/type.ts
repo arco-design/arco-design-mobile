@@ -19,7 +19,7 @@ export interface AvatarProps<T extends ImageProps = ImageProps> extends BaseProp
      * 图片头像的资源地址
      * @en resource of avatar picture
      */
-    src: string;
+    src?: string;
     /**
      * 图片头像组件参数，透传给Image组件
      * @en Image avatar component props, transparently passed to the Image component

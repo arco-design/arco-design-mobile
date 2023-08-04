@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.0...@arco-design/mobile-utils@2.16.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* add [@types](https://github.com/types) to peerDependencies ([42f3d5a](https://github.com/arco-design/arco-design-mobile/commit/42f3d5ab19144702d7c371c6cbd1aa031a690abe))
+
+
+
+
+
 # [2.16.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.15.5...@arco-design/mobile-utils@2.16.0) (2023-07-14)
 
 
