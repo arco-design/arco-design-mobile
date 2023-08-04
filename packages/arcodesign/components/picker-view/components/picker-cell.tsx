@@ -105,10 +105,8 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     function _scrollTo(transY: number, transDuration = 0, callback = () => {}) {
         setTransitionDuration(transDuration ? `${transDuration}ms` : '');
         setTransformY(transY);
-        // 处理连续滑动的情况：
-        // @en handle the case of continuous sliding:
-        // 如果上一次callback还未执行，先cancel掉上一次回调，只执行最近的一次回调
-        // @en If the last callback has not been executed, cancel the last callback first, and only execute the latest callback
+        // 处理连续滑动的情况：如果上一次callback还未执行，先cancel掉上一次回调
+        // @en handle the case of continuous sliding: If the last callback has not been executed, cancel the last callback first
         if (latestCallbackTimer.current) {
             clearTimeout(latestCallbackTimer.current);
         }
