@@ -29,6 +29,12 @@ export function useListenResize(resizeHandler: () => void, deps: any[] = [], nee
  * @desc {en} Tips: Use in scenarios where asynchronous processing is not completed after unmount. It is not recommended to replace useState without brains
  * @param initialState 初始状态
  * @param initialState {en} Initial State
+ * @example
+ * ```
+ * import { useMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+ *
+ * const [scrollValue, setScrollValue] = useMountedState(value);
+ * ```
  */
 export function useMountedState<S>(initialState: S | (() => S)) {
     const [state, setState] = useState<S>(initialState);
@@ -431,13 +437,13 @@ export function usePreventBodyScroll(
     }, [visible]);
 }
 
-export const useProgress = (
+export function useProgress(
     mountedTransition: boolean,
     percentage: number,
     duration: number,
     mountedBezier: BezierType,
     step: number,
-): [number, boolean] => {
+): [number, boolean] {
     const [currentPercentage, setCurrentPercentage] = useState(0);
     const [transitionControl, setTransitionControl] = useState(false);
     const [count, setCount] = useState(0);
@@ -471,7 +477,7 @@ export const useProgress = (
     }, [count, percentage, step]);
 
     return [currentPercentage, transitionControl];
-};
+}
 
 export function useSingleAndDoubleClick(
     onClick: (e: React.MouseEvent) => void,

@@ -34,7 +34,7 @@ export function isEmptyArray(obj: Array<unknown>): boolean {
     return isArray(obj) && !obj?.length;
 }
 
-export const isDeepEqual = (obj: any, sub: any): boolean => {
+export function isDeepEqual(obj: any, sub: any): boolean {
     if (typeof obj !== 'object' || typeof sub !== 'object' || obj === null || sub === null) {
         return obj === sub;
     }
@@ -49,4 +49,4 @@ export const isDeepEqual = (obj: any, sub: any): boolean => {
         if (!isDeepEqual(obj[key], sub[key])) return false;
     }
     return true;
-};
+}

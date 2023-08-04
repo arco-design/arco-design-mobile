@@ -43,7 +43,7 @@ export function freeEleScroll(
  * @param parentEl 父节点
  * @param childrenEl 子节点
  */
-export const isContains = (parentEl: HTMLElement | null, childrenEl: HTMLElement | null) => {
+export function isContains(parentEl: HTMLElement | null, childrenEl: HTMLElement | null) {
     if (!parentEl || !childrenEl) return false;
     if (parentEl.contains) {
         return parentEl.contains(childrenEl);
@@ -56,7 +56,7 @@ export const isContains = (parentEl: HTMLElement | null, childrenEl: HTMLElement
         parent = parent.parentNode as HTMLElement;
     }
     return false;
-};
+}
 
 export function execRAF(fn) {
     try {

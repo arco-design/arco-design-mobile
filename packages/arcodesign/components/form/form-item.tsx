@@ -59,7 +59,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
         this.destroyField();
     }
 
-    onValueChange(preStore: FieldItem, curStore: FieldItem) {
+    onValueChange = (preStore: FieldItem, curStore: FieldItem) => {
         this._touched = true;
         const { shouldUpdate } = this.props;
         if (typeof shouldUpdate === 'function') {
@@ -67,17 +67,17 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
             return;
         }
         this.forceUpdate();
-    }
+    };
 
-    getFieldError() {
+    getFieldError = () => {
         return this._errors;
-    }
+    };
 
-    isFieldTouched() {
+    isFieldTouched = () => {
         return this._touched;
-    }
+    };
 
-    validateField(): Promise<IFieldError> {
+    validateField = (): Promise<IFieldError> => {
         const { validateMessages } = this.context;
         const { getFieldValue } = this.context.form;
         const { field, rules, onValidateStatusChange } = this.props;
@@ -107,14 +107,14 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
             });
         }
         return Promise.resolve({ errors: [], warnings: [], value, field, dom: null });
-    }
+    };
 
-    setFieldData(value: FieldValue) {
+    setFieldData = (value: FieldValue) => {
         const { field } = this.props;
         const { setFieldValue } = this.context.form;
         setFieldValue(field, value);
         this.validateField();
-    }
+    };
 
     innerTriggerFunction = (_, value, ...args) => {
         this.setFieldData(value);
@@ -132,13 +132,13 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
         }
     };
 
-    innerClearFunction(...args) {
+    innerClearFunction = (...args) => {
         const { children } = this.props;
         this.setFieldData('');
         if (children.props?.onClear) {
             children.props?.onClear(...args);
         }
-    }
+    };
 
     renderChildren() {
         const {
