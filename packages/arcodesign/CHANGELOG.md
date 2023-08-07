@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.1...@arco-design/mobile-react@2.28.2) (2023-08-07)
+
+
+### Bug Fixes
+
+* `Form` bind this in form-item ([#148](https://github.com/arco-design/arco-design-mobile/issues/148)) ([5616d53](https://github.com/arco-design/arco-design-mobile/commit/5616d537b921b009df61addccf966c5e9363a0cb))
+* `PickerView` flicker issue with picker off and on when momentum scrolling is not over ([#143](https://github.com/arco-design/arco-design-mobile/issues/143)) ([e91557f](https://github.com/arco-design/arco-design-mobile/commit/e91557fc1545dd6179329dc342de4967301a7d73))
+* `Tabs` use boundingRect instead of offset when calc tabs wrap size ([#146](https://github.com/arco-design/arco-design-mobile/issues/146)) ([7ece3a9](https://github.com/arco-design/arco-design-mobile/commit/7ece3a9eb76abb010aa88678af47c15a0bd319dc))
+
+
+
+
+
 ## [2.28.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.0...@arco-design/mobile-react@2.28.1) (2023-08-02)
 
 

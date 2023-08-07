@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.1...@arco-design/mobile-utils@2.16.2) (2023-08-07)
+
+
+### Bug Fixes
+
+* `Form` bind this in form-item ([#148](https://github.com/arco-design/arco-design-mobile/issues/148)) ([5616d53](https://github.com/arco-design/arco-design-mobile/commit/5616d537b921b009df61addccf966c5e9363a0cb))
+
+
+
+
+
 ## [2.16.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.0...@arco-design/mobile-utils@2.16.1) (2023-08-02)
 
 
