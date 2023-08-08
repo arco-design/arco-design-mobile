@@ -796,13 +796,14 @@ export interface ArcodesignToken extends Record<string, string> {
     'skeleton-background-color': string;
     'skeleton-gradient-animation-color': string;
     'skeleton-breath-opacity': string;
+    'skeleton-gradient-animation-timing-function': string;
     'skeleton-gradient-animation-duration': string;
     'skeleton-breath-animation-duration': string;
     'skeleton-title-height': string;
     'skeleton-paragraph-height': string;
     'skeleton-paragraph-margin-top': string;
     'skeleton-avatar-size': string;
-    'skeleton-grid-icon-width': string;
+    'skeleton-grid-icon-size': string;
     'skeleton-grid-text-width': string;
     'skeleton-grid-text-height': string;
     'skeleton-medium-gutter': string;

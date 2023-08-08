@@ -4032,12 +4032,17 @@ function getCompTokens() {
          * 骨架屏扫光动效高亮色
          * @en Skeleton element gradient animation highlight color
          */
-        skeletonGradientAnimationColor: 'rgba(0, 0, 0, 0.04)',
+        skeletonGradientAnimationColor: 'rgba(255, 255, 255, 0.6)',
         /**
          * 骨架屏呼吸动效透明度
          * @en Skeleton element breath animation opacity
          */
-        skeletonBreathOpacity: '0.3',
+        skeletonBreathOpacity: '0.4',
+        /**
+         * 骨架屏扫光动效曲线
+         * @en Skeleton element gradient animation timing function
+         */
+        skeletonGradientAnimationTimingFunction: 'cubic-bezier(0.42, 0, 0.58, 1)',
         /**
          * 骨架屏扫光动效时间
          * @en Skeleton element gradient animation duration
@@ -4047,7 +4052,7 @@ function getCompTokens() {
          * 骨架屏呼吸动效时间
          * @en Skeleton element breath animation duration
          */
-        skeletonBreathAnimationDuration: '2s',
+        skeletonBreathAnimationDuration: '1.5s',
         /**
          * 骨架屏标题高度
          * @en Skeleton title height
@@ -4072,7 +4077,7 @@ function getCompTokens() {
          * 骨架屏金刚位图标区宽度
          * @en Skeleton grid item icon width
          */
-        skeletonGridIconWidth: getRem(32),
+        skeletonGridIconSize: getRem(32),
         /**
          * 骨架屏金刚位文字区宽度
          * @en Skeleton grid item text width

@@ -6669,9 +6669,9 @@
         "cssKey": "skeleton-breath-animation-duration",
         "desc": "骨架屏呼吸动效时间",
         "override": "",
-        "value": "2s",
-        "jsValue": "2s",
-        "staticValue": "2s",
+        "value": "1.5s",
+        "jsValue": "1.5s",
+        "staticValue": "1.5s",
         "localeDesc": {
             "ch": "骨架屏呼吸动效时间",
             "en": "Skeleton element breath animation duration"
@@ -6681,9 +6681,9 @@
         "cssKey": "skeleton-breath-opacity",
         "desc": "骨架屏呼吸动效透明度",
         "override": "",
-        "value": "0.3",
-        "jsValue": "0.3",
-        "staticValue": "0.3",
+        "value": "0.4",
+        "jsValue": "0.4",
+        "staticValue": "0.4",
         "localeDesc": {
             "ch": "骨架屏呼吸动效透明度",
             "en": "Skeleton element breath animation opacity"
@@ -6693,9 +6693,9 @@
         "cssKey": "skeleton-gradient-animation-color",
         "desc": "骨架屏扫光动效高亮色",
         "override": "",
-        "value": "rgba(0, 0, 0, 0.04)",
-        "jsValue": "rgba(0, 0, 0, 0.04)",
-        "staticValue": "rgba(0, 0, 0, 0.04)",
+        "value": "rgba(255, 255, 255, 0.6)",
+        "jsValue": "rgba(255, 255, 255, 0.6)",
+        "staticValue": "rgba(255, 255, 255, 0.6)",
         "localeDesc": {
             "ch": "骨架屏扫光动效高亮色",
             "en": "Skeleton element gradient animation highlight color"
@@ -6713,8 +6713,20 @@
             "en": "Skeleton element gradient animation duration"
         }
     },
-    "skeletonGridIconWidth": {
-        "cssKey": "skeleton-grid-icon-width",
+    "skeletonGradientAnimationTimingFunction": {
+        "cssKey": "skeleton-gradient-animation-timing-function",
+        "desc": "骨架屏扫光动效曲线",
+        "override": "",
+        "value": "cubic-bezier(0.42, 0, 0.58, 1)",
+        "jsValue": "cubic-bezier(0.42, 0, 0.58, 1)",
+        "staticValue": "cubic-bezier(0.42, 0, 0.58, 1)",
+        "localeDesc": {
+            "ch": "骨架屏扫光动效曲线",
+            "en": "Skeleton element gradient animation timing function"
+        }
+    },
+    "skeletonGridIconSize": {
+        "cssKey": "skeleton-grid-icon-size",
         "desc": "骨架屏金刚位图标区宽度",
         "override": "",
         "value": "~`pxtorem(32)`",
