@@ -31,6 +31,11 @@ export interface StickyRef {
      * @en In the local scrolling mode, if there is nested scrolling outside the container, this method can be actively called to make the sticky element actively update the fixed position
      */
     recalculatePosition: () => void;
+    /**
+     * 手动更新占位模块的高度
+     * @en Manually update the height of the placeholder
+     */
+    updatePlaceholderLayout: () => void;
 }
 
 export interface StickyEventPayload {
@@ -300,6 +305,23 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
         framePendingRef.current = true;
     }, [containerEventHandler]);
 
+    const updatePlaceholderLayoutInner = useCallback(() => {
+        if (placeholderRef.current) {
+            const contentHeight = contentCalculateHeightRef.current;
+            // 当元素吸顶时，默认有一个占位的元素占住该元素的位置，避免布局产生抖动
+            // @en When an element is sticky to the top, a placeholder element occupies the element's position by default to avoid jitter in the layout
+            placeholderRef.current.style.height = `${isStickyRef.current ? contentHeight : 0}px`;
+        }
+    }, []);
+
+    const updatePlaceholderLayout = useCallback(() => {
+        if (contentRef.current) {
+            const contentClientRect = contentRef.current.getBoundingClientRect();
+            contentCalculateHeightRef.current = contentClientRect.height;
+        }
+        updatePlaceholderLayoutInner();
+    }, []);
+
     useEffect(() => {
         const containerEle = getActualContainer(getContainer) as HTMLElement;
 
@@ -326,13 +348,7 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
     }, [getContainer, getScrollContainer, recalculatePosition]);
 
     useEffect(() => {
-        if (placeholderRef.current) {
-            // 当元素吸顶时，默认有一个占位的元素占住该元素的位置，避免布局产生抖动
-            // @en When an element is sticky to the top, a placeholder element occupies the element's position by default to avoid jitter in the layout
-            placeholderRef.current.style.height = `${
-                isStickyRef.current ? contentCalculateHeightRef.current : 0
-            }px`;
-        }
+        updatePlaceholderLayoutInner();
     }, [isSticky, wasSticky]);
 
     useImperativeHandle(
@@ -340,8 +356,9 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
         () => ({
             dom: contentRef.current,
             recalculatePosition,
+            updatePlaceholderLayout,
         }),
-        [recalculatePosition],
+        [recalculatePosition, updatePlaceholderLayout],
     );
 
     const computedStyle = useMemo(

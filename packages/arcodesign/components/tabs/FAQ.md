@@ -6,4 +6,4 @@ onAfterChange 的调用是发生在动画执行后，很多 state 的更新在�
 
 ## tabs 怎么配合 sticky 组件实现一个复杂的交互页面
 
-可以参考 [sticky-tabs](/#/components/sticky-tabs) 复合组件使用
+可以参考 [sticky-tabs](#/composite-components/sticky-tabs) 复合组件使用

@@ -1,7 +1,8 @@
 @import "../../../../packages/arcodesign/style/mixin.less";
 
 #sticky-tabs-wrapper-position,
-#sticky-tabs-wrapper-hide {
+#sticky-tabs-wrapper-hide,
+#sticky-tabs-wrapper-css {
     height: 500px;
     overflow: scroll;
 
@@ -17,3 +18,12 @@
     }
 }
 
+#sticky-tabs-wrapper-css {
+    overflow: visible;
+
+    .sticky-tabs-wrapper-css-nav-bar {
+        position: sticky;
+        background: #fff;
+        top: 44px;
+    }
+}

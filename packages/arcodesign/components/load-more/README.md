@@ -20,6 +20,7 @@
 |defaultStatus|组件加载初始状态，传入 "before\-ready" 则先加载组件但不请求数据|"before\-ready" \| "prepare"|"prepare"|
 |status|当前状态，传入则受控|"before\-ready" \| "prepare" \| "loading" \| "nomore" \| "retry"|-|
 |getScrollContainer|待计算滚动容器|() =\> HTMLElement \| Window|() => window|
+|getOffsetNode|当多个 loadmore 在同一页面时，通过传入节点的 offsetHeight \+ offsetTop 代替 scrollHeight|() =\> HTMLElement \| Window|-|
 |trigger|触发loading的时机，当为click时，点击后将触发getData|"scroll" \| "click"|"scroll"|
 |threshold|滚动到离列表底部多远的位置触发getData，触发状态时机为'scroll'时有效|number|200|
 |getData|请求数据方法，可在异步任务结束后根据任务结果调用callback修改loadmore内部状态|(callback: (status: LoadMoreStatus) =\> void) =\> void|-|

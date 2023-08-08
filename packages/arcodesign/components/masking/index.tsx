@@ -346,6 +346,7 @@ const Masking = forwardRef((props: MaskingProps, ref: Ref<MaskingRef>) => {
                         type={maskTransitionType}
                         mountOnEnter={mountOnEnter}
                         unmountOnExit={unmountOnExit}
+                        nodeRef={maskRef}
                     >
                         <div
                             ref={maskRef}
@@ -360,6 +361,7 @@ const Masking = forwardRef((props: MaskingProps, ref: Ref<MaskingRef>) => {
                         type={contentTransitionType}
                         mountOnEnter={mountOnEnter}
                         unmountOnExit={unmountOnExit}
+                        nodeRef={contentRef}
                     >
                         <div
                             ref={contentRef}

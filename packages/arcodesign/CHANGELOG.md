@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.1...@arco-design/mobile-react@2.28.2) (2023-08-07)
+
+
+### Bug Fixes
+
+* `Form` bind this in form-item ([#148](https://github.com/arco-design/arco-design-mobile/issues/148)) ([5616d53](https://github.com/arco-design/arco-design-mobile/commit/5616d537b921b009df61addccf966c5e9363a0cb))
+* `PickerView` flicker issue with picker off and on when momentum scrolling is not over ([#143](https://github.com/arco-design/arco-design-mobile/issues/143)) ([e91557f](https://github.com/arco-design/arco-design-mobile/commit/e91557fc1545dd6179329dc342de4967301a7d73))
+* `Tabs` use boundingRect instead of offset when calc tabs wrap size ([#146](https://github.com/arco-design/arco-design-mobile/issues/146)) ([7ece3a9](https://github.com/arco-design/arco-design-mobile/commit/7ece3a9eb76abb010aa88678af47c15a0bd319dc))
+
+
+
+
+
+## [2.28.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.0...@arco-design/mobile-react@2.28.1) (2023-08-02)
+
+
+### Bug Fixes
+
+* `Avatar` make the prop "src" optional ([f99bbc8](https://github.com/arco-design/arco-design-mobile/commit/f99bbc812223ae6c8960b1d712040f1b221efb72))
+* add [@types](https://github.com/types) to peerDependencies ([42f3d5a](https://github.com/arco-design/arco-design-mobile/commit/42f3d5ab19144702d7c371c6cbd1aa031a690abe))
+
+
+
+
+
+# [2.28.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.5...@arco-design/mobile-react@2.28.0) (2023-07-14)
+
+
+### Bug Fixes
+
+* `Collapse` update with the latest opened ([#140](https://github.com/arco-design/arco-design-mobile/issues/140)) ([b963787](https://github.com/arco-design/arco-design-mobile/commit/b96378761557f4d90f09f789f662e9d3588c3cbd))
+* `ImagePreview` fix scroll through ([ea3f9bc](https://github.com/arco-design/arco-design-mobile/commit/ea3f9bc5d0980f70c81e2de99084e0a11187b3c1))
+* `Sticky` support the method "updatePlaceholderLayout" ([842b4fe](https://github.com/arco-design/arco-design-mobile/commit/842b4fe6084b3ae282bd54850e381fbe34bd826f))
+
+
+### Features
+
+* RTL support for `Badge`, `Button`, `Cell`, `Checkbox`, `Form`, `Radio`, `Rate`, `Switch` and `Tabs` ([#135](https://github.com/arco-design/arco-design-mobile/issues/135)) ([97de976](https://github.com/arco-design/arco-design-mobile/commit/97de976ba514ec0f48103bd4f0c535ebceb8981a))
+
+
+
+
+
+## [2.27.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.4...@arco-design/mobile-react@2.27.5) (2023-07-04)
+
+
+### Bug Fixes
+
+* `ImagePreview` fix long picture display problem ([#137](https://github.com/arco-design/arco-design-mobile/issues/137)) ([3df1f71](https://github.com/arco-design/arco-design-mobile/commit/3df1f71a8b1f63ed5e1986284f2746438de59d70))
+* `LoadMore` fix the inaccurate scrollheight when using multiple loadmore ([#130](https://github.com/arco-design/arco-design-mobile/issues/130)) ([da76f12](https://github.com/arco-design/arco-design-mobile/commit/da76f125734579a1921a3ace0964d5ff845cd545))
+* `Stepper` disable status ([#134](https://github.com/arco-design/arco-design-mobile/issues/134)) ([71dabe7](https://github.com/arco-design/arco-design-mobile/commit/71dabe71f3508ac8cb9a800d8ac1be01df509f28))
+* error caught when using "getComputedStyle" ([#129](https://github.com/arco-design/arco-design-mobile/issues/129)) ([daa8f67](https://github.com/arco-design/arco-design-mobile/commit/daa8f67961d9d2751a14c0c3f7759b54fe0579cb))
+* transition in StrictMode ([#131](https://github.com/arco-design/arco-design-mobile/issues/131)) ([084448b](https://github.com/arco-design/arco-design-mobile/commit/084448b0e4b43ea7d8632e232c1665ce00449c3d))
+
+
+
+
+
 ## [2.27.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.27.3...@arco-design/mobile-react@2.27.4) (2023-05-19)
 
 

@@ -6,11 +6,10 @@ import React, {
     useState,
     useEffect,
     useContext,
-    useMemo,
 } from 'react';
 import { cls, convertCssDuration, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
-import { useRefState, useUpdateEffect } from '../_helpers';
+import { useRefState, useSameRefState, useUpdateEffect } from '../_helpers';
 import IconArrowDown from '../icon/IconArrowDown';
 import { CollapseProps, CollapseRef } from './type';
 import { allContexts, CollapseKeyContext } from './utils';
@@ -42,7 +41,9 @@ export const Collapse = forwardRef((props: CollapseProps, ref: Ref<CollapseRef>)
     const { key: groupKey } = useContext(CollapseKeyContext);
     const CollapseContext = allContexts[groupKey] || {};
     const groupContext = useContext(CollapseContext) || {};
-    const opened = useMemo(() => {
+    const [opened, openedRef, setOpened] = useSameRefState(false);
+
+    useEffect(() => {
         let show = false;
         // 优先级： group > children
         // @en Priority: group > children
@@ -54,7 +55,7 @@ export const Collapse = forwardRef((props: CollapseProps, ref: Ref<CollapseRef>)
         } else {
             show = itemActive;
         }
-        return show;
+        setOpened(show);
     }, [value, active, itemActive, groupContext.isGroup, groupContext.value]);
 
     const getContentHeight = () => {
@@ -71,8 +72,8 @@ export const Collapse = forwardRef((props: CollapseProps, ref: Ref<CollapseRef>)
         setTimeout(
             () =>
                 contentWrapRef.current &&
-                (contentWrapRef.current.style.height = opened ? 'auto' : '0px'),
-            opened ? transTimeout : 20,
+                (contentWrapRef.current.style.height = openedRef.current ? 'auto' : '0px'),
+            openedRef.current ? transTimeout : 20,
         );
     };
 
@@ -93,10 +94,12 @@ export const Collapse = forwardRef((props: CollapseProps, ref: Ref<CollapseRef>)
             return;
         }
         const height = getContentHeight();
-        contentWrapRef.current.style.height = opened ? `${contentHeightRef.current}px` : '0px';
+        contentWrapRef.current.style.height = openedRef.current
+            ? `${contentHeightRef.current}px`
+            : '0px';
         nextTick(() => {
             contentHeightRef.current = height;
-            resetHeight(opened ? `${height}px` : '0px');
+            resetHeight(openedRef.current ? `${height}px` : '0px');
         });
     };
 

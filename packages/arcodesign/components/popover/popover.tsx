@@ -50,6 +50,8 @@ export const Popover = forwardRef((props: PopoverProps, ref: Ref<PopoverRef>) =>
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const childRef = useRef<HTMLDivElement | null>(null);
     const popoverRef = useRef<PopoverInnerRef | null>(null);
+    const transitionNodeRef = useRef<HTMLDivElement | null>(null);
+    const maskRef = useRef<HTMLDivElement | null>(null);
     const {
         direction,
         position,
@@ -176,7 +178,10 @@ export const Popover = forwardRef((props: PopoverProps, ref: Ref<PopoverRef>) =>
             className={cls(`${theme}-theme`, innerPopoverClassName, {
                 bordered,
             })}
-            ref={popoverRef}
+            ref={ele => {
+                popoverRef.current = ele;
+                transitionNodeRef.current = ele?.dom!;
+            }}
             direction={direction}
             minWidth={minWidth}
             maxWidth={maxWidth}
@@ -207,6 +212,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: Ref<PopoverRef>) =>
                     in={visibleState && !isCalcPosition}
                     timeout={transitionTimeout}
                     type={transitionName}
+                    nodeRef={transitionNodeRef}
                     mountOnEnter
                     unmountOnExit
                 >
@@ -223,11 +229,16 @@ export const Popover = forwardRef((props: PopoverProps, ref: Ref<PopoverRef>) =>
                     <Transition
                         in={visibleState && !isCalcPosition}
                         timeout={maskTransitionTimeout}
+                        nodeRef={maskRef}
                         type="fade"
                         mountOnEnter
                         unmountOnExit
                     >
-                        <div className={`${prefixCls}-popover-mask`} onClick={onClickMask} />
+                        <div
+                            className={`${prefixCls}-popover-mask`}
+                            onClick={onClickMask}
+                            ref={maskRef}
+                        />
                     </Transition>
                 </Portal>
             )}

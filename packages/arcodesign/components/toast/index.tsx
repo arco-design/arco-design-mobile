@@ -147,6 +147,7 @@ const Toast = forwardRef((props: ToastProps, ref: Ref<ToastRef>) => {
     } = props;
     const closeTimerRef = useRef<number>();
     const domRef = useRef<HTMLDivElement | null>(null);
+    const wrapDomRef = useRef<HTMLDivElement | null>(null);
     const isInitialMount = useRef(false);
     const hasType = type && type !== 'info';
 
@@ -214,6 +215,7 @@ const Toast = forwardRef((props: ToastProps, ref: Ref<ToastRef>) => {
                     'no-event': !disableBodyTouch,
                 })}
                 onClick={handleClickMask}
+                ref={wrapDomRef}
             >
                 <div
                     className={cls(`${prefixClass}-inner`, layout, {
@@ -258,7 +260,12 @@ const Toast = forwardRef((props: ToastProps, ref: Ref<ToastRef>) => {
                         className={cls(`${prefixCls}-toast`, 'all-border-box', className)}
                         ref={domRef}
                     >
-                        <Transition in={visible} timeout={transitionDuration} type="fade">
+                        <Transition
+                            in={visible}
+                            timeout={transitionDuration}
+                            type="fade"
+                            nodeRef={wrapDomRef}
+                        >
                             {renderComponent(`${prefixCls}-toast`)}
                         </Transition>
                     </div>

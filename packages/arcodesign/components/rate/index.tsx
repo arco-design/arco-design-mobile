@@ -224,7 +224,7 @@ const Rate = forwardRef((props: RateProps, ref: Ref<RateRef>) => {
 
     return (
         <ContextLayout>
-            {({ prefixCls }) => (
+            {({ prefixCls, useRtl }) => (
                 <div
                     role="slider"
                     aria-valuemin={0}
@@ -239,6 +239,7 @@ const Rate = forwardRef((props: RateProps, ref: Ref<RateRef>) => {
                         // 对内的index从1开始，方便计算
                         // @en The index of the pair starts from 1, which is convenient for calculation
                         const index = i + 1;
+                        const halfIndex = allowHalf ? index - 0.5 : index;
                         const status = getIconStatus(index);
                         return (
                             <div
@@ -250,12 +251,14 @@ const Rate = forwardRef((props: RateProps, ref: Ref<RateRef>) => {
                                 <div
                                     className={`${prefixCls}-rate-icon-click-half left`}
                                     onClick={() =>
-                                        handleStarIndexChange(allowHalf ? index - 0.5 : index)
+                                        handleStarIndexChange(useRtl ? index : halfIndex)
                                     }
                                 />
                                 <div
                                     className={`${prefixCls}-rate-icon-click-half right`}
-                                    onClick={() => handleStarIndexChange(index)}
+                                    onClick={() =>
+                                        handleStarIndexChange(useRtl ? halfIndex : index)
+                                    }
                                 />
                             </div>
                         );

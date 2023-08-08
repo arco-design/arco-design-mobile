@@ -1,6 +1,14 @@
-import React, { useState, useEffect, forwardRef, Ref, useImperativeHandle, useRef } from 'react';
+import React, {
+    useState,
+    useEffect,
+    forwardRef,
+    Ref,
+    useImperativeHandle,
+    useRef,
+    useContext,
+} from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { ContextLayout, GlobalContext } from '../context-provider';
 import { useSystem } from '../_helpers';
 
 interface SwitchText {
@@ -98,6 +106,7 @@ export interface SwitchRef {
 }
 
 const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
+    const { useRtl } = useContext(GlobalContext);
     const system = useSystem();
     const {
         className,
@@ -153,15 +162,17 @@ const Switch = forwardRef((props: SwitchProps, ref: Ref<SwitchRef>) => {
         }
         const touchEndX = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : 0;
         const distance = touchEndX - touchStartX;
+        const swipeRight = useRtl ? distance < 0 : distance > 0;
+        const swipeLeft = useRtl ? distance > 0 : distance < 0;
 
         let newChecked = false;
         // 右滑打开
         // @en Swipe right to open
-        if (distance > 0) {
+        if (swipeRight) {
             newChecked = true;
             // 左滑关闭
             // @en Swipe left to close
-        } else if (distance < 0) {
+        } else if (swipeLeft) {
             newChecked = false;
             // 点击时取反
             // @en Invert on clicking
