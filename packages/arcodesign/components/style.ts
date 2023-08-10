@@ -44,6 +44,7 @@ import './pull-refresh/style';
 import './radio/style';
 import './rate/style';
 import './search-bar/style';
+import './skeleton/style';
 import './show-monitor/style';
 import './slider/style';
 import './stepper/style';

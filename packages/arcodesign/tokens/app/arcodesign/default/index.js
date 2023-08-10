@@ -803,7 +803,23 @@ var tokens = {
   "divider-left-width": "0.56rem",
   "divider-right-width": "0.56rem",
   "divider-content-padding": "0.24rem",
-  "divider-padding": "0.32rem"
+  "divider-padding": "0.32rem",
+  "skeleton-border-radius": "0",
+  "skeleton-background-color": "#F2F3F5",
+  "skeleton-gradient-animation-color": "rgba(255, 255, 255, 0.6)",
+  "skeleton-breath-opacity": "0.4",
+  "skeleton-gradient-animation-timing-function": "cubic-bezier(0.42, 0, 0.58, 1)",
+  "skeleton-gradient-animation-duration": "1.5s",
+  "skeleton-breath-animation-duration": "1.5s",
+  "skeleton-title-height": "0.32rem",
+  "skeleton-paragraph-height": "0.32rem",
+  "skeleton-paragraph-margin-top": "0.24rem",
+  "skeleton-avatar-size": "0.64rem",
+  "skeleton-grid-icon-size": "0.64rem",
+  "skeleton-grid-text-width": "1.28rem",
+  "skeleton-grid-text-height": "0.32rem",
+  "skeleton-medium-gutter": "0.16rem",
+  "skeleton-large-gutter": "0.4rem"
 };
 var _default = tokens;
 exports["default"] = _default;

@@ -6629,6 +6629,196 @@
             "en": "Size of the rounded corners of the square SearchBar"
         }
     },
+    "skeletonAvatarSize": {
+        "cssKey": "skeleton-avatar-size",
+        "desc": "骨架屏头像大小",
+        "override": "",
+        "value": "~`pxtorem(32)`",
+        "jsValue": "@getRem@32",
+        "staticValue": "0.64rem",
+        "localeDesc": {
+            "ch": "骨架屏头像大小",
+            "en": "Skeleton avatar size"
+        }
+    },
+    "skeletonBackgroundColor": {
+        "cssKey": "skeleton-background-color",
+        "desc": "骨架屏元素背景色",
+        "override": "",
+        "value": "#F2F3F5",
+        "jsValue": "#F2F3F5",
+        "staticValue": "#F2F3F5",
+        "localeDesc": {
+            "ch": "骨架屏元素背景色",
+            "en": "Skeleton element background color"
+        }
+    },
+    "skeletonBorderRadius": {
+        "cssKey": "skeleton-border-radius",
+        "desc": "骨架屏元素圆角",
+        "override": "",
+        "value": "~`pxtorem(0)`",
+        "jsValue": "@getRem@0",
+        "staticValue": "0",
+        "localeDesc": {
+            "ch": "骨架屏元素圆角",
+            "en": "Skeleton element border radius"
+        }
+    },
+    "skeletonBreathAnimationDuration": {
+        "cssKey": "skeleton-breath-animation-duration",
+        "desc": "骨架屏呼吸动效时间",
+        "override": "",
+        "value": "1.5s",
+        "jsValue": "1.5s",
+        "staticValue": "1.5s",
+        "localeDesc": {
+            "ch": "骨架屏呼吸动效时间",
+            "en": "Skeleton element breath animation duration"
+        }
+    },
+    "skeletonBreathOpacity": {
+        "cssKey": "skeleton-breath-opacity",
+        "desc": "骨架屏呼吸动效透明度",
+        "override": "",
+        "value": "0.4",
+        "jsValue": "0.4",
+        "staticValue": "0.4",
+        "localeDesc": {
+            "ch": "骨架屏呼吸动效透明度",
+            "en": "Skeleton element breath animation opacity"
+        }
+    },
+    "skeletonGradientAnimationColor": {
+        "cssKey": "skeleton-gradient-animation-color",
+        "desc": "骨架屏扫光动效高亮色",
+        "override": "",
+        "value": "rgba(255, 255, 255, 0.6)",
+        "jsValue": "rgba(255, 255, 255, 0.6)",
+        "staticValue": "rgba(255, 255, 255, 0.6)",
+        "localeDesc": {
+            "ch": "骨架屏扫光动效高亮色",
+            "en": "Skeleton element gradient animation highlight color"
+        }
+    },
+    "skeletonGradientAnimationDuration": {
+        "cssKey": "skeleton-gradient-animation-duration",
+        "desc": "骨架屏扫光动效时间",
+        "override": "",
+        "value": "1.5s",
+        "jsValue": "1.5s",
+        "staticValue": "1.5s",
+        "localeDesc": {
+            "ch": "骨架屏扫光动效时间",
+            "en": "Skeleton element gradient animation duration"
+        }
+    },
+    "skeletonGradientAnimationTimingFunction": {
+        "cssKey": "skeleton-gradient-animation-timing-function",
+        "desc": "骨架屏扫光动效曲线",
+        "override": "",
+        "value": "cubic-bezier(0.42, 0, 0.58, 1)",
+        "jsValue": "cubic-bezier(0.42, 0, 0.58, 1)",
+        "staticValue": "cubic-bezier(0.42, 0, 0.58, 1)",
+        "localeDesc": {
+            "ch": "骨架屏扫光动效曲线",
+            "en": "Skeleton element gradient animation timing function"
+        }
+    },
+    "skeletonGridIconSize": {
+        "cssKey": "skeleton-grid-icon-size",
+        "desc": "骨架屏金刚位图标区宽度",
+        "override": "",
+        "value": "~`pxtorem(32)`",
+        "jsValue": "@getRem@32",
+        "staticValue": "0.64rem",
+        "localeDesc": {
+            "ch": "骨架屏金刚位图标区宽度",
+            "en": "Skeleton grid item icon width"
+        }
+    },
+    "skeletonGridTextHeight": {
+        "cssKey": "skeleton-grid-text-height",
+        "desc": "骨架屏金刚位文字区高度",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "骨架屏金刚位文字区高度",
+            "en": "Skeleton grid item text height"
+        }
+    },
+    "skeletonGridTextWidth": {
+        "cssKey": "skeleton-grid-text-width",
+        "desc": "骨架屏金刚位文字区宽度",
+        "override": "",
+        "value": "~`pxtorem(64)`",
+        "jsValue": "@getRem@64",
+        "staticValue": "1.28rem",
+        "localeDesc": {
+            "ch": "骨架屏金刚位文字区宽度",
+            "en": "Skeleton grid item text width"
+        }
+    },
+    "skeletonLargeGutter": {
+        "cssKey": "skeleton-large-gutter",
+        "desc": "骨架屏元素外边距，大尺寸",
+        "override": "",
+        "value": "~`pxtorem(20)`",
+        "jsValue": "@getRem@20",
+        "staticValue": "0.4rem",
+        "localeDesc": {
+            "ch": "骨架屏元素外边距，大尺寸"
+        }
+    },
+    "skeletonMediumGutter": {
+        "cssKey": "skeleton-medium-gutter",
+        "desc": "骨架屏元素外边距，中尺寸",
+        "override": "",
+        "value": "~`pxtorem(8)`",
+        "jsValue": "@getRem@8",
+        "staticValue": "0.16rem",
+        "localeDesc": {
+            "ch": "骨架屏元素外边距，中尺寸"
+        }
+    },
+    "skeletonParagraphHeight": {
+        "cssKey": "skeleton-paragraph-height",
+        "desc": "骨架屏段落行高度",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "骨架屏段落行高度",
+            "en": "Skeleton paragraph line height"
+        }
+    },
+    "skeletonParagraphMarginTop": {
+        "cssKey": "skeleton-paragraph-margin-top",
+        "desc": "骨架屏各段落行间距",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "骨架屏各段落行间距",
+            "en": "Margin top between skeleton paragraph lines"
+        }
+    },
+    "skeletonTitleHeight": {
+        "cssKey": "skeleton-title-height",
+        "desc": "骨架屏标题高度",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "骨架屏标题高度",
+            "en": "Skeleton title height"
+        }
+    },
     "sliderHasMarkPaddingBottom": {
         "cssKey": "slider-has-mark-padding-bottom",
         "desc": "slider 有标记时的底部内边距",

@@ -43,6 +43,7 @@ export { default as PullRefresh } from './pull-refresh';
 export { default as Radio } from './radio';
 export { default as Rate } from './rate';
 export { default as SearchBar } from './search-bar';
+export { default as Skeleton } from './skeleton';
 export { default as ShowMonitor } from './show-monitor';
 export { default as Slider } from './slider';
 export { default as Stepper } from './stepper';
