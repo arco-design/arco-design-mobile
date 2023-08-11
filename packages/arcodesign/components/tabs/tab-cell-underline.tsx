@@ -2,6 +2,7 @@ import React, {
     CSSProperties,
     forwardRef,
     Ref,
+    useContext,
     useEffect,
     useImperativeHandle,
     useMemo,
@@ -11,6 +12,7 @@ import React, {
 import { addCssKeyframes, cls, nextTick, removeCssStyleDom } from '@arco-design/mobile-utils';
 import { TabCellUnderlineProps, TabCellUnderlineRef, UnderlineStyle } from './type';
 import { getStyleWithVendor, useRefState, useSystem } from '../_helpers';
+import { GlobalContext } from '../context-provider';
 
 const TabCellUnderline = forwardRef(
     (props: TabCellUnderlineProps, ref: Ref<TabCellUnderlineRef>) => {
@@ -37,6 +39,7 @@ const TabCellUnderline = forwardRef(
             getTabRect,
             getTabCenterLeft,
         } = props;
+        const { useRtl } = useContext(GlobalContext);
         const [underlineStyle, setUnderlineStyle] = useState<UnderlineStyle>({});
         const [caterpillar, caterpillarRef, setCaterpillar] = useRefState(false);
         const [caterpillarDelay, setCaterpillarDelay] = useState(0);
@@ -46,6 +49,7 @@ const TabCellUnderline = forwardRef(
         const isVertical = tabDirection === 'vertical';
         const maxScaleWithDefault = caterpillarMaxScale || 2;
         const translateZStr = translateZ ? ' translateZ(0)' : '';
+        const rtlRatio = isVertical && useRtl ? -1 : 1;
 
         useImperativeHandle(
             ref,
@@ -159,10 +163,11 @@ const TabCellUnderline = forwardRef(
         }
 
         function getDescIndex() {
-            if (distance > 0) {
+            const comparedDis = distance * rtlRatio;
+            if (comparedDis > 0) {
                 return activeIndex - 1;
             }
-            if (distance < 0) {
+            if (comparedDis < 0) {
                 return activeIndex + 1;
             }
             return activeIndex;
@@ -182,7 +187,8 @@ const TabCellUnderline = forwardRef(
             const currentLeft = getLineLeft(activeIndex);
             const descIndex = getDescIndex();
             const descLeft = getLineLeft(descIndex);
-            const moveRatio = wrapWidth ? distance / wrapWidth : 0;
+            const comparedDis = distance * rtlRatio;
+            const moveRatio = wrapWidth ? comparedDis / wrapWidth : 0;
             const leftOffset = moveRatio * (currentLeft - descLeft);
             const direc = isVertical ? 'X' : 'Y';
             const transStyle: CSSProperties =
@@ -206,7 +212,7 @@ const TabCellUnderline = forwardRef(
                 const widthOffset = moveRatio * (currentWidth - descWidth);
                 adaptiveStyle = {
                     [isVertical ? 'width' : 'height']:
-                        distance > 0 ? currentWidth - widthOffset : currentWidth + widthOffset,
+                        comparedDis > 0 ? currentWidth - widthOffset : currentWidth + widthOffset,
                     willChange: 'width',
                 };
                 adaptiveOuterStyle = isVertical ? { width: 'auto' } : { height: 'auto' };
@@ -223,7 +229,7 @@ const TabCellUnderline = forwardRef(
             return {
                 outer: {
                     transform: `translate${direc}(${
-                        distance > 0 ? currentLeft - leftOffset : currentLeft + leftOffset
+                        comparedDis > 0 ? currentLeft - leftOffset : currentLeft + leftOffset
                     }px)${translateZStr}`,
                     ...outerSize,
                     ...adaptiveOuterStyle,

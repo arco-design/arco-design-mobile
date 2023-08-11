@@ -51,13 +51,13 @@ export interface NavBarProps {
      */
     rightContent?: React.ReactNode;
     /**
-     * 自定义样式，背景和文字颜色可在此定义
+     * 自定义样式，最外层元素的背景文字颜色可在此定义
      * @en Custom stylesheet, background and text colors can be defined here
      */
     style?: React.CSSProperties;
     /**
-     * 自定义类名
-     * @en Custom classname
+     * 内层自定义类名
+     * @en Inner custom classname
      */
     className?: string;
     /**

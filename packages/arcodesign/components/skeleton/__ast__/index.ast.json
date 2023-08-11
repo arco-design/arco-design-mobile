@@ -1,0 +1,1007 @@
+{
+    "description": "在内容加载过程中展示一组占位图形。",
+    "descriptionTags": {
+        "en": "Display a set of placeholder graphics during content loading",
+        "type": "信息展示",
+        "type_en": "Data Display",
+        "name": "骨架屏",
+        "name_en": "Skeleton"
+    },
+    "displayName": "Skeleton",
+    "methods": [],
+    "props": {
+        "title": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否显示标题占位图\n@en Show title placeholder",
+            "name": "title",
+            "tags": {
+                "en": "Show title placeholder",
+                "default": "true"
+            },
+            "descWithTags": "是否显示标题占位图",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | SkeletonTitleProps"
+            }
+        },
+        "paragraph": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否显示段落占位图\n@en Show paragraph placeholder",
+            "name": "paragraph",
+            "tags": {
+                "en": "Show paragraph placeholder",
+                "default": "true"
+            },
+            "descWithTags": "是否显示段落占位图",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | SkeletonParagraphProps"
+            }
+        },
+        "avatar": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否显示头像占位图\n@en Show Avatar placeholder",
+            "name": "avatar",
+            "tags": {
+                "en": "Show Avatar placeholder",
+                "default": "false"
+            },
+            "descWithTags": "是否显示头像占位图",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | SkeletonAvatarProps"
+            }
+        },
+        "grid": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否显示金刚位占位图（如该参数非空时，默认展示四列金刚位，且不展示标题/段落/头像占位符）\n@en Show Grid placeholder. When it's value is present, the paragraph, avatar or title placeholder will not be displayed, and four columns will be displayed by default",
+            "name": "grid",
+            "tags": {
+                "en": "Show Grid placeholder. When it's value is present, the paragraph, avatar or title placeholder will not be displayed, and four columns will be displayed by default",
+                "default": "false"
+            },
+            "descWithTags": "是否显示金刚位占位图（如该参数非空时，默认展示四列金刚位，且不展示标题/段落/头像占位符）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean | SkeletonGridProps"
+            }
+        },
+        "showAnimation": {
+            "defaultValue": {
+                "value": "true"
+            },
+            "description": "是否展示动画效果\n@en Show loading effect",
+            "name": "showAnimation",
+            "tags": {
+                "en": "Show loading effect",
+                "default": "true"
+            },
+            "descWithTags": "是否展示动画效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
+        "animation": {
+            "defaultValue": {
+                "value": "\"gradient\""
+            },
+            "description": "加载动画效果，可选“扫光”、“呼吸”两种效果\n@en Animation of loading effect, 'gradient' and 'breath' effects are optional",
+            "name": "animation",
+            "tags": {
+                "en": "Animation of loading effect, 'gradient' and 'breath' effects are optional",
+                "default": "\"gradient\""
+            },
+            "descWithTags": "加载动画效果，可选“扫光”、“呼吸”两种效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"gradient\" | \"breath\"",
+                "value": [
+                    {
+                        "value": "\"gradient\""
+                    },
+                    {
+                        "value": "\"breath\""
+                    }
+                ]
+            }
+        },
+        "animationGradientColor": {
+            "defaultValue": {
+                "value": "\"rgba(0, 0, 0, 0.04)\""
+            },
+            "description": "扫光动效高光颜色\n@en Highlight color of gradient animation",
+            "name": "animationGradientColor",
+            "tags": {
+                "en": "Highlight color of gradient animation",
+                "default": "\"rgba(0, 0, 0, 0.04)\""
+            },
+            "descWithTags": "扫光动效高光颜色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "backgroundColor": {
+            "defaultValue": {
+                "value": "\"#F7F8FA\""
+            },
+            "description": "占位块背景色\n@en Background color of skeleton item",
+            "name": "backgroundColor",
+            "tags": {
+                "en": "Background color of skeleton item",
+                "default": "\"#F7F8FA\""
+            },
+            "descWithTags": "占位块背景色",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "children": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "子元素\n@en Children element",
+            "name": "children",
+            "tags": {
+                "en": "Children element",
+                "default": "null"
+            },
+            "descWithTags": "子元素",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                "name": "SkeletonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<SkeletonRef>"
+            }
+        }
+    },
+    "deps": {
+        "SkeletonTitleProps": {
+            "width": {
+                "name": "width",
+                "required": false,
+                "description": "标题占位图宽度\n@en The width of title",
+                "defaultValue": {
+                    "value": "\"40%\""
+                },
+                "type": {
+                    "name": "ReactText"
+                },
+                "tags": {
+                    "en": "The width of title",
+                    "default": "\"40%\""
+                },
+                "descWithTags": "标题占位图宽度"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "SkeletonParagraphProps": {
+            "rows": {
+                "name": "rows",
+                "required": false,
+                "description": "段落占位图的行数\n@en Number of lines for paragraph",
+                "defaultValue": {
+                    "value": "3"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "Number of lines for paragraph",
+                    "default": "3"
+                },
+                "descWithTags": "段落占位图的行数"
+            },
+            "width": {
+                "name": "width",
+                "required": false,
+                "description": "段落占位图宽度，若为数组格式对应每行宽度，否则表示最后一行的宽度\n@en The width of paragraph. If width is an Array, it corresponds to the width of each line, otherwise it indicates the width of the last line",
+                "defaultValue": {
+                    "value": "\"60%\""
+                },
+                "type": {
+                    "name": "string | number | ReactText[]"
+                },
+                "tags": {
+                    "en": "The width of paragraph. If width is an Array, it corresponds to the width of each line, otherwise it indicates the width of the last line",
+                    "default": "\"60%\""
+                },
+                "descWithTags": "段落占位图宽度，若为数组格式对应每行宽度，否则表示最后一行的宽度"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "SkeletonAvatarProps": {
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "SkeletonGridProps": {
+            "columns": {
+                "name": "columns",
+                "required": false,
+                "description": "金刚位列数\n@en columns of grid",
+                "defaultValue": {
+                    "value": "4"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "columns of grid",
+                    "default": "4"
+                },
+                "descWithTags": "金刚位列数"
+            },
+            "className": {
+                "name": "className",
+                "required": false,
+                "description": "自定义类名\n@en Custom classname",
+                "defaultValue": {
+                    "value": "\"\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "Custom classname",
+                    "default": "\"\""
+                },
+                "descWithTags": "自定义类名"
+            },
+            "style": {
+                "name": "style",
+                "required": false,
+                "description": "自定义样式\n@en Custom stylesheet",
+                "defaultValue": {
+                    "value": "{}"
+                },
+                "type": {
+                    "name": "CSSProperties"
+                },
+                "tags": {
+                    "en": "Custom stylesheet",
+                    "default": "{}"
+                },
+                "descWithTags": "自定义样式"
+            }
+        },
+        "SkeletonRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "最外层 DOM 元素"
+            }
+        }
+    },
+    "depComps": {
+        "Node": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "SkeletonNode",
+            "methods": [],
+            "props": {
+                "children": {
+                    "defaultValue": {
+                        "value": "null"
+                    },
+                    "description": "自定义组件内容\n@en Custom component content",
+                    "name": "children",
+                    "tags": {
+                        "en": "Custom component content",
+                        "default": "null"
+                    },
+                    "descWithTags": "自定义组件内容",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "BaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactNode"
+                    }
+                },
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<SkeletonRef>"
+                    }
+                }
+            },
+            "deps": {
+                "SkeletonRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "最外层 DOM 元素"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "BaseProps",
+                "ref": "SkeletonRef"
+            }
+        },
+        "Title": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "SkeletonTitle",
+            "methods": [],
+            "props": {
+                "width": {
+                    "defaultValue": {
+                        "value": "\"40%\""
+                    },
+                    "description": "标题占位图宽度\n@en The width of title",
+                    "name": "width",
+                    "tags": {
+                        "en": "The width of title",
+                        "default": "\"40%\""
+                    },
+                    "descWithTags": "标题占位图宽度",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                        "name": "SkeletonTitleProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "ReactText"
+                    }
+                },
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<SkeletonRef>"
+                    }
+                }
+            },
+            "deps": {
+                "SkeletonRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "最外层 DOM 元素"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "SkeletonTitleProps",
+                "ref": "SkeletonRef"
+            }
+        },
+        "Paragraph": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "SkeletonParagraph",
+            "methods": [],
+            "props": {
+                "rows": {
+                    "defaultValue": {
+                        "value": "3"
+                    },
+                    "description": "段落占位图的行数\n@en Number of lines for paragraph",
+                    "name": "rows",
+                    "tags": {
+                        "en": "Number of lines for paragraph",
+                        "default": "3"
+                    },
+                    "descWithTags": "段落占位图的行数",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                        "name": "SkeletonParagraphProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "width": {
+                    "defaultValue": {
+                        "value": "\"60%\""
+                    },
+                    "description": "段落占位图宽度，若为数组格式对应每行宽度，否则表示最后一行的宽度\n@en The width of paragraph. If width is an Array, it corresponds to the width of each line, otherwise it indicates the width of the last line",
+                    "name": "width",
+                    "tags": {
+                        "en": "The width of paragraph. If width is an Array, it corresponds to the width of each line, otherwise it indicates the width of the last line",
+                        "default": "\"60%\""
+                    },
+                    "descWithTags": "段落占位图宽度，若为数组格式对应每行宽度，否则表示最后一行的宽度",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                        "name": "SkeletonParagraphProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string | number | ReactText[]"
+                    }
+                },
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<SkeletonRef>"
+                    }
+                }
+            },
+            "deps": {
+                "SkeletonRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "最外层 DOM 元素"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "SkeletonParagraphProps",
+                "ref": "SkeletonRef"
+            }
+        },
+        "Avatar": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "SkeletonAvatar",
+            "methods": [],
+            "props": {
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<SkeletonRef>"
+                    }
+                }
+            },
+            "deps": {
+                "SkeletonRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "最外层 DOM 元素"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "SimpleBaseProps",
+                "ref": "SkeletonRef"
+            }
+        },
+        "Grid": {
+            "description": "",
+            "descriptionTags": {},
+            "displayName": "SkeletonGrid",
+            "methods": [],
+            "props": {
+                "columns": {
+                    "defaultValue": {
+                        "value": "4"
+                    },
+                    "description": "金刚位列数\n@en columns of grid",
+                    "name": "columns",
+                    "tags": {
+                        "en": "columns of grid",
+                        "default": "4"
+                    },
+                    "descWithTags": "金刚位列数",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/skeleton/type.ts",
+                        "name": "SkeletonGridProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "number"
+                    }
+                },
+                "className": {
+                    "defaultValue": {
+                        "value": "\"\""
+                    },
+                    "description": "自定义类名\n@en Custom classname",
+                    "name": "className",
+                    "tags": {
+                        "en": "Custom classname",
+                        "default": "\"\""
+                    },
+                    "descWithTags": "自定义类名",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "string"
+                    }
+                },
+                "style": {
+                    "defaultValue": {
+                        "value": "{}"
+                    },
+                    "description": "自定义样式\n@en Custom stylesheet",
+                    "name": "style",
+                    "tags": {
+                        "en": "Custom stylesheet",
+                        "default": "{}"
+                    },
+                    "descWithTags": "自定义样式",
+                    "parent": {
+                        "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                        "name": "SimpleBaseProps"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "CSSProperties"
+                    }
+                },
+                "ref": {
+                    "defaultValue": null,
+                    "description": "",
+                    "name": "ref",
+                    "tags": {},
+                    "descWithTags": "",
+                    "parent": {
+                        "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                        "name": "RefAttributes"
+                    },
+                    "required": false,
+                    "type": {
+                        "name": "Ref<SkeletonRef>"
+                    }
+                }
+            },
+            "deps": {
+                "SkeletonRef": {
+                    "dom": {
+                        "name": "dom",
+                        "required": true,
+                        "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                        "defaultValue": null,
+                        "type": {
+                            "name": "HTMLDivElement"
+                        },
+                        "tags": {
+                            "en": "The outer DOM element of the component"
+                        },
+                        "descWithTags": "最外层 DOM 元素"
+                    }
+                }
+            },
+            "depComps": {},
+            "typeNameInfo": {
+                "props": "SkeletonGridProps",
+                "ref": "SkeletonRef"
+            }
+        }
+    },
+    "typeNameInfo": {
+        "props": "SkeletonProps",
+        "ref": "SkeletonRef"
+    },
+    "isDefaultExport": true
+}

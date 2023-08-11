@@ -70,6 +70,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     const rowCount = Math.max(rows % 2 === 0 ? rows + 1 : rows, 3);
     const isTouchMoveRef = useRef(false);
     const isTouchStopped = useRef(false);
+    const unmountCallbackRef = useRef<() => void>();
     const timeRef = useRef<number | null>(null);
 
     const colStyle = useMemo(
@@ -104,19 +105,23 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     function _scrollTo(transY: number, transDuration = 0, callback = () => {}) {
         setTransitionDuration(transDuration ? `${transDuration}ms` : '');
         setTransformY(transY);
-        // 处理连续滑动的情况：
-        // @en handle the case of continuous sliding:
-        // 如果上一次callback还未执行，先cancel掉上一次回调，只执行最近的一次回调
-        // @en If the last callback has not been executed, cancel the last callback first, and only execute the latest callback
+        // 处理连续滑动的情况：如果上一次callback还未执行，先cancel掉上一次回调
+        // @en handle the case of continuous sliding: If the last callback has not been executed, cancel the last callback first
         if (latestCallbackTimer.current) {
             clearTimeout(latestCallbackTimer.current);
         }
 
-        latestCallbackTimer.current = window.setTimeout(() => {
+        const setNormalStatus = () => {
+            // 如果timer顺利执行，则在unmount时不再重复执行
+            // @en If the timer is successfully executed, it will not be repeated when unmounting
+            unmountCallbackRef.current = undefined;
             movingStatusRef.current = 'normal';
             setTransitionDuration('');
             callback();
-        }, transDuration);
+        };
+
+        unmountCallbackRef.current = setNormalStatus;
+        latestCallbackTimer.current = window.setTimeout(setNormalStatus, transDuration);
     }
 
     function _scrollToIndex(itemIndex: number, transDuration = 0, callback = () => {}) {
@@ -322,6 +327,16 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         }
         _scrollToIndexWithChange(itemIndex, 200);
     }
+
+    useEffect(() => {
+        return () => {
+            // 卸载组件时，如果timer中还有未执行的onchange操作，则立刻执行该操作并移除timer
+            // @en When unloading the component, if there is an unexecuted onchange operation in the timer, execute it immediately and remove the timer
+            const timerId = latestCallbackTimer.current;
+            unmountCallbackRef.current?.();
+            timerId && clearTimeout(timerId);
+        };
+    }, []);
 
     useEffect(() => {
         if (wrapRef.current) {

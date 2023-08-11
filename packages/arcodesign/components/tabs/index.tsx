@@ -7,9 +7,10 @@ import React, {
     useState,
     useEffect,
     useCallback,
+    useContext,
 } from 'react';
-import { cls, nextTick } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { cls, nextTick, getOffset } from '@arco-design/mobile-utils';
+import { ContextLayout, GlobalContext } from '../context-provider';
 import TabCell from './tab-cell';
 import TabPane from './tab-pane';
 import {
@@ -110,6 +111,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         tabBarStopPropagation = true,
         swipeEnergySaving = false,
     } = props;
+    const { useRtl } = useContext(GlobalContext);
     const domRef = useRef<HTMLDivElement | null>(null);
     const cellRef = useRef<TabCellRef | null>(null);
     const paneRef = useRef<TabPaneRef | null>(null);
@@ -142,6 +144,8 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         swipeable &&
         tabDirection === 'vertical' &&
         tabs.length > 1;
+    const horizontalUseRtl = tabDirection === 'vertical' && useRtl;
+    const rtlRatio = horizontalUseRtl ? -1 : 1;
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -264,6 +268,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
             const posDisY = touchMoveY - touchStartYRef.current;
             const absDisX = Math.abs(posDisX);
             const absDisY = Math.abs(posDisY);
+            const comparedDis = posDisX * rtlRatio;
             if (scrollingRef.current === null) {
                 scrollingRef.current = absDisX < absDisY;
             }
@@ -278,12 +283,12 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
                 return;
             }
             if (
-                (activeIndexRef.current === 0 && posDisX > 0) ||
-                (activeIndexRef.current === tabs.length - 1 && posDisX < 0)
+                (activeIndexRef.current === 0 && comparedDis > 0) ||
+                (activeIndexRef.current === tabs.length - 1 && comparedDis < 0)
             ) {
                 if (!touchStoppedRef.current && absDisX > stopTouchThreshold) {
                     touchStoppedRef.current = true;
-                    onTouchStopped && onTouchStopped(posDisX >= 0 ? -1 : 1);
+                    onTouchStopped && onTouchStopped(comparedDis >= 0 ? -1 : 1);
                 }
                 setDistance(0);
                 return;
@@ -339,9 +344,10 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
             (Math.abs(dis) > maxSlice && Math.abs(dis) > distanceToChangeTab) ||
             Math.abs(speed) > speedToChangeTab;
         let newIndex = index;
-        if (dis > 0 && needJump) {
+        const comparedDis = dis * rtlRatio;
+        if (comparedDis > 0 && needJump) {
             newIndex = index - 1;
-        } else if (dis < 0 && needJump) {
+        } else if (comparedDis < 0 && needJump) {
             newIndex = index + 1;
         }
         nextTick(() => {
@@ -363,9 +369,10 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
     }
 
     function updateLayout() {
+        const { width, height } = getOffset(domRef.current);
         cellRef.current && cellRef.current.resetUnderlineStyle();
-        setWrapWidth(domRef.current ? domRef.current.offsetWidth : 0);
-        setWrapHeight(domRef.current ? domRef.current.offsetHeight : 0);
+        setWrapWidth(width || domRef.current?.offsetWidth || 0);
+        setWrapHeight(height || domRef.current?.offsetHeight || 0);
         paneRef.current && paneRef.current.setCurrentHeight();
     }
 
@@ -483,6 +490,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
                             autoHeight={autoHeight}
                             onScroll={onScroll}
                             swipeEnergySaving={swipeEnergySaving}
+                            rtlRatio={rtlRatio}
                             {...commonProps}
                         />
                     </div>

@@ -60,13 +60,13 @@
     &-absolute {
         position: absolute;
         top: 0;
-        left: 100%;
-        .use-var(margin-left, badge-text-deviation);
+        .set-prop-with-rtl(left, 100%);
+        .use-var-with-rtl(margin-left, badge-text-deviation);
         .use-var(margin-top, badge-text-deviation);
     }
 
     &-absolute&-dot {
-        .use-var(margin-left, badge-dot-deviation);
+        .use-var-with-rtl(margin-left, badge-dot-deviation);
         .use-var(margin-top, badge-dot-deviation);
     }
 }

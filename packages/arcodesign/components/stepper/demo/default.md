@@ -15,7 +15,7 @@ export default function StepperDemo() {
                 <Stepper defaultValue={1} min={-1} max={2} step={1} digits={1}/>
             </Cell>
             <Cell label="禁用状态">
-                <Stepper disable/>
+                <Stepper disabled/>
             </Cell>
         </Cell.Group>
     );

@@ -43,7 +43,7 @@ export function freeEleScroll(
  * @param parentEl 父节点
  * @param childrenEl 子节点
  */
-export const isContains = (parentEl: HTMLElement | null, childrenEl: HTMLElement | null) => {
+export function isContains(parentEl: HTMLElement | null, childrenEl: HTMLElement | null) {
     if (!parentEl || !childrenEl) return false;
     if (parentEl.contains) {
         return parentEl.contains(childrenEl);
@@ -56,7 +56,7 @@ export const isContains = (parentEl: HTMLElement | null, childrenEl: HTMLElement
         parent = parent.parentNode as HTMLElement;
     }
     return false;
-};
+}
 
 export function execRAF(fn) {
     try {
@@ -74,7 +74,7 @@ export function scrollWithAnimation(
     bezier: [number, number, number, number] = [0.34, 0.69, 0.1, 1],
     type: 'by' | 'to' = 'to',
 ) {
-    const targetTop = Math.max(0, type === 'by' ? initTop + target : target);
+    const targetTop = type === 'by' ? initTop + target : target;
     const start = Date.now();
     const fn = () => {
         const p = (Date.now() - start) / duration;
@@ -428,4 +428,12 @@ export function convertCssDuration(ele: HTMLElement, property: string) {
         return (Number(timeout.replace('s', '')) || 0) * 1000;
     }
     return 0;
+}
+
+export function safeGetComputedStyle(element: HTMLElement) {
+    try {
+        return window.getComputedStyle(element);
+    } catch (e) {
+        return {} as CSSStyleDeclaration;
+    }
 }

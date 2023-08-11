@@ -38,6 +38,10 @@
         &.half-active {
             position: absolute;
             z-index: 1;
+
+            [dir="rtl"] & {
+                transform: scaleX(-1);
+            }
         }
     }
 

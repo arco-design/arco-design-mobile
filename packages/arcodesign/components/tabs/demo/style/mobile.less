@@ -24,7 +24,7 @@
 
     .demo-tabs-add-extra {
         position: absolute;
-        right: 0;
+        .set-prop-with-rtl(right, 0);
         top: 0;
         background: linear-gradient(270deg, #fff 66.04%, rgba(255, 255, 255, 0) 105%);
         .rem(width, 64);
@@ -36,6 +36,10 @@
         align-items: center;
         justify-content: flex-end;
         font-weight: bold;
+        [dir="rtl"] & {
+            justify-content: flex-start;
+            transform: rotate(180deg);
+        }
     }
 
     .demo-tab-custom-bar {

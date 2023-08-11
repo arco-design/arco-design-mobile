@@ -33,6 +33,7 @@
 |----------|-------------|------|
 |dom|最外层元素 DOM|HTMLDivElement|
 |recalculatePosition|局部滚动模式下，如果容器外部还有嵌套滚动，可主动调用此方法，让 sticky 的元素主动更新 fixed 位置|() =\> void|
+|updatePlaceholderLayout|手动更新占位模块的高度|() =\> void|
 
 > StickyEventPayload
 
