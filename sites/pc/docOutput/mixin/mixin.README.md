@@ -450,6 +450,12 @@
         @margin-right: margin-left;
         @padding-left: padding-right;
         @padding-right: padding-left;
+        @border-right: border-left;
+        @border-left: border-right;
+        @border-top-left-radius: border-top-right-radius;
+        @border-bottom-left-radius: border-bottom-right-radius;
+        @border-top-right-radius: border-top-left-radius;
+        @border-bottom-right-radius: border-bottom-left-radius;
     }
     @property-name: @property-map[@@origin-property];
 }
@@ -631,7 +637,6 @@
     .process-title-color-with-config {
         color: @color;
     }
-
     .finish-tail-color-with-config::before,
     .finish-tail-color-with-config::after,
     .process-tail-color-with-config::before,

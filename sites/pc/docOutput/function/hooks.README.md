@@ -3,6 +3,9 @@
 ------
 
 # useListenResize
+
+监听页面resize事件的统一封装
+
 ======
 
 ## 类型
@@ -16,14 +19,15 @@
 ```
 function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen = true) {
     useEffect(() => {
-        if (!needListen) {
-            return () => {};
+        if (needListen) {
+            window.addEventListener('resize', resizeHandler);
+            window.addEventListener('orientationchange', resizeHandler);
         }
-        window.addEventListener('resize', resizeHandler);
-        window.addEventListener('orientationchange', resizeHandler);
         return () => {
-            window.removeEventListener('resize', resizeHandler);
-            window.removeEventListener('orientationchange', resizeHandler);
+            if (needListen) {
+                window.removeEventListener('resize', resizeHandler);
+                window.removeEventListener('orientationchange', resizeHandler);
+            }
         };
     }, [...deps, needListen]);
 }
@@ -35,9 +39,9 @@ function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|resizeHandler|\-|() =\> void|必填|
-|deps|\-|any\[\]|-|
-|needListen|\-|boolean|-|
+|resizeHandler|resize事件回调|() =\> void|必填|
+|deps|触发事件绑定更新的依赖|any\[\]|-|
+|needListen|是否开启事件监听，默认开启|boolean|-|
 
 > 输出
 
@@ -91,11 +95,56 @@ function useMountedState<S>(initialState: S | (() => S)) {
 
 > 输出
 
-描述：什么东西
+描述：[state, setState]，同useState返回值
+
+------
+
+# useSameRefState
+
+用useState管理状态，且在状态更新之前同步至ref，并返回ref
+
+======
+
+## 类型
+
+```
+(initialValue: T) => [T, MutableRefObject<T>, (data: T) => void]
+```
+
+## 源码
+
+```
+function useSameRefState<T>(
+    initialValue: T,
+): [T, React.MutableRefObject<T>, (data: T) => void] {
+    const [state, setState] = useState<T>(initialValue);
+    const stateRef = useRef<T>(state);
+    const setStateProxy = (data: T) => {
+        stateRef.current = data;
+        setState(data);
+    };
+    return [state, stateRef, setStateProxy];
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|initialValue|初始状态|T|必填|
+
+> 输出
+
+描述：[state, stateRef, setState]
 
 ------
 
 # useRefState
+
+用useState管理状态，且在状态更新后同步至ref，并返回ref
+
 ======
 
 ## 类型
@@ -125,15 +174,18 @@ function useRefState<T>(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|initialValue|\-|T \| (() =\> T)|必填|
+|initialValue|初始状态|T \| (() =\> T)|必填|
 
 > 输出
 
-描述：无
+描述：[state, stateRef, setState]
 
 ------
 
 # useRefMountedState
+
+用useState管理状态，且在状态更新后同步至ref，并返回ref，统一处理在组件卸载后还使用setState的行为
+
 ======
 
 ## 类型
@@ -163,15 +215,18 @@ function useRefMountedState<T>(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|initialValue|\-|T \| (() =\> T)|必填|
+|initialValue|初始状态|T \| (() =\> T)|必填|
 
 > 输出
 
-描述：无
+描述：[state, stateRef, setState]
 
 ------
 
 # useUpdateEffect
+
+useEffect特殊封装，仅在非首次依赖更新时触发回调
+
 ======
 
 ## 类型
@@ -201,8 +256,8 @@ function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] 
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|effect|\-|() =\> void \| (() =\> void)|必填|
-|dependencies|\-|any\[\]|-|
+|effect|useEffect回调|() =\> void \| (() =\> void)|必填|
+|dependencies|useEffect依赖|any\[\]|-|
 
 > 输出
 
@@ -211,6 +266,9 @@ function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] 
 ------
 
 # useForceUpdate
+
+手动触发一次组件的rerender
+
 ======
 
 ## 类型
@@ -244,6 +302,9 @@ function useForceUpdate() {
 ------
 
 # useLatestRef
+
+获取任意变量的最新ref值（用于监听属性、方法等非state变量）
+
 ======
 
 ## 类型
@@ -270,15 +331,18 @@ function useLatestRef<T>(variable: T) {
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|variable|\-|T|必填|
+|variable|待获取最新值的变量|T|必填|
 
 > 输出
 
-描述：无
+描述：variableRef，变量的最新ref值
 
 ------
 
 # useSystem
+
+从navigator.userAgent中获取当前操作系统，如果无法获取ua，则从ContextProvider传入的system中获取值
+
 ======
 
 ## 类型
@@ -308,11 +372,14 @@ function useSystem() {
 
 > 输出
 
-描述：无
+描述：| "pc" | "android" | "ios"
 
 ------
 
 # useWindowSize
+
+获取页面视口宽高大小，并在页面有resize时更新大小
+
 ======
 
 ## 类型
@@ -325,8 +392,12 @@ function useSystem() {
 
 ```
 function useWindowSize(listenResize?: boolean) {
-    const [windowWidth, setWindowWidth] = useState(0);
-    const [windowHeight, setWindowHeight] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(
+        typeof window !== 'undefined' ? window.innerWidth : 0,
+    );
+    const [windowHeight, setWindowHeight] = useState(
+        typeof window !== 'undefined' ? window.innerHeight : 0,
+    );
 
     function setSize() {
         setWindowWidth(window.innerWidth);
@@ -352,11 +423,14 @@ function useWindowSize(listenResize?: boolean) {
 
 > 输出
 
-描述：无
+描述：windowWidth, windowHeight }
 
 ------
 
 # usePopupScroll
+
+弹窗中滚动统一处理，防止滚动穿透
+
 ======
 
 ## 类型
@@ -400,7 +474,7 @@ function usePopupScroll(
                 scrollRef.current = actualEle.reduce(
                     (acc, nowEle) => [
                         ...acc,
-                        ...(nowEle && window.getComputedStyle(nowEle).overflow !== 'hidden'
+                        ...(nowEle && safeGetComputedStyle(nowEle).overflow !== 'hidden'
                             ? [
                                   {
                                       ele: nowEle,
@@ -561,13 +635,13 @@ function usePopupScroll(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|visible|\-|boolean|必填|
-|popupDom|\-|HTMLDivElement|必填|
-|getScrollContainer|\-|() =\> HTMLElement \| HTMLElement\[\]|-|
-|orientationDirection|\-|"top" \| "bottom" \| "left" \| "right"|top|
-|preventCallback|\-|(e: TouchEvent, direction: "x" \| "y") =\> void|-|
-|onTouchMove|\-|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> void|-|
-|gestureOutOfControl|\-|boolean|-|
+|visible|弹窗是否被打开|boolean|必填|
+|popupDom|弹窗的dom元素|HTMLDivElement|必填|
+|getScrollContainer|弹窗中的滚动容器，可传入多个|() =\> HTMLElement \| HTMLElement\[\]|-|
+|orientationDirection|弹窗内容朝向，默认为top（从上到下），用于实现模拟横屏|"top" \| "bottom" \| "left" \| "right"|top|
+|preventCallback|在滚动穿透被阻止（preventDefault被触发）时的回调|(e: TouchEvent, direction: "x" \| "y") =\> void|-|
+|onTouchMove|touchmove 自定义事件|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> void|-|
+|gestureOutOfControl|是否禁用滚动穿透处理|boolean|-|
 
 > 输出
 
@@ -576,6 +650,9 @@ function usePopupScroll(
 ------
 
 # useSwiperInnerScroll
+
+在滑动类组件中，如果有内部可滚动区域，则在内部滚动区域滚动时禁用滑动事件
+
 ======
 
 ## 类型
@@ -622,7 +699,7 @@ function useSwiperInnerScroll(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|getInnerScrollContainer|\-|() =\> HTMLElement \| HTMLElement\[\]|-|
+|getInnerScrollContainer|内部可滚动区域，可传入多个|() =\> HTMLElement \| HTMLElement\[\]|-|
 
 > 输出
 
@@ -631,6 +708,9 @@ function useSwiperInnerScroll(
 ------
 
 # useAddListener
+
+事件绑定统一封装
+
 ======
 
 ## 类型
@@ -668,10 +748,10 @@ function useAddListener(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|dom|\-|HTMLDivElement|必填|
-|event|\-|string|必填|
-|handler|\-|any|必填|
-|options|\-|\{ capture: boolean; \}|-|
+|dom|待绑定事件的dom元素|HTMLDivElement|必填|
+|event|待绑定事件名称|string|必填|
+|handler|待绑定事件回调|any|必填|
+|options|待绑定事件配置，默认为 \{ capture: true \}|\{ capture: boolean; \}|-|
 
 > 输出
 
@@ -680,12 +760,15 @@ function useAddListener(
 ------
 
 # usePreventBodyScroll
+
+在全屏组件出现时，将body的overflow设置为hidden，防止滚动穿透
+
 ======
 
 ## 类型
 
 ```
-(visible: boolean, preventBodyScroll: boolean, initialBodyOverflow?: string) => void
+(visible: boolean, preventBodyScroll?: boolean, initialBodyOverflow?: string) => void
 ```
 
 ## 源码
@@ -725,102 +808,9 @@ const
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|visible|\-|boolean|必填|
-|preventBodyScroll|\-|boolean|必填|
-|initialBodyOverflow|\-|string|-|
-
-> 输出
-
-描述：无
-
-------
-
-# useSingleAndDoubleClick
-======
-
-## 类型
-
-```
-(onClick: (e: MouseEvent<Element, MouseEvent>) => void, onDoubleClick: (e: MouseEvent<Element, MouseEvent>) => void, delay?: number) => (e: MouseEvent<Element, MouseEvent>) => void
-```
-
-## 源码
-
-```
-function useSingleAndDoubleClick(
-    onClick: (e: React.MouseEvent) => void,
-    onDoubleClick: (e: React.MouseEvent) => void,
-    delay = 200,
-) {
-    const [clickTimes, setClickTimes] = useState(0);
-    const eventRef = useRef<React.MouseEvent>();
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (clickTimes === 1) onClick(eventRef.current!);
-            setClickTimes(0);
-        }, delay);
-
-        if (clickTimes === 2) onDoubleClick(eventRef.current!);
-
-        return () => clearTimeout(timer);
-    }, [clickTimes]);
-
-    return (e: React.MouseEvent) => {
-        eventRef.current = e;
-        setClickTimes(prev => prev + 1);
-    };
-}
-```
-
-======
-
-> 输入
-
-|参数|描述|类型|默认值|
-|----------|-------------|------|------|
-|onClick|\-|(e: MouseEvent\<Element, MouseEvent\>) =\> void|必填|
-|onDoubleClick|\-|(e: MouseEvent\<Element, MouseEvent\>) =\> void|必填|
-|delay|\-|number|200|
-
-> 输出
-
-描述：无
-
-------
-
-# useGenSvgKey
-======
-
-## 类型
-
-```
-(userSetSvgKey: string) => { svgKey: string; }
-```
-
-## 源码
-
-```
-function useGenSvgKey(userSetSvgKey: string) {
-    const [innerSvgKey, setInnerSvgKey] = useState('');
-    const svgKey = userSetSvgKey || innerSvgKey;
-
-    useEffect(() => {
-        setInnerSvgKey(`inner-${arcoSvgKeyCount}`);
-        arcoSvgKeyCount += 1;
-    }, []);
-
-    return { svgKey };
-}
-```
-
-======
-
-> 输入
-
-|参数|描述|类型|默认值|
-|----------|-------------|------|------|
-|userSetSvgKey|\-|string|必填|
+|visible|全屏组件是否被打开|boolean|必填|
+|preventBodyScroll|是否启用防滚动穿透，默认启用|boolean|-|
+|initialBodyOverflow|body在初始状态下的overflow值，在全屏组件全部关闭后会还原|string|-|
 
 > 输出
 
@@ -829,6 +819,9 @@ function useGenSvgKey(userSetSvgKey: string) {
 ------
 
 # useProgress
+
+进度条计算公共逻辑，根据传入的参数计算出当前百分比和过渡效果开关，进度类组件内部使用
+
 ======
 
 ## 类型
@@ -840,13 +833,13 @@ function useGenSvgKey(userSetSvgKey: string) {
 ## 源码
 
 ```
-const useProgress = (
+function useProgress(
     mountedTransition: boolean,
     percentage: number,
     duration: number,
     mountedBezier: BezierType,
     step: number,
-): [number, boolean] => {
+): [number, boolean] {
     const [currentPercentage, setCurrentPercentage] = useState(0);
     const [transitionControl, setTransitionControl] = useState(false);
     const [count, setCount] = useState(0);
@@ -897,4 +890,103 @@ const useProgress = (
 
 > 输出
 
-描述：无
+描述：[当前计算的百分比, 当前是否应有过渡效果]
+
+------
+
+# useSingleAndDoubleClick
+
+单击和双击事件统一处理
+
+======
+
+## 类型
+
+```
+(onClick: (e: MouseEvent<Element, MouseEvent>) => void, onDoubleClick: (e: MouseEvent<Element, MouseEvent>) => void, delay?: number) => (e: MouseEvent<Element, MouseEvent>) => void
+```
+
+## 源码
+
+```
+function useSingleAndDoubleClick(
+    onClick: (e: React.MouseEvent) => void,
+    onDoubleClick: (e: React.MouseEvent) => void,
+    delay = 200,
+) {
+    const [clickTimes, setClickTimes] = useState(0);
+    const eventRef = useRef<React.MouseEvent>();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (clickTimes === 1) onClick(eventRef.current!);
+            setClickTimes(0);
+        }, delay);
+
+        if (clickTimes === 2) onDoubleClick(eventRef.current!);
+
+        return () => clearTimeout(timer);
+    }, [clickTimes]);
+
+    return (e: React.MouseEvent) => {
+        eventRef.current = e;
+        setClickTimes(prev => prev + 1);
+    };
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|onClick|单击事件回调|(e: MouseEvent\<Element, MouseEvent\>) =\> void|必填|
+|onDoubleClick|双击事件回调|(e: MouseEvent\<Element, MouseEvent\>) =\> void|必填|
+|delay|两次点击被判定为双击事件的最大间隔时间|number|200|
+
+> 输出
+
+描述：clickHandler，统一后的事件处理方法
+
+------
+
+# useGenSvgKey
+
+自动生成svg <def>标签的唯一标识，用于区分不同svg的<def>内容
+
+======
+
+## 类型
+
+```
+(userSetSvgKey: string) => { svgKey: string; }
+```
+
+## 源码
+
+```
+function useGenSvgKey(userSetSvgKey: string) {
+    const [innerSvgKey, setInnerSvgKey] = useState('');
+    const svgKey = userSetSvgKey || innerSvgKey;
+
+    useEffect(() => {
+        setInnerSvgKey(`inner-${arcoSvgKeyCount}`);
+        arcoSvgKeyCount += 1;
+    }, []);
+
+    return { svgKey };
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|userSetSvgKey|自定义唯一标识，传入则覆盖自动生成的值|string|必填|
+
+> 输出
+
+描述：svgKey }
