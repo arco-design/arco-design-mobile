@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.29.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.2...@arco-design/mobile-react@2.29.0) (2023-08-17)
+
+
+### Bug Fixes
+
+* compatibility between grid and image picker ([#151](https://github.com/arco-design/arco-design-mobile/issues/151)) ([28ae5b9](https://github.com/arco-design/arco-design-mobile/commit/28ae5b9a8eb6dd91422d50d3f2cfe8b0d7ccdfa4))
+
+
+### Features
+
+* add new component `Skeleton` ([#136](https://github.com/arco-design/arco-design-mobile/issues/136)) ([49351f6](https://github.com/arco-design/arco-design-mobile/commit/49351f639b7a3272b55f189447d935946933ddd6))
+
+
+
+
+
 ## [2.28.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.1...@arco-design/mobile-react@2.28.2) (2023-08-07)
 
 
