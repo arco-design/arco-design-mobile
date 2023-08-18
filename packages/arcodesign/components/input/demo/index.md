@@ -14,6 +14,8 @@ export default function InputDemo() {
             clearable
             border="none"
             onChange={(_, value) => console.log('input changed 1', value)}
+            onFocus={() => console.log('focus')}
+            onBlur={() => console.log('blur')}
         />
         <Input
             value={input}

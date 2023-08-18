@@ -51,7 +51,7 @@ SearchBar component
 |clearShowType|Clear button display timing: focus \- display when focused, value \- display when there is value, always \- always display|"value" \| "focus" \| "always"|"focus"|
 |preventEventWhenClearing|Whether to block the onBlur and onFocus events generated when the clear button is clicked in focus mode|boolean|true|
 |clearIcon|Clear button type, also customizable|ReactNode|\<IconClear className="clear-icon" /\>|
-|onClear|Callback when clear button is pressed|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> void|-|
+|onClear|Callback when clear button is pressed|(e: TouchEvent\<HTMLElement\>) =\> void|-|
 |prefix|The prefix of the input box, inside the input box, can also be customized|ReactNode|-|
 |suffix|The suffix content of the input box, inside the input box, can also be customized|ReactNode|-|
 |onChange|Fired when the data changes (when bluring the focus)|(e: ChangeEvent\<HTMLInputElement\>, value: string) =\> void|-|

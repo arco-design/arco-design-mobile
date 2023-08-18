@@ -668,7 +668,7 @@
             },
             "required": false,
             "type": {
-                "name": "(e: MouseEvent<HTMLElement, MouseEvent>) => void"
+                "name": "(e: TouchEvent<HTMLElement>) => void"
             }
         },
         "prefix": {
