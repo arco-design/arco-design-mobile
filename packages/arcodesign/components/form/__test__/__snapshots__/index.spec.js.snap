@@ -699,3 +699,265 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
   </form>
 </div>
 `;
+
+exports[`form demo test form demo: use-form.md renders correctly 1`] = `
+<div>
+  <div
+    class="arco-radio-group"
+  >
+    <div
+      aria-checked="true"
+      aria-disabled="false"
+      class="arco-radio shape-circle inline"
+      role="checkbox"
+      tabindex="0"
+    >
+      <div
+        class="radio-icon checked"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-checked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm4.9 6.3L10 13.2s0 .1-.1.1l-.6.7c-.1.1-.2.1-.3.2-.1 0-.3 0-.4-.1l-.6-.7-.1-.1-2.8-2.4c-.2-.2-.2-.5-.1-.7l.6-.7c.2-.2.5-.2.7-.1l2.5 2.1L13.5 6c.2-.2.5-.2.7-.1l.7.6c.1.3.2.6 0 .8z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <div
+        class="radio-text"
+      >
+        horizontal
+      </div>
+    </div>
+    <div
+      aria-checked="false"
+      aria-disabled="false"
+      class="arco-radio shape-circle inline"
+      role="checkbox"
+      tabindex="0"
+    >
+      <div
+        class="radio-icon"
+      >
+        <svg
+          class="arco-icon arco-icon-circle-unchecked "
+          height="1em"
+          viewBox="0 0 20 20"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+      <div
+        class="radio-text"
+      >
+        vertical
+      </div>
+    </div>
+  </div>
+  <form
+    class="arco-form "
+  >
+    <div
+      class="arco-form-item arco-form-item-horizontal arco-form-item-warning"
+    >
+      <div
+        class="arco-form-label-item"
+      >
+        <span
+          class="arco-form-label-item-required-asterisk"
+        >
+          *
+        </span>
+        UserName
+      </div>
+      <div
+        class="arco-form-item-control-wrapper"
+      >
+        <div
+          class="arco-form-item-control"
+        >
+          <div
+            class="arco-input-container all-border-box "
+            role="search"
+          >
+            <div
+              class="arco-input-wrap text border-none pc"
+            >
+              <input
+                aria-label=""
+                class="arco-input"
+                placeholder="Please input username"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-form-item arco-form-item-horizontal arco-form-item-warning"
+    >
+      <div
+        class="arco-form-label-item"
+      >
+        Age
+      </div>
+      <div
+        class="arco-form-item-control-wrapper"
+      >
+        <div
+          class="arco-form-item-control"
+        >
+          <div
+            class="arco-input-container all-border-box "
+            role="search"
+          >
+            <div
+              class="arco-input-wrap text border-none pc"
+            >
+              <input
+                aria-label=""
+                class="arco-input"
+                placeholder="Please input age"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-form-item arco-form-item-horizontal arco-form-item-warning"
+    >
+      <div
+        class="arco-form-label-item"
+      >
+        Gender
+      </div>
+      <div
+        class="arco-form-item-control-wrapper"
+      >
+        <div
+          class="arco-form-item-control"
+        >
+          <div
+            class="arco-radio-group"
+          >
+            <div
+              aria-checked="false"
+              aria-disabled="false"
+              class="arco-radio shape-circle inline"
+              role="checkbox"
+              tabindex="0"
+            >
+              <div
+                class="radio-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-unchecked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="radio-text"
+              >
+                male
+              </div>
+            </div>
+            <div
+              aria-checked="false"
+              aria-disabled="false"
+              class="arco-radio shape-circle inline"
+              role="checkbox"
+              tabindex="0"
+            >
+              <div
+                class="radio-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-unchecked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="radio-text"
+              >
+                female
+              </div>
+            </div>
+            <div
+              aria-checked="false"
+              aria-disabled="false"
+              class="arco-radio shape-circle inline"
+              role="checkbox"
+              tabindex="0"
+            >
+              <div
+                class="radio-icon"
+              >
+                <svg
+                  class="arco-icon arco-icon-circle-unchecked "
+                  height="1em"
+                  viewBox="0 0 20 20"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 19c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9zm0-17c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <div
+                class="radio-text"
+              >
+                others
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+      type="button"
+    >
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Submit
+      </div>
+    </button>
+  </form>
+</div>
+`;
