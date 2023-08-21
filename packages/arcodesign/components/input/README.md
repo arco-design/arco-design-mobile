@@ -39,7 +39,7 @@
 |clearShowType|清除按钮展示时机：focus \- 聚焦时展示 value \- 有值则展示 always \- 始终展示|"focus" \| "value" \| "always"|"focus"|
 |preventEventWhenClearing|在聚焦模式下点击清除按钮时，是否要屏蔽对应产生的onBlur和onFocus事件|boolean|true|
 |clearIcon|清除按钮类型，也可自定义|ReactNode|\<IconClear className="clear-icon" /\>|
-|onClear|按下清除按钮回调|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> void|-|
+|onClear|按下清除按钮回调|(e: TouchEvent\<HTMLElement\>) =\> void|-|
 |prefix|输入框前置内容，在输入框内部，也可自定义|ReactNode|-|
 |suffix|输入框后置内容，在输入框内部，也可自定义|ReactNode|-|
 |onChange|数据改变时触发（失去焦点时）|(e: ChangeEvent\<HTMLInputElement\>, value: string) =\> void|-|
