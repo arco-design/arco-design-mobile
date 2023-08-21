@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.3...@arco-design/mobile-utils@2.16.4) (2023-08-21)
+
+
+### Bug Fixes
+
+* fix wrong logic after click clear icon of `Input`, `Textarea` and `SearchBar` ([#156](https://github.com/arco-design/arco-design-mobile/issues/156)) ([b741263](https://github.com/arco-design/arco-design-mobile/commit/b741263fd1a1b9c3da9c106f7487714e33e042f2))
+
+
+
+
+
 ## [2.16.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.2...@arco-design/mobile-utils@2.16.3) (2023-08-17)
 
 **Note:** Version bump only for package @arco-design/mobile-utils
