@@ -3,12 +3,14 @@
 exports[`nav-bar demo test nav-bar demo: index.md renders correctly 1`] = `
 Array [
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:"
+    role="banner"
+    style="padding-top:0px"
   >
     <div
-      class="arco-nav-bar-wrapper"
-      style="padding-top:"
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top:0px"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -56,12 +58,14 @@ Array [
     class="gap-line"
   />,
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:"
+    role="banner"
+    style="padding-top:0px"
   >
     <div
-      class="arco-nav-bar-wrapper"
-      style="padding-top:"
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top:0px"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -100,12 +104,14 @@ Array [
     class="gap-line"
   />,
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:;color:white;background:#165dff"
+    role="banner"
+    style="padding-top:0px;color:white;background:#165dff"
   >
     <div
-      class="arco-nav-bar-wrapper"
-      style="padding-top:"
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top:0px"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -149,7 +155,7 @@ Array [
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M35 21h6v6h-6zM7 21h6v6H7zm14 0h6v6h-6z"
+              d="M35 21h6v6h-6zM7 21h6v6H7zM21 21h6v6h-6z"
             />
           </svg>
         </div>
@@ -161,12 +167,14 @@ Array [
 
 exports[`nav-bar demo test nav-bar demo: index2.md renders correctly 1`] = `
 <div
+  aria-label=""
   class="arco-nav-bar"
-  style="padding-top:"
+  role="banner"
+  style="padding-top:0px"
 >
   <div
-    class="arco-nav-bar-wrapper"
-    style="padding-top:"
+    class="pc arco-nav-bar-wrapper"
+    style="padding-top:0px"
   >
     <div
       class="arco-nav-bar-inner all-border-box"
@@ -191,12 +199,14 @@ Array [
     class="gap-line"
   />,
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:"
+    role="banner"
+    style="padding-top:0px"
   >
     <div
-      class="arco-nav-bar-wrapper"
-      style="padding-top:"
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top:0px"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -235,12 +245,14 @@ Array [
     class="gap-line"
   />,
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:"
+    role="banner"
+    style="padding-top:0px"
   >
     <div
-      class="arco-nav-bar-wrapper"
-      style="padding-top:"
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top:0px"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -292,7 +304,7 @@ Array [
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M35 21h6v6h-6zM7 21h6v6H7zm14 0h6v6h-6z"
+                d="M35 21h6v6h-6zM7 21h6v6H7zM21 21h6v6h-6z"
               />
             </svg>
           </div>
@@ -304,11 +316,13 @@ Array [
     class="gap-line"
   />,
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:;background:url(https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/navbar-demo-bg.png);color:white"
+    role="banner"
+    style="padding-top:0px;background:url(https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/navbar-demo-bg.png);color:white"
   >
     <div
-      class="immersive-navbar arco-nav-bar-wrapper arco-nav-bar-wrapper-border"
+      class="immersive-navbar pc arco-nav-bar-wrapper arco-nav-bar-wrapper-border"
       style="padding-top:10px"
     >
       <div
@@ -350,12 +364,14 @@ Array [
 exports[`nav-bar demo test nav-bar demo: index4.md renders correctly 1`] = `
 Array [
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:"
+    role="banner"
+    style="padding-top:0px"
   >
     <div
-      class="arco-nav-bar-wrapper"
-      style="padding-top:"
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top:0px"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -392,12 +408,14 @@ Array [
     class="gap-line"
   />,
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:"
+    role="banner"
+    style="padding-top:0px"
   >
     <div
-      class="arco-nav-bar-wrapper"
-      style="padding-top:"
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top:0px"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -454,12 +472,14 @@ Array [
 
 exports[`nav-bar demo test nav-bar demo: index5.md renders correctly 1`] = `
 <div
+  aria-label=""
   class="arco-nav-bar"
-  style="padding-top:"
+  role="banner"
+  style="padding-top:0px"
 >
   <div
-    class="arco-nav-bar-wrapper"
-    style="padding-top:"
+    class="pc arco-nav-bar-wrapper"
+    style="padding-top:0px"
   >
     <div
       class="arco-nav-bar-inner all-border-box"
@@ -540,7 +560,7 @@ exports[`nav-bar demo test nav-bar demo: index5.md renders correctly 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M35 21h6v6h-6zM7 21h6v6H7zm14 0h6v6h-6z"
+            d="M35 21h6v6h-6zM7 21h6v6H7zM21 21h6v6h-6z"
           />
         </svg>
       </div>
@@ -552,12 +572,14 @@ exports[`nav-bar demo test nav-bar demo: index5.md renders correctly 1`] = `
 exports[`nav-bar demo test nav-bar demo: index6.md renders correctly 1`] = `
 Array [
   <div
+    aria-label=""
     class="arco-nav-bar"
-    style="padding-top:"
+    role="banner"
+    style="padding-top:0px"
   >
     <div
-      class="arco-nav-bar-wrapper"
-      style="padding-top:"
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top:0px"
     >
       <div
         class="arco-nav-bar-inner all-border-box"

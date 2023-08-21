@@ -3,14 +3,11 @@
 exports[`dropdown demo test dropdown demo: column.md renders correctly 1`] = `
 <div>
   <button
-    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Click to expand
     </div>
@@ -22,14 +19,11 @@ exports[`dropdown demo test dropdown demo: column.md renders correctly 1`] = `
 exports[`dropdown demo test dropdown demo: custom-direction.md renders correctly 1`] = `
 <div>
   <button
-    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Click to expand
     </div>
@@ -41,14 +35,11 @@ exports[`dropdown demo test dropdown demo: custom-direction.md renders correctly
 exports[`dropdown demo test dropdown demo: custom-node.md renders correctly 1`] = `
 <div>
   <button
-    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Click to expand
     </div>
@@ -60,14 +51,11 @@ exports[`dropdown demo test dropdown demo: custom-node.md renders correctly 1`] 
 exports[`dropdown demo test dropdown demo: custom-options.md renders correctly 1`] = `
 <div>
   <button
-    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Click to expand
     </div>
@@ -79,14 +67,11 @@ exports[`dropdown demo test dropdown demo: custom-options.md renders correctly 1
 exports[`dropdown demo test dropdown demo: index.md renders correctly 1`] = `
 <div>
   <button
-    class="arco-button select-wrapper type-primary size-huge is-semi pc"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Click to expand
     </div>

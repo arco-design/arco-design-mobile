@@ -14,14 +14,11 @@ exports[`popover demo test popover demo: base.md renders correctly 1`] = `
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             White
           </div>
@@ -39,14 +36,11 @@ exports[`popover demo test popover demo: base.md renders correctly 1`] = `
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             Black
           </div>
@@ -68,14 +62,11 @@ exports[`popover demo test popover demo: custom.md renders correctly 1`] = `
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Special bubble style
         </div>
@@ -99,14 +90,11 @@ exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             Top left
           </div>
@@ -124,14 +112,11 @@ exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             Top right
           </div>
@@ -149,14 +134,11 @@ exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             Bottom left
           </div>
@@ -174,14 +156,11 @@ exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             Bottom right
           </div>
@@ -199,14 +178,11 @@ exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             Top center
           </div>
@@ -224,14 +200,11 @@ exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             Bottom center
           </div>
@@ -254,14 +227,11 @@ exports[`popover demo test popover demo: menu.md renders correctly 1`] = `
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           White
         </div>
@@ -275,14 +245,11 @@ exports[`popover demo test popover demo: menu.md renders correctly 1`] = `
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Black
         </div>
@@ -304,14 +271,11 @@ exports[`popover demo test popover demo: menu-with-click-status.md renders corre
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           White
         </div>
@@ -325,14 +289,11 @@ exports[`popover demo test popover demo: menu-with-click-status.md renders corre
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Black
         </div>
@@ -354,14 +315,11 @@ exports[`popover demo test popover demo: menu-with-disabled-status.md renders co
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           White
         </div>
@@ -375,14 +333,11 @@ exports[`popover demo test popover demo: menu-with-disabled-status.md renders co
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Black
         </div>
@@ -404,15 +359,12 @@ exports[`popover demo test popover demo: menu-with-icon.md renders correctly 1`]
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         style="padding:0"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Vertical menu
         </div>
@@ -426,15 +378,12 @@ exports[`popover demo test popover demo: menu-with-icon.md renders correctly 1`]
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         style="padding:0"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Horizontal menu
         </div>
@@ -455,14 +404,11 @@ exports[`popover demo test popover demo: suffix.md renders correctly 1`] = `
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Close Action
         </div>
@@ -476,14 +422,11 @@ exports[`popover demo test popover demo: suffix.md renders correctly 1`] = `
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Button Action
         </div>
@@ -497,14 +440,11 @@ exports[`popover demo test popover demo: suffix.md renders correctly 1`] = `
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Text Action
         </div>
@@ -525,14 +465,11 @@ exports[`popover demo test popover demo: white-theme-mask.md renders correctly 1
       class="popover-child-inner"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           White bubble with mask
         </div>

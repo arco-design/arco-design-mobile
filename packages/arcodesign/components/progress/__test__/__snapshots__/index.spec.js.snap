@@ -2,7 +2,11 @@
 
 exports[`progress demo test progress demo: custom-color.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-progress"
+  role="progressbar"
 >
   <div
     class="progress-wrapper"
@@ -31,7 +35,11 @@ Array [
     class="progress-demo-custom-size"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="75"
       class="arco-progress"
+      role="progressbar"
     >
       <div
         class="progress-wrapper"
@@ -57,7 +65,11 @@ Array [
     class="progress-demo-custom-size"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="75"
       class="arco-progress"
+      role="progressbar"
     >
       <div
         class="progress-wrapper"
@@ -83,7 +95,11 @@ Array [
     class="progress-demo-custom-size"
   >
     <div
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="75"
       class="arco-progress"
+      role="progressbar"
     >
       <div
         class="progress-wrapper"
@@ -110,7 +126,11 @@ Array [
 
 exports[`progress demo test progress demo: custom-style.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-progress"
+  role="progressbar"
 >
   <div
     class="progress-wrapper"
@@ -139,7 +159,11 @@ exports[`progress demo test progress demo: custom-style.md renders correctly 1`]
 
 exports[`progress demo test progress demo: equivalent-progress.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="60"
   class="arco-progress"
+  role="progressbar"
 >
   <div
     class="progress-wrapper"
@@ -163,7 +187,11 @@ exports[`progress demo test progress demo: equivalent-progress.md renders correc
 
 exports[`progress demo test progress demo: inactive.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-progress progress-disabled"
+  role="progressbar"
 >
   <div
     class="progress-wrapper"
@@ -187,7 +215,11 @@ exports[`progress demo test progress demo: inactive.md renders correctly 1`] = `
 
 exports[`progress demo test progress demo: index.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-progress progress-fixed"
+  role="progressbar"
   style="position:relative;z-index:1"
 >
   <div
@@ -207,7 +239,11 @@ exports[`progress demo test progress demo: index.md renders correctly 1`] = `
 
 exports[`progress demo test progress demo: inner.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-progress"
+  role="progressbar"
 >
   <div
     class="progress-wrapper"
@@ -231,7 +267,11 @@ exports[`progress demo test progress demo: inner.md renders correctly 1`] = `
 
 exports[`progress demo test progress demo: no-percentage.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-progress"
+  role="progressbar"
 >
   <div
     class="progress-wrapper"
@@ -250,7 +290,11 @@ exports[`progress demo test progress demo: no-percentage.md renders correctly 1`
 
 exports[`progress demo test progress demo: normal.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-progress"
+  role="progressbar"
 >
   <div
     class="progress-wrapper"

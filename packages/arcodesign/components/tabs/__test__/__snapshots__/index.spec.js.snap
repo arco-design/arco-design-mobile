@@ -1,5 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`tabs demo test tabs demo: adaptive.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"
+      >
+        <div
+          class="arco-tab-cell vertical line pc active no-shrink"
+        >
+          Exam
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          Example
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink"
+        >
+          Ex
+        </div>
+        <div
+          class="arco-tab-cell vertical line pc no-shrink last"
+        >
+          Exaaample
+        </div>
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe"
+    style="width:400%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane mode-swipe"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        Content area
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane mode-swipe"
+    />
+    <div
+      class="arco-tab-pane mode-swipe"
+    />
+    <div
+      class="arco-tab-pane mode-swipe"
+    />
+  </div>
+</div>
+`;
+
 exports[`tabs demo test tabs demo: basic.md renders correctly 1`] = `
 <div
   class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
@@ -430,6 +499,70 @@ exports[`tabs demo test tabs demo: duration.md renders correctly 1`] = `
     />
     <div
       class="arco-tab-pane mode-swipe"
+    />
+  </div>
+</div>
+`;
+
+exports[`tabs demo test tabs demo: energy-saving.md renders correctly 1`] = `
+<div
+  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+>
+  <div
+    class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+  >
+    <div
+      class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+    >
+      <div
+        class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+      >
+        <div
+          class="arco-tab-cell vertical line-divide pc active no-shrink"
+        >
+          Example 1
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink"
+        >
+          Example 2
+        </div>
+        <div
+          class="arco-tab-cell vertical line-divide pc no-shrink last"
+        >
+          Example 3
+        </div>
+        <div
+          class="arco-tab-cell-underline"
+        >
+          <div
+            class="arco-tab-cell-underline-inner vertical"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-tab-pane-container vertical mode-swipe-energy-saving"
+    style="transition-duration:0ms;-webkit-transition-duration:0ms"
+  >
+    <div
+      class="arco-tab-pane mode-swipe"
+      style="transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+    >
+      <div
+        class="demo-tab-content"
+      >
+        Content area
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane mode-swipe"
+      style="position:absolute;left:-100%;top:-100%"
+    />
+    <div
+      class="arco-tab-pane mode-swipe"
+      style="position:absolute;left:-100%;top:-100%"
     />
   </div>
 </div>

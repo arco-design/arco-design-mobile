@@ -242,7 +242,7 @@ Array [
         <svg
           class="arco-icon arco-icon-arrow-down arco-collapse-icon-arrow"
           height="1em"
-          style="transform:rotate(180deg)"
+          style="transform:rotate(0deg)"
           viewBox="0 0 1024 1024"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"

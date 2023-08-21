@@ -26,7 +26,11 @@ exports[`switch demo test switch demo: index.md renders correctly 1`] = `
           class="cell-content has-label"
         >
           <div
+            aria-checked="true"
+            aria-disabled="false"
             class="arco-switch all-border-box type-ios system-pc fully checked"
+            role="switch"
+            tabindex="0"
           >
             <div
               class="arco-switch-inner"
@@ -54,7 +58,11 @@ exports[`switch demo test switch demo: index.md renders correctly 1`] = `
           class="cell-content has-label"
         >
           <div
+            aria-checked="true"
+            aria-disabled="true"
             class="arco-switch all-border-box type-ios system-pc fully checked disabled"
+            role="switch"
+            tabindex="0"
           >
             <div
               class="arco-switch-inner"
@@ -82,7 +90,11 @@ exports[`switch demo test switch demo: index.md renders correctly 1`] = `
           class="cell-content has-label"
         >
           <div
+            aria-checked="false"
+            aria-disabled="true"
             class="arco-switch all-border-box type-ios system-pc fully disabled"
+            role="switch"
+            tabindex="0"
           >
             <div
               class="arco-switch-inner"
@@ -121,7 +133,11 @@ exports[`switch demo test switch demo: index2.md renders correctly 1`] = `
           class="cell-content has-label"
         >
           <div
+            aria-checked="true"
+            aria-disabled="false"
             class="arco-switch all-border-box type-android system-pc fully checked"
+            role="switch"
+            tabindex="0"
           >
             <div
               class="arco-switch-inner"
@@ -149,7 +165,11 @@ exports[`switch demo test switch demo: index2.md renders correctly 1`] = `
           class="cell-content has-label"
         >
           <div
+            aria-checked="true"
+            aria-disabled="true"
             class="arco-switch all-border-box type-android system-pc fully checked disabled"
+            role="switch"
+            tabindex="0"
           >
             <div
               class="arco-switch-inner"
@@ -177,7 +197,11 @@ exports[`switch demo test switch demo: index2.md renders correctly 1`] = `
           class="cell-content has-label"
         >
           <div
+            aria-checked="false"
+            aria-disabled="true"
             class="arco-switch all-border-box type-android system-pc fully disabled"
+            role="switch"
+            tabindex="0"
           >
             <div
               class="arco-switch-inner"
@@ -210,7 +234,11 @@ exports[`switch demo test switch demo: index3.md renders correctly 1`] = `
       class="cell-content has-label"
     >
       <div
+        aria-checked="true"
+        aria-disabled="false"
         class="arco-switch all-border-box demo-3 type-ios system-pc fully checked"
+        role="switch"
+        tabindex="0"
       >
         <div
           class="arco-switch-inner"
@@ -310,7 +338,11 @@ exports[`switch demo test switch demo: index4.md renders correctly 1`] = `
       class="cell-content has-label"
     >
       <div
+        aria-checked="false"
+        aria-disabled="false"
         class="arco-switch all-border-box demo-4 type-ios system-pc fully"
+        role="switch"
+        tabindex="0"
       >
         <span
           class="arco-switch-text"
@@ -346,7 +378,11 @@ exports[`switch demo test switch demo: index5.md renders correctly 1`] = `
       class="cell-content has-label"
     >
       <div
+        aria-checked="false"
+        aria-disabled="false"
         class="arco-switch all-border-box type-android system-pc semi"
+        role="switch"
+        tabindex="0"
       >
         <div
           class="arco-switch-inner"
@@ -377,7 +413,11 @@ exports[`switch demo test switch demo: index6.md renders correctly 1`] = `
       class="cell-content has-label"
     >
       <div
+        aria-checked="false"
+        aria-disabled="false"
         class="arco-switch all-border-box type-ios system-pc fully"
+        role="switch"
+        tabindex="0"
       >
         <div
           class="arco-switch-inner"

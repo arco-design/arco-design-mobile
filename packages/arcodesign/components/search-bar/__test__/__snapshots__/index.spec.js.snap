@@ -3,6 +3,7 @@
 exports[`search-bar demo test search-bar demo: action-btn.md renders correctly 1`] = `
 <div
   class="arco-search-bar-container all-border-box arco-search-bar-square"
+  role="search"
 >
   <div
     class="arco-search-bar-wrap search border-half pc prefix"
@@ -33,7 +34,7 @@ exports[`search-bar demo test search-bar demo: action-btn.md renders correctly 1
   <span
     style="margin-left:16px;color:#165DFF;font-size:15px"
   >
-    搜索
+    Search
   </span>
 </div>
 `;
@@ -41,6 +42,7 @@ exports[`search-bar demo test search-bar demo: action-btn.md renders correctly 1
 exports[`search-bar demo test search-bar demo: association.md renders correctly 1`] = `
 <div
   class="arco-search-bar-container all-border-box arco-search-bar-square"
+  role="search"
   style="margin-bottom:200px"
 >
   <div
@@ -78,6 +80,7 @@ exports[`search-bar demo test search-bar demo: association.md renders correctly 
 exports[`search-bar demo test search-bar demo: custom-color.md renders correctly 1`] = `
 <div
   class="arco-search-bar-container all-border-box arco-search-bar-square"
+  role="search"
   style="background-color:#bedaff"
 >
   <div
@@ -112,6 +115,7 @@ exports[`search-bar demo test search-bar demo: custom-color.md renders correctly
 exports[`search-bar demo test search-bar demo: custom-icon.md renders correctly 1`] = `
 <div
   class="arco-search-bar-container all-border-box arco-search-bar-square"
+  role="search"
 >
   <div
     class="arco-search-bar-wrap search border-half pc prefix"
@@ -130,7 +134,7 @@ exports[`search-bar demo test search-bar demo: custom-icon.md renders correctly 
       >
         <defs />
         <path
-          d="M512 46.55c34.517 0 68.565 3.797 101.696 11.263l19.136 4.288L692.48 198.08l146.837-16.043 13.27 14.443a465.493 465.493 0 01101.802 176.939l5.76 18.602-11.456 15.723L872.747 512l87.402 119.979-5.76 18.602A465.493 465.493 0 01852.587 827.52l-13.27 14.443L692.48 825.92l-59.648 135.979-19.136 4.288c-33.13 7.466-67.2 11.264-101.696 11.264-34.517 0-68.587-3.798-101.717-11.264l-19.136-4.31-7.894-17.941L331.52 825.92l-146.837 16.043-13.27-14.443A465.493 465.493 0 0169.611 650.56l-5.76-18.603 11.456-15.722L151.253 512 63.851 392.043l5.76-18.603a465.493 465.493 0 01101.802-176.96l13.27-14.443L331.52 198.08l59.627-135.957 19.136-4.31c33.13-7.466 67.2-11.264 101.717-11.264zm0 77.567a387.58 387.58 0 00-65.792 5.611L398.421 238.72a63.488 63.488 0 01-65.066 37.61l-117.483-12.863a387.947 387.947 0 00-66.048 114.837l70.165 96.32c16.214 22.272 16.214 52.48 0 74.752l-70.186 96.32a387.947 387.947 0 0066.069 114.837l117.504-12.864a63.488 63.488 0 0165.045 37.632l47.787 108.971a387.393 387.393 0 0065.792 5.61 387.33 387.33 0 0065.77-5.61l47.81-108.992a63.488 63.488 0 0165.066-37.61l117.483 12.863a387.947 387.947 0 0066.048-114.816l-70.165-96.341a63.488 63.488 0 010-74.752l70.165-96.341a387.947 387.947 0 00-66.048-114.816L690.624 276.33a63.488 63.488 0 01-65.045-37.611l-47.787-108.992a386.325 386.325 0 00-65.792-5.61zm0 193.942c106.752 0 193.195 86.869 193.195 193.941S618.752 705.92 512 705.92 318.805 619.093 318.805 512 405.248 318.08 512 318.08zm0 77.568c-63.808 0-115.627 52.053-115.627 116.373 0 64.299 51.819 116.373 115.627 116.373S627.627 576.32 627.627 512c0-64.299-51.819-116.373-115.627-116.373z"
+          d="M512 46.55c34.517 0 68.565 3.797 101.696 11.263l19.136 4.288L692.48 198.08l146.837-16.043 13.27 14.443a465.493 465.493 0 01101.802 176.939l5.76 18.602-11.456 15.723L872.747 512l87.402 119.979-5.76 18.602A465.493 465.493 0 01852.587 827.52l-13.27 14.443L692.48 825.92l-59.648 135.979-19.136 4.288c-33.13 7.466-67.2 11.264-101.696 11.264-34.517 0-68.587-3.798-101.717-11.264l-19.136-4.31-7.894-17.941L331.52 825.92l-146.837 16.043-13.27-14.443A465.493 465.493 0 0169.611 650.56l-5.76-18.603 11.456-15.722L151.253 512 63.851 392.043l5.76-18.603a465.493 465.493 0 01101.802-176.96l13.27-14.443L331.52 198.08l59.627-135.957 19.136-4.31c33.13-7.466 67.2-11.264 101.717-11.264zm0 77.567a387.58 387.58 0 00-65.792 5.611L398.421 238.72a63.488 63.488 0 01-65.066 37.61l-117.483-12.863a387.947 387.947 0 00-66.048 114.837l70.165 96.32c16.214 22.272 16.214 52.48 0 74.752l-70.186 96.32a387.947 387.947 0 0066.069 114.837l117.504-12.864a63.488 63.488 0 0165.045 37.632l47.787 108.971a387.393 387.393 0 0065.792 5.61 387.33 387.33 0 0065.77-5.61L625.58 785.28a63.488 63.488 0 0165.066-37.61l117.483 12.863a387.947 387.947 0 0066.048-114.816l-70.165-96.341a63.488 63.488 0 010-74.752l70.165-96.341a387.947 387.947 0 00-66.048-114.816L690.624 276.33a63.488 63.488 0 01-65.045-37.611l-47.787-108.992a386.325 386.325 0 00-65.792-5.61zm0 193.942c106.752 0 193.195 86.869 193.195 193.941S618.752 705.92 512 705.92 318.805 619.093 318.805 512 405.248 318.08 512 318.08zm0 77.568c-63.808 0-115.627 52.053-115.627 116.373 0 64.299 51.819 116.373 115.627 116.373S627.627 576.32 627.627 512c0-64.299-51.819-116.373-115.627-116.373z"
         />
       </svg>
     </div>
@@ -147,6 +151,7 @@ exports[`search-bar demo test search-bar demo: custom-icon.md renders correctly 
 exports[`search-bar demo test search-bar demo: custom-pend.md renders correctly 1`] = `
 <div
   class="arco-search-bar-container all-border-box arco-search-bar-square"
+  role="search"
 >
   <div
     style="display:flex;align-items:center;font-size:14px;margin-right:10px"
@@ -193,14 +198,14 @@ exports[`search-bar demo test search-bar demo: custom-pend.md renders correctly 
     />
   </div>
   <div
-    class="arco-avatar-wrapper ultra-small circle"
+    class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle"
     style="margin-left:13px"
   >
     <div
-      class="arco-avatar ultra-small circle default-overlap"
+      class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-avatar-default-overlap default-overlap"
     >
       <svg
-        class="arco-icon arco-icon-user-fill arco-avatar-default"
+        class="arco-icon arco-icon-user-fill arco-avatar-default arco-avatar-default-icon-size-ultra-small"
         fill="currentColor"
         height="1em"
         viewBox="0 0 20 20"
@@ -224,7 +229,11 @@ exports[`search-bar demo test search-bar demo: index.md renders correctly 1`] = 
     style="padding:16px;background-color:white"
   >
     <div
+      aria-checked="true"
+      aria-disabled="false"
       class="arco-radio shape-circle inline"
+      role="checkbox"
+      tabindex="0"
     >
       <div
         class="radio-icon checked"
@@ -251,7 +260,11 @@ exports[`search-bar demo test search-bar demo: index.md renders correctly 1`] = 
       </div>
     </div>
     <div
+      aria-checked="false"
+      aria-disabled="false"
       class="arco-radio shape-circle inline"
+      role="checkbox"
+      tabindex="0"
     >
       <div
         class="radio-icon"
@@ -278,6 +291,7 @@ exports[`search-bar demo test search-bar demo: index.md renders correctly 1`] = 
   </div>
   <div
     class="arco-search-bar-container all-border-box arco-search-bar-square"
+    role="search"
   >
     <div
       class="arco-search-bar-wrap search border-half pc prefix"
@@ -312,6 +326,7 @@ exports[`search-bar demo test search-bar demo: index.md renders correctly 1`] = 
 exports[`search-bar demo test search-bar demo: no-icon.md renders correctly 1`] = `
 <div
   class="arco-search-bar-container all-border-box arco-search-bar-square"
+  role="search"
 >
   <div
     class="arco-search-bar-wrap search border-half pc"
@@ -329,6 +344,7 @@ exports[`search-bar demo test search-bar demo: no-icon.md renders correctly 1`] 
 exports[`search-bar demo test search-bar demo: text-center.md renders correctly 1`] = `
 <div
   class="arco-search-bar-container all-border-box arco-search-bar-square"
+  role="search"
 >
   <div
     class="arco-search-bar-wrap search border-half pc prefix"

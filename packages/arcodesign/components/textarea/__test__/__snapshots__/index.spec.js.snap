@@ -3,6 +3,7 @@
 exports[`textarea demo test textarea demo: error-hint.md renders correctly 1`] = `
 <div
   class="arco-input-container all-border-box "
+  role="search"
 >
   <div
     class="arco-input-wrap textarea has-stat border-none pc"
@@ -24,6 +25,7 @@ exports[`textarea demo test textarea demo: error-hint.md renders correctly 1`] =
 exports[`textarea demo test textarea demo: fix-height.md renders correctly 1`] = `
 <div
   class="arco-input-container all-border-box "
+  role="search"
 >
   <div
     class="arco-input-wrap textarea  border-none pc"
@@ -40,6 +42,7 @@ exports[`textarea demo test textarea demo: fix-height.md renders correctly 1`] =
 exports[`textarea demo test textarea demo: index.md renders correctly 1`] = `
 <div
   class="arco-input-container all-border-box "
+  role="search"
 >
   <div
     class="arco-input-wrap textarea has-stat border-none pc"
@@ -60,6 +63,7 @@ exports[`textarea demo test textarea demo: index.md renders correctly 1`] = `
 exports[`textarea demo test textarea demo: label.md renders correctly 1`] = `
 <div
   class="arco-input-container all-border-box "
+  role="search"
 >
   <div
     class="arco-input-wrap textarea has-stat border-none pc prefix"

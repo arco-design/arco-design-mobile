@@ -32,7 +32,7 @@ exports[`carousel demo test carousel demo: basic.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-center"
+    class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal"
   >
     <i
       class="indicator type-circle active"
@@ -85,7 +85,7 @@ exports[`carousel demo test carousel demo: change.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-center"
+    class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal"
   >
     <i
       class="indicator type-square active"
@@ -98,6 +98,76 @@ exports[`carousel demo test carousel demo: change.md renders correctly 1`] = `
     />
   </div>
 </div>
+`;
+
+exports[`carousel demo test carousel demo: change-index.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-carousel-wrap"
+  >
+    <div
+      class="arco-carousel"
+    >
+      <div
+        class="arco-carousel-inner auto"
+        style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+      >
+        <div
+          class="arco-carousel-item carousel-item normal-item active"
+          style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+        >
+          <img
+            alt=""
+            src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg"
+          />
+        </div>
+        <div
+          class="arco-carousel-item carousel-item normal-item ssr-float"
+          style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+        >
+          <img
+            alt=""
+            src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal"
+    >
+      <i
+        class="indicator type-circle active"
+      />
+      <i
+        class="indicator type-circle"
+      />
+    </div>
+  </div>,
+  <div
+    class="change-index-btns"
+  >
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-small arco-button-size-small-is-semi size-small is-semi pc"
+      type="button"
+    >
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Previous
+      </div>
+    </button>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-small arco-button-size-small-is-semi size-small is-semi pc"
+      type="button"
+    >
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Next
+      </div>
+    </button>
+  </div>,
+]
 `;
 
 exports[`carousel demo test carousel demo: custom-width.md renders correctly 1`] = `
@@ -141,7 +211,7 @@ exports[`carousel demo test carousel demo: custom-width.md renders correctly 1`]
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-center"
+    class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal"
   >
     <i
       class="indicator type-square active"
@@ -197,7 +267,7 @@ exports[`carousel demo test carousel demo: indicator.md renders correctly 1`] = 
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-end"
+    class="arco-carousel-indicator pos-end arco-carousel-indicator-horizontal"
   >
     <span
       class="radius-num-indicator"
@@ -248,7 +318,7 @@ exports[`carousel demo test carousel demo: lazy.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-center"
+    class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal"
   >
     <i
       class="indicator type-circle active"
@@ -310,7 +380,7 @@ exports[`carousel demo test carousel demo: list.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-end"
+    class="arco-carousel-indicator pos-end arco-carousel-indicator-horizontal"
   >
     <i
       class="indicator type-circle active"
@@ -378,7 +448,7 @@ exports[`carousel demo test carousel demo: offset-space.md renders correctly 1`]
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-center"
+    class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal"
   >
     <i
       class="indicator type-square"
@@ -434,7 +504,7 @@ exports[`carousel demo test carousel demo: outside.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-center inverse outside"
+    class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal inverse outside"
   >
     <i
       class="indicator type-circle active"
@@ -491,7 +561,7 @@ exports[`carousel demo test carousel demo: vertical.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-center vertical ver-pos-left"
+    class="arco-carousel-indicator pos-center arco-carousel-indicator-vertical vertical ver-pos-left"
   >
     <i
       class="indicator type-square active"

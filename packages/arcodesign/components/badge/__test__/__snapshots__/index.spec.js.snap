@@ -8,10 +8,10 @@ exports[`badge demo test badge demo: avatar.md renders correctly 1`] = `
     class="badge-demo-avatar-box"
   >
     <div
-      class="arco-avatar-wrapper small circle"
+      class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar small circle arco-image-avatar"
+        class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
       >
         <div
           class="arco-image all-border-box pc arco-avatar-img"
@@ -31,7 +31,7 @@ exports[`badge demo test badge demo: avatar.md renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="arco-badge dot bordered absolute"
+      class="arco-badge arco-badge-dot dot arco-badge-bordered bordered arco-badge-absolute absolute"
       style="margin-left:-8px;margin-top:4px"
     />
   </div>
@@ -49,7 +49,7 @@ exports[`badge demo test badge demo: define.md renders correctly 1`] = `
       class="badge-demo-rectangle"
     >
       <div
-        class="arco-badge dot absolute"
+        class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
         style="background:#ff5722"
       />
     </div>
@@ -66,11 +66,11 @@ exports[`badge demo test badge demo: define.md renders correctly 1`] = `
       class="badge-demo-rectangle"
     >
       <div
-        class="arco-badge absolute"
+        class="arco-badge arco-badge-absolute absolute"
         style="border-radius:8px 8px 8px 0"
       >
         <span
-          class="badge-text"
+          class="arco-badge-text badge-text"
         >
           New
         </span>
@@ -89,11 +89,11 @@ exports[`badge demo test badge demo: define.md renders correctly 1`] = `
       class="badge-demo-rectangle"
     >
       <div
-        class="arco-badge absolute"
+        class="arco-badge arco-badge-absolute absolute"
         style="background:linear-gradient(277.15deg, #0678FF -0.2%, #14CDFF 97.54%)"
       >
         <span
-          class="badge-text"
+          class="arco-badge-text badge-text"
         >
           Gradient
         </span>
@@ -112,11 +112,11 @@ exports[`badge demo test badge demo: define.md renders correctly 1`] = `
       class="badge-demo-rectangle"
     >
       <div
-        class="arco-badge absolute"
+        class="arco-badge arco-badge-absolute absolute"
         style="background:#ff5722"
       >
         <span
-          class="badge-text"
+          class="arco-badge-text badge-text"
         >
           2
         </span>
@@ -146,7 +146,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           class="badge-demo-rectangle"
         >
           <div
-            class="arco-badge dot absolute"
+            class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
           />
         </div>
         <div
@@ -162,10 +162,10 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           class="badge-demo-rectangle"
         >
           <div
-            class="arco-badge absolute"
+            class="arco-badge arco-badge-absolute absolute"
           >
             <span
-              class="badge-text"
+              class="arco-badge-text badge-text"
             >
               12
             </span>
@@ -184,10 +184,10 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           class="badge-demo-rectangle"
         >
           <div
-            class="arco-badge absolute"
+            class="arco-badge arco-badge-absolute absolute"
           >
             <span
-              class="badge-text"
+              class="arco-badge-text badge-text"
             >
               2
             </span>
@@ -206,10 +206,10 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           class="badge-demo-rectangle"
         >
           <div
-            class="arco-badge absolute"
+            class="arco-badge arco-badge-absolute absolute"
           >
             <span
-              class="badge-text"
+              class="arco-badge-text badge-text"
             >
               99+
             </span>
@@ -236,10 +236,10 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           class="badge-demo-rectangle"
         >
           <div
-            class="arco-badge absolute"
+            class="arco-badge arco-badge-absolute absolute"
           >
             <span
-              class="badge-text"
+              class="arco-badge-text badge-text"
             >
               New
             </span>
@@ -258,10 +258,10 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           class="badge-demo-rectangle"
         >
           <div
-            class="arco-badge absolute"
+            class="arco-badge arco-badge-absolute absolute"
           >
             <span
-              class="badge-text"
+              class="arco-badge-text badge-text"
             >
               On Sale
             </span>
@@ -280,7 +280,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           class="badge-demo-rectangle"
         >
           <div
-            class="arco-badge absolute"
+            class="arco-badge arco-badge-absolute absolute"
             style="padding:0;width:16px;height:16px"
           >
             <svg
@@ -311,10 +311,10 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           class="badge-demo-rectangle"
         >
           <div
-            class="arco-badge absolute"
+            class="arco-badge arco-badge-absolute absolute"
           >
             <span
-              class="badge-text"
+              class="arco-badge-text badge-text"
             >
               New
             </span>
@@ -357,7 +357,7 @@ exports[`badge demo test badge demo: list.md renders correctly 1`] = `
           class="cell-content has-label"
         >
           <div
-            class="arco-badge dot"
+            class="arco-badge arco-badge-dot dot"
           />
         </div>
         <div
@@ -399,7 +399,7 @@ exports[`badge demo test badge demo: list.md renders correctly 1`] = `
             class="arco-badge"
           >
             <span
-              class="badge-text"
+              class="arco-badge-text badge-text"
             >
               2
             </span>
@@ -444,7 +444,7 @@ exports[`badge demo test badge demo: list.md renders correctly 1`] = `
             class="arco-badge"
           >
             <span
-              class="badge-text"
+              class="arco-badge-text badge-text"
             >
               99+
             </span>
@@ -499,7 +499,7 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
                 >
                   List content
                   <div
-                    class="arco-badge dot absolute"
+                    class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
                     style="margin-left:0"
                   />
                 </span>
@@ -546,11 +546,11 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
                 >
                   List content
                   <div
-                    class="arco-badge absolute"
+                    class="arco-badge arco-badge-absolute absolute"
                     style="margin-left:2px"
                   >
                     <span
-                      class="badge-text"
+                      class="arco-badge-text badge-text"
                     >
                       2
                     </span>
@@ -599,11 +599,11 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
                 >
                   List content
                   <div
-                    class="arco-badge absolute"
+                    class="arco-badge arco-badge-absolute absolute"
                     style="margin-left:2px"
                   >
                     <span
-                      class="badge-text"
+                      class="arco-badge-text badge-text"
                     >
                       99+
                     </span>
@@ -635,14 +635,11 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
     </div>
   </div>
   <button
-    class="arco-button type-primary size-large is-semi pc"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Close Badge
     </div>

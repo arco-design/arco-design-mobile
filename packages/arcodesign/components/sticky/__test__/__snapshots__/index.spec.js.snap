@@ -8,14 +8,11 @@ exports[`sticky demo test sticky demo: bottom.md renders correctly 1`] = `
       class="arco-sticky"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Fixed bottom, global scrolling, 40px position relative to the bottom
         </div>
@@ -33,14 +30,11 @@ exports[`sticky demo test sticky demo: index.md renders correctly 1`] = `
       class="arco-sticky"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Global scrolling, positioned relative to the top 64px
         </div>
@@ -60,14 +54,11 @@ exports[`sticky demo test sticky demo: offset.md renders correctly 1`] = `
       class="arco-sticky"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           100px to the top, follows when the container leaves the viewport
         </div>
@@ -98,14 +89,11 @@ exports[`sticky demo test sticky demo: relative.md renders correctly 1`] = `
       class="arco-sticky"
     >
       <button
-        class="arco-button type-primary size-large is-semi pc"
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
         type="button"
       >
         <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+          class="arco-button-text arco-button-text-pc btn-text"
         >
           Relative scroll content
         </div>

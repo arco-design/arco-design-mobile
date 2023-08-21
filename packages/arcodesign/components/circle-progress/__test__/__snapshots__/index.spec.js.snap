@@ -2,7 +2,11 @@
 
 exports[`circle-progress demo test circle-progress demo: clockwise.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="25"
   class="arco-circle-progress"
+  role="progressbar"
   style="width:68px;height:68px"
 >
   <svg
@@ -41,7 +45,11 @@ exports[`circle-progress demo test circle-progress demo: clockwise.md renders co
 exports[`circle-progress demo test circle-progress demo: custom.md renders correctly 1`] = `
 Array [
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
     class="arco-circle-progress circle-progress-demo-custom"
+    role="progressbar"
     style="width:68px;height:68px"
   >
     <svg
@@ -77,7 +85,11 @@ Array [
     </div>
   </div>,
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="100"
     class="arco-circle-progress circle-progress-demo-custom"
+    role="progressbar"
     style="width:68px;height:68px"
   >
     <svg
@@ -137,7 +149,11 @@ Array [
 
 exports[`circle-progress demo test circle-progress demo: index.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-circle-progress"
+  role="progressbar"
   style="width:68px;height:68px"
 >
   <svg
@@ -175,7 +191,11 @@ exports[`circle-progress demo test circle-progress demo: index.md renders correc
 
 exports[`circle-progress demo test circle-progress demo: micro.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="25"
   class="arco-circle-progress"
+  role="progressbar"
   style="width:26px;height:26px"
 >
   <svg
@@ -208,7 +228,11 @@ exports[`circle-progress demo test circle-progress demo: micro.md renders correc
 
 exports[`circle-progress demo test circle-progress demo: size.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-circle-progress"
+  role="progressbar"
   style="width:82px;height:82px"
 >
   <svg
@@ -246,7 +270,11 @@ exports[`circle-progress demo test circle-progress demo: size.md renders correct
 
 exports[`circle-progress demo test circle-progress demo: width.md renders correctly 1`] = `
 <div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
   class="arco-circle-progress"
+  role="progressbar"
   style="width:72px;height:72px"
 >
   <svg

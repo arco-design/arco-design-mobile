@@ -18,7 +18,7 @@ exports[`image demo test image demo: fail.md renders correctly 1`] = `
         />
       </div>
       <div
-        class="image-container init animate"
+        class="image-container error animate"
         style="transition-duration:200ms;-webkit-transition-duration:200ms"
       />
       <div
@@ -78,7 +78,7 @@ exports[`image demo test image demo: fail.md renders correctly 1`] = `
         />
       </div>
       <div
-        class="image-container init animate"
+        class="image-container error animate"
         style="transition-duration:200ms;-webkit-transition-duration:200ms"
       />
       <div
@@ -111,7 +111,7 @@ exports[`image demo test image demo: fail.md renders correctly 1`] = `
         />
       </div>
       <div
-        class="image-container init animate"
+        class="image-container error animate"
         style="transition-duration:200ms;-webkit-transition-duration:200ms"
       />
       <div
@@ -383,7 +383,7 @@ exports[`image demo test image demo: loading.md renders correctly 1`] = `
         />
       </div>
       <div
-        class="image-container init animate"
+        class="image-container loading animate"
         style="transition-duration:200ms;-webkit-transition-duration:200ms"
       />
       <div
@@ -483,7 +483,7 @@ exports[`image demo test image demo: loading.md renders correctly 1`] = `
         />
       </div>
       <div
-        class="image-container init animate"
+        class="image-container loading animate"
         style="transition-duration:200ms;-webkit-transition-duration:200ms"
       />
       <div
@@ -516,7 +516,7 @@ exports[`image demo test image demo: loading.md renders correctly 1`] = `
         />
       </div>
       <div
-        class="image-container init animate"
+        class="image-container loading animate"
         style="transition-duration:200ms;-webkit-transition-duration:200ms"
       />
       <div

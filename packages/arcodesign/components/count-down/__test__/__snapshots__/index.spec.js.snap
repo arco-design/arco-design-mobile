@@ -29,27 +29,21 @@ exports[`count-down demo test count-down demo: control.md renders correctly 1`] 
     class="btn-wrap"
   >
     <button
-      class="arco-button type-primary size-large is-semi pc"
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Reset
       </div>
     </button>
     <button
-      class="arco-button type-primary size-large is-semi pc"
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Start
       </div>

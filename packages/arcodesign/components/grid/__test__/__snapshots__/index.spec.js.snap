@@ -1208,8 +1208,8 @@ exports[`grid demo test grid demo: index7.md renders correctly 1`] = `
       />
     </div>
     <div
-      class="arco-grid-rows-item fake-col"
-      style="min-width:50%"
+      class="arco-grid-rows-item horizontal"
+      style="margin-bottom:0;margin-right:0"
     />
   </div>
 </div>
@@ -1613,20 +1613,7 @@ exports[`grid demo test grid demo: index9.md renders correctly 1`] = `
     <div
       class="arco-grid-rows-item"
       style="margin-bottom:0;margin-right:0"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-    </div>
+    />
   </div>
 </div>
 `;
@@ -1645,7 +1632,7 @@ exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
         class="grid-demo-block"
       >
         <div
-          class="arco-badge dot absolute"
+          class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
         />
       </div>
       <div
@@ -1665,11 +1652,11 @@ exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
         class="grid-demo-block"
       />
       <div
-        class="arco-badge absolute"
+        class="arco-badge arco-badge-absolute absolute"
         style="margin-left:-52px;margin-top:-6px"
       >
         <span
-          class="badge-text"
+          class="arco-badge-text badge-text"
         >
           New
         </span>
@@ -1691,11 +1678,11 @@ exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
         class="grid-demo-block"
       />
       <div
-        class="arco-badge absolute"
+        class="arco-badge arco-badge-absolute absolute"
         style="margin-left:-50px;margin-top:-6px"
       >
         <span
-          class="badge-text"
+          class="arco-badge-text badge-text"
         >
           99+
         </span>
@@ -1722,57 +1709,51 @@ exports[`grid demo test grid demo: index11.md renders correctly 1`] = `
     class="arco-grid-rows"
   >
     <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
+      class="grid-demo-rows-item"
     >
-      <div
-        class="grid-demo-block"
+      <img
+        class="grid-demo-rows-item-icon"
+        src="[object Object]"
       />
       <div
-        class="arco-grid-rows-item-text"
+        class="grid-demo-rows-item-text"
       >
         <span
-          class="arco-grid-rows-item-title"
+          class="grid-demo-rows-item-title"
         >
           Title Text
         </span>
       </div>
-      <i
-        class="vertical-border"
-      />
     </div>
     <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
+      class="grid-demo-rows-item"
     >
-      <div
-        class="grid-demo-block"
+      <img
+        class="grid-demo-rows-item-icon"
+        src="[object Object]"
       />
       <div
-        class="arco-grid-rows-item-text"
+        class="grid-demo-rows-item-text"
       >
         <span
-          class="arco-grid-rows-item-title"
+          class="grid-demo-rows-item-title"
         >
           Title Text
         </span>
       </div>
-      <i
-        class="vertical-border"
-      />
     </div>
     <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
+      class="grid-demo-rows-item"
     >
-      <div
-        class="grid-demo-block"
+      <img
+        class="grid-demo-rows-item-icon"
+        src="[object Object]"
       />
       <div
-        class="arco-grid-rows-item-text"
+        class="grid-demo-rows-item-text"
       >
         <span
-          class="arco-grid-rows-item-title"
+          class="grid-demo-rows-item-title"
         >
           Title Text
         </span>

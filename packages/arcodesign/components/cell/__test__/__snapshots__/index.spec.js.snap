@@ -23,10 +23,10 @@ exports[`cell demo test cell demo: avatar.md renders correctly 1`] = `
               class="demo-cell-avatar-label"
             >
               <div
-                class="arco-avatar-wrapper small circle"
+                class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
               >
                 <div
-                  class="arco-avatar small circle arco-image-avatar"
+                  class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
                 >
                   <div
                     class="arco-image all-border-box pc arco-avatar-img"
@@ -78,10 +78,10 @@ exports[`cell demo test cell demo: avatar.md renders correctly 1`] = `
             class="cell-text"
           >
             <div
-              class="arco-avatar-wrapper small circle"
+              class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
             >
               <div
-                class="arco-avatar small circle arco-image-avatar"
+                class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
               >
                 <div
                   class="arco-image all-border-box pc arco-avatar-img"
@@ -149,7 +149,11 @@ exports[`cell demo test cell demo: children.md renders correctly 1`] = `
           class="cell-content has-label"
         >
           <div
+            aria-checked="true"
+            aria-disabled="false"
             class="arco-switch all-border-box type-ios system-pc fully checked"
+            role="switch"
+            tabindex="0"
           >
             <div
               class="arco-switch-inner"
@@ -321,10 +325,10 @@ exports[`cell demo test cell demo: desc.md renders correctly 1`] = `
           class="cell-label-icon"
         >
           <div
-            class="arco-avatar-wrapper demo-cell-avatar-medium small circle"
+            class="arco-avatar-wrapper demo-cell-avatar-medium small circle arco-avatar-wrapper-shape-circle"
           >
             <div
-              class="arco-avatar small circle arco-image-avatar"
+              class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
             >
               <div
                 class="arco-image all-border-box pc arco-avatar-img"

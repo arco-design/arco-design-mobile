@@ -34,7 +34,7 @@ exports[`swipe-load demo test swipe-load demo: carousel-label.md renders correct
     </div>
   </div>
   <div
-    class="arco-carousel-indicator pos-center"
+    class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal"
   >
     <i
       class="indicator type-square active"

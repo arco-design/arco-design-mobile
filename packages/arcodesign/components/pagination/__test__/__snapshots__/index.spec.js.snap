@@ -270,15 +270,12 @@ exports[`pagination demo test pagination demo: selfDefine2.md renders correctly 
     class="arco-pagination-prev-field flex-side"
   >
     <button
-      class="arco-button type-ghost size-large is-semi pc disabled has-custom-border"
+      class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-ghost-disabled disabled has-custom-border"
       style="color:#1D2129;border-color:#E5E6EB;width:fit-content"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         None
       </div>
@@ -298,15 +295,12 @@ exports[`pagination demo test pagination demo: selfDefine2.md renders correctly 
     class="arco-pagination-next-field flex-side"
   >
     <button
-      class="arco-button type-ghost size-large is-semi pc has-custom-border"
+      class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc has-custom-border"
       style="color:#165DFF;border-color:#BEDAFF;width:fit-content"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Chapter 1
       </div>

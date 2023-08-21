@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`divider demo test divider demo: align.md renders correctly 1`] = `
+Array [
+  <div
+    class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-left"
+  >
+    text
+  </div>,
+  <div
+    class="demo-gap"
+  />,
+  <div
+    class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-right"
+  >
+    text
+  </div>,
+]
+`;
+
+exports[`divider demo test divider demo: index.md renders correctly 1`] = `
+<div
+  class="arco-divider arco-divider--hairline"
+/>
+`;
+
+exports[`divider demo test divider demo: style.md renders correctly 1`] = `
+<div
+  class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-center"
+  style="color:#165DFF;border-color:#94BFFF;border-style:dashed"
+>
+  Text
+</div>
+`;
+
+exports[`divider demo test divider demo: text.md renders correctly 1`] = `
+<div
+  class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-center"
+>
+  Text
+</div>
+`;
+
+exports[`divider demo test divider demo: thick.md renders correctly 1`] = `
+<div
+  class="arco-divider"
+/>
+`;
+
+exports[`divider demo test divider demo: width.md renders correctly 1`] = `
+<div
+  class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-center arco-divider--with-width"
+  style="flex-basis:40px"
+>
+  Text
+</div>
+`;

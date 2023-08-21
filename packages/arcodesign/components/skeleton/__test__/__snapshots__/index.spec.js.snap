@@ -129,7 +129,7 @@ exports[`skeleton demo test skeleton demo: animation.md renders correctly 1`] = 
   </div>
   <div
     class="arco-skeleton"
-    style="color:rgba(148, 191, 255, 20%)"
+    style="color:rgba(0, 0, 0, 4%)"
   >
     <div
       class="arco-skeleton-content"
@@ -137,42 +137,22 @@ exports[`skeleton demo test skeleton demo: animation.md renders correctly 1`] = 
       <div
         class="arco-skeleton-item arco-skeleton-title arco-skeleton-animation-gradient"
         style="width:40%;background-color:"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-paragraph"
       >
         <div
           class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
           style="background-color:"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
         <div
           class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
           style="background-color:"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
         <div
           class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
           style="width:60%;background-color:"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
       </div>
     </div>
   </div>
@@ -185,52 +165,27 @@ exports[`skeleton demo test skeleton demo: avatar.md renders correctly 1`] = `
 >
   <div
     class="arco-skeleton-item arco-skeleton-avatar arco-skeleton-animation-gradient"
-  >
-    <div
-      class="arco-skeleton-animation-item"
-      style="left:0"
-    />
-  </div>
+  />
   <div
     class="arco-skeleton-content"
   >
     <div
       class="arco-skeleton-item arco-skeleton-title arco-skeleton-animation-gradient"
       style="width:40%"
-    >
-      <div
-        class="arco-skeleton-animation-item"
-        style="left:0"
-      />
-    </div>
+    />
     <div
       class="arco-skeleton-paragraph"
     >
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
         style="width:60%"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -290,60 +245,30 @@ exports[`skeleton demo test skeleton demo: custom.md renders correctly 1`] = `
       >
         <div
           class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
         <div
           class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
       </div>
       <div
         class="arco-skeleton-grid-item"
       >
         <div
           class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
         <div
           class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
       </div>
       <div
         class="arco-skeleton-grid-item"
       >
         <div
           class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
         <div
           class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
-        >
-          <div
-            class="arco-skeleton-animation-item"
-            style="left:0"
-          />
-        </div>
+        />
       </div>
     </div>
     <div
@@ -351,12 +276,7 @@ exports[`skeleton demo test skeleton demo: custom.md renders correctly 1`] = `
     >
       <div
         class="arco-skeleton-item arco-skeleton-avatar arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-node arco-skeleton-animation-gradient"
         style="border-radius:10px"
@@ -364,21 +284,12 @@ exports[`skeleton demo test skeleton demo: custom.md renders correctly 1`] = `
         <div
           style="width:250px;height:50px"
         />
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
       </div>
     </div>
     <div
       class="arco-skeleton-item arco-skeleton-title arco-skeleton-animation-gradient"
       style="width:40%;margin-bottom:20px"
-    >
-      <div
-        class="arco-skeleton-animation-item"
-        style="left:0"
-      />
-    </div>
+    />
     <div
       class="arco-skeleton-paragraph"
       style="margin-bottom:20px"
@@ -386,48 +297,23 @@ exports[`skeleton demo test skeleton demo: custom.md renders correctly 1`] = `
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
         style="width:100%"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
         style="width:100%"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
         style="width:100%"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
         style="width:80%"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
         style="width:60%"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -445,80 +331,40 @@ exports[`skeleton demo test skeleton demo: grid.md renders correctly 1`] = `
     >
       <div
         class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
     </div>
     <div
       class="arco-skeleton-grid-item"
     >
       <div
         class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
     </div>
     <div
       class="arco-skeleton-grid-item"
     >
       <div
         class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
     </div>
     <div
       class="arco-skeleton-grid-item"
     >
       <div
         class="arco-skeleton-item arco-skeleton-grid-icon arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-grid-text arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>
@@ -534,40 +380,20 @@ exports[`skeleton demo test skeleton demo: index.md renders correctly 1`] = `
     <div
       class="arco-skeleton-item arco-skeleton-title arco-skeleton-animation-gradient"
       style="width:40%"
-    >
-      <div
-        class="arco-skeleton-animation-item"
-        style="left:0"
-      />
-    </div>
+    />
     <div
       class="arco-skeleton-paragraph"
     >
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
       <div
         class="arco-skeleton-item arco-skeleton-paragraph-line arco-skeleton-animation-gradient"
         style="width:60%"
-      >
-        <div
-          class="arco-skeleton-animation-item"
-          style="left:0"
-        />
-      </div>
+      />
     </div>
   </div>
 </div>

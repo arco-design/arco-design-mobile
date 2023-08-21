@@ -2,7 +2,12 @@
 
 exports[`rate demo test rate demo: base.md renders correctly 1`] = `
 <div
+  aria-disabled="false"
+  aria-valuemax="5"
+  aria-valuemin="0"
+  aria-valuenow="3"
   class="arco-rate"
+  role="slider"
 >
   <div
     class="arco-rate-icon-wrap active"
@@ -124,7 +129,12 @@ exports[`rate demo test rate demo: base.md renders correctly 1`] = `
 
 exports[`rate demo test rate demo: count.md renders correctly 1`] = `
 <div
+  aria-disabled="false"
+  aria-valuemax="6"
+  aria-valuemin="0"
+  aria-valuenow="3"
   class="arco-rate"
+  role="slider"
 >
   <div
     class="arco-rate-icon-wrap active"
@@ -269,7 +279,12 @@ exports[`rate demo test rate demo: count.md renders correctly 1`] = `
 
 exports[`rate demo test rate demo: custom.md renders correctly 1`] = `
 <div
+  aria-disabled="false"
+  aria-valuemax="5"
+  aria-valuemin="0"
+  aria-valuenow="3"
   class="arco-rate"
+  role="slider"
 >
   <div
     class="arco-rate-icon-wrap active"
@@ -387,7 +402,12 @@ exports[`rate demo test rate demo: custom.md renders correctly 1`] = `
 exports[`rate demo test rate demo: define.md renders correctly 1`] = `
 Array [
   <div
+    aria-disabled="false"
+    aria-valuemax="5"
+    aria-valuemin="0"
+    aria-valuenow="3"
     class="arco-rate"
+    role="slider"
   >
     <div
       class="arco-rate-icon-wrap active"
@@ -511,7 +531,12 @@ Array [
     </div>
   </div>,
   <div
+    aria-disabled="false"
+    aria-valuemax="36"
+    aria-valuemin="20"
+    aria-valuenow="24"
     class="arco-slider  is-horizontal show-tooltip show-marks"
+    role="slider"
     style="margin-top:42PX;padding-left:0;padding-right:0;padding-top:0"
   >
     <div
@@ -609,7 +634,12 @@ Array [
 
 exports[`rate demo test rate demo: disabled.md renders correctly 1`] = `
 <div
+  aria-disabled="true"
+  aria-valuemax="5"
+  aria-valuemin="0"
+  aria-valuenow="3"
   class="arco-rate disabled"
+  role="slider"
 >
   <div
     class="arco-rate-icon-wrap active"
@@ -731,7 +761,12 @@ exports[`rate demo test rate demo: disabled.md renders correctly 1`] = `
 
 exports[`rate demo test rate demo: half.md renders correctly 1`] = `
 <div
+  aria-disabled="false"
+  aria-valuemax="5"
+  aria-valuemin="0"
+  aria-valuenow="4.5"
   class="arco-rate"
+  role="slider"
 >
   <div
     class="arco-rate-icon-wrap active"
@@ -865,7 +900,12 @@ exports[`rate demo test rate demo: half.md renders correctly 1`] = `
 
 exports[`rate demo test rate demo: listen.md renders correctly 1`] = `
 <div
+  aria-disabled="false"
+  aria-valuemax="5"
+  aria-valuemin="0"
+  aria-valuenow="3"
   class="arco-rate"
+  role="slider"
 >
   <div
     class="arco-rate-icon-wrap active"
@@ -999,7 +1039,12 @@ exports[`rate demo test rate demo: listen.md renders correctly 1`] = `
 
 exports[`rate demo test rate demo: readonly.md renders correctly 1`] = `
 <div
+  aria-disabled="false"
+  aria-valuemax="5"
+  aria-valuemin="0"
+  aria-valuenow="0"
   class="arco-rate"
+  role="slider"
 >
   <div
     class="arco-rate-icon-wrap active"

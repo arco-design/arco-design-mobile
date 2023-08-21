@@ -13,22 +13,26 @@ exports[`picker-view demo test picker-view demo: cascader.md renders correctly 1
       class="arco-picker-column"
     >
       <div
+        aria-disabled="false"
         class="arco-picker-column-item-wrap"
         style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
       >
         <div
+          aria-label="Beijing"
           class="arco-picker-column-item selected"
           style="height:0px"
         >
           Beijing
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item selected-neighbor-1"
           style="height:0px"
         >
           Liaoning
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item selected-neighbor-2"
           style="height:0px"
         >
@@ -40,10 +44,12 @@ exports[`picker-view demo test picker-view demo: cascader.md renders correctly 1
       class="arco-picker-column"
     >
       <div
+        aria-disabled="false"
         class="arco-picker-column-item-wrap"
         style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
       >
         <div
+          aria-label="Beijing"
           class="arco-picker-column-item selected"
           style="height:0px"
         >
@@ -55,28 +61,33 @@ exports[`picker-view demo test picker-view demo: cascader.md renders correctly 1
       class="arco-picker-column"
     >
       <div
+        aria-disabled="false"
         class="arco-picker-column-item-wrap"
         style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
       >
         <div
+          aria-label="Chaoyang"
           class="arco-picker-column-item selected"
           style="height:0px"
         >
           Chaoyang
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item selected-neighbor-1"
           style="height:0px"
         >
           Haidian
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item selected-neighbor-2"
           style="height:0px"
         >
           Dongcheng
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item"
           style="height:0px"
         >
@@ -114,46 +125,54 @@ exports[`picker-view demo test picker-view demo: index.md renders correctly 1`] 
       class="arco-picker-column"
     >
       <div
+        aria-disabled="false"
         class="arco-picker-column-item-wrap"
         style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
       >
         <div
+          aria-label="Monday"
           class="arco-picker-column-item selected"
           style="height:0px"
         >
           Monday
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item selected-neighbor-1"
           style="height:0px"
         >
           Tuesday
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item selected-neighbor-2"
           style="height:0px"
         >
           Wednesday
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item"
           style="height:0px"
         >
           Thursday
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item"
           style="height:0px"
         >
           Friday
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item"
           style="height:0px"
         >
           Saturday
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item"
           style="height:0px"
         >
@@ -165,22 +184,26 @@ exports[`picker-view demo test picker-view demo: index.md renders correctly 1`] 
       class="arco-picker-column"
     >
       <div
+        aria-disabled="false"
         class="arco-picker-column-item-wrap"
         style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
       >
         <div
+          aria-label="Morning"
           class="arco-picker-column-item selected"
           style="height:0px"
         >
           Morning
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item selected-neighbor-1"
           style="height:0px"
         >
           Afternoon
         </div>
         <div
+          aria-label=""
           class="arco-picker-column-item selected-neighbor-2"
           style="height:0px"
         >

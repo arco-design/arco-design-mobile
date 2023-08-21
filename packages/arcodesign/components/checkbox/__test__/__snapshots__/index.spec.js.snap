@@ -6,8 +6,12 @@ Array [
     style="margin-bottom:16px"
   >
     <div
+      aria-checked="true"
+      aria-disabled="false"
       class="arco-checkbox shape-circle inline"
+      role="checkbox"
       style="width:50%"
+      tabindex="0"
     >
       <div
         class="checkbox-icon checked"
@@ -32,8 +36,12 @@ Array [
       </div>
     </div>
     <div
+      aria-checked="true"
+      aria-disabled="false"
       class="custom-color arco-checkbox shape-circle inline"
+      role="checkbox"
       style="width:50%"
+      tabindex="0"
     >
       <div
         class="checkbox-icon checked"
@@ -62,8 +70,12 @@ Array [
   </div>,
   <div>
     <div
+      aria-checked="true"
+      aria-disabled="false"
       class="custom-size arco-checkbox shape-circle inline"
+      role="checkbox"
       style="width:50%"
+      tabindex="0"
     >
       <div
         class="checkbox-icon checked"
@@ -90,8 +102,12 @@ Array [
       </div>
     </div>
     <div
+      aria-checked="false"
+      aria-disabled="false"
       class="arco-checkbox shape-circle inline"
+      role="checkbox"
       style="width:50%"
+      tabindex="0"
     >
       <div
         class="checkbox-icon"
@@ -125,8 +141,12 @@ Array [
 exports[`checkbox demo test checkbox demo: default.md renders correctly 1`] = `
 <div>
   <div
+    aria-checked="false"
+    aria-disabled="false"
     class="arco-checkbox shape-circle inline"
+    role="checkbox"
     style="width:50%"
+    tabindex="0"
   >
     <div
       class="checkbox-icon"
@@ -151,8 +171,12 @@ exports[`checkbox demo test checkbox demo: default.md renders correctly 1`] = `
     </div>
   </div>
   <div
+    aria-checked="true"
+    aria-disabled="false"
     class="arco-checkbox shape-circle inline"
+    role="checkbox"
     style="width:50%"
+    tabindex="0"
   >
     <div
       class="checkbox-icon checked"
@@ -184,8 +208,12 @@ exports[`checkbox demo test checkbox demo: default.md renders correctly 1`] = `
 exports[`checkbox demo test checkbox demo: disabled.md renders correctly 1`] = `
 Array [
   <div
+    aria-checked="false"
+    aria-disabled="true"
     class="arco-checkbox shape-circle disabled inline"
+    role="checkbox"
     style="width:50%"
+    tabindex="0"
   >
     <div
       class="checkbox-icon disabled"
@@ -212,8 +240,12 @@ Array [
     </div>
   </div>,
   <div
+    aria-checked="true"
+    aria-disabled="true"
     class="arco-checkbox shape-circle disabled inline"
+    role="checkbox"
     style="width:50%"
+    tabindex="0"
   >
     <div
       class="checkbox-icon disabled checked"
@@ -247,8 +279,12 @@ exports[`checkbox demo test checkbox demo: group.md renders correctly 1`] = `
   class="arco-checkbox-group"
 >
   <div
+    aria-checked="false"
+    aria-disabled="false"
     class="arco-checkbox shape-circle block"
+    role="checkbox"
     style="height:42px"
+    tabindex="0"
   >
     <div
       class="checkbox-icon"
@@ -273,8 +309,12 @@ exports[`checkbox demo test checkbox demo: group.md renders correctly 1`] = `
     </div>
   </div>
   <div
+    aria-checked="true"
+    aria-disabled="false"
     class="arco-checkbox shape-circle block"
+    role="checkbox"
     style="height:42px"
+    tabindex="0"
   >
     <div
       class="checkbox-icon checked"
@@ -301,8 +341,12 @@ exports[`checkbox demo test checkbox demo: group.md renders correctly 1`] = `
     </div>
   </div>
   <div
+    aria-checked="false"
+    aria-disabled="false"
     class="arco-checkbox shape-circle block"
+    role="checkbox"
     style="height:42px"
+    tabindex="0"
   >
     <div
       class="checkbox-icon"
@@ -349,8 +393,12 @@ exports[`checkbox demo test checkbox demo: group-left.md renders correctly 1`] =
             class="cell-content "
           >
             <div
+              aria-checked="true"
+              aria-disabled="false"
               class="arco-checkbox shape-circle block"
+              role="checkbox"
               style="height:54px"
+              tabindex="0"
             >
               <div
                 class="checkbox-icon checked"
@@ -389,8 +437,12 @@ exports[`checkbox demo test checkbox demo: group-left.md renders correctly 1`] =
             class="cell-content "
           >
             <div
+              aria-checked="false"
+              aria-disabled="false"
               class="arco-checkbox shape-circle block"
+              role="checkbox"
               style="height:54px"
+              tabindex="0"
             >
               <div
                 class="checkbox-icon"
@@ -427,8 +479,12 @@ exports[`checkbox demo test checkbox demo: group-left.md renders correctly 1`] =
             class="cell-content "
           >
             <div
+              aria-checked="true"
+              aria-disabled="false"
               class="arco-checkbox shape-circle block"
+              role="checkbox"
               style="height:54px"
+              tabindex="0"
             >
               <div
                 class="checkbox-icon checked"
@@ -467,8 +523,12 @@ exports[`checkbox demo test checkbox demo: group-left.md renders correctly 1`] =
             class="cell-content "
           >
             <div
+              aria-checked="false"
+              aria-disabled="false"
               class="arco-checkbox shape-circle block"
+              role="checkbox"
               style="height:54px"
+              tabindex="0"
             >
               <div
                 class="checkbox-icon"
@@ -520,8 +580,12 @@ exports[`checkbox demo test checkbox demo: group-right.md renders correctly 1`] 
             class="cell-content "
           >
             <div
+              aria-checked="true"
+              aria-disabled="false"
               class="arco-checkbox shape-circle justify"
+              role="checkbox"
               style="height:54px"
+              tabindex="0"
             >
               <div
                 class="checkbox-text"
@@ -560,8 +624,12 @@ exports[`checkbox demo test checkbox demo: group-right.md renders correctly 1`] 
             class="cell-content "
           >
             <div
+              aria-checked="false"
+              aria-disabled="false"
               class="arco-checkbox shape-circle justify"
+              role="checkbox"
               style="height:54px"
+              tabindex="0"
             >
               <div
                 class="checkbox-text"
@@ -598,8 +666,12 @@ exports[`checkbox demo test checkbox demo: group-right.md renders correctly 1`] 
             class="cell-content "
           >
             <div
+              aria-checked="true"
+              aria-disabled="false"
               class="arco-checkbox shape-circle justify"
+              role="checkbox"
               style="height:54px"
+              tabindex="0"
             >
               <div
                 class="checkbox-text"
@@ -638,8 +710,12 @@ exports[`checkbox demo test checkbox demo: group-right.md renders correctly 1`] 
             class="cell-content "
           >
             <div
+              aria-checked="false"
+              aria-disabled="false"
               class="arco-checkbox shape-circle justify"
+              role="checkbox"
               style="height:54px"
+              tabindex="0"
             >
               <div
                 class="checkbox-text"
@@ -677,7 +753,11 @@ exports[`checkbox demo test checkbox demo: horizontal.md renders correctly 1`] =
   style="line-height:1.5;display:flex;justify-content:space-between"
 >
   <div
+    aria-checked="false"
+    aria-disabled="false"
     class="arco-checkbox shape-circle inline"
+    role="checkbox"
+    tabindex="0"
   >
     <div
       class="checkbox-icon"
@@ -702,7 +782,11 @@ exports[`checkbox demo test checkbox demo: horizontal.md renders correctly 1`] =
     </div>
   </div>
   <div
+    aria-checked="true"
+    aria-disabled="false"
     class="arco-checkbox shape-circle inline"
+    role="checkbox"
+    tabindex="0"
   >
     <div
       class="checkbox-icon checked"
@@ -729,7 +813,11 @@ exports[`checkbox demo test checkbox demo: horizontal.md renders correctly 1`] =
     </div>
   </div>
   <div
+    aria-checked="true"
+    aria-disabled="true"
     class="arco-checkbox shape-circle disabled inline"
+    role="checkbox"
+    tabindex="0"
   >
     <div
       class="checkbox-icon disabled checked"
@@ -763,8 +851,12 @@ exports[`checkbox demo test checkbox demo: max-select.md renders correctly 1`] =
   class="arco-checkbox-group"
 >
   <div
+    aria-checked="false"
+    aria-disabled="false"
     class="arco-checkbox shape-circle block"
+    role="checkbox"
     style="height:42px"
+    tabindex="0"
   >
     <div
       class="checkbox-icon"
@@ -789,8 +881,12 @@ exports[`checkbox demo test checkbox demo: max-select.md renders correctly 1`] =
     </div>
   </div>
   <div
+    aria-checked="true"
+    aria-disabled="false"
     class="arco-checkbox shape-circle block"
+    role="checkbox"
     style="height:42px"
+    tabindex="0"
   >
     <div
       class="checkbox-icon checked"
@@ -817,8 +913,12 @@ exports[`checkbox demo test checkbox demo: max-select.md renders correctly 1`] =
     </div>
   </div>
   <div
+    aria-checked="true"
+    aria-disabled="false"
     class="arco-checkbox shape-circle block"
+    role="checkbox"
     style="height:42px"
+    tabindex="0"
   >
     <div
       class="checkbox-icon checked"
@@ -853,8 +953,12 @@ Array [
     class="arco-checkbox-group"
   >
     <div
+      aria-checked="false"
+      aria-disabled="false"
       class="arco-checkbox shape-circle block"
+      role="checkbox"
       style="height:42px"
+      tabindex="0"
     >
       <div
         class="checkbox-icon"
@@ -879,8 +983,12 @@ Array [
       </div>
     </div>
     <div
+      aria-checked="true"
+      aria-disabled="false"
       class="arco-checkbox shape-circle block"
+      role="checkbox"
       style="height:42px"
+      tabindex="0"
     >
       <div
         class="checkbox-icon checked"
@@ -907,8 +1015,12 @@ Array [
       </div>
     </div>
     <div
+      aria-checked="false"
+      aria-disabled="false"
       class="arco-checkbox shape-circle block"
+      role="checkbox"
       style="height:42px"
+      tabindex="0"
     >
       <div
         class="checkbox-icon"
@@ -933,8 +1045,12 @@ Array [
       </div>
     </div>
     <div
+      aria-checked="true"
+      aria-disabled="false"
       class="arco-checkbox shape-circle block"
+      role="checkbox"
       style="height:42px"
+      tabindex="0"
     >
       <div
         class="checkbox-icon checked"
@@ -962,28 +1078,22 @@ Array [
     </div>
   </div>,
   <button
-    class="arco-button type-primary size-medium is-semi pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-medium arco-button-size-medium-is-semi size-medium is-semi pc arco-button-inline inline"
     style="margin:16px 16px 0 0"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Select all
     </div>
   </button>,
   <button
-    class="arco-button type-default size-medium is-semi pc inline"
+    class="arco-button arco-button-type-default type-default arco-button-size-medium arco-button-size-medium-is-semi size-medium is-semi pc arco-button-inline inline"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Reversely select
     </div>

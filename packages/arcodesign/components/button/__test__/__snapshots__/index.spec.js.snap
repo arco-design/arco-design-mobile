@@ -3,43 +3,34 @@
 exports[`button demo test button demo: color.md renders correctly 1`] = `
 Array [
   <button
-    class="arco-button type-primary size-large is-semi pc inline has-custom-border"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline has-custom-border"
     style="border-color:#FF5722;background:#FF5722;margin-right:20px"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Button
     </div>
   </button>,
   <button
-    class="arco-button type-ghost size-large is-semi pc inline has-custom-border"
+    class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline has-custom-border"
     style="color:#FF5722;border-color:#FF5722;background:#FFF;margin-right:20px"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Button
     </div>
   </button>,
   <button
-    class="arco-button type-default size-large is-semi pc inline"
+    class="arco-button arco-button-type-default type-default arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
     style="color:white;background:linear-gradient(278.7deg, #0578FF 5.08%, #15D5FF 108.09%)"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Gradient
     </div>
@@ -50,28 +41,22 @@ Array [
 exports[`button demo test button demo: default.md renders correctly 1`] = `
 Array [
   <button
-    class="arco-button type-default size-large is-semi pc"
+    class="arco-button arco-button-type-default type-default arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Auxiliary
     </div>
   </button>,
   <button
-    class="arco-button type-default size-large is-semi pc disabled"
+    class="arco-button arco-button-type-default type-default arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-default-disabled disabled"
     style="margin-top:20px"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Disabled
     </div>
@@ -82,28 +67,22 @@ Array [
 exports[`button demo test button demo: ghost.md renders correctly 1`] = `
 Array [
   <button
-    class="arco-button type-ghost size-large is-semi pc"
+    class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Wireframe
     </div>
   </button>,
   <button
-    class="arco-button type-ghost size-large is-semi pc disabled"
+    class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-ghost-disabled disabled"
     style="margin-top:20px"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Disabled
     </div>
@@ -114,12 +93,12 @@ Array [
 exports[`button demo test button demo: icon.md renders correctly 1`] = `
 Array [
   <button
-    class="arco-button type-primary size-large is-semi pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
     style="margin-right:20px;width:0.72rem;padding:0"
     type="button"
   >
     <div
-      class="btn-icon"
+      class="arco-button-icon btn-icon"
     >
       <svg
         class="arco-icon arco-icon-setting "
@@ -131,18 +110,18 @@ Array [
       >
         <defs />
         <path
-          d="M512 46.55c34.517 0 68.565 3.797 101.696 11.263l19.136 4.288L692.48 198.08l146.837-16.043 13.27 14.443a465.493 465.493 0 01101.802 176.939l5.76 18.602-11.456 15.723L872.747 512l87.402 119.979-5.76 18.602A465.493 465.493 0 01852.587 827.52l-13.27 14.443L692.48 825.92l-59.648 135.979-19.136 4.288c-33.13 7.466-67.2 11.264-101.696 11.264-34.517 0-68.587-3.798-101.717-11.264l-19.136-4.31-7.894-17.941L331.52 825.92l-146.837 16.043-13.27-14.443A465.493 465.493 0 0169.611 650.56l-5.76-18.603 11.456-15.722L151.253 512 63.851 392.043l5.76-18.603a465.493 465.493 0 01101.802-176.96l13.27-14.443L331.52 198.08l59.627-135.957 19.136-4.31c33.13-7.466 67.2-11.264 101.717-11.264zm0 77.567a387.58 387.58 0 00-65.792 5.611L398.421 238.72a63.488 63.488 0 01-65.066 37.61l-117.483-12.863a387.947 387.947 0 00-66.048 114.837l70.165 96.32c16.214 22.272 16.214 52.48 0 74.752l-70.186 96.32a387.947 387.947 0 0066.069 114.837l117.504-12.864a63.488 63.488 0 0165.045 37.632l47.787 108.971a387.393 387.393 0 0065.792 5.61 387.33 387.33 0 0065.77-5.61l47.81-108.992a63.488 63.488 0 0165.066-37.61l117.483 12.863a387.947 387.947 0 0066.048-114.816l-70.165-96.341a63.488 63.488 0 010-74.752l70.165-96.341a387.947 387.947 0 00-66.048-114.816L690.624 276.33a63.488 63.488 0 01-65.045-37.611l-47.787-108.992a386.325 386.325 0 00-65.792-5.61zm0 193.942c106.752 0 193.195 86.869 193.195 193.941S618.752 705.92 512 705.92 318.805 619.093 318.805 512 405.248 318.08 512 318.08zm0 77.568c-63.808 0-115.627 52.053-115.627 116.373 0 64.299 51.819 116.373 115.627 116.373S627.627 576.32 627.627 512c0-64.299-51.819-116.373-115.627-116.373z"
+          d="M512 46.55c34.517 0 68.565 3.797 101.696 11.263l19.136 4.288L692.48 198.08l146.837-16.043 13.27 14.443a465.493 465.493 0 01101.802 176.939l5.76 18.602-11.456 15.723L872.747 512l87.402 119.979-5.76 18.602A465.493 465.493 0 01852.587 827.52l-13.27 14.443L692.48 825.92l-59.648 135.979-19.136 4.288c-33.13 7.466-67.2 11.264-101.696 11.264-34.517 0-68.587-3.798-101.717-11.264l-19.136-4.31-7.894-17.941L331.52 825.92l-146.837 16.043-13.27-14.443A465.493 465.493 0 0169.611 650.56l-5.76-18.603 11.456-15.722L151.253 512 63.851 392.043l5.76-18.603a465.493 465.493 0 01101.802-176.96l13.27-14.443L331.52 198.08l59.627-135.957 19.136-4.31c33.13-7.466 67.2-11.264 101.717-11.264zm0 77.567a387.58 387.58 0 00-65.792 5.611L398.421 238.72a63.488 63.488 0 01-65.066 37.61l-117.483-12.863a387.947 387.947 0 00-66.048 114.837l70.165 96.32c16.214 22.272 16.214 52.48 0 74.752l-70.186 96.32a387.947 387.947 0 0066.069 114.837l117.504-12.864a63.488 63.488 0 0165.045 37.632l47.787 108.971a387.393 387.393 0 0065.792 5.61 387.33 387.33 0 0065.77-5.61L625.58 785.28a63.488 63.488 0 0165.066-37.61l117.483 12.863a387.947 387.947 0 0066.048-114.816l-70.165-96.341a63.488 63.488 0 010-74.752l70.165-96.341a387.947 387.947 0 00-66.048-114.816L690.624 276.33a63.488 63.488 0 01-65.045-37.611l-47.787-108.992a386.325 386.325 0 00-65.792-5.61zm0 193.942c106.752 0 193.195 86.869 193.195 193.941S618.752 705.92 512 705.92 318.805 619.093 318.805 512 405.248 318.08 512 318.08zm0 77.568c-63.808 0-115.627 52.053-115.627 116.373 0 64.299 51.819 116.373 115.627 116.373S627.627 576.32 627.627 512c0-64.299-51.819-116.373-115.627-116.373z"
         />
       </svg>
     </div>
   </button>,
   <button
-    class="arco-button type-primary size-large is-semi pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
     style="margin-right:20px"
     type="button"
   >
     <div
-      class="btn-icon"
+      class="arco-button-icon btn-icon"
     >
       <svg
         class="arco-icon arco-icon-scan "
@@ -158,17 +137,17 @@ Array [
       </svg>
     </div>
     <div
-      class="btn-text has-icon"
+      class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
     >
       Button
     </div>
   </button>,
   <button
-    class="arco-button type-ghost size-large is-semi pc inline"
+    class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
     type="button"
   >
     <div
-      class="btn-icon"
+      class="arco-button-icon btn-icon"
     >
       <svg
         class="arco-icon arco-icon-scan "
@@ -184,7 +163,7 @@ Array [
       </svg>
     </div>
     <div
-      class="btn-text has-icon"
+      class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
     >
       Icon button
     </div>
@@ -195,15 +174,15 @@ Array [
 exports[`button demo test button demo: loading.md renders correctly 1`] = `
 Array [
   <button
-    class="arco-button type-primary size-large is-semi pc inline loading"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline loading"
     style="margin-right:11px"
     type="button"
   >
     <div
-      class="btn-icon"
+      class="arco-button-icon btn-icon"
     >
       <div
-        class="arco-loading all-border-box circle loading-icon"
+        class="arco-loading all-border-box circle arco-button-loading-icon loading-icon"
         style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:14px;height:14px"
       >
         <svg
@@ -272,20 +251,20 @@ Array [
       </div>
     </div>
     <div
-      class="btn-text has-icon"
+      class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
     >
       Primary
     </div>
   </button>,
   <button
-    class="arco-button type-ghost size-large is-semi pc inline loading"
+    class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline loading"
     type="button"
   >
     <div
-      class="btn-icon"
+      class="arco-button-icon btn-icon"
     >
       <div
-        class="arco-loading all-border-box circle loading-icon"
+        class="arco-loading all-border-box circle arco-button-loading-icon loading-icon"
         style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:14px;height:14px"
       >
         <svg
@@ -354,7 +333,35 @@ Array [
       </div>
     </div>
     <div
-      class="btn-text has-icon"
+      class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
+    >
+      Secondary
+    </div>
+  </button>,
+  <button
+    class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
+    style="margin-top:20px"
+    type="button"
+  >
+    <div
+      class="arco-button-icon btn-icon"
+    >
+      <svg
+        class="arco-icon arco-icon-setting "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M512 46.55c34.517 0 68.565 3.797 101.696 11.263l19.136 4.288L692.48 198.08l146.837-16.043 13.27 14.443a465.493 465.493 0 01101.802 176.939l5.76 18.602-11.456 15.723L872.747 512l87.402 119.979-5.76 18.602A465.493 465.493 0 01852.587 827.52l-13.27 14.443L692.48 825.92l-59.648 135.979-19.136 4.288c-33.13 7.466-67.2 11.264-101.696 11.264-34.517 0-68.587-3.798-101.717-11.264l-19.136-4.31-7.894-17.941L331.52 825.92l-146.837 16.043-13.27-14.443A465.493 465.493 0 0169.611 650.56l-5.76-18.603 11.456-15.722L151.253 512 63.851 392.043l5.76-18.603a465.493 465.493 0 01101.802-176.96l13.27-14.443L331.52 198.08l59.627-135.957 19.136-4.31c33.13-7.466 67.2-11.264 101.717-11.264zm0 77.567a387.58 387.58 0 00-65.792 5.611L398.421 238.72a63.488 63.488 0 01-65.066 37.61l-117.483-12.863a387.947 387.947 0 00-66.048 114.837l70.165 96.32c16.214 22.272 16.214 52.48 0 74.752l-70.186 96.32a387.947 387.947 0 0066.069 114.837l117.504-12.864a63.488 63.488 0 0165.045 37.632l47.787 108.971a387.393 387.393 0 0065.792 5.61 387.33 387.33 0 0065.77-5.61L625.58 785.28a63.488 63.488 0 0165.066-37.61l117.483 12.863a387.947 387.947 0 0066.048-114.816l-70.165-96.341a63.488 63.488 0 010-74.752l70.165-96.341a387.947 387.947 0 00-66.048-114.816L690.624 276.33a63.488 63.488 0 01-65.045-37.611l-47.787-108.992a386.325 386.325 0 00-65.792-5.61zm0 193.942c106.752 0 193.195 86.869 193.195 193.941S618.752 705.92 512 705.92 318.805 619.093 318.805 512 405.248 318.08 512 318.08zm0 77.568c-63.808 0-115.627 52.053-115.627 116.373 0 64.299 51.819 116.373 115.627 116.373S627.627 576.32 627.627 512c0-64.299-51.819-116.373-115.627-116.373z"
+        />
+      </svg>
+    </div>
+    <div
+      class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
     >
       Secondary
     </div>
@@ -364,14 +371,11 @@ Array [
 
 exports[`button demo test button demo: pass-button.md renders correctly 1`] = `
 <button
-  class="arco-button type-primary size-huge is-semi pc"
+  class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge is-semi pc"
   type="button"
 >
   <div
-    class="btn-icon"
-  />
-  <div
-    class="btn-text"
+    class="arco-button-text arco-button-text-pc btn-text"
   >
     Banner
   </div>
@@ -381,28 +385,22 @@ exports[`button demo test button demo: pass-button.md renders correctly 1`] = `
 exports[`button demo test button demo: primary.md renders correctly 1`] = `
 Array [
   <button
-    class="arco-button type-primary size-large is-semi pc"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Primary
     </div>
   </button>,
   <button
-    class="arco-button type-primary size-large is-semi pc disabled"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-primary-disabled disabled"
     style="margin-top:20px"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Disabled
     </div>
@@ -415,29 +413,23 @@ exports[`button demo test button demo: round.md renders correctly 1`] = `
   style="display:flex;justify-content:space-between"
 >
   <button
-    class="arco-button type-primary size-large is-round pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-round size-large is-round pc arco-button-inline inline"
     style="margin-right:20px;flex:1"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Rounded
     </div>
   </button>
   <button
-    class="arco-button type-primary size-large is-square pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-square size-large is-square pc arco-button-inline inline"
     style="flex:1"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Right angle
     </div>
@@ -448,69 +440,54 @@ exports[`button demo test button demo: round.md renders correctly 1`] = `
 exports[`button demo test button demo: size.md renders correctly 1`] = `
 Array [
   <button
-    class="arco-button type-primary size-huge is-semi pc"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge is-semi pc"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Huge button
     </div>
   </button>,
   <button
-    class="arco-button type-primary size-large is-semi pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
     style="margin-right:40px;margin-top:20px"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
        Regular
     </div>
   </button>,
   <button
-    class="arco-button type-primary size-medium is-semi pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-medium arco-button-size-medium-is-semi size-medium is-semi pc arco-button-inline inline"
     style="margin-right:40px"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Middle
     </div>
   </button>,
   <button
-    class="arco-button type-primary size-small is-semi pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-small arco-button-size-small-is-semi size-small is-semi pc arco-button-inline inline"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Small button
     </div>
   </button>,
   <button
-    class="arco-button type-primary size-mini is-semi pc inline"
+    class="arco-button arco-button-type-primary type-primary arco-button-size-mini arco-button-size-mini-is-semi size-mini is-semi pc arco-button-inline inline"
     style="margin-top:20px"
     type="button"
   >
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-button-text arco-button-text-pc btn-text"
     >
       Mini
     </div>
@@ -524,27 +501,21 @@ Array [
     class="button-inline-flex"
   >
     <button
-      class="arco-button type-primary size-large is-semi pc"
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Information
       </div>
     </button>
     <button
-      class="arco-button type-primary size-large is-semi pc disabled"
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-primary-disabled disabled"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Disabled
       </div>
@@ -554,29 +525,23 @@ Array [
     class="button-inline-flex"
   >
     <button
-      class="arco-button type-danger size-large is-semi pc has-custom-border"
+      class="arco-button arco-button-type-danger type-danger arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc has-custom-border"
       style="color:#fff;border-color:#F53F3F;background:#F53F3F"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Information
       </div>
     </button>
     <button
-      class="arco-button type-danger size-large is-semi pc disabled has-custom-border"
+      class="arco-button arco-button-type-danger type-danger arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-danger-disabled disabled has-custom-border"
       style="color:#FFECE8;border-color:#FBACA3;background:#FBACA3"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Disabled
       </div>
@@ -586,29 +551,23 @@ Array [
     class="button-inline-flex"
   >
     <button
-      class="arco-button type-warning size-large is-semi pc has-custom-border"
+      class="arco-button arco-button-type-warning type-warning arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc has-custom-border"
       style="color:#fff;border-color:#FF7D00;background:#FF7D00"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Information
       </div>
     </button>
     <button
-      class="arco-button type-warning size-large is-semi pc disabled has-custom-border"
+      class="arco-button arco-button-type-warning type-warning arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-warning-disabled disabled has-custom-border"
       style="color:#FFF7E8;border-color:#FFCF8B;background:#FFCF8B"
       type="button"
     >
       <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
+        class="arco-button-text arco-button-text-pc btn-text"
       >
         Disabled
       </div>

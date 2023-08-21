@@ -5,13 +5,13 @@ exports[`avatar demo test avatar demo: auto-font-size.md renders correctly 1`] =
   class="avatar-demo-box"
 >
   <div
-    class="arco-avatar-wrapper small circle"
+    class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
   >
     <div
-      class="arco-avatar small circle arco-text-avatar"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
     >
       <span
-        class="arco-avatar-text"
+        class="arco-avatar-text arco-avatar-text-size-small"
         style="transform:scale(1)"
       >
         Arco
@@ -19,14 +19,14 @@ exports[`avatar demo test avatar demo: auto-font-size.md renders correctly 1`] =
     </div>
   </div>
   <div
-    class="arco-avatar-wrapper avatar-left-margin small circle"
+    class="arco-avatar-wrapper avatar-left-margin small circle arco-avatar-wrapper-shape-circle"
   >
     <div
-      class="arco-avatar small circle arco-text-avatar"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
       style="background-color:#FF7D00"
     >
       <span
-        class="arco-avatar-text"
+        class="arco-avatar-text arco-avatar-text-size-small"
         style="transform:scale(1)"
       >
         ByteDancer
@@ -34,14 +34,14 @@ exports[`avatar demo test avatar demo: auto-font-size.md renders correctly 1`] =
     </div>
   </div>
   <div
-    class="arco-avatar-wrapper avatar-left-margin small square"
+    class="arco-avatar-wrapper avatar-left-margin small square arco-avatar-wrapper-shape-square"
   >
     <div
-      class="arco-avatar small square arco-text-avatar"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-square square arco-text-avatar arco-avatar-mode-text"
       style="background-color:#C9CDD4"
     >
       <span
-        class="arco-avatar-text"
+        class="arco-avatar-text arco-avatar-text-size-small"
         style="transform:scale(1)"
       >
         Garth
@@ -56,10 +56,10 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
   style="margin:-16px 0"
 >
   <div
-    class="arco-avatar-wrapper large circle with-info"
+    class="arco-avatar-wrapper large circle arco-avatar-wrapper-shape-circle arco-avatar-wrapper-with-info arco-avatar-wrapper-with-info-size-large with-info"
   >
     <div
-      class="arco-avatar large circle arco-image-avatar"
+      class="arco-avatar arco-avatar-size-large large arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
     >
       <div
         class="arco-image all-border-box pc arco-avatar-img"
@@ -81,12 +81,12 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
       class="arco-avatar-info"
     >
       <div
-        class="arco-avatar-name"
+        class="arco-avatar-name arco-avatar-name-size-large"
       >
         Username
       </div>
       <div
-        class="arco-avatar-desc"
+        class="arco-avatar-desc arco-avatar-desc-size-large"
       >
         Auxiliary information
       </div>
@@ -96,10 +96,10 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
     class="avatar-divider"
   />
   <div
-    class="arco-avatar-wrapper medium circle with-info"
+    class="arco-avatar-wrapper medium circle arco-avatar-wrapper-shape-circle arco-avatar-wrapper-with-info arco-avatar-wrapper-with-info-size-medium with-info"
   >
     <div
-      class="arco-avatar medium circle arco-image-avatar"
+      class="arco-avatar arco-avatar-size-medium medium arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
     >
       <div
         class="arco-image all-border-box pc arco-avatar-img"
@@ -121,12 +121,12 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
       class="arco-avatar-info"
     >
       <div
-        class="arco-avatar-name"
+        class="arco-avatar-name arco-avatar-name-size-medium"
       >
         Username
       </div>
       <div
-        class="arco-avatar-desc"
+        class="arco-avatar-desc arco-avatar-desc-size-medium"
       >
         Auxiliary information
       </div>
@@ -136,10 +136,10 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
     class="avatar-divider"
   />
   <div
-    class="arco-avatar-wrapper small circle with-info"
+    class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle arco-avatar-wrapper-with-info arco-avatar-wrapper-with-info-size-small with-info"
   >
     <div
-      class="arco-avatar small circle arco-image-avatar"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
     >
       <div
         class="arco-image all-border-box pc arco-avatar-img"
@@ -161,12 +161,12 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
       class="arco-avatar-info"
     >
       <div
-        class="arco-avatar-name"
+        class="arco-avatar-name arco-avatar-name-size-small"
       >
         Username
       </div>
       <div
-        class="arco-avatar-desc"
+        class="arco-avatar-desc arco-avatar-desc-size-small"
       >
         Auxiliary information
       </div>
@@ -176,10 +176,10 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
     class="avatar-divider"
   />
   <div
-    class="arco-avatar-wrapper smaller circle with-info"
+    class="arco-avatar-wrapper smaller circle arco-avatar-wrapper-shape-circle arco-avatar-wrapper-with-info arco-avatar-wrapper-with-info-size-smaller with-info"
   >
     <div
-      class="arco-avatar smaller circle arco-image-avatar"
+      class="arco-avatar arco-avatar-size-smaller smaller arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
     >
       <div
         class="arco-image all-border-box pc arco-avatar-img"
@@ -201,12 +201,12 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
       class="arco-avatar-info"
     >
       <div
-        class="arco-avatar-name"
+        class="arco-avatar-name arco-avatar-name-size-smaller"
       >
         Username
       </div>
       <div
-        class="arco-avatar-desc"
+        class="arco-avatar-desc arco-avatar-desc-size-smaller"
       >
         Auxiliary information
       </div>
@@ -216,10 +216,10 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
     class="avatar-divider"
   />
   <div
-    class="arco-avatar-wrapper ultra-small circle with-info"
+    class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle arco-avatar-wrapper-with-info arco-avatar-wrapper-with-info-size-ultra-small with-info"
   >
     <div
-      class="arco-avatar ultra-small circle arco-image-avatar"
+      class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
     >
       <div
         class="arco-image all-border-box pc arco-avatar-img"
@@ -241,12 +241,12 @@ exports[`avatar demo test avatar demo: avatar-with-info.md renders correctly 1`]
       class="arco-avatar-info"
     >
       <div
-        class="arco-avatar-name"
+        class="arco-avatar-name arco-avatar-name-size-ultra-small"
       >
         Username
       </div>
       <div
-        class="arco-avatar-desc"
+        class="arco-avatar-desc arco-avatar-desc-size-ultra-small"
       >
         Auxiliary information
       </div>
@@ -260,10 +260,10 @@ exports[`avatar demo test avatar demo: custom.md renders correctly 1`] = `
   class="avatar-demo-box"
 >
   <div
-    class="arco-avatar-wrapper small circle"
+    class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
   >
     <div
-      class="arco-avatar small circle arco-image-avatar"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
     >
       <div
         class="arco-image all-border-box pc arco-avatar-img"
@@ -290,13 +290,13 @@ exports[`avatar demo test avatar demo: default.md renders correctly 1`] = `
   class="avatar-demo-box"
 >
   <div
-    class="arco-avatar-wrapper small circle"
+    class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
   >
     <div
-      class="arco-avatar small circle default-overlap"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-avatar-default-overlap default-overlap"
     >
       <svg
-        class="arco-icon arco-icon-user-fill arco-avatar-default"
+        class="arco-icon arco-icon-user-fill arco-avatar-default arco-avatar-default-icon-size-small"
         fill="currentColor"
         height="1em"
         viewBox="0 0 20 20"
@@ -311,13 +311,13 @@ exports[`avatar demo test avatar demo: default.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-avatar-wrapper avatar-left-margin small square"
+    class="arco-avatar-wrapper avatar-left-margin small square arco-avatar-wrapper-shape-square"
   >
     <div
-      class="arco-avatar small square default-overlap"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-square square arco-avatar-default-overlap default-overlap"
     >
       <svg
-        class="arco-icon arco-icon-user-fill arco-avatar-default"
+        class="arco-icon arco-icon-user-fill arco-avatar-default arco-avatar-default-icon-size-small"
         fill="currentColor"
         height="1em"
         viewBox="0 0 20 20"
@@ -339,10 +339,10 @@ exports[`avatar demo test avatar demo: icon-avatar.md renders correctly 1`] = `
   class="avatar-demo-box custom-icon"
 >
   <div
-    class="arco-avatar-wrapper small circle"
+    class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
   >
     <div
-      class="arco-avatar small circle"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle"
     >
       <svg
         class="arco-icon arco-icon-user-fill custom-avatar-icon"
@@ -378,10 +378,10 @@ exports[`avatar demo test avatar demo: size.md renders correctly 1`] = `
     class="avatar-size-demo-box"
   >
     <div
-      class="arco-avatar-wrapper large circle"
+      class="arco-avatar-wrapper large circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar large circle arco-image-avatar"
+        class="arco-avatar arco-avatar-size-large large arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
       >
         <div
           class="arco-image all-border-box pc arco-avatar-img"
@@ -411,10 +411,10 @@ exports[`avatar demo test avatar demo: size.md renders correctly 1`] = `
     class="avatar-size-demo-box avatar-left-margin"
   >
     <div
-      class="arco-avatar-wrapper medium circle"
+      class="arco-avatar-wrapper medium circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar medium circle arco-image-avatar"
+        class="arco-avatar arco-avatar-size-medium medium arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
       >
         <div
           class="arco-image all-border-box pc arco-avatar-img"
@@ -444,10 +444,10 @@ exports[`avatar demo test avatar demo: size.md renders correctly 1`] = `
     class="avatar-size-demo-box avatar-left-margin"
   >
     <div
-      class="arco-avatar-wrapper small circle"
+      class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar small circle arco-image-avatar"
+        class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
       >
         <div
           class="arco-image all-border-box pc arco-avatar-img"
@@ -477,10 +477,10 @@ exports[`avatar demo test avatar demo: size.md renders correctly 1`] = `
     class="avatar-size-demo-box avatar-left-margin"
   >
     <div
-      class="arco-avatar-wrapper smaller circle"
+      class="arco-avatar-wrapper smaller circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar smaller circle arco-image-avatar"
+        class="arco-avatar arco-avatar-size-smaller smaller arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
       >
         <div
           class="arco-image all-border-box pc arco-avatar-img"
@@ -510,10 +510,10 @@ exports[`avatar demo test avatar demo: size.md renders correctly 1`] = `
     class="avatar-size-demo-box avatar-left-margin"
   >
     <div
-      class="arco-avatar-wrapper ultra-small circle"
+      class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar ultra-small circle arco-image-avatar"
+        class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
       >
         <div
           class="arco-image all-border-box pc arco-avatar-img"
@@ -547,13 +547,13 @@ exports[`avatar demo test avatar demo: text-avatar.md renders correctly 1`] = `
   class="avatar-demo-box"
 >
   <div
-    class="arco-avatar-wrapper small circle"
+    class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
   >
     <div
-      class="arco-avatar small circle arco-text-avatar"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
     >
       <span
-        class="arco-avatar-text"
+        class="arco-avatar-text arco-avatar-text-size-small"
         style="transform:scale(1)"
       >
         Nietzsche
@@ -561,14 +561,14 @@ exports[`avatar demo test avatar demo: text-avatar.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-avatar-wrapper avatar-left-margin small circle"
+    class="arco-avatar-wrapper avatar-left-margin small circle arco-avatar-wrapper-shape-circle"
   >
     <div
-      class="arco-avatar small circle arco-text-avatar"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
       style="background-color:#FF7D00"
     >
       <span
-        class="arco-avatar-text"
+        class="arco-avatar-text arco-avatar-text-size-small"
         style="transform:scale(1)"
       >
         Z
@@ -576,14 +576,14 @@ exports[`avatar demo test avatar demo: text-avatar.md renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="arco-avatar-wrapper avatar-left-margin small square"
+    class="arco-avatar-wrapper avatar-left-margin small square arco-avatar-wrapper-shape-square"
   >
     <div
-      class="arco-avatar small square arco-text-avatar"
+      class="arco-avatar arco-avatar-size-small small arco-avatar-shape-square square arco-text-avatar arco-avatar-mode-text"
       style="background-color:#C9CDD4"
     >
       <span
-        class="arco-avatar-text"
+        class="arco-avatar-text arco-avatar-text-size-small"
         style="transform:scale(1)"
       >
         T
@@ -599,13 +599,13 @@ Array [
     class="avatar-demo-box"
   >
     <div
-      class="arco-avatar-wrapper large circle"
+      class="arco-avatar-wrapper large circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar large circle arco-text-avatar"
+        class="arco-avatar arco-avatar-size-large large arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
       >
         <span
-          class="arco-avatar-text"
+          class="arco-avatar-text arco-avatar-text-size-large"
           style="transform:scale(1)"
         >
           Nietzsche
@@ -613,13 +613,13 @@ Array [
       </div>
     </div>
     <div
-      class="arco-avatar-wrapper avatar-left-margin medium circle"
+      class="arco-avatar-wrapper avatar-left-margin medium circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar medium circle arco-text-avatar"
+        class="arco-avatar arco-avatar-size-medium medium arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
       >
         <span
-          class="arco-avatar-text"
+          class="arco-avatar-text arco-avatar-text-size-medium"
           style="transform:scale(1)"
         >
           Nietzsche
@@ -627,13 +627,13 @@ Array [
       </div>
     </div>
     <div
-      class="arco-avatar-wrapper avatar-left-margin small circle"
+      class="arco-avatar-wrapper avatar-left-margin small circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar small circle arco-text-avatar"
+        class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
       >
         <span
-          class="arco-avatar-text"
+          class="arco-avatar-text arco-avatar-text-size-small"
           style="transform:scale(1)"
         >
           Nietzsche
@@ -641,13 +641,13 @@ Array [
       </div>
     </div>
     <div
-      class="arco-avatar-wrapper avatar-left-margin smaller circle"
+      class="arco-avatar-wrapper avatar-left-margin smaller circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar smaller circle arco-text-avatar"
+        class="arco-avatar arco-avatar-size-smaller smaller arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
       >
         <span
-          class="arco-avatar-text"
+          class="arco-avatar-text arco-avatar-text-size-smaller"
           style="transform:scale(1)"
         >
           Nietzsche
@@ -655,13 +655,13 @@ Array [
       </div>
     </div>
     <div
-      class="arco-avatar-wrapper avatar-left-margin ultra-small circle"
+      class="arco-avatar-wrapper avatar-left-margin ultra-small circle arco-avatar-wrapper-shape-circle"
     >
       <div
-        class="arco-avatar ultra-small circle arco-text-avatar"
+        class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
       >
         <span
-          class="arco-avatar-text"
+          class="arco-avatar-text arco-avatar-text-size-ultra-small"
           style="transform:scale(1)"
         >
           Nietzsche
@@ -678,18 +678,18 @@ Array [
       Stacking in middle size
     </div>
     <div
-      class="arco-avatar-group group-small"
+      class="arco-avatar-group arco-avatar-group-size-small group-small"
     >
       <div
-        class="arco-avatar-wrapper small circle"
+        class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
         style="z-index:5"
       >
         <div
-          class="arco-avatar small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#7BC616"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-small"
             style="transform:scale(1)"
           >
             Nietzsche
@@ -697,15 +697,15 @@ Array [
         </div>
       </div>
       <div
-        class="arco-avatar-wrapper small circle"
+        class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
         style="z-index:4"
       >
         <div
-          class="arco-avatar small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#14C9C9"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-small"
             style="transform:scale(1)"
           >
             M
@@ -713,15 +713,15 @@ Array [
         </div>
       </div>
       <div
-        class="arco-avatar-wrapper small circle"
+        class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
         style="z-index:3"
       >
         <div
-          class="arco-avatar small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#168CFF"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-small"
             style="transform:scale(1)"
           >
             X
@@ -729,15 +729,15 @@ Array [
         </div>
       </div>
       <div
-        class="arco-avatar-wrapper small circle"
+        class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
         style="z-index:2"
       >
         <div
-          class="arco-avatar small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#FF7D00"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-small"
             style="transform:scale(1)"
           >
             Z
@@ -745,15 +745,15 @@ Array [
         </div>
       </div>
       <div
-        class="arco-avatar-wrapper small circle"
+        class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
         style="z-index:1"
       >
         <div
-          class="arco-avatar small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#FFC72E"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-small"
             style="transform:scale(1)"
           >
             JD
@@ -771,18 +771,18 @@ Array [
       Stacking in small size
     </div>
     <div
-      class="arco-avatar-group group-ultra-small"
+      class="arco-avatar-group arco-avatar-group-size-ultra-small group-ultra-small"
     >
       <div
-        class="arco-avatar-wrapper ultra-small circle"
+        class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle"
         style="z-index:1"
       >
         <div
-          class="arco-avatar ultra-small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#7BC616"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-ultra-small"
             style="transform:scale(1)"
           >
             T
@@ -790,15 +790,15 @@ Array [
         </div>
       </div>
       <div
-        class="arco-avatar-wrapper ultra-small circle"
+        class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle"
         style="z-index:2"
       >
         <div
-          class="arco-avatar ultra-small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#14C9C9"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-ultra-small"
             style="transform:scale(1)"
           >
             M
@@ -806,15 +806,15 @@ Array [
         </div>
       </div>
       <div
-        class="arco-avatar-wrapper ultra-small circle"
+        class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle"
         style="z-index:3"
       >
         <div
-          class="arco-avatar ultra-small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#168CFF"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-ultra-small"
             style="transform:scale(1)"
           >
             X
@@ -822,15 +822,15 @@ Array [
         </div>
       </div>
       <div
-        class="arco-avatar-wrapper ultra-small circle"
+        class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle"
         style="z-index:4"
       >
         <div
-          class="arco-avatar ultra-small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#FF7D00"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-ultra-small"
             style="transform:scale(1)"
           >
             Z
@@ -838,15 +838,15 @@ Array [
         </div>
       </div>
       <div
-        class="arco-avatar-wrapper ultra-small circle"
+        class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle"
         style="z-index:5"
       >
         <div
-          class="arco-avatar ultra-small circle arco-text-avatar"
+          class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-text-avatar arco-avatar-mode-text"
           style="background-color:#FFC72E"
         >
           <span
-            class="arco-avatar-text"
+            class="arco-avatar-text arco-avatar-text-size-ultra-small"
             style="transform:scale(1)"
           >
             JD
