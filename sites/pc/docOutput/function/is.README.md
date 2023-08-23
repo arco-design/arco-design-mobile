@@ -29,7 +29,7 @@ function isArray(obj: any): obj is any[] {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -60,7 +60,7 @@ function isObject(obj: any): obj is { [key: string]: any } {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -91,7 +91,7 @@ function isString(obj: any): obj is string {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -123,7 +123,7 @@ function isOneOf<T>(value: T, validList: T[]) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -154,7 +154,7 @@ function isEmptyValue(obj: any): boolean {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -185,7 +185,7 @@ function isFunction(obj: unknown): boolean {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -216,7 +216,7 @@ function isNull(obj: unknown): boolean {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -247,7 +247,7 @@ function isUndefined(obj: unknown): boolean {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -278,7 +278,7 @@ function isEmptyArray(obj: Array<unknown>): boolean {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -323,4 +323,4 @@ function isDeepEqual(obj: any, sub: any): boolean {
 
 > 输出
 
-描述：无
+无

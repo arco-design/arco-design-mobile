@@ -29,7 +29,7 @@ function stopTouch(e: TouchEvent) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -70,13 +70,13 @@ function preventEleScroll(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|scrollContainer|\-|() =\> HTMLElement|-|
+|scrollContainer|\-|() =\> HTMLElement|() => document.body|
 |preventWindow|\-|boolean|-|
 |customStopTouch|\-|(e: TouchEvent) =\> void|-|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -114,13 +114,13 @@ function freeEleScroll(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|scrollContainer|\-|() =\> HTMLElement|-|
+|scrollContainer|\-|() =\> HTMLElement|() => document.body|
 |preventWindow|\-|boolean|-|
 |customStopTouch|\-|(e: TouchEvent) =\> void|-|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -166,7 +166,7 @@ function isContains(parentEl: HTMLElement | null, childrenEl: HTMLElement | null
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -201,7 +201,7 @@ function execRAF(fn) {
 
 > 输出
 
-描述：无
+无
 
 > Timeout
 
@@ -260,12 +260,12 @@ function scrollWithAnimation(
 |target|\-|number|必填|
 |scrollTo|\-|(top: number) =\> void|必填|
 |duration|\-|number|300|
-|bezier|\-|\[number, number, number, number\]|-|
-|type|\-|"by" \| "to"|to|
+|bezier|\-|\[number, number, number, number\]|[0.34, 0.69, 0.1, 1]|
+|type|\-|"by" \| "to"|'to'|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -323,7 +323,7 @@ function scrollParent(node: HTMLElement): HTMLElement | Document | null {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -376,7 +376,7 @@ function getOffset(node: HTMLElement | Document | null) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -447,7 +447,7 @@ function checkOverflowVisible<T extends TCheckVisibleBaseProps>(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -503,7 +503,7 @@ function checkNormalVisible<T extends TCheckVisibleBaseProps>(component: T): boo
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -545,7 +545,7 @@ function appendElementById(id: string, getContainer?: () => HTMLElement) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -581,7 +581,7 @@ function removeElement(ele: HTMLElement) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -615,7 +615,7 @@ function getActualContainer(getContainer?: () => HTMLElement | Window | string |
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -651,7 +651,7 @@ function getValidScrollContainer(getContainer?: () => HTMLElement | Window | nul
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -705,7 +705,7 @@ function getScrollContainerAttribute(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -765,7 +765,7 @@ function getScrollContainerRect(container: HTMLElement | Window | null) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -800,7 +800,7 @@ function removeCssStyleDom(key: string) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -836,7 +836,7 @@ function addCssStyleDom(key: string, html: string) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -868,7 +868,7 @@ function addCssKeyframes(key: string, rules: string) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -908,7 +908,7 @@ function addCssRules(key: string, rules: Record<string, string>) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -956,7 +956,7 @@ function getActualPixel(px: number, baseFontSize = 50) {
 
 > 输出
 
-描述：计算后的像素值
+计算后的像素值
 
 ------
 
@@ -995,7 +995,7 @@ function convertCssDuration(ele: HTMLElement, property: string) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1030,4 +1030,4 @@ function safeGetComputedStyle(element: HTMLElement) {
 
 > 输出
 
-描述：无
+无

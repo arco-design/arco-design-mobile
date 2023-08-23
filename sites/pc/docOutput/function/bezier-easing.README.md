@@ -80,4 +80,4 @@ function bezier(mX1: number, mY1: number, mX2: number, mY2: number) {
 
 > 输出
 
-描述：无
+无

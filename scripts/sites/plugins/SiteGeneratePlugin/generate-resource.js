@@ -22,6 +22,37 @@ function readFileName(path) {
     return { pathName, fileSuffix: '' };
 }
 
+function getContentStr(
+    func,
+    functionSourceMdPath,
+    functionSourceOutput,
+    resourceRoutes,
+    category,
+    type,
+) {
+    const { pathName, fileSuffix: tsxFileSuffix, language } = readFileName(func.slice());
+    const mdFileName = pathName.replace(/-(\w)/g, function (_, $1) {
+        return $1.toUpperCase();
+    });
+    const { importStr, docStr } = generateResourcePage(
+        path.join(functionSourceMdPath, func),
+        mdFileName,
+        path.join(functionSourceOutput, mdFileName),
+        resourceRoutes,
+        category,
+        {
+            tsxFileSuffix,
+            language,
+        },
+        type,
+    );
+
+    return {
+        importStr,
+        docStr,
+    };
+}
+
 function generateResource(resourcePagePath, docPath) {
     let resourceImportStr = '';
     let resourceDocStr = '';
@@ -34,47 +65,67 @@ function generateResource(resourcePagePath, docPath) {
     fs.removeSync(resourcePagePath);
     fs.mkdirpSync(functionSourceOutput);
     fs.mkdirpSync(mixinSourceOutput);
-    const functionSource = fs.readdirSync(functionSourceMdPath);
+    const functionDir = fs.readdirSync(functionSourceMdPath);
     const mixinSource = fs.readdirSync(mixinSourceMdPath);
 
-    functionSource.forEach(util => {
-        const { pathName, fileSuffix: tsxFileSuffix, language } = readFileName(util.slice());
-        const mdFileName = pathName.replace(/-(\w)/g, function (_, $1) {
-            return $1.toUpperCase();
-        });
-        const { importStr, docStr } = generateResourcePage(
-            path.join(functionSourceMdPath, util),
-            mdFileName,
-            path.join(functionSourceOutput, mdFileName),
-            resourceRoutes,
-            'function',
-            {
-                tsxFileSuffix,
-                language,
-            },
-        );
-        resourceImportStr += importStr;
-        resourceDocStr += docStr;
+    functionDir.forEach(dir => {
+        const totalPath = path.join(functionSourceMdPath, dir);
+        const stat = fs.lstatSync(totalPath);
+        if (stat.isDirectory()) {
+            const functionSource = fs.readdirSync(totalPath);
+            functionSource.forEach(func => {
+                const { importStr, docStr } = getContentStr(
+                    func,
+                    totalPath,
+                    functionSourceOutput,
+                    resourceRoutes,
+                    'function',
+                    dir,
+                );
+                resourceImportStr += importStr;
+                resourceDocStr += docStr;
+            });
+        } else {
+            const { importStr, docStr } = getContentStr(
+                dir,
+                functionSourceMdPath,
+                functionSourceOutput,
+                resourceRoutes,
+                'function',
+            );
+            resourceImportStr += importStr;
+            resourceDocStr += docStr;
+        }
     });
-    mixinSource.forEach(mixin => {
-        const {
-            pathName: mdFileName,
-            fileSuffix: tsxFileSuffix,
-            language,
-        } = readFileName(mixin.slice());
-        const { importStr, docStr } = generateResourcePage(
-            path.join(mixinSourceMdPath, mixin),
-            mdFileName,
-            path.join(mixinSourceOutput, mdFileName),
-            resourceRoutes,
-            'mixin',
-            {
-                tsxFileSuffix,
-                language,
-            },
-        );
-        resourceImportStr += importStr;
-        resourceDocStr += docStr;
+
+    mixinSource.forEach(dir => {
+        const totalPath = path.join(mixinSourceMdPath, dir);
+        const stat = fs.lstatSync(totalPath);
+        if (stat.isDirectory()) {
+            const mixinSource = fs.readdirSync(totalPath);
+            mixinSource.forEach(mixin => {
+                const { importStr, docStr } = getContentStr(
+                    mixin,
+                    totalPath,
+                    mixinSourceOutput,
+                    resourceRoutes,
+                    'mixin',
+                    dir,
+                );
+                resourceImportStr += importStr;
+                resourceDocStr += docStr;
+            });
+        } else {
+            const { importStr, docStr } = getContentStr(
+                dir,
+                mixinSourceMdPath,
+                mixinSourceOutput,
+                resourceRoutes,
+                'mixin',
+            );
+            resourceImportStr += importStr;
+            resourceDocStr += docStr;
+        }
     });
     const resourceEntryStr = `${resourceImportStr}
 const docs = {\n${resourceDocStr}};
@@ -117,6 +168,9 @@ function renderFuncSource(md, type) {
         if (level === 2 || level === 3) {
             return `<h2 class="demo-code-title">${text}</h2>`;
         }
+        // if (level === 4) {
+        //     return `<h2 class="demo-code-title sec-title">${text}</h2>`;
+        // }
         return '';
     };
 
@@ -143,8 +197,9 @@ function generateResourcePage(
     mdFilename,
     outputFolder,
     resourceRoutes,
-    type = 'utils',
+    category = 'utils',
     { tsxFileSuffix = '', language = 'ch' },
+    type = 'other',
 ) {
     let importStr = '';
     let docStr = '';
@@ -156,7 +211,7 @@ function generateResourcePage(
     const mdSplit = md.split(/---+\n/);
 
     if (!/^###/.test(mdSplit[0])) {
-        mdSplit[0] = `### ${type} ${mdFilename}\n\n` + mdSplit[0];
+        mdSplit[0] = `### ${category} ${mdFilename}\n\n` + mdSplit[0];
     }
     const typeStr = mdSplit[0].split(' ')[0] + ' ' + mdSplit[0].split(' ')[1]; // eg: ### hooks
     const nameStr = mdSplit[0].split(' ')[2] || mdFilename;
@@ -167,7 +222,7 @@ export default function Demo() {
     return (
         <div className="pc-site-wrapper arco-resource">`;
     let pageStr = `\n`;
-    const prefix = type.slice(0, 1).toUpperCase();
+    const prefix = category.slice(0, 1).toUpperCase();
     mdSplit.slice(1).forEach((md, index) => {
         // 各部分内容使用======分隔开
         const funcSplit = md.split(/=====+/);
@@ -181,7 +236,7 @@ export default function Demo() {
         );
 
         // 代码
-        const { source: codeSource, source } = renderFuncSource(funcSplit[1], type);
+        const { source: codeSource, source } = renderFuncSource(funcSplit[1], category);
 
         // 属性等
         const { source: propsSource } = renderReadmeTable(funcSplit[2]);
@@ -191,7 +246,7 @@ export default function Demo() {
                 introSource,
             )} }} />`;
             readmeStr[1] = `<Code codeSource="${encodeURIComponent(codeSource)}" ${
-                type === 'mixin' ? 'showCodePen={false}' : ''
+                category === 'mixin' ? 'showCodePen={false}' : ''
             } code={<div className="demo-code-wrapper
                 no-padding-top
             " dangerouslySetInnerHTML={{ __html: ${JSON.stringify(source)} }} />} />`;
@@ -228,7 +283,7 @@ export default function Demo() {
         const mdDocName = `${prefix.toLowerCase()}-${utils.getFolderName(
             mdFilename,
         )}${tsxFileSuffix}`;
-        importStr += `import ${mdCompName} from './${type}/${mdFilename}${
+        importStr += `import ${mdCompName} from './${category}/${mdFilename}${
             tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
         }';\n`;
         docStr += `    '${mdDocName}': ${mdCompName},\n`;
@@ -236,10 +291,21 @@ export default function Demo() {
             name: nameStr,
             key: mdDocName,
         };
-        if (!resourceRoutes[type]) {
-            !tsxFileSuffix && (resourceRoutes[type] = [resourceRoute]);
-        } else {
-            !tsxFileSuffix && resourceRoutes[type].push(resourceRoute);
+        if (!tsxFileSuffix) {
+            if (!resourceRoutes[category]) {
+                // if (type) {
+                resourceRoutes[category] = {};
+
+                // } else {
+                //     resourceRoutes[category] = [resourceRoute];
+                // }
+            }
+            !resourceRoutes[category][type]
+                ? (resourceRoutes[category][type] = [resourceRoute])
+                : resourceRoutes[category][type].push(resourceRoute);
+            // type
+            //     ? resourceRoutes[category][type].push(resourceRoute)
+            //     : resourceRoutes[category].push(resourceRoute);
         }
     } catch (err) {
         console.info(`>>>>> 写入出错啦 >>>>>\n`, err);

@@ -36,7 +36,7 @@ function getSystem() {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -76,7 +76,7 @@ function checkIPhoneX(width: number, height: number) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -111,4 +111,4 @@ function isIPhoneX() {
 
 > 输出
 
-描述：无
+无

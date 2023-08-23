@@ -54,7 +54,7 @@ function (...args: ClassNamesArg[]): string {
 
 > 输出
 
-描述：无
+无
 
 > ClassNamesArg
 

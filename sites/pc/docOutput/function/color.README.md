@@ -41,4 +41,4 @@ function fadeColor(color: string): string {
 
 > 输出
 
-描述：无
+无

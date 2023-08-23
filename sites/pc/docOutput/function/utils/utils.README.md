@@ -29,7 +29,7 @@ function handleUnit(value: number | string) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -87,7 +87,7 @@ function arrayTreeFilter<T>(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -127,7 +127,7 @@ function easeOutCubic(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -161,7 +161,7 @@ function nextTick(func: () => void) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -198,7 +198,7 @@ function fingerDisToLabelDis(x: number, damping?: [number, number] | number) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -229,7 +229,7 @@ export * from './is'
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -274,13 +274,13 @@ export function arrayTreeFilter<T>(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|scrollContainer|\-|() =\> HTMLElement|-|
+|scrollContainer|\-|() =\> HTMLElement| * from './locale';|
 |preventWindow|\-|boolean|-|
 |customStopTouch|\-|(e: TouchEvent) =\> void|-|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -319,13 +319,13 @@ const;
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|scrollContainer|\-|() =\> HTMLElement|-|
+|scrollContainer|\-|() =\> HTMLElement|ildren = data || []|
 |preventWindow|\-|boolean|-|
 |customStopTouch|\-|(e: TouchEvent) =\> void|-|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -344,7 +344,27 @@ const;
 ## 源码
 
 ```
-function isContainsnextTick(func: () => void) {
+children = (foundItem as any)[options.childrenKeyName] || [];
+        level += 1;
+    } while (children.length > 0);
+    return result;
+}
+
+function isContainseaseOutCubic(
+    elapsed: number,
+    initialValue: number,
+    amountOfChange: number,
+    duration: number,
+) {
+    const newElapsed = elapsed / duration - 1;
+    return amountOfChange * (newElapsed * newElapsed * newElapsed + 1) + initialValue;
+}
+
+/**
+ * 历史逻辑问题，轻喷 _(:з」∠)_
+ * @desc {en} Please ignore this weird function _(:з」∠)_
+ */
+export function nextTick(func: () => void) {
     setTimeout(func, 20);
 }
 ```
@@ -360,7 +380,7 @@ function isContainsnextTick(func: () => void) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -376,9 +396,7 @@ function isContainsnextTick(func: () => void) {
 ## 源码
 
 ```
-/**
- * 模拟滑动阻尼效果，使用函数x = X/(aX+b)，x为元素位移，X为滑动距离，a,b为自定义参数通过设置两个目标对应关系求得
- * @desc {en} To simulate the sliding damping effect, use the function execRAF
+const
 ```
 
 ======
@@ -391,7 +409,7 @@ function isContainsnextTick(func: () => void) {
 
 > 输出
 
-描述：无
+无
 
 > Timeout
 
@@ -416,6 +434,10 @@ function isContainsnextTick(func: () => void) {
 ## 源码
 
 ```
+x = X/(aX+b), where x is the element displacement, X is the sliding distance, and a and b are custom parameters obtained by setting the corresponding relationship between the two targets
+ * 例如目标X=500时x=100, X=200时x=60，可得a,b
+ * @desc {en} For example, when the target X=500, x=100, when X=200, x=60, you can get a,b
+ */
 function scrollWithAnimationfingerDisToLabelDis(x: number, damping?: [number, number] | number) {
     const dampArr = typeof damping === 'number' ? [damping] : damping;
     const [a = 0.013312, b = 1.636345] = dampArr || [];
@@ -432,13 +454,14 @@ function scrollWithAnimationfingerDisToLabelDis(x: number, damping?: [number, nu
 |initTop|\-|number|必填|
 |target|\-|number|必填|
 |scrollTo|\-|(top: number) =\> void|必填|
-|duration|\-|number|300|
-|bezier|\-|\[number, number, number, number\]|-|
-|type|\-|"by" \| "to"|to|
+|duration|\-|number|the|
+|bezier|\-|\[number, number, number, number\]|ts
+ * 例如目标X=500时x=10|
+|type|\-|"by" \| "to"|sc {|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -470,7 +493,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -502,7 +525,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -535,7 +558,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -567,7 +590,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -600,7 +623,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -632,7 +655,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -661,7 +684,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -690,7 +713,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -720,7 +743,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -749,7 +772,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -778,7 +801,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -808,7 +831,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -838,7 +861,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -868,7 +891,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -897,11 +920,11 @@ const
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |px|待处理像素值|Number|必填|
-|baseFontSize|基准字号|Number|50|
+|baseFontSize|基准字号|Number|-|
 
 > 输出
 
-描述：计算后的像素值
+计算后的像素值
 
 ------
 
@@ -931,7 +954,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -960,7 +983,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -993,7 +1016,7 @@ export
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1026,7 +1049,7 @@ export * from './date';
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1058,7 +1081,7 @@ export function isStringhandleUnit(value: number | string) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1091,7 +1114,7 @@ function isOneOfarrayTreeFilter<T
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1124,7 +1147,7 @@ const>(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1158,7 +1181,7 @@ constring;
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1193,7 +1216,7 @@ constchildren';
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1224,7 +1247,7 @@ consted = children.find(item => filterFn(item, level));
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1256,7 +1279,7 @@ const = children[options.fallbackChildIndex];
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1306,7 +1329,7 @@ function isDeepEqualeaseOutCubic(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1345,7 +1368,7 @@ export * fr
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1390,7 +1413,7 @@ function createPropsGettereaseOutCubic(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1419,7 +1442,7 @@ const
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1457,7 +1480,7 @@ export function getSystemhandleUnit(value: number | string) {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1496,7 +1519,7 @@ const | undefined = children.find(item => filterFn(item, level));
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1535,7 +1558,7 @@ function isIPhoneXeaseOutCubic(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1551,7 +1574,16 @@ function isIPhoneXeaseOutCubic(
 ## 源码
 
 ```
-function getMsgTemplatefingerDisToLabelDis(x: number, damping?: [number, number] | number) {
+imeout(func, 20);
+}
+
+/**
+ * 模拟滑动阻尼效果，使用函数x = X/(aX+b)，x为元素位移，X为滑动距离，a,b为自定义参数通过设置两个目标对应关系求得
+ * @desc {en} To simulate the sliding damping effect, use the function getMsgTemplatex = X/(aX+b), where x is the element displacement, X is the sliding distance, and a and b are custom parameters obtained by setting the corresponding relationship between the two targets
+ * 例如目标X=500时x=100, X=200时x=60，可得a,b
+ * @desc {en} For example, when the target X=500, x=100, when X=200, x=60, you can get a,b
+ */
+function fingerDisToLabelDis(x: number, damping?: [number, number] | number) {
     const dampArr = typeof damping === 'number' ? [damping] : damping;
     const [a = 0.013312, b = 1.636345] = dampArr || [];
     return x / (a * x + b);
@@ -1570,7 +1602,7 @@ function getMsgTemplatefingerDisToLabelDis(x: number, damping?: [number, number]
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -1600,4 +1632,4 @@ const
 
 > 输出
 
-描述：无
+无

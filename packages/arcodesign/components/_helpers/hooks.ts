@@ -220,7 +220,7 @@ export function useLatestRef<T>(variable: T) {
 /**
  * 从navigator.userAgent中获取当前操作系统，如果无法获取ua，则从ContextProvider传入的system中获取值
  * @desc {en} Get the current operating system from navigator.userAgent, if ua cannot be obtained, get the value from the system passed in by ContextProvider
- * @returns 操作系统，"" | "pc" | "android" | "ios"
+ * @returns system 操作系统，"" | "pc" | "android" | "ios"
  * @example
  * ```
  * import { useSystem } from '@arco-design/mobile-react/esm/_helpers/hooks';
@@ -738,7 +738,11 @@ let arcoSvgKeyCount = 0;
  * @desc {en} Automatically generate the unique identifier of the svg <def> tag, which is used to distinguish the <def> content of different svg
  * @param userSetSvgKey 自定义唯一标识，传入则覆盖自动生成的值
  * @param userSetSvgKey {en} Customize the unique identifier, if passed in, it will override the automatically generated value
- * @returns 生成后的唯一标识，{ svgKey }
+ * @returns 包含svgKey的对象 生成后的唯一标识
+ * @globalVariable
+ * ```
+ * let arcoSvgKeyCount = 0;
+ * ```
  * @example
  * ```
  * import { useGenSvgKey } from '@arco-design/mobile-react/esm/_helpers/hooks';

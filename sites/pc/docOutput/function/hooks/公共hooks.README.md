@@ -8,6 +8,14 @@
 
 ======
 
+## 示例
+
+```
+import { useListenResize } from '@arco-design/mobile-react/esm/_helpers/hooks';
+useListenResize(setSize, [], listenResize);
+
+```
+
 ## 类型
 
 ```
@@ -40,12 +48,12 @@ function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |resizeHandler|resize事件回调|() =\> void|必填|
-|deps|触发事件绑定更新的依赖|any\[\]|-|
-|needListen|是否开启事件监听，默认开启|boolean|-|
+|deps|触发事件绑定更新的依赖|any\[\]|[]|
+|needListen|是否开启事件监听，默认开启|boolean|true|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -55,6 +63,14 @@ useState自定义封装，统一处理在组件卸载后还使用setState的行�
 tips：在unmount后有异步处理未完成的场景使用，不推荐无脑替换useState
 
 ======
+
+## 示例
+
+```
+import { useMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [scrollValue, setScrollValue] = useMountedState(value);
+
+```
 
 ## 类型
 
@@ -95,7 +111,7 @@ function useMountedState<S>(initialState: S | (() => S)) {
 
 > 输出
 
-描述：[state, setState]，同useState返回值
+[state, setState]，同useState返回值
 
 ------
 
@@ -104,6 +120,14 @@ function useMountedState<S>(initialState: S | (() => S)) {
 用useState管理状态，且在状态更新之前同步至ref，并返回ref
 
 ======
+
+## 示例
+
+```
+import { useSameRefState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [opened, openedRef, setOpened] = useSameRefState(false);
+
+```
 
 ## 类型
 
@@ -137,7 +161,7 @@ function useSameRefState<T>(
 
 > 输出
 
-描述：[state, stateRef, setState]
+[state, stateRef, setState]
 
 ------
 
@@ -146,6 +170,14 @@ function useSameRefState<T>(
 用useState管理状态，且在状态更新后同步至ref，并返回ref
 
 ======
+
+## 示例
+
+```
+import { useRefState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [index, indexRef, setIndex] = useRefState(currentIndex);
+
+```
 
 ## 类型
 
@@ -178,7 +210,7 @@ function useRefState<T>(
 
 > 输出
 
-描述：[state, stateRef, setState]
+[state, stateRef, setState]
 
 ------
 
@@ -187,6 +219,14 @@ function useRefState<T>(
 用useState管理状态，且在状态更新后同步至ref，并返回ref，统一处理在组件卸载后还使用setState的行为
 
 ======
+
+## 示例
+
+```
+import { useRefMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [active, activeRef, setActive] = useRefMountedState(false);
+
+```
 
 ## 类型
 
@@ -219,7 +259,7 @@ function useRefMountedState<T>(
 
 > 输出
 
-描述：[state, stateRef, setState]
+[state, stateRef, setState]
 
 ------
 
@@ -228,6 +268,15 @@ function useRefMountedState<T>(
 useEffect特殊封装，仅在非首次依赖更新时触发回调
 
 ======
+
+## 示例
+
+```
+import { useUpdateEffect } from '@arco-design/mobile-react/esm/_helpers/hooks';
+useUpdateEffect(() => { handleIndexChange(index);
+}, [index]);
+
+```
 
 ## 类型
 
@@ -257,11 +306,11 @@ function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |effect|useEffect回调|() =\> void \| (() =\> void)|必填|
-|dependencies|useEffect依赖|any\[\]|-|
+|dependencies|useEffect依赖|any\[\]|[]|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -270,6 +319,15 @@ function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] 
 手动触发一次组件的rerender
 
 ======
+
+## 示例
+
+```
+import { useForceUpdate } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const update = useForceUpdate();
+function forceUpdate() { update();
+}
+```
 
 ## 类型
 
@@ -297,7 +355,7 @@ function useForceUpdate() {
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -306,6 +364,15 @@ function useForceUpdate() {
 获取任意变量的最新ref值（用于监听属性、方法等非state变量）
 
 ======
+
+## 示例
+
+```
+import { useLatestRef } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const { wrapSize } = props;
+const wrapSizeRef = useLatestRef(wrapSize);
+
+```
 
 ## 类型
 
@@ -335,7 +402,7 @@ function useLatestRef<T>(variable: T) {
 
 > 输出
 
-描述：variableRef，变量的最新ref值
+variableRef，变量的最新ref值
 
 ------
 
@@ -344,6 +411,14 @@ function useLatestRef<T>(variable: T) {
 从navigator.userAgent中获取当前操作系统，如果无法获取ua，则从ContextProvider传入的system中获取值
 
 ======
+
+## 示例
+
+```
+import { useSystem } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const system = useSystem();
+
+```
 
 ## 类型
 
@@ -372,7 +447,7 @@ function useSystem() {
 
 > 输出
 
-描述：| "pc" | "android" | "ios"
+操作系统，"" | "pc" | "android" | "ios"
 
 ------
 
@@ -381,6 +456,14 @@ function useSystem() {
 获取页面视口宽高大小，并在页面有resize时更新大小
 
 ======
+
+## 示例
+
+```
+import { useWindowSize } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const { windowHeight, windowWidth } = useWindowSize();
+
+```
 
 ## 类型
 
@@ -423,7 +506,7 @@ function useWindowSize(listenResize?: boolean) {
 
 > 输出
 
-描述：windowWidth, windowHeight }
+windowWidth, windowHeight }
 
 ------
 
@@ -432,6 +515,14 @@ function useWindowSize(listenResize?: boolean) {
 弹窗中滚动统一处理，防止滚动穿透
 
 ======
+
+## 示例
+
+```
+import { usePopupScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
+usePopupScroll(visible, domRef.current, getScrollContainer, orientationDirection, onPreventTouchMove, onTouchMove, gestureOutOfControl);
+
+```
 
 ## 类型
 
@@ -638,14 +729,14 @@ function usePopupScroll(
 |visible|弹窗是否被打开|boolean|必填|
 |popupDom|弹窗的dom元素|HTMLDivElement|必填|
 |getScrollContainer|弹窗中的滚动容器，可传入多个|() =\> HTMLElement \| HTMLElement\[\]|-|
-|orientationDirection|弹窗内容朝向，默认为top（从上到下），用于实现模拟横屏|"top" \| "bottom" \| "left" \| "right"|top|
+|orientationDirection|弹窗内容朝向，默认为top（从上到下），用于实现模拟横屏|"top" \| "bottom" \| "left" \| "right"|'top'|
 |preventCallback|在滚动穿透被阻止（preventDefault被触发）时的回调|(e: TouchEvent, direction: "x" \| "y") =\> void|-|
 |onTouchMove|touchmove 自定义事件|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> void|-|
 |gestureOutOfControl|是否禁用滚动穿透处理|boolean|-|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -654,6 +745,14 @@ function usePopupScroll(
 在滑动类组件中，如果有内部可滚动区域，则在内部滚动区域滚动时禁用滑动事件
 
 ======
+
+## 示例
+
+```
+import { useSwiperInnerScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
+useSwiperInnerScroll(getInnerScrollContainer);
+
+```
 
 ## 类型
 
@@ -703,7 +802,7 @@ function useSwiperInnerScroll(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -712,6 +811,15 @@ function useSwiperInnerScroll(
 事件绑定统一封装
 
 ======
+
+## 示例
+
+```
+import { useAddListener } from '@arco-design/mobile-react/esm/_helpers/hooks';
+useAddListener(domRef.current, 'touchstart', onTouchStart);
+useAddListener(domRef.current, 'touchend', onTouchEnd);
+
+```
 
 ## 类型
 
@@ -751,11 +859,11 @@ function useAddListener(
 |dom|待绑定事件的dom元素|HTMLDivElement|必填|
 |event|待绑定事件名称|string|必填|
 |handler|待绑定事件回调|any|必填|
-|options|待绑定事件配置，默认为 \{ capture: true \}|\{ capture: boolean; \}|-|
+|options|待绑定事件配置，默认为 \{ capture: true \}|\{ capture: boolean; \}|{ capture: true }|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -764,6 +872,14 @@ function useAddListener(
 在全屏组件出现时，将body的overflow设置为hidden，防止滚动穿透
 
 ======
+
+## 示例
+
+```
+import { usePreventBodyScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
+usePreventBodyScroll(visible, preventBodyScroll, initialBodyOverflow);
+
+```
 
 ## 类型
 
@@ -774,7 +890,28 @@ function useAddListener(
 ## 源码
 
 ```
-const
+function usePreventBodyScroll(
+    visible: boolean,
+    preventBodyScroll: boolean = true,
+    initialBodyOverflow?: string,
+) {
+    // 新出现一个全屏组件则计数+1，并设置body hidden样式
+    // @en When a new full-screen component appears, count + 1 and set the body hidden style
+    const addFullScreen = useCallback(() => {
+        const count = arcoFullScreenCount;
+        // 在当前没有全屏组件出现时，记下body overflow的初始值
+        // @en Note the initial value of body overflow when no full-screen components are currently present
+        if (!count) {
+            arcoFullScreenOriginOverflow =
+                initialBodyOverflow !== void 0 ? initialBodyOverflow : document.body.style.overflow;
+        }
+        arcoFullScreenCount += 1;
+        document.body.style.overflow = 'hidden';
+    }, []);
+    /**
+     * 移除一个全屏组件时，根据剩余是否还有全屏组件判断是否需要还原overflow样式
+     * @en When removing a full-screen component, determine whether the overflow style needs to be restored according to whether there are any remaining full-screen components.
+     */
     const removeFullScreen = useCallback(() => {
         const newCount = arcoFullScreenCount - 1;
         arcoFullScreenCount = newCount;
@@ -809,12 +946,12 @@ const
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |visible|全屏组件是否被打开|boolean|必填|
-|preventBodyScroll|是否启用防滚动穿透，默认启用|boolean|-|
+|preventBodyScroll|是否启用防滚动穿透，默认启用|boolean|true|
 |initialBodyOverflow|body在初始状态下的overflow值，在全屏组件全部关闭后会还原|string|-|
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -823,6 +960,14 @@ const
 进度条计算公共逻辑，根据传入的参数计算出当前百分比和过渡效果开关，进度类组件内部使用
 
 ======
+
+## 示例
+
+```
+import { usePreventBodyScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [currentPercentage, transitionControl] = useProgress(mountedTransition, percentage, duration, mountedBezier, step);
+
+```
 
 ## 类型
 
@@ -890,7 +1035,7 @@ function useProgress(
 
 > 输出
 
-描述：[当前计算的百分比, 当前是否应有过渡效果]
+[当前计算的百分比, 当前是否应有过渡效果]
 
 ------
 
@@ -899,6 +1044,14 @@ function useProgress(
 单击和双击事件统一处理
 
 ======
+
+## 示例
+
+```
+import { useSingleAndDoubleClick } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const handleClick = useSingleAndDoubleClick(handleImageClick, handleImageDoubleClick);
+
+```
 
 ## 类型
 
@@ -947,7 +1100,7 @@ function useSingleAndDoubleClick(
 
 > 输出
 
-描述：clickHandler，统一后的事件处理方法
+clickHandler，统一后的事件处理方法
 
 ------
 
@@ -956,6 +1109,14 @@ function useSingleAndDoubleClick(
 自动生成svg <def>标签的唯一标识，用于区分不同svg的<def>内容
 
 ======
+
+## 示例
+
+```
+import { useGenSvgKey } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const { svgKey } = useGenSvgKey(userSetSvgKey);
+
+```
 
 ## 类型
 
@@ -966,6 +1127,8 @@ function useSingleAndDoubleClick(
 ## 源码
 
 ```
+let arcoSvgKeyCount = 0;
+
 function useGenSvgKey(userSetSvgKey: string) {
     const [innerSvgKey, setInnerSvgKey] = useState('');
     const svgKey = userSetSvgKey || innerSvgKey;
@@ -989,4 +1152,4 @@ function useGenSvgKey(userSetSvgKey: string) {
 
 > 输出
 
-描述：svgKey }
+生成后的唯一标识

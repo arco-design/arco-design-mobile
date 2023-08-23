@@ -26,8 +26,10 @@ type CompChildren = {
     [key: string]: Items;
 };
 
-type ResChildren = {
-    [key: string]: Items;
+export type ResChildren = {
+    [key: string]: {
+        [key: string]: Items;
+    };
 };
 
 export interface IMenu {

@@ -4,7 +4,7 @@
     position: relative;
     width: 260px;
     box-sizing: border-box;
-    transition: all .15s;
+    transition: all 0.15s;
     border-right: 1px solid #e5e6eb;
     opacity: 1;
     min-height: 1000px;
@@ -14,7 +14,7 @@
         position: fixed;
         top: 60px;
         bottom: 0;
-        transition: left .15s;
+        transition: left 0.15s;
         left: -1px;
         display: flex;
         flex-direction: column;
@@ -27,7 +27,7 @@
         box-sizing: border-box;
         cursor: pointer;
         text-align: center;
-        background: #FFF;
+        background: #fff;
         .arco-radio-button-inner {
             width: 80px;
             text-align: center;
@@ -59,7 +59,7 @@
             padding: 4px 12px;
         }
         .arco-menu-item {
-            color: #1A2234;
+            color: #1a2234;
             a {
                 display: block;
             }
@@ -80,16 +80,28 @@
         .arco-menu-item .arco-badge-dot {
             right: -4px;
         }
-        .title-1>.arco-menu-group-title {
+        .title-1 > .arco-menu-group-title {
             font-size: 16px;
             font-weight: bold;
             line-height: 24px;
             line-height: 40px;
-            color: #1A2234;
+            color: #1a2234;
+            text-transform: capitalize;
         }
-        .arco-menu-group:not(.title-1)>.arco-menu-group-title>span {
-            padding-left: 0!important;
-            color: #7A8499;
+
+        .title-2 > .arco-menu-group-title {
+            text-transform: capitalize;
+        }
+
+        .title-2 {
+            &.arco-menu-group {
+                padding-left: 10px;
+            }
+        }
+
+        .title-2 > 。 .arco-menu-group:not(.title-1) > .arco-menu-group-title > span {
+            padding-left: 0 !important;
+            color: #7a8499;
         }
     }
 }

@@ -14,6 +14,12 @@
 ## 源码
 
 ```
+/* eslint-disable no-redeclare */
+/**
+ * @type utils
+ * @name types
+ */
+
 function componentWrapper<C, E extends {}>(
     Component: C,
     displayName: string,
@@ -33,7 +39,7 @@ function componentWrapper<C, E extends {}>(
 
 > 输出
 
-描述：无
+无
 
 ------
 
@@ -70,4 +76,4 @@ function createPropsGetter<DP extends object>() {
 
 > 输出
 
-描述：无
+无

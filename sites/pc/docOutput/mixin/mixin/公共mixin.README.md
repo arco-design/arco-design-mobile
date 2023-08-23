@@ -1,24 +1,33 @@
-
+### mixin 公共mixin
 
 ------
 
 # .rem
+
+格式化文本，保留指定行数文本，溢出时使用...
+
 ======
+
+## 示例
+
+```
+.text-overflow(2);
+
+```
 
 ## 源码
 
 ```
+测试一下
 .rem(@property; @values...) {
-    @{property}: ~`(function () {
-        var baseFontSize=@{base-font-size};
-        var sizeList = @{values};
-        if (!Array.isArray(sizeList)) {
-            sizeList = [sizeList];
-        }
-        return sizeList.map(function (item) {
-            return pxtorem(item);
-        }).join(' ');
-    }())`;
+    @{property}: ~`(
+            function () {var baseFontSize= @{base-font-size}; var sizeList = @{values}; if (
+                    !Array.isArray(sizeList)
+                ) {sizeList = [sizeList];} return sizeList.map(
+                    function (item) {return pxtorem(item) ;}
+                ) .join(' ') ; }()
+        )
+        `;
 }
 ```
 
@@ -41,9 +50,9 @@
 ```
 .rem-with-rtl(@property; @values...) {
     .rem(@property; @values...);
-    [dir="rtl"] & {
+    [dir='rtl'] & {
         @{property}: initial;
-        @new-property: .prop-with-rtl(@property)[@property-name];
+        @new-property: .prop-with-rtl(@property) [ @property-name];
         .rem(@new-property; @values...);
     }
 }
@@ -92,9 +101,9 @@
 
 ```
 .use-var(@property, @variables, @preValues: '', @nextValues: '') {
-    @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
+    @{property}: ~'@{preValues}' @@variables ~'@{nextValues}';
     & when (@use-css-vars = 1) {
-        @{property}: ~"@{preValues}" ~"var(--@{variables})" ~"@{nextValues}";
+        @{property}: ~'@{preValues}' ~'var(--@{variables})' ~'@{nextValues}';
     }
 }
 ```
@@ -120,9 +129,9 @@
 ```
 .use-var-with-rtl(@property, @variables, @preValues: '', @nextValues: '') {
     .use-var(@property, @variables, @preValues, @nextValues);
-    [dir="rtl"] & {
+    [dir='rtl'] & {
         @{property}: initial;
-        @new-property: .prop-with-rtl(@property)[@property-name];
+        @new-property: .prop-with-rtl(@property) [ @property-name];
         .use-var(@new-property, @variables, @preValues, @nextValues);
     }
 }
@@ -150,7 +159,7 @@
 .hairline-var(@color, @direction: all) {
     .hairline(@@color, @direction);
     & when (@use-css-vars = 1) {
-        .hairline(var(~"--@{color}", @@color), @direction);
+        .hairline(var(~'--@{color}', @@color), @direction);
     }
 }
 ```
@@ -172,10 +181,10 @@
 ## 源码
 
 ```
-.text-medium-var(@color: currentColor, @stroke: 0.3PX) {
+.text-medium-var(@color: currentColor, @stroke: 0.3px) {
     .text-medium(@@color, @stroke);
     & when (@use-css-vars = 1) {
-        .text-medium(var(~"--@{color}", @@color), @stroke);
+        .text-medium(var(~'--@{color}', @@color), @stroke);
     }
 }
 ```
@@ -187,7 +196,7 @@
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |@color|\-|string|currentColor|
-|@stroke|\-|string|0.3PX|
+|@stroke|\-|string|0.3px|
 
 ------
 
@@ -197,10 +206,10 @@
 ## 源码
 
 ```
-.onepx-border-var(@direction, @borderColor, @borderRadius: 0, @borderWidth: 1PX, @borderStyle: solid) {
+.onepx-border-var(@direction, @borderColor, @borderRadius: 0, @borderWidth: 1px, @borderStyle: solid) {
     .onepx-border(@direction, @@borderColor, @borderRadius, @borderWidth, @borderStyle);
     & when (@use-css-vars = 1) {
-        .onepx-border(@direction, var(~"--@{borderColor}", @@borderColor), @borderRadius, @borderWidth, @borderStyle);
+        .onepx-border(@direction, var(~'--@{borderColor}', @@borderColor), @borderRadius, @borderWidth, @borderStyle);
     }
 }
 ```
@@ -214,7 +223,7 @@
 |@direction|\-|string|必填|
 |@borderColor|\-|string|必填|
 |@borderRadius|\-|number|0|
-|@borderWidth|\-|string|1PX|
+|@borderWidth|\-|string|1px|
 |@borderStyle|\-|string|solid|
 
 ------
@@ -228,7 +237,7 @@
 .hairline-bottom-right-var(@color) {
     .hairline-bottom-right(@@color);
     & when (@use-css-vars = 1) {
-        .hairline-bottom-right(var(~"--@{color}", @@color));
+        .hairline-bottom-right(var(~'--@{color}', @@color));
     }
 }
 ```
@@ -252,7 +261,7 @@
 .hairline-top-left-var(@color) {
     .hairline-top-left(@@color);
     & when (@use-css-vars = 1) {
-        .hairline-top-left(var(~"--@{color}", @@color));
+        .hairline-top-left(var(~'--@{color}', @@color));
     }
 }
 ```
@@ -276,7 +285,7 @@
 .set-loading-color-var(@color) {
     .set-loading-color(@@color);
     & when (@use-css-vars = 1) {
-        .set-loading-color(var(~"--@{color}", @@color));
+        .set-loading-color(var(~'--@{color}', @@color));
     }
 }
 ```
@@ -302,12 +311,12 @@
         .set-font-size(@@size);
     }
     & when (@use-css-vars = 1) {
-        & when (@@size < 12PX) {
-            font-size: calc(var(~"--@{size}", @@size) / @scale);
+        & when (@@size < 12px) {
+            font-size: calc(var(~'--@{size}', @@size) / @scale);
             transform: scale(@scale);
         }
-        & when not (@@size < 12PX) {
-            font-size: var(~"--@{size}", @@size);
+        & when not (@@size < 12px) {
+            font-size: var(~'--@{size}', @@size);
         }
     }
 }
@@ -335,7 +344,10 @@
         .set-content-box-width(@property, @@width, @@padding-left, @@padding-right);
     }
     & when (@use-css-vars = 1) {
-        @{property}: calc(var(~"--@{width}", @@width) - var(~"--@{padding-left}", @@padding-left) - var(~"--@{padding-right}", @@padding-right));
+        @{property}: calc(
+            var(~'--@{width}', @@width) - var(~'--@{padding-left}', @@padding-left) -
+                var(~'--@{padding-right}', @@padding-right)
+        );
     }
 }
 ```
