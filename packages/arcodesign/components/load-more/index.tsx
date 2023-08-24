@@ -16,7 +16,7 @@ import {
     ILocale,
 } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
-import { useUpdateEffect } from '../_helpers';
+import { useLatestRef, useUpdateEffect } from '../_helpers';
 
 export type LoadMoreStatus = 'before-ready' | 'prepare' | 'loading' | 'nomore' | 'retry';
 
@@ -31,6 +31,11 @@ export interface LoadMoreProps {
      * @en Custom classname
      */
     className?: string;
+    /**
+     * 是否禁用加载能力
+     * @en Whether to disable the loading capability
+     */
+    disabled?: boolean;
     /**
      * 组件加载但尚未启用状态下的内容
      * @en Content when the component is loaded but not yet enabled
@@ -164,6 +169,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     const {
         className = '',
         style,
+        disabled,
         beforeReadyArea,
         loadingArea,
         noMoreArea,
@@ -189,6 +195,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     const lastScrollEndRef = useRef(false);
     const nowStatus = status || innerStatus;
     const statusRef = useRef<LoadMoreStatus>(nowStatus);
+    const disabledRef = useLatestRef(disabled);
 
     const changeStatus = useCallback(
         (st: LoadMoreStatus, scene?: string) => {
@@ -200,6 +207,9 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
 
     const triggerGetData = useCallback(
         (scene: string) => {
+            if (disabledRef.current) {
+                return;
+            }
             if (blockWhenLoading && statusRef.current === 'loading') {
                 return;
             }
@@ -227,12 +237,12 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     }, [nowStatus]);
 
     useEffect(() => {
-        if (requestAtFirst) {
+        if (requestAtFirst && !disabled) {
             if (statusRef.current === 'prepare') {
                 triggerGetData('requestAtFirst');
             }
         }
-    }, [trigger]);
+    }, [trigger, disabled]);
 
     const handleContainerScroll = useCallback(() => {
         const scrollTop = getScrollContainerAttribute('scrollTop', getScrollContainer);
@@ -254,7 +264,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         const scrollFunc = throttle
             ? lodashThrottle(handleContainerScroll, throttle)
             : handleContainerScroll;
-        if (trigger === 'scroll') {
+        if (trigger === 'scroll' && !disabled) {
             const container = getValidScrollContainer(getScrollContainer);
             if (container) {
                 container.addEventListener('scroll', scrollFunc);
@@ -266,7 +276,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
                 binded.removeEventListener('scroll', scrollFunc);
             }
         };
-    }, [trigger, getScrollContainer, handleContainerScroll, throttle]);
+    }, [trigger, disabled, getScrollContainer, handleContainerScroll, throttle]);
 
     useImperativeHandle(
         ref,
