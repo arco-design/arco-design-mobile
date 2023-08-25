@@ -380,6 +380,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
                     { fixed: tabBarFixed },
                     { 'has-divider': hasDivider },
                 )}
+                style={typeof tabBarFixed === 'object' ? tabBarFixed : {}}
             >
                 <div
                     className={cls(

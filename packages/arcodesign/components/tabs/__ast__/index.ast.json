@@ -221,19 +221,19 @@
         },
         "tabBarFixed": {
             "defaultValue": null,
-            "description": "TabBar是否顶部固定\n@en Whether the TabBar is fixed on the top",
+            "description": "TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值\n@en Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in",
             "name": "tabBarFixed",
             "tags": {
-                "en": "Whether the TabBar is fixed on the top"
+                "en": "Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in"
             },
-            "descWithTags": "TabBar是否顶部固定",
+            "descWithTags": "TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/tabs/type.ts",
                 "name": "TabsProps"
             },
             "required": false,
             "type": {
-                "name": "boolean"
+                "name": "boolean | Record<\"top\" | \"bottom\", number>"
             }
         },
         "tabBarExtra": {
@@ -1805,15 +1805,15 @@
             "tabBarFixed": {
                 "name": "tabBarFixed",
                 "required": false,
-                "description": "TabBar是否顶部固定\n@en Whether the TabBar is fixed on the top",
+                "description": "TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值\n@en Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in",
                 "defaultValue": null,
                 "type": {
-                    "name": "boolean"
+                    "name": "boolean | Record<\"top\" | \"bottom\", number>"
                 },
                 "tags": {
-                    "en": "Whether the TabBar is fixed on the top"
+                    "en": "Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in"
                 },
-                "descWithTags": "TabBar是否顶部固定"
+                "descWithTags": "TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值"
             },
             "tabBarExtra": {
                 "name": "tabBarExtra",

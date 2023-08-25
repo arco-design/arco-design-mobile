@@ -78,10 +78,10 @@ export interface TabsProps {
      */
     tabBarScroll?: boolean;
     /**
-     * TabBar是否顶部固定
-     * @en Whether the TabBar is fixed on the top
+     * TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值
+     * @en Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in
      */
-    tabBarFixed?: boolean;
+    tabBarFixed?: boolean | Record<'top' | 'bottom', number>;
     /**
      * tabBar额外渲染内容
      * @en TabBar extra render content

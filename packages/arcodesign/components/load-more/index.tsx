@@ -14,6 +14,7 @@ import {
     getValidScrollContainer,
     defaultLocale,
     ILocale,
+    cls,
 } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { useLatestRef, useUpdateEffect } from '../_helpers';
@@ -348,7 +349,9 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         <ContextLayout>
             {({ prefixCls, locale = defaultLocale }) => (
                 <div
-                    className={`${prefixCls}-load-more status-${nowStatus} ${className}`}
+                    className={cls(`${prefixCls}-load-more status-${nowStatus}`, className, {
+                        [`${prefixCls}-load-more-disabled`]: disabled,
+                    })}
                     ref={domRef}
                     style={style}
                     onClick={handleClick}

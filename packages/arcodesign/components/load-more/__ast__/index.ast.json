@@ -44,6 +44,23 @@
                 "name": "string"
             }
         },
+        "disabled": {
+            "defaultValue": null,
+            "description": "是否禁用加载能力\n@en Whether to disable the loading capability",
+            "name": "disabled",
+            "tags": {
+                "en": "Whether to disable the loading capability"
+            },
+            "descWithTags": "是否禁用加载能力",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "beforeReadyArea": {
             "defaultValue": {
                 "value": "null"
