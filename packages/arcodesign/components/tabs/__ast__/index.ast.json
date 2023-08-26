@@ -233,7 +233,7 @@
             },
             "required": false,
             "type": {
-                "name": "boolean | Record<\"top\" | \"bottom\", number>"
+                "name": "boolean | Pick<CSSProperties, \"top\" | \"bottom\">"
             }
         },
         "tabBarExtra": {
@@ -1808,7 +1808,7 @@
                 "description": "TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值\n@en Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in",
                 "defaultValue": null,
                 "type": {
-                    "name": "boolean | Record<\"top\" | \"bottom\", number>"
+                    "name": "boolean | Pick<CSSProperties, \"top\" | \"bottom\">"
                 },
                 "tags": {
                     "en": "Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in"

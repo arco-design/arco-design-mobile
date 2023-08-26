@@ -20,7 +20,7 @@
 |tabBarPosition|TabBar位置|"top" \| "bottom" \| "left" \| "right"|"top"|
 |tabBarArrange|TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右|"start" \| "center" \| "end"|"center"|
 |tabBarScroll|是否TabBar超出屏幕时靠左滚动排列|boolean|true|
-|tabBarFixed|TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值|boolean \| Record\<"top" \| "bottom", number\>|-|
+|tabBarFixed|TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值|boolean \| Pick\<CSSProperties, "top" \| "bottom"\>|-|
 |tabBarExtra|tabBar额外渲染内容|ReactNode|-|
 |tabBarScrollBezier|tabBar滚动时变化的bezier曲线值|\[number, number, number, number\]|[0.34, 0.69, 0.1, 1]|
 |tabBarScrollDuration|tabBar滚动过渡时长，单位ms|number|300|
@@ -132,7 +132,7 @@ string | { [x: string]: any; title: ReactNode; }
 |tabBarPosition|TabBar位置|"top" \| "bottom" \| "left" \| "right"|"top"|
 |tabBarArrange|TabBar排列方式，tabBar在top或bottom位置时有效，start为靠左，center为居中，end为靠右|"start" \| "center" \| "end"|"center"|
 |tabBarScroll|是否TabBar超出屏幕时靠左滚动排列|boolean|true|
-|tabBarFixed|TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值|boolean \| Record\<"top" \| "bottom", number\>|-|
+|tabBarFixed|TabBar是否顶部/底部固定（含 placeholder），可传入具体固定的值|boolean \| Pick\<CSSProperties, "top" \| "bottom"\>|-|
 |tabBarExtra|tabBar额外渲染内容|ReactNode|-|
 |tabBarScrollBezier|tabBar滚动时变化的bezier曲线值|\[number, number, number, number\]|[0.34, 0.69, 0.1, 1]|
 |tabBarScrollDuration|tabBar滚动过渡时长，单位ms|number|300|

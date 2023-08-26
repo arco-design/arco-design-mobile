@@ -20,7 +20,7 @@ Used to let the user switch between different views. In order to optimize the re
 |tabBarPosition|Tabbar position|"top" \| "bottom" \| "left" \| "right"|"top"|
 |tabBarArrange|Tabbar arrangement, tabBar is valid when it is in the top or bottom position, start is left, center is centered, and end is right|"start" \| "center" \| "end"|"center"|
 |tabBarScroll|Whether to scroll to the left when the TabBar exceeds the screen|boolean|true|
-|tabBarFixed|Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in|boolean \| Record\<"top" \| "bottom", number\>|-|
+|tabBarFixed|Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in|boolean \| Pick\<CSSProperties, "top" \| "bottom"\>|-|
 |tabBarExtra|TabBar extra render content|ReactNode|-|
 |tabBarScrollBezier|The bezier curve value that changes when the tabBar is scrolled|\[number, number, number, number\]|[0.34, 0.69, 0.1, 1]|
 |tabBarScrollDuration|TabBar scrolling transition duration, in ms|number|300|
@@ -132,7 +132,7 @@ string | { [x: string]: any; title: ReactNode; }
 |tabBarPosition|Tabbar position|"top" \| "bottom" \| "left" \| "right"|"top"|
 |tabBarArrange|Tabbar arrangement, tabBar is valid when it is in the top or bottom position, start is left, center is centered, and end is right|"start" \| "center" \| "end"|"center"|
 |tabBarScroll|Whether to scroll to the left when the TabBar exceeds the screen|boolean|true|
-|tabBarFixed|Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in|boolean \| Record\<"top" \| "bottom", number\>|-|
+|tabBarFixed|Whether the TabBar is fixed on the top or bottom (including placeholder), a specific fixed value can be passed in|boolean \| Pick\<CSSProperties, "top" \| "bottom"\>|-|
 |tabBarExtra|TabBar extra render content|ReactNode|-|
 |tabBarScrollBezier|The bezier curve value that changes when the tabBar is scrolled|\[number, number, number, number\]|[0.34, 0.69, 0.1, 1]|
 |tabBarScrollDuration|TabBar scrolling transition duration, in ms|number|300|
