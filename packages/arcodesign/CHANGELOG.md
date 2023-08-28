@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.1...@arco-design/mobile-react@2.29.2) (2023-08-28)
+
+
+### Bug Fixes
+
+* `LoadMore` support the prop "disabled" ([b1881b2](https://github.com/arco-design/arco-design-mobile/commit/b1881b2821debb3b94c66285d712e8f7522e6be7))
+* `Tabs` the prop "tabBarFixed" supports passing in specific fixed values ([ae3158f](https://github.com/arco-design/arco-design-mobile/commit/ae3158f7f7d5d1eebca8921d6d4802aa53b31fbe))
+
+
+
+
+
 ## [2.29.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.0...@arco-design/mobile-react@2.29.1) (2023-08-21)
 
 
