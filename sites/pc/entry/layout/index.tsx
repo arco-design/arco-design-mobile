@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button } from 'arco';
 import { useLocation } from 'react-router-dom';
 import Header from '../header';
 import Nav from '../nav';
-import Footer from '../footer';
 import chCompRoutes from '../../pages/components/index.json';
 import enCompRoutes from '../../pages/components/index-en-US.json';
 import chReadmeRoutes from '../../pages/guide/index.json';
 import enReadmeRoutes from '../../pages/guide/index-en-US.json';
 import enCompositeCompRoutes from '../../pages/composite-comp/index.json';
 import chResRoutes from '../../pages/resource/index.json';
-// import chResRoutes from '../../pages/resource/in';
 import { LanguageSupport } from '../../../utils/language';
 import { getMenuOrder } from '../../../utils/menu';
 import { localeMap } from '../../../utils/locale';
@@ -26,6 +24,7 @@ type CompChildren = {
     [key: string]: Items;
 };
 
+// todo export抽成文件
 export type ResChildren = {
     [key: string]: {
         [key: string]: Items;
@@ -136,6 +135,10 @@ export default function Layout(props: ILayoutProps) {
     const [language, setLanguage] = useState(defaultLanguage);
     const { pathname } = useLocation();
     const [menu, setMenu] = useState(() => initMenu(defaultLanguage, pathname));
+    const siteContentRef = useRef<HTMLDivElement | null>(null);
+    const getSiteContentRef = () => {
+        return siteContentRef.current;
+    };
 
     useEffect(() => {
         setMenu(initMenu(language, pathname));
@@ -155,7 +158,12 @@ export default function Layout(props: ILayoutProps) {
     return (
         <div className="arcodesign-pc-site">
             <div className="arcodesign-pc-site-header">
-                <Header menu={menu} language={language} setLanguage={setLanguage} />
+                <Header
+                    getSiteContentRef={getSiteContentRef}
+                    menu={menu}
+                    language={language}
+                    setLanguage={setLanguage}
+                />
             </div>
             <div className="arcodesign-pc-site-content-wrap">
                 <div
@@ -172,7 +180,11 @@ export default function Layout(props: ILayoutProps) {
                         style={menuCollapse ? { display: 'none' } : {}}
                     />
                 </div>
-                <div className={`arcodesign-pc-site-content ${type === 'readme' ? 'readme' : ''}`}>
+
+                <div
+                    ref={siteContentRef}
+                    className={`arcodesign-pc-site-content ${type === 'readme' ? 'readme' : ''}`}
+                >
                     {menuCollapse && <div className="arcodesign-pc-menu-holder" />}
                     <Button
                         shape="circle"
@@ -197,7 +209,6 @@ export default function Layout(props: ILayoutProps) {
                         }}
                     />
                     {children}
-                    <Footer />
                 </div>
             </div>
         </div>

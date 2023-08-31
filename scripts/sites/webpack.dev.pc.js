@@ -55,7 +55,12 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
         }),
         new BuildContextPlugin(),
     ],
-    externals: [{ arco: 'arco' }, { react: 'React' }, { 'react-dom': 'ReactDOM' }],
+    externals: [
+        { arco: 'arco' },
+        { react: 'React' },
+        { 'react-dom': 'ReactDOM' },
+        { fuse: 'Fuse' },
+    ],
 });
 
 module.exports = devConfig;

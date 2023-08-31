@@ -8,6 +8,8 @@ const utils = require('../../../utils');
 const languageUtils = require('../../../utils/language');
 const localeMap = require('../../../utils/language.json');
 
+const itemList = [];
+
 function readFileName(path) {
     const pathName = path.replace(/\.readme.*\.md/i, '');
     const matchRes = path.match(/\.readme(.*)\.md/i);
@@ -143,6 +145,14 @@ export default docs;
     fs.writeFile(path.join(resourcePagePath, `index.ts`), resourceEntryStr, () => {
         console.log('>>> Write sites resource route file finished');
     });
+    fs.writeFile(
+        path.join(resourcePagePath, `search.json`),
+        JSON.stringify(itemList, null, 4),
+        () => {
+            console.log('>>> Write sites search list file finished');
+        },
+    );
+    itemList.splice(0, itemList.length);
 }
 
 // demo部分
@@ -168,9 +178,6 @@ function renderFuncSource(md, type) {
         if (level === 2 || level === 3) {
             return `<h2 class="demo-code-title">${text}</h2>`;
         }
-        // if (level === 4) {
-        //     return `<h2 class="demo-code-title sec-title">${text}</h2>`;
-        // }
         return '';
     };
 
@@ -234,6 +241,11 @@ export default function Demo() {
             'resource-title',
             'res-',
         );
+        itemList.push({
+            category,
+            filename: mdFilename,
+            functionName: name,
+        });
 
         // 代码
         const { source: codeSource, source } = renderFuncSource(funcSplit[1], category);
@@ -293,19 +305,11 @@ export default function Demo() {
         };
         if (!tsxFileSuffix) {
             if (!resourceRoutes[category]) {
-                // if (type) {
                 resourceRoutes[category] = {};
-
-                // } else {
-                //     resourceRoutes[category] = [resourceRoute];
-                // }
             }
             !resourceRoutes[category][type]
                 ? (resourceRoutes[category][type] = [resourceRoute])
                 : resourceRoutes[category][type].push(resourceRoute);
-            // type
-            //     ? resourceRoutes[category][type].push(resourceRoute)
-            //     : resourceRoutes[category].push(resourceRoute);
         }
     } catch (err) {
         console.info(`>>>>> 写入出错啦 >>>>>\n`, err);

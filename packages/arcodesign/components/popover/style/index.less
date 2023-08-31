@@ -1,5 +1,5 @@
-@import "../../../style/mixin.less";
-@import "./menu.less";
+@import '../../../style/mixin.less';
+@import './menu.less';
 
 .full() {
     left: 0;
@@ -37,13 +37,11 @@
     .use-var(color, popover-content-color);
 
     &.with-shadow {
-
         .popover-bg {
             .use-var(box-shadow, popover-inner-background-shadow);
         }
 
         .popover-arrow {
-
             &.topRight,
             &.topCenter,
             &.topLeft {
@@ -87,7 +85,6 @@
     }
 
     &.with-suffix {
-
         .popover-content {
             display: flex;
             align-items: center;
@@ -95,7 +92,7 @@
     }
 
     .icon-divider {
-        width: 1PX;
+        width: 1px;
         .use-var(height, popover-icon-divider-height);
         .hairline-var(popover-icon-divider-color, left);
     }
@@ -121,7 +118,6 @@
         &.topRight,
         &.topCenter,
         &.topLeft {
-
             &,
             .popover-arrow-content {
                 .use-var(border-bottom-right-radius, popover-arrow-border-radius);
@@ -131,7 +127,6 @@
         &.bottomRight,
         &.bottomCenter,
         &.bottomLeft {
-
             &,
             .popover-arrow-content {
                 .use-var(border-top-left-radius, popover-arrow-border-radius);
@@ -198,7 +193,6 @@
     // 带border的白色主题
 
     &.white-theme.bordered {
-
         .popover-bg {
             .hairline-var(popover-content-white-theme-border-color);
         }
@@ -208,11 +202,9 @@
         }
 
         .popover-arrow {
-
             &.topRight,
             &.topCenter,
             &.topLeft {
-
                 .popover-arrow-content {
                     .hairline-bottom-right-var(popover-content-white-theme-border-color);
                 }
@@ -221,7 +213,6 @@
             &.bottomRight,
             &.bottomCenter,
             &.bottomLeft {
-
                 .popover-arrow-content {
                     .hairline-top-left-var(popover-content-white-theme-border-color);
                 }
@@ -234,4 +225,3 @@
 .global-mode.@{prefix}-popover-inner {
     position: fixed;
 }
-

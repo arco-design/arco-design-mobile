@@ -27,7 +27,7 @@ export const localeMap = {
     },
     Resource: {
         [LanguageSupport.CH]: '资源',
-        [LanguageSupport.EN]: 'Source',
+        [LanguageSupport.EN]: 'Resource',
     },
     DevelopmentResource: {
         [LanguageSupport.CH]: '开发资源',

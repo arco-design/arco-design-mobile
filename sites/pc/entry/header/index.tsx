@@ -1,15 +1,25 @@
-import React, { useCallback, useRef, useState, useContext, useMemo } from 'react';
+import React, { useCallback, useRef, useState, useContext, useMemo, useEffect } from 'react';
 import { AutoComplete, Input, Space, Tag, Spin, Dropdown, Button, Menu, Tooltip } from 'arco';
 import debounce from 'lodash.debounce';
 import { useLocation } from 'react-router-dom';
+import Fuse from 'fuse';
 import { LanguageLocaleMap, LanguageSupport } from '../../../utils/language';
 import { getPathname, getUrlsByLanguage } from '../../../utils/url';
 import { HistoryContext } from '../context';
 import { IMenu } from '../layout';
 import { localeMap } from '../../../utils/locale';
+import searchResource from '../../pages/resource/search.json';
+
 import './index.less';
 
-const { Option } = AutoComplete;
+const options = {
+    threshold: 0.0,
+    keys: ['functionName'],
+};
+
+const fuse = new Fuse(searchResource, options);
+
+const { OptGroup, Option } = AutoComplete;
 const logo = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/arco-design/arco-logo.svg';
 
 type ChildrenItem = {
@@ -21,6 +31,7 @@ interface IHeaderProps {
     menu: IMenu;
     language: LanguageSupport;
     setLanguage: (language: LanguageSupport) => void;
+    getSiteContentRef: () => HTMLDivElement | null;
 }
 
 type List = {
@@ -34,16 +45,71 @@ const languageNameMap = {
     [LanguageSupport.EN]: { label: 'English', suffix: 'en-US' },
 };
 
+interface IHeaderData {
+    flattenMeta: ChildrenItem[];
+    path: string;
+    local: string;
+}
+
+type IFunctionList = Record<
+    string,
+    {
+        functionName: string;
+        category: string;
+    }[]
+>;
+
 export default function Header(props: IHeaderProps) {
     const history = useContext(HistoryContext);
-    const { menu, setLanguage, language } = props;
+    const { menu, setLanguage, language, getSiteContentRef } = props;
     const [value, setValue] = useState('');
     const [list, setList] = useState<List | number[]>([]);
+    const [functionList, setFunctionList] = useState<IFunctionList>({});
+    const [functionListCount, setFunctionListCount] = useState(0);
     const [noData, setNoData] = useState(false);
     const [loading, setLoading] = useState(true);
     const contentDom = useRef<HTMLDivElement | null>(null);
     const input = useRef(null);
     const { pathname } = useLocation();
+    const [currentFunctionName, setCurrentFunctionName] = useState('');
+    const changeFunctionNameRef = useRef(false);
+    useEffect(() => {
+        if (!currentFunctionName) {
+            return;
+        }
+        try {
+            const element = document.querySelector(`#res-${currentFunctionName}`);
+            const siteContent = getSiteContentRef();
+            if (element && siteContent) {
+                const rect = element.getBoundingClientRect();
+                if (rect) {
+                    siteContent.scrollBy({
+                        top: rect.top - 74,
+                        behavior: 'smooth',
+                    });
+                }
+            }
+        } catch (e) {
+            console.error('e: ', e);
+            throw e;
+        }
+
+        setTimeout(() => {
+            changeFunctionNameRef.current = false;
+        });
+    }, [currentFunctionName]);
+
+    useEffect(() => {
+        if (changeFunctionNameRef.current) {
+            return;
+        }
+        const siteContent = getSiteContentRef();
+        if (siteContent) {
+            siteContent.scroll({
+                top: 0,
+            });
+        }
+    }, [pathname, changeFunctionNameRef.current]);
 
     const headerMenu = useMemo(() => {
         const header = [
@@ -81,11 +147,39 @@ export default function Header(props: IHeaderProps) {
         return header;
     }, [language, pathname]);
 
-    const flattenMeta: ChildrenItem[] = menu.components
-        ? Object.keys(menu.components.children).reduce((pre, cur) => {
-              return pre.concat(menu.components!.children[cur]);
-          }, [] as ChildrenItem[])
-        : [];
+    const getResourceFlattenMeta = (data: Record<string, any>) => {
+        if (!data) {
+            return [];
+        }
+        if (Array.isArray(data)) {
+            return data;
+        }
+        return Object.keys(data).reduce((pre, cur) => {
+            return pre.concat(getResourceFlattenMeta(data[cur]));
+        }, []);
+    };
+
+    const headerData: IHeaderData = useMemo(() => {
+        if (menu.components) {
+            return {
+                flattenMeta: getResourceFlattenMeta(menu.components.children),
+                path: 'components',
+                local: localeMap.ComponentType[language],
+            };
+        }
+        if (menu.resource) {
+            return {
+                flattenMeta: getResourceFlattenMeta(menu.resource.children),
+                path: 'resource',
+                local: localeMap.Resource[language],
+            };
+        }
+        return {
+            flattenMeta: [],
+            path: '',
+            local: '',
+        };
+    }, [menu]);
 
     function highlightStr(compName: string, query: string) {
         const regExp = new RegExp(`(${query})`, 'gi');
@@ -93,13 +187,13 @@ export default function Header(props: IHeaderProps) {
     }
 
     function getMatchMeta(inputValue: string) {
-        return flattenMeta
+        return headerData.flattenMeta
             .filter(comp => ~comp.name.toLowerCase().indexOf(inputValue.toLowerCase()))
             .map(comp => ({
                 title: highlightStr(comp.name, inputValue),
-                uri: `${
-                    language === LanguageSupport.EN ? `/${LanguageLocaleMap[language]}` : ''
-                }/components/${comp.key}`,
+                uri: `${language === LanguageSupport.EN ? `/${LanguageLocaleMap[language]}` : ''}/${
+                    headerData.path
+                }/${comp.key}`,
                 isComponent: true,
             }));
     }
@@ -110,16 +204,33 @@ export default function Header(props: IHeaderProps) {
             setNoData(false);
             setList([1]);
             setLoading(true);
+            const result = fuse.search(query);
             const searchList = getMatchMeta(query);
-            if (!searchList.length) {
+            if (!searchList.length && !result.length) {
                 setNoData(true);
                 setList([1]);
             } else {
                 setList(searchList);
+                const temp: IFunctionList = {};
+                setFunctionListCount(result.length);
+                result.forEach(item => {
+                    const contentItem = item.item;
+                    const targetFileNameIndex = Object.keys(temp).findIndex(
+                        key => contentItem.filename === key,
+                    );
+                    if (targetFileNameIndex === -1) {
+                        temp[contentItem.filename] = [];
+                    }
+                    temp[contentItem.filename].push({
+                        functionName: contentItem.functionName,
+                        category: contentItem.category,
+                    });
+                });
+                setFunctionList(temp);
             }
             setLoading(false);
         }, 200),
-        [language],
+        [language, headerData],
     );
 
     function onChangeInput(val, option) {
@@ -140,6 +251,7 @@ export default function Header(props: IHeaderProps) {
         setValue(val);
         debounceSearch(val);
     }
+
     const onMenuClick = (lang: string) => {
         const locationHash = window.location.hash;
         const whichLang = Object.keys(languageNameMap).find(l =>
@@ -163,6 +275,73 @@ export default function Header(props: IHeaderProps) {
         history.push(newLocationHash.slice(1));
         setLanguage(lang as LanguageSupport);
     };
+
+    const searchResultList = (list as List).map((item, index) => (
+        <Option
+            style={{
+                height: 'auto',
+                lineHeight: 1.5715,
+                padding: '12px 20px',
+            }}
+            key={index}
+            value={index}
+            uri={item.uri}
+        >
+            <Space className="arcodesign-pc-search-title">
+                <Tag size="small" color="arcoblue" style={{ verticalAlign: '-5px' }}>
+                    {headerData.local}
+                </Tag>
+                <div dangerouslySetInnerHTML={{ __html: item.title }} />
+            </Space>
+        </Option>
+    ));
+
+    const fuseSearchList = menu.resource
+        ? Object.keys(functionList).map((fileName, index) => (
+              <OptGroup key={`${fileName}-${index}`} label={fileName}>
+                  {functionList[fileName].map((ele, idx) => (
+                      <Option
+                          onClick={() => {
+                              setCurrentFunctionName(oldValue => {
+                                  const clickValue = ele.functionName
+                                      .replace('.', '')
+                                      .split('-')
+                                      .join('');
+                                  if (clickValue !== oldValue) {
+                                      changeFunctionNameRef.current = true;
+                                  }
+                                  return clickValue;
+                              });
+                          }}
+                          style={{
+                              height: 'auto',
+                              lineHeight: 1.5715,
+                              padding: '12px 20px',
+                          }}
+                          key={`${ele.functionName}-${idx}`}
+                          value={`${ele.functionName}}-${idx}`}
+                          uri={`/resource/${ele.category === 'function' ? 'f' : 'm'}-${fileName}`}
+                      >
+                          <Space className="arcodesign-pc-search-title">
+                              <Tag
+                                  size="small"
+                                  color="arcoblue"
+                                  style={{ verticalAlign: '-5px', textTransform: 'capitalize' }}
+                              >
+                                  {ele.category}
+                              </Tag>
+                              <div
+                                  dangerouslySetInnerHTML={{
+                                      __html: ele.functionName,
+                                  }}
+                              />
+                          </Space>
+                      </Option>
+                  ))}
+              </OptGroup>
+          ))
+        : null;
+
     const langDropList = (
         <Menu>
             {Object.keys(languageNameMap).map(lang => (
@@ -177,7 +356,9 @@ export default function Header(props: IHeaderProps) {
         return (
             <span>
                 <div className="arcodesign-pc-search-summary">
-                    {localeMap.SearchResultTip[language](noData || loading ? 0 : list.length)}
+                    {localeMap.SearchResultTip[language](
+                        noData || loading ? 0 : list.length + functionListCount,
+                    )}
                 </div>
                 {loading && (
                     <div className="arcodesign-pc-search-loading">
@@ -239,31 +420,11 @@ export default function Header(props: IHeaderProps) {
                                 isStaticItemHeight: false,
                                 height: 400,
                             }}
-                            data={(list as List).map((item, index) => (
-                                <Option
-                                    style={{
-                                        height: 'auto',
-                                        lineHeight: 1.5715,
-                                        padding: '12px 20px',
-                                    }}
-                                    key={index}
-                                    value={index}
-                                    uri={item.uri}
-                                >
-                                    <Space className="arcodesign-pc-search-title">
-                                        <Tag
-                                            size="small"
-                                            color="arcoblue"
-                                            style={{ verticalAlign: '-5px' }}
-                                        >
-                                            {localeMap.ComponentType[language]}
-                                        </Tag>
-                                        <div dangerouslySetInnerHTML={{ __html: item.title }} />
-                                    </Space>
-                                </Option>
-                            ))}
                             dropdownRender={renderDropdown}
-                        />
+                        >
+                            {searchResultList}
+                            {fuseSearchList}
+                        </AutoComplete>
                     </div>
                     <div className="arcodesign-pc-header-nav-bar">
                         <div className="arcodesign-pc-header-tabs">

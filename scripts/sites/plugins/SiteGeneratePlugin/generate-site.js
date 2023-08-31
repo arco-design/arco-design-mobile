@@ -70,7 +70,6 @@ function generateSite({
     });
     generateResource(resourcePagePath, outputDocPath);
 }
-// generateSite();
 
 module.exports = {
     generateSite,

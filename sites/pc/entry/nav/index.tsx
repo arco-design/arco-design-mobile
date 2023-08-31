@@ -65,11 +65,7 @@ export default function Nav(props: INavProps) {
                         if (_group.key === 'resource') {
                             const resourceChildren = _group.children as ResChildren;
                             return Object.keys(resourceChildren).map((category, i) => (
-                                <MenuItemGroup
-                                    key={i}
-                                    title={category}
-                                    className="title-1 resource-title"
-                                >
+                                <MenuItemGroup key={i} title={category} className="title-1">
                                     {Object.keys(resourceChildren[category]).map(type => {
                                         const item = resourceChildren[category][type];
                                         return (

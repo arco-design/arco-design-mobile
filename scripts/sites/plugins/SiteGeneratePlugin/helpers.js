@@ -79,6 +79,7 @@ function renderNavIntro(
         return `<p class="demo-comp-desc">${text.replace('\n', '<br>')}</p>`;
     };
     const result = marked(readme, { renderer });
+
     return {
         source: result,
         name,
