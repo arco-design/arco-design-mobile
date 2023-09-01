@@ -9,7 +9,6 @@ import { HistoryContext } from '../context';
 import { IMenu } from '../layout';
 import { localeMap } from '../../../utils/locale';
 import searchResource from '../../pages/resource/search.json';
-
 import './index.less';
 
 const options = {
@@ -77,39 +76,34 @@ export default function Header(props: IHeaderProps) {
         if (!currentFunctionName) {
             return;
         }
-        try {
-            const element = document.querySelector(`#res-${currentFunctionName}`);
-            const siteContent = getSiteContentRef();
-            if (element && siteContent) {
-                const rect = element.getBoundingClientRect();
-                if (rect) {
-                    siteContent.scrollBy({
-                        top: rect.top - 74,
-                        behavior: 'smooth',
-                    });
-                }
-            }
-        } catch (e) {
-            console.error('e: ', e);
-            throw e;
-        }
-
         setTimeout(() => {
-            changeFunctionNameRef.current = false;
-        });
+            try {
+                const element = document.querySelector(`#res-${currentFunctionName}`);
+                const siteContent = getSiteContentRef();
+                if (element && siteContent) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect) {
+                        siteContent.scrollBy({
+                            top: rect.top - 74,
+                            behavior: 'smooth',
+                        });
+                    }
+                }
+            } catch (e) {
+                console.error('e: ', e);
+                throw e;
+            }
+        }, 0);
     }, [currentFunctionName]);
 
     useEffect(() => {
-        if (changeFunctionNameRef.current) {
-            return;
-        }
         const siteContent = getSiteContentRef();
         if (siteContent) {
             siteContent.scroll({
                 top: 0,
             });
         }
-    }, [pathname, changeFunctionNameRef.current]);
+    }, [pathname]);
 
     const headerMenu = useMemo(() => {
         const header = [
