@@ -12,7 +12,8 @@ import searchResource from '../../pages/resource/search.json';
 import './index.less';
 
 const options = {
-    threshold: 0.0,
+    threshold: 0.3,
+    includeMatches: true,
     keys: ['functionName'],
 };
 
@@ -231,6 +232,7 @@ export default function Header(props: IHeaderProps) {
             if (!loading) {
                 setValue('');
                 setList([]);
+                setFunctionList({});
                 history.push(option.uri);
             }
             return;
@@ -318,7 +320,7 @@ export default function Header(props: IHeaderProps) {
                               </Tag>
                               <div
                                   dangerouslySetInnerHTML={{
-                                      __html: ele.functionName,
+                                      __html: highlightStr(ele.functionName, value),
                                   }}
                               />
                           </Space>
