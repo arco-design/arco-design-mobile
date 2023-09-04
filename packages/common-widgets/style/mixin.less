@@ -1,3 +1,25 @@
+/**
+ * @type mixin
+ * @name 公共mixin
+ * @name_en General Mixin
+ */
+
+/**
+ * 文本溢出，支持1行/多行文本
+ * @desc {en} text overflow, support single line or multiple lines
+ * @param @lines 最大展示行数，默认为1行
+ * @param @lines {en} allows limiting of the contents of a block to the specified number of lines, default to 1
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ * .demo1{  
+ *   .text-overflow();
+ * }
+ * .demo2 {
+ *   .text-overflow(2);
+ * }
+ * ```
+ */
 .text-overflow(@lines:1) when (@lines = 1) {
     overflow: hidden;
     white-space: nowrap;
@@ -14,15 +36,37 @@
     white-space: normal;
 }
 
+/**
+ * 禁用用户选择文本
+ * @desc {en} disable user selection of text
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *   .noselect();
+ * }
+ */
 .noselect() {
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none;   /* Chrome/Safari/Opera */
-    -khtml-user-select: none;    /* Konqueror */
-    -moz-user-select: none;      /* Firefox */
-    -ms-user-select: none;       /* Internet Explorer/Edge */
-    user-select: none;           /* Non-prefixed version, currently*/
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently*/
 }
 
+/**
+ * 全屏布局
+ * @desc {en} full-screen layout
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *   .full-screen();
+ * }
+ */
 .full-screen() {
     position: fixed;
     top: 0;
@@ -31,7 +75,25 @@
     height: 100%;
 }
 
-.text-medium(@color: currentColor, @stroke: 0.3PX) {
+/**
+ * 文本加粗，兼容安卓设备
+ * @desc {en} text-bold, compatible with Android devices
+ * @param @color 文本颜色，默认为currentColor
+ * @param @color {en} text color, default to currentColor
+ * @param @stroke 文本字符笔触宽度，默认为0.3PX
+ * @param @stroke {en} the width of strokes for text characters, default to 0.3PX
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo1 {
+ *   .text-medium();
+ * }
+ * .demo2 {
+ *   .text-medium(#fff, 0.5px);
+ * }
+ */
+.text-medium(@color: currentColor, @stroke: 0.3px) {
     font-weight: bold;
     .android &,
     &.android,
@@ -42,6 +104,17 @@
     }
 }
 
+/**
+ * 消除文本加粗样式，兼容安卓设备
+ * @desc {en} remove text-bold, compatible with Android devices
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *   .remove-text-medium();
+ * }
+ */
 .remove-text-medium() {
     font-weight: normal;
     .android &,
@@ -53,7 +126,28 @@
     }
 }
 
-.onepx-border(@direction, @borderColor: inherit, @borderRadius: 0, @borderWidth: 1PX, @borderStyle: solid) {
+/**
+ * 1px(物理像素)边框
+ * @desc {en} a border line of 1 pixel
+ * @param @direction 边框方向
+ * @param @direction {en} border direction
+ * @param @borderColor 边框颜色，默认inherit
+ * @param @borderColor {en} border color, default to inherit
+ * @param @borderRadius 边框圆角，默认0
+ * @param @borderRadius {en} border radius, default to 0
+ * @param @borderWidth 边框宽度，默认1px
+ * @param @borderWidth {en} border width, default to 1px
+ * @param @borderStyle 边框样式，默认solid
+ * @param @borderStyle {en} border style, default to solid
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *   .onepx-border();
+ * }
+ */
+.onepx-border(@direction, @borderColor: inherit, @borderRadius: 0, @borderWidth: 1px, @borderStyle: solid) {
     position: relative;
     border-width: 0;
 
@@ -62,10 +156,10 @@
             @x: left;
             @y: top;
             @scale: scale;
-            @border: ~"-";
+            @border: ~'-';
             @width: 100%;
             @height: 100%;
-        }
+        };
         @top: {
             @x: left;
             @y: top;
@@ -73,7 +167,7 @@
             @border: -top-;
             @width: 100%;
             @height: @borderWidth;
-        }
+        };
         @bottom: {
             @x: left;
             @y: bottom;
@@ -81,7 +175,7 @@
             @border: -bottom-;
             @width: 100%;
             @height: @borderWidth;
-        }
+        };
         @left: {
             @x: left;
             @y: top;
@@ -89,7 +183,7 @@
             @border: -left-;
             @width: @borderWidth;
             @height: 100%;
-        }
+        };
         @right: {
             @x: right;
             @y: top;
@@ -97,17 +191,17 @@
             @border: -right-;
             @width: @borderWidth;
             @height: 100%;
-        }
-    }
+        };
+    };
 
     .set-onepx-content() {
-        @map: @onepx-border-map[@@direction];
-        @x: @map[@x];
-        @y: @map[@y];
-        @scale: @map[@scale];
-        @border: @map[@border];
-        @width: @map[@width];
-        @height: @map[@height];
+        @map: @onepx-border-map[ @@direction];
+        @x: @map[ @x];
+        @y: @map[ @y];
+        @scale: @map[ @scale];
+        @border: @map[ @border];
+        @width: @map[ @width];
+        @height: @map[ @height];
 
         content: '';
         width: @width;
@@ -124,22 +218,22 @@
         -webkit-transform-origin: @x @y;
         pointer-events: none;
         border-radius: @borderRadius;
-        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+        @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
             & when (@direction = all) {
                 width: 200%;
                 height: 200%;
             }
-            transform: ~"@{scale}(0.5)";
-            -webkit-transform: ~"@{scale}(0.5)";
+            transform: ~'@{scale}(0.5)';
+            -webkit-transform: ~'@{scale}(0.5)';
             border-radius: @borderRadius * 2;
         }
-        @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+        @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
             & when (@direction = all) {
                 width: 300%;
                 height: 300%;
             }
-            transform: ~"@{scale}(0.33333333)";
-            -webkit-transform: ~"@{scale}(0.33333333)";
+            transform: ~'@{scale}(0.33333333)';
+            -webkit-transform: ~'@{scale}(0.33333333)';
             border-radius: @borderRadius * 3;
         }
     }
@@ -159,37 +253,58 @@
 @border-map: {
     @bottom: {
         @x: 0;
-        @y: -1PX;
+        @y: -1px;
         @spread: 0;
-    }
+    };
     @top: {
         @x: 0;
-        @y: 1PX;
+        @y: 1px;
         @spread: 0;
-    }
+    };
     @right: {
-        @x: -1PX;
+        @x: -1px;
         @y: 0;
         @spread: 0;
-    }
+    };
     @left: {
-        @x: 1PX;
+        @x: 1px;
         @y: 0;
         @spread: 0;
-    }
+    };
     @all: {
         @x: 0;
         @y: 0;
-        @spread: 1PX;
-    }
-}
+        @spread: 1px;
+    };
+};
 
+/**
+ * 0.5px的边框线
+ * @desc {en} a border line of 0.5 pixels
+ * @param @color 边框颜色
+ * @param @color {en} border-color
+ * @param @direction 边框方向，默认为全部方向
+ * @param @direction {en} border direction，default to all directions.
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo1 {
+ *     .hairline(#000);
+ * }
+ * .demo2 {
+ *     .hairline(#000, top);
+ * }
+ * ```
+ */
 .hairline(@color, @direction: all) {
     // 因为 Android/PC 不一定支持 0.5px border width
-    box-shadow: @border-map[@@direction][@x] @border-map[@@direction][@y] 0 @border-map[@@direction][@spread] @color inset;
+    box-shadow: @border-map[ @@direction][ @x] @border-map[ @@direction][ @y] 0 @border-map[ @@direction][
+        @spread] @color inset;
 
     @media (min-resolution: 2dppx) {
-        box-shadow: (@border-map[@@direction][@x]/2) (@border-map[@@direction][@y]/2) 0 (@border-map[@@direction][@spread]/2) @color inset;
+        box-shadow: (@border-map[ @@direction][ @x] / 2) (@border-map[ @@direction][ @y] / 2) 0
+            (@border-map[ @@direction][ @spread] / 2) @color inset;
     }
 
     // 因为 iOS 目前不支持 0.5px shadow offset/spread width
@@ -198,15 +313,29 @@
         box-shadow: none;
 
         & when (@direction = all) {
-            border: 0.5PX solid @color;
+            border: 0.5px solid @color;
         }
 
         & when not (@direction = all) {
-            border-@{direction}: 0.5PX solid @color;
+            border-@{direction}: 0.5px solid @color;
         }
     }
 }
 
+/**
+ * 移除0.5px的边框线
+ * @desc {en} remove border line of 0.5 pixels
+ * @param @direction 边框方向，默认为全部方向
+ * @param @direction {en} border direction，default to all directions.
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .remove-hairline(all);
+ * }
+ * ```
+ */
 .remove-hairline(@direction: all) {
     box-shadow: none;
     @media (min-resolution: 2dppx) {
@@ -224,32 +353,79 @@
     }
 }
 
-// 元素右下 0.5px border
+/**
+ * 元素右下 0.5px border
+ * @desc {en} 0.5px border on bottom right
+ * @param @color 边框颜色
+ * @param @color {en} border-color
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .hairline-bottom-right(#000);
+ * }
+ * ```
+ */
 .hairline-bottom-right(@color) {
-    box-shadow: -1PX -1PX 0 0 @color inset;
+    box-shadow: -1px -1px 0 0 @color inset;
     @media (min-resolution: 2dppx) {
-        box-shadow: -0.5PX -0.5PX 0 0 @color inset;
+        box-shadow: -0.5px -0.5px 0 0 @color inset;
     }
-    .ios &, &.ios {
+    .ios &,
+    &.ios {
         box-shadow: none;
-        border-right: 0.5PX solid @color;
-        border-bottom: 0.5PX solid @color;
+        border-right: 0.5px solid @color;
+        border-bottom: 0.5px solid @color;
     }
 }
 
-// 元素左上 0.5px border
+/**
+ * 元素左上 0.5px border
+ * @desc {en} 0.5px border on top left
+ * @param @color 边框颜色
+ * @param @color {en} border-color
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .hairline-top-left(#000);
+ * }
+ * ```
+ */
 .hairline-top-left(@color) {
-    box-shadow: 1PX 1PX 0 0 @color inset;
+    box-shadow: 1px 1px 0 0 @color inset;
     @media (min-resolution: 2dppx) {
-        box-shadow: 0.5PX 0.5PX 0 0 @color inset;
+        box-shadow: 0.5px 0.5px 0 0 @color inset;
     }
-    .ios &, &.ios {
+    .ios &,
+    &.ios {
         box-shadow: none;
-        border-top: 0.5PX solid @color;
-        border-left: 0.5PX solid @color;
+        border-top: 0.5px solid @color;
+        border-left: 0.5px solid @color;
     }
 }
 
+/**
+ * 输入涉及左右相关的属性名，获取方向相反的属性名，可用于处理rtl模式
+ * @desc {en} get the property name in the opposite direction of the input property name, which can be used to process rtl mode
+ * @param @origin-property css属性名
+ * @param @origin-property {en} css property
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *   @property: left;
+ *   @value: 1px;
+ *   @{property}: @value;
+ *   [dir="rtl"] & {
+ *     @new-property: .prop-with-rtl(@property)[@property-name];
+ *     @{new-property}: @value;
+ * }
+ * ```
+ */
 .prop-with-rtl(@origin-property) {
     @property-map: {
         @left: right;
@@ -264,29 +440,77 @@
         @border-bottom-left-radius: border-bottom-right-radius;
         @border-top-right-radius: border-top-left-radius;
         @border-bottom-right-radius: border-bottom-left-radius;
-    }
-    @property-name: @property-map[@@origin-property];
+    };
+    @property-name: @property-map[ @@origin-property];
 }
 
+/**
+ * 设置涉及左右相关的属性名，在rtl模式下自动替换为相反的属性名
+ * @desc {en} set the property name related to left and right, and automatically replace it with the opposite attribute name in rtl mode
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @value css属性值
+ * @param @value {en} css property value
+ * @param @rules 自定义的复写规则，默认重置为initial
+ * @param @rules {en} customized rewrite rules, default to initial
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *   .set-prop-with-rtl(right, auto);
+ * }
+ * ```
+ */
 .set-prop-with-rtl(@property, @value, @rules: {
     @{property}: initial;
 }) {
     @{property}: @value;
-    [dir="rtl"] & {
+    [dir='rtl'] & {
         @rules();
-        @new-property: .prop-with-rtl(@property)[@property-name];
+        @new-property: .prop-with-rtl(@property) [ @property-name];
         @{new-property}: @value;
     }
 }
 
+/**
+ * 设置涉及左右相关的属性值，在rtl模式下自动替换为相反的属性值
+ * @desc {en} set the property value related to left and right, and automatically replace it with the opposite attribute value in rtl mode
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @value css属性值
+ * @param @value {en} css property value
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *   .set-value-with-rtl(text-align, left);
+ * }
+ * ```
+ */
 .set-value-with-rtl(@property, @value) {
     @{property}: @value;
-    [dir="rtl"] & {
-        @new-value: .prop-with-rtl(@value)[@property-name];
+    [dir='rtl'] & {
+        @new-value: .prop-with-rtl(@value) [ @property-name];
         @{property}: @new-value;
     }
 }
 
+/**
+ * 设置Loading组件颜色
+ * @desc {en} set Loading component color
+ * @param @color 颜色
+ * @param @color {en} color
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-loading-color(#000);
+ * }
+ * ```
+ */
 .set-loading-color(@color) {
     .bg-color-with-config {
         background: @color;
@@ -302,20 +526,68 @@
     }
 }
 
+/**
+ * 设置最小字号
+ * @desc {en} set minimum font-size
+ * @param @size 最小字号
+ * @param @size {en} minimum font-size
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-font-size(~'10px');
+ * }
+ * ```
+ */
 .set-font-size(@size) {
-    & when (@size < 12PX) {
-        font-size: 12PX;
-        transform: scale(round(unit(@size / 12PX), 4));
+    & when (@size < 12px) {
+        font-size: 12px;
+        transform: scale(round(unit(@size / 12px), 4));
     }
-    & when not (@size < 12PX) {
+    & when not (@size < 12px) {
         font-size: @size;
     }
 }
 
+/**
+ * 设置content-box盒模型下元素宽度
+ * @desc {en} set box width in content-box
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @width 元素总宽度，包含内边距
+ * @param @width element width, include padding
+ * @param @padding-left 左侧内边距
+ * @param @padding-left {en} padding-left
+ * @param @padding-right 右侧内边距
+ * @param @padding-right {en} padding-right
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-content-box-width();
+ * }
+ * ```
+ */
 .set-content-box-width(@property, @width, @padding-left, @padding-right) {
     @{property}: @width - @padding-left - @padding-right;
 }
 
+/**
+ * 设置Steps组件当前步骤主要颜色，已完成步骤颜色自动计算为当前步骤颜色透明度10%
+ * @desc {en} set Steps component color
+ * @param @color 当前步骤背景、标题文本颜色
+ * @param @color {en} color of current step background and title text
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-steps-color(primary-color);
+ * }
+ * ```
+ */
 .set-steps-color(@color) {
     .process-bg-color-with-config,
     .process-custom-icon-bg-color-with-config {

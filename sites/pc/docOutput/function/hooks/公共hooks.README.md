@@ -13,7 +13,6 @@
 ```
 import { useListenResize } from '@arco-design/mobile-react/esm/_helpers/hooks';
 useListenResize(setSize, [], listenResize);
-
 ```
 
 ## 类型
@@ -25,6 +24,7 @@ useListenResize(setSize, [], listenResize);
 ## 源码
 
 ```
+
 function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen = true) {
     useEffect(() => {
         if (needListen) {
@@ -69,7 +69,6 @@ tips：在unmount后有异步处理未完成的场景使用，不推荐无脑替
 ```
 import { useMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const [scrollValue, setScrollValue] = useMountedState(value);
-
 ```
 
 ## 类型
@@ -81,6 +80,7 @@ const [scrollValue, setScrollValue] = useMountedState(value);
 ## 源码
 
 ```
+
 function useMountedState<S>(initialState: S | (() => S)) {
     const [state, setState] = useState<S>(initialState);
     const leavingRef = useRef(false);
@@ -126,7 +126,6 @@ function useMountedState<S>(initialState: S | (() => S)) {
 ```
 import { useSameRefState } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const [opened, openedRef, setOpened] = useSameRefState(false);
-
 ```
 
 ## 类型
@@ -138,6 +137,7 @@ const [opened, openedRef, setOpened] = useSameRefState(false);
 ## 源码
 
 ```
+
 function useSameRefState<T>(
     initialValue: T,
 ): [T, React.MutableRefObject<T>, (data: T) => void] {
@@ -176,7 +176,6 @@ function useSameRefState<T>(
 ```
 import { useRefState } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const [index, indexRef, setIndex] = useRefState(currentIndex);
-
 ```
 
 ## 类型
@@ -188,6 +187,7 @@ const [index, indexRef, setIndex] = useRefState(currentIndex);
 ## 源码
 
 ```
+
 function useRefState<T>(
     initialValue: T | (() => T),
 ): [T, React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>] {
@@ -225,7 +225,6 @@ function useRefState<T>(
 ```
 import { useRefMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const [active, activeRef, setActive] = useRefMountedState(false);
-
 ```
 
 ## 类型
@@ -237,6 +236,7 @@ const [active, activeRef, setActive] = useRefMountedState(false);
 ## 源码
 
 ```
+
 function useRefMountedState<T>(
     initialValue: T | (() => T),
 ): [T, React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>] {
@@ -273,9 +273,9 @@ useEffect特殊封装，仅在非首次依赖更新时触发回调
 
 ```
 import { useUpdateEffect } from '@arco-design/mobile-react/esm/_helpers/hooks';
-useUpdateEffect(() => { handleIndexChange(index);
+useUpdateEffect(() => {
+     handleIndexChange(index);
 }, [index]);
-
 ```
 
 ## 类型
@@ -287,6 +287,7 @@ useUpdateEffect(() => { handleIndexChange(index);
 ## 源码
 
 ```
+
 function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] = []) {
     const isInitialMount = useRef(true);
     useEffect(() => {
@@ -325,7 +326,8 @@ function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] 
 ```
 import { useForceUpdate } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const update = useForceUpdate();
-function forceUpdate() { update();
+function forceUpdate() {
+     update();
 }
 ```
 
@@ -338,6 +340,7 @@ function forceUpdate() { update();
 ## 源码
 
 ```
+
 function useForceUpdate() {
     const [, setTick] = useState(0);
     const update = useCallback(() => {
@@ -371,7 +374,6 @@ function useForceUpdate() {
 import { useLatestRef } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const { wrapSize } = props;
 const wrapSizeRef = useLatestRef(wrapSize);
-
 ```
 
 ## 类型
@@ -383,6 +385,7 @@ const wrapSizeRef = useLatestRef(wrapSize);
 ## 源码
 
 ```
+
 function useLatestRef<T>(variable: T) {
     const variableRef = useRef(variable);
     useEffect(() => {
@@ -417,7 +420,6 @@ variableRef，变量的最新ref值
 ```
 import { useSystem } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const system = useSystem();
-
 ```
 
 ## 类型
@@ -429,6 +431,7 @@ const system = useSystem();
 ## 源码
 
 ```
+
 function useSystem() {
     const { system: currentSystem } = useContext(GlobalContext);
     const [system, setSystem] = useState(() => currentSystem || getSystem());
@@ -462,7 +465,6 @@ function useSystem() {
 ```
 import { useWindowSize } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const { windowHeight, windowWidth } = useWindowSize();
-
 ```
 
 ## 类型
@@ -474,6 +476,7 @@ const { windowHeight, windowWidth } = useWindowSize();
 ## 源码
 
 ```
+
 function useWindowSize(listenResize?: boolean) {
     const [windowWidth, setWindowWidth] = useState(
         typeof window !== 'undefined' ? window.innerWidth : 0,
@@ -521,7 +524,6 @@ windowWidth, windowHeight }
 ```
 import { usePopupScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
 usePopupScroll(visible, domRef.current, getScrollContainer, orientationDirection, onPreventTouchMove, onTouchMove, gestureOutOfControl);
-
 ```
 
 ## 类型
@@ -533,6 +535,7 @@ usePopupScroll(visible, domRef.current, getScrollContainer, orientationDirection
 ## 源码
 
 ```
+
 function usePopupScroll(
     visible: boolean,
     popupDom: HTMLDivElement | null,
@@ -751,7 +754,6 @@ function usePopupScroll(
 ```
 import { useSwiperInnerScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
 useSwiperInnerScroll(getInnerScrollContainer);
-
 ```
 
 ## 类型
@@ -763,6 +765,7 @@ useSwiperInnerScroll(getInnerScrollContainer);
 ## 源码
 
 ```
+
 function useSwiperInnerScroll(
     getInnerScrollContainer?: () => (HTMLElement | null)[] | HTMLElement | null,
 ) {
@@ -818,7 +821,6 @@ function useSwiperInnerScroll(
 import { useAddListener } from '@arco-design/mobile-react/esm/_helpers/hooks';
 useAddListener(domRef.current, 'touchstart', onTouchStart);
 useAddListener(domRef.current, 'touchend', onTouchEnd);
-
 ```
 
 ## 类型
@@ -830,6 +832,7 @@ useAddListener(domRef.current, 'touchend', onTouchEnd);
 ## 源码
 
 ```
+
 function useAddListener(
     dom: HTMLDivElement | null,
     event: string,
@@ -878,7 +881,6 @@ function useAddListener(
 ```
 import { usePreventBodyScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
 usePreventBodyScroll(visible, preventBodyScroll, initialBodyOverflow);
-
 ```
 
 ## 类型
@@ -890,6 +892,7 @@ usePreventBodyScroll(visible, preventBodyScroll, initialBodyOverflow);
 ## 源码
 
 ```
+
 function usePreventBodyScroll(
     visible: boolean,
     preventBodyScroll: boolean = true,
@@ -966,7 +969,6 @@ function usePreventBodyScroll(
 ```
 import { usePreventBodyScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const [currentPercentage, transitionControl] = useProgress(mountedTransition, percentage, duration, mountedBezier, step);
-
 ```
 
 ## 类型
@@ -978,6 +980,7 @@ const [currentPercentage, transitionControl] = useProgress(mountedTransition, pe
 ## 源码
 
 ```
+
 function useProgress(
     mountedTransition: boolean,
     percentage: number,
@@ -1050,7 +1053,6 @@ function useProgress(
 ```
 import { useSingleAndDoubleClick } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const handleClick = useSingleAndDoubleClick(handleImageClick, handleImageDoubleClick);
-
 ```
 
 ## 类型
@@ -1062,6 +1064,7 @@ const handleClick = useSingleAndDoubleClick(handleImageClick, handleImageDoubleC
 ## 源码
 
 ```
+
 function useSingleAndDoubleClick(
     onClick: (e: React.MouseEvent) => void,
     onDoubleClick: (e: React.MouseEvent) => void,
@@ -1115,7 +1118,6 @@ clickHandler，统一后的事件处理方法
 ```
 import { useGenSvgKey } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const { svgKey } = useGenSvgKey(userSetSvgKey);
-
 ```
 
 ## 类型
