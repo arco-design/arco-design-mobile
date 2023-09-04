@@ -292,9 +292,7 @@ export default function Demo() {
             }
         });
         const mdCompName = `${prefix}${utils.getCompName(`${mdFilename}${tsxFileSuffix}`)}`;
-        const mdDocName = `${prefix.toLowerCase()}-${utils.getFolderName(
-            mdFilename,
-        )}${tsxFileSuffix}`;
+        const mdDocName = `${prefix.toLowerCase()}-${mdFilename}${tsxFileSuffix}`;
         importStr += `import ${mdCompName} from './${category}/${mdFilename}${
             tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
         }';\n`;

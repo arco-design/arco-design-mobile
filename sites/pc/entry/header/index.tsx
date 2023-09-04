@@ -71,7 +71,6 @@ export default function Header(props: IHeaderProps) {
     const input = useRef(null);
     const { pathname } = useLocation();
     const [currentFunctionName, setCurrentFunctionName] = useState('');
-    const changeFunctionNameRef = useRef(false);
     useEffect(() => {
         if (!currentFunctionName) {
             return;
@@ -198,16 +197,16 @@ export default function Header(props: IHeaderProps) {
             setNoData(false);
             setList([1]);
             setLoading(true);
-            const result = fuse.search(query);
+            const resourceResult = fuse.search(query);
             const searchList = getMatchMeta(query);
-            if (!searchList.length && !result.length) {
+            if (!searchList.length && !resourceResult.length) {
                 setNoData(true);
                 setList([1]);
             } else {
                 setList(searchList);
                 const temp: IFunctionList = {};
-                setFunctionListCount(result.length);
-                result.forEach(item => {
+                setFunctionListCount(resourceResult.length);
+                resourceResult.forEach(item => {
                     const contentItem = item.item;
                     const targetFileNameIndex = Object.keys(temp).findIndex(
                         key => contentItem.filename === key,
@@ -296,16 +295,9 @@ export default function Header(props: IHeaderProps) {
                   {functionList[fileName].map((ele, idx) => (
                       <Option
                           onClick={() => {
-                              setCurrentFunctionName(oldValue => {
-                                  const clickValue = ele.functionName
-                                      .replace('.', '')
-                                      .split('-')
-                                      .join('');
-                                  if (clickValue !== oldValue) {
-                                      changeFunctionNameRef.current = true;
-                                  }
-                                  return clickValue;
-                              });
+                              setCurrentFunctionName(
+                                  ele.functionName.replace('.', '').split('-').join(''),
+                              );
                           }}
                           style={{
                               height: 'auto',
