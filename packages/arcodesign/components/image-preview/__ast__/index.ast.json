@@ -38,7 +38,7 @@
                     "description": null,
                     "name": "config",
                     "type": {
-                        "name": "Pick<WithGlobalContext<ImagePreviewProps & RefAttributes<ImagePreviewRef>>, \"animateDurationSlide\" | ... 43 more ... | \"context\">"
+                        "name": "Pick<WithGlobalContext<ImagePreviewProps & RefAttributes<ImagePreviewRef>>, \"animateDurationSlide\" | ... 44 more ... | \"context\">"
                     }
                 },
                 {
@@ -439,6 +439,23 @@
                         "value": "\"end\""
                     }
                 ]
+            }
+        },
+        "extra": {
+            "defaultValue": null,
+            "description": "渲染自定义元素，如自定义关闭按钮\n@en Render custom elements such as custom close buttons",
+            "name": "extra",
+            "tags": {
+                "en": "Render custom elements such as custom close buttons"
+            },
+            "descWithTags": "渲染自定义元素，如自定义关闭按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-preview/index.tsx",
+                "name": "ImagePreviewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
             }
         },
         "getMinScale": {
