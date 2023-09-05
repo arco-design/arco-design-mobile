@@ -4,13 +4,13 @@ import React, {
     useMemo,
     useState,
     useRef,
-    useEffect,
     forwardRef,
     useImperativeHandle,
     Ref,
 } from 'react';
 import { GlobalContext } from '../context-provider';
 import { PopoverMenuItem, PopoverMenuProps, PopoverProps, PopoverRef } from './type';
+import { useUpdateEffect } from '../_helpers';
 
 export function componentGenerator<
     P extends PopoverProps = PopoverProps,
@@ -49,8 +49,7 @@ export function componentGenerator<
         const [visibleState, setVisibleState] = useState(
             visible === void 0 ? defaultVisible : visible,
         );
-
-        useEffect(() => {
+        useUpdateEffect(() => {
             setVisibleState(Boolean(visible));
         }, [visible]);
 
