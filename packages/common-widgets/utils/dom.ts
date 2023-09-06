@@ -223,7 +223,7 @@ export function checkOverflowVisible<T extends TCheckVisibleBaseProps>(
 /**
  * 检查非局部滚动容器元素是否在视口区域内
  * @desc {en} Check if a non-local scroll container element is inside the viewport area
- * @param component 当前元素节节点
+ * @param component 当前元素节点
  * @param component {en} Current element node
  */
 export function checkNormalVisible<T extends TCheckVisibleBaseProps>(component: T): boolean {
@@ -272,7 +272,7 @@ export function appendElementById(id: string, getContainer?: () => HTMLElement) 
 }
 
 /**
- * 从父级节点移除元素
+ * 从父级节点移除该元素
  * @desc {en} Remove element from parent node
  * @param ele 待移除元素
  * @param ele {en} Element to be removed
@@ -283,6 +283,12 @@ export function removeElement(ele: HTMLElement) {
     }
 }
 
+/**
+ * 获取滚动容器，如果传入 string 则使用 querySelector 选取容器
+ * @desc {en} Get the scrolling container. If a string is passed in, use querySelector to select the container
+ * @param getContainer 指定滚动容器
+ * @param getContainer {en} Specifies the scrolling container.
+ */
 export function getActualContainer(getContainer?: () => HTMLElement | Window | string | null) {
     const container = getContainer ? getContainer() : void 0;
     return typeof container === 'string'
@@ -290,6 +296,12 @@ export function getActualContainer(getContainer?: () => HTMLElement | Window | s
         : container;
 }
 
+/**
+ * 获取有效滚动监听容器，默认情况或者监听 body 的滚动时均指定为 window
+ * @desc {en} Get the effective scrolling container, which is specified as window by default or for listening to the scrolling of the body
+ * @param getContainer 指定滚动容器
+ * @param getContainer {en} Specifies the scrolling container.
+ */
 export function getValidScrollContainer(getContainer?: () => HTMLElement | Window | null) {
     // 默认为window
     // @en Default is window
@@ -299,6 +311,21 @@ export function getValidScrollContainer(getContainer?: () => HTMLElement | Windo
     return originContainer === document.body ? window : originContainer;
 }
 
+/**
+ * 获取滚动容器的属性。针对 window 和 document 额外进行一些属性兼容处理。
+ * @desc {en} Get properties of the scrolling container. Perform additional attribute compatibility processing for window and document.
+ * @param property 所需属性
+ * @param property {en} Required attributes
+ * @param getContainer 待计算滚动容器
+ * @param getContainer {en} Scrolling container to be calculated.
+ * @example
+ * ```
+ * import { getScrollContainerAttribute } from '@arco-design/mobile-utils';
+ *
+ * const contentRef = useRef<HTMLDivElement>(null);
+ * const scrollTop = getScrollContainerAttribute('scrollTop', () => contentRef.current);
+ * ```
+ */
 export function getScrollContainerAttribute(
     property: string,
     getContainer?: () => HTMLElement | Window | Document | null,
@@ -325,6 +352,19 @@ export function getScrollContainerAttribute(
     return container[property];
 }
 
+/**
+ * 提供了元素的大小及其相对于视口的位置。
+ * @desc {en} Provide information about the size of an element and its position relative to the viewport.
+ * @param container 滚动容器
+ * @param container {en} Scroll Container
+ * @example
+ * ```
+ * import { getScrollContainerAttribute } from '@arco-design/mobile-utils';
+ *
+ * const contentRef = useRef<HTMLDivElement>(null);
+ * const scrollTop = getScrollContainerAttribute('scrollTop', () => contentRef.current);
+ * ```
+ */
 export function getScrollContainerRect(container: HTMLElement | Window | null) {
     let containerRect: Omit<DOMRect, 'x' | 'y' | 'toJSON'> = {
         top: 0,
@@ -360,6 +400,18 @@ export function getScrollContainerRect(container: HTMLElement | Window | null) {
 
 export const styleDoms: Record<string, HTMLStyleElement | null> = {};
 
+/**
+ * 删除自定义 style 标签，配合 addCssStyleDom 函数一起使用
+ * @desc {en} Remove custom style tags and use it in conjunction with the addCssStyleDom function
+ * @param key 标签对应的key
+ * @param key {en} Key corresponding to the tag
+ * @example
+ * ```
+ * import { removeCssStyleDom } from '@arco-design/mobile-utils';
+ *
+ * removeCssStyleDom('arcoTheme');
+ * ```
+ */
 export function removeCssStyleDom(key: string) {
     const styleDom = styleDoms[key];
     if (styleDom) {
@@ -368,6 +420,20 @@ export function removeCssStyleDom(key: string) {
     }
 }
 
+/**
+ * 添加自定义 style 标签，addCssKeyframes 和 addCssRules 的底层方法
+ * @desc {en} Add custom style tags, underlying methods for addCssKeyframes and addCssRules
+ * @param key 标签对应的key
+ * @param key {en} Key corresponding to the tag
+ * @param html 样式内容
+ * @param html {en} style information (CSS)
+ * @example
+ * ```
+ * import { addCssStyleDom } from '@arco-design/mobile-utils';
+ *
+ * addCssStyleDom('arcoTheme', ':root {--base-font-size: 50;}');
+ * ```
+ */
 export function addCssStyleDom(key: string, html: string) {
     removeCssStyleDom(key);
     const style = document.createElement('style');
@@ -376,10 +442,52 @@ export function addCssStyleDom(key: string, html: string) {
     styleDoms[key] = style;
 }
 
+/**
+ * 增加自定义关键帧动画变量，实现动画函数复用。
+ * @desc {en} Add custom keyframe animation variables to achieve reuse of animation functions
+ * @param key 规则名称
+ * @param key {en} Rule Name
+ * @param rules 动画关键帧
+ * @param rules {en} Animation keyframes
+ * @example
+ * ```
+ * import { addCssKeyframes } from '@arco-design/mobile-utils';
+ * 
+ * const maxScaleWithDefault = 2;
+    addCssKeyframes(
+        'animationKey',
+        `{
+            0% {
+                width: 100%;
+            }
+            50% {
+                width: ${100 * maxScaleWithDefault}%;
+            }
+            100% {
+                width: 100%;
+            }
+        }`,
+    );
+ * ```
+ */
 export function addCssKeyframes(key: string, rules: string) {
     addCssStyleDom(key, `@keyframes ${key} ${rules}\n@-webkit-keyframes ${key} ${rules}`);
 }
 
+/**
+ * 增加自定义 CSS 变量规则，使用后将在线替换css变量。需设置less变量 @use-css-vars: 1
+ * @desc {en} Add custom CSS variable rules, which will replace CSS variables online after use.The less variable needs to be set @use-css-vars: 1.
+ * @param key 规则名称
+ * @param key {en} Rule Name
+ * @param rules 规则对象
+ * @param rules {en} Rule Object
+ * @example
+ * ```
+ * import { addCssRules } from '@arco-design/mobile-utils';
+ *
+ * addCssRules('arcoTheme', { 'base-font-size': '50' });
+ * ```
+ */
 export function addCssRules(key: string, rules: Record<string, string>) {
     if (!rules || !Object.keys(rules).length) {
         return;
@@ -401,6 +509,12 @@ export function addCssRules(key: string, rules: Record<string, string>) {
  * @param {Number} baseFontSize {en} Base font size
  * @returns {String} 计算后的像素值
  * @returns {String} {en} Computing pixcel value
+ * @example
+ * ```
+ * import { getActualPixel } from '@arco-design/mobile-utils';
+ *
+ * const actualPixel = getActualPixel(16, 50);
+ * ```
  */
 export function getActualPixel(px: number, baseFontSize = 50) {
     const htmlDOM = document.getElementsByTagName('html')[0];
@@ -419,6 +533,21 @@ export function getActualPixel(px: number, baseFontSize = 50) {
     return px * fontSizeRadio;
 }
 
+/**
+ * 获取元素的时间属性值，结果统一成毫秒级别
+ * @desc {en} Get the time attribute value of the element, and the results are unified into milliseconds
+ * @param ele 要获取样式的元素
+ * @param ele {en} Element to get the computed style
+ * @param property 与时间相关属性
+ * @param property {en} Property related to time
+ * @example
+ * ```
+ * import { convertCssDuration } from '@arco-design/mobile-utils';
+ *
+ * const contentRef = useRef<HTMLDivElement>(null);
+ * const transTimeout = convertCssDuration(contentRef.current, 'transitionDuration');
+ * ```
+ */
 export function convertCssDuration(ele: HTMLElement, property: string) {
     const timeout: string = window.getComputedStyle(ele)[property];
     if (/ms$/.test(timeout)) {
@@ -430,6 +559,19 @@ export function convertCssDuration(ele: HTMLElement, property: string) {
     return 0;
 }
 
+/**
+ * 获取指定元素的 CSS 样式，当抛出异常时返回空对象
+ * @desc {en} Get the CSS style of the specified element and return an empty object when an exception is thrown
+ * @param element 要获取样式的元素
+ * @param element {en} Element to get the computed style
+ * @example
+ * ```
+ * import { safeGetComputedStyle } from '@arco-design/mobile-utils';
+ *
+ * const element = document.querySelector("p");
+ * const compStyle =safeGetComputedStyle(element);
+ * ```
+ */
 export function safeGetComputedStyle(element: HTMLElement) {
     try {
         return window.getComputedStyle(element);
