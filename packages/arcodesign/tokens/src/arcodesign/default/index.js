@@ -1,4 +1,6 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 const extend = require('./extend');
+const { theme } = require('./theme');
 
 function getGlobalTokens() {
     return {
@@ -13,55 +15,65 @@ function getGlobalTokens() {
          */
         baseFontSize: '50',
         /**
+         * 判断处于暗黑模式的选择器
+         * @en Selector to determine whether it is in dark mode
+         */
+        arcoDarkModeSelector: '.arco-theme-dark',
+        /**
          * 基础背景色
          * @en Base background color
          */
-        backgroundColor: '#ffffff',
+        backgroundColor: theme['arcom-color-bg-1'],
+        /**
+         * 一级容器背景色
+         * @en Primary container background color
+         */
+        containerBackgroundColor: theme['arcom-color-bg-2'],
         /**
          * 基础字体颜色
          * @en Base font color
          */
-        fontColor: '#1d2129',
+        fontColor: theme['arcom-color-gray-10'],
         /**
          * 副标题字体颜色
          * @en Subtitle font color
          */
-        subFontColor: '#4e5969',
+        subFontColor: theme['arcom-color-gray-8'],
         /**
          * 附加信息字体颜色
          * @en Additional information font color
          */
-        subInfoFontColor: '#86909c',
+        subInfoFontColor: theme['arcom-color-gray-6'],
         /**
          * 基础线条颜色
          * @en Base line color
          */
-        lineColor: '#e5e6eb',
+        lineColor: theme['arcom-color-gray-3'],
         /**
          * 基础主题色
          * @en Base theme color
          */
-        primaryColor: '#165dff',
+        primaryColor: theme['arcom-color-arcoblue-6'],
         /**
          * 基础禁用态颜色
          * @en Base disabled color
          */
-        primaryDisabledColor: '#94bfff',
+        primaryDisabledColor: theme['arcom-color-arcoblue-3'],
         /**
          * 基础危险态颜色
          * @en Base dangerous state color
          */
-        dangerColor: '#f53f3f',
+        dangerColor: theme['arcom-color-red-6'],
         /**
          * 基础警告态颜色
          * @en Base warning state color
          */
-        warningColor: '#ff7d00',
+        warningColor: theme['arcom-color-orange-6'],
         /**
          * 基础禁用态字体颜色
          * @en Base disabled font color
          */
-        disabledColor: '#c9cdd4',
+        disabledColor: theme['arcom-color-gray-4'],
         /**
          * 基础蒙层背景色
          * @en Base mask background color
@@ -76,7 +88,7 @@ function getGlobalTokens() {
          * 蒙层内容面板背景色
          * @en Content panel background color of Mask
          */
-        maskContentBackground: '#ffffff',
+        maskContentBackground: theme['arcom-color-bg-3'],
         /**
          * 隐藏滚动条预留宽度
          * @en Hidden scrollbar reserved width
@@ -1772,11 +1784,6 @@ function getCompTokens() {
          * @en Popover content font line height
          */
         popoverContentLineHeight: getRem(20),
-        /**
-         * 气泡内容文字颜色
-         * @en Popover content font color
-         */
-        popoverContentColor: '#fff',
         /**
          * 气泡内容禁用态文字颜色
          * @en Popover content disabled font color

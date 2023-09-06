@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { addCssRules, removeCssStyleDom, defaultLocale, ILocale } from '@arco-design/mobile-utils';
 
 export interface GlobalContextParams {
@@ -15,17 +15,23 @@ export interface GlobalContextParams {
      */
     system?: 'pc' | 'android' | 'ios' | '';
     /**
-     * 是否使用暗黑模式
-     * @en Whether to use dark mode
+     * 是否监听系统原生的暗黑模式变化(prefers-color-scheme: dark)以判断是否切为暗黑模式
+     * @en Whether to monitor the system's native dark mode changes (prefers-color-scheme: dark) to determine whether to switch to dark mode
      * @default false
      */
     useDarkMode?: boolean;
     /**
      * 是否处于暗黑模式，指定后以指定的值为准
-     * @en Whether it is in dark mode
+     * @en Whether it is in dark mode, the value shall prevail after being specified
      * @default false
      */
     isDarkMode?: boolean;
+    /**
+     * 当处于暗黑模式时，body上挂载的类名，为空值时不挂载类名
+     * @en When in dark mode, the class name mounted on the body, if it is empty, the class name will not be mounted
+     * @default "arco-theme-dark"
+     */
+    darkModeSelector?: string;
     /**
      * 主题变量，传入后将在线替换css变量，需设置less变量 @use-css-vars: 1
      * @en Theme variable. The css variable will be replaced online after input. The less variable needs to be set @use-css-vars: 1
@@ -44,11 +50,13 @@ export interface GlobalContextParams {
     useRtl?: boolean;
 }
 
+const DEFAULT_DARK_MODE_SELECTOR = 'arco-theme-dark';
+
 export const defaultContext: GlobalContextParams = {
     prefixCls: 'arco',
     system: '',
     useDarkMode: false,
-    isDarkMode: false,
+    darkModeSelector: DEFAULT_DARK_MODE_SELECTOR,
     locale: defaultLocale,
     useRtl: false,
 };
@@ -73,12 +81,36 @@ export default function ContextProvider(props: ContextProviderProps) {
     const {
         children,
         useDarkMode,
-        isDarkMode,
+        isDarkMode: userSetIsDarkMode,
+        darkModeSelector = DEFAULT_DARK_MODE_SELECTOR,
         theme,
         locale = defaultLocale,
         ...restProps
     } = props;
-    const [isDarkModeState, setIsDarkModeState] = useState<boolean>();
+
+    const [isDarkModeState, setIsDarkModeState] = useState<boolean>(() => {
+        if (typeof window !== 'undefined' && useDarkMode) {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        return false;
+    });
+
+    const isDarkMode = useMemo(() => {
+        // 如果未开启暗黑模式则不对body做操作
+        // @en If dark mode is not turned on, no operation will be performed on the body
+        if (userSetIsDarkMode === void 0 && !useDarkMode) {
+            return false;
+        }
+        const value = Boolean(userSetIsDarkMode !== void 0 ? userSetIsDarkMode : isDarkModeState);
+        const needUpdateBody = darkModeSelector && typeof document !== 'undefined';
+        if (value) {
+            needUpdateBody && document.body.classList.add(darkModeSelector);
+        } else {
+            needUpdateBody && document.body.classList.remove(darkModeSelector);
+        }
+        return value;
+    }, [userSetIsDarkMode, isDarkModeState, darkModeSelector, useDarkMode]);
+
     const changeDarkMode = useCallback(
         (res: MediaQueryListEvent) => setIsDarkModeState(res.matches),
         [],
@@ -121,7 +153,7 @@ export default function ContextProvider(props: ContextProviderProps) {
             value={{
                 ...defaultContext,
                 ...restProps,
-                isDarkMode: isDarkMode === void 0 ? isDarkModeState : isDarkMode,
+                isDarkMode,
                 useDarkMode,
                 locale: locale || defaultLocale,
             }}

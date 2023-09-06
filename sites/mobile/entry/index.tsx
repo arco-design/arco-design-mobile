@@ -10,7 +10,7 @@ import enCompositeDocs from '../pages/composite-comp/index-en-US';
 import Demo from '../widgets/demo';
 import Home from '../widgets/home';
 import TypicalDemo from '../widgets/typicalDemo';
-import useTheme from './useTheme';
+// import useTheme from './useTheme';
 import '../../../packages/arcodesign/components/style';
 import '../../../packages/arcodesign/tools/touch2mouse';
 import { render } from '../../../packages/arcodesign/components/_helpers';
@@ -23,7 +23,7 @@ setRootPixel();
 const useRtl = false;
 
 function App() {
-    const { theme } = useTheme();
+    // const { theme } = useTheme();
     const { locale } = useLocale();
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
     }, []);
 
     return (
-        <ContextProvider theme={theme} locale={locale} useRtl={useRtl}>
+        <ContextProvider locale={locale} useRtl={useRtl} useDarkMode>
             <HashRouter>
                 <Switch>
                     <Route
