@@ -15,9 +15,9 @@
         "cssKey": "action-sheet-cancel-border-color",
         "desc": "动作面板取消按钮顶线颜色",
         "override": "",
-        "value": "#F2F3F5",
-        "jsValue": "#F2F3F5",
-        "staticValue": "#F2F3F5",
+        "value": "@light-line-color",
+        "jsValue": "@global@lightLineColor",
+        "staticValue": "#f2f3f5",
         "localeDesc": {
             "ch": "动作面板取消按钮顶线颜色",
             "en": "Top border color of ActionSheet cancel button"
@@ -987,8 +987,8 @@
         "cssKey": "button-default-background",
         "desc": "default 类型按钮背景色",
         "override": "",
-        "value": "#E8F3FF",
-        "jsValue": "#E8F3FF",
+        "value": "@light-primary-color",
+        "jsValue": "@global@lightPrimaryColor",
         "staticValue": "#E8F3FF",
         "localeDesc": {
             "ch": "default 类型按钮背景色",
@@ -1011,8 +1011,8 @@
         "cssKey": "button-default-disabled-background",
         "desc": "default 类型按钮禁用态背景色",
         "override": "",
-        "value": "#E8F3FF",
-        "jsValue": "#E8F3FF",
+        "value": "@light-primary-color",
+        "jsValue": "@global@lightPrimaryColor",
         "staticValue": "#E8F3FF",
         "localeDesc": {
             "ch": "default 类型按钮禁用态背景色",
@@ -1059,9 +1059,9 @@
         "cssKey": "button-ghost-clicked-background",
         "desc": "ghost 类型按钮点击态背景色",
         "override": "",
-        "value": "#e8f3ff",
-        "jsValue": "#e8f3ff",
-        "staticValue": "#e8f3ff",
+        "value": "@light-primary-color",
+        "jsValue": "@global@lightPrimaryColor",
+        "staticValue": "#E8F3FF",
         "localeDesc": {
             "ch": "ghost 类型按钮点击态背景色",
             "en": "Background color of ghost button in click state"
@@ -1311,8 +1311,8 @@
         "cssKey": "button-primary-disabled-text-color",
         "desc": "primary 类型按钮禁用态文字颜色",
         "override": "button-primary-disabled-text",
-        "value": "#E8F3FF",
-        "jsValue": "#E8F3FF",
+        "value": "@light-primary-color",
+        "jsValue": "@global@lightPrimaryColor",
         "staticValue": "#E8F3FF",
         "localeDesc": {
             "ch": "primary 类型按钮禁用态文字颜色",
@@ -1377,6 +1377,18 @@
         "localeDesc": {
             "ch": "small 按钮文字大小",
             "en": "Small button font size"
+        }
+    },
+    "cardBackgroundColor": {
+        "cssKey": "card-background-color",
+        "desc": "卡片类元素背景色",
+        "override": "",
+        "value": "#F7F8FA",
+        "jsValue": "#F7F8FA",
+        "staticValue": "#F7F8FA",
+        "localeDesc": {
+            "ch": "卡片类元素背景色",
+            "en": "Background color of card elements"
         }
     },
     "carouselAutoTransition": {
@@ -1647,8 +1659,8 @@
         "cssKey": "cell-background-color",
         "desc": "单元格背景色",
         "override": "",
-        "value": "@background-color",
-        "jsValue": "@global@backgroundColor",
+        "value": "@container-background-color",
+        "jsValue": "@global@containerBackgroundColor",
         "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "单元格背景色",
@@ -2043,8 +2055,8 @@
         "cssKey": "circle-progress-mini-track-color",
         "desc": "环形进度条 微型进度条轨道颜色",
         "override": "",
-        "value": "#E8F3FF",
-        "jsValue": "#E8F3FF",
+        "value": "@light-primary-color",
+        "jsValue": "@global@lightPrimaryColor",
         "staticValue": "#E8F3FF",
         "localeDesc": {
             "ch": "环形进度条 微型进度条轨道颜色",
@@ -2067,9 +2079,9 @@
         "cssKey": "circle-progress-track-color",
         "desc": "环形进度条 轨道颜色",
         "override": "",
-        "value": "#F2F3F5",
-        "jsValue": "#F2F3F5",
-        "staticValue": "#F2F3F5",
+        "value": "@light-line-color",
+        "jsValue": "@global@lightLineColor",
+        "staticValue": "#f2f3f5",
         "localeDesc": {
             "ch": "环形进度条 轨道颜色",
             "en": "CircleProgress track color"
@@ -2139,8 +2151,8 @@
         "cssKey": "collapse-header-background",
         "desc": "collapse header的背景颜色",
         "override": "",
-        "value": "@background-color",
-        "jsValue": "@global@backgroundColor",
+        "value": "@container-background-color",
+        "jsValue": "@global@containerBackgroundColor",
         "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "collapse header的背景颜色",
@@ -2291,6 +2303,14 @@
             "en": "Base dangerous state color"
         }
     },
+    "darkActionSheetCancelBorderColor": {
+        "cssKey": "dark-action-sheet-cancel-border-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-line-color",
+        "jsValue": "@global@darkLightLineColor",
+        "staticValue": "#2e2e30"
+    },
     "darkAvatarDefaultOverlapBackground": {
         "cssKey": "dark-avatar-default-overlap-background",
         "desc": "",
@@ -2339,6 +2359,14 @@
         "jsValue": "@global@darkDangerColor",
         "staticValue": "#F76965"
     },
+    "darkButtonDefaultBackground": {
+        "cssKey": "dark-button-default-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-primary-color",
+        "jsValue": "@global@darkLightPrimaryColor",
+        "staticValue": "#000D4D"
+    },
     "darkButtonDefaultClickedBackground": {
         "cssKey": "dark-button-default-clicked-background",
         "desc": "",
@@ -2346,6 +2374,14 @@
         "value": "@dark-primary-disabled-color",
         "jsValue": "@global@darkPrimaryDisabledColor",
         "staticValue": "#0E32A6"
+    },
+    "darkButtonDefaultDisabledBackground": {
+        "cssKey": "dark-button-default-disabled-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-primary-color",
+        "jsValue": "@global@darkLightPrimaryColor",
+        "staticValue": "#000D4D"
     },
     "darkButtonDefaultDisabledTextColor": {
         "cssKey": "dark-button-default-disabled-text-color",
@@ -2362,6 +2398,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkButtonGhostClickedBackground": {
+        "cssKey": "dark-button-ghost-clicked-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-primary-color",
+        "jsValue": "@global@darkLightPrimaryColor",
+        "staticValue": "#000D4D"
     },
     "darkButtonGhostDisabledTextColor": {
         "cssKey": "dark-button-ghost-disabled-text-color",
@@ -2395,6 +2439,22 @@
         "jsValue": "@global@darkPrimaryDisabledColor",
         "staticValue": "#0E32A6"
     },
+    "darkButtonPrimaryDisabledTextColor": {
+        "cssKey": "dark-button-primary-disabled-text-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-primary-color",
+        "jsValue": "@global@darkLightPrimaryColor",
+        "staticValue": "#000D4D"
+    },
+    "darkCardBackgroundColor": {
+        "cssKey": "dark-card-background-color",
+        "desc": "",
+        "override": "",
+        "value": "hsla(0, 0%, 100%, 0.08)",
+        "jsValue": "hsla(0, 0%, 100%, 0.08)",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
     "darkCarouselIndicatorActiveInverseBackground": {
         "cssKey": "dark-carousel-indicator-active-inverse-background",
         "desc": "",
@@ -2423,9 +2483,9 @@
         "cssKey": "dark-cell-background-color",
         "desc": "",
         "override": "",
-        "value": "@dark-background-color",
-        "jsValue": "@global@darkBackgroundColor",
-        "staticValue": "#17171A"
+        "value": "@dark-container-background-color",
+        "jsValue": "@global@darkContainerBackgroundColor",
+        "staticValue": "#232324"
     },
     "darkCellDescColor": {
         "cssKey": "dark-cell-desc-color",
@@ -2475,6 +2535,14 @@
         "jsValue": "@global@darkDisabledColor",
         "staticValue": "#5f5f60"
     },
+    "darkCircleProgressMiniTrackColor": {
+        "cssKey": "dark-circle-progress-mini-track-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-primary-color",
+        "jsValue": "@global@darkLightPrimaryColor",
+        "staticValue": "#000D4D"
+    },
     "darkCircleProgressPrimaryColor": {
         "cssKey": "dark-circle-progress-primary-color",
         "desc": "",
@@ -2482,6 +2550,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkCircleProgressTrackColor": {
+        "cssKey": "dark-circle-progress-track-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-line-color",
+        "jsValue": "@global@darkLightLineColor",
+        "staticValue": "#2e2e30"
     },
     "darkCollapseContentColor": {
         "cssKey": "dark-collapse-content-color",
@@ -2503,9 +2579,9 @@
         "cssKey": "dark-collapse-header-background",
         "desc": "",
         "override": "",
-        "value": "@dark-background-color",
-        "jsValue": "@global@darkBackgroundColor",
-        "staticValue": "#17171A"
+        "value": "@dark-container-background-color",
+        "jsValue": "@global@darkContainerBackgroundColor",
+        "staticValue": "#232324"
     },
     "darkCollapseHeaderColor": {
         "cssKey": "dark-collapse-header-color",
@@ -2675,6 +2751,14 @@
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
     },
+    "darkDropdownMultiRowsOptionsItemBackground": {
+        "cssKey": "dark-dropdown-multi-rows-options-item-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
     "darkDropdownMultiRowsOptionsItemColor": {
         "cssKey": "dark-dropdown-multi-rows-options-item-color",
         "desc": "",
@@ -2683,6 +2767,14 @@
         "jsValue": "@global@darkSubFontColor",
         "staticValue": "#c5c5c5"
     },
+    "darkDropdownMultiRowsOptionsItemSelectedBackground": {
+        "cssKey": "dark-dropdown-multi-rows-options-item-selected-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-primary-color",
+        "jsValue": "@global@darkLightPrimaryColor",
+        "staticValue": "#000D4D"
+    },
     "darkDropdownMultiRowsOptionsItemSelectedColor": {
         "cssKey": "dark-dropdown-multi-rows-options-item-selected-color",
         "desc": "",
@@ -2690,6 +2782,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkDropdownOptionsBackgroundColor": {
+        "cssKey": "dark-dropdown-options-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-container-background-color",
+        "jsValue": "@global@darkContainerBackgroundColor",
+        "staticValue": "#232324"
     },
     "darkDropdownOptionsItemColor": {
         "cssKey": "dark-dropdown-options-item-color",
@@ -2714,6 +2814,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkEllipsisFloatEllipsisNodeBackground": {
+        "cssKey": "dark-ellipsis-float-ellipsis-node-background",
+        "desc": "",
+        "override": "",
+        "value": "linear-gradient(90deg, rgba(35, 35, 36, 0), #232324 20PX, #232324)",
+        "jsValue": "linear-gradient(90deg, rgba(35, 35, 36, 0), #232324 20PX, #232324)",
+        "staticValue": "linear-gradient(90deg, rgba(35, 35, 36, 0), #232324 20PX, #232324)"
     },
     "darkFontColor": {
         "cssKey": "dark-font-color",
@@ -2763,6 +2871,14 @@
         "jsValue": "@global@darkLineColor",
         "staticValue": "#484849"
     },
+    "darkImagePickerAddBackground": {
+        "cssKey": "dark-image-picker-add-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
     "darkImagePickerAddTextColor": {
         "cssKey": "dark-image-picker-add-text-color",
         "desc": "",
@@ -2771,6 +2887,22 @@
         "jsValue": "@global@darkSubInfoFontColor",
         "staticValue": "#929293"
     },
+    "darkImagePlaceholderBackground": {
+        "cssKey": "dark-image-placeholder-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
+    "darkIndexBarBackground": {
+        "cssKey": "dark-index-bar-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-background-color",
+        "jsValue": "@global@darkBackgroundColor",
+        "staticValue": "#17171A"
+    },
     "darkIndexBarGroupActiveColor": {
         "cssKey": "dark-index-bar-group-active-color",
         "desc": "",
@@ -2778,6 +2910,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkIndexBarGroupTitleBackground": {
+        "cssKey": "dark-index-bar-group-title-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
     },
     "darkIndexBarGroupTitleFontColor": {
         "cssKey": "dark-index-bar-group-title-font-color",
@@ -2827,6 +2967,62 @@
         "jsValue": "@global@darkDisabledColor",
         "staticValue": "#5f5f60"
     },
+    "darkKeyboardBackground": {
+        "cssKey": "dark-keyboard-background",
+        "desc": "",
+        "override": "",
+        "value": "#232324",
+        "jsValue": "#232324",
+        "staticValue": "#232324"
+    },
+    "darkKeyboardConfirmKeyBackground": {
+        "cssKey": "dark-keyboard-confirm-key-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-primary-color",
+        "jsValue": "@global@darkPrimaryColor",
+        "staticValue": "#3C7EFF"
+    },
+    "darkKeyboardKeyActiveBackground": {
+        "cssKey": "dark-keyboard-key-active-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-line-color",
+        "jsValue": "@global@darkLineColor",
+        "staticValue": "#484849"
+    },
+    "darkKeyboardKeyBackground": {
+        "cssKey": "dark-keyboard-key-background",
+        "desc": "",
+        "override": "",
+        "value": "#2e2e30",
+        "jsValue": "#2e2e30",
+        "staticValue": "#2e2e30"
+    },
+    "darkKeyboardKeyColor": {
+        "cssKey": "dark-keyboard-key-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-font-color",
+        "jsValue": "@global@darkFontColor",
+        "staticValue": "#f6f6f6"
+    },
+    "darkLightLineColor": {
+        "cssKey": "dark-light-line-color",
+        "desc": "",
+        "override": "",
+        "value": "#2e2e30",
+        "jsValue": "#2e2e30",
+        "staticValue": "#2e2e30"
+    },
+    "darkLightPrimaryColor": {
+        "cssKey": "dark-light-primary-color",
+        "desc": "",
+        "override": "",
+        "value": "#000D4D",
+        "jsValue": "#000D4D",
+        "staticValue": "#000D4D"
+    },
     "darkLineColor": {
         "cssKey": "dark-line-color",
         "desc": "",
@@ -2871,9 +3067,9 @@
         "cssKey": "dark-nav-bar-background",
         "desc": "",
         "override": "",
-        "value": "@dark-background-color",
-        "jsValue": "@global@darkBackgroundColor",
-        "staticValue": "#17171A"
+        "value": "@dark-container-background-color",
+        "jsValue": "@global@darkContainerBackgroundColor",
+        "staticValue": "#232324"
     },
     "darkNavBarBottomBorderColor": {
         "cssKey": "dark-nav-bar-bottom-border-color",
@@ -2891,6 +3087,14 @@
         "jsValue": "@global@darkFontColor",
         "staticValue": "#f6f6f6"
     },
+    "darkNoticeBarBackground": {
+        "cssKey": "dark-notice-bar-background",
+        "desc": "",
+        "override": "",
+        "value": "#4D1B00",
+        "jsValue": "#4D1B00",
+        "staticValue": "#4D1B00"
+    },
     "darkNoticeBarColor": {
         "cssKey": "dark-notice-bar-color",
         "desc": "",
@@ -2898,6 +3102,14 @@
         "value": "@dark-warning-color",
         "jsValue": "@global@darkWarningColor",
         "staticValue": "#FF9626"
+    },
+    "darkNoticeBarGradientBackground": {
+        "cssKey": "dark-notice-bar-gradient-background",
+        "desc": "",
+        "override": "",
+        "value": "linear-gradient(to right, #4D1B00, rgba(77, 27, 0, 0))",
+        "jsValue": "linear-gradient(to right, #4D1B00, rgba(77, 27, 0, 0))",
+        "staticValue": "linear-gradient(to right, #4D1B00, rgba(77, 27, 0, 0))"
     },
     "darkNotifyErrorBackground": {
         "cssKey": "dark-notify-error-background",
@@ -2923,6 +3135,14 @@
         "jsValue": "@global@darkWarningColor",
         "staticValue": "#FF9626"
     },
+    "darkPaginationFieldDefaultBackground": {
+        "cssKey": "dark-pagination-field-default-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
     "darkPaginationFieldDefaultTextColor": {
         "cssKey": "dark-pagination-field-default-text-color",
         "desc": "",
@@ -2930,6 +3150,22 @@
         "value": "@dark-font-color",
         "jsValue": "@global@darkFontColor",
         "staticValue": "#f6f6f6"
+    },
+    "darkPaginationFieldDisabledBackground": {
+        "cssKey": "dark-pagination-field-disabled-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
+    "darkPaginationFieldDisabledTextColor": {
+        "cssKey": "dark-pagination-field-disabled-text-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-disabled-color",
+        "jsValue": "@global@darkDisabledColor",
+        "staticValue": "#5f5f60"
     },
     "darkPaginationFieldPrimaryBackground": {
         "cssKey": "dark-pagination-field-primary-background",
@@ -3011,14 +3247,6 @@
         "jsValue": "@global@darkLineColor",
         "staticValue": "#484849"
     },
-    "darkPopoverContentWhiteThemeColor": {
-        "cssKey": "dark-popover-content-white-theme-color",
-        "desc": "",
-        "override": "",
-        "value": "@dark-font-color",
-        "jsValue": "@global@darkFontColor",
-        "staticValue": "#f6f6f6"
-    },
     "darkPopoverContentWhiteThemeDisabledColor": {
         "cssKey": "dark-popover-content-white-theme-disabled-color",
         "desc": "",
@@ -3067,6 +3295,14 @@
         "jsValue": "@global@darkDisabledColor",
         "staticValue": "#5f5f60"
     },
+    "darkProgressDisabledTextColor": {
+        "cssKey": "dark-progress-disabled-text-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-sub-info-font-color",
+        "jsValue": "@global@darkSubInfoFontColor",
+        "staticValue": "#929293"
+    },
     "darkProgressPrimaryColor": {
         "cssKey": "dark-progress-primary-color",
         "desc": "",
@@ -3074,6 +3310,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkProgressTrackColor": {
+        "cssKey": "dark-progress-track-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-line-color",
+        "jsValue": "@global@darkLightLineColor",
+        "staticValue": "#2e2e30"
     },
     "darkPullRefreshContentBackgroundColor": {
         "cssKey": "dark-pull-refresh-content-background-color",
@@ -3083,6 +3327,14 @@
         "jsValue": "@global@darkBackgroundColor",
         "staticValue": "#17171A"
     },
+    "darkPullRefreshLabelBackgroundColor": {
+        "cssKey": "dark-pull-refresh-label-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
     "darkPullRefreshLabelLoadingColor": {
         "cssKey": "dark-pull-refresh-label-loading-color",
         "desc": "",
@@ -3090,6 +3342,22 @@
         "value": "@dark-sub-info-font-color",
         "jsValue": "@global@darkSubInfoFontColor",
         "staticValue": "#929293"
+    },
+    "darkRateIconDisabledActiveColor": {
+        "cssKey": "dark-rate-icon-disabled-active-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-disabled-color",
+        "jsValue": "@global@darkDisabledColor",
+        "staticValue": "#5f5f60"
+    },
+    "darkRateIconNormalColor": {
+        "cssKey": "dark-rate-icon-normal-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-line-color",
+        "jsValue": "@global@darkLineColor",
+        "staticValue": "#484849"
     },
     "darkSearchBarAssociationItemColor": {
         "cssKey": "dark-search-bar-association-item-color",
@@ -3107,6 +3375,14 @@
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
     },
+    "darkSearchBarBackgroundColor": {
+        "cssKey": "dark-search-bar-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-background-color",
+        "jsValue": "@global@darkBackgroundColor",
+        "staticValue": "#17171A"
+    },
     "darkSearchBarCancelBtnColor": {
         "cssKey": "dark-search-bar-cancel-btn-color",
         "desc": "",
@@ -3114,6 +3390,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkSearchBarClearIconColor": {
+        "cssKey": "dark-search-bar-clear-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-disabled-color",
+        "jsValue": "@global@darkDisabledColor",
+        "staticValue": "#5f5f60"
     },
     "darkSearchBarInputCaretColor": {
         "cssKey": "dark-search-bar-input-caret-color",
@@ -3130,6 +3414,38 @@
         "value": "@dark-disabled-color",
         "jsValue": "@global@darkDisabledColor",
         "staticValue": "#5f5f60"
+    },
+    "darkSearchBarInputWrapperBackgroundColor": {
+        "cssKey": "dark-search-bar-input-wrapper-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-line-color",
+        "jsValue": "@global@darkLightLineColor",
+        "staticValue": "#2e2e30"
+    },
+    "darkSearchBarSearchIconColor": {
+        "cssKey": "dark-search-bar-search-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-sub-info-font-color",
+        "jsValue": "@global@darkSubInfoFontColor",
+        "staticValue": "#929293"
+    },
+    "darkSkeletonBackgroundColor": {
+        "cssKey": "dark-skeleton-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-line-color",
+        "jsValue": "@global@darkLightLineColor",
+        "staticValue": "#2e2e30"
+    },
+    "darkSkeletonGradientAnimationColor": {
+        "cssKey": "dark-skeleton-gradient-animation-color",
+        "desc": "",
+        "override": "",
+        "value": "hsla(0, 0%, 100%, 0.08)",
+        "jsValue": "hsla(0, 0%, 100%, 0.08)",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
     },
     "darkSliderLineActivatedColor": {
         "cssKey": "dark-slider-line-activated-color",
@@ -3167,9 +3483,41 @@
         "cssKey": "dark-slider-thumb-background",
         "desc": "",
         "override": "",
-        "value": "@dark-background-color",
-        "jsValue": "@global@darkBackgroundColor",
-        "staticValue": "#17171A"
+        "value": "@dark-container-background-color",
+        "jsValue": "@global@darkContainerBackgroundColor",
+        "staticValue": "#232324"
+    },
+    "darkStepperContentColor": {
+        "cssKey": "dark-stepper-content-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-font-color",
+        "jsValue": "@global@darkFontColor",
+        "staticValue": "#f6f6f6"
+    },
+    "darkStepperDefaultBackgroundColor": {
+        "cssKey": "dark-stepper-default-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
+    "darkStepperDisableColor": {
+        "cssKey": "dark-stepper-disable-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-disabled-color",
+        "jsValue": "@global@darkDisabledColor",
+        "staticValue": "#5f5f60"
+    },
+    "darkStepperSquareBorderColor": {
+        "cssKey": "dark-stepper-square-border-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-line-color",
+        "jsValue": "@global@darkLightLineColor",
+        "staticValue": "#2e2e30"
     },
     "darkStepsDescriptionColor": {
         "cssKey": "dark-steps-description-color",
@@ -3202,6 +3550,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkStepsFinishIconNumBackground": {
+        "cssKey": "dark-steps-finish-icon-num-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-primary-color",
+        "jsValue": "@global@darkLightPrimaryColor",
+        "staticValue": "#000D4D"
     },
     "darkStepsFinishIconSvgColor": {
         "cssKey": "dark-steps-finish-icon-svg-color",
@@ -3283,6 +3639,14 @@
         "jsValue": "@global@darkSubInfoFontColor",
         "staticValue": "#929293"
     },
+    "darkStepsWaitIconNumBackground": {
+        "cssKey": "dark-steps-wait-icon-num-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-line-color",
+        "jsValue": "@global@darkLightLineColor",
+        "staticValue": "#2e2e30"
+    },
     "darkStepsWaitTitleColor": {
         "cssKey": "dark-steps-wait-title-color",
         "desc": "",
@@ -3315,6 +3679,14 @@
         "jsValue": "@global@darkFontColor",
         "staticValue": "#f6f6f6"
     },
+    "darkSwitchAndroidBackground": {
+        "cssKey": "dark-switch-android-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-line-color",
+        "jsValue": "@global@darkLineColor",
+        "staticValue": "#484849"
+    },
     "darkSwitchAndroidCheckedBackground": {
         "cssKey": "dark-switch-android-checked-background",
         "desc": "",
@@ -3322,6 +3694,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkSwitchAndroidDisabledBackground": {
+        "cssKey": "dark-switch-android-disabled-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-line-color",
+        "jsValue": "@global@darkLightLineColor",
+        "staticValue": "#2e2e30"
     },
     "darkSwitchAndroidDisabledCheckedBackground": {
         "cssKey": "dark-switch-android-disabled-checked-background",
@@ -3359,9 +3739,9 @@
         "cssKey": "dark-tabs-tab-bar-background",
         "desc": "",
         "override": "",
-        "value": "@dark-background-color",
-        "jsValue": "@global@darkBackgroundColor",
-        "staticValue": "#17171A"
+        "value": "@dark-container-background-color",
+        "jsValue": "@global@darkContainerBackgroundColor",
+        "staticValue": "#232324"
     },
     "darkTabsTabBarCardColor": {
         "cssKey": "dark-tabs-tab-bar-card-color",
@@ -3386,6 +3766,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkTabsTabBarTagBackground": {
+        "cssKey": "dark-tabs-tab-bar-tag-background",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
     },
     "darkTabsTabBarTagTextColor": {
         "cssKey": "dark-tabs-tab-bar-tag-text-color",
@@ -3418,6 +3806,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkTagPrimaryBackgroundColor": {
+        "cssKey": "dark-tag-primary-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-light-primary-color",
+        "jsValue": "@global@darkLightPrimaryColor",
+        "staticValue": "#000D4D"
     },
     "darkTagPrimaryBorderColor": {
         "cssKey": "dark-tag-primary-border-color",
@@ -4297,9 +4693,9 @@
         "cssKey": "dropdown-multi-rows-options-item-background",
         "desc": "dropdown的弹出框中多列样式下选项的背景色",
         "override": "",
-        "value": "#f7f8fa",
-        "jsValue": "#f7f8fa",
-        "staticValue": "#f7f8fa",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "dropdown的弹出框中多列样式下选项的背景色",
             "en": "Options item background color in multi-column Dropdown"
@@ -4369,8 +4765,8 @@
         "cssKey": "dropdown-multi-rows-options-item-selected-background",
         "desc": "dropdown的弹出框中多列样式下选项被选中时的背景色",
         "override": "",
-        "value": "#E8F3FF",
-        "jsValue": "#E8F3FF",
+        "value": "@light-primary-color",
+        "jsValue": "@global@lightPrimaryColor",
         "staticValue": "#E8F3FF",
         "localeDesc": {
             "ch": "dropdown的弹出框中多列样式下选项被选中时的背景色",
@@ -4393,9 +4789,9 @@
         "cssKey": "dropdown-options-background-color",
         "desc": "dropdown的弹出框的背景颜色",
         "override": "",
-        "value": "#ffffff",
-        "jsValue": "#ffffff",
-        "staticValue": "#ffffff",
+        "value": "@container-background-color",
+        "jsValue": "@global@containerBackgroundColor",
+        "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "dropdown的弹出框的背景颜色",
             "en": "Dropdown options background color"
@@ -4845,9 +5241,9 @@
         "cssKey": "image-picker-add-background",
         "desc": "图片选择器添加图片按钮的背景色",
         "override": "",
-        "value": "#f7f8fa",
-        "jsValue": "#f7f8fa",
-        "staticValue": "#f7f8fa",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "图片选择器添加图片按钮的背景色",
             "en": "Background of the add button of ImagePicker"
@@ -5037,9 +5433,9 @@
         "cssKey": "image-placeholder-background",
         "desc": "图片 placeholder 背景色",
         "override": "",
-        "value": "#f7f8fa",
-        "jsValue": "#f7f8fa",
-        "staticValue": "#f7f8fa",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "图片 placeholder 背景色",
             "en": "Image placeholder background color"
@@ -5145,9 +5541,9 @@
         "cssKey": "index-bar-background",
         "desc": "索引栏背景颜色",
         "override": "",
-        "value": "white",
-        "jsValue": "white",
-        "staticValue": "white",
+        "value": "@background-color",
+        "jsValue": "@global@backgroundColor",
+        "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "索引栏背景颜色",
             "en": "IndexBar background color"
@@ -5205,9 +5601,9 @@
         "cssKey": "index-bar-group-title-background",
         "desc": "索引栏标题背景颜色",
         "override": "",
-        "value": "#f7f8fa",
-        "jsValue": "#f7f8fa",
-        "staticValue": "#f7f8fa",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "索引栏标题背景颜色",
             "en": "IndexBar title background color"
@@ -5649,9 +6045,9 @@
         "cssKey": "keyboard-confirm-key-background",
         "desc": "键盘右边一列确认键背景色",
         "override": "",
-        "value": "#165dff",
-        "jsValue": "#165dff",
-        "staticValue": "#165dff",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165DFF",
         "localeDesc": {
             "ch": "键盘右边一列确认键背景色",
             "en": "Keyboard right column confirm background"
@@ -5697,8 +6093,8 @@
         "cssKey": "keyboard-key-active-background",
         "desc": "键盘按钮背景色激活状态下",
         "override": "",
-        "value": "#e5e6eb",
-        "jsValue": "#e5e6eb",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
         "staticValue": "#e5e6eb",
         "localeDesc": {
             "ch": "键盘按钮背景色激活状态下",
@@ -5733,8 +6129,8 @@
         "cssKey": "keyboard-key-color",
         "desc": "键盘按钮字体颜色",
         "override": "",
-        "value": "#1d2129",
-        "jsValue": "#1d2129",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
         "staticValue": "#1d2129",
         "localeDesc": {
             "ch": "键盘按钮字体颜色",
@@ -5811,6 +6207,30 @@
         "localeDesc": {
             "ch": "键盘统一边距",
             "en": "Keyboard unified margin"
+        }
+    },
+    "lightLineColor": {
+        "cssKey": "light-line-color",
+        "desc": "更浅的线条色",
+        "override": "",
+        "value": "#f2f3f5",
+        "jsValue": "#f2f3f5",
+        "staticValue": "#f2f3f5",
+        "localeDesc": {
+            "ch": "更浅的线条色",
+            "en": "Lighter line color"
+        }
+    },
+    "lightPrimaryColor": {
+        "cssKey": "light-primary-color",
+        "desc": "更浅的主题色",
+        "override": "",
+        "value": "#E8F3FF",
+        "jsValue": "#E8F3FF",
+        "staticValue": "#E8F3FF",
+        "localeDesc": {
+            "ch": "更浅的主题色",
+            "en": "Lighter theme color"
         }
     },
     "lineColor": {
@@ -5949,8 +6369,8 @@
         "cssKey": "nav-bar-background",
         "desc": "navBar 背景色",
         "override": "",
-        "value": "@background-color",
-        "jsValue": "@global@backgroundColor",
+        "value": "@container-background-color",
+        "jsValue": "@global@containerBackgroundColor",
         "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "navBar 背景色",
@@ -6057,9 +6477,9 @@
         "cssKey": "notice-bar-background",
         "desc": "通知栏背景色",
         "override": "",
-        "value": "#fff7e8",
-        "jsValue": "#fff7e8",
-        "staticValue": "#fff7e8",
+        "value": "#FFF7E8",
+        "jsValue": "#FFF7E8",
+        "staticValue": "#FFF7E8",
         "localeDesc": {
             "ch": "通知栏背景色",
             "en": "NoticeBar background"
@@ -6357,8 +6777,8 @@
         "cssKey": "pagination-field-default-background",
         "desc": "分页器翻页默认按钮背景色",
         "override": "",
-        "value": "#F7F8FA",
-        "jsValue": "#F7F8FA",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
         "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "分页器翻页默认按钮背景色",
@@ -6381,8 +6801,8 @@
         "cssKey": "pagination-field-disabled-background",
         "desc": "分页器翻页按钮禁用背景颜色",
         "override": "",
-        "value": "#F7F8FA",
-        "jsValue": "#F7F8FA",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
         "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "分页器翻页按钮禁用背景颜色",
@@ -6393,9 +6813,9 @@
         "cssKey": "pagination-field-disabled-text-color",
         "desc": "分页器翻页按钮禁用字体颜色",
         "override": "",
-        "value": "#C9CDD4",
-        "jsValue": "#C9CDD4",
-        "staticValue": "#C9CDD4",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
+        "staticValue": "#c9cdd4",
         "localeDesc": {
             "ch": "分页器翻页按钮禁用字体颜色",
             "en": "Font color of the disabled pagination button"
@@ -6861,8 +7281,8 @@
         "cssKey": "popover-content-white-theme-color",
         "desc": "白色主题气泡内容文字颜色",
         "override": "popover-content-color-white-theme",
-        "value": "@font-color",
-        "jsValue": "@global@fontColor",
+        "value": "#1d2129",
+        "jsValue": "#1d2129",
         "staticValue": "#1d2129",
         "localeDesc": {
             "ch": "白色主题气泡内容文字颜色",
@@ -7257,9 +7677,9 @@
         "cssKey": "progress-disabled-text-color",
         "desc": "进度条 不可用状态文字颜色",
         "override": "",
-        "value": "#86909C",
-        "jsValue": "#86909C",
-        "staticValue": "#86909C",
+        "value": "@sub-info-font-color",
+        "jsValue": "@global@subInfoFontColor",
+        "staticValue": "#86909c",
         "localeDesc": {
             "ch": "进度条 不可用状态文字颜色",
             "en": "Progress bar disabled font color"
@@ -7437,9 +7857,9 @@
         "cssKey": "progress-track-color",
         "desc": "进度条 轨道颜色",
         "override": "",
-        "value": "#F2F3F5",
-        "jsValue": "#F2F3F5",
-        "staticValue": "#F2F3F5",
+        "value": "@light-line-color",
+        "jsValue": "@global@lightLineColor",
+        "staticValue": "#f2f3f5",
         "localeDesc": {
             "ch": "进度条 轨道颜色",
             "en": "Progress bar track color"
@@ -7473,9 +7893,9 @@
         "cssKey": "pull-refresh-label-background-color",
         "desc": "下拉刷新组件状态文案内容区背景色",
         "override": "pull-refresh-wrapper-background-color",
-        "value": "#f7f8fa",
-        "jsValue": "#f7f8fa",
-        "staticValue": "#f7f8fa",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "下拉刷新组件状态文案内容区背景色",
             "en": "PullRefresh label background color"
@@ -7533,9 +7953,9 @@
         "cssKey": "rate-icon-disabled-active-color",
         "desc": "评分图标禁用时选中颜色",
         "override": "",
-        "value": "#C9CDD4",
-        "jsValue": "#C9CDD4",
-        "staticValue": "#C9CDD4",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
+        "staticValue": "#c9cdd4",
         "localeDesc": {
             "ch": "评分图标禁用时选中颜色",
             "en": "Active color of disabled Rate icon"
@@ -7545,9 +7965,9 @@
         "cssKey": "rate-icon-normal-color",
         "desc": "评分图标未选中颜色",
         "override": "",
-        "value": "#E5E6EB",
-        "jsValue": "#E5E6EB",
-        "staticValue": "#E5E6EB",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
+        "staticValue": "#e5e6eb",
         "localeDesc": {
             "ch": "评分图标未选中颜色",
             "en": "Normal color of Rate icon"
@@ -7665,8 +8085,8 @@
         "cssKey": "search-bar-background-color",
         "desc": "搜索栏背景颜色",
         "override": "",
-        "value": "#FFFFFF",
-        "jsValue": "#FFFFFF",
+        "value": "@background-color",
+        "jsValue": "@global@backgroundColor",
         "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "搜索栏背景颜色",
@@ -7713,9 +8133,9 @@
         "cssKey": "search-bar-clear-icon-color",
         "desc": "搜索栏清除按钮的颜色",
         "override": "",
-        "value": "#C9CDD4",
-        "jsValue": "#C9CDD4",
-        "staticValue": "#C9CDD4",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
+        "staticValue": "#c9cdd4",
         "localeDesc": {
             "ch": "搜索栏清除按钮的颜色",
             "en": "Color of SearchBar clear icon"
@@ -7761,9 +8181,9 @@
         "cssKey": "search-bar-input-wrapper-background-color",
         "desc": "搜索输入框容器背景颜色",
         "override": "",
-        "value": "#F2F3F5",
-        "jsValue": "#F2F3F5",
-        "staticValue": "#F2F3F5",
+        "value": "@light-line-color",
+        "jsValue": "@global@lightLineColor",
+        "staticValue": "#f2f3f5",
         "localeDesc": {
             "ch": "搜索输入框容器背景颜色",
             "en": "SearchBar input container background color"
@@ -7845,9 +8265,9 @@
         "cssKey": "search-bar-search-icon-color",
         "desc": "搜索栏搜索按钮的颜色",
         "override": "",
-        "value": "#86909C",
-        "jsValue": "#86909C",
-        "staticValue": "#86909C",
+        "value": "@sub-info-font-color",
+        "jsValue": "@global@subInfoFontColor",
+        "staticValue": "#86909c",
         "localeDesc": {
             "ch": "搜索栏搜索按钮的颜色",
             "en": "Color of SearchBar search icon"
@@ -7893,9 +8313,9 @@
         "cssKey": "skeleton-background-color",
         "desc": "骨架屏元素背景色",
         "override": "",
-        "value": "#F2F3F5",
-        "jsValue": "#F2F3F5",
-        "staticValue": "#F2F3F5",
+        "value": "@light-line-color",
+        "jsValue": "@global@lightLineColor",
+        "staticValue": "#f2f3f5",
         "localeDesc": {
             "ch": "骨架屏元素背景色",
             "en": "Skeleton element background color"
@@ -8311,8 +8731,8 @@
         "cssKey": "slider-thumb-background",
         "desc": "slider 滑块的背景色",
         "override": "slider-thumb-color",
-        "value": "@background-color",
-        "jsValue": "@global@backgroundColor",
+        "value": "@container-background-color",
+        "jsValue": "@global@containerBackgroundColor",
         "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "slider 滑块的背景色",
@@ -8407,8 +8827,8 @@
         "cssKey": "stepper-content-color",
         "desc": "步进器内容字体颜色",
         "override": "",
-        "value": "#1d2129",
-        "jsValue": "#1d2129",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
         "staticValue": "#1d2129",
         "localeDesc": {
             "ch": "步进器内容字体颜色",
@@ -8419,9 +8839,9 @@
         "cssKey": "stepper-default-background-color",
         "desc": "步进器默认背景颜色",
         "override": "",
-        "value": "#f7f8fa",
-        "jsValue": "#f7f8fa",
-        "staticValue": "#f7f8fa",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "步进器默认背景颜色",
             "en": "Background default colr of Stepper"
@@ -8431,8 +8851,8 @@
         "cssKey": "stepper-disable-color",
         "desc": "步进器禁用状态字体颜色",
         "override": "",
-        "value": "#c9cdd4",
-        "jsValue": "#c9cdd4",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
         "staticValue": "#c9cdd4",
         "localeDesc": {
             "ch": "步进器禁用状态字体颜色",
@@ -8515,21 +8935,21 @@
         "cssKey": "stepper-square-background-color",
         "desc": "步进器方角样式背景颜色",
         "override": "",
-        "value": "#ffffff",
-        "jsValue": "#ffffff",
-        "staticValue": "#ffffff",
+        "value": "transparent",
+        "jsValue": "transparent",
+        "staticValue": "transparent",
         "localeDesc": {
             "ch": "步进器方角样式背景颜色",
             "en": "Background color of Stepper square style"
         }
     },
-    "stepperSquareBorder": {
-        "cssKey": "stepper-square-border",
+    "stepperSquareBorderColor": {
+        "cssKey": "stepper-square-border-color",
         "desc": "步进器方角边框样式",
         "override": "",
-        "value": "1PX solid #f2f3f5",
-        "jsValue": "1PX solid #f2f3f5",
-        "staticValue": "1PX solid #f2f3f5",
+        "value": "@light-line-color",
+        "jsValue": "@global@lightLineColor",
+        "staticValue": "#f2f3f5",
         "localeDesc": {
             "ch": "步进器方角边框样式",
             "en": "Square border style of Stepper"
@@ -8695,8 +9115,8 @@
         "cssKey": "steps-finish-icon-num-background",
         "desc": "steps 无文字步骤背景色",
         "override": "",
-        "value": "#E8F3FF",
-        "jsValue": "#E8F3FF",
+        "value": "@light-primary-color",
+        "jsValue": "@global@lightPrimaryColor",
         "staticValue": "#E8F3FF",
         "localeDesc": {
             "ch": "steps 无文字步骤背景色",
@@ -9103,9 +9523,9 @@
         "cssKey": "steps-wait-icon-num-background",
         "desc": "steps 无文字等待中步骤背景色",
         "override": "",
-        "value": "#F2F3F5",
-        "jsValue": "#F2F3F5",
-        "staticValue": "#F2F3F5",
+        "value": "@light-line-color",
+        "jsValue": "@global@lightLineColor",
+        "staticValue": "#f2f3f5",
         "localeDesc": {
             "ch": "steps 无文字等待中步骤背景色",
             "en": "Non-text steps background color in waiting state"
@@ -9333,9 +9753,9 @@
         "cssKey": "switch-android-background",
         "desc": "switch 安卓开关背景色",
         "override": "",
-        "value": "#E5E6EB",
-        "jsValue": "#E5E6EB",
-        "staticValue": "#E5E6EB",
+        "value": "@line-color",
+        "jsValue": "@global@lineColor",
+        "staticValue": "#e5e6eb",
         "localeDesc": {
             "ch": "switch 安卓开关背景色",
             "en": "Switch background color in Android"
@@ -9369,9 +9789,9 @@
         "cssKey": "switch-android-disabled-background",
         "desc": "switch 安卓开关默认关闭禁用点击时背景色",
         "override": "",
-        "value": "#F2F3F5",
-        "jsValue": "#F2F3F5",
-        "staticValue": "#F2F3F5",
+        "value": "@light-line-color",
+        "jsValue": "@global@lightLineColor",
+        "staticValue": "#f2f3f5",
         "localeDesc": {
             "ch": "switch 安卓开关默认关闭禁用点击时背景色",
             "en": "Default background color of disable switch which is close in Android"
@@ -9885,8 +10305,8 @@
         "cssKey": "tabs-tab-bar-background",
         "desc": "tabs tabbar 背景色",
         "override": "tab-bar-background",
-        "value": "@background-color",
-        "jsValue": "@global@backgroundColor",
+        "value": "@container-background-color",
+        "jsValue": "@global@containerBackgroundColor",
         "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "tabs tabbar 背景色",
@@ -10029,9 +10449,9 @@
         "cssKey": "tabs-tab-bar-tag-background",
         "desc": "tabs 标签样式下每个选项卡的背景色",
         "override": "tab-bar-tag-background",
-        "value": "#f7f8fA",
-        "jsValue": "#f7f8fA",
-        "staticValue": "#f7f8fA",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "tabs 标签样式下每个选项卡的背景色",
             "en": "Background color of each tab in tag tabs"
@@ -10365,9 +10785,9 @@
         "cssKey": "tag-primary-background-color",
         "desc": "tag 基础背景色",
         "override": "",
-        "value": "#e8f3ff",
-        "jsValue": "#e8f3ff",
-        "staticValue": "#e8f3ff",
+        "value": "@light-primary-color",
+        "jsValue": "@global@lightPrimaryColor",
+        "staticValue": "#E8F3FF",
         "localeDesc": {
             "ch": "tag 基础背景色",
             "en": "Tag primary background color"

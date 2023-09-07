@@ -62,7 +62,11 @@ export default function KeyboardDemo() {
                                     textAlign: 'right',
                                 }}
                             >
-                                <IconArrowDown onClick={close} style={{ fontSize: 20 }} />
+                                <IconArrowDown
+                                    className="demo-keyboard-arrow"
+                                    onClick={close}
+                                    style={{ fontSize: 20 }}
+                                />
                             </div>,
                         );
                     }}

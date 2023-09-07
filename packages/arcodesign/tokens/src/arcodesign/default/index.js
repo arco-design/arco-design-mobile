@@ -30,6 +30,11 @@ function getGlobalTokens() {
          */
         containerBackgroundColor: theme['arcom-color-bg-2'],
         /**
+         * 卡片类元素背景色
+         * @en Background color of card elements
+         */
+        cardBackgroundColor: theme['arcom-color-fill-2'],
+        /**
          * 基础字体颜色
          * @en Base font color
          */
@@ -50,6 +55,11 @@ function getGlobalTokens() {
          */
         lineColor: theme['arcom-color-gray-3'],
         /**
+         * 更浅的线条色
+         * @en Lighter line color
+         */
+        lightLineColor: theme['arcom-color-gray-2'],
+        /**
          * 基础主题色
          * @en Base theme color
          */
@@ -59,6 +69,11 @@ function getGlobalTokens() {
          * @en Base disabled color
          */
         primaryDisabledColor: theme['arcom-color-arcoblue-3'],
+        /**
+         * 更浅的主题色
+         * @en Lighter theme color
+         */
+        lightPrimaryColor: theme['arcom-color-arcoblue-1'],
         /**
          * 基础危险态颜色
          * @en Base dangerous state color
@@ -863,12 +878,12 @@ function getCompTokens() {
          * @en Font color of disabled primary button
          * @override buttonPrimaryDisabledText
          */
-        buttonPrimaryDisabledTextColor: '#E8F3FF',
+        buttonPrimaryDisabledTextColor: useGlobal('lightPrimaryColor'),
         /**
          * default 类型按钮背景色
          * @en Default button background color
          */
-        buttonDefaultBackground: '#E8F3FF',
+        buttonDefaultBackground: useGlobal('lightPrimaryColor'),
         /**
          * default 类型按钮点击态背景色
          * @en Background color of default button in click state
@@ -878,7 +893,7 @@ function getCompTokens() {
          * default 类型按钮禁用态背景色
          * @en Background color of disabled default button
          */
-        buttonDefaultDisabledBackground: '#E8F3FF',
+        buttonDefaultDisabledBackground: useGlobal('lightPrimaryColor'),
         /**
          * default 类型按钮文字颜色
          * @en Font color of default button
@@ -900,7 +915,7 @@ function getCompTokens() {
          * ghost 类型按钮点击态背景色
          * @en Background color of ghost button in click state
          */
-        buttonGhostClickedBackground: '#e8f3ff',
+        buttonGhostClickedBackground: useGlobal('lightPrimaryColor'),
         /**
          * ghost 类型按钮禁用态背景色
          * @en Background color of disabled ghost button
@@ -1004,6 +1019,8 @@ function getCompTokens() {
          */
         ellipsisFloatEllipsisNodeBackground:
             'linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)',
+        darkEllipsisFloatEllipsisNodeBackground:
+            'linear-gradient(90deg, rgba(35, 35, 36, 0), #232324 20PX, #232324)',
         /**
          * 文字缩略组件浮动模式下的缩略符左边距
          * @en Padding left of floating ellipsis node
@@ -1069,7 +1086,7 @@ function getCompTokens() {
          * @en Tabs tabbar background color
          * @override tabBarBackground
          */
-        tabsTabBarBackground: useGlobal('backgroundColor'),
+        tabsTabBarBackground: useGlobal('containerBackgroundColor'),
         /**
          * tabs 上下排布时 tabbar 容器高度
          * @en Height of the tabbar container when the tabs is vertical
@@ -1147,7 +1164,7 @@ function getCompTokens() {
          * @en Background color of each tab in tag tabs
          * @override tabBarTagBackground
          */
-        tabsTabBarTagBackground: '#f7f8fA',
+        tabsTabBarTagBackground: useGlobal('cardBackgroundColor'),
         /**
          * tabs 标签样式下每个选项卡的文字颜色
          * @en Font color of each tab in tag tabs
@@ -1256,7 +1273,7 @@ function getCompTokens() {
          * navBar 背景色
          * @en NavBar background color
          */
-        navBarBackground: useGlobal('backgroundColor'),
+        navBarBackground: useGlobal('containerBackgroundColor'),
         /**
          * navBar 字体颜色
          * @en NavBar font color
@@ -1297,7 +1314,7 @@ function getCompTokens() {
          * 图片 placeholder 背景色
          * @en Image placeholder background color
          */
-        imagePlaceholderBackground: '#f7f8fa',
+        imagePlaceholderBackground: useGlobal('cardBackgroundColor'),
         /**
          * 图片 loading 态图标及文字颜色
          * @en Image loading status icon color  and text color
@@ -1415,7 +1432,7 @@ function getCompTokens() {
          * switch 安卓开关背景色
          * @en Switch background color in Android
          */
-        switchAndroidBackground: '#E5E6EB',
+        switchAndroidBackground: useGlobal('lineColor'),
         /**
          * switch 安卓开关打开时背景色
          * @en Background color when switch is on in Android
@@ -1430,7 +1447,7 @@ function getCompTokens() {
          * switch 安卓开关默认关闭禁用点击时背景色
          * @en Default background color of disable switch which is close in Android
          */
-        switchAndroidDisabledBackground: '#F2F3F5',
+        switchAndroidDisabledBackground: useGlobal('lightLineColor'),
         /**
          * switch iOS 开关整体宽度
          * @en Switch width in iOS
@@ -1794,7 +1811,7 @@ function getCompTokens() {
          * @en Content font color of Popover in white theme
          * @override popoverContentColorWhiteTheme
          */
-        popoverContentWhiteThemeColor: useGlobal('fontColor'),
+        popoverContentWhiteThemeColor: theme['arcom-color-gray-10'].light,
         /**
          * 白色主题气泡内容禁用态文字颜色
          * @en Content disabled font color of Popover in white theme
@@ -1953,7 +1970,7 @@ function getCompTokens() {
          * 单元格背景色
          * @en Cell background color
          */
-        cellBackgroundColor: useGlobal('backgroundColor'),
+        cellBackgroundColor: useGlobal('containerBackgroundColor'),
         /**
          * 单元格标签文字大小
          * @en Cell font size
@@ -2074,7 +2091,7 @@ function getCompTokens() {
          * tag 基础背景色
          * @en Tag primary background color
          */
-        tagPrimaryBackgroundColor: '#e8f3ff',
+        tagPrimaryBackgroundColor: useGlobal('lightPrimaryColor'),
         /**
          * tag 基础边框色
          * @en Tag primary border color
@@ -2232,7 +2249,7 @@ function getCompTokens() {
          * dropdown的弹出框的背景颜色
          * @en  Dropdown options background color
          */
-        dropdownOptionsBackgroundColor: '#ffffff',
+        dropdownOptionsBackgroundColor: useGlobal('containerBackgroundColor'),
         /**
          * dropdown的弹出框中选项的padding
          * @en Dropdown options padding
@@ -2307,12 +2324,12 @@ function getCompTokens() {
          * dropdown的弹出框中多列样式下选项的背景色
          * @en Options item background color in multi-column Dropdown
          */
-        dropdownMultiRowsOptionsItemBackground: '#f7f8fa',
+        dropdownMultiRowsOptionsItemBackground: useGlobal('cardBackgroundColor'),
         /**
          * dropdown的弹出框中多列样式下选项被选中时的背景色
          * @en Selected options item background color in multi-column Dropdown
          */
-        dropdownMultiRowsOptionsItemSelectedBackground: '#E8F3FF',
+        dropdownMultiRowsOptionsItemSelectedBackground: useGlobal('lightPrimaryColor'),
         /**
          * dropdown的弹出框中多列样式下选项被选中时的字体颜色
          * @en Selected options item font color in multi-column Dropdown
@@ -2337,7 +2354,7 @@ function getCompTokens() {
          * collapse header的背景颜色
          * @en Collapse header background color
          */
-        collapseHeaderBackground: useGlobal('backgroundColor'),
+        collapseHeaderBackground: useGlobal('containerBackgroundColor'),
         /**
          * collapse header的高度
          * @en Collapse header height
@@ -2398,7 +2415,7 @@ function getCompTokens() {
          * @en PullRefresh label background color
          * @override pullRefreshWrapperBackgroundColor
          */
-        pullRefreshLabelBackgroundColor: '#f7f8fa',
+        pullRefreshLabelBackgroundColor: useGlobal('cardBackgroundColor'),
         /**
          * 下拉刷新组件状态文案字体大小
          * @en PullRefresh label font size
@@ -2493,7 +2510,7 @@ function getCompTokens() {
          * @en Slider button background
          * @override sliderThumbColor
          */
-        sliderThumbBackground: useGlobal('backgroundColor'),
+        sliderThumbBackground: useGlobal('containerBackgroundColor'),
         /**
          * slider 气泡箭头大小
          * @en Slider popover arrow size
@@ -2590,7 +2607,7 @@ function getCompTokens() {
          * 通知栏背景色
          * @en NoticeBar background
          */
-        noticeBarBackground: '#fff7e8',
+        noticeBarBackground: theme['arcom-color-orange-1'],
         /**
          * 通知栏文字颜色
          * @en NoticeBar font color
@@ -2601,6 +2618,7 @@ function getCompTokens() {
          * @en The gradient color on both sides of the NoticeBar text when scrolling
          */
         noticeBarGradientBackground: 'linear-gradient(to right, #fff7e8, rgba(255, 247, 232, 0))',
+        darkNoticeBarGradientBackground: 'linear-gradient(to right, #4D1B00, rgba(77, 27, 0, 0))',
         /**
          * 通知栏在可换行时的文字行高
          * @en NoticeBar line height
@@ -2732,7 +2750,7 @@ function getCompTokens() {
          * steps 无文字步骤背景色
          * @en Non-text steps background color in finish state
          */
-        stepsFinishIconNumBackground: '#E8F3FF',
+        stepsFinishIconNumBackground: useGlobal('lightPrimaryColor'),
         /**
          * steps 无文字进行中步骤背景色
          * @en Non-text steps background color in processing state
@@ -2742,7 +2760,7 @@ function getCompTokens() {
          * steps 无文字等待中步骤背景色
          * @en Non-text steps background color in waiting state
          */
-        stepsWaitIconNumBackground: '#F2F3F5',
+        stepsWaitIconNumBackground: useGlobal('lightLineColor'),
         /**
          * steps 无文字错误步骤背景色
          * @en Non-text steps background color in error state
@@ -3016,7 +3034,7 @@ function getCompTokens() {
          * 环形进度条 轨道颜色
          * @en CircleProgress track color
          */
-        circleProgressTrackColor: '#F2F3F5',
+        circleProgressTrackColor: useGlobal('lightLineColor'),
         /**
          * 环形进度条 不可用状态进度条颜色
          * @en CircleProgress disabled track color
@@ -3026,7 +3044,7 @@ function getCompTokens() {
          * 环形进度条 微型进度条轨道颜色
          * @en Mini CircleProgress track color
          */
-        circleProgressMiniTrackColor: '#E8F3FF',
+        circleProgressMiniTrackColor: useGlobal('lightPrimaryColor'),
         /**
          * 环形进度条 自定义进度条颜色渐变开始的颜色
          * @en Start gradient color of CircleProgress track color
@@ -3051,7 +3069,7 @@ function getCompTokens() {
          * 进度条 轨道颜色
          * @en Progress bar track color
          */
-        progressTrackColor: '#F2F3F5',
+        progressTrackColor: useGlobal('lightLineColor'),
         /**
          * 进度条 不可用状态进度条颜色
          * @en Progress bar disabled track color
@@ -3061,7 +3079,7 @@ function getCompTokens() {
          * 进度条 不可用状态文字颜色
          * @en Progress bar disabled font color
          */
-        progressDisabledTextColor: '#86909C',
+        progressDisabledTextColor: useGlobal('subInfoFontColor'),
         /**
          * 进度条 自定义进度条颜色渐变开始的颜色
          * @en Start gradient color of Progress bar track color
@@ -3161,7 +3179,7 @@ function getCompTokens() {
          * 分页器翻页默认按钮背景色
          * @en Background color of the default pagination button
          */
-        paginationFieldDefaultBackground: '#F7F8FA',
+        paginationFieldDefaultBackground: useGlobal('cardBackgroundColor'),
         /**
          * 分页器翻页按钮默认字体颜色
          * @en Font color of the default pagination button
@@ -3171,12 +3189,12 @@ function getCompTokens() {
          * 分页器翻页按钮禁用背景颜色
          * @en Background color of the disabled pagination button
          */
-        paginationFieldDisabledBackground: '#F7F8FA',
+        paginationFieldDisabledBackground: useGlobal('cardBackgroundColor'),
         /**
          * 分页器翻页按钮禁用字体颜色
          * @en Font color of the disabled pagination button
          */
-        paginationFieldDisabledTextColor: '#C9CDD4',
+        paginationFieldDisabledTextColor: useGlobal('disabledColor'),
         /**
          * 分页器翻页文字按钮字体颜色
          * @en Font color of the pagination button text
@@ -3267,12 +3285,12 @@ function getCompTokens() {
          * 评分图标未选中颜色
          * @en Normal color of Rate icon
          */
-        rateIconNormalColor: '#E5E6EB',
+        rateIconNormalColor: useGlobal('lineColor'),
         /**
          * 评分图标禁用时选中颜色
          * @en Active color of disabled Rate icon
          */
-        rateIconDisabledActiveColor: '#C9CDD4',
+        rateIconDisabledActiveColor: useGlobal('disabledColor'),
         /**
          * 倒计时默认字体大小
          * @en CountDown font size
@@ -3367,7 +3385,7 @@ function getCompTokens() {
          * 动作面板取消按钮顶线颜色
          * @en Top border color of ActionSheet cancel button
          */
-        actionSheetCancelBorderColor: '#F2F3F5',
+        actionSheetCancelBorderColor: useGlobal('lightLineColor'),
         /**
          * 动作面板取消按钮顶线宽度
          *  @en Top border Heigt of ActionSheet cancel button
@@ -3396,7 +3414,7 @@ function getCompTokens() {
          * 搜索栏背景颜色
          * @en BackgroundColor of SearchBar
          */
-        searchBarBackgroundColor: '#FFFFFF',
+        searchBarBackgroundColor: useGlobal('backgroundColor'),
         /**
          * 方形搜索栏的圆角大小
          * @en Size of the rounded corners of the square SearchBar
@@ -3421,7 +3439,7 @@ function getCompTokens() {
          * 搜索输入框容器背景颜色
          * @en SearchBar input container background color
          */
-        searchBarInputWrapperBackgroundColor: '#F2F3F5',
+        searchBarInputWrapperBackgroundColor: useGlobal('lightLineColor'),
         /**
          * 搜索输入框容器字体大小
          * @en SearchBar input container font size
@@ -3451,12 +3469,12 @@ function getCompTokens() {
          * 搜索栏清除按钮的颜色
          * @en Color of SearchBar clear icon
          */
-        searchBarClearIconColor: '#C9CDD4',
+        searchBarClearIconColor: useGlobal('disabledColor'),
         /**
          * 搜索栏搜索按钮的颜色
          * @en Color of SearchBar search icon
          */
-        searchBarSearchIconColor: '#86909C',
+        searchBarSearchIconColor: useGlobal('subInfoFontColor'),
         /**
          * 搜索栏按钮大小
          * @en Fontsize of SearchBar search icon
@@ -3526,7 +3544,7 @@ function getCompTokens() {
          * 图片选择器添加图片按钮的背景色
          * @en Background of the add button of ImagePicker
          */
-        imagePickerAddBackground: '#f7f8fa',
+        imagePickerAddBackground: useGlobal('cardBackgroundColor'),
         /**
          * 图片选择器添加图片按钮的图标大小
          * @en Icon size of the add button of ImagePicker
@@ -3591,7 +3609,7 @@ function getCompTokens() {
          * 索引栏背景颜色
          * @en IndexBar background color
          */
-        indexBarBackground: 'white',
+        indexBarBackground: useGlobal('backgroundColor'),
         /**
          * 索引栏，激活状态下的，索引文字颜色
          * @en IndexBar, In active state, index text color
@@ -3611,7 +3629,7 @@ function getCompTokens() {
          * 索引栏标题背景颜色
          * @en IndexBar title background color
          */
-        indexBarGroupTitleBackground: '#f7f8fa',
+        indexBarGroupTitleBackground: useGlobal('cardBackgroundColor'),
         /**
          * 索引栏标题字体颜色
          * @en IndexBar title text color
@@ -3736,7 +3754,7 @@ function getCompTokens() {
          * 步进器方角边框样式
          * @en Square border style of Stepper
          */
-        stepperSquareBorder: '1PX solid #f2f3f5',
+        stepperSquareBorderColor: useGlobal('lightLineColor'),
         /**
          * 步进器方角边框半径
          * @en Square border radius of Stepper
@@ -3746,7 +3764,7 @@ function getCompTokens() {
          * 步进器方角样式背景颜色
          * @en Background color of Stepper square style
          */
-        stepperSquareBackgroundColor: '#ffffff',
+        stepperSquareBackgroundColor: 'transparent',
         /**
          * 步进器圆角按钮边框半径
          * @en Round button border radius of Stepper
@@ -3771,17 +3789,17 @@ function getCompTokens() {
          * 步进器默认背景颜色
          * @en Background default colr of Stepper
          */
-        stepperDefaultBackgroundColor: '#f7f8fa',
+        stepperDefaultBackgroundColor: useGlobal('cardBackgroundColor'),
         /**
          * 步进器内容字体颜色
          * @en Content text color of Stepper
          */
-        stepperContentColor: '#1d2129',
+        stepperContentColor: useGlobal('fontColor'),
         /**
          * 步进器禁用状态字体颜色
          * @en Text color of Stepper in disable status
          */
-        stepperDisableColor: '#c9cdd4',
+        stepperDisableColor: useGlobal('disabledColor'),
         /**
          * 步进器输入框宽度
          * @en Input width of Stepper
@@ -3917,6 +3935,7 @@ function getCompTokens() {
          * @en Keyboard background color
          */
         keyboardBackground: '#f2f3f5',
+        darkKeyboardBackground: '#232324',
         /**
          * 键盘内边距
          * @en Keyboard padding
@@ -3931,7 +3950,7 @@ function getCompTokens() {
          * 键盘右边一列确认键背景色
          * @en Keyboard right column confirm background
          */
-        keyboardConfirmKeyBackground: '#165dff',
+        keyboardConfirmKeyBackground: useGlobal('primaryColor'),
         /**
          * 键盘右边一列确认键字体颜色
          * @en Keyboard right column confirm color
@@ -3967,11 +3986,12 @@ function getCompTokens() {
          * @en Keyboard key button background
          */
         keyboardKeyBackground: '#ffffff',
+        darkKeyboardKeyBackground: '#2e2e30',
         /**
          * 键盘按钮背景色激活状态下
          * @en Keyboard key button background in active
          */
-        keyboardKeyActiveBackground: '#e5e6eb',
+        keyboardKeyActiveBackground: useGlobal('lineColor'),
         /**
          * 键盘按钮圆角
          * @en Keyboard key button rounded
@@ -3986,7 +4006,7 @@ function getCompTokens() {
          * 键盘按钮字体颜色
          * @en Keyboard key button font color
          */
-        keyboardKeyColor: '#1d2129',
+        keyboardKeyColor: useGlobal('fontColor'),
         /**
          * 分割线线条粗细
          * @en Thickness of divider line
@@ -4034,12 +4054,13 @@ function getCompTokens() {
          * 骨架屏元素背景色
          * @en Skeleton element background color
          */
-        skeletonBackgroundColor: '#F2F3F5',
+        skeletonBackgroundColor: useGlobal('lightLineColor'),
         /**
          * 骨架屏扫光动效高亮色
          * @en Skeleton element gradient animation highlight color
          */
         skeletonGradientAnimationColor: 'rgba(255, 255, 255, 0.6)',
+        darkSkeletonGradientAnimationColor: 'hsla(0, 0%, 100%, 0.08)',
         /**
          * 骨架屏呼吸动效透明度
          * @en Skeleton element breath animation opacity

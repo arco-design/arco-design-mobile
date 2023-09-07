@@ -5,10 +5,16 @@
 }
 
 body {
-    background-color: #f7f8fA;
+    background-color: @card-background-color;
     font-family: -apple-system, PingFang SC, Helvetica Neue;
     &.white-body {
-        background-color: #ffffff;
+        background-color: @background-color;
+    }
+    &.arco-theme-dark {
+        background-color: #141414;
+        &.white-body {
+            background-color: @dark-background-color;
+        }
     }
 }
 
@@ -60,15 +66,15 @@ body,
         top: 0;
         left: 0;
         z-index: 10;
-        background-color: #ffffff;
-        color: #1d2129;
+        .use-var(background-color, container-background-color);
+        .use-var(color, font-color);
         width: inherit;
         height: inherit;
         text-align: center;
         font-weight: bold;
         font-size: 17px;
         line-height: 44px;
-        .onepx-border(bottom, rgb(237, 237, 237));
+        .onepx-border-var(bottom, line-color);
     }
 }
 
@@ -108,7 +114,7 @@ body,
         .rem(font-size, 16);
         .rem(line-height, 22);
         position: relative;
-        background: #f7f8fA;
+        .use-var(background, card-background-color);
         cursor: pointer;
         .rem(border-radius, 8);
         &:not(:last-child) {
@@ -127,7 +133,7 @@ body,
 .arcodesign-mobile-title {
     .rem(padding, 32, 16, 8);
     .rem(font-size, 14);
-    color: #939AA3;
+    .use-var(color, sub-info-font-color);
     font-weight: normal;
     .arcodesign-mobile-demo-nav + & {
         .rem(padding-top, 8);
@@ -136,7 +142,7 @@ body,
 
 .arcodesign-mobile-demo-content {
     .rem(padding, 16);
-    background-color: #ffffff;
+    .use-var(background-color, container-background-color);
 }
 
 .demo-content {
@@ -152,7 +158,7 @@ body,
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1d2129;
+    .use-var(color, font-color);
     .rem(font-size, 20);
     cursor: pointer;
 }

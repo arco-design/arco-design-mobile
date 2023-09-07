@@ -31,7 +31,7 @@ export default function SkeletonDemo() {
                 showAnimation={checked}
                 animation={type}
                 animationGradientColor={color}
-                backgroundColor={type === 'breath' ? color : ''}
+                // backgroundColor={type === 'breath' ? color : ''}
             />
         </div>
     );
