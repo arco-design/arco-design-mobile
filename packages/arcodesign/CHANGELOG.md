@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.2...@arco-design/mobile-react@2.29.3) (2023-09-12)
+
+
+### Bug Fixes
+
+* `ImagePreview` remove duplicate setTimeout for double-click judgment ([0a5565b](https://github.com/arco-design/arco-design-mobile/commit/0a5565bf06c5d5737d730a59227dd239feaf50d1))
+* `PickerView` adjust animation duration ([#164](https://github.com/arco-design/arco-design-mobile/issues/164)) ([6c7f020](https://github.com/arco-design/arco-design-mobile/commit/6c7f020baeb8b2a7ba00d08bf9feaf8f8ebcca3f))
+* `Popover` fix the problem that popover.menu does not show when defaultVisible=true ([b9c7397](https://github.com/arco-design/arco-design-mobile/commit/b9c73975f4333482152b207bb6bee8dfd7f0b7e3))
+
+
+
+
+
 ## [2.29.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.1...@arco-design/mobile-react@2.29.2) (2023-08-28)
 
 
