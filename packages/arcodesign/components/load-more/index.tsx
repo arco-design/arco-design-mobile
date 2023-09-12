@@ -129,6 +129,12 @@ export interface LoadMoreProps {
      */
     getDataAtFirst?: boolean;
     /**
+     * 当 getDataAtFirst === false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效
+     * @en Whether to trigger a request when getDataAtFirst === false and the data is not full of one screen, valid when trigger=scroll
+     * @default false
+     */
+    triggerGetDataWhenNoGetDataAtFirst?: boolean;
+    /**
      * 状态改变时回调
      * @en Callback when state changes
      */
@@ -189,6 +195,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         onStatusChange,
         onClick,
         onEndReached,
+        triggerGetDataWhenNoGetDataAtFirst = false,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const requestAtFirst = trigger === 'scroll' ? getDataAtFirst : false;
@@ -238,8 +245,18 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     }, [nowStatus]);
 
     useEffect(() => {
-        if (requestAtFirst && !disabled) {
-            if (statusRef.current === 'prepare') {
+        if (requestAtFirst) {
+            if (statusRef.current === 'prepare' && !disabled) {
+                triggerGetData('requestAtFirst');
+            }
+        } else {
+            if (
+                trigger === 'scroll' &&
+                nowStatus === 'prepare' &&
+                checkNeedTrigger(0, threshold) &&
+                !disabled &&
+                triggerGetDataWhenNoGetDataAtFirst
+            ) {
                 triggerGetData('requestAtFirst');
             }
         }
