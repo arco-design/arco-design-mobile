@@ -83,6 +83,18 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
     const pickerCellsRef = useRef<PickerCellRef[]>([]);
     const cascaderRef = useRef<CascaderRef>(null);
 
+    // itemStyle height 同时对 selection-bar 生效，这里不单独抛出 selection-bar 的高度设置属性
+    // @en The height of itemStyle applies to the selection-bar as well, without separately exposing the height setting property for the selection-bar.
+    const selectionBarHeight = useMemo(
+        () =>
+            itemStyle?.height
+                ? {
+                      height: itemStyle.height,
+                  }
+                : {},
+        [itemStyle],
+    );
+
     const innerData = useMemo(() => {
         let newData: PickerData[][];
         const isArray = (
@@ -238,7 +250,11 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
                         <div
                             className={`${prefixCls}-picker-selection-mask ${prefixCls}-picker-selection-mask-top`}
                         />
-                        <div ref={barRef} className={`${prefixCls}-picker-selection-bar`} />
+                        <div
+                            ref={barRef}
+                            className={`${prefixCls}-picker-selection-bar`}
+                            style={selectionBarHeight}
+                        />
                         <div
                             className={`${prefixCls}-picker-selection-mask ${prefixCls}-picker-selection-mask-bottom`}
                         />
