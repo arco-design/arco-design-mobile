@@ -689,6 +689,8 @@ var tokens = {
   "search-bar-input-placeholder-color": "var(--disabled-color)",
   "search-bar-prefix-margin-right": "0.18rem",
   "search-bar-clear-icon-color": "#C9CDD4",
+  "search-bar-clear-icon-font-size": "16PX",
+  "search-bar-clear-icon-padding-left": "0.32rem",
   "search-bar-search-icon-color": "#86909C",
   "search-bar-search-icon-font-size": "0.32rem",
   "search-bar-cancel-btn-color": "var(--primary-color)",
