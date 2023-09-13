@@ -1,9 +1,27 @@
 import bezierEasing from './bezier-easing';
 
+/**
+ * 阻止 TouchEvent 事件的默认行为
+ * @desc {en} Stops the default behavior of a TouchEvent
+ * @param {TouchEvent} e 要阻止的 TouchEvent 事件
+ * @param {TouchEvent} e {en} The TouchEvent to stop
+ * @returns {void}
+ */
 export function stopTouch(e: TouchEvent) {
+    // If the TouchEvent is cancelable, prevent it's default behavior using preventDefault
     e.cancelable && e.preventDefault();
 }
 
+/**
+ * 阻止元素滚动
+ * @desc {en} Prevents an element from scrolling
+ * @param scrollContainer 滚动容器的函数，默认为 document.body
+ * @param scrollContainer {en} A function that returns the scroll container, defaults to document.body
+ * @param preventWindow 是否阻止窗口滚动
+ * @param preventWindow {en} Whether to prevent window scrolling
+ * @param customStopTouch 自定义停止触摸事件的函数
+ * @param customStopTouch {en} A custom function to stop touch events
+ */
 export function preventEleScroll(
     scrollContainer: () => HTMLElement | null = () => document.body,
     preventWindow?: boolean,
@@ -22,6 +40,16 @@ export function preventEleScroll(
     });
 }
 
+/**
+ * 允许元素滚动
+ * @desc {en} Allows an element to scroll
+ * @param scrollContainer 滚动容器的函数，默认为 document.body
+ * @param scrollContainer {en} A function that returns the scroll container, defaults to document.body
+ * @param preventWindow 是否阻止窗口滚动
+ * @param preventWindow {en} Whether to prevent window scrolling
+ * @param customStopTouch 自定义停止触摸事件的函数
+ * @param customStopTouch {en} A custom function to stop touch events
+ */
 export function freeEleScroll(
     scrollContainer: () => HTMLElement | null = () => document.body,
     preventWindow?: boolean,
@@ -58,14 +86,40 @@ export function isContains(parentEl: HTMLElement | null, childrenEl: HTMLElement
     return false;
 }
 
+/**
+ * 使用 requestAnimationFrame 执行函数，如果不支持则使用 setTimeout 作为兜底
+ * @desc {en} Executes a function using requestAnimationFrame, if not supported, falls back to setTimeout
+ * @param {Function} fn 需要执行的函数
+ * @param {Function} fn {en} the function to be executed
+ * @returns {number} 返回 requestAnimationFrame 或 setTimeout 的 ID
+ * @returns {number} {en} returns the ID of requestAnimationFrame or setTimeout
+ */
 export function execRAF(fn) {
     try {
         return requestAnimationFrame(fn);
     } catch (e) {
+        // Note that the delay time for setTimeout is 17 milliseconds, which is approximately equivalent to a frame rate of 60 frames per second.
+        // This is a good fallback option because requestAnimationFrame also typically runs at a rate of about 60 frames per second.
         return setTimeout(fn, 17);
     }
 }
 
+/**
+ * 使用动画滚动页面
+ * @desc {en} Scroll the page with animation
+ * @param {number} initTop 初始滚动位置（像素）
+ * @param {number} initTop {en} Initial scroll position (in pixels)
+ * @param {number} target 目标滚动位置（像素）
+ * @param {number} target {en} Target scroll position (in pixels)
+ * @param {function} scrollTo 滚动函数
+ * @param {function} scrollTo {en} Scroll function
+ * @param {number} duration 动画持续时间（毫秒）
+ * @param {number} duration {en} Animation duration (in milliseconds)
+ * @param {Array<number>} bezier 贝塞尔曲线参数
+ * @param {Array<number>} bezier {en} Bezier curve parameters
+ * @param {'by'|'to'} type 滚动类型：'by'表示相对滚动，'to'表示绝对滚动
+ * @param {'by'|'to'} type {en} Scroll type: 'by' for relative scrolling, 'to' for absolute scrolling
+ */
 export function scrollWithAnimation(
     initTop: number,
     target: number,
@@ -158,6 +212,22 @@ export type TCheckVisibleBaseProps = {
     threshold: number;
 };
 
+/**
+ * 格式化偏移量
+ * Format the offset
+ * @param {Array|number} offset 输入的偏移量，可以是一个数字或者一个长度为2或4的数组
+ * @param {Array|number} offset {en} The input offset, which can be a number or an array of length 2 or 4
+ * @returns {Array} 返回一个长度为4的数组，表示上、右、下、左四个方向的偏移量
+ * @returns {Array} {en} Returns an array of length 4, representing the offsets in the top, right, bottom, and left directions
+ * @example
+ * ```
+ * import { formatOffset } from '@arco-design/mobile-utils';
+ *
+ * console.log(formatOffset(10)) // output: [10, 10, 10, 10]
+ * console.log(formatOffset([10, 20])) // output: [10, 0, 20, 0]
+ * console.log(formatOffset([10, 20, 30, 40])) // output: [10, 20, 30, 40]
+ * ```
+ */
 function formatOffset(offset): [number, number, number, number] {
     let offsets;
     if (Array.isArray(offset)) {

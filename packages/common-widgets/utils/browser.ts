@@ -1,3 +1,9 @@
+/**
+ * 获取当前设备的操作系统
+ * @desc {en} Get the operating system of the current device
+ * @returns {string} 返回当前设备的操作系统，可能的值包括 'android'、'ios' 或 'pc'，如果无法获取，则返回空字符串
+ * @returns {string} {en} Returns the operating system of the current device, possible values are 'android', 'ios', or 'pc'. Returns an empty string if it cannot be obtained
+ */
 export function getSystem() {
     try {
         const u = navigator.userAgent;
@@ -34,6 +40,16 @@ export const iPhoneScreenMap = {
     },
 };
 
+/**
+ * 检查给定的屏幕尺寸是否匹配 iPhone X 的屏幕尺寸
+ * @desc {en} Check if the given screen dimensions match the screen dimensions of an iPhone X
+ * @param {number} width 屏幕的宽度
+ * @param {number} width {en} The width of the screen
+ * @param {number} height 屏幕的高度
+ * @param {number} height {en} The height of the screen
+ * @returns {boolean} 如果给定的屏幕尺寸匹配 iPhone X 的屏幕尺寸，则返回 true，否则返回 false
+ * @returns {boolean} {en} Returns true if the given screen dimensions match those of an iPhone X, otherwise returns false
+ */
 export function checkIPhoneX(width: number, height: number) {
     return (
         Object.keys(iPhoneScreenMap).filter(key => {
@@ -46,6 +62,12 @@ export function checkIPhoneX(width: number, height: number) {
     );
 }
 
+/**
+ * 检查当前设备是否为 iPhone X
+ * @desc {en} Check if the current device is an iPhone X
+ * @returns {boolean} 如果当前设备是 iPhone X，则返回 true，否则返回 false
+ * @returns {boolean} {en} Returns true if the current device is an iPhone X, otherwise returns false
+ */
 export function isIPhoneX() {
     try {
         const u = navigator.userAgent;
