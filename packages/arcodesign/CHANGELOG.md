@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.3...@arco-design/mobile-react@2.29.4) (2023-09-13)
+
+
+### Bug Fixes
+
+* `LoadMore` support the prop "getDataWhenNoScrollAtFirst" ([#170](https://github.com/arco-design/arco-design-mobile/issues/170)) ([7a4881d](https://github.com/arco-design/arco-design-mobile/commit/7a4881d92cb9fbb1a345240a2aaa940af0afbe63))
+* `Picker` support default values when click confirm button ([c6f12ee](https://github.com/arco-design/arco-design-mobile/commit/c6f12ee54131235470c380c3bd59a22983247622))
+* `SearchBar` adjust clear icon ([4f540fc](https://github.com/arco-design/arco-design-mobile/commit/4f540fcb255553fb59d0b972a74edf23a7224a16))
+* `Tabs` prevent jumping when no touchmove event ([df01464](https://github.com/arco-design/arco-design-mobile/commit/df014640dc220af7f911fe1c2cb1e504c463a37b))
+
+
+
+
+
 ## [2.29.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.2...@arco-design/mobile-react@2.29.3) (2023-09-12)
 
 
