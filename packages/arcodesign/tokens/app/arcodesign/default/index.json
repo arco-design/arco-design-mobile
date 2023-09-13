@@ -6473,6 +6473,22 @@
             "en": "Color of SearchBar clear icon"
         }
     },
+    "searchBarClearIconFontSize": {
+        "cssKey": "search-bar-clear-icon-font-size",
+        "desc": "",
+        "override": "",
+        "value": "16PX",
+        "jsValue": "16PX",
+        "staticValue": "16PX"
+    },
+    "searchBarClearIconPaddingLeft": {
+        "cssKey": "search-bar-clear-icon-padding-left",
+        "desc": "",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem"
+    },
     "searchBarInputCaretColor": {
         "cssKey": "search-bar-input-caret-color",
         "desc": "搜索输入框光标颜色",

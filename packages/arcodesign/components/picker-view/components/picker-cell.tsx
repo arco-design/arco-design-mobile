@@ -302,7 +302,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     }
 
     function getCurrentCellValue() {
-        return data[currentIndex]?.value || currentValue;
+        return currentValue || data[currentIndex]?.value;
     }
 
     function _clearTimer() {

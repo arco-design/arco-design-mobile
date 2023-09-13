@@ -3445,6 +3445,8 @@ function getCompTokens() {
          * @en Color of SearchBar clear icon
          */
         searchBarClearIconColor: '#C9CDD4',
+        searchBarClearIconFontSize: '16PX',
+        searchBarClearIconPaddingLeft: getRem(16),
         /**
          * 搜索栏搜索按钮的颜色
          * @en Color of SearchBar search icon
