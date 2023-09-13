@@ -110,7 +110,7 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
 
     useEffect(() => {
         setScrollValue(value);
-    }, [value, setScrollValue]);
+    }, [value]);
 
     useListenResize(updateLayoutByVisible, [visible]);
 

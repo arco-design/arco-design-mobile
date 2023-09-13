@@ -120,7 +120,7 @@
                 "fileName": "arcom-github/packages/arcodesign/components/picker-view/type.ts",
                 "name": "PickerViewProps"
             },
-            "required": true,
+            "required": false,
             "type": {
                 "name": "ValueType[]"
             }
@@ -139,7 +139,7 @@
             },
             "required": false,
             "type": {
-                "name": "(value: ValueType[], index: number) => void"
+                "name": "(value: ValueType[], index: number, data: PickerData[]) => void"
             }
         },
         "itemStyle": {

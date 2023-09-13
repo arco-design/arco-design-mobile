@@ -15,8 +15,8 @@
 |cols|列数(最大为5；cascade=true时才使用)|number|3|
 |rows|行数(一列可选项的行数)，必须是奇数，最小为3个|number|5|
 |disabled|是否不可用|boolean|false|
-|value|值, 格式是\[value1, value2, value3\], 对应数据源的相应级层value|ValueType\[\]|必填|
-|onPickerChange|每列数据选择变化后的回调函数|(value: ValueType\[\], index: number) =\> void|-|
+|value|值, 格式是\[value1, value2, value3\], 对应数据源的相应级层value|ValueType\[\]|-|
+|onPickerChange|每列数据选择变化后的回调函数|(value: ValueType\[\], index: number, data: PickerData\[\]) =\> void|-|
 |itemStyle|每列样式|CSSProperties|-|
 |className|自定义类名|string|-|
 |clickable|是否可通过点击操作选择内容|boolean|true|
