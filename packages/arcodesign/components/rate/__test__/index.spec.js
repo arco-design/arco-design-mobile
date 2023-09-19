@@ -10,7 +10,7 @@ demoTest('rate');
 
 mountTest(Rate, 'Rate');
 
-// 定义你的 SVG 图标
+// definition of SVG icon 定义 SVG 图标
 const Star = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.7 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" />
@@ -42,7 +42,7 @@ const HalfStar = () => (
 );
 
 describe('Rate Component', () => {
-    // 测试默认值 (Test default value)
+    // Test default value 测试默认值
     it('should render with default value', () => {
         const { container } = render(<Rate />);
         const stars = container.querySelectorAll('.arco-rate-icon-wrap');
@@ -51,7 +51,7 @@ describe('Rate Component', () => {
         });
     });
 
-    // 测试自定义值 (Test custom value)
+    // Test custom value 测试自定义值
     it('should render with custom value', () => {
         const { container } = render(<Rate defaultValue={3} />);
         const stars = container.querySelectorAll('.arco-rate-icon-wrap');
@@ -64,7 +64,7 @@ describe('Rate Component', () => {
         });
     });
 
-    // 测试用户交互 (Test user interaction)
+    // Test user interaction 测试用户交互
     it('should update value on user interaction', async () => {
         const { container } = render(<Rate />);
         const stars = container.querySelectorAll('.arco-rate-icon-wrap');
@@ -78,7 +78,7 @@ describe('Rate Component', () => {
         });
     });
 
-    // 测试禁用属性 (Test disabled property)
+    // Test disabled property 测试禁用属性
     it('should not update value on user interaction when disabled', async () => {
         const { container } = render(<Rate defaultValue={3} disabled />);
         const stars = container.querySelectorAll('.arco-rate-icon-wrap');
@@ -92,7 +92,7 @@ describe('Rate Component', () => {
         });
     });
 
-    // 测试半星功能 (Test half-star feature)
+    // Test half-star feature 测试半星功能
     it('should support half-star ratings when allowHalf is true', async () => {
         const { container } = render(<Rate allowHalf />);
         const stars = container.querySelectorAll('.arco-rate-icon-wrap');
@@ -108,7 +108,7 @@ describe('Rate Component', () => {
         });
     });
 
-    // 测试不支持半星 (Test no half-star support)
+    // Test no half-star support 测试不支持半星
     it('should not support half-star ratings when allowHalf is false', async () => {
         const { container } = render(<Rate allowHalf={false} />);
         const stars = container.querySelectorAll('.arco-rate-icon-wrap');
@@ -122,14 +122,14 @@ describe('Rate Component', () => {
         });
     });
 
-    // 测试自定义图标数量 (Test custom icon count)
+    // Test custom icon count 测试自定义图标数量
     it('should render correct number of stars when count is set', () => {
         const { container } = render(<Rate count={7} />);
         const stars = container.querySelectorAll('.arco-rate-icon-wrap');
         expect(stars.length).toBe(7);
     });
 
-    // 测试 step 属性 (Test step property)
+    // Test step property 测试 step 属性
     it('should support custom step values', async () => {
         let value = 0;
         const { container } = render(
@@ -145,7 +145,7 @@ describe('Rate Component', () => {
         expect(value).toBe(6); // 3 星 * 2 分/星 = 6 分
     });
 
-    // 测试 step 属性的响应式 (Test reactivity of step property)
+    // Test reactivity of step property 测试 step 属性的响应式
     it('should react to changes in step value', async () => {
         let value = 0;
         const TestComponent = () => {
@@ -176,7 +176,7 @@ describe('Rate Component', () => {
         expect(value).toBe(12); // 4 星 * 3 分/星 = 9 分
     });
 
-    // 测试 icons 属性 (Test icons property)
+    // Test icons property 测试 icons 属性
     it('should support custom icons', () => {
         const { container } = render(
             <Rate
@@ -193,7 +193,7 @@ describe('Rate Component', () => {
         });
     });
 
-    // 测试 ref 属性 (Test ref property)
+    // Test ref property 测试 ref 属性
     it('should pass ref correctly', () => {
         const TestComponent = () => {
             const rateRef = useRef(null);
