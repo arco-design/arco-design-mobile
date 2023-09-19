@@ -1,589 +1,611 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`slider demo test slider demo: always.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="32"
-  class="arco-slider  is-horizontal show-tooltip"
-  role="slider"
-  style="padding-top:61px"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="32"
+    class="arco-slider  is-horizontal show-tooltip"
+    role="slider"
+    style="padding-top: 61px;"
   >
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="height:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
-            class="arco-slider-popover-wrapper"
+            class="arco-slider-thumb-wrapper is-end"
           >
             <div
-              class="arco-slider-popover"
+              class="arco-slider-popover-wrapper"
             >
               <div
-                class="arco-slider-popover-content"
+                class="arco-slider-popover"
               >
-                32
+                <div
+                  class="arco-slider-popover-content"
+                >
+                  32
+                </div>
+                <div
+                  class="arco-slider-popover-arrow"
+                />
               </div>
               <div
-                class="arco-slider-popover-arrow"
+                class="arco-slider-thumb"
               />
             </div>
-            <div
-              class="arco-slider-thumb"
-            />
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: custom-btn.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="32"
-  class="arco-slider  is-horizontal"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="32"
+    class="arco-slider  is-horizontal"
+    role="slider"
   >
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="height:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
-            class="slider-custom-thumb-two"
+            class="arco-slider-thumb-wrapper is-end"
           >
-            32
+            <div
+              class="slider-custom-thumb-two"
+            >
+              32
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: custom-color.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="32"
-  class="arco-slider slider-custom-yellow is-horizontal"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="32"
+    class="arco-slider slider-custom-yellow is-horizontal"
+    role="slider"
   >
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="height:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
-            class="arco-slider-thumb"
-          />
+            class="arco-slider-thumb-wrapper is-end"
+          >
+            <div
+              class="arco-slider-thumb"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: custom-icon.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="27"
-  class="arco-slider  is-horizontal"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-slider-label is-prefix"
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="27"
+    class="arco-slider  is-horizontal"
+    role="slider"
   >
-    <svg
-      class="arco-icon arco-icon-notice-off "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="arco-slider-label is-prefix"
     >
-      <defs />
-      <path
-        d="M118.101 57.75L962.86 902.506a21.333 21.333 0 010 30.165l-30.187 30.187a21.333 21.333 0 01-30.165 0L57.749 118.1a21.333 21.333 0 010-30.186l30.166-30.166a21.333 21.333 0 0130.186 0zm500.566 795.583A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM190.25 341.1l69.888 69.888A280.043 280.043 0 00256 459.136V704h297.152l85.333 85.333H106.667A21.333 21.333 0 0185.333 768v-42.155a21.333 21.333 0 0121.334-21.333h.512l63.488 1.515V459.008c0-41.365 6.912-81.067 19.584-117.91zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248v243.499L768 617.173V459.157C768 311.595 653.376 192 512 192c-48.021 0-92.97 13.803-131.37 37.803l-61.526-61.526a334.763 334.763 0 01107.563-50.517V85.333A21.333 21.333 0 01448 64h128z"
-      />
-    </svg>
-  </div>
-  <div
-    class="arco-slider-wrapper"
-  >
+      <svg
+        class="arco-icon arco-icon-notice-off "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M118.101 57.75L962.86 902.506a21.333 21.333 0 010 30.165l-30.187 30.187a21.333 21.333 0 01-30.165 0L57.749 118.1a21.333 21.333 0 010-30.186l30.166-30.166a21.333 21.333 0 0130.186 0zm500.566 795.583A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM190.25 341.1l69.888 69.888A280.043 280.043 0 00256 459.136V704h297.152l85.333 85.333H106.667A21.333 21.333 0 0185.333 768v-42.155a21.333 21.333 0 0121.334-21.333h.512l63.488 1.515V459.008c0-41.365 6.912-81.067 19.584-117.91zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248v243.499L768 617.173V459.157C768 311.595 653.376 192 512 192c-48.021 0-92.97 13.803-131.37 37.803l-61.526-61.526a334.763 334.763 0 01107.563-50.517V85.333A21.333 21.333 0 01448 64h128z"
+        />
+      </svg>
+    </div>
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="height:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
-            class="arco-slider-thumb"
-          />
+            class="arco-slider-thumb-wrapper is-end"
+          >
+            <div
+              class="arco-slider-thumb"
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-slider-label is-suffix"
-  >
-    <svg
-      class="arco-icon arco-icon-notice "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="arco-slider-label is-suffix"
     >
-      <defs />
-      <path
-        d="M618.667 853.333A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248V704h64a21.333 21.333 0 0121.334 21.333V768a21.333 21.333 0 01-21.334 21.333H106.667A21.333 21.333 0 0185.333 768v-42.667A21.333 21.333 0 01106.667 704h64V459.008c0-164.181 108.8-302.123 256-341.248V85.333A21.333 21.333 0 01448 64h128zm-64 128c-141.376 0-256 119.595-256 267.136V704h512V459.136C768 311.595 653.376 192 512 192z"
-      />
-    </svg>
+      <svg
+        class="arco-icon arco-icon-notice "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M618.667 853.333A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248V704h64a21.333 21.333 0 0121.334 21.333V768a21.333 21.333 0 01-21.334 21.333H106.667A21.333 21.333 0 0185.333 768v-42.667A21.333 21.333 0 01106.667 704h64V459.008c0-164.181 108.8-302.123 256-341.248V85.333A21.333 21.333 0 01448 64h128zm-64 128c-141.376 0-256 119.595-256 267.136V704h512V459.136C768 311.595 653.376 192 512 192z"
+        />
+      </svg>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: custom-size.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="32"
-  class="arco-slider  is-horizontal"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="32"
+    class="arco-slider  is-horizontal"
+    role="slider"
   >
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="height:4px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:4px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 4px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 4px; left: 0px; width: 0px;"
         >
           <div
-            class="arco-slider-thumb"
-          />
+            class="arco-slider-thumb-wrapper is-end"
+          >
+            <div
+              class="arco-slider-thumb"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: disabled.md renders correctly 1`] = `
-<div
-  aria-disabled="true"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="32"
-  class="arco-slider  is-horizontal is-disabled"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="true"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="32"
+    class="arco-slider  is-horizontal is-disabled"
+    role="slider"
   >
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="height:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
-            class="arco-slider-popover-wrapper"
+            class="arco-slider-thumb-wrapper is-end"
           >
             <div
-              class="arco-slider-thumb"
-            />
+              class="arco-slider-popover-wrapper"
+            >
+              <div
+                class="arco-slider-thumb"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: index.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="32"
-  class="arco-slider  is-horizontal"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="32"
+    class="arco-slider  is-horizontal"
+    role="slider"
   >
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="height:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
-            class="arco-slider-thumb"
-          />
+            class="arco-slider-thumb-wrapper is-end"
+          >
+            <div
+              class="arco-slider-thumb"
+            />
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: mark.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="20"
-  aria-valuemin="0"
-  aria-valuenow="5"
-  class="arco-slider  is-horizontal show-tooltip show-marks"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="20"
+    aria-valuemin="0"
+    aria-valuenow="5"
+    class="arco-slider  is-horizontal show-tooltip show-marks"
+    role="slider"
   >
     <div
-      class="arco-slider-marks"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-marks-item is-activated is-transferable"
-        style="left:0%"
+        class="arco-slider-marks"
       >
         <div
-          class="arco-slider-marks-item-label"
-        >
-          <p>
-            0
-          </p>
-        </div>
-      </div>
-      <div
-        class="arco-slider-marks-item is-activated is-transferable"
-        style="left:25%"
-      >
-        <div
-          class="arco-slider-marks-item-label"
-        >
-          <p>
-            5
-          </p>
-        </div>
-      </div>
-      <div
-        class="arco-slider-marks-item is-transferable"
-        style="left:50%"
-      >
-        <div
-          class="arco-slider-marks-item-label"
-        >
-          <p>
-            10
-          </p>
-        </div>
-      </div>
-      <div
-        class="arco-slider-marks-item is-transferable"
-        style="left:75%"
-      >
-        <div
-          class="arco-slider-marks-item-label"
-        >
-          <p>
-            15
-          </p>
-        </div>
-      </div>
-      <div
-        class="arco-slider-marks-item is-transferable"
-        style="left:100%"
-      >
-        <div
-          class="arco-slider-marks-item-label"
-        >
-          <p>
-            20
-          </p>
-        </div>
-      </div>
-    </div>
-    <div
-      class="arco-slider-line"
-      style="height:2px"
-    >
-      <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
-      >
-        <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-marks-item is-activated is-transferable"
+          style="left: 0%;"
         >
           <div
-            class="arco-slider-popover-wrapper"
+            class="arco-slider-marks-item-label"
+          >
+            <p>
+              0
+            </p>
+          </div>
+        </div>
+        <div
+          class="arco-slider-marks-item is-activated is-transferable"
+          style="left: 25%;"
+        >
+          <div
+            class="arco-slider-marks-item-label"
+          >
+            <p>
+              5
+            </p>
+          </div>
+        </div>
+        <div
+          class="arco-slider-marks-item is-transferable"
+          style="left: 50%;"
+        >
+          <div
+            class="arco-slider-marks-item-label"
+          >
+            <p>
+              10
+            </p>
+          </div>
+        </div>
+        <div
+          class="arco-slider-marks-item is-transferable"
+          style="left: 75%;"
+        >
+          <div
+            class="arco-slider-marks-item-label"
+          >
+            <p>
+              15
+            </p>
+          </div>
+        </div>
+        <div
+          class="arco-slider-marks-item is-transferable"
+          style="left: 100%;"
+        >
+          <div
+            class="arco-slider-marks-item-label"
+          >
+            <p>
+              20
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
+      >
+        <div
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
+        >
+          <div
+            class="arco-slider-thumb-wrapper is-end"
           >
             <div
-              class="arco-slider-thumb"
-            />
+              class="arco-slider-popover-wrapper"
+            >
+              <div
+                class="arco-slider-thumb"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: range.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="15"
-  class="arco-slider  is-horizontal show-tooltip"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="15"
+    class="arco-slider  is-horizontal show-tooltip"
+    role="slider"
   >
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="height:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-start"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
-            class="arco-slider-popover-wrapper"
+            class="arco-slider-thumb-wrapper is-start"
           >
             <div
-              class="arco-slider-thumb"
-            />
+              class="arco-slider-popover-wrapper"
+            >
+              <div
+                class="arco-slider-thumb"
+              />
+            </div>
           </div>
-        </div>
-        <div
-          class="arco-slider-thumb-wrapper is-end"
-        >
           <div
-            class="arco-slider-popover-wrapper"
+            class="arco-slider-thumb-wrapper is-end"
           >
             <div
-              class="arco-slider-thumb"
-            />
+              class="arco-slider-popover-wrapper"
+            >
+              <div
+                class="arco-slider-thumb"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: range-tag.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="10"
-  aria-valuemin="0"
-  aria-valuenow="1"
-  class="arco-slider  is-horizontal show-tooltip"
-  role="slider"
-  style="padding-top:41px"
->
+<DocumentFragment>
   <div
-    class="arco-slider-label is-prefix"
-  >
-    0
-  </div>
-  <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="10"
+    aria-valuemin="0"
+    aria-valuenow="1"
+    class="arco-slider  is-horizontal show-tooltip"
+    role="slider"
+    style="padding-top: 41px;"
   >
     <div
-      class="arco-slider-marks"
-    />
+      class="arco-slider-label is-prefix"
+    >
+      0
+    </div>
     <div
-      class="arco-slider-line"
-      style="height:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="height:2px;left:0px;width:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="height: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-start"
+          class="arco-slider-line is-activated is-transferable"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
-            class="arco-slider-popover-wrapper"
+            class="arco-slider-thumb-wrapper is-start"
           >
             <div
-              class="arco-slider-popover"
+              class="arco-slider-popover-wrapper"
             >
               <div
-                class="arco-slider-popover-content"
+                class="arco-slider-popover"
               >
-                1 thousand
+                <div
+                  class="arco-slider-popover-content"
+                >
+                  1 thousand
+                </div>
+                <div
+                  class="arco-slider-popover-arrow"
+                />
               </div>
               <div
-                class="arco-slider-popover-arrow"
+                class="arco-slider-thumb"
               />
             </div>
-            <div
-              class="arco-slider-thumb"
-            />
           </div>
-        </div>
-        <div
-          class="arco-slider-thumb-wrapper is-end"
-        >
           <div
-            class="arco-slider-popover-wrapper"
+            class="arco-slider-thumb-wrapper is-end"
           >
             <div
-              class="arco-slider-popover"
+              class="arco-slider-popover-wrapper"
             >
               <div
-                class="arco-slider-popover-content"
+                class="arco-slider-popover"
               >
-                6 thousand
+                <div
+                  class="arco-slider-popover-content"
+                >
+                  6 thousand
+                </div>
+                <div
+                  class="arco-slider-popover-arrow"
+                />
               </div>
               <div
-                class="arco-slider-popover-arrow"
+                class="arco-slider-thumb"
               />
             </div>
-            <div
-              class="arco-slider-thumb"
-            />
           </div>
         </div>
       </div>
     </div>
+    <div
+      class="arco-slider-label is-suffix"
+    >
+      10
+    </div>
   </div>
-  <div
-    class="arco-slider-label is-suffix"
-  >
-    10
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`slider demo test slider demo: vertical.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="40"
-  class="arco-slider  is-vertical show-tooltip"
-  role="slider"
-  style="height:210px"
->
+<DocumentFragment>
   <div
-    class="arco-slider-wrapper"
+    aria-disabled="false"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="40"
+    class="arco-slider  is-vertical show-tooltip"
+    role="slider"
+    style="height: 210px;"
   >
     <div
-      class="arco-slider-marks"
-    />
-    <div
-      class="arco-slider-line"
-      style="width:2px"
+      class="arco-slider-wrapper"
     >
       <div
-        class="arco-slider-line is-activated is-transferable"
-        style="width:2px;bottom:0px;height:0px"
+        class="arco-slider-marks"
+      />
+      <div
+        class="arco-slider-line"
+        style="width: 2px;"
       >
         <div
-          class="arco-slider-thumb-wrapper is-end"
+          class="arco-slider-line is-activated is-transferable"
+          style="width: 2px; bottom: 0px; height: 0px;"
         >
           <div
-            class="arco-slider-popover-wrapper"
+            class="arco-slider-thumb-wrapper is-end"
           >
             <div
-              class="arco-slider-thumb"
-            />
+              class="arco-slider-popover-wrapper"
+            >
+              <div
+                class="arco-slider-thumb"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

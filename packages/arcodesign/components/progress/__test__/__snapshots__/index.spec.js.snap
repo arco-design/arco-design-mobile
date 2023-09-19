@@ -1,36 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`progress demo test progress demo: custom-color.md renders correctly 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="75"
-  class="arco-progress"
-  role="progressbar"
->
+<DocumentFragment>
   <div
-    class="progress-wrapper"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-progress"
+    role="progressbar"
   >
     <div
-      class="progress-track position-right filleted"
+      class="progress-wrapper"
     >
       <div
-        class="progress-bar filleted"
-        style="background:#FF5722;width:0%;transition:;-webkit-transition:"
-      />
-    </div>
-    <div
-      class="text text-right"
-      style="color:#FF5722"
-    >
-      0%
+        class="progress-track position-right filleted"
+      >
+        <div
+          class="progress-bar filleted"
+          style="background: rgb(255, 87, 34); width: 75%;"
+        />
+      </div>
+      <div
+        class="text text-right"
+        style="color: rgb(255, 87, 34);"
+      >
+        75%
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`progress demo test progress demo: custom-size.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="progress-demo-custom-size"
   >
@@ -46,21 +48,21 @@ Array [
       >
         <div
           class="progress-track position-right filleted"
-          style="height:8px"
+          style="height: 8px;"
         >
           <div
             class="progress-bar filleted"
-            style="width:0%;transition:;-webkit-transition:"
+            style="width: 75%;"
           />
         </div>
         <div
           class="text text-right"
         >
-          0%
+          75%
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="progress-demo-custom-size"
   >
@@ -76,21 +78,21 @@ Array [
       >
         <div
           class="progress-track position-right filleted"
-          style="height:4px"
+          style="height: 4px;"
         >
           <div
             class="progress-bar filleted"
-            style="width:0%;transition:;-webkit-transition:"
+            style="width: 75%;"
           />
         </div>
         <div
           class="text text-right"
         >
-          0%
+          75%
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="progress-demo-custom-size"
   >
@@ -106,212 +108,226 @@ Array [
       >
         <div
           class="progress-track position-right filleted"
-          style="height:2px"
+          style="height: 2px;"
         >
           <div
             class="progress-bar filleted"
-            style="width:0%;transition:;-webkit-transition:"
+            style="width: 75%;"
           />
         </div>
         <div
           class="text text-right"
         >
-          0%
+          75%
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`progress demo test progress demo: custom-style.md renders correctly 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="75"
-  class="arco-progress"
-  role="progressbar"
->
+<DocumentFragment>
   <div
-    class="progress-wrapper"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-progress"
+    role="progressbar"
   >
     <div
-      class="progress-track position-follow filleted"
+      class="progress-wrapper"
     >
       <div
-        class="progress-bar filleted"
-        style="width:0%;transition:;-webkit-transition:"
+        class="progress-track position-follow filleted"
       >
         <div
-          class="wrapper"
+          class="progress-bar filleted"
+          style="width: 75%;"
         >
           <div
-            class="text-follow"
+            class="wrapper"
           >
-            0%
+            <div
+              class="text-follow"
+            >
+              75%
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`progress demo test progress demo: equivalent-progress.md renders correctly 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="60"
-  class="arco-progress"
-  role="progressbar"
->
+<DocumentFragment>
   <div
-    class="progress-wrapper"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="60"
+    class="arco-progress"
+    role="progressbar"
   >
     <div
-      class="progress-track position-right filleted"
+      class="progress-wrapper"
     >
       <div
-        class="progress-bar filleted"
-        style="width:0%;transition:;-webkit-transition:"
-      />
-    </div>
-    <div
-      class="text text-right"
-    >
-      0%
+        class="progress-track position-right filleted"
+      >
+        <div
+          class="progress-bar filleted"
+          style="width: 60%;"
+        />
+      </div>
+      <div
+        class="text text-right"
+      >
+        60%
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`progress demo test progress demo: inactive.md renders correctly 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="75"
-  class="arco-progress progress-disabled"
-  role="progressbar"
->
+<DocumentFragment>
   <div
-    class="progress-wrapper"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-progress progress-disabled"
+    role="progressbar"
   >
     <div
-      class="progress-track position-right filleted"
+      class="progress-wrapper"
     >
       <div
-        class="progress-bar bar-disabled filleted"
-        style="width:0%;transition:;-webkit-transition:"
-      />
-    </div>
-    <div
-      class="text text-right text-disabled"
-    >
-      0%
+        class="progress-track position-right filleted"
+      >
+        <div
+          class="progress-bar bar-disabled filleted"
+          style="width: 75%;"
+        />
+      </div>
+      <div
+        class="text text-right text-disabled"
+      >
+        75%
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`progress demo test progress demo: index.md renders correctly 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="75"
-  class="arco-progress progress-fixed"
-  role="progressbar"
-  style="position:relative;z-index:1"
->
+<DocumentFragment>
   <div
-    class="progress-wrapper"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-progress progress-fixed"
+    role="progressbar"
+    style="position: relative; z-index: 1;"
   >
     <div
-      class="progress-track position-right filleted nav-mode"
+      class="progress-wrapper"
     >
       <div
-        class="progress-bar filleted"
-        style="width:0%;transition:;-webkit-transition:"
-      />
+        class="progress-track position-right filleted nav-mode"
+      >
+        <div
+          class="progress-bar filleted"
+          style="width: 75%;"
+        />
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`progress demo test progress demo: inner.md renders correctly 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="75"
-  class="arco-progress"
-  role="progressbar"
->
+<DocumentFragment>
   <div
-    class="progress-wrapper"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-progress"
+    role="progressbar"
   >
     <div
-      class="progress-track position-innerLeft filleted"
+      class="progress-wrapper"
     >
       <div
-        class="progress-bar filleted"
-        style="width:0%;transition:;-webkit-transition:"
-      />
-    </div>
-    <div
-      class="text text-innerLeft"
-    >
-      0%
+        class="progress-track position-innerLeft filleted"
+      >
+        <div
+          class="progress-bar filleted"
+          style="width: 75%;"
+        />
+      </div>
+      <div
+        class="text text-innerLeft"
+      >
+        75%
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`progress demo test progress demo: no-percentage.md renders correctly 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="75"
-  class="arco-progress"
-  role="progressbar"
->
+<DocumentFragment>
   <div
-    class="progress-wrapper"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-progress"
+    role="progressbar"
   >
     <div
-      class="progress-track position-right filleted"
+      class="progress-wrapper"
     >
       <div
-        class="progress-bar filleted"
-        style="width:0%;transition:;-webkit-transition:"
-      />
+        class="progress-track position-right filleted"
+      >
+        <div
+          class="progress-bar filleted"
+          style="width: 75%;"
+        />
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`progress demo test progress demo: normal.md renders correctly 1`] = `
-<div
-  aria-valuemax="100"
-  aria-valuemin="0"
-  aria-valuenow="75"
-  class="arco-progress"
-  role="progressbar"
->
+<DocumentFragment>
   <div
-    class="progress-wrapper"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-progress"
+    role="progressbar"
   >
     <div
-      class="progress-track position-right filleted"
+      class="progress-wrapper"
     >
       <div
-        class="progress-bar filleted"
-        style="width:0%;transition:;-webkit-transition:"
-      />
-    </div>
-    <div
-      class="text text-right"
-    >
-      0%
+        class="progress-track position-right filleted"
+      >
+        <div
+          class="progress-bar filleted"
+          style="width: 75%;"
+        />
+      </div>
+      <div
+        class="text text-right"
+      >
+        75%
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

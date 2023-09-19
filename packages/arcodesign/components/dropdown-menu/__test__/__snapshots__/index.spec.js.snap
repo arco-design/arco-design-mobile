@@ -1,205 +1,211 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dropdown-menu demo test dropdown-menu demo: cascade-options.md renders correctly 1`] = `
-<div
-  class="arco-dropdown-menu all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-select"
+    class="arco-dropdown-menu all-border-box"
   >
     <div
-      class="arco-select-item"
-      data-idx="0"
+      class="arco-select"
     >
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="0"
       >
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          Beijing
+          <div
+            class="arco-select-item-label-text"
+          >
+            Beijing
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
-    </div>
-    <div
-      class="arco-select-item"
-      data-idx="1"
-    >
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="1"
       >
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          Haidian District
+          <div
+            class="arco-select-item-label-text"
+          >
+            Haidian District
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
+      <div />
     </div>
-    <div />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`dropdown-menu demo test dropdown-menu demo: controled-dropdown.md renders correctly 1`] = `
-<div
-  class="arco-dropdown-menu all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-select"
+    class="arco-dropdown-menu all-border-box"
   >
     <div
-      class="arco-select-item"
-      data-idx="0"
+      class="arco-select"
     >
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="0"
       >
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          Shenzhen
+          <div
+            class="arco-select-item-label-text"
+          >
+            Shenzhen
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
-    </div>
-    <div
-      class="arco-select-item"
-      data-idx="1"
-    >
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="1"
       >
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          Nanshan
+          <div
+            class="arco-select-item-label-text"
+          >
+            Nanshan
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
+      <div />
     </div>
-    <div />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`dropdown-menu demo test dropdown-menu demo: custom-direction.md renders correctly 1`] = `
-<div
-  class="arco-dropdown-menu all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-select"
+    class="arco-dropdown-menu all-border-box"
   >
     <div
-      class="arco-select-item"
-      data-idx="0"
+      class="arco-select"
     >
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="0"
       >
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          请选择
+          <div
+            class="arco-select-item-label-text"
+          >
+            请选择
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
-    </div>
-    <div
-      class="arco-select-item"
-      data-idx="1"
-    >
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="1"
       >
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          请选择
+          <div
+            class="arco-select-item-label-text"
+          >
+            请选择
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
+      <div />
     </div>
-    <div />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`dropdown-menu demo test dropdown-menu demo: diffrent-options.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-dropdown-menu all-border-box"
   >
@@ -235,7 +241,7 @@ Array [
       </div>
       <div />
     </div>
-  </div>,
+  </div>
   <div
     class="arco-dropdown-menu all-border-box"
   >
@@ -298,7 +304,7 @@ Array [
       </div>
       <div />
     </div>
-  </div>,
+  </div>
   <div
     class="arco-dropdown-menu all-border-box"
   >
@@ -361,148 +367,152 @@ Array [
       </div>
       <div />
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`dropdown-menu demo test dropdown-menu demo: named-select.md renders correctly 1`] = `
-<div
-  class="arco-dropdown-menu all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-select"
+    class="arco-dropdown-menu all-border-box"
   >
     <div
-      class="arco-select-item"
-      data-idx="0"
+      class="arco-select"
     >
-      <span
-        class="arco-select-item-tip"
-      >
-        District
-      </span>
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="0"
       >
+        <span
+          class="arco-select-item-tip"
+        >
+          District
+        </span>
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          Haidian District
+          <div
+            class="arco-select-item-label-text"
+          >
+            Haidian District
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
-    </div>
-    <div
-      class="arco-select-item"
-      data-idx="1"
-    >
-      <span
-        class="arco-select-item-tip"
-      >
-        Position
-      </span>
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="1"
       >
+        <span
+          class="arco-select-item-tip"
+        >
+          Position
+        </span>
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          All
+          <div
+            class="arco-select-item-label-text"
+          >
+            All
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
+      <div />
     </div>
-    <div />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`dropdown-menu demo test dropdown-menu demo: selected-options.md renders correctly 1`] = `
-<div
-  class="arco-dropdown-menu all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-select"
+    class="arco-dropdown-menu all-border-box"
   >
     <div
-      class="arco-select-item"
-      data-idx="0"
+      class="arco-select"
     >
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="0"
       >
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          Changping District
+          <div
+            class="arco-select-item-label-text"
+          >
+            Changping District
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
-    </div>
-    <div
-      class="arco-select-item"
-      data-idx="1"
-    >
       <div
-        class="arco-select-item-label"
+        class="arco-select-item"
+        data-idx="1"
       >
         <div
-          class="arco-select-item-label-text"
+          class="arco-select-item-label"
         >
-          Middle floor
+          <div
+            class="arco-select-item-label-text"
+          >
+            Middle floor
+          </div>
+          <svg
+            class="arco-icon arco-icon-tri-down arco-select-item-icon"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs />
+            <path
+              d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
+            />
+          </svg>
         </div>
-        <svg
-          class="arco-icon arco-icon-tri-down arco-select-item-icon"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs />
-          <path
-            d="M195.456 341.333h633.088a21.333 21.333 0 0116.235 35.158L528.256 748.885a21.333 21.333 0 01-32.512 0L179.221 376.491a21.333 21.333 0 0116.235-35.158z"
-          />
-        </svg>
       </div>
+      <div />
     </div>
-    <div />
   </div>
-</div>
+</DocumentFragment>
 `;

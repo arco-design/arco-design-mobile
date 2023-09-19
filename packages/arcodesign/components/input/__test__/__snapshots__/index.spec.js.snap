@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`input demo test input demo: disabled.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -28,7 +28,7 @@ Array [
         value="Input disabled"
       />
     </div>
-  </div>,
+  </div>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -50,17 +50,17 @@ Array [
         class="arco-input"
         placeholder="Please enter nickname"
         readonly=""
-        style="color:#86909C"
+        style="color: rgb(134, 144, 156);"
         type="text"
         value="Input readonly"
       />
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`input demo test input demo: error.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -85,7 +85,7 @@ Array [
         value=""
       />
     </div>
-  </div>,
+  </div>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -134,216 +134,220 @@ Array [
         Email format error
       </span>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`input demo test input demo: group.md renders correctly 1`] = `
-<div
-  class="arco-cell-group all-border-box"
->
+<DocumentFragment>
   <div
-    class="cell-group-body"
+    class="arco-cell-group all-border-box"
   >
     <div
-      class="arco-cell all-border-box bordered"
+      class="cell-group-body"
     >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            Name
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            class="arco-input-container all-border-box "
-            role="search"
+            class="cell-label"
           >
             <div
-              class="arco-input-wrap text border-none pc"
+              class="cell-title"
             >
-              <input
-                aria-label=""
-                class="arco-input"
-                placeholder="Please enter name"
-                type="text"
-                value=""
-              />
+              Name
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              class="arco-input-container all-border-box "
+              role="search"
+            >
+              <div
+                class="arco-input-wrap text border-none pc"
+              >
+                <input
+                  aria-label=""
+                  class="arco-input"
+                  placeholder="Please enter name"
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            Phone
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            class="arco-input-container all-border-box "
-            role="search"
+            class="cell-label"
           >
             <div
-              class="arco-input-wrap text border-none pc"
+              class="cell-title"
             >
-              <input
-                aria-label=""
-                class="arco-input"
-                placeholder="Please enter the phone number"
-                type="text"
-                value=""
-              />
+              Phone
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              class="arco-input-container all-border-box "
+              role="search"
+            >
+              <div
+                class="arco-input-wrap text border-none pc"
+              >
+                <input
+                  aria-label=""
+                  class="arco-input"
+                  placeholder="Please enter the phone number"
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            Email
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            class="arco-input-container all-border-box "
-            role="search"
+            class="cell-label"
           >
             <div
-              class="arco-input-wrap text border-none pc"
+              class="cell-title"
             >
-              <input
-                aria-label=""
-                class="arco-input"
-                placeholder="Please input your email"
-                type="text"
-                value=""
-              />
+              Email
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              class="arco-input-container all-border-box "
+              role="search"
+            >
+              <div
+                class="arco-input-wrap text border-none pc"
+              >
+                <input
+                  aria-label=""
+                  class="arco-input"
+                  placeholder="Please input your email"
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            Remark
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            class="arco-input-container all-border-box "
-            role="search"
+            class="cell-label"
           >
             <div
-              class="arco-input-wrap text border-none pc"
+              class="cell-title"
             >
-              <input
-                aria-label=""
-                class="arco-input"
-                placeholder="Please enter remark"
-                type="text"
-                value=""
-              />
+              Remark
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              class="arco-input-container all-border-box "
+              role="search"
+            >
+              <div
+                class="arco-input-wrap text border-none pc"
+              >
+                <input
+                  aria-label=""
+                  class="arco-input"
+                  placeholder="Please enter remark"
+                  type="text"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`input demo test input demo: icon.md renders correctly 1`] = `
-<div
-  class="arco-input-container all-border-box "
-  role="search"
->
+<DocumentFragment>
   <div
-    class="arco-input-wrap text border-none pc"
+    class="arco-input-container all-border-box "
+    role="search"
   >
     <div
-      class="arco-input-prefix"
+      class="arco-input-wrap text border-none pc"
     >
       <div
-        class="arco-input-label"
+        class="arco-input-prefix"
       >
         <div
-          class="demo-input-icon"
+          class="arco-input-label"
         >
-          <svg
-            class="arco-icon arco-icon-user "
-            height="1em"
-            style="margin-right:10px;font-size:20px;color:#4E5969;vertical-align:middle"
-            viewBox="0 0 1024 1024"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="demo-input-icon"
           >
-            <path
-              d="M512 192a106.688 106.688 0 000 213.333A106.688 106.688 0 00512 192zM320 298.667a192 192 0 11384 0 192 192 0 01-384 0zM398.293 640C320.64 640 256 703.936 256 785.067v68.266h512v-68.266C768 703.936 703.36 640 625.707 640H398.293zM170.667 785.067c0-127.254 101.973-230.4 227.626-230.4h227.414c125.653 0 227.626 103.146 227.626 230.4v115.2c0 21.205-17.066 38.4-37.973 38.4H208.64c-20.907 0-37.973-17.195-37.973-38.4v-115.2z"
-              fill="currentColor"
-            />
-          </svg>
-          Username
+            <svg
+              class="arco-icon arco-icon-user "
+              height="1em"
+              style="margin-right: 10px; font-size: 20px; color: rgb(78, 89, 105); vertical-align: middle;"
+              viewBox="0 0 1024 1024"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M512 192a106.688 106.688 0 000 213.333A106.688 106.688 0 00512 192zM320 298.667a192 192 0 11384 0 192 192 0 01-384 0zM398.293 640C320.64 640 256 703.936 256 785.067v68.266h512v-68.266C768 703.936 703.36 640 625.707 640H398.293zM170.667 785.067c0-127.254 101.973-230.4 227.626-230.4h227.414c125.653 0 227.626 103.146 227.626 230.4v115.2c0 21.205-17.066 38.4-37.973 38.4H208.64c-20.907 0-37.973-17.195-37.973-38.4v-115.2z"
+                fill="currentColor"
+              />
+            </svg>
+            Username
+          </div>
         </div>
       </div>
+      <input
+        aria-label=""
+        class="arco-input"
+        placeholder="please enter username"
+        type="text"
+        value=""
+      />
     </div>
-    <input
-      aria-label=""
-      class="arco-input"
-      placeholder="please enter username"
-      type="text"
-      value=""
-    />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`input demo test input demo: index.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -368,7 +372,7 @@ Array [
         value=""
       />
     </div>
-  </div>,
+  </div>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -409,7 +413,7 @@ Array [
         </svg>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -430,63 +434,65 @@ Array [
         aria-label=""
         class="arco-input"
         placeholder="Please enter nickname"
-        style="text-align:right"
+        style="text-align: right;"
         type="text"
         value=""
       />
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`input demo test input demo: input-button.md renders correctly 1`] = `
-<div
-  class="arco-input-container all-border-box demo-input-btn-input"
-  role="search"
->
+<DocumentFragment>
   <div
-    class="arco-input-wrap tel border-none pc suffix"
+    class="arco-input-container all-border-box demo-input-btn-input"
+    role="search"
   >
     <div
-      class="arco-input-prefix"
+      class="arco-input-wrap tel border-none pc suffix"
     >
       <div
-        class="arco-input-label"
+        class="arco-input-prefix"
       >
-        Verification code
-      </div>
-    </div>
-    <input
-      aria-label=""
-      class="arco-input"
-      placeholder="Please enter verification code"
-      type="tel"
-      value=""
-    />
-    <div
-      class="arco-input-suffix"
-    >
-      <div
-        class="demo-input-btn-wrap"
-      >
-        <button
-          class="arco-button arco-button-type-primary type-primary arco-button-size-medium arco-button-size-medium-is-round size-medium is-round pc arco-button-inline inline"
-          type="button"
+        <div
+          class="arco-input-label"
         >
-          <div
-            class="arco-button-text arco-button-text-pc btn-text"
+          Verification code
+        </div>
+      </div>
+      <input
+        aria-label=""
+        class="arco-input"
+        placeholder="Please enter verification code"
+        type="tel"
+        value=""
+      />
+      <div
+        class="arco-input-suffix"
+      >
+        <div
+          class="demo-input-btn-wrap"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-medium arco-button-size-medium-is-round size-medium is-round pc arco-button-inline inline"
+            type="button"
           >
-            Send
-          </div>
-        </button>
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Send
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`input demo test input demo: max.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -512,7 +518,7 @@ Array [
         value=""
       />
     </div>
-  </div>,
+  </div>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -546,12 +552,12 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`input demo test input demo: number.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -576,7 +582,7 @@ Array [
         value=""
       />
     </div>
-  </div>,
+  </div>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -602,7 +608,7 @@ Array [
         value=""
       />
     </div>
-  </div>,
+  </div>
   <div
     class="arco-input-container all-border-box "
     role="search"
@@ -627,30 +633,32 @@ Array [
         value=""
       />
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`input demo test input demo: vertical.md renders correctly 1`] = `
-<div
-  class="arco-input-container all-border-box "
-  role="search"
->
+<DocumentFragment>
   <div
-    class="demo-input-title"
+    class="arco-input-container all-border-box "
+    role="search"
   >
-    Title
+    <div
+      class="demo-input-title"
+    >
+      Title
+    </div>
+    <div
+      class="arco-input-wrap text border-none pc"
+    >
+      <input
+        aria-label=""
+        class="arco-input"
+        placeholder="please enter username"
+        type="text"
+        value=""
+      />
+    </div>
   </div>
-  <div
-    class="arco-input-wrap text border-none pc"
-  >
-    <input
-      aria-label=""
-      class="arco-input"
-      placeholder="please enter username"
-      type="text"
-      value=""
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;

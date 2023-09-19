@@ -1,88 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`textarea demo test textarea demo: error-hint.md renders correctly 1`] = `
-<div
-  class="arco-input-container all-border-box "
-  role="search"
->
+<DocumentFragment>
   <div
-    class="arco-input-wrap textarea has-stat border-none pc"
+    class="arco-input-container all-border-box "
+    role="search"
   >
-    <textarea
-      class="arco-textarea"
-      placeholder="Please enter the description of no more than 5 characters"
-      rows="1"
-    />
-    <span
-      class="statistic-text"
+    <div
+      class="arco-input-wrap textarea has-stat border-none pc"
     >
-      0/5
-    </span>
+      <textarea
+        class="arco-textarea"
+        placeholder="Please enter the description of no more than 5 characters"
+        rows="1"
+        style="height: 0px;"
+      />
+      <span
+        class="statistic-text"
+      >
+        0/5
+      </span>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`textarea demo test textarea demo: fix-height.md renders correctly 1`] = `
-<div
-  class="arco-input-container all-border-box "
-  role="search"
->
+<DocumentFragment>
   <div
-    class="arco-input-wrap textarea  border-none pc"
+    class="arco-input-container all-border-box "
+    role="search"
   >
-    <textarea
-      class="arco-textarea"
-      placeholder="Please enter the description of no less than 10 characters"
-      style="height:55px"
-    />
+    <div
+      class="arco-input-wrap textarea  border-none pc"
+    >
+      <textarea
+        class="arco-textarea"
+        placeholder="Please enter the description of no less than 10 characters"
+        style="height: 55px;"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`textarea demo test textarea demo: index.md renders correctly 1`] = `
-<div
-  class="arco-input-container all-border-box "
-  role="search"
->
+<DocumentFragment>
   <div
-    class="arco-input-wrap textarea has-stat border-none pc"
+    class="arco-input-container all-border-box "
+    role="search"
   >
-    <textarea
-      class="arco-textarea"
-      placeholder="Please enter the description of no less than 10 characters"
-    />
-    <span
-      class="statistic-text"
+    <div
+      class="arco-input-wrap textarea has-stat border-none pc"
     >
-      0/100
-    </span>
+      <textarea
+        class="arco-textarea"
+        placeholder="Please enter the description of no less than 10 characters"
+        style="height: 0px;"
+      />
+      <span
+        class="statistic-text"
+      >
+        0/100
+      </span>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`textarea demo test textarea demo: label.md renders correctly 1`] = `
-<div
-  class="arco-input-container all-border-box "
-  role="search"
->
+<DocumentFragment>
   <div
-    class="arco-input-wrap textarea has-stat border-none pc prefix"
+    class="arco-input-container all-border-box "
+    role="search"
   >
     <div
-      class="arco-input-prefix"
+      class="arco-input-wrap textarea has-stat border-none pc prefix"
     >
-      Message
+      <div
+        class="arco-input-prefix"
+      >
+        Message
+      </div>
+      <textarea
+        class="arco-textarea"
+        placeholder="Please enter the description of no less than 10 characters"
+        rows="2"
+        style="height: 0px;"
+      />
+      <span
+        class="statistic-text"
+      >
+        0/50
+      </span>
     </div>
-    <textarea
-      class="arco-textarea"
-      placeholder="Please enter the description of no less than 10 characters"
-      rows="2"
-    />
-    <span
-      class="statistic-text"
-    >
-      0/50
-    </span>
   </div>
-</div>
+</DocumentFragment>
 `;

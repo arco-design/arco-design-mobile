@@ -1,406 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`rate demo test rate demo: base.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="5"
-  aria-valuemin="0"
-  aria-valuenow="3"
-  class="arco-rate"
-  role="slider"
->
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-</div>
-`;
-
-exports[`rate demo test rate demo: count.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="6"
-  aria-valuemin="0"
-  aria-valuenow="3"
-  class="arco-rate"
-  role="slider"
->
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-</div>
-`;
-
-exports[`rate demo test rate demo: custom.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="5"
-  aria-valuemin="0"
-  aria-valuenow="3"
-  class="arco-rate"
-  role="slider"
->
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-smile-fill "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 28 28"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-smile-fill "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 28 28"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-smile-fill "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 28 28"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-smile-fill "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 28 28"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-smile-fill "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 28 28"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-</div>
-`;
-
-exports[`rate demo test rate demo: define.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     aria-disabled="false"
     aria-valuemax="5"
@@ -416,7 +17,6 @@ Array [
         class="arco-icon arco-icon-star-fill arco-rate-icon active"
         fill="currentColor"
         height="1em"
-        style="font-size:24px"
         viewBox="0 0 1024 1024"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -440,7 +40,6 @@ Array [
         class="arco-icon arco-icon-star-fill arco-rate-icon active"
         fill="currentColor"
         height="1em"
-        style="font-size:24px"
         viewBox="0 0 1024 1024"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -464,7 +63,6 @@ Array [
         class="arco-icon arco-icon-star-fill arco-rate-icon active"
         fill="currentColor"
         height="1em"
-        style="font-size:24px"
         viewBox="0 0 1024 1024"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -488,7 +86,6 @@ Array [
         class="arco-icon arco-icon-star-fill arco-rate-icon normal"
         fill="currentColor"
         height="1em"
-        style="font-size:24px"
         viewBox="0 0 1024 1024"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -512,7 +109,6 @@ Array [
         class="arco-icon arco-icon-star-fill arco-rate-icon normal"
         fill="currentColor"
         height="1em"
-        style="font-size:24px"
         viewBox="0 0 1024 1024"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -529,7 +125,417 @@ Array [
         class="arco-rate-icon-click-half right"
       />
     </div>
-  </div>,
+  </div>
+</DocumentFragment>
+`;
+
+exports[`rate demo test rate demo: count.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    aria-disabled="false"
+    aria-valuemax="6"
+    aria-valuemin="0"
+    aria-valuenow="3"
+    class="arco-rate"
+    role="slider"
+  >
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`rate demo test rate demo: custom.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    aria-disabled="false"
+    aria-valuemax="5"
+    aria-valuemin="0"
+    aria-valuenow="3"
+    class="arco-rate"
+    role="slider"
+  >
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-smile-fill "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 28 28"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-smile-fill "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 28 28"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-smile-fill "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 28 28"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-smile-fill "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 28 28"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-smile-fill "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 28 28"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14 1.2c7.1 0 12.8 5.7 12.8 12.8S21.1 26.8 14 26.8 1.2 21.1 1.2 14 6.9 1.2 14 1.2zm6 15.1h-2.6c-.7 1.1-2 1.7-3.4 1.7s-2.6-.7-3.4-1.7H8c.9 2.4 3.3 4.1 6 4.1s5-1.7 6-4.1zm-1.3-6.4h-2.3v3.5h2.3V9.9zm-7 0H9.3v3.5h2.3V9.9z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`rate demo test rate demo: define.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    aria-disabled="false"
+    aria-valuemax="5"
+    aria-valuemin="0"
+    aria-valuenow="3"
+    class="arco-rate"
+    role="slider"
+  >
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        style="font-size: 24px;"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        style="font-size: 24px;"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        style="font-size: 24px;"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        style="font-size: 24px;"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        style="font-size: 24px;"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+  </div>
   <div
     aria-disabled="false"
     aria-valuemax="36"
@@ -537,7 +543,7 @@ Array [
     aria-valuenow="24"
     class="arco-slider  is-horizontal show-tooltip show-marks"
     role="slider"
-    style="margin-top:42PX;padding-left:0;padding-right:0;padding-top:0"
+    style="padding-left: 0px; padding-right: 0px; padding-top: 0px;"
   >
     <div
       class="arco-slider-wrapper"
@@ -547,7 +553,7 @@ Array [
       >
         <div
           class="arco-slider-marks-item is-activated is-transferable"
-          style="left:0%"
+          style="left: 0%;"
         >
           <div
             class="arco-slider-marks-item-label"
@@ -559,7 +565,7 @@ Array [
         </div>
         <div
           class="arco-slider-marks-item is-activated is-transferable"
-          style="left:25%"
+          style="left: 25%;"
         >
           <div
             class="arco-slider-marks-item-label"
@@ -571,7 +577,7 @@ Array [
         </div>
         <div
           class="arco-slider-marks-item is-transferable"
-          style="left:50%"
+          style="left: 50%;"
         >
           <div
             class="arco-slider-marks-item-label"
@@ -583,7 +589,7 @@ Array [
         </div>
         <div
           class="arco-slider-marks-item is-transferable"
-          style="left:75%"
+          style="left: 75%;"
         >
           <div
             class="arco-slider-marks-item-label"
@@ -595,7 +601,7 @@ Array [
         </div>
         <div
           class="arco-slider-marks-item is-transferable"
-          style="left:100%"
+          style="left: 100%;"
         >
           <div
             class="arco-slider-marks-item-label"
@@ -608,11 +614,11 @@ Array [
       </div>
       <div
         class="arco-slider-line"
-        style="height:2px"
+        style="height: 2px;"
       >
         <div
           class="arco-slider-line is-activated is-transferable"
-          style="height:2px;left:0px;width:0px"
+          style="height: 2px; left: 0px; width: 0px;"
         >
           <div
             class="arco-slider-thumb-wrapper is-end"
@@ -628,538 +634,546 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`rate demo test rate demo: disabled.md renders correctly 1`] = `
-<div
-  aria-disabled="true"
-  aria-valuemax="5"
-  aria-valuemin="0"
-  aria-valuenow="3"
-  class="arco-rate disabled"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-rate-icon-wrap active"
+    aria-disabled="true"
+    aria-valuemax="5"
+    aria-valuemin="0"
+    aria-valuenow="3"
+    class="arco-rate disabled"
+    role="slider"
   >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active disabled"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="arco-rate-icon-wrap active"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active disabled"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active disabled"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+      class="arco-rate-icon-wrap active"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active disabled"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active disabled"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+      class="arco-rate-icon-wrap active"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active disabled"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal disabled"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+      class="arco-rate-icon-wrap normal"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal disabled"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal disabled"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+      class="arco-rate-icon-wrap normal"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal disabled"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`rate demo test rate demo: half.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="5"
-  aria-valuemin="0"
-  aria-valuenow="4.5"
-  class="arco-rate"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-rate-icon-wrap active"
+    aria-disabled="false"
+    aria-valuemax="5"
+    aria-valuemin="0"
+    aria-valuenow="4.5"
+    class="arco-rate"
+    role="slider"
   >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="arco-rate-icon-wrap active"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half right"
-    />
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap half-active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <svg
+        class="arco-icon arco-icon-star-half arco-rate-icon half-active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M513.8 71.6c-13.4-.9-25.9 5.8-31 16.2l-128 219.4c-3.7 11-11 14.6-21.9 18.3l-245 51.2c-3.7 0-11 3.7-14.6 7.3-14.6 14.6-18.3 36.6-3.7 51.2l168.2 186.5c3.7 11 7.3 18.3 7.3 29.3l-25.6 248.7c-3.7 7.3 0 14.6 3.7 18.3 7.3 18.3 29.3 25.6 47.5 18.3l226.7-109.7c3.9-3.9 10-5.7 16.4-5.4V71.6z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
   </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap half-active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <svg
-      class="arco-icon arco-icon-star-half arco-rate-icon half-active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M513.8 71.6c-13.4-.9-25.9 5.8-31 16.2l-128 219.4c-3.7 11-11 14.6-21.9 18.3l-245 51.2c-3.7 0-11 3.7-14.6 7.3-14.6 14.6-18.3 36.6-3.7 51.2l168.2 186.5c3.7 11 7.3 18.3 7.3 29.3l-25.6 248.7c-3.7 7.3 0 14.6 3.7 18.3 7.3 18.3 29.3 25.6 47.5 18.3l226.7-109.7c3.9-3.9 10-5.7 16.4-5.4V71.6z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`rate demo test rate demo: listen.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="5"
-  aria-valuemin="0"
-  aria-valuenow="3"
-  class="arco-rate"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-rate-icon-wrap active"
+    aria-disabled="false"
+    aria-valuemax="5"
+    aria-valuemin="0"
+    aria-valuenow="3"
+    class="arco-rate"
+    role="slider"
   >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="arco-rate-icon-wrap active"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
+      class="arco-rate-icon-wrap half-active"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <svg
+        class="arco-icon arco-icon-star-half arco-rate-icon half-active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M513.8 71.6c-13.4-.9-25.9 5.8-31 16.2l-128 219.4c-3.7 11-11 14.6-21.9 18.3l-245 51.2c-3.7 0-11 3.7-14.6 7.3-14.6 14.6-18.3 36.6-3.7 51.2l168.2 186.5c3.7 11 7.3 18.3 7.3 29.3l-25.6 248.7c-3.7 7.3 0 14.6 3.7 18.3 7.3 18.3 29.3 25.6 47.5 18.3l226.7-109.7c3.9-3.9 10-5.7 16.4-5.4V71.6z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half right"
-    />
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
+    <div
+      class="arco-rate-icon-wrap normal"
+    >
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
+      />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
   </div>
-  <div
-    class="arco-rate-icon-wrap half-active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <svg
-      class="arco-icon arco-icon-star-half arco-rate-icon half-active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M513.8 71.6c-13.4-.9-25.9 5.8-31 16.2l-128 219.4c-3.7 11-11 14.6-21.9 18.3l-245 51.2c-3.7 0-11 3.7-14.6 7.3-14.6 14.6-18.3 36.6-3.7 51.2l168.2 186.5c3.7 11 7.3 18.3 7.3 29.3l-25.6 248.7c-3.7 7.3 0 14.6 3.7 18.3 7.3 18.3 29.3 25.6 47.5 18.3l226.7-109.7c3.9-3.9 10-5.7 16.4-5.4V71.6z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-      />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`rate demo test rate demo: readonly.md renders correctly 1`] = `
-<div
-  aria-disabled="false"
-  aria-valuemax="5"
-  aria-valuemin="0"
-  aria-valuenow="0"
-  class="arco-rate"
-  role="slider"
->
+<DocumentFragment>
   <div
-    class="arco-rate-icon-wrap active"
+    aria-disabled="false"
+    aria-valuemax="5"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="arco-rate"
+    role="slider"
   >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="arco-rate-icon-wrap active"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+      class="arco-rate-icon-wrap active"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap active"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon active"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+      class="arco-rate-icon-wrap active"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon active"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+      class="arco-rate-icon-wrap normal"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
     <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
-  </div>
-  <div
-    class="arco-rate-icon-wrap normal"
-  >
-    <svg
-      class="arco-icon arco-icon-star-fill arco-rate-icon normal"
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+      class="arco-rate-icon-wrap normal"
     >
-      <defs />
-      <path
-        d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+      <svg
+        class="arco-icon arco-icon-star-fill arco-rate-icon normal"
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+        />
+      </svg>
+      <div
+        class="arco-rate-icon-click-half left"
       />
-    </svg>
-    <div
-      class="arco-rate-icon-click-half left"
-    />
-    <div
-      class="arco-rate-icon-click-half right"
-    />
+      <div
+        class="arco-rate-icon-click-half right"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

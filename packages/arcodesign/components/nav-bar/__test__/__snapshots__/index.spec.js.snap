@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`nav-bar demo test nav-bar demo: index.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px"
+    style="padding-top: 0px;"
   >
     <div
       class="pc arco-nav-bar-wrapper"
-      style="padding-top:0px"
+      style="padding-top: 0px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -46,26 +46,26 @@ Array [
           class="arco-nav-bar-right"
         >
           <span
-            style="color:#165DFF"
+            style="color: rgb(22, 93, 255);"
           >
             More
           </span>
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="gap-line"
-  />,
+  />
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px"
+    style="padding-top: 0px;"
   >
     <div
       class="pc arco-nav-bar-wrapper"
-      style="padding-top:0px"
+      style="padding-top: 0px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -99,19 +99,19 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="gap-line"
-  />,
+  />
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px;color:white;background:#165dff"
+    style="padding-top: 0px; color: white; background: rgb(22, 93, 255);"
   >
     <div
       class="pc arco-nav-bar-wrapper"
-      style="padding-top:0px"
+      style="padding-top: 0px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -161,52 +161,54 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`nav-bar demo test nav-bar demo: index2.md renders correctly 1`] = `
-<div
-  aria-label=""
-  class="arco-nav-bar"
-  role="banner"
-  style="padding-top:0px"
->
-  <div
-    class="pc arco-nav-bar-wrapper"
-    style="padding-top:0px"
-  >
-    <div
-      class="arco-nav-bar-inner all-border-box"
-    >
-      <div
-        class="arco-nav-bar-title"
-      >
-        <div
-          class="arco-nav-bar-title-text"
-        >
-          Title
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`nav-bar demo test nav-bar demo: index3.md renders correctly 1`] = `
-Array [
-  <div
-    class="gap-line"
-  />,
+<DocumentFragment>
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px"
+    style="padding-top: 0px;"
   >
     <div
       class="pc arco-nav-bar-wrapper"
-      style="padding-top:0px"
+      style="padding-top: 0px;"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-title"
+        >
+          <div
+            class="arco-nav-bar-title-text"
+          >
+            Title
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`nav-bar demo test nav-bar demo: index3.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="gap-line"
+  />
+  <div
+    aria-label=""
+    class="arco-nav-bar"
+    role="banner"
+    style="padding-top: 0px;"
+  >
+    <div
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top: 0px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -240,19 +242,19 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="gap-line"
-  />,
+  />
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px"
+    style="padding-top: 0px;"
   >
     <div
       class="pc arco-nav-bar-wrapper"
-      style="padding-top:0px"
+      style="padding-top: 0px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -288,10 +290,10 @@ Array [
           class="arco-nav-bar-right"
         >
           <div
-            style="display:flex;align-items:center"
+            style="display: flex; align-items: center;"
           >
             <span
-              style="margin-right:16px"
+              style="margin-right: 16px;"
             >
               Edit
             </span>
@@ -311,19 +313,19 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="gap-line"
-  />,
+  />
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px;background:url(https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/navbar-demo-bg.png);color:white"
+    style="padding-top: 0px; background: url(https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/navbar-demo-bg.png); color: white;"
   >
     <div
       class="immersive-navbar pc arco-nav-bar-wrapper arco-nav-bar-wrapper-border"
-      style="padding-top:10px"
+      style="padding-top: 10px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -357,21 +359,21 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`nav-bar demo test nav-bar demo: index4.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px"
+    style="padding-top: 0px;"
   >
     <div
       class="pc arco-nav-bar-wrapper"
-      style="padding-top:0px"
+      style="padding-top: 0px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -403,19 +405,19 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="gap-line"
-  />,
+  />
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px"
+    style="padding-top: 0px;"
   >
     <div
       class="pc arco-nav-bar-wrapper"
-      style="padding-top:0px"
+      style="padding-top: 0px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -453,7 +455,7 @@ Array [
           <svg
             class="arco-icon arco-icon-search "
             height="1em"
-            style="font-size:18px"
+            style="font-size: 18px;"
             viewBox="0 0 1024 1024"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -466,120 +468,123 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`nav-bar demo test nav-bar demo: index5.md renders correctly 1`] = `
-<div
-  aria-label=""
-  class="arco-nav-bar"
-  role="banner"
-  style="padding-top:0px"
->
-  <div
-    class="pc arco-nav-bar-wrapper"
-    style="padding-top:0px"
-  >
-    <div
-      class="arco-nav-bar-inner all-border-box"
-    >
-      <div
-        class="arco-nav-bar-left"
-      >
-        <div
-          class="c-svg-arrow nav-bar-back"
-        >
-          <svg
-            height="100%"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
-              fill="currentColor"
-              id="path-1_1_"
-            />
-          </svg>
-        </div>
-      </div>
-      <div
-        style="width:100%;padding:1px 46px"
-      >
-        <div
-          class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
-        >
-          <div
-            class="arco-tab-cell-container-wrap vertical type-line-divide pc"
-          >
-            <div
-              class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
-            >
-              <div
-                class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
-              >
-                <div
-                  class="arco-tab-cell vertical line-divide pc active no-shrink"
-                >
-                  Option 1
-                </div>
-                <div
-                  class="arco-tab-cell vertical line-divide pc no-shrink"
-                >
-                  Option 2
-                </div>
-                <div
-                  class="arco-tab-cell vertical line-divide pc no-shrink last"
-                >
-                  Option 3
-                </div>
-                <div
-                  class="arco-tab-cell-underline"
-                >
-                  <div
-                    class="arco-tab-cell-underline-inner vertical"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="arco-tab-pane-container vertical mode-swipe"
-            style="width:0%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-          />
-        </div>
-      </div>
-      <div
-        class="arco-nav-bar-right"
-      >
-        <svg
-          class="arco-icon arco-icon-more "
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 48 48"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M35 21h6v6h-6zM7 21h6v6H7zM21 21h6v6h-6z"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`nav-bar demo test nav-bar demo: index6.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     aria-label=""
     class="arco-nav-bar"
     role="banner"
-    style="padding-top:0px"
+    style="padding-top: 0px;"
   >
     <div
       class="pc arco-nav-bar-wrapper"
-      style="padding-top:0px"
+      style="padding-top: 0px;"
+    >
+      <div
+        class="arco-nav-bar-inner all-border-box"
+      >
+        <div
+          class="arco-nav-bar-left"
+        >
+          <div
+            class="c-svg-arrow nav-bar-back"
+          >
+            <svg
+              height="100%"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.1,8l5.4,5.4c0.1,0.1,0.1,0.3,0,0.5L7,14.4c-0.1,0.1-0.3,0.1-0.5,0L0.7,8.5c-0.3-0.3-0.3-0.7,0-0.9 l5.9-5.9c0.1-0.1,0.3-0.1,0.5,0l0.5,0.5c0.1,0.1,0.1,0.3,0,0.5L2.1,8z"
+                fill="currentColor"
+                id="path-1_1_"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          style="width: 100%; padding: 1px 46px;"
+        >
+          <div
+            class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+          >
+            <div
+              class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+            >
+              <div
+                class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+              >
+                <div
+                  class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+                >
+                  <div
+                    class="arco-tab-cell vertical line-divide pc active no-shrink"
+                  >
+                    Option 1
+                  </div>
+                  <div
+                    class="arco-tab-cell vertical line-divide pc no-shrink"
+                  >
+                    Option 2
+                  </div>
+                  <div
+                    class="arco-tab-cell vertical line-divide pc no-shrink last"
+                  >
+                    Option 3
+                  </div>
+                  <div
+                    class="arco-tab-cell-underline"
+                    style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
+                  >
+                    <div
+                      class="arco-tab-cell-underline-inner vertical"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="arco-tab-pane-container vertical mode-swipe"
+              style="width: 0%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
+            />
+          </div>
+        </div>
+        <div
+          class="arco-nav-bar-right"
+        >
+          <svg
+            class="arco-icon arco-icon-more "
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 48 48"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M35 21h6v6h-6zM7 21h6v6H7zM21 21h6v6h-6z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`nav-bar demo test nav-bar demo: index6.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    aria-label=""
+    class="arco-nav-bar"
+    role="banner"
+    style="padding-top: 0px;"
+  >
+    <div
+      class="pc arco-nav-bar-wrapper"
+      style="padding-top: 0px;"
     >
       <div
         class="arco-nav-bar-inner all-border-box"
@@ -602,16 +607,16 @@ Array [
           class="arco-nav-bar-right"
         >
           <span
-            style="background:#165DFF;border-radius:26px;width:60px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#FFF"
+            style="background: rgb(22, 93, 255); border-radius: 26px; width: 60px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: rgb(255, 255, 255);"
           >
             Finish
           </span>
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="gap-line"
-  />,
-]
+  />
+</DocumentFragment>
 `;

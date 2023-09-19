@@ -1,40 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ellipsis demo test ellipsis demo: custom-ellipsis.md renders correctly 1`] = `
-<div
-  class="arco-ellipsis"
->
-  <div
-    class="arco-ellipsis-js"
-  >
-    <span
-      class="arco-ellipsis-js-content"
-    >
-      <span
-        class="arco-ellipsis-js-content-initial"
-        style="-webkit-line-clamp:2"
-      >
-        This wasn't the first time ''natural'' sounds had been used in musical compositions; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing.
-      </span>
-    </span>
-    <span
-      class="arco-ellipsis-js-content-ellipsis"
-    >
-      <span>
-        ...
-        <span
-          class="demo-link"
-        >
-          Expand
-        </span>
-      </span>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ellipsis demo test ellipsis demo: end-exclude.md renders correctly 1`] = `
-<div>
+<DocumentFragment>
   <div
     class="arco-ellipsis"
   >
@@ -46,116 +13,158 @@ exports[`ellipsis demo test ellipsis demo: end-exclude.md renders correctly 1`] 
       >
         <span
           class="arco-ellipsis-js-content-initial"
-          style="-webkit-line-clamp:2"
-        >
-          This was long before digital audio: this was done with razor blades. Today, it's called sampling, and the influence of these bands is felt in nearly all branches of modern pop music.
-        </span>
-      </span>
-      <span
-        class="arco-ellipsis-js-content-ellipsis"
-      >
-        ...
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ellipsis demo test ellipsis demo: float-ellipsis.md renders correctly 1`] = `
-<div
-  class="arco-ellipsis"
->
-  <div
-    class="arco-ellipsis-native ellipsis"
-    style="-webkit-line-clamp:2"
-  >
-    <span>
-      This was long before digital audio: this was done with razor blades. Today, it's called sampling, and the influence of these bands is felt in nearly all branches of modern pop music.
-    </span>
-    <span
-      class="arco-ellipsis-native-ellipsis-node"
-    >
-      <span
-        class="demo-link"
-      >
-        展开
-      </span>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ellipsis demo test ellipsis demo: normal.md renders correctly 1`] = `
-<div
-  class="arco-ellipsis"
->
-  <div
-    class="arco-ellipsis-native ellipsis"
-    style="-webkit-line-clamp:2"
-  >
-    <span>
-      This was long before digital audio: this was done with razor blades. Today, it's called sampling, and the influence of these bands is felt in nearly all branches of modern pop music.
-    </span>
-  </div>
-</div>
-`;
-
-exports[`ellipsis demo test ellipsis demo: reflow-yourself.md renders correctly 1`] = `
-<div>
-  <div
-    class="arco-ellipsis"
-  >
-    <div
-      class="arco-ellipsis-js"
-    >
-      <span
-        class="arco-ellipsis-js-content"
-      >
-        <span
-          class="arco-ellipsis-js-content-initial"
-          style="-webkit-line-clamp:2"
         >
           This wasn't the first time ''natural'' sounds had been used in musical compositions; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing.
         </span>
       </span>
       <span
         class="arco-ellipsis-js-content-ellipsis"
+        style="display: inline;"
       >
-        ...
+        <span>
+          ...
+          <span
+            class="demo-link"
+          >
+            Expand
+          </span>
+        </span>
       </span>
     </div>
   </div>
-  <button
-    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
-    style="margin-top:32px"
-    type="button"
+</DocumentFragment>
+`;
+
+exports[`ellipsis demo test ellipsis demo: end-exclude.md renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="arco-ellipsis"
+    >
+      <div
+        class="arco-ellipsis-js"
+      >
+        <span
+          class="arco-ellipsis-js-content"
+        >
+          <span
+            class="arco-ellipsis-js-content-initial"
+          >
+            This was long before digital audio: this was done with razor blades. Today, it's called sampling, and the influence of these bands is felt in nearly all branches of modern pop music.
+          </span>
+        </span>
+        <span
+          class="arco-ellipsis-js-content-ellipsis"
+          style="display: inline;"
+        >
+          ...
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ellipsis demo test ellipsis demo: float-ellipsis.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-ellipsis"
   >
     <div
-      class="arco-button-text arco-button-text-pc btn-text"
+      class="arco-ellipsis-native ellipsis"
     >
-      Click to trigger reflow
+      <span>
+        This was long before digital audio: this was done with razor blades. Today, it's called sampling, and the influence of these bands is felt in nearly all branches of modern pop music.
+      </span>
+      <span
+        class="arco-ellipsis-native-ellipsis-node"
+      >
+        <span
+          class="demo-link"
+        >
+          展开
+        </span>
+      </span>
     </div>
-  </button>
-</div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ellipsis demo test ellipsis demo: normal.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-ellipsis"
+  >
+    <div
+      class="arco-ellipsis-native ellipsis"
+    >
+      <span>
+        This was long before digital audio: this was done with razor blades. Today, it's called sampling, and the influence of these bands is felt in nearly all branches of modern pop music.
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ellipsis demo test ellipsis demo: reflow-yourself.md renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="arco-ellipsis"
+    >
+      <div
+        class="arco-ellipsis-js"
+      >
+        <span
+          class="arco-ellipsis-js-content"
+        >
+          <span
+            class="arco-ellipsis-js-content-initial"
+          >
+            This wasn't the first time ''natural'' sounds had been used in musical compositions; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing.
+          </span>
+        </span>
+        <span
+          class="arco-ellipsis-js-content-ellipsis"
+          style="display: inline;"
+        >
+          ...
+        </span>
+      </div>
+    </div>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+      style="margin-top: 32px;"
+      type="button"
+    >
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Click to trigger reflow
+      </div>
+    </button>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`ellipsis demo test ellipsis demo: rich-text.md renders correctly 1`] = `
-<div
-  class="arco-ellipsis"
->
+<DocumentFragment>
   <div
-    class="arco-ellipsis-native ellipsis"
-    style="-webkit-line-clamp:2"
+    class="arco-ellipsis"
   >
-    <span>
-      This wasn't the first time ''natural'' sounds had been used in 
-      <a
-        class="demo-link-line"
-      >
-        musical compositions
-      </a>
-      ; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing.
-    </span>
+    <div
+      class="arco-ellipsis-native ellipsis"
+    >
+      <span>
+        This wasn't the first time ''natural'' sounds had been used in 
+        <a
+          class="demo-link-line"
+        >
+          musical compositions
+        </a>
+        ; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing.
+      </span>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

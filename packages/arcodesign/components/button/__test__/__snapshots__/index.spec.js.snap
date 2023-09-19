@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`button demo test button demo: color.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline has-custom-border"
-    style="border-color:#FF5722;background:#FF5722;margin-right:20px"
+    style="border-color: #ff5722; background: rgb(255, 87, 34); margin-right: 20px;"
     type="button"
   >
     <div
@@ -12,10 +12,10 @@ Array [
     >
       Button
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline has-custom-border"
-    style="color:#FF5722;border-color:#FF5722;background:#FFF;margin-right:20px"
+    style="color: rgb(255, 87, 34); border-color: #ff5722; background: rgb(255, 255, 255); margin-right: 20px;"
     type="button"
   >
     <div
@@ -23,10 +23,10 @@ Array [
     >
       Button
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-default type-default arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
-    style="color:white;background:linear-gradient(278.7deg, #0578FF 5.08%, #15D5FF 108.09%)"
+    style="color: white;"
     type="button"
   >
     <div
@@ -34,12 +34,12 @@ Array [
     >
       Gradient
     </div>
-  </button>,
-]
+  </button>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: default.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <button
     class="arco-button arco-button-type-default type-default arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
     type="button"
@@ -49,10 +49,10 @@ Array [
     >
       Auxiliary
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-default type-default arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-default-disabled disabled"
-    style="margin-top:20px"
+    style="margin-top: 20px;"
     type="button"
   >
     <div
@@ -60,12 +60,12 @@ Array [
     >
       Disabled
     </div>
-  </button>,
-]
+  </button>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: ghost.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <button
     class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
     type="button"
@@ -75,10 +75,10 @@ Array [
     >
       Wireframe
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-ghost-disabled disabled"
-    style="margin-top:20px"
+    style="margin-top: 20px;"
     type="button"
   >
     <div
@@ -86,15 +86,15 @@ Array [
     >
       Disabled
     </div>
-  </button>,
-]
+  </button>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: icon.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
-    style="margin-right:20px;width:0.72rem;padding:0"
+    style="margin-right: 20px; width: 0.72rem; padding: 0px;"
     type="button"
   >
     <div
@@ -114,10 +114,10 @@ Array [
         />
       </svg>
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
-    style="margin-right:20px"
+    style="margin-right: 20px;"
     type="button"
   >
     <div
@@ -141,7 +141,7 @@ Array [
     >
       Button
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
     type="button"
@@ -167,15 +167,15 @@ Array [
     >
       Icon button
     </div>
-  </button>,
-]
+  </button>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: loading.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline loading"
-    style="margin-right:11px"
+    style="margin-right: 11px;"
     type="button"
   >
     <div
@@ -183,14 +183,14 @@ Array [
     >
       <div
         class="arco-loading all-border-box circle arco-button-loading-icon loading-icon"
-        style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:14px;height:14px"
+        style="animation-duration: 1000ms; width: 14px; height: 14px;"
       >
         <svg
           viewBox="0 0 14 14"
         >
           <defs>
-            <linearGradient
-              id="grad1-"
+            <lineargradient
+              id="grad1-inner-0"
               x1="0%"
               x2="100%"
               y1="0%"
@@ -204,9 +204,9 @@ Array [
                 class="loading-circle-start stop-color-with-config"
                 offset="100%"
               />
-            </linearGradient>
-            <linearGradient
-              id="grad2-"
+            </lineargradient>
+            <lineargradient
+              id="grad2-inner-0"
               x1="0%"
               x2="100%"
               y1="0%"
@@ -220,14 +220,14 @@ Array [
                 class="loading-circle-end stop-color-with-config"
                 offset="100%"
               />
-            </linearGradient>
+            </lineargradient>
           </defs>
           <circle
             cx="7"
             cy="7"
             fill="none"
             r="6"
-            stroke="url(#grad1-)"
+            stroke="url(#grad1-inner-0)"
             stroke-dasharray="18.84955592153876"
             stroke-dashoffset="18.84955592153876"
             stroke-width="2"
@@ -237,7 +237,7 @@ Array [
             cy="7"
             fill="none"
             r="6"
-            stroke="url(#grad2-)"
+            stroke="url(#grad2-inner-0)"
             stroke-dasharray="18.84955592153876"
             stroke-width="2"
           />
@@ -255,7 +255,7 @@ Array [
     >
       Primary
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline loading"
     type="button"
@@ -265,14 +265,14 @@ Array [
     >
       <div
         class="arco-loading all-border-box circle arco-button-loading-icon loading-icon"
-        style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:14px;height:14px"
+        style="animation-duration: 1000ms; width: 14px; height: 14px;"
       >
         <svg
           viewBox="0 0 14 14"
         >
           <defs>
-            <linearGradient
-              id="grad1-"
+            <lineargradient
+              id="grad1-inner-1"
               x1="0%"
               x2="100%"
               y1="0%"
@@ -286,9 +286,9 @@ Array [
                 class="loading-circle-start stop-color-with-config"
                 offset="100%"
               />
-            </linearGradient>
-            <linearGradient
-              id="grad2-"
+            </lineargradient>
+            <lineargradient
+              id="grad2-inner-1"
               x1="0%"
               x2="100%"
               y1="0%"
@@ -302,14 +302,14 @@ Array [
                 class="loading-circle-end stop-color-with-config"
                 offset="100%"
               />
-            </linearGradient>
+            </lineargradient>
           </defs>
           <circle
             cx="7"
             cy="7"
             fill="none"
             r="6"
-            stroke="url(#grad1-)"
+            stroke="url(#grad1-inner-1)"
             stroke-dasharray="18.84955592153876"
             stroke-dashoffset="18.84955592153876"
             stroke-width="2"
@@ -319,7 +319,7 @@ Array [
             cy="7"
             fill="none"
             r="6"
-            stroke="url(#grad2-)"
+            stroke="url(#grad2-inner-1)"
             stroke-dasharray="18.84955592153876"
             stroke-width="2"
           />
@@ -337,10 +337,10 @@ Array [
     >
       Secondary
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
-    style="margin-top:20px"
+    style="margin-top: 20px;"
     type="button"
   >
     <div
@@ -365,25 +365,27 @@ Array [
     >
       Secondary
     </div>
-  </button>,
-]
+  </button>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: pass-button.md renders correctly 1`] = `
-<button
-  class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge is-semi pc"
-  type="button"
->
-  <div
-    class="arco-button-text arco-button-text-pc btn-text"
+<DocumentFragment>
+  <button
+    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge is-semi pc"
+    type="button"
   >
-    Banner
-  </div>
-</button>
+    <div
+      class="arco-button-text arco-button-text-pc btn-text"
+    >
+      Banner
+    </div>
+  </button>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: primary.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
     type="button"
@@ -393,10 +395,10 @@ Array [
     >
       Primary
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-primary-disabled disabled"
-    style="margin-top:20px"
+    style="margin-top: 20px;"
     type="button"
   >
     <div
@@ -404,41 +406,43 @@ Array [
     >
       Disabled
     </div>
-  </button>,
-]
+  </button>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: round.md renders correctly 1`] = `
-<div
-  style="display:flex;justify-content:space-between"
->
-  <button
-    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-round size-large is-round pc arco-button-inline inline"
-    style="margin-right:20px;flex:1"
-    type="button"
+<DocumentFragment>
+  <div
+    style="display: flex; justify-content: space-between;"
   >
-    <div
-      class="arco-button-text arco-button-text-pc btn-text"
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-round size-large is-round pc arco-button-inline inline"
+      style="margin-right: 20px; flex: 1;"
+      type="button"
     >
-      Rounded
-    </div>
-  </button>
-  <button
-    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-square size-large is-square pc arco-button-inline inline"
-    style="flex:1"
-    type="button"
-  >
-    <div
-      class="arco-button-text arco-button-text-pc btn-text"
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Rounded
+      </div>
+    </button>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-square size-large is-square pc arco-button-inline inline"
+      style="flex: 1;"
+      type="button"
     >
-      Right angle
-    </div>
-  </button>
-</div>
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Right angle
+      </div>
+    </button>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: size.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge is-semi pc"
     type="button"
@@ -448,10 +452,10 @@ Array [
     >
       Huge button
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-inline inline"
-    style="margin-right:40px;margin-top:20px"
+    style="margin-right: 40px; margin-top: 20px;"
     type="button"
   >
     <div
@@ -459,10 +463,10 @@ Array [
     >
        Regular
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-medium arco-button-size-medium-is-semi size-medium is-semi pc arco-button-inline inline"
-    style="margin-right:40px"
+    style="margin-right: 40px;"
     type="button"
   >
     <div
@@ -470,7 +474,7 @@ Array [
     >
       Middle
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-small arco-button-size-small-is-semi size-small is-semi pc arco-button-inline inline"
     type="button"
@@ -480,10 +484,10 @@ Array [
     >
       Small button
     </div>
-  </button>,
+  </button>
   <button
     class="arco-button arco-button-type-primary type-primary arco-button-size-mini arco-button-size-mini-is-semi size-mini is-semi pc arco-button-inline inline"
-    style="margin-top:20px"
+    style="margin-top: 20px;"
     type="button"
   >
     <div
@@ -491,12 +495,12 @@ Array [
     >
       Mini
     </div>
-  </button>,
-]
+  </button>
+</DocumentFragment>
 `;
 
 exports[`button demo test button demo: type.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="button-inline-flex"
   >
@@ -520,13 +524,13 @@ Array [
         Disabled
       </div>
     </button>
-  </div>,
+  </div>
   <div
     class="button-inline-flex"
   >
     <button
       class="arco-button arco-button-type-danger type-danger arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc has-custom-border"
-      style="color:#fff;border-color:#F53F3F;background:#F53F3F"
+      style="color: rgb(255, 255, 255); border-color: #f53f3f; background: rgb(245, 63, 63);"
       type="button"
     >
       <div
@@ -537,7 +541,7 @@ Array [
     </button>
     <button
       class="arco-button arco-button-type-danger type-danger arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-danger-disabled disabled has-custom-border"
-      style="color:#FFECE8;border-color:#FBACA3;background:#FBACA3"
+      style="color: rgb(255, 236, 232); border-color: #fbaca3; background: rgb(251, 172, 163);"
       type="button"
     >
       <div
@@ -546,13 +550,13 @@ Array [
         Disabled
       </div>
     </button>
-  </div>,
+  </div>
   <div
     class="button-inline-flex"
   >
     <button
       class="arco-button arco-button-type-warning type-warning arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc has-custom-border"
-      style="color:#fff;border-color:#FF7D00;background:#FF7D00"
+      style="color: rgb(255, 255, 255); border-color: #ff7d00; background: rgb(255, 125, 0);"
       type="button"
     >
       <div
@@ -563,7 +567,7 @@ Array [
     </button>
     <button
       class="arco-button arco-button-type-warning type-warning arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-warning-disabled disabled has-custom-border"
-      style="color:#FFF7E8;border-color:#FFCF8B;background:#FFCF8B"
+      style="color: rgb(255, 247, 232); border-color: #ffcf8b; background: rgb(255, 207, 139);"
       type="button"
     >
       <div
@@ -572,6 +576,6 @@ Array [
         Disabled
       </div>
     </button>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;

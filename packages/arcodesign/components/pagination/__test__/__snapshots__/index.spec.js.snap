@@ -1,151 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`pagination demo test pagination demo: icon.md renders correctly 1`] = `
-<div
-  class="arco-pagination pc"
->
-  <div
-    class="arco-pagination-prev-field flex-side"
-  >
-    <div
-      class="arco-pagination-field prev button"
-    >
-      <span
-        class="btn-icon"
-      >
-        <svg
-          fill="none"
-          height="14"
-          viewBox="0 0 8 14"
-          width="8"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M7.40514 12.7583C7.6004 12.563 7.6004 12.2465 7.40514 12.0512L2.40095 7.04701L7.36396 2.084C7.55922 1.88874 7.55922 1.57216 7.36396 1.37689L7.01041 1.02334C6.81515 0.828077 6.49856 0.828077 6.3033 1.02334L0.646447 6.68019C0.470402 6.85624 0.453075 7.1309 0.594469 7.32636C0.617837 7.37275 0.64889 7.41626 0.687628 7.455L6.34448 13.1119C6.53974 13.3071 6.85633 13.3071 7.05159 13.1119L7.40514 12.7583Z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-      <span
-        class="btn-text"
-      >
-        上一页
-      </span>
-    </div>
-  </div>
-  <div
-    class="arco-pagination-item"
-  >
-    <span
-      class="arco-pagination-item-active"
-    >
-      2
-    </span>
-     / 5
-  </div>
-  <div
-    class="arco-pagination-next-field flex-side"
-  >
-    <div
-      class="arco-pagination-field next button default"
-    >
-      <span
-        class="btn-text"
-      >
-        下一页
-      </span>
-      <span
-        class="btn-icon next"
-      >
-        <svg
-          fill="none"
-          height="14"
-          viewBox="0 0 8 14"
-          width="8"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M7.40514 12.7583C7.6004 12.563 7.6004 12.2465 7.40514 12.0512L2.40095 7.04701L7.36396 2.084C7.55922 1.88874 7.55922 1.57216 7.36396 1.37689L7.01041 1.02334C6.81515 0.828077 6.49856 0.828077 6.3033 1.02334L0.646447 6.68019C0.470402 6.85624 0.453075 7.1309 0.594469 7.32636C0.617837 7.37275 0.64889 7.41626 0.687628 7.455L6.34448 13.1119C6.53974 13.3071 6.85633 13.3071 7.05159 13.1119L7.40514 12.7583Z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`pagination demo test pagination demo: icon2.md renders correctly 1`] = `
-<div
-  class="arco-pagination pc"
->
-  <div
-    class="arco-pagination-prev-field flex-center"
-  >
-    <div
-      class="arco-pagination-field prev button disabled"
-    >
-      <span
-        class="btn-icon"
-      >
-        <svg
-          fill="none"
-          height="14"
-          viewBox="0 0 8 14"
-          width="8"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M7.40514 12.7583C7.6004 12.563 7.6004 12.2465 7.40514 12.0512L2.40095 7.04701L7.36396 2.084C7.55922 1.88874 7.55922 1.57216 7.36396 1.37689L7.01041 1.02334C6.81515 0.828077 6.49856 0.828077 6.3033 1.02334L0.646447 6.68019C0.470402 6.85624 0.453075 7.1309 0.594469 7.32636C0.617837 7.37275 0.64889 7.41626 0.687628 7.455L6.34448 13.1119C6.53974 13.3071 6.85633 13.3071 7.05159 13.1119L7.40514 12.7583Z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-  <div
-    class="arco-pagination-item"
-  >
-    <span
-      class="arco-pagination-item-active"
-    >
-      1
-    </span>
-     / 6
-  </div>
-  <div
-    class="arco-pagination-next-field flex-center"
-  >
-    <div
-      class="arco-pagination-field next button default"
-    >
-      <span
-        class="btn-icon next"
-      >
-        <svg
-          fill="none"
-          height="14"
-          viewBox="0 0 8 14"
-          width="8"
-        >
-          <path
-            clip-rule="evenodd"
-            d="M7.40514 12.7583C7.6004 12.563 7.6004 12.2465 7.40514 12.0512L2.40095 7.04701L7.36396 2.084C7.55922 1.88874 7.55922 1.57216 7.36396 1.37689L7.01041 1.02334C6.81515 0.828077 6.49856 0.828077 6.3033 1.02334L0.646447 6.68019C0.470402 6.85624 0.453075 7.1309 0.594469 7.32636C0.617837 7.37275 0.64889 7.41626 0.687628 7.455L6.34448 13.1119C6.53974 13.3071 6.85633 13.3071 7.05159 13.1119L7.40514 12.7583Z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`pagination demo test pagination demo: index.md renders correctly 1`] = `
-<div>
+<DocumentFragment>
   <div
     class="arco-pagination pc"
   >
@@ -153,8 +9,25 @@ exports[`pagination demo test pagination demo: index.md renders correctly 1`] = 
       class="arco-pagination-prev-field flex-side"
     >
       <div
-        class="arco-pagination-field prev button disabled"
+        class="arco-pagination-field prev button"
       >
+        <span
+          class="btn-icon"
+        >
+          <svg
+            fill="none"
+            height="14"
+            viewBox="0 0 8 14"
+            width="8"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M7.40514 12.7583C7.6004 12.563 7.6004 12.2465 7.40514 12.0512L2.40095 7.04701L7.36396 2.084C7.55922 1.88874 7.55922 1.57216 7.36396 1.37689L7.01041 1.02334C6.81515 0.828077 6.49856 0.828077 6.3033 1.02334L0.646447 6.68019C0.470402 6.85624 0.453075 7.1309 0.594469 7.32636C0.617837 7.37275 0.64889 7.41626 0.687628 7.455L6.34448 13.1119C6.53974 13.3071 6.85633 13.3071 7.05159 13.1119L7.40514 12.7583Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
         <span
           class="btn-text"
         >
@@ -168,9 +41,9 @@ exports[`pagination demo test pagination demo: index.md renders correctly 1`] = 
       <span
         class="arco-pagination-item-active"
       >
-        1
+        2
       </span>
-       / 6
+       / 5
     </div>
     <div
       class="arco-pagination-next-field flex-side"
@@ -183,9 +56,187 @@ exports[`pagination demo test pagination demo: index.md renders correctly 1`] = 
         >
           下一页
         </span>
+        <span
+          class="btn-icon next"
+        >
+          <svg
+            fill="none"
+            height="14"
+            viewBox="0 0 8 14"
+            width="8"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M7.40514 12.7583C7.6004 12.563 7.6004 12.2465 7.40514 12.0512L2.40095 7.04701L7.36396 2.084C7.55922 1.88874 7.55922 1.57216 7.36396 1.37689L7.01041 1.02334C6.81515 0.828077 6.49856 0.828077 6.3033 1.02334L0.646447 6.68019C0.470402 6.85624 0.453075 7.1309 0.594469 7.32636C0.617837 7.37275 0.64889 7.41626 0.687628 7.455L6.34448 13.1119C6.53974 13.3071 6.85633 13.3071 7.05159 13.1119L7.40514 12.7583Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
       </div>
     </div>
   </div>
+</DocumentFragment>
+`;
+
+exports[`pagination demo test pagination demo: icon2.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-pagination pc"
+  >
+    <div
+      class="arco-pagination-prev-field flex-center"
+    >
+      <div
+        class="arco-pagination-field prev button disabled"
+      >
+        <span
+          class="btn-icon"
+        >
+          <svg
+            fill="none"
+            height="14"
+            viewBox="0 0 8 14"
+            width="8"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M7.40514 12.7583C7.6004 12.563 7.6004 12.2465 7.40514 12.0512L2.40095 7.04701L7.36396 2.084C7.55922 1.88874 7.55922 1.57216 7.36396 1.37689L7.01041 1.02334C6.81515 0.828077 6.49856 0.828077 6.3033 1.02334L0.646447 6.68019C0.470402 6.85624 0.453075 7.1309 0.594469 7.32636C0.617837 7.37275 0.64889 7.41626 0.687628 7.455L6.34448 13.1119C6.53974 13.3071 6.85633 13.3071 7.05159 13.1119L7.40514 12.7583Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <div
+      class="arco-pagination-item"
+    >
+      <span
+        class="arco-pagination-item-active"
+      >
+        1
+      </span>
+       / 6
+    </div>
+    <div
+      class="arco-pagination-next-field flex-center"
+    >
+      <div
+        class="arco-pagination-field next button default"
+      >
+        <span
+          class="btn-icon next"
+        >
+          <svg
+            fill="none"
+            height="14"
+            viewBox="0 0 8 14"
+            width="8"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M7.40514 12.7583C7.6004 12.563 7.6004 12.2465 7.40514 12.0512L2.40095 7.04701L7.36396 2.084C7.55922 1.88874 7.55922 1.57216 7.36396 1.37689L7.01041 1.02334C6.81515 0.828077 6.49856 0.828077 6.3033 1.02334L0.646447 6.68019C0.470402 6.85624 0.453075 7.1309 0.594469 7.32636C0.617837 7.37275 0.64889 7.41626 0.687628 7.455L6.34448 13.1119C6.53974 13.3071 6.85633 13.3071 7.05159 13.1119L7.40514 12.7583Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`pagination demo test pagination demo: index.md renders correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="arco-pagination pc"
+    >
+      <div
+        class="arco-pagination-prev-field flex-side"
+      >
+        <div
+          class="arco-pagination-field prev button disabled"
+        >
+          <span
+            class="btn-text"
+          >
+            上一页
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-pagination-item"
+      >
+        <span
+          class="arco-pagination-item-active"
+        >
+          1
+        </span>
+         / 6
+      </div>
+      <div
+        class="arco-pagination-next-field flex-side"
+      >
+        <div
+          class="arco-pagination-field next button default"
+        >
+          <span
+            class="btn-text"
+          >
+            下一页
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-pagination pc"
+    >
+      <div
+        class="arco-pagination-prev-field flex-side"
+      >
+        <div
+          class="arco-pagination-field prev button disabled"
+        >
+          <span
+            class="btn-text"
+          >
+            上一页
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-pagination-item"
+      >
+        <span
+          class="arco-pagination-item-active"
+        >
+          1
+        </span>
+         / 6
+      </div>
+      <div
+        class="arco-pagination-next-field flex-side"
+      >
+        <div
+          class="arco-pagination-field next button primary"
+        >
+          <span
+            class="btn-text"
+          >
+            下一页
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`pagination demo test pagination demo: selfDefine.md renders correctly 1`] = `
+<DocumentFragment>
   <div
     class="arco-pagination pc"
   >
@@ -193,7 +244,110 @@ exports[`pagination demo test pagination demo: index.md renders correctly 1`] = 
       class="arco-pagination-prev-field flex-side"
     >
       <div
-        class="arco-pagination-field prev button disabled"
+        class="demo-btn"
+      />
+    </div>
+    <div
+      class="arco-pagination-item"
+    >
+      <span
+        class="arco-pagination-item-active"
+      >
+        1
+      </span>
+       / 3
+    </div>
+    <div
+      class="arco-pagination-next-field flex-side"
+    >
+      <div
+        class="demo-btn"
+      >
+        Chapter 1
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`pagination demo test pagination demo: selfDefine2.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-pagination pc"
+  >
+    <div
+      class="arco-pagination-prev-field flex-side"
+    >
+      <button
+        class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-ghost-disabled disabled has-custom-border"
+        style="color: rgb(29, 33, 41); border-color: #e5e6eb;"
+        type="button"
+      >
+        <div
+          class="arco-button-text arco-button-text-pc btn-text"
+        >
+          None
+        </div>
+      </button>
+    </div>
+    <div
+      class="arco-pagination-item"
+    >
+      <span
+        class="arco-pagination-item-active"
+      >
+        1
+      </span>
+       / 3
+    </div>
+    <div
+      class="arco-pagination-next-field flex-side"
+    >
+      <button
+        class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc has-custom-border"
+        style="color: rgb(22, 93, 255); border-color: #bedaff;"
+        type="button"
+      >
+        <div
+          class="arco-button-text arco-button-text-pc btn-text"
+        >
+          Chapter 1
+        </div>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`pagination demo test pagination demo: simple.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-pagination pc arco-pagination-simple"
+  >
+    <div
+      class="arco-pagination-item"
+    >
+      <span
+        class="arco-pagination-item-active"
+      >
+        1
+      </span>
+       / 5
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`pagination demo test pagination demo: text.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-pagination pc"
+  >
+    <div
+      class="arco-pagination-prev-field flex-side"
+    >
+      <div
+        class="arco-pagination-field prev text disabled"
       >
         <span
           class="btn-text"
@@ -210,13 +364,13 @@ exports[`pagination demo test pagination demo: index.md renders correctly 1`] = 
       >
         1
       </span>
-       / 6
+       / 5
     </div>
     <div
       class="arco-pagination-next-field flex-side"
     >
       <div
-        class="arco-pagination-field next button primary"
+        class="arco-pagination-field next text"
       >
         <span
           class="btn-text"
@@ -226,145 +380,5 @@ exports[`pagination demo test pagination demo: index.md renders correctly 1`] = 
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`pagination demo test pagination demo: selfDefine.md renders correctly 1`] = `
-<div
-  class="arco-pagination pc"
->
-  <div
-    class="arco-pagination-prev-field flex-side"
-  >
-    <div
-      class="demo-btn"
-    />
-  </div>
-  <div
-    class="arco-pagination-item"
-  >
-    <span
-      class="arco-pagination-item-active"
-    >
-      1
-    </span>
-     / 3
-  </div>
-  <div
-    class="arco-pagination-next-field flex-side"
-  >
-    <div
-      class="demo-btn"
-    >
-      Chapter 1
-    </div>
-  </div>
-</div>
-`;
-
-exports[`pagination demo test pagination demo: selfDefine2.md renders correctly 1`] = `
-<div
-  class="arco-pagination pc"
->
-  <div
-    class="arco-pagination-prev-field flex-side"
-  >
-    <button
-      class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc arco-button-type-ghost-disabled disabled has-custom-border"
-      style="color:#1D2129;border-color:#E5E6EB;width:fit-content"
-      type="button"
-    >
-      <div
-        class="arco-button-text arco-button-text-pc btn-text"
-      >
-        None
-      </div>
-    </button>
-  </div>
-  <div
-    class="arco-pagination-item"
-  >
-    <span
-      class="arco-pagination-item-active"
-    >
-      1
-    </span>
-     / 3
-  </div>
-  <div
-    class="arco-pagination-next-field flex-side"
-  >
-    <button
-      class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc has-custom-border"
-      style="color:#165DFF;border-color:#BEDAFF;width:fit-content"
-      type="button"
-    >
-      <div
-        class="arco-button-text arco-button-text-pc btn-text"
-      >
-        Chapter 1
-      </div>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`pagination demo test pagination demo: simple.md renders correctly 1`] = `
-<div
-  class="arco-pagination pc arco-pagination-simple"
->
-  <div
-    class="arco-pagination-item"
-  >
-    <span
-      class="arco-pagination-item-active"
-    >
-      1
-    </span>
-     / 5
-  </div>
-</div>
-`;
-
-exports[`pagination demo test pagination demo: text.md renders correctly 1`] = `
-<div
-  class="arco-pagination pc"
->
-  <div
-    class="arco-pagination-prev-field flex-side"
-  >
-    <div
-      class="arco-pagination-field prev text disabled"
-    >
-      <span
-        class="btn-text"
-      >
-        上一页
-      </span>
-    </div>
-  </div>
-  <div
-    class="arco-pagination-item"
-  >
-    <span
-      class="arco-pagination-item-active"
-    >
-      1
-    </span>
-     / 5
-  </div>
-  <div
-    class="arco-pagination-next-field flex-side"
-  >
-    <div
-      class="arco-pagination-field next text"
-    >
-      <span
-        class="btn-text"
-      >
-        下一页
-      </span>
-    </div>
-  </div>
-</div>
+</DocumentFragment>
 `;

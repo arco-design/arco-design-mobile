@@ -1,84 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`load-more demo test load-more demo: index.md renders correctly 1`] = `
-<div>
-  <div
-    class="arco-cell-group all-border-box"
-  >
+<DocumentFragment>
+  <div>
     <div
-      class="cell-group-body bordered"
+      class="arco-cell-group all-border-box"
     >
       <div
-        class="arco-cell all-border-box bordered"
+        class="cell-group-body bordered"
       >
         <div
-          class="arco-cell-inner"
+          class="arco-cell all-border-box bordered"
         >
           <div
-            class="cell-label"
+            class="arco-cell-inner"
           >
             <div
-              class="cell-title"
+              class="cell-label"
             >
-              Content
+              <div
+                class="cell-title"
+              >
+                Content
+              </div>
             </div>
+            <div
+              class="cell-content has-label"
+            />
           </div>
-          <div
-            class="cell-content has-label"
-          />
         </div>
-      </div>
-      <div
-        class="arco-cell all-border-box bordered"
-      >
         <div
-          class="arco-cell-inner"
+          class="arco-cell all-border-box bordered"
         >
           <div
-            class="cell-label"
+            class="arco-cell-inner"
           >
             <div
-              class="cell-title"
+              class="cell-label"
             >
-              Content
+              <div
+                class="cell-title"
+              >
+                Content
+              </div>
             </div>
+            <div
+              class="cell-content has-label"
+            />
           </div>
-          <div
-            class="cell-content has-label"
-          />
         </div>
-      </div>
-      <div
-        class="arco-cell all-border-box bordered"
-      >
         <div
-          class="arco-cell-inner"
+          class="arco-cell all-border-box bordered"
         >
           <div
-            class="cell-label"
+            class="arco-cell-inner"
           >
             <div
-              class="cell-title"
+              class="cell-label"
             >
-              Content
+              <div
+                class="cell-title"
+              >
+                Content
+              </div>
             </div>
+            <div
+              class="cell-content has-label"
+            />
           </div>
-          <div
-            class="cell-content has-label"
-          />
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-load-more status-prepare "
-    style="padding-top:16px;padding-bottom:44px"
-  >
     <div
-      class="load-more-text prepare"
+      class="arco-load-more status-loading "
+      style="padding-top: 16px; padding-bottom: 44px;"
     >
-      上拉加载更多
+      <div
+        class="load-more-text loading"
+      >
+        正在努力加载中...
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

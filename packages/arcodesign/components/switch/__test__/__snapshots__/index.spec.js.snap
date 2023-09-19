@@ -1,429 +1,441 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`switch demo test switch demo: index.md renders correctly 1`] = `
-<div
-  class="arco-cell-group all-border-box"
->
+<DocumentFragment>
   <div
-    class="cell-group-body"
+    class="arco-cell-group all-border-box"
   >
     <div
-      class="arco-cell all-border-box bordered"
+      class="cell-group-body"
     >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            IOS ON/OFF
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            aria-checked="true"
-            aria-disabled="false"
-            class="arco-switch all-border-box type-ios system-pc fully checked"
-            role="switch"
-            tabindex="0"
+            class="cell-label"
           >
             <div
-              class="arco-switch-inner"
-            />
+              class="cell-title"
+            >
+              IOS ON/OFF
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              aria-checked="true"
+              aria-disabled="false"
+              class="arco-switch all-border-box type-ios system-pc fully checked"
+              role="switch"
+              tabindex="0"
+            >
+              <div
+                class="arco-switch-inner"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            IOS ON/Disabled
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            aria-checked="true"
-            aria-disabled="true"
-            class="arco-switch all-border-box type-ios system-pc fully checked disabled"
-            role="switch"
-            tabindex="0"
+            class="cell-label"
           >
             <div
-              class="arco-switch-inner"
-            />
+              class="cell-title"
+            >
+              IOS ON/Disabled
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              aria-checked="true"
+              aria-disabled="true"
+              class="arco-switch all-border-box type-ios system-pc fully checked disabled"
+              role="switch"
+              tabindex="0"
+            >
+              <div
+                class="arco-switch-inner"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            IOS OFF/Disabled
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            aria-checked="false"
-            aria-disabled="true"
-            class="arco-switch all-border-box type-ios system-pc fully disabled"
-            role="switch"
-            tabindex="0"
+            class="cell-label"
           >
             <div
-              class="arco-switch-inner"
-            />
+              class="cell-title"
+            >
+              IOS OFF/Disabled
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              aria-checked="false"
+              aria-disabled="true"
+              class="arco-switch all-border-box type-ios system-pc fully disabled"
+              role="switch"
+              tabindex="0"
+            >
+              <div
+                class="arco-switch-inner"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`switch demo test switch demo: index2.md renders correctly 1`] = `
-<div
-  class="arco-cell-group all-border-box"
->
+<DocumentFragment>
   <div
-    class="cell-group-body"
+    class="arco-cell-group all-border-box"
   >
     <div
-      class="arco-cell all-border-box bordered"
+      class="cell-group-body"
     >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            Android ON/OFF
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            aria-checked="true"
-            aria-disabled="false"
-            class="arco-switch all-border-box type-android system-pc fully checked"
-            role="switch"
-            tabindex="0"
+            class="cell-label"
           >
             <div
-              class="arco-switch-inner"
-            />
+              class="cell-title"
+            >
+              Android ON/OFF
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              aria-checked="true"
+              aria-disabled="false"
+              class="arco-switch all-border-box type-android system-pc fully checked"
+              role="switch"
+              tabindex="0"
+            >
+              <div
+                class="arco-switch-inner"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            Android ON/Disabled
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            aria-checked="true"
-            aria-disabled="true"
-            class="arco-switch all-border-box type-android system-pc fully checked disabled"
-            role="switch"
-            tabindex="0"
+            class="cell-label"
           >
             <div
-              class="arco-switch-inner"
-            />
+              class="cell-title"
+            >
+              Android ON/Disabled
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              aria-checked="true"
+              aria-disabled="true"
+              class="arco-switch all-border-box type-android system-pc fully checked disabled"
+              role="switch"
+              tabindex="0"
+            >
+              <div
+                class="arco-switch-inner"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
       <div
-        class="arco-cell-inner"
+        class="arco-cell all-border-box bordered"
       >
         <div
-          class="cell-label"
+          class="arco-cell-inner"
         >
           <div
-            class="cell-title"
-          >
-            Android OFF/Disabled
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            aria-checked="false"
-            aria-disabled="true"
-            class="arco-switch all-border-box type-android system-pc fully disabled"
-            role="switch"
-            tabindex="0"
+            class="cell-label"
           >
             <div
-              class="arco-switch-inner"
-            />
+              class="cell-title"
+            >
+              Android OFF/Disabled
+            </div>
+          </div>
+          <div
+            class="cell-content has-label"
+          >
+            <div
+              aria-checked="false"
+              aria-disabled="true"
+              class="arco-switch all-border-box type-android system-pc fully disabled"
+              role="switch"
+              tabindex="0"
+            >
+              <div
+                class="arco-switch-inner"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`switch demo test switch demo: index3.md renders correctly 1`] = `
-<div
-  class="arco-cell all-border-box without-group"
->
+<DocumentFragment>
   <div
-    class="arco-cell-inner"
+    class="arco-cell all-border-box without-group"
   >
     <div
-      class="cell-label"
+      class="arco-cell-inner"
     >
       <div
-        class="cell-title"
-      >
-        Loading Status
-      </div>
-    </div>
-    <div
-      class="cell-content has-label"
-    >
-      <div
-        aria-checked="true"
-        aria-disabled="false"
-        class="arco-switch all-border-box demo-3 type-ios system-pc fully checked"
-        role="switch"
-        tabindex="0"
+        class="cell-label"
       >
         <div
-          class="arco-switch-inner"
+          class="cell-title"
+        >
+          Loading Status
+        </div>
+      </div>
+      <div
+        class="cell-content has-label"
+      >
+        <div
+          aria-checked="true"
+          aria-disabled="false"
+          class="arco-switch all-border-box demo-3 type-ios system-pc fully checked"
+          role="switch"
+          tabindex="0"
         >
           <div
-            class="arco-loading all-border-box circle"
-            style="animation-duration:1000ms;-webkit-animation-duration:1000ms;width:14px;height:14px"
+            class="arco-switch-inner"
           >
-            <svg
-              viewBox="0 0 14 14"
+            <div
+              class="arco-loading all-border-box circle"
+              style="animation-duration: 1000ms; width: 14px; height: 14px;"
             >
-              <defs>
-                <linearGradient
-                  id="grad1-"
-                  x1="0%"
-                  x2="100%"
-                  y1="0%"
-                  y2="0%"
-                >
-                  <stop
-                    class="loading-circle-middle stop-color-with-config"
-                    offset="0%"
-                  />
-                  <stop
-                    class="loading-circle-start stop-color-with-config"
-                    offset="100%"
-                  />
-                </linearGradient>
-                <linearGradient
-                  id="grad2-"
-                  x1="0%"
-                  x2="100%"
-                  y1="0%"
-                  y2="0%"
-                >
-                  <stop
-                    class="loading-circle-middle stop-color-with-config"
-                    offset="0%"
-                  />
-                  <stop
-                    class="loading-circle-end stop-color-with-config"
-                    offset="100%"
-                  />
-                </linearGradient>
-              </defs>
-              <circle
-                cx="7"
-                cy="7"
-                fill="none"
-                r="6"
-                stroke="url(#grad1-)"
-                stroke-dasharray="18.84955592153876"
-                stroke-dashoffset="18.84955592153876"
-                stroke-width="2"
-              />
-              <circle
-                cx="7"
-                cy="7"
-                fill="none"
-                r="6"
-                stroke="url(#grad2-)"
-                stroke-dasharray="18.84955592153876"
-                stroke-width="2"
-              />
-              <circle
-                class="loading-circle-filleted fill-color-with-config"
-                cx="13"
-                cy="7"
-                r="1"
-              />
-            </svg>
+              <svg
+                viewBox="0 0 14 14"
+              >
+                <defs>
+                  <lineargradient
+                    id="grad1-inner-0"
+                    x1="0%"
+                    x2="100%"
+                    y1="0%"
+                    y2="0%"
+                  >
+                    <stop
+                      class="loading-circle-middle stop-color-with-config"
+                      offset="0%"
+                    />
+                    <stop
+                      class="loading-circle-start stop-color-with-config"
+                      offset="100%"
+                    />
+                  </lineargradient>
+                  <lineargradient
+                    id="grad2-inner-0"
+                    x1="0%"
+                    x2="100%"
+                    y1="0%"
+                    y2="0%"
+                  >
+                    <stop
+                      class="loading-circle-middle stop-color-with-config"
+                      offset="0%"
+                    />
+                    <stop
+                      class="loading-circle-end stop-color-with-config"
+                      offset="100%"
+                    />
+                  </lineargradient>
+                </defs>
+                <circle
+                  cx="7"
+                  cy="7"
+                  fill="none"
+                  r="6"
+                  stroke="url(#grad1-inner-0)"
+                  stroke-dasharray="18.84955592153876"
+                  stroke-dashoffset="18.84955592153876"
+                  stroke-width="2"
+                />
+                <circle
+                  cx="7"
+                  cy="7"
+                  fill="none"
+                  r="6"
+                  stroke="url(#grad2-inner-0)"
+                  stroke-dasharray="18.84955592153876"
+                  stroke-width="2"
+                />
+                <circle
+                  class="loading-circle-filleted fill-color-with-config"
+                  cx="13"
+                  cy="7"
+                  r="1"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`switch demo test switch demo: index4.md renders correctly 1`] = `
-<div
-  class="arco-cell all-border-box without-group"
->
+<DocumentFragment>
   <div
-    class="arco-cell-inner"
+    class="arco-cell all-border-box without-group"
   >
     <div
-      class="cell-label"
+      class="arco-cell-inner"
     >
       <div
-        class="cell-title"
+        class="cell-label"
       >
-        Open/Close
-      </div>
-    </div>
-    <div
-      class="cell-content has-label"
-    >
-      <div
-        aria-checked="false"
-        aria-disabled="false"
-        class="arco-switch all-border-box demo-4 type-ios system-pc fully"
-        role="switch"
-        tabindex="0"
-      >
-        <span
-          class="arco-switch-text"
-        >
-          ON
-        </span>
         <div
-          class="arco-switch-inner"
-        />
+          class="cell-title"
+        >
+          Open/Close
+        </div>
+      </div>
+      <div
+        class="cell-content has-label"
+      >
+        <div
+          aria-checked="false"
+          aria-disabled="false"
+          class="arco-switch all-border-box demo-4 type-ios system-pc fully"
+          role="switch"
+          tabindex="0"
+        >
+          <span
+            class="arco-switch-text"
+          >
+            ON
+          </span>
+          <div
+            class="arco-switch-inner"
+          />
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`switch demo test switch demo: index5.md renders correctly 1`] = `
-<div
-  class="arco-cell all-border-box without-group"
->
+<DocumentFragment>
   <div
-    class="arco-cell-inner"
+    class="arco-cell all-border-box without-group"
   >
     <div
-      class="cell-label"
+      class="arco-cell-inner"
     >
       <div
-        class="cell-title"
-      >
-        Android Right Angle
-      </div>
-    </div>
-    <div
-      class="cell-content has-label"
-    >
-      <div
-        aria-checked="false"
-        aria-disabled="false"
-        class="arco-switch all-border-box type-android system-pc semi"
-        role="switch"
-        tabindex="0"
+        class="cell-label"
       >
         <div
-          class="arco-switch-inner"
-        />
+          class="cell-title"
+        >
+          Android Right Angle
+        </div>
+      </div>
+      <div
+        class="cell-content has-label"
+      >
+        <div
+          aria-checked="false"
+          aria-disabled="false"
+          class="arco-switch all-border-box type-android system-pc semi"
+          role="switch"
+          tabindex="0"
+        >
+          <div
+            class="arco-switch-inner"
+          />
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`switch demo test switch demo: index6.md renders correctly 1`] = `
-<div
-  class="arco-cell all-border-box without-group"
->
+<DocumentFragment>
   <div
-    class="arco-cell-inner"
+    class="arco-cell all-border-box without-group"
   >
     <div
-      class="cell-label"
+      class="arco-cell-inner"
     >
       <div
-        class="cell-title"
-      >
-        Asynchronous control, secondary confirmation
-      </div>
-    </div>
-    <div
-      class="cell-content has-label"
-    >
-      <div
-        aria-checked="false"
-        aria-disabled="false"
-        class="arco-switch all-border-box type-ios system-pc fully"
-        role="switch"
-        tabindex="0"
+        class="cell-label"
       >
         <div
-          class="arco-switch-inner"
-        />
+          class="cell-title"
+        >
+          Asynchronous control, secondary confirmation
+        </div>
+      </div>
+      <div
+        class="cell-content has-label"
+      >
+        <div
+          aria-checked="false"
+          aria-disabled="false"
+          class="arco-switch all-border-box type-ios system-pc fully"
+          role="switch"
+          tabindex="0"
+        >
+          <div
+            class="arco-switch-inner"
+          />
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

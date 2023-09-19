@@ -1,81 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dropdown demo test dropdown demo: column.md renders correctly 1`] = `
-<div>
-  <button
-    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
-    type="button"
-  >
-    <div
-      class="arco-button-text arco-button-text-pc btn-text"
+<DocumentFragment>
+  <div>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
+      type="button"
     >
-      Click to expand
-    </div>
-  </button>
-  <div />
-</div>
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Click to expand
+      </div>
+    </button>
+    <div />
+  </div>
+</DocumentFragment>
 `;
 
 exports[`dropdown demo test dropdown demo: custom-direction.md renders correctly 1`] = `
-<div>
-  <button
-    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
-    type="button"
-  >
-    <div
-      class="arco-button-text arco-button-text-pc btn-text"
+<DocumentFragment>
+  <div>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
+      type="button"
     >
-      Click to expand
-    </div>
-  </button>
-  <div />
-</div>
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Click to expand
+      </div>
+    </button>
+    <div />
+  </div>
+</DocumentFragment>
 `;
 
 exports[`dropdown demo test dropdown demo: custom-node.md renders correctly 1`] = `
-<div>
-  <button
-    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
-    type="button"
-  >
-    <div
-      class="arco-button-text arco-button-text-pc btn-text"
+<DocumentFragment>
+  <div>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
+      type="button"
     >
-      Click to expand
-    </div>
-  </button>
-  <div />
-</div>
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Click to expand
+      </div>
+    </button>
+    <div />
+  </div>
+</DocumentFragment>
 `;
 
 exports[`dropdown demo test dropdown demo: custom-options.md renders correctly 1`] = `
-<div>
-  <button
-    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
-    type="button"
-  >
-    <div
-      class="arco-button-text arco-button-text-pc btn-text"
+<DocumentFragment>
+  <div>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
+      type="button"
     >
-      Click to expand
-    </div>
-  </button>
-  <div />
-</div>
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Click to expand
+      </div>
+    </button>
+    <div />
+  </div>
+</DocumentFragment>
 `;
 
 exports[`dropdown demo test dropdown demo: index.md renders correctly 1`] = `
-<div>
-  <button
-    class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
-    type="button"
-  >
-    <div
-      class="arco-button-text arco-button-text-pc btn-text"
+<DocumentFragment>
+  <div>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-huge arco-button-size-huge-is-semi size-huge select-wrapper is-semi pc"
+      type="button"
     >
-      Click to expand
-    </div>
-  </button>
-  <div />
-</div>
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Click to expand
+      </div>
+    </button>
+    <div />
+  </div>
+</DocumentFragment>
 `;
