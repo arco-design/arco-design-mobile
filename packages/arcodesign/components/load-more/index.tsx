@@ -162,6 +162,11 @@ export interface LoadMoreRef {
      * @en Change component state manually
      */
     changeStatus: (status: LoadMoreStatus, scene?: string) => void;
+    /**
+     * 页面总长不足一屏时，手动触发数据获取
+     * @en Trigger get data manually when page length is less than one screen
+     */
+    getDataIfLessThanOneScreen: () => void;
 }
 
 /**
@@ -296,11 +301,18 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         };
     }, [trigger, disabled, getScrollContainer, handleContainerScroll, throttle]);
 
+    const getDataIfLessThanOneScreen = () => {
+        if (checkNeedTrigger(0, threshold)) {
+            triggerGetData('pageEnd');
+        }
+    };
+
     useImperativeHandle(
         ref,
         () => ({
             dom: domRef.current,
             changeStatus,
+            getDataIfLessThanOneScreen,
         }),
         [changeStatus],
     );
