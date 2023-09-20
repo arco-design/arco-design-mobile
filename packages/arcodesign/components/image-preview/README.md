@@ -30,6 +30,7 @@
 |lazyloadCount|只加载当前页相邻的n个内容，为0时会销毁所有相邻内容|number|1|
 |swipeToClose|当图片滚动到边缘时，继续滑动是否关闭预览|boolean|true|
 |indicatorPos|轮播索引位置|"start" \| "center" \| "end"|"start"|
+|extra|渲染自定义元素，如自定义关闭按钮|ReactNode|-|
 |getMinScale|图片捏合时最小缩放倍数，松手后仍会恢复到1的状态，默认为0\.7|(image: HTMLImageElement, imageIndex: number) =\> number|-|
 |getMaxScale|图片最大缩放倍数，默认根据图片尺寸调节|(image: HTMLImageElement, imageIndex: number) =\> number|-|
 |getDoubleClickScale|当双击图片时，图片应缩放的倍数|(currentScale: number, maxScale: number, image: HTMLImageElement, imageIndex: number) =\> number|-|

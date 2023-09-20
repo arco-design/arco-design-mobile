@@ -30,6 +30,7 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |lazyloadCount|Only load n content adjacent to the current page, when it is 0, all adjacent content will be destroyed|number|1|
 |swipeToClose|When the image is scrolled to the edge, whether to close the preview when continuing to swipe|boolean|true|
 |indicatorPos|Carousel indicator position|"start" \| "center" \| "end"|"start"|
+|extra|Render custom elements such as custom close buttons|ReactNode|-|
 |getMinScale|The minimum zoom factor when the image is pinched, it will still return to the state of 1 after letting go, the default is 0\.7|(image: HTMLImageElement, imageIndex: number) =\> number|-|
 |getMaxScale|The maximum zoom factor of the image, the default is adjusted according to the picture size|(image: HTMLImageElement, imageIndex: number) =\> number|-|
 |getDoubleClickScale|The zoom factor of the image when double\-clicking the image|(currentScale: number, maxScale: number, image: HTMLImageElement, imageIndex: number) =\> number|-|

@@ -12,6 +12,7 @@
 |----------|-------------|------|------|
 |style|自定义样式|CSSProperties|-|
 |className|自定义类名|string|-|
+|disabled|是否禁用加载能力|boolean|-|
 |beforeReadyArea|组件加载但尚未启用状态下的内容|ReactNode|null|
 |loadingArea|加载中状态下的内容|ReactNode|"正在努力加载中..."|
 |noMoreArea|无更多数据状态下的内容|ReactNode|"没有更多数据了"|

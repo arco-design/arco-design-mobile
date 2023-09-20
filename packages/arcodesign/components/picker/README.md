@@ -18,7 +18,7 @@
 |value|值, 格式是\[value1, value2, value3\], 对应数据源的相应级层value，如果不传默认选每一列的第一个值|ValueType\[\]|-|
 |onHide|点击遮罩层或取消、确定按钮的隐藏回调|(scene?: string) =\> void|-|
 |onChange|选中后的回调|(selectedValue: ValueType\[\]) =\> void|-|
-|onPickerChange|每列数据选择变化后的回调函数|(value: ValueType\[\], index: number) =\> void|-|
+|onPickerChange|每列数据选择变化后的回调函数|(value: ValueType\[\], index: number, data: PickerData\[\]) =\> void|-|
 |itemStyle|每列样式|CSSProperties|-|
 |visible|是否展示选择器|boolean|false|
 |okText|弹窗确认已选值的文案|string|"确定"|

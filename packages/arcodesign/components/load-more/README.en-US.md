@@ -12,6 +12,7 @@ Pull-up loading component, supports `scroll` and `click` two trigger loading met
 |----------|-------------|------|------|
 |style|Custom stylesheet|CSSProperties|-|
 |className|Custom classname|string|-|
+|disabled|Whether to disable the loading capability|boolean|-|
 |beforeReadyArea|Content when the component is loaded but not yet enabled|ReactNode|null|
 |loadingArea|Content in loading state|ReactNode|"Trying to load..."|
 |noMoreArea|Content with no more data|ReactNode|"No more data"|

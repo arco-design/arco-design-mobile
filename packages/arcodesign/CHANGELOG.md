@@ -3,6 +3,72 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.3...@arco-design/mobile-react@2.29.4) (2023-09-13)
+
+
+### Bug Fixes
+
+* `LoadMore` support the prop "getDataWhenNoScrollAtFirst" ([#170](https://github.com/arco-design/arco-design-mobile/issues/170)) ([7a4881d](https://github.com/arco-design/arco-design-mobile/commit/7a4881d92cb9fbb1a345240a2aaa940af0afbe63))
+* `Picker` support default values when click confirm button ([c6f12ee](https://github.com/arco-design/arco-design-mobile/commit/c6f12ee54131235470c380c3bd59a22983247622))
+* `SearchBar` adjust clear icon ([4f540fc](https://github.com/arco-design/arco-design-mobile/commit/4f540fcb255553fb59d0b972a74edf23a7224a16))
+* `Tabs` prevent jumping when no touchmove event ([df01464](https://github.com/arco-design/arco-design-mobile/commit/df014640dc220af7f911fe1c2cb1e504c463a37b))
+
+
+
+
+
+## [2.29.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.2...@arco-design/mobile-react@2.29.3) (2023-09-12)
+
+
+### Bug Fixes
+
+* `ImagePreview` remove duplicate setTimeout for double-click judgment ([0a5565b](https://github.com/arco-design/arco-design-mobile/commit/0a5565bf06c5d5737d730a59227dd239feaf50d1))
+* `PickerView` adjust animation duration ([#164](https://github.com/arco-design/arco-design-mobile/issues/164)) ([6c7f020](https://github.com/arco-design/arco-design-mobile/commit/6c7f020baeb8b2a7ba00d08bf9feaf8f8ebcca3f))
+* `Popover` fix the problem that popover.menu does not show when defaultVisible=true ([b9c7397](https://github.com/arco-design/arco-design-mobile/commit/b9c73975f4333482152b207bb6bee8dfd7f0b7e3))
+
+
+
+
+
+## [2.29.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.1...@arco-design/mobile-react@2.29.2) (2023-08-28)
+
+
+### Bug Fixes
+
+* `LoadMore` support the prop "disabled" ([b1881b2](https://github.com/arco-design/arco-design-mobile/commit/b1881b2821debb3b94c66285d712e8f7522e6be7))
+* `Tabs` the prop "tabBarFixed" supports passing in specific fixed values ([ae3158f](https://github.com/arco-design/arco-design-mobile/commit/ae3158f7f7d5d1eebca8921d6d4802aa53b31fbe))
+
+
+
+
+
+## [2.29.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.0...@arco-design/mobile-react@2.29.1) (2023-08-21)
+
+
+### Bug Fixes
+
+* fix wrong logic after click clear icon of `Input`, `Textarea` and `SearchBar` ([#156](https://github.com/arco-design/arco-design-mobile/issues/156)) ([b741263](https://github.com/arco-design/arco-design-mobile/commit/b741263fd1a1b9c3da9c106f7487714e33e042f2))
+
+
+
+
+
+# [2.29.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.2...@arco-design/mobile-react@2.29.0) (2023-08-17)
+
+
+### Bug Fixes
+
+* compatibility between grid and image picker ([#151](https://github.com/arco-design/arco-design-mobile/issues/151)) ([28ae5b9](https://github.com/arco-design/arco-design-mobile/commit/28ae5b9a8eb6dd91422d50d3f2cfe8b0d7ccdfa4))
+
+
+### Features
+
+* add new component `Skeleton` ([#136](https://github.com/arco-design/arco-design-mobile/issues/136)) ([49351f6](https://github.com/arco-design/arco-design-mobile/commit/49351f639b7a3272b55f189447d935946933ddd6))
+
+
+
+
+
 ## [2.28.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.28.1...@arco-design/mobile-react@2.28.2) (2023-08-07)
 
 

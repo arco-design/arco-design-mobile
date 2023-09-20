@@ -8,7 +8,7 @@ export function getSystem() {
     try {
         const u = navigator.userAgent;
         const android = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
-        const ios = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) || u.indexOf('Mac OS X') > -1;
+        const ios = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
         const pc = !android && !ios;
         const system = android ? 'android' : 'ios';
         return pc ? 'pc' : system;

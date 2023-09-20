@@ -125,7 +125,7 @@ export interface BasicInputProps<T = HTMLInputElement> {
      * 按下清除按钮回调
      * @en Callback when clear button is pressed
      */
-    onClear?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    onClear?: (e: React.TouchEvent<HTMLElement>) => void;
     /**
      * 输入框前置内容，在输入框内部，也可自定义
      * @en The prefix of the input box, inside the input box, can also be customized
