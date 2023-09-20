@@ -67,8 +67,10 @@ function generateResource(resourcePagePath, docPath) {
     fs.removeSync(resourcePagePath);
     fs.mkdirpSync(functionSourceOutput);
     fs.mkdirpSync(mixinSourceOutput);
-    const functionDir = fs.readdirSync(functionSourceMdPath);
-    const mixinSource = fs.readdirSync(mixinSourceMdPath);
+    const functionDir = fs.existsSync(functionSourceMdPath)
+        ? fs.readdirSync(functionSourceMdPath)
+        : [];
+    const mixinSource = fs.existsSync(mixinSourceMdPath) ? fs.readdirSync(mixinSourceMdPath) : [];
 
     functionDir.forEach(dir => {
         const totalPath = path.join(functionSourceMdPath, dir);

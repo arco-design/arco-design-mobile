@@ -56,7 +56,7 @@
     .rem(@property; @values...);
     [dir='rtl'] & {
         @{property}: initial;
-        @new-property: .prop-with-rtl(@property) [ @property-name];
+        @new-property: .prop-with-rtl(@property)[@property-name];
         .rem(@new-property; @values...);
     }
 }
@@ -109,9 +109,9 @@
  * ```
  */
 .use-var(@property, @variables, @preValues: '', @nextValues: '') {
-    @{property}: ~'@{preValues}' @@variables ~'@{nextValues}';
+    @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
     & when (@use-css-vars = 1) {
-        @{property}: ~'@{preValues}' ~'var(--@{variables})' ~'@{nextValues}';
+        @{property}: ~"@{preValues}" ~"var(--@{variables})" ~"@{nextValues}";
     }
 }
 
@@ -137,7 +137,7 @@
  */
 .use-var-with-rtl(@property, @variables, @preValues: '', @nextValues: '') {
     .use-var(@property, @variables, @preValues, @nextValues);
-    [dir='rtl'] & {
+    [dir="rtl"] & {
         @{property}: initial;
         @new-property: .prop-with-rtl(@property) [ @property-name];
         .use-var(@new-property, @variables, @preValues, @nextValues);
@@ -164,7 +164,7 @@
 .hairline-var(@color, @direction: all) {
     .hairline(@@color, @direction);
     & when (@use-css-vars = 1) {
-        .hairline(var(~'--@{color}', @@color), @direction);
+        .hairline(var(~"--@{color}", @@color), @direction);
     }
 }
 
@@ -188,7 +188,7 @@
 .text-medium-var(@color: currentColor, @stroke: 0.3PX) {
     .text-medium(@@color, @stroke);
     & when (@use-css-vars = 1) {
-        .text-medium(var(~'--@{color}', @@color), @stroke);
+        .text-medium(var(~"--@{color}", @@color), @stroke);
     }
 }
 
@@ -218,7 +218,7 @@
 .onepx-border-var(@direction, @borderColor, @borderRadius: 0, @borderWidth: 1PX, @borderStyle: solid) {
     .onepx-border(@direction, @@borderColor, @borderRadius, @borderWidth, @borderStyle);
     & when (@use-css-vars = 1) {
-        .onepx-border(@direction, var(~'--@{borderColor}', @@borderColor), @borderRadius, @borderWidth, @borderStyle);
+        .onepx-border(@direction, var(~"--@{borderColor}", @@borderColor), @borderRadius, @borderWidth, @borderStyle);
     }
 }
 
@@ -239,7 +239,7 @@
 .hairline-bottom-right-var(@color) {
     .hairline-bottom-right(@@color);
     & when (@use-css-vars = 1) {
-        .hairline-bottom-right(var(~'--@{color}', @@color));
+        .hairline-bottom-right(var(~"--@{color}'", @@color));
     }
 }
 
@@ -260,7 +260,7 @@
 .hairline-top-left-var(@color) {
     .hairline-top-left(@@color);
     & when (@use-css-vars = 1) {
-        .hairline-top-left(var(~'--@{color}', @@color));
+        .hairline-top-left(var(~"--@{color}", @@color));
     }
 }
 
@@ -281,7 +281,7 @@
 .set-loading-color-var(@color) {
     .set-loading-color(@@color);
     & when (@use-css-vars = 1) {
-        .set-loading-color(var(~'--@{color}', @@color));
+        .set-loading-color(var(~"--@{color}", @@color));
     }
 }
 
@@ -308,11 +308,11 @@
     }
     & when (@use-css-vars = 1) {
         & when (@@size < 12px) {
-            font-size: calc(var(~'--@{size}', @@size) / @scale);
+            font-size: calc(var(~"--@{size}", @@size) / @scale);
             transform: scale(@scale);
         }
         & when not (@@size < 12px) {
-            font-size: var(~'--@{size}', @@size);
+            font-size: var(~"--@{size}", @@size);
         }
     }
 }
@@ -343,8 +343,8 @@
     }
     & when (@use-css-vars = 1) {
         @{property}: calc(
-            var(~'--@{width}', @@width) - var(~'--@{padding-left}', @@padding-left) -
-                var(~'--@{padding-right}', @@padding-right)
+            var(~"--@{width}", @@width) - var(~"--@{padding-left}", @@padding-left) -
+                var(~"--@{padding-right}", @@padding-right)
         );
     }
 }

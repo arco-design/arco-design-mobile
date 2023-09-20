@@ -8,10 +8,6 @@ const HOME_PAGE =
     process.env.NODE_ENV === 'development'
         ? 'http://localhost:8824'
         : 'https://$siteDomain$/mobile/react';
-// const RESOURCE_PAGE =
-//     process.env.NODE_ENV === 'development'
-//         ? 'http://localhost:8825/#/resource/'
-//         : 'https://$siteDomain$/mobile/react/arco-design/pc/#/resource/';
 const RESOURCE_PAGE =
     process.env.NODE_ENV === 'development'
         ? 'http://localhost:8823/#/resource/'
