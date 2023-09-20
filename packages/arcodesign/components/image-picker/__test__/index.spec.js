@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
+import { createStartTouchEventObject } from '../../../tests/helpers/mockEvent';
 import { defaultContext } from '../../context-provider';
 import ImagePicker from '..';
 import '@testing-library/jest-dom';
@@ -23,6 +24,7 @@ const mockImgFile = new File([IMG_DATA], 'img.png', { type: 'image/png' });
 
 describe('ImagePicker', () => {
     beforeEach(() => {
+        jest.useFakeTimers();
         jest.spyOn(global, 'FileReader').mockImplementation(function () {
             this.readAsDataURL = jest.fn();
             this.onload = jest.fn();
@@ -30,6 +32,7 @@ describe('ImagePicker', () => {
         });
     });
     afterEach(() => {
+        jest.useRealTimers();
         jest.restoreAllMocks();
     });
     it('ImagePicker renders correctly', () => {
@@ -161,6 +164,20 @@ describe('ImagePicker', () => {
         userEvent.click(container.querySelector(`.${imagePrefix}`));
         expect(handleClick).toBeCalledTimes(1);
     });
+    it('press image correctly', () => {
+        const handleLongPress = jest.fn();
+        const { container } = render(
+            <ImagePicker images={[{ url: IMG_URL }]} onLongPress={handleLongPress} />,
+        );
+        act(() => {
+            fireEvent.touchStart(
+                container.querySelector(`.${prefix}-image-container`),
+                createStartTouchEventObject({ x: 0, y: 0 }),
+            );
+            jest.advanceTimersByTime(1000);
+        });
+        expect(handleLongPress).toBeCalledTimes(1);
+    });
     it('selectAdapter', async () => {
         const handleMaxSizeExceed = jest.fn();
         const handleLimitExceed = jest.fn();
@@ -188,11 +205,7 @@ describe('ImagePicker', () => {
                             url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_3.jpg',
                         },
                     ];
-                    setTimeout(() => {
-                        resolve({
-                            files,
-                        });
-                    }, 1000);
+                    resolve({ files });
                 });
             };
             return (
