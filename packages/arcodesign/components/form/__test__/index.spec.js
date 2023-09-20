@@ -5,6 +5,7 @@ import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import Form, { useForm } from '..';
 import Input from '../../input';
+import '@testing-library/jest-dom';
 
 demoTest('form');
 
@@ -43,7 +44,7 @@ describe('Form input', () => {
             formRef.current.form.validateFields().catch(() => {});
         });
         await waitFor(() => {
-            expect(screen.getByText('test 为必填项')).not.toBeUndefined();
+            expect(screen.getByText('test 为必填项')).toBeInTheDocument();
         });
     });
     it('useForm', async () => {
@@ -119,7 +120,7 @@ describe('Form input', () => {
         await userEvent.click(submitBtn);
         const error = await screen.findByText('required');
         await waitFor(() => {
-            expect(error).not.toBeUndefined();
+            expect(error).toBeInTheDocument();
         });
         await waitFor(() => {
             expect(onSubmitFailed).toBeCalled();
