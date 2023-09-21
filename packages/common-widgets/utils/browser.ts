@@ -3,6 +3,20 @@
  * @desc {en} Get the operating system of the current device
  * @returns {string} 返回当前设备的操作系统，可能的值包括 'android'、'ios' 或 'pc'，如果无法获取，则返回空字符串
  * @returns {string} {en} Returns the operating system of the current device, possible values are 'android', 'ios', or 'pc'. Returns an empty string if it cannot be obtained
+ * ```
+ * import { getSystem } from '@arco-design/mobile-utils';
+ *
+ * const systemInfo = getSystem();
+ * if (systemInfo === 'android') {
+ *     console.log('You are using the Android operating system');
+ * } else if (systemInfo === 'ios') {
+ *     console.log('You are using the iOS operating system');
+ * } else if (systemInfo === 'pc') {
+ *     console.log('You are using a desktop PC operating system');
+ * } else {
+ *     console.log('Unable to detect your operating system');
+ * }
+ * ```
  */
 export function getSystem() {
     try {
@@ -49,6 +63,19 @@ export const iPhoneScreenMap = {
  * @param {number} height {en} The height of the screen
  * @returns {boolean} 如果给定的屏幕尺寸匹配 iPhone X 的屏幕尺寸，则返回 true，否则返回 false
  * @returns {boolean} {en} Returns true if the given screen dimensions match those of an iPhone X, otherwise returns false
+ * @example
+ * ```
+ * import { checkIPhoneX } from '@arco-design/mobile-utils';
+ *
+ * // Example 1: Matching screen dimensions
+ * const isMatch1 = checkIPhoneX(375, 812);
+ * console.log(isMatch1); // Should print true
+ *
+ * // Example 2: Non-matching screen dimensions
+ * const isMatch2 = checkIPhoneX(320, 568);
+ * console.log(isMatch2); // Should print false
+ * ```
+ *
  */
 export function checkIPhoneX(width: number, height: number) {
     return (
@@ -67,6 +94,17 @@ export function checkIPhoneX(width: number, height: number) {
  * @desc {en} Check if the current device is an iPhone X
  * @returns {boolean} 如果当前设备是 iPhone X，则返回 true，否则返回 false
  * @returns {boolean} {en} Returns true if the current device is an iPhone X, otherwise returns false
+ * @example
+ * ```
+ * import { isIPhoneX } from '@arco-design/mobile-utils';
+ *
+ * // Using the isIPhoneX function in a conditional statement
+ * if (isIPhoneX()) {
+ *     console.log("The current device is an iPhone X");
+ * } else {
+ *     console.log("The current device is not an iPhone X");
+ * }
+ * ```
  */
 export function isIPhoneX() {
     try {

@@ -25,14 +25,16 @@
  * ```
  */
 .rem(@property; @values...) {
-    @{property}: ~`(
-            function () {var baseFontSize= @{base-font-size}; var sizeList = @{values}; if (
-                    !Array.isArray(sizeList)
-                ) {sizeList = [sizeList];} return sizeList.map(
-                    function (item) {return pxtorem(item) ;}
-                ) .join(' ') ; }()
-        )
-        `;
+    @{property}: ~`(function () {
+        var baseFontSize=@{base-font-size};
+        var sizeList = @{values};
+        if (!Array.isArray(sizeList)) {
+            sizeList = [sizeList];
+        }
+        return sizeList.map(function (item) {
+            return pxtorem(item);
+        }).join(' ');
+    }())`;
 }
 
 /**
@@ -54,7 +56,7 @@
  */
 .rem-with-rtl(@property; @values...) {
     .rem(@property; @values...);
-    [dir='rtl'] & {
+    [dir="rtl"] & {
         @{property}: initial;
         @new-property: .prop-with-rtl(@property)[@property-name];
         .rem(@new-property; @values...);
@@ -139,7 +141,7 @@
     .use-var(@property, @variables, @preValues, @nextValues);
     [dir="rtl"] & {
         @{property}: initial;
-        @new-property: .prop-with-rtl(@property) [ @property-name];
+        @new-property: .prop-with-rtl(@property)[@property-name];
         .use-var(@new-property, @variables, @preValues, @nextValues);
     }
 }
@@ -196,7 +198,7 @@
  * 1px边框
  * @desc {en} 1 pixel border
  * @param @direction 边框方向
- * @param @direction {en} border direction
+ * @param @direction {en} border direction 
  * @param @borderColor 使用css变量设置边框颜色
  * @param @borderColor {en} set border-color by CSS variable
  * @param @borderRadius border-radius，默认为0
@@ -239,7 +241,7 @@
 .hairline-bottom-right-var(@color) {
     .hairline-bottom-right(@@color);
     & when (@use-css-vars = 1) {
-        .hairline-bottom-right(var(~"--@{color}'", @@color));
+        .hairline-bottom-right(var(~"--@{color}", @@color));
     }
 }
 
@@ -307,11 +309,11 @@
         .set-font-size(@@size);
     }
     & when (@use-css-vars = 1) {
-        & when (@@size < 12px) {
+        & when (@@size < 12PX) {
             font-size: calc(var(~"--@{size}", @@size) / @scale);
             transform: scale(@scale);
         }
-        & when not (@@size < 12px) {
+        & when not (@@size < 12PX) {
             font-size: var(~"--@{size}", @@size);
         }
     }
@@ -342,9 +344,7 @@
         .set-content-box-width(@property, @@width, @@padding-left, @@padding-right);
     }
     & when (@use-css-vars = 1) {
-        @{property}: calc(
-            var(~"--@{width}", @@width) - var(~"--@{padding-left}", @@padding-left) -
-                var(~"--@{padding-right}", @@padding-right)
-        );
+        @{property}: calc(var(~"--@{width}", @@width) - var(~"--@{padding-left}", @@padding-left) - var(~"--@{padding-right}", @@padding-right));
     }
 }
+
