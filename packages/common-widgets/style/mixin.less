@@ -49,11 +49,11 @@
  */
 .noselect() {
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Chrome/Safari/Opera */
-    -khtml-user-select: none; /* Konqueror */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently*/
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently*/
 }
 
 /**
@@ -93,7 +93,7 @@
  *   .text-medium(#fff, 0.5px);
  * }
  */
-.text-medium(@color: currentColor, @stroke: 0.3px) {
+.text-medium(@color: currentColor, @stroke: 0.3PX) {
     font-weight: bold;
     .android &,
     &.android,
@@ -147,7 +147,7 @@
  *   .onepx-border();
  * }
  */
-.onepx-border(@direction, @borderColor: inherit, @borderRadius: 0, @borderWidth: 1px, @borderStyle: solid) {
+.onepx-border(@direction, @borderColor: inherit, @borderRadius: 0, @borderWidth: 1PX, @borderStyle: solid) {
     position: relative;
     border-width: 0;
 
@@ -156,10 +156,10 @@
             @x: left;
             @y: top;
             @scale: scale;
-            @border: ~'-';
+            @border: ~"-";
             @width: 100%;
             @height: 100%;
-        };
+        }
         @top: {
             @x: left;
             @y: top;
@@ -167,7 +167,7 @@
             @border: -top-;
             @width: 100%;
             @height: @borderWidth;
-        };
+        }
         @bottom: {
             @x: left;
             @y: bottom;
@@ -175,7 +175,7 @@
             @border: -bottom-;
             @width: 100%;
             @height: @borderWidth;
-        };
+        }
         @left: {
             @x: left;
             @y: top;
@@ -183,7 +183,7 @@
             @border: -left-;
             @width: @borderWidth;
             @height: 100%;
-        };
+        }
         @right: {
             @x: right;
             @y: top;
@@ -191,17 +191,17 @@
             @border: -right-;
             @width: @borderWidth;
             @height: 100%;
-        };
-    };
+        }
+    }
 
     .set-onepx-content() {
-        @map: @onepx-border-map[ @@direction];
-        @x: @map[ @x];
-        @y: @map[ @y];
-        @scale: @map[ @scale];
-        @border: @map[ @border];
-        @width: @map[ @width];
-        @height: @map[ @height];
+        @map: @onepx-border-map[@@direction];
+        @x: @map[@x];
+        @y: @map[@y];
+        @scale: @map[@scale];
+        @border: @map[@border];
+        @width: @map[@width];
+        @height: @map[@height];
 
         content: '';
         width: @width;
@@ -218,22 +218,22 @@
         -webkit-transform-origin: @x @y;
         pointer-events: none;
         border-radius: @borderRadius;
-        @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
             & when (@direction = all) {
                 width: 200%;
                 height: 200%;
             }
-            transform: ~'@{scale}(0.5)';
-            -webkit-transform: ~'@{scale}(0.5)';
+            transform: ~"@{scale}(0.5)";
+            -webkit-transform: ~"@{scale}(0.5)";
             border-radius: @borderRadius * 2;
         }
-        @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+        @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
             & when (@direction = all) {
                 width: 300%;
                 height: 300%;
             }
-            transform: ~'@{scale}(0.33333333)';
-            -webkit-transform: ~'@{scale}(0.33333333)';
+            transform: ~"@{scale}(0.33333333)";
+            -webkit-transform: ~"@{scale}(0.33333333)";
             border-radius: @borderRadius * 3;
         }
     }
@@ -253,30 +253,30 @@
 @border-map: {
     @bottom: {
         @x: 0;
-        @y: -1px;
+        @y: -1PX;
         @spread: 0;
-    };
+    }
     @top: {
         @x: 0;
-        @y: 1px;
+        @y: 1PX;
         @spread: 0;
-    };
+    }
     @right: {
-        @x: -1px;
+        @x: -1PX;
         @y: 0;
         @spread: 0;
-    };
+    }
     @left: {
-        @x: 1px;
+        @x: 1PX;
         @y: 0;
         @spread: 0;
-    };
+    }
     @all: {
         @x: 0;
         @y: 0;
-        @spread: 1px;
-    };
-};
+        @spread: 1PX;
+    }
+}
 
 /**
  * 0.5px的边框线
@@ -299,12 +299,10 @@
  */
 .hairline(@color, @direction: all) {
     // 因为 Android/PC 不一定支持 0.5px border width
-    box-shadow: @border-map[ @@direction][ @x] @border-map[ @@direction][ @y] 0 @border-map[ @@direction][
-        @spread] @color inset;
+    box-shadow: @border-map[@@direction][@x] @border-map[@@direction][@y] 0 @border-map[@@direction][@spread] @color inset;
 
     @media (min-resolution: 2dppx) {
-        box-shadow: (@border-map[ @@direction][ @x] / 2) (@border-map[ @@direction][ @y] / 2) 0
-            (@border-map[ @@direction][ @spread] / 2) @color inset;
+        box-shadow: (@border-map[@@direction][@x]/2) (@border-map[@@direction][@y]/2) 0 (@border-map[@@direction][@spread]/2) @color inset;
     }
 
     // 因为 iOS 目前不支持 0.5px shadow offset/spread width
@@ -313,11 +311,11 @@
         box-shadow: none;
 
         & when (@direction = all) {
-            border: 0.5px solid @color;
+            border: 0.5PX solid @color;
         }
 
         & when not (@direction = all) {
-            border-@{direction}: 0.5px solid @color;
+            border-@{direction}: 0.5PX solid @color;
         }
     }
 }
@@ -368,15 +366,14 @@
  * ```
  */
 .hairline-bottom-right(@color) {
-    box-shadow: -1px -1px 0 0 @color inset;
+    box-shadow: -1PX -1PX 0 0 @color inset;
     @media (min-resolution: 2dppx) {
-        box-shadow: -0.5px -0.5px 0 0 @color inset;
+        box-shadow: -0.5PX -0.5PX 0 0 @color inset;
     }
-    .ios &,
-    &.ios {
+    .ios &, &.ios {
         box-shadow: none;
-        border-right: 0.5px solid @color;
-        border-bottom: 0.5px solid @color;
+        border-right: 0.5PX solid @color;
+        border-bottom: 0.5PX solid @color;
     }
 }
 
@@ -395,15 +392,14 @@
  * ```
  */
 .hairline-top-left(@color) {
-    box-shadow: 1px 1px 0 0 @color inset;
+    box-shadow: 1PX 1PX 0 0 @color inset;
     @media (min-resolution: 2dppx) {
-        box-shadow: 0.5px 0.5px 0 0 @color inset;
+        box-shadow: 0.5PX 0.5PX 0 0 @color inset;
     }
-    .ios &,
-    &.ios {
+    .ios &, &.ios {
         box-shadow: none;
-        border-top: 0.5px solid @color;
-        border-left: 0.5px solid @color;
+        border-top: 0.5PX solid @color;
+        border-left: 0.5PX solid @color;
     }
 }
 
@@ -440,8 +436,8 @@
         @border-bottom-left-radius: border-bottom-right-radius;
         @border-top-right-radius: border-top-left-radius;
         @border-bottom-right-radius: border-bottom-left-radius;
-    };
-    @property-name: @property-map[ @@origin-property];
+    }
+    @property-name: @property-map[@@origin-property];
 }
 
 /**
@@ -466,9 +462,9 @@
     @{property}: initial;
 }) {
     @{property}: @value;
-    [dir='rtl'] & {
+    [dir="rtl"] & {
         @rules();
-        @new-property: .prop-with-rtl(@property) [ @property-name];
+        @new-property: .prop-with-rtl(@property)[@property-name];
         @{new-property}: @value;
     }
 }
@@ -491,8 +487,8 @@
  */
 .set-value-with-rtl(@property, @value) {
     @{property}: @value;
-    [dir='rtl'] & {
-        @new-value: .prop-with-rtl(@value) [ @property-name];
+    [dir="rtl"] & {
+        @new-value: .prop-with-rtl(@value)[@property-name];
         @{property}: @new-value;
     }
 }
@@ -541,11 +537,11 @@
  * ```
  */
 .set-font-size(@size) {
-    & when (@size < 12px) {
-        font-size: 12px;
-        transform: scale(round(unit(@size / 12px), 4));
+    & when (@size < 12PX) {
+        font-size: 12PX;
+        transform: scale(round(unit(@size / 12PX), 4));
     }
-    & when not (@size < 12px) {
+    & when not (@size < 12PX) {
         font-size: @size;
     }
 }
