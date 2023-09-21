@@ -13,8 +13,8 @@ export * from './type';
  * @desc {en} Get style with browser vendor prefix
  * @param {CSSProperties} style 原始样式
  * @param {CSSProperties} style {en} Original style
- * @return {CSSProperties} newStyle 添加了浏览器前缀的新样式
- * @return {CSSProperties} newStyle {en} New style with browser vendor prefix
+ * @returns {CSSProperties} newStyle 添加了浏览器前缀的新样式
+ * @returns {CSSProperties} newStyle {en} New style with browser vendor prefix
  */
 export function getStyleWithVendor(style: CSSProperties): CSSProperties {
     const allowReg = /(transform|transition|animation)/i;

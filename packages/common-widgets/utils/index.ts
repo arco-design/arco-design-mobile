@@ -18,8 +18,8 @@ export * from './validator';
  * @desc {en} Add the unit of px to the number, and return it directly if there is a unit.
  * @param {number | string} value 需要设置的值
  * @param {number | string} value {en} The value that needs to be set
- * @return {string} 返回带有单位的值
- * @return {string} {en} Returns a value with units
+ * @returns {string} 返回带有单位的值
+ * @returns {string} {en} Returns a value with units
  */
 export function handleUnit(value: number | string) {
     return typeof value === 'number' || !isNaN(Number(value)) ? `${value}px` : value;
@@ -34,8 +34,8 @@ export function handleUnit(value: number | string) {
  * @param {Function} filterFn {en} filter function
  * @param {Object} options 可选对象
  * @param {Object} options {en} Optional object
- * @return {string} 过滤后的数组
- * @return {string} filtered array
+ * @returns {string} 过滤后的数组
+ * @returns {string} filtered array
  */
 export function arrayTreeFilter<T>(
     data: T[],
@@ -77,8 +77,8 @@ export function arrayTreeFilter<T>(
  * @param {number} amountOfChange {en} coefficient of variation
  * @param {number} duration 持续时间
  * @param {number} duration {en} duration
- * @return {number} 返回在给定时间内根据缓动函数计算得到的新值
- * @return {number} {en} Returns the new value calculated from the easing function within the given time
+ * @returns {number} 返回在给定时间内根据缓动函数计算得到的新值
+ * @returns {number} {en} Returns the new value calculated from the easing function within the given time
  */
 export function easeOutCubic(
     elapsed: number,
@@ -109,8 +109,8 @@ export function nextTick(func: () => void) {
  * @param {number} x {en} element displacement
  * @param {[number, number] | number} damping 阻尼参数
  * @param {[number, number] | number} damping {en} Damping parameters
- * @return {number} 返回需要滑动的距离
- * @return {number} {en} Return the distance required to slide
+ * @returns {number} 返回需要滑动的距离
+ * @returns {number} {en} Return the distance required to slide
  */
 export function fingerDisToLabelDis(x: number, damping?: [number, number] | number) {
     const dampArr = typeof damping === 'number' ? [damping] : damping;

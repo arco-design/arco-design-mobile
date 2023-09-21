@@ -5,8 +5,8 @@ const opt = Object.prototype.toString;
  * @desc {en} Whether it is an array
  * @param {any} obj 入参
  * @param {any} obj {en} Entering
- * @return {boolean} 返回是否为数组类型
- * @return {boolean} {en} Returns whether it is an array type
+ * @returns {boolean} 返回是否为数组类型
+ * @returns {boolean} {en} Returns whether it is an array type
  */
 export function isArray(obj: any): obj is any[] {
     return opt.call(obj) === '[object Array]';
@@ -17,8 +17,8 @@ export function isArray(obj: any): obj is any[] {
  * @desc {en} Whether it is an object
  * @param {any} obj 入参
  * @param {any} obj {en} Entering
- * @return {boolean} 返回是否为对象类型
- * @return {boolean} {en} Returns whether it is an object type
+ * @returns {boolean} 返回是否为对象类型
+ * @returns {boolean} {en} Returns whether it is an object type
  */
 export function isObject(obj: any): obj is { [key: string]: any } {
     return opt.call(obj) === '[object Object]';
@@ -29,8 +29,8 @@ export function isObject(obj: any): obj is { [key: string]: any } {
  * @desc {en} Whether it is an string
  * @param {any} obj 入参
  * @param {any} obj {en} Entering
- * @return {boolean} 返回是否为字符串类型
- * @return {boolean} {en} Returns whether it is an string type
+ * @returns {boolean} 返回是否为字符串类型
+ * @returns {boolean} {en} Returns whether it is an string type
  */
 export function isString(obj: any): obj is string {
     return opt.call(obj) === '[object String]';
@@ -43,8 +43,8 @@ export function isString(obj: any): obj is string {
  * @param {T} value {en} value to check
  * @param {T[]} validList 有效值列表
  * @param {T[]} validList {en} List of valid values
- * @return {boolean} 返回要检查的值是否在有效值列表中
- * @return {boolean} {en} Returns whether the value to be checked is in the list of valid values
+ * @returns {boolean} 返回要检查的值是否在有效值列表中
+ * @returns {boolean} {en} Returns whether the value to be checked is in the list of valid values
  */
 export function isOneOf<T>(value: T, validList: T[]) {
     return validList.indexOf(value) !== -1;
@@ -55,8 +55,8 @@ export function isOneOf<T>(value: T, validList: T[]) {
  * @desc {en} Check if a value is null
  * @param {any} obj 入参
  * @param {any} obj {en} Entering
- * @return {boolean} 返回该值是否为空值
- * @return {boolean} {en} Returns whether the value is null
+ * @returns {boolean} 返回该值是否为空值
+ * @returns {boolean} {en} Returns whether the value is null
  */
 export function isEmptyValue(obj: any): boolean {
     return obj === undefined || obj === null || obj === '';
@@ -67,8 +67,8 @@ export function isEmptyValue(obj: any): boolean {
  * @desc {en} Check if a value is function
  * @param {unknown} obj 入参
  * @param {unknown} obj {en} Entering
- * @return {boolean} 返回该值是否为函数
- * @return {boolean} {en} Returns whether the value is function
+ * @returns {boolean} 返回该值是否为函数
+ * @returns {boolean} {en} Returns whether the value is function
  */
 export function isFunction(obj: unknown): boolean {
     return Object.prototype.toString.call(obj).toLowerCase() === '[object function]';
@@ -79,8 +79,8 @@ export function isFunction(obj: unknown): boolean {
  * @desc {en} Check if a value is null
  * @param {unknown} obj 入参
  * @param {unknown} obj {en} Entering
- * @return {boolean} 返回该值是否为 null
- * @return {boolean} {en} Returns whether the value is null
+ * @returns {boolean} 返回该值是否为 null
+ * @returns {boolean} {en} Returns whether the value is null
  */
 export function isNull(obj: unknown): boolean {
     return Object.prototype.toString.call(obj).toLowerCase() === '[object null]';
@@ -91,8 +91,8 @@ export function isNull(obj: unknown): boolean {
  * @desc {en} Check if a value is undefined
  * @param {unknown} obj 入参
  * @param {unknown} obj {en} Entering
- * @return {boolean} 返回该值是否为 undefined
- * @return {boolean} {en} Returns whether the value is undefined
+ * @returns {boolean} 返回该值是否为 undefined
+ * @returns {boolean} {en} Returns whether the value is undefined
  */
 export function isUndefined(obj: unknown): boolean {
     return Object.prototype.toString.call(obj).toLowerCase() === '[object undefined]';
@@ -103,8 +103,8 @@ export function isUndefined(obj: unknown): boolean {
  * @desc {en} Check if a value is an empty array
  * @param {Array<unknown>} obj 入参
  * @param {Array<unknown>} obj {en} Entering
- * @return {boolean} 返回该值是否为空数组
- * @return {boolean} {en} Returns whether the value is an empty array
+ * @returns {boolean} 返回该值是否为空数组
+ * @returns {boolean} {en} Returns whether the value is an empty array
  */
 export function isEmptyArray(obj: Array<unknown>): boolean {
     return isArray(obj) && !obj?.length;
@@ -117,8 +117,8 @@ export function isEmptyArray(obj: Array<unknown>): boolean {
  * @param {any} obj {en} the first object to compare
  * @param {any} obj 要比较的第二个对象
  * @param {any} obj {en} the second object to be compared
- * @return {boolean} 返回两个对象是否相等
- * @return {boolean} {en} Returns whether two objects are equal
+ * @returns {boolean} 返回两个对象是否相等
+ * @returns {boolean} {en} Returns whether two objects are equal
  */
 export function isDeepEqual(obj: any, sub: any): boolean {
     if (typeof obj !== 'object' || typeof sub !== 'object' || obj === null || sub === null) {
