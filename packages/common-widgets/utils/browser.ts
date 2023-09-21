@@ -75,7 +75,6 @@ export const iPhoneScreenMap = {
  * const isMatch2 = checkIPhoneX(320, 568);
  * console.log(isMatch2); // Should print false
  * ```
- *
  */
 export function checkIPhoneX(width: number, height: number) {
     return (

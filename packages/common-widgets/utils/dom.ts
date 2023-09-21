@@ -6,6 +6,20 @@ import bezierEasing from './bezier-easing';
  * @param {TouchEvent} e 要阻止的 TouchEvent 事件
  * @param {TouchEvent} e {en} The TouchEvent to stop
  * @returns {void}
+ * @example
+ * ```
+ * import { stopTouch } from '@arco-design/mobile-utils';
+ *
+ * // Before calling stopTouch
+ * const touchEvent = new TouchEvent("touchstart", { cancelable: true });
+ * console.log(touchEvent.defaultPrevented); // false
+ *
+ * // Call stopTouch to prevent the default behavior
+ * stopTouch(touchEvent);
+ *
+ * // After calling stopTouch
+ * console.log(touchEvent.defaultPrevented); // true
+ * ```
  */
 export function stopTouch(e: TouchEvent) {
     // If the TouchEvent is cancelable, prevent it's default behavior using preventDefault
@@ -28,11 +42,18 @@ export function stopTouch(e: TouchEvent) {
  * // Prevent scrolling in the entire document body
  * preventEleScroll();
  *
- * // Prevent scrolling in a specific element with custom touch event handling
- * preventEleScroll(() => document.getElementById('myScrollableElement'), false, (e) => {
- *   // Custom touch event handling logic here
- *   e.preventDefault();
- * });
+ * // Example 1: Prevent scrolling in a specific element
+ * preventEleScroll(() => document.getElementById('myScrollableElement'));
+ *
+ * // Example 2: Prevent scrolling in a specific element with custom touch event handling
+ * preventEleScroll(
+ *   () => document.getElementById('myScrollableElement'),
+ *   false,
+ *   (e) => {
+ *     // Custom touch event handling logic here
+ *     e.preventDefault();
+ *   }
+ * );
  * ```
  */
 export function preventEleScroll(
@@ -66,14 +87,21 @@ export function preventEleScroll(
  * ```
  * import { freeEleScroll } from '@arco-design/mobile-utils';
  *
- * // Allow scrolling in the entire document body
+ * // Example 1: Allow scrolling in the entire document body
  * freeEleScroll();
  *
- * // Allow scrolling in a specific element with custom touch event handling
- * freeEleScroll(() => document.getElementById('myScrollableElement'), false, (e) => {
- *   // Custom touch event handling logic here
- *   // You can choose to call e.preventDefault() or not based on your needs
- * });
+ * // Example 2: Allow scrolling in a specific element
+ * freeEleScroll(() => document.getElementById('myScrollableElement'));
+ *
+ * // Example 3: Allow scrolling in a specific element with custom touch event handling
+ * freeEleScroll(
+ *   () => document.getElementById('myScrollableElement'),
+ *   false,
+ *   (e) => {
+ *     // Custom touch event handling logic here
+ *     // You can choose to call e.preventDefault() or not based on your needs
+ *   }
+ * );
  * ```
  */
 export function freeEleScroll(
@@ -94,8 +122,37 @@ export function freeEleScroll(
 /**
  * 判断父节点是否包含子节点
  * @desc {en} confirm parentNode contains children nodes
- * @param parentEl 父节点
- * @param childrenEl 子节点
+ * @param {HTMLElement | null} parentEl 父节点
+ * @param {HTMLElement | null} parentEl {en} The parent element
+ * @param {HTMLElement | null} childrenEl 子节点
+ * @param {HTMLElement | null} childrenEl {en} The child element
+ * @returns {boolean} 是否包含子节点
+ * @returns {boolean} {en} Whether the parent contains the child
+ * @example
+ * ```
+ * import { isContains } from '@arco-design/mobile-utils';
+ *
+ * // Example 1: When the parent contains the direct child
+ * const parentElement = document.getElementById('parent');
+ * const childElement = document.getElementById('directChild');
+ * const result1 = isContains(parentElement, childElement);
+ * console.log(result1); // Output: true
+ * // Explanation: In this example, the parent element (#parent) contains a direct child element (#directChild).
+ *
+ * // Example 2: When the parent contains an indirect child
+ * const grandparentElement = document.getElementById('grandparent');
+ * const indirectChildElement = document.getElementById('indirectChild');
+ * const result2 = isContains(grandparentElement, indirectChildElement);
+ * console.log(result2); // Output: true
+ * // Explanation: Here, the grandparent element (#grandparent) contains an indirect child element (#indirectChild) nested within other elements.
+ *
+ * // Example 3: When the parent does not contain the child
+ * const unrelatedParent = document.getElementById('unrelatedParent');
+ * const unrelatedChild = document.getElementById('unrelatedChild');
+ * const result3 = isContains(unrelatedParent, unrelatedChild);
+ * console.log(result3); // Output: false
+ * // Explanation: In this case, the unrelated parent element (#unrelatedParent) and unrelated child element (#unrelatedChild) are not related in the DOM structure.
+ * ```
  */
 export function isContains(parentEl: HTMLElement | null, childrenEl: HTMLElement | null) {
     if (!parentEl || !childrenEl) return false;
@@ -119,6 +176,30 @@ export function isContains(parentEl: HTMLElement | null, childrenEl: HTMLElement
  * @param {Function} fn {en} the function to be executed
  * @returns {number} 返回 requestAnimationFrame 或 setTimeout 的 ID
  * @returns {number} {en} returns the ID of requestAnimationFrame or setTimeout
+ * @example
+ * ```
+ * import { execRAF } from '@arco-design/mobile-utils';
+ *
+ * // Example 1: Using requestAnimationFrame
+ * const rafId = execRAF(() => {
+ *   console.log("Using requestAnimationFrame");
+ * });
+ * console.log(rafId); // Output: A numerical ID representing the requestAnimationFrame callback
+ * // Explanation:
+ * // This example demonstrates using `execRAF` with `requestAnimationFrame` to execute a function.
+ * // `requestAnimationFrame` is typically used for animations and smooth updates.
+ * // The ID returned by `requestAnimationFrame` is logged, which can be useful for canceling the animation frame if needed.
+ *
+ * // Example 2: Using setTimeout as a fallback
+ * const setTimeoutId = execRAF(() => {
+ *   console.log("Using setTimeout as a fallback");
+ * });
+ * console.log(setTimeoutId); // Output: A numerical ID representing the setTimeout callback
+ * // Explanation:
+ * // In situations where the browser does not support `requestAnimationFrame`,
+ * // `execRAF` falls back to using `setTimeout` with a delay of approximately 17 milliseconds (equivalent to a frame rate of 60 frames per second).
+ * // The ID returned by `setTimeout` is logged, allowing you to manage the execution of the function, even in browsers without `requestAnimationFrame` support.
+ * ```
  */
 export function execRAF(fn) {
     try {
@@ -146,17 +227,19 @@ export function execRAF(fn) {
  * @param {'by'|'to'} type 滚动类型：'by'表示相对滚动，'to'表示绝对滚动
  * @param {'by'|'to'} type {en} Scroll type: 'by' for relative scrolling, 'to' for absolute scrolling
  * @example
+ * ```
  * import { scrollWithAnimation } from '@arco-design/mobile-utils';
  *
  * // Scroll to 500px from the current position over 1 second
  * scrollWithAnimation(
- *     window.pageYOffset,
- *     500,
- *     (top) => window.scrollTo({ top }),
- *     1000,
- *     [0.34, 0.69, 0.1, 1],
- *     'to'
+ *   window.pageYOffset,
+ *   500,
+ *   (top) => window.scrollTo({ top }),
+ *   1000,
+ *   [0.34, 0.69, 0.1, 1],
+ *   'to'
  * );
+ * ```
  */
 export function scrollWithAnimation(
     initTop: number,
@@ -186,6 +269,26 @@ export function scrollWithAnimation(
  * @desc {en} Returns the node's document properties
  * @param {HTMLElement} node dom 节点
  * @param {HTMLElement} node {en} dom Node
+ * @returns {HTMLElement | Document | null} 返回节点的最近可滚动父节点或 document 对象
+ * @returns {HTMLElement | Document | null} {en} Returns the nearest scrollable parent node of the node or the document object
+ * @example
+ * ```
+ * import { scrollParent } from '@arco-design/mobile-utils';
+ *
+ * // Example 1: Finding the scroll parent of a DOM node
+ * const targetNode = document.getElementById('targetElement');
+ * const scrollParentNode = scrollParent(targetNode);
+ * console.log(scrollParentNode); // Output: The nearest scrollable parent element or the document
+ * // Explanation:
+ * // This example demonstrates how to use the `scrollParent` function to find the nearest scrollable parent element of a given DOM node.
+ * // It returns the nearest scrollable parent element, or if none is found, it returns the document.
+ *
+ * // Example 2: Finding the scroll parent of the document body
+ * const bodyNode = document.body;
+ * const scrollParentBody = scrollParent(bodyNode);
+ * console.log(scrollParentBody); // Output: The document's HTML element (document.documentElement)
+ * // Explanation: In this scenario, we use the `scrollParent` function to find the scrollable parent of the document body.
+ * ```
  */
 export function scrollParent(node: HTMLElement): HTMLElement | Document | null {
     const excludeStaticParent = node.style.position === 'absolute';
@@ -220,6 +323,17 @@ export function scrollParent(node: HTMLElement): HTMLElement | Document | null {
  * @desc {en} Get element offset
  * @param {HTMLElement} node dom 节点
  * @param {HTMLElement} node {en} Dom node
+ * @example
+ * ```
+ * import { getOffset } from '@arco-design/mobile-utils';
+ *
+ * const element = document.getElementById('exampleElement');
+ * const offset = getOffset(element);
+ * console.log('Element Width:', offset.width);
+ * console.log('Element Height:', offset.height);
+ * console.log('Element Top Offset:', offset.top);
+ * console.log('Element Left Offset:', offset.left);
+ * ```
  */
 export function getOffset(node: HTMLElement | Document | null) {
     let width: number, height: number, left: number, top: number;
@@ -333,6 +447,28 @@ export function checkOverflowVisible<T extends TCheckVisibleBaseProps>(
  * @desc {en} Check if a non-local scroll container element is inside the viewport area
  * @param component 当前元素节点
  * @param component {en} Current element node
+ * @returns {boolean} 如果元素可见，则返回 true，否则返回 false。
+ * @returns {boolean} {en} Returns true if the element is visible, otherwise returns false.
+ * @example
+ * ```
+ * import { checkNormalVisible } from '@arco-design/mobile-utils';
+ *
+ * // Example usage:
+ * const element = document.getElementById('myElement');
+ *
+ * // Make sure to set the offset and threshold values to actual values that suit your use case.
+ * const isVisible = checkNormalVisible({
+ *   node: element,
+ *   offset: 20, // Set the offset value
+ *   threshold: 0.5, // Set the threshold value
+ * });
+ *
+ * if (isVisible) {
+ *   console.log('The element is in the viewport area');
+ * } else {
+ *   console.log('The element is not in the viewport area');
+ * }
+ * ```
  */
 export function checkNormalVisible<T extends TCheckVisibleBaseProps>(component: T): boolean {
     const { node, offset, threshold } = component;
@@ -367,6 +503,17 @@ export function checkNormalVisible<T extends TCheckVisibleBaseProps>(component: 
  * @param id {en} added dom id
  * @param getContainer 被添加元素的父级
  * @param getContainer {en} The parent of the added element
+ * @example
+ * ```
+ * import { appendElementById } from '@arco-design/mobile-utils';
+ *
+ * // Example 1: Add a div element with the id "myDiv" to the body.
+ * const { child, container } = appendElementById("myDiv");
+ *
+ * // Example 2: Add a div element with the id "customDiv" to a specific container.
+ * const customContainer = document.getElementById("customContainer");
+ * const { child, container } = appendElementById("customDiv", () => customContainer);
+ * ```
  */
 export function appendElementById(id: string, getContainer?: () => HTMLElement) {
     const div: HTMLElement = document.querySelector(`#${id}`) || document.createElement('div');
@@ -384,6 +531,15 @@ export function appendElementById(id: string, getContainer?: () => HTMLElement) 
  * @desc {en} Remove element from parent node
  * @param ele 待移除元素
  * @param ele {en} Element to be removed
+ * @example
+ * ```
+ * import { removeElement } from '@arco-design/mobile-utils';
+ *
+ * // HTML: <div id="myElement">This is a div</div>
+ * const elementToRemove = document.getElementById('myElement');
+ * // The element with ID 'myElement' will be removed from the DOM
+ * removeElement(elementToRemove);
+ * ```
  */
 export function removeElement(ele: HTMLElement) {
     if (ele && ele.parentNode) {

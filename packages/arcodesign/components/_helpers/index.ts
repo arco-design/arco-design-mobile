@@ -64,6 +64,27 @@ export function getStyleWithVendor(style: CSSProperties): CSSProperties {
  * @param {CSSProperties} style Original style
  * @param {CSSProperties} style {en} Original style
  * @returns {void}
+ * @example
+ * ```
+ * import { setStyleWithVendor } from '@arco-design/mobile-utils';
+ *
+ * // Example: Setting and displaying styles with the Webkit browser vendor prefix
+ * const element = document.getElementById('myElement');
+ * const originalStyle = {
+ *   transform: 'translateX(100px)',
+ *   transition: 'transform 0.5s ease',
+ *   borderRadius: '5px',
+ * };
+ *
+ * // Set the styles with the Webkit browser vendor prefix
+ * setStyleWithVendor(element, originalStyle);
+ *
+ * // Display the styles with the Webkit browser vendor prefixes applied
+ * const computedStyle = getComputedStyle(element);
+ * console.log(computedStyle.getPropertyValue('-webkit-transform')); // Output: The transformed style with the Webkit browser vendor prefix
+ * console.log(computedStyle.getPropertyValue('-webkit-transition')); // Output: The transition style with the Webkit browser vendor prefix
+ * console.log(computedStyle.getPropertyValue('border-radius')); // Output: The borderRadius style without a vendor prefix
+ * ```
  */
 export function setStyleWithVendor(dom: HTMLElement, style: CSSProperties) {
     const vendorStyle = getStyleWithVendor(style);
@@ -82,6 +103,7 @@ export function setStyleWithVendor(dom: HTMLElement, style: CSSProperties) {
  * @returns {T} 如果输入的值是未定义的，那么返回默认值，否则返回输入的值
  * @returns {T} {en} Returns the default value if the input is undefined, otherwise returns the input value
  * @example
+ * ```
  * import { getDefaultValue } from '@arco-design/mobile-react/esm/_helpers';
  *
  * const result = getDefaultValue(42, 0);
@@ -89,6 +111,7 @@ export function setStyleWithVendor(dom: HTMLElement, style: CSSProperties) {
  *
  * const result2 = getDefaultValue(undefined, 100);
  * console.log(result2); // Output: 100
+ * ```
  */
 export const getDefaultValue = <T>(value: T | undefined, defaultValue: T): T => {
     return value === void 0 ? defaultValue : value;
