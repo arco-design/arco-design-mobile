@@ -15,6 +15,29 @@ export * from './type';
  * @param {CSSProperties} style {en} Original style
  * @returns {CSSProperties} newStyle 添加了浏览器前缀的新样式
  * @returns {CSSProperties} newStyle {en} New style with browser vendor prefix
+ * @example
+ * ```
+ * import { getStyleWithVendor } from '@arco-design/mobile-react/esm/_helpers';
+ *
+ * // Example usage:
+ * const originalStyle = {
+ *     transform: 'translateX(50px)',
+ *     transition: 'all 0.3s ease',
+ *     opacity: 0.8,
+ * };
+ *
+ * const styleWithPrefix = getStyleWithVendor(originalStyle);
+ *
+ * // Result:
+ * // styleWithPrefix will be:
+ * // {
+ * //     transform: 'translateX(50px)',
+ * //     WebkitTransform: 'translateX(50px)', // Browser-specific prefix added
+ * //     transition: 'all 0.3s ease',
+ * //     WebkitTransition: 'all 0.3s ease', // Browser-specific prefix added
+ * //     opacity: 0.8,
+ * // }
+ * ```
  */
 export function getStyleWithVendor(style: CSSProperties): CSSProperties {
     const allowReg = /(transform|transition|animation)/i;
@@ -40,6 +63,7 @@ export function getStyleWithVendor(style: CSSProperties): CSSProperties {
  * @param {HTMLElement} dom {en} Element to set style
  * @param {CSSProperties} style Original style
  * @param {CSSProperties} style {en} Original style
+ * @returns {void}
  */
 export function setStyleWithVendor(dom: HTMLElement, style: CSSProperties) {
     const vendorStyle = getStyleWithVendor(style);
@@ -57,6 +81,14 @@ export function setStyleWithVendor(dom: HTMLElement, style: CSSProperties) {
  * @param {T} defaultValue {en} The default value
  * @returns {T} 如果输入的值是未定义的，那么返回默认值，否则返回输入的值
  * @returns {T} {en} Returns the default value if the input is undefined, otherwise returns the input value
+ * @example
+ * import { getDefaultValue } from '@arco-design/mobile-react/esm/_helpers';
+ *
+ * const result = getDefaultValue(42, 0);
+ * console.log(result); // Output: 42
+ *
+ * const result2 = getDefaultValue(undefined, 100);
+ * console.log(result2); // Output: 100
  */
 export const getDefaultValue = <T>(value: T | undefined, defaultValue: T): T => {
     return value === void 0 ? defaultValue : value;

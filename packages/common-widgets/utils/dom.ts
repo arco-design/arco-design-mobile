@@ -21,6 +21,19 @@ export function stopTouch(e: TouchEvent) {
  * @param preventWindow {en} Whether to prevent window scrolling
  * @param customStopTouch 自定义停止触摸事件的函数
  * @param customStopTouch {en} A custom function to stop touch events
+ * @example
+ * ```
+ * import { preventEleScroll } from '@arco-design/mobile-utils';
+ *
+ * // Prevent scrolling in the entire document body
+ * preventEleScroll();
+ *
+ * // Prevent scrolling in a specific element with custom touch event handling
+ * preventEleScroll(() => document.getElementById('myScrollableElement'), false, (e) => {
+ *   // Custom touch event handling logic here
+ *   e.preventDefault();
+ * });
+ * ```
  */
 export function preventEleScroll(
     scrollContainer: () => HTMLElement | null = () => document.body,
@@ -49,6 +62,19 @@ export function preventEleScroll(
  * @param preventWindow {en} Whether to prevent window scrolling
  * @param customStopTouch 自定义停止触摸事件的函数
  * @param customStopTouch {en} A custom function to stop touch events
+ * @example
+ * ```
+ * import { freeEleScroll } from '@arco-design/mobile-utils';
+ *
+ * // Allow scrolling in the entire document body
+ * freeEleScroll();
+ *
+ * // Allow scrolling in a specific element with custom touch event handling
+ * freeEleScroll(() => document.getElementById('myScrollableElement'), false, (e) => {
+ *   // Custom touch event handling logic here
+ *   // You can choose to call e.preventDefault() or not based on your needs
+ * });
+ * ```
  */
 export function freeEleScroll(
     scrollContainer: () => HTMLElement | null = () => document.body,
@@ -67,7 +93,7 @@ export function freeEleScroll(
 
 /**
  * 判断父节点是否包含子节点
- * @desc {en} comfirm parentNode contains children nodes
+ * @desc {en} confirm parentNode contains children nodes
  * @param parentEl 父节点
  * @param childrenEl 子节点
  */
@@ -119,6 +145,18 @@ export function execRAF(fn) {
  * @param {Array<number>} bezier {en} Bezier curve parameters
  * @param {'by'|'to'} type 滚动类型：'by'表示相对滚动，'to'表示绝对滚动
  * @param {'by'|'to'} type {en} Scroll type: 'by' for relative scrolling, 'to' for absolute scrolling
+ * @example
+ * import { scrollWithAnimation } from '@arco-design/mobile-utils';
+ *
+ * // Scroll to 500px from the current position over 1 second
+ * scrollWithAnimation(
+ *     window.pageYOffset,
+ *     500,
+ *     (top) => window.scrollTo({ top }),
+ *     1000,
+ *     [0.34, 0.69, 0.1, 1],
+ *     'to'
+ * );
  */
 export function scrollWithAnimation(
     initTop: number,
