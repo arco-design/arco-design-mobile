@@ -18,8 +18,14 @@ export * from './validator';
  * @desc {en} Add the unit of px to the number, and return it directly if there is a unit.
  * @param {number | string} value 需要设置的值
  * @param {number | string} value {en} The value that needs to be set
- * @returns {string} 返回带有单位的值
- * @returns {string} {en} Returns a value with units
+ * @return {string} 返回带有单位的值
+ * @return {string} {en} Returns a value with units*
+ * @example
+ * ```
+ * import { handleUnit } from '@arco-design/mobile-utils';
+ *
+ * const test = handleUnit(5);
+ * ```
  */
 export function handleUnit(value: number | string) {
     return typeof value === 'number' || !isNaN(Number(value)) ? `${value}px` : value;
@@ -34,8 +40,14 @@ export function handleUnit(value: number | string) {
  * @param {Function} filterFn {en} filter function
  * @param {Object} options 可选对象
  * @param {Object} options {en} Optional object
- * @returns {string} 过滤后的数组
- * @returns {string} filtered array
+ * @return {string} 过滤后的数组
+ * @return {string} filtered array
+ * @example
+ * ```
+ * import { arrayTreeFilter } from '@arco-design/mobile-utils';
+ *
+ * const test = arrayTreeFilter(data, (item: any, level: number) => level <= index && item.value === value[level]);
+ * ```
  */
 export function arrayTreeFilter<T>(
     data: T[],
@@ -77,8 +89,14 @@ export function arrayTreeFilter<T>(
  * @param {number} amountOfChange {en} coefficient of variation
  * @param {number} duration 持续时间
  * @param {number} duration {en} duration
- * @returns {number} 返回在给定时间内根据缓动函数计算得到的新值
- * @returns {number} {en} Returns the new value calculated from the easing function within the given time
+ * @return {number} 返回在给定时间内根据缓动函数计算得到的新值
+ * @return {number} {en} Returns the new value calculated from the easing function within the given time
+ * @example
+ * ```
+ * import { easeOutCubic } from '@arco-design/mobile-utils';
+ *
+ * const test = easeOutCubic(2000, 10, 1.2, 1000);
+ * ```
  */
 export function easeOutCubic(
     elapsed: number,
@@ -95,6 +113,12 @@ export function easeOutCubic(
  * @desc {en} Execute the given function on the next event loop cycle
  * @param {Function} func 执行的函数
  * @param {Function} func {en} function executed
+ * @example
+ * ```
+ * import { nextTick } from '@arco-design/mobile-utils';
+ *
+ * nextTick(() => { updateLayoutData(); });
+ * ```
  */
 export function nextTick(func: () => void) {
     setTimeout(func, 20);
@@ -109,8 +133,14 @@ export function nextTick(func: () => void) {
  * @param {number} x {en} element displacement
  * @param {[number, number] | number} damping 阻尼参数
  * @param {[number, number] | number} damping {en} Damping parameters
- * @returns {number} 返回需要滑动的距离
- * @returns {number} {en} Return the distance required to slide
+ * @return {number} 返回需要滑动的距离
+ * @return {number} {en} Return the distance required to slide
+ * @example
+ * ```
+ * import { fingerDisToLabelDis } from '@arco-design/mobile-utils';
+ *
+ * const test = fingerDisToLabelDis(1000, 0.01);
+ * ```
  */
 export function fingerDisToLabelDis(x: number, damping?: [number, number] | number) {
     const dampArr = typeof damping === 'number' ? [damping] : damping;
