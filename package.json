@@ -15,7 +15,7 @@
         "start:pc-vite": "vite --config scripts/sites/vite.pc.config.ts --host",
         "start:home": "cross-env NODE_ENV=development webpack-dev-server --progress --config scripts/sites/webpack.dev.home.js",
         "start:home-vite": "vite --config scripts/sites/vite.home.config.ts --host",
-        "start:all": "npm start & npm run start:pc & npm run start:home & npm run start:resource",
+        "start:all": "npm start & npm run start:pc & npm run start:home",
         "build": "lerna run build",
         "eslint": "eslint packages/ sites/ --fix",
         "test": "jest --config packages/arcodesign/jest.config.js",
