@@ -7,6 +7,12 @@ const opt = Object.prototype.toString;
  * @param {any} obj {en} Entering
  * @returns {boolean} 返回是否为数组类型
  * @returns {boolean} {en} Returns whether it is an array type
+ * @example
+ * ```
+ * import { isArray } from '@arco-design/mobile-utils';
+ *
+ * const test = isArray([]);
+ * ```
  */
 export function isArray(obj: any): obj is any[] {
     return opt.call(obj) === '[object Array]';
@@ -19,6 +25,12 @@ export function isArray(obj: any): obj is any[] {
  * @param {any} obj {en} Entering
  * @returns {boolean} 返回是否为对象类型
  * @returns {boolean} {en} Returns whether it is an object type
+ * @example
+ * ```
+ * import { isObject } from '@arco-design/mobile-utils';
+ *
+ * const test = isObject({});
+ * ```
  */
 export function isObject(obj: any): obj is { [key: string]: any } {
     return opt.call(obj) === '[object Object]';
@@ -31,6 +43,12 @@ export function isObject(obj: any): obj is { [key: string]: any } {
  * @param {any} obj {en} Entering
  * @returns {boolean} 返回是否为字符串类型
  * @returns {boolean} {en} Returns whether it is an string type
+ * @example
+ * ```
+ * import { isString } from '@arco-design/mobile-utils';
+ *
+ * const test = isString('');
+ * ```
  */
 export function isString(obj: any): obj is string {
     return opt.call(obj) === '[object String]';
@@ -45,6 +63,12 @@ export function isString(obj: any): obj is string {
  * @param {T[]} validList {en} List of valid values
  * @returns {boolean} 返回要检查的值是否在有效值列表中
  * @returns {boolean} {en} Returns whether the value to be checked is in the list of valid values
+ * @example
+ * ```
+ * import { isOneOf } from '@arco-design/mobile-utils';
+ *
+ * const test = isOneOf(1, [1, 2, 3]);
+ * ```
  */
 export function isOneOf<T>(value: T, validList: T[]) {
     return validList.indexOf(value) !== -1;
@@ -57,6 +81,12 @@ export function isOneOf<T>(value: T, validList: T[]) {
  * @param {any} obj {en} Entering
  * @returns {boolean} 返回该值是否为空值
  * @returns {boolean} {en} Returns whether the value is null
+ * @example
+ * ```
+ * import { isEmptyValue } from '@arco-design/mobile-utils';
+ *
+ * const test = isEmptyValue(null);
+ * ```
  */
 export function isEmptyValue(obj: any): boolean {
     return obj === undefined || obj === null || obj === '';
@@ -69,6 +99,12 @@ export function isEmptyValue(obj: any): boolean {
  * @param {unknown} obj {en} Entering
  * @returns {boolean} 返回该值是否为函数
  * @returns {boolean} {en} Returns whether the value is function
+ * @example
+ * ```
+ * import { isFunction } from '@arco-design/mobile-utils';
+ *
+ * const test = isFunction(() => {});
+ * ```
  */
 export function isFunction(obj: unknown): boolean {
     return Object.prototype.toString.call(obj).toLowerCase() === '[object function]';
@@ -81,6 +117,12 @@ export function isFunction(obj: unknown): boolean {
  * @param {unknown} obj {en} Entering
  * @returns {boolean} 返回该值是否为 null
  * @returns {boolean} {en} Returns whether the value is null
+ * @example
+ * ```
+ * import { isNull } from '@arco-design/mobile-utils';
+ *
+ * const test = isNull(null);
+ * ```
  */
 export function isNull(obj: unknown): boolean {
     return Object.prototype.toString.call(obj).toLowerCase() === '[object null]';
@@ -93,6 +135,12 @@ export function isNull(obj: unknown): boolean {
  * @param {unknown} obj {en} Entering
  * @returns {boolean} 返回该值是否为 undefined
  * @returns {boolean} {en} Returns whether the value is undefined
+ * @example
+ * ```
+ * import { isUndefined } from '@arco-design/mobile-utils';
+ *
+ * const test = isUndefined(undefined);
+ * ```
  */
 export function isUndefined(obj: unknown): boolean {
     return Object.prototype.toString.call(obj).toLowerCase() === '[object undefined]';
@@ -105,6 +153,12 @@ export function isUndefined(obj: unknown): boolean {
  * @param {Array<unknown>} obj {en} Entering
  * @returns {boolean} 返回该值是否为空数组
  * @returns {boolean} {en} Returns whether the value is an empty array
+ * @example
+ * ```
+ * import { isEmptyArray } from '@arco-design/mobile-utils';
+ *
+ * const test = isEmptyArray([]);
+ * ```
  */
 export function isEmptyArray(obj: Array<unknown>): boolean {
     return isArray(obj) && !obj?.length;
@@ -119,6 +173,12 @@ export function isEmptyArray(obj: Array<unknown>): boolean {
  * @param {any} obj {en} the second object to be compared
  * @returns {boolean} 返回两个对象是否相等
  * @returns {boolean} {en} Returns whether two objects are equal
+ * @example
+ * ```
+ * import { isDeepEqual } from '@arco-design/mobile-utils';
+ *
+ * const test = isDeepEqual({a: 1}, {a: 1});
+ * ```
  */
 export function isDeepEqual(obj: any, sub: any): boolean {
     if (typeof obj !== 'object' || typeof sub !== 'object' || obj === null || sub === null) {
