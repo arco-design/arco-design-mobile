@@ -176,7 +176,7 @@ useListenResize(setSize, [], listenResize);
 ## 源码
 
 ```
-operties} newStyle 添加了浏览器前缀的新样式
+ies} newStyle 添加了浏览器前缀的新样式
  * @returns {CSSProperties} newStyle {en} New style with browser vendor prefix
  * @example
  * ```
@@ -207,7 +207,7 @@ function useListenResizegetStyleWithVendor(style: CSSProperties): CSSProperties 
     const newStyle = Object.keys(style).reduce<CSSProperties>((acc, key) => {
         const webkitStyle = allowReg.test(key)
             ? {
-                  [`Webkit${key.replace(/^(.)/, (_
+                  [`Webkit${key.replace(/^(.)/, (_, p1)
 ```
 
 ======
@@ -217,8 +217,8 @@ function useListenResizegetStyleWithVendor(style: CSSProperties): CSSProperties 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |resizeHandler|resize事件回调|() =\> void|必填|
-|deps|触发事件绑定更新的依赖|any\[\]|  |
-|needListen|是否开启事件监听，默认开启|boolean|all |
+|deps|触发事件绑定更新的依赖|any\[\]|ra|
+|needListen|是否开启事件监听，默认开启|boolean|.3s |
 
 > 输出
 
@@ -249,7 +249,7 @@ const [scrollValue, setScrollValue] = useMountedState(value);
 ## 源码
 
 ```
-, p1) => p1.toUpperCase())}`]: style[key],
+=> p1.toUpperCase())}`]: style[key],
               }
             : {};
         return {
@@ -287,7 +287,7 @@ function useMountedStatesetStyleWithVendor(dom: HTMLElement, style: CSSPropertie
  * @returns {T} 如果输入的值是未定义的，那么返回默认值，否则返回输入的值
  * @returns {T} {en} Returns the default value if the input is undefined, otherwise returns the input value
  * @example
- * import { getDefaul
+ * import { getDefaultValu
 ```
 
 ======
@@ -326,7 +326,7 @@ const [opened, openedRef, setOpened] = useSameRefState(false);
 ## 源码
 
 ```
-consttValue } from '@arco-design/mobile-react/esm/_helpers';
+conste } from '@arco-design/mobile-react/esm/_helpers';
  *
  * const result = getDefaultValue(42, 0);
  * console.log(result); // Output: 42

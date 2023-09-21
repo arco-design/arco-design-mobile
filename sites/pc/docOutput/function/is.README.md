@@ -8,6 +8,13 @@
 
 ======
 
+## 示例
+
+```
+import { isArray } from '@arco-design/mobile-utils';
+const test = isArray([]);
+```
+
 ## 类型
 
 ```
@@ -41,6 +48,13 @@ function isArray(obj: any): obj is any[] {
 判断一个对象是否为对象类型
 
 ======
+
+## 示例
+
+```
+import { isObject } from '@arco-design/mobile-utils';
+const test = isObject({});
+```
 
 ## 类型
 
@@ -76,6 +90,13 @@ function isObject(obj: any): obj is { [key: string]: any } {
 
 ======
 
+## 示例
+
+```
+import { isString } from '@arco-design/mobile-utils';
+const test = isString('');
+```
+
 ## 类型
 
 ```
@@ -109,6 +130,13 @@ function isString(obj: any): obj is string {
 检查一个值是否在给定的有效值列表中
 
 ======
+
+## 示例
+
+```
+import { isOneOf } from '@arco-design/mobile-utils';
+const test = isOneOf(1, [1, 2, 3]);
+```
 
 ## 类型
 
@@ -145,6 +173,13 @@ function isOneOf<T>(value: T, validList: T[]) {
 
 ======
 
+## 示例
+
+```
+import { isEmptyValue } from '@arco-design/mobile-utils';
+const test = isEmptyValue(null);
+```
+
 ## 类型
 
 ```
@@ -178,6 +213,13 @@ function isEmptyValue(obj: any): boolean {
 检查一个值是否为函数类型
 
 ======
+
+## 示例
+
+```
+import { isFunction } from '@arco-design/mobile-utils';
+const test = isFunction(() => {});
+```
 
 ## 类型
 
@@ -213,6 +255,13 @@ function isFunction(obj: unknown): boolean {
 
 ======
 
+## 示例
+
+```
+import { isNull } from '@arco-design/mobile-utils';
+const test = isNull(null);
+```
+
 ## 类型
 
 ```
@@ -246,6 +295,13 @@ function isNull(obj: unknown): boolean {
 检查一个值是否为 undefined
 
 ======
+
+## 示例
+
+```
+import { isUndefined } from '@arco-design/mobile-utils';
+const test = isUndefined(undefined);
+```
 
 ## 类型
 
@@ -281,6 +337,13 @@ function isUndefined(obj: unknown): boolean {
 
 ======
 
+## 示例
+
+```
+import { isEmptyArray } from '@arco-design/mobile-utils';
+const test = isEmptyArray([]);
+```
+
 ## 类型
 
 ```
@@ -314,6 +377,13 @@ function isEmptyArray(obj: Array<unknown>): boolean {
 深比较两个对象是否相等
 
 ======
+
+## 示例
+
+```
+import { isDeepEqual } from '@arco-design/mobile-utils';
+const test = isDeepEqual({a: 1}, {a: 1});
+```
 
 ## 类型
 

@@ -8,6 +8,13 @@
 
 ======
 
+## 示例
+
+```
+import { handleUnit } from '@arco-design/mobile-utils';
+const test = handleUnit(5);
+```
+
 ## 类型
 
 ```
@@ -32,7 +39,7 @@ function handleUnit(value: number | string) {
 
 > 输出
 
-{string} 返回带有单位的值
+无
 
 ------
 
@@ -42,10 +49,17 @@ function handleUnit(value: number | string) {
 
 ======
 
+## 示例
+
+```
+import { arrayTreeFilter } from '@arco-design/mobile-utils';
+const test = arrayTreeFilter(data, (item: any, level: number) => level <= index && item.value === value[level]);
+```
+
 ## 类型
 
 ```
-(data: T[], filterFn: Function, options?: Object) => string
+(data: T[], filterFn: Function, options?: Object) => T[]
 ```
 
 ## 源码
@@ -93,7 +107,7 @@ function arrayTreeFilter<T>(
 
 > 输出
 
-{string} 过滤后的数组
+无
 
 ------
 
@@ -102,6 +116,13 @@ function arrayTreeFilter<T>(
 使用了缓出（ease-out）的方式时返回在给定时间内根据缓动函数计算得到的新值
 
 ======
+
+## 示例
+
+```
+import { easeOutCubic } from '@arco-design/mobile-utils';
+const test = easeOutCubic(2000, 10, 1.2, 1000);
+```
 
 ## 类型
 
@@ -136,7 +157,7 @@ function easeOutCubic(
 
 > 输出
 
-{number} 返回在给定时间内根据缓动函数计算得到的新值
+无
 
 ------
 
@@ -145,6 +166,13 @@ function easeOutCubic(
 在下一个事件循环周期执行给定的函数
 
 ======
+
+## 示例
+
+```
+import { nextTick } from '@arco-design/mobile-utils';
+nextTick(() => { updateLayoutData(); });
+```
 
 ## 类型
 
@@ -180,6 +208,13 @@ function nextTick(func: () => void) {
 
 ======
 
+## 示例
+
+```
+import { fingerDisToLabelDis } from '@arco-design/mobile-utils';
+const test = fingerDisToLabelDis(1000, 0.01);
+```
+
 ## 类型
 
 ```
@@ -207,7 +242,7 @@ function fingerDisToLabelDis(x: number, damping?: [number, number] | number) {
 
 > 输出
 
-{number} 返回需要滑动的距离
+无
 
 ------
 
@@ -286,8 +321,14 @@ preventEleScroll(() => document.getElementById('myScrollableElement'), false, (e
 ```
 string} value 需要设置的值
  * @param {number | string} value {en} The value that needs to be set
- * @returns {string} 返回带有单位的值
- * @returns {string} {en} Returns a value with units
+ * @return {string} 返回带有单位的值
+ * @return {string} {en} Returns a value with units*
+ * @example
+ * ```
+ * import { handleUnit } from '@arco-design/mobile-utils';
+ *
+ * const test = handleUnit(5);
+ * ```
  */
 function preventEleScrollhandleUnit(value: number | string) {
     return typeof value === 'number' || !isNaN(Number(value)) ? `${value}px` : value;
@@ -302,8 +343,14 @@ function preventEleScrollhandleUnit(value: number | string) {
  * @param {Function} filterFn {en} filter function
  * @param {Object} options 可选对象
  * @param {Object} options {en} Optional object
- * @returns {string} 过滤后的数组
- * @returns {string} filtered array
+ * @return {string} 过滤后的数组
+ * @return {string} filtered array
+ * @example
+ * ```
+ * import { arrayTreeFilter } from '@arco-design/mobile-utils';
+ *
+ * const test = arrayTreeFilter(data, (item: any, level: number) => level <= index && item.value === value[level]);
+ * ```
  */
 export function arrayTreeFilter<T>(
     data: T[],
@@ -316,16 +363,6 @@ export function arrayTreeFilter<T>(
     options = options || {};
     options.childrenKeyName = options.childrenKeyName || 'children';
     let children = data || [];
-    const result: T[] = [];
-    let level = 0;
-
-    do {
-        let foundItem: T | undefined = children.find(item => filterFn(item, level));
-        if (!foundItem && options.fallbackChildIndex !== undefined) {
-            foundItem = children[options.fallbackChildIndex];
-        }
-        if (!foundItem) {
-            break;
 ```
 
 ======
@@ -334,8 +371,7 @@ export function arrayTreeFilter<T>(
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|scrollContainer|滚动容器的函数，默认为 document\.body|() =\> HTMLElement|options || {};
-    |
+|scrollContainer|滚动容器的函数，默认为 document\.body|() =\> HTMLElement|arrayTreeFilter(dat|
 |preventWindow|是否阻止窗口滚动|boolean|-|
 |customStopTouch|自定义停止触摸事件的函数|(e: TouchEvent) =\> void|-|
 
@@ -373,7 +409,17 @@ freeEleScroll(() => document.getElementById('myScrollableElement'), false, (e) =
 ## 源码
 
 ```
-}
+const result: T[] = [];
+    let level = 0;
+
+    do {
+        let foundItem: T | undefined = children.find(item => filterFn(item, level));
+        if (!foundItem && options.fallbackChildIndex !== undefined) {
+            foundItem = children[options.fallbackChildIndex];
+        }
+        if (!foundItem) {
+            break;
+        }
         result.push(foundItem);
         children = (foundItem as any)[options.childrenKeyName] || [];
         level += 1;
@@ -392,26 +438,16 @@ freeEleScroll(() => document.getElementById('myScrollableElement'), false, (e) =
  * @param {number} amountOfChange {en} coefficient of variation
  * @param {number} duration 持续时间
  * @param {number} duration {en} duration
- * @returns {number} 返回在给定时间内根据缓动函数计算得到的新值
- * @returns {number} {en} Returns the new value calculated from the easing function within the given time
+ * @return {number} 返回在给定时间内根据缓动函数计算得到的新值
+ * @return {number} {en} Returns the new value calculated from the easing function within the given time
+ * @example
+ * ```
+ * import { easeOutCubic } from '@arco-design/mobile-utils';
+ *
+ * const test = easeOutCubic(2000, 10, 1.2, 1000);
+ * ```
  */
 function easeOutCubic(
-    elapsed: number,
-    initialValue: number,
-    amountOfChange: number,
-    duration: number,
-) {
-    const newElapsed = elapsed / duration - 1;
-    return amountOfChange * (newElapsed * newElapsed * newElapsed + 1) + initialValue;
-}
-
-/**
- * 在下一个事件循环周期执行给定的函数
- * @desc {en} Execute the given function on the next event loop cycle
- * @param {Function} func 执行的函数
- * @param {Function} func {en} function executed
- */
-export function nextTick(func: () => void) {
 ```
 
 ======
@@ -420,8 +456,8 @@ export function nextTick(func: () => void) {
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|scrollContainer|滚动容器的函数，默认为 document\.body|() =\> HTMLElement|e: number,
-    dura|
+|scrollContainer|滚动容器的函数，默认为 document\.body|() =\> HTMLElement|on
+ * @param {numbe|
 |preventWindow|是否阻止窗口滚动|boolean|-|
 |customStopTouch|自定义停止触摸事件的函数|(e: TouchEvent) =\> void|-|
 
@@ -446,17 +482,28 @@ export function nextTick(func: () => void) {
 ## 源码
 
 ```
-setTimeout(func, 20);
+elapsed: number,
+    initialValue: number,
+    amountOfChange: number,
+    duration: number,
+) {
+    const newElapsed = elapsed / duration - 1;
+    return amountOfChange * (newElapsed * newElapsed * newElapsed + 1) + initialValue;
 }
 
 /**
- * 模拟滑动阻尼效果，使用函数x = X/(aX+b)，x为元素位移，X为滑动距离，a,b为自定义参数通过设置两个目标对应关系求得
- * @desc {en} To simulate the sliding damping effect, use the function isContainsx = X/(aX+b), where x is the element displacement, X is the sliding distance, and a and b are custom parameters obtained by setting the corresponding relationship between the two targets
- * 例如目标X=500时x=100, X=200时x=60，可得a,b
- * @desc {en} For example, when the target X=500, x=100, when X=200, x=60, you can get a,b
- * @param {number} x 元素位移
- * @param {number} x {en} element displacement
- * @para
+ * 在下一个事件循环周期执行给定的函数
+ * @desc {en} Execute the given function isContainson the next event loop cycle
+ * @param {Function} func 执行的函数
+ * @param {Function} func {en} function executed
+ * @example
+ * ```
+ * import { nextTick } from '@arco-design/mobile-utils';
+ *
+ * nextTick(() => { updateLayoutData(); });
+ * ```
+ */
+function ne
 ```
 
 ======
@@ -489,16 +536,24 @@ setTimeout(func, 20);
 ## 源码
 
 ```
-m {[number, number] | number} damping 阻尼参数
- * @param {[number, number] | number} damping {en} Damping parameters
- * @returns {number} 返回需要滑动的距离
- * @returns {number} {en} Return the distance required to slide
- */
-function execRAFfingerDisToLabelDis(x: number, damping?: [number, number] | number) {
-    const dampArr = typeof damping === 'number' ? [damping] : damping;
-    const [a = 0.013312, b = 1.636345] = dampArr || [];
-    return x / (a * x + b);
+xtTick(func: () => void) {
+    setTimeout(func, 20);
 }
+
+/**
+ * 模拟滑动阻尼效果，使用函数x = X/(aX+b)，x为元素位移，X为滑动距离，a,b为自定义参数通过设置两个目标对应关系求得
+ * @desc {en} To simulate the sliding damping effect, use the function execRAFx = X/(aX+b), where x is the element displacement, X is the sliding distance, and a and b are custom parameters obtained by setting the corresponding relationship between the two targets
+ * 例如目标X=500时x=100, X=200时x=60，可得a,b
+ * @desc {en} For example, when the target X=500, x=100, when X=200, x=60, you can get a,b
+ * @param {number} x 元素位移
+ * @param {number} x {en} element displacement
+ * @param {[number, number] | number} damping 阻尼参数
+ * @param {[number, number] | number} damping {en} Damping parameters
+ * @return {number} 返回需要滑动的距离
+ * @return {number} {en} Return the distance required to slide
+ * @example
+ * ```
+ * import
 ```
 
 ======
@@ -554,7 +609,16 @@ scrollWithAnimation(
 ## 源码
 
 ```
-const
+{ fingerDisToLabelDis } from '@arco-design/mobile-utils';
+ *
+ * const test = fingerDisToLabelDis(1000, 0.01);
+ * ```
+ */
+function scrollWithAnimationfingerDisToLabelDis(x: number, damping?: [number, number] | number) {
+    const dampArr = typeof damping === 'number' ? [damping] : damping;
+    const [a = 0.013312, b = 1.636345] = dampArr || [];
+    return x / (a * x + b);
+}
 ```
 
 ======
@@ -1215,6 +1279,13 @@ const
 
 ======
 
+## 示例
+
+```
+import { isArray } from '@arco-design/mobile-utils';
+const test = isArray([]);
+```
+
 ## 类型
 
 ```
@@ -1237,7 +1308,9 @@ export * from './validator';
 
 /**
  * 给值带上 px 的单位，有单位的值直接返回
- * @desc {en} Add the unit of px to
+ * @desc {en} Add the unit of px to the number, and return it directly if there is a unit.
+ * @param {number | string} value 需要设置的值
+ * @param {number
 ```
 
 ======
@@ -1260,6 +1333,13 @@ export * from './validator';
 
 ======
 
+## 示例
+
+```
+import { isObject } from '@arco-design/mobile-utils';
+const test = isObject({});
+```
+
 ## 类型
 
 ```
@@ -1269,14 +1349,23 @@ export * from './validator';
 ## 源码
 
 ```
-the number, and return it directly if there is a unit.
- * @param {number | string} value 需要设置的值
- * @param {number | string} value {en} The value that needs to be set
- * @returns {string} 返回带有单位的值
- * @returns {string} {en} Returns a value with units
+| string} value {en} The value that needs to be set
+ * @return {string} 返回带有单位的值
+ * @return {string} {en} Returns a value with units*
+ * @example
+ * ```
+ * import { handleUnit } from '@arco-design/mobile-utils';
+ *
+ * const test = handleUnit(5);
+ * ```
  */
 function isObjecthandleUnit(value: number | string) {
-    return typeof value === '
+    return typeof value === 'number' || !isNaN(Number(value)) ? `${value}px` : value;
+}
+
+/**
+ * 基于给定的过滤函数返回一个过滤后的数组
+ * @desc {en} Returns a f
 ```
 
 ======
@@ -1299,6 +1388,13 @@ function isObjecthandleUnit(value: number | string) {
 
 ======
 
+## 示例
+
+```
+import { isString } from '@arco-design/mobile-utils';
+const test = isString('');
+```
+
 ## 类型
 
 ```
@@ -1308,17 +1404,20 @@ function isObjecthandleUnit(value: number | string) {
 ## 源码
 
 ```
-number' || !isNaN(Number(value)) ? `${value}px` : value;
-}
-
-/**
- * 基于给定的过滤函数返回一个过滤后的数组
- * @desc {en} Returns a filtered array based on the given filter function
+iltered array based on the given filter function
  * @param {T[]} data 数据数组
  * @param {T[]} data {en} data array
  * @param {Function} filterFn 过滤函数
  * @param {Function} filterFn {en} filter function
- * @param {
+ * @param {Object} options 可选对象
+ * @param {Object} options {en} Optional object
+ * @return {string} 过滤后的数组
+ * @return {string} filtered array
+ * @example
+ * ```
+ * import { arrayTreeFilter } from '@arco-design/mobile-utils';
+ *
+ * const te
 ```
 
 ======
@@ -1341,6 +1440,13 @@ number' || !isNaN(Number(value)) ? `${value}px` : value;
 
 ======
 
+## 示例
+
+```
+import { isOneOf } from '@arco-design/mobile-utils';
+const test = isOneOf(1, [1, 2, 3]);
+```
+
 ## 类型
 
 ```
@@ -1350,10 +1456,8 @@ number' || !isNaN(Number(value)) ? `${value}px` : value;
 ## 源码
 
 ```
-Object} options 可选对象
- * @param {Object} options {en} Optional object
- * @returns {string} 过滤后的数组
- * @returns {string} filtered array
+st = arrayTreeFilter(data, (item: any, level: number) => level <= index && item.value === value[level]);
+ * ```
  */
 function isOneOfarrayTreeFilter<T>(
     data: T[],
@@ -1366,7 +1470,12 @@ function isOneOfarrayTreeFilter<T>(
     options = options || {};
     options.childrenKeyName = options.childrenKeyName || 'children';
     let children = data || [];
-    const result: T[] = [
+    const result: T[] = [];
+    let level = 0;
+
+    do {
+        let foundItem: T | undefined = children.find(item => filterFn(item, level));
+        if (!foundItem && op
 ```
 
 ======
@@ -1390,6 +1499,13 @@ function isOneOfarrayTreeFilter<T>(
 
 ======
 
+## 示例
+
+```
+import { isEmptyValue } from '@arco-design/mobile-utils';
+const test = isEmptyValue(null);
+```
+
 ## 类型
 
 ```
@@ -1399,18 +1515,22 @@ function isOneOfarrayTreeFilter<T>(
 ## 源码
 
 ```
-const];
-    let level = 0;
-
-    do {
-        let foundItem: T | undefined = children.find(item => filterFn(item, level));
-        if (!foundItem && options.fallbackChildIndex !== undefined) {
+consttions.fallbackChildIndex !== undefined) {
             foundItem = children[options.fallbackChildIndex];
         }
         if (!foundItem) {
             break;
         }
-        re
+        result.push(foundItem);
+        children = (foundItem as any)[options.childrenKeyName] || [];
+        level += 1;
+    } while (children.length > 0);
+    return result;
+}
+
+/**
+ * 使用了缓出（ease-out）的方式时返回在给定时间内根据缓动函数计算得到的新值
+ * @desc {en} When the ease-out method is used, the ne
 ```
 
 ======
@@ -1433,6 +1553,13 @@ const];
 
 ======
 
+## 示例
+
+```
+import { isFunction } from '@arco-design/mobile-utils';
+const test = isFunction(() => {});
+```
+
 ## 类型
 
 ```
@@ -1442,17 +1569,17 @@ const];
 ## 源码
 
 ```
-sult.push(foundItem);
-        children = (foundItem as any)[options.childrenKeyName] || [];
-        level += 1;
-    } while (children.length > 0);
-    return result;
-}
-
-/**
- * 使用了缓出（ease-out）的方式时返回在给定时间内根据缓动函数计算得到的新值
- * @desc {en} When the ease-out method is used, the new value calculated according to the easing function isFunctionis returned within a given time.
- * @param {num
+w value calculated according to the easing function isFunctionis returned within a given time.
+ * @param {number} elapsed 持续时间
+ * @param {number} elapsed {en} duration
+ * @param {number} initialValue 初始值
+ * @param {number} initialValue {en} initial value
+ * @param {number} amountOfChange 变动系数
+ * @param {number} amountOfChange {en} coefficient of variation
+ * @param {number} duration 持续时间
+ * @param {number} duration {en} duration
+ * @return {number} 返回在给定时间内根据缓动函数计算得到的新值
+ * @return {number} {en} Return
 ```
 
 ======
@@ -1475,6 +1602,13 @@ sult.push(foundItem);
 
 ======
 
+## 示例
+
+```
+import { isNull } from '@arco-design/mobile-utils';
+const test = isNull(null);
+```
+
 ## 类型
 
 ```
@@ -1484,15 +1618,22 @@ sult.push(foundItem);
 ## 源码
 
 ```
-constber} elapsed 持续时间
- * @param {number} elapsed {en} duration
- * @param {number} initialValue 初始值
- * @param {number} initialValue {en} initial value
- * @param {number} amountOfChange 变动系数
- * @param {number} amountOfChange {en} coefficient of variation
- * @param {number} duration 持续时间
- * @param {number} duration {en} duration
- * @returns {number} 返回在给定时间内根据缓动函
+s the new value calculated from the easing function isNullwithin the given time
+ * @example
+ * ```
+ * import { easeOutCubic } from '@arco-design/mobile-utils';
+ *
+ * const test = easeOutCubic(2000, 10, 1.2, 1000);
+ * ```
+ */
+function easeOutCubic(
+    elapsed: number,
+    initialValue: number,
+    amountOfChange: number,
+    duration: number,
+) {
+    const newElapsed = elapsed / duration - 1;
+    return amountOfChange * (newElapsed * newElapsed * newElapsed + 1) + in
 ```
 
 ======
@@ -1515,6 +1656,13 @@ constber} elapsed 持续时间
 
 ======
 
+## 示例
+
+```
+import { isUndefined } from '@arco-design/mobile-utils';
+const test = isUndefined(undefined);
+```
+
 ## 类型
 
 ```
@@ -1524,20 +1672,28 @@ constber} elapsed 持续时间
 ## 源码
 
 ```
-数计算得到的新值
- * @returns {number} {en} Returns the new value calculated from the easing function isUndefinedwithin the given time
- */
-function easeOutCubic(
-    elapsed: number,
-    initialValue: number,
-    amountOfChange: number,
-    duration: number,
-) {
-    const newElapsed = elapsed / duration - 1;
-    return amountOfChange * (newElapsed * newElapsed * newElapsed + 1) + initialValue;
+itialValue;
 }
 
-/
+/**
+ * 在下一个事件循环周期执行给定的函数
+ * @desc {en} Execute the given function isUndefinedon the next event loop cycle
+ * @param {Function} func 执行的函数
+ * @param {Function} func {en} function executed
+ * @example
+ * ```
+ * import { nextTick } from '@arco-design/mobile-utils';
+ *
+ * nextTick(() => { updateLayoutData(); });
+ * ```
+ */
+function nextTick(func: () => void) {
+    setTimeout(func, 20);
+}
+
+/**
+ * 模拟滑动阻尼效果，使用函数x = X/(aX+b)，x为元素位移，X为滑动距离，a,b为自定义参数通过设置两个目标对应关系求得
+ * @desc {en} To simulate the sliding damping e
 ```
 
 ======
@@ -1560,6 +1716,13 @@ function easeOutCubic(
 
 ======
 
+## 示例
+
+```
+import { isEmptyArray } from '@arco-design/mobile-utils';
+const test = isEmptyArray([]);
+```
+
 ## 类型
 
 ```
@@ -1569,19 +1732,13 @@ function easeOutCubic(
 ## 源码
 
 ```
-**
- * 在下一个事件循环周期执行给定的函数
- * @desc {en} Execute the given function isEmptyArrayon the next event loop cycle
- * @param {Function} func 执行的函数
- * @param {Function} func {en} function executed
- */
-function nextTick(func: () => void) {
-    setTimeout(func, 20);
-}
-
-/**
- * 模拟滑动阻尼效果，使用函数x = X/(aX+b)，x为元素位移，X为滑动距离，a,b为自定义参数通过设置两个目标对应关系求得
- * @desc {en} To simulate the slidin
+ffect, use the function isEmptyArrayx = X/(aX+b), where x is the element displacement, X is the sliding distance, and a and b are custom parameters obtained by setting the corresponding relationship between the two targets
+ * 例如目标X=500时x=100, X=200时x=60，可得a,b
+ * @desc {en} For example, when the target X=500, x=100, when X=200, x=60, you can get a,b
+ * @param {number} x 元素位移
+ * @param {number} x {en} element displacement
+ * @param {[number, number] | number} damping 阻尼参数
+ * @param {[number, n
 ```
 
 ======
@@ -1604,6 +1761,13 @@ function nextTick(func: () => void) {
 
 ======
 
+## 示例
+
+```
+import { isDeepEqual } from '@arco-design/mobile-utils';
+const test = isDeepEqual({a: 1}, {a: 1});
+```
+
 ## 类型
 
 ```
@@ -1613,19 +1777,21 @@ function nextTick(func: () => void) {
 ## 源码
 
 ```
-g damping effect, use the function isDeepEqualx = X/(aX+b), where x is the element displacement, X is the sliding distance, and a and b are custom parameters obtained by setting the corresponding relationship between the two targets
- * 例如目标X=500时x=100, X=200时x=60，可得a,b
- * @desc {en} For example, when the target X=500, x=100, when X=200, x=60, you can get a,b
- * @param {number} x 元素位移
- * @param {number} x {en} element displacement
- * @param {[number, number] | number} damping 阻尼参数
- * @param {[number, number] | number} damping {en} Damping parameters
- * @returns {number} 返回需要滑动的距离
- * @returns {number} {en} Return the distance required to slide
+umber] | number} damping {en} Damping parameters
+ * @return {number} 返回需要滑动的距离
+ * @return {number} {en} Return the distance required to slide
+ * @example
+ * ```
+ * import { fingerDisToLabelDis } from '@arco-design/mobile-utils';
+ *
+ * const test = fingerDisToLabelDis(1000, 0.01);
+ * ```
  */
-function fingerDisToLabelDis(x: number, damping?: [number, number] | number) {
+function isDeepEqualfingerDisToLabelDis(x: number, damping?: [number, number] | number) {
     const dampArr = typeof damping === 'number' ? [damping] : damping;
-    const [a = 0.013312, b = 1.636345] = dampArr ||
+    const [a = 0.013312, b = 1.636345] = dampArr || [];
+    return x / (a * x + b);
+}
 ```
 
 ======
@@ -1697,22 +1863,23 @@ export * fr
 ## 源码
 
 ```
-iven filter function
+er(value)) ? `${value}px` : value;
+}
+
+/**
+ * 基于给定的过滤函数返回一个过滤后的数组
+ * @desc {en} Returns a filtered array based on the given filter function
  * @param {T[]} data 数据数组
  * @param {T[]} data {en} data array
  * @param {Function} filterFn 过滤函数
  * @param {Function} filterFn {en} filter function
  * @param {Object} options 可选对象
  * @param {Object} options {en} Optional object
- * @returns {string} 过滤后的数组
- * @returns {string} filtered array
- */
-function createPropsGetterarrayTreeFilter<T>(
-    data: T[],
-    filterFn: (item: T, level: number) => boolean,
-    options?: {
-        childrenKeyName?: string;
-        fallback
+ * @return {string} 过滤后的数组
+ * @return {string} filtered array
+ * @example
+ * ```
+ * import { arrayTreeFilter } from '@
 ```
 
 ======
@@ -1739,10 +1906,13 @@ function createPropsGetterarrayTreeFilter<T>(
 ## 源码
 
 ```
-const = typeof damping === 'number' ? [damping] : damping;
-    const [a = 0.013312, b = 1.636345] = dampArr || [];
-    return x / (a * x + b);
-}
+constned by setting the corresponding relationship between the two targets
+ * 例如目标X=500时x=100, X=200时x=60，可得a,b
+ * @desc {en} For example, when the target X=500, x=100, when X=200, x=60, you can get a,b
+ * @param {number} x 元素位移
+ * @param {number} x {en} element displacement
+ * @param {[number, number] | number} damping 阻尼参数
+ * @param {[number, number] | number} dam
 ```
 
 ======
@@ -1789,8 +1959,14 @@ export * from './validator';
  * @desc {en} Add the unit of px to the number, and return it directly if there is a unit.
  * @param {number | string} value 需要设置的值
  * @param {number | string} value {en} The value that needs to be set
- * @returns {string} 返回带有单位的值
- * @returns {string} {en} Returns a value with units
+ * @return {string} 返回带有单位的值
+ * @return {string} {en} Returns a value with units*
+ * @example
+ * ```
+ * import { handleUnit } from '@arco-design/mobile-utils';
+ *
+ * const test = handleUnit(5);
+ * ```
  */
 export function getSystemhandleUnit(value: number | string) {
     return typeof value === 'number' || !isNaN(Number(value)) ? `${value}px` : value;
@@ -1805,12 +1981,7 @@ export function getSystemhandleUnit(value: number | string) {
  * @param {Function} filterFn {en} filter function
  * @param {Object} options 可选对象
  * @param {Object} options {en} Optional object
- * @returns {string} 过滤后的数组
- * @returns {string} filtered array
- */
-export function arrayTreeFilter<T>(
-    data: T[],
-    filterFn: (item:
+ * @return {string} 过滤
 ```
 
 ======
@@ -1852,7 +2023,18 @@ console.log(isMatch2); // Should print false
 ## 源码
 
 ```
-&& options.fallbackChildIndex !== undefined) {
+hildIndex?: number;
+    },
+) {
+    options = options || {};
+    options.childrenKeyName = options.childrenKeyName || 'children';
+    let children = data || [];
+    const result: T[] = [];
+    let level = 0;
+
+    do {
+        let foundItem: T | undefined = children.find(item => filterFn(item, level));
+        if (!foundItem && options.fallbackChildIndex !== undefined) {
             foundItem = children[options.fallbackChildIndex];
         }
         if (!foundItem) {
@@ -1876,17 +2058,7 @@ console.log(isMatch2); // Should print false
  * @param {number} amountOfChange {en} coefficient of variation
  * @param {number} duration 持续时间
  * @param {number} duration {en} duration
- * @returns {number} 返回在给定时间内根据缓动函数计算得到的新值
- * @returns {number} {en} Returns the new value calculated from the easing function within the given time
- */
-function easeOutCubic(
-    elapsed: number,
-    initialValue: number,
-    amountOfChange: number,
-    duration: number,
-) {
-    const newElapsed = elapsed / duration - 1;
-    return amountOfChange * (newElaps
+ * @return {number} 返回在给定时间内根据缓动函数计算得到的新值
 ```
 
 ======
@@ -1931,26 +2103,34 @@ if (isIPhoneX()) {
 ## 源码
 
 ```
-ed * newElapsed * newElapsed + 1) + initialValue;
+* @return {number} {en} Returns the new value calculated from the easing function isIPhoneXwithin the given time
+ * @example
+ * ```
+ * import { easeOutCubic } from '@arco-design/mobile-utils';
+ *
+ * const test = easeOutCubic(2000, 10, 1.2, 1000);
+ * ```
+ */
+function easeOutCubic(
+    elapsed: number,
+    initialValue: number,
+    amountOfChange: number,
+    duration: number,
+) {
+    const newElapsed = elapsed / duration - 1;
+    return amountOfChange * (newElapsed * newElapsed * newElapsed + 1) + initialValue;
 }
 
 /**
  * 在下一个事件循环周期执行给定的函数
- * @desc {en} Execute the given function isIPhoneXon the next event loop cycle
+ * @desc {en} Execute the given function on the next event loop cycle
  * @param {Function} func 执行的函数
  * @param {Function} func {en} function executed
- */
-function nextTick(func: () => void) {
-    setTimeout(func, 20);
-}
-
-/**
- * 模拟滑动阻尼效果，使用函数x = X/(aX+b)，x为元素位移，X为滑动距离，a,b为自定义参数通过设置两个目标对应关系求得
- * @desc {en} To simulate the sliding damping effect, use the function x = X/(aX+b), where x is the element displacement, X is the sliding distance, and a and b are custom parameters obtained by setting the corresponding relationship between the two targets
- * 例如目标X=500时x=100, X=200时x=60，可得a,b
- * @desc {en} For example, when the target X=500, x=100, when X=200, x=60, you can get a,b
- * @param {number} x 元素位移
- * @param {nu
+ * @example
+ * ```
+ * import { nextTick } from '@arco-design/mobile-utils';
+ *
+ * nextTick(() => { updateLayou
 ```
 
 ======
@@ -1977,7 +2157,15 @@ function nextTick(func: () => void) {
 ## 源码
 
 ```
-{
+constoptions || {};
+    options.childrenKeyName = options.childrenKeyName || 'children';
+    let children = data || [];
+    const result: T[] = [];
+    let level = 0;
+
+    do {
+        let foundItem: T | undefined = children.find(item => filterFn(item, level));
+        if (!foundItem && options.fallbackChildIndex !== undefined) {
             foundItem = children[options.fallbackChildIndex];
         }
         if (!foundItem) {
@@ -1992,13 +2180,7 @@ function nextTick(func: () => void) {
 
 /**
  * 使用了缓出（ease-out）的方式时返回在给定时间内根据缓动函数计算得到的新值
- * @desc {en} When the ease-out method is used, the new value calculated according to the easing function getMsgTemplateis returned within a given time.
- * @param {number} elapsed 持续时间
- * @param {number} elapsed {en} duration
- * @param {number} initialValue 初始值
- * @param {number} initialValue {en} initial value
- * @param {number} amountOfChange 变动系数
- * @param {number} amountOfChange {en}
+ * @desc {en} When the ease-out method is used, the
 ```
 
 ======
@@ -2029,20 +2211,16 @@ function nextTick(func: () => void) {
 ## 源码
 
 ```
-variation
+lated according to the easing function mergeMsgTemplateis returned within a given time.
+ * @param {number} elapsed 持续时间
+ * @param {number} elapsed {en} duration
+ * @param {number} initialValue 初始值
+ * @param {number} initialValue {en} initial value
+ * @param {number} amountOfChange 变动系数
+ * @param {number} amountOfChange {en} coefficient of variation
  * @param {number} duration 持续时间
  * @param {number} duration {en} duration
- * @returns {number} 返回在给定时间内根据缓动函数计算得到的新值
- * @returns {number} {en} Returns the new value calculated from the easing function mergeMsgTemplatewithin the given time
- */
-function easeOutCubic(
-    elapsed: number,
-    initialValue: number,
-    amountOfChange: number,
-    duration: number,
-) {
-    const newElapsed = elapsed / duration - 1;
-    return amountO
+ * @return {number} 返回在给
 ```
 
 ======

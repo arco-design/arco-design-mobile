@@ -1,6 +1,6 @@
 /**
  * @type hooks
- * @name 公共hooks
+ * @name GeneralHooks
  * @name_en General Hooks
  */
 import React, { useState, useRef, useEffect, useCallback, useContext } from 'react';

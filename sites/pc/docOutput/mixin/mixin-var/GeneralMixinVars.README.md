@@ -1,4 +1,4 @@
-### mixin-var 公共mixin
+### mixin-var GeneralMixinVars
 
 ------
 

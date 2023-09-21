@@ -1,4 +1,4 @@
-### mixin 公共mixin
+### mixin GeneralMixin
 
 ------
 
@@ -12,7 +12,7 @@
 
 ```
 @import '@arco-design/mobile-utils/style/mixin.less';
-.demo1{  
+.demo1{
    .text-overflow();
 }
 .demo2 {
