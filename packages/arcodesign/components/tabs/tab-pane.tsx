@@ -9,7 +9,7 @@ import React, {
     useMemo,
 } from 'react';
 import lodashThrottle from 'lodash.throttle';
-import { cls, scrollWithAnimation, getScrollContainerRect } from '@arco-design/mobile-utils';
+import { cls, scrollWithAnimation, getScrollContainerRect, isSSR } from '@arco-design/mobile-utils';
 import { getStyleWithVendor } from '../_helpers';
 import { TabPaneProps, TabPaneRef } from './type';
 
@@ -220,19 +220,22 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
             return commonStyle;
         }
         const translateStr = translateZ ? ' translateZ(0)' : '';
+        const translatePercentInSSR = `-${(100 / panes.length) * activeIndex}%`;
+        const verticalTranslate = `${distance - wrapWidth * activeIndex * rtlRatio}px`;
+        const horizontalTranslate = `${distance - wrapHeight * activeIndex}px`;
         const sizeStyle =
             tabDirection === 'vertical'
                 ? {
                       width: `${100 * panes.length}%`,
                       transform: `translateX(${
-                          distance - wrapWidth * activeIndex * rtlRatio
-                      }px)${translateStr}`,
+                          isSSR() ? translatePercentInSSR : verticalTranslate
+                      })${translateStr}`,
                   }
                 : {
                       height: `${100 * panes.length}%`,
                       transform: `translateY(${
-                          distance - wrapHeight * activeIndex
-                      }px)${translateStr}`,
+                          isSSR() ? translatePercentInSSR : horizontalTranslate
+                      })${translateStr}`,
                   };
         const heightStyle =
             currentPaneHeight && currentPaneHeight !== 'auto'
