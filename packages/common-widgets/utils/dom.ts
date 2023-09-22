@@ -401,6 +401,18 @@ function formatOffset(offset): [number, number, number, number] {
  * @param component {en} Current element node
  * @param parent 当前元素所在容器 dom 节点
  * @param parent {en} The dom node of the container where the current element is located
+ * @example
+ * ```
+ * import { checkOverflowVisible } from '@arco-design/mobile-utils';
+ *
+ * const component = {
+ *   node: document.getElementById('myComponent'),
+ *   offset: 20, // Set the offset value
+ *   threshold: 0.5, // Set the threshold value
+ * }
+ * const myParent = document.getElementById('myParent');
+ * const isVisible = checkOverflowVisible(component, myParent);
+ * ```
  */
 export function checkOverflowVisible<T extends TCheckVisibleBaseProps>(
     component: T,
@@ -552,6 +564,13 @@ export function removeElement(ele: HTMLElement) {
  * @desc {en} Get the scrolling container. If a string is passed in, use querySelector to select the container
  * @param getContainer 指定滚动容器
  * @param getContainer {en} Specifies the scrolling container.
+ * @example
+ * ```
+ * import { getActualContainer } from '@arco-design/mobile-utils';
+ *
+ * const customContainer = document.getElementById("customContainer");
+ * const actualContainer = getActualContainer(() => customContainer);
+ * ```
  */
 export function getActualContainer(getContainer?: () => HTMLElement | Window | string | null) {
     const container = getContainer ? getContainer() : void 0;
@@ -565,6 +584,12 @@ export function getActualContainer(getContainer?: () => HTMLElement | Window | s
  * @desc {en} Get the effective scrolling container, which is specified as window by default or for listening to the scrolling of the body
  * @param getContainer 指定滚动容器
  * @param getContainer {en} Specifies the scrolling container.
+ * @example
+ * ```
+ * import { getValidScrollContainer } from '@arco-design/mobile-utils';
+ *
+ * const customContainer = document.getElementById("customContainer");
+ * const validScrollContainer = getValidScrollContainer(() => customContainer);
  */
 export function getValidScrollContainer(getContainer?: () => HTMLElement | Window | null) {
     // 默认为window
