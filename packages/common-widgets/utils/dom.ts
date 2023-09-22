@@ -39,13 +39,13 @@ export function stopTouch(e: TouchEvent) {
  * ```
  * import { preventEleScroll } from '@arco-design/mobile-utils';
  *
- * // Prevent scrolling in the entire document body
+ * // Example 1: Prevent scrolling in the entire document body
  * preventEleScroll();
  *
- * // Example 1: Prevent scrolling in a specific element
+ * // Example 2: Prevent scrolling in a specific element
  * preventEleScroll(() => document.getElementById('myScrollableElement'));
  *
- * // Example 2: Prevent scrolling in a specific element with custom touch event handling
+ * // Example 3: Prevent scrolling in a specific element with custom touch event handling
  * preventEleScroll(
  *   () => document.getElementById('myScrollableElement'),
  *   false,
