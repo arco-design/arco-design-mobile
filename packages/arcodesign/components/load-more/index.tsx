@@ -163,10 +163,10 @@ export interface LoadMoreRef {
      */
     changeStatus: (status: LoadMoreStatus, scene?: string) => void;
     /**
-     * 页面总长不足一屏时，手动触发数据获取
-     * @en Trigger get data manually when page length is less than one screen
+     * 判断是否滚动到底部并手动触发数据获取
+     * @en Determine whether to scroll to the bottom and manually trigger data acquisition
      */
-    getDataIfLessThanOneScreen: () => void;
+    getDataWithEndReachCheck: () => void;
 }
 
 /**
@@ -301,7 +301,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         };
     }, [trigger, disabled, getScrollContainer, handleContainerScroll, throttle]);
 
-    const getDataIfLessThanOneScreen = () => {
+    const getDataWithEndReachCheck = () => {
         if (checkNeedTrigger(0, threshold)) {
             triggerGetData('pageEnd');
         }
@@ -312,7 +312,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         () => ({
             dom: domRef.current,
             changeStatus,
-            getDataIfLessThanOneScreen,
+            getDataWithEndReachCheck,
         }),
         [changeStatus],
     );
