@@ -7,11 +7,13 @@ import React, {
     useState,
     useEffect,
     useMemo,
+    useContext,
 } from 'react';
 import lodashThrottle from 'lodash.throttle';
 import { cls, scrollWithAnimation, getScrollContainerRect, isSSR } from '@arco-design/mobile-utils';
 import { getStyleWithVendor } from '../_helpers';
 import { TabPaneProps, TabPaneRef } from './type';
+import { GlobalContext } from '../context-provider';
 
 const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
     const {
@@ -56,6 +58,7 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
     const prefix = `${prefixCls}-tab-pane`;
     const handleTouchEnd = swipeable ? handlePaneTouchEnd : void 0;
     const [currentPaneHeight, setCurrentPaneHeight] = useState<number | string>('auto');
+    const { useRtl } = useContext(GlobalContext);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -220,7 +223,8 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
             return commonStyle;
         }
         const translateStr = translateZ ? ' translateZ(0)' : '';
-        const translatePercentInSSR = `-${(100 / panes.length) * activeIndex}%`;
+        const translateDirection = tabDirection === 'vertical' && useRtl ? 1 : -1;
+        const translatePercentInSSR = `${(100 / panes.length) * activeIndex * translateDirection}%`;
         const verticalTranslate = `${distance - wrapWidth * activeIndex * rtlRatio}px`;
         const horizontalTranslate = `${distance - wrapHeight * activeIndex}px`;
         const sizeStyle =
