@@ -413,12 +413,7 @@
  * @import '@arco-design/mobile-utils/style/mixin.less';
  *
  * .demo {
- *   @property: left;
- *   @value: 1px;
- *   @{property}: @value;
- *   [dir="rtl"] & {
- *     @new-property: .prop-with-rtl(@property)[@property-name];
- *     @{new-property}: @value;
+ *   @a: .prop-with-rtl(margin-left)[@property-name]; // @a 变量值为margin-right
  * }
  * ```
  */
@@ -532,7 +527,7 @@
  * @import '@arco-design/mobile-utils/style/mixin.less';
  *
  * .demo {
- *    .set-font-size(~'10px');
+ *    .set-font-size(10px);
  * }
  * ```
  */
