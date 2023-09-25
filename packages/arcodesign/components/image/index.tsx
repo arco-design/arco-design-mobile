@@ -163,7 +163,7 @@ export interface ImageProps {
      * 图片加载完毕时触发的回调
      * @en Callback when the image is loaded
      * */
-    onLoad?: (e: Event, image: HTMLImageElement) => void;
+    onLoad?: (e: Event | null, image: HTMLImageElement) => void;
     /**
      * 图片加载失败时触发的回调，如果有自动重试则在重试最终失败后触发
      * @en Callback when the image fails to load, triggered after the retry finally fails if there is an automatic retry
@@ -282,6 +282,13 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         loadImage();
     }, [attrs, width, height, showImage, staticLabel]);
 
+    useEffect(() => {
+        // 当使用img标签时，onLoad可能加载完成前已经执行完，此时手动触发一次
+        if (staticLabel && !hasLoadedRef.current && imageDomRef.current?.complete) {
+            handleImageLoaded(null, imageDomRef.current);
+        }
+    }, [staticLabel]);
+
     function changeStatus(newStatus: ImageStatus) {
         setImageStatus(newStatus);
         onChange && onChange(newStatus);
@@ -299,7 +306,8 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         }
     }
 
-    function handleImageLoaded(evt: Event, image: HTMLImageElement) {
+    function handleImageLoaded(evt: Event | null, image: HTMLImageElement) {
+        hasLoadedRef.current = true;
         changeStatus('loaded');
         const { width: imageWidth = 0, height: imageHeight = 0 } = image;
         let extraClass = '';
@@ -351,7 +359,6 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         image.onload = evt => {
             loadingImageRef.current = null;
             imageDomRef.current = image;
-            hasLoadedRef.current = true;
             handleImageLoaded(evt, image);
             replaceChild(image);
         };
