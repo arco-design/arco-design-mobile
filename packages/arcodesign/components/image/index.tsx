@@ -168,12 +168,12 @@ export interface ImageProps {
      * 图片加载失败时触发的回调，如果有自动重试则在重试最终失败后触发
      * @en Callback when the image fails to load, triggered after the retry finally fails if there is an automatic retry
      */
-    onError?: (e: string | Event) => void;
+    onError?: (e: string | Event | null) => void;
     /**
      * 图片加载失败时自动重试触发的回调
      * @en Callback triggered by automatic retry when image loading fails
      */
-    onAutoRetry?: (e: string | Event) => void;
+    onAutoRetry?: (e: string | Event | null) => void;
 }
 
 export interface ImageRef {
@@ -238,7 +238,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
     const system = useSystem();
     const { windowWidth, windowHeight } = useWindowSize();
     const [imageStatus, setImageStatus] = useMountedState<ImageStatus>(
-        staticLabel ? 'loading' : 'init',
+        staticLabel && showLoading ? 'loading' : 'init',
     );
     const [wrapClass, setWrapClass] = useMountedState('');
     const [staticRetrying, setStaticRetrying] = useMountedState(false);
@@ -284,8 +284,15 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
 
     useEffect(() => {
         // 当使用img标签时，onLoad可能加载完成前已经执行完，此时手动触发一次
+        // @en When using the img tag, onLoad may have been executed before loading is complete, and it needs to be triggered manually
         if (staticLabel && !hasLoadedRef.current && imageDomRef.current?.complete) {
-            handleImageLoaded(null, imageDomRef.current);
+            // 图片有宽高认为正常加载，否则认为加载错误
+            // @en If the image has width and height, it is considered to be loaded normally, otherwise it is considered to be a loading error
+            if (imageDomRef.current.naturalWidth || imageDomRef.current.naturalHeight) {
+                handleImageLoaded(null, imageDomRef.current);
+            } else {
+                handleStaticImageError(null);
+            }
         }
     }, [staticLabel]);
 
@@ -382,8 +389,8 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         });
     }
 
-    function handleStaticImageError(e: React.SyntheticEvent<HTMLImageElement, Event>) {
-        const evt = e.nativeEvent;
+    function handleStaticImageError(e: React.SyntheticEvent<HTMLImageElement, Event> | null) {
+        const evt = e ? e.nativeEvent : null;
         if (retryCountRef.current >= retryTime) {
             changeStatus('error');
             onError && onError(evt);
