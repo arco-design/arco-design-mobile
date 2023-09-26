@@ -28,6 +28,7 @@
 |throttle|节流粒度|number|0|
 |blockWhenLoading|是否在loading状态下不触发getData|boolean|true|
 |getDataAtFirst|刚加载好组件时是否自动先请求一次，trigger=scroll时有效|boolean|true|
+|getDataWhenNoScrollAtFirst|当 getDataAtFirst === false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效|boolean|false|
 |onStatusChange|状态改变时回调|(status: LoadMoreStatus, scene?: string) =\> void|-|
 |onClick|组件被点击时回调|(e: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
 |onEndReached|滚动到(底部 \- threshold)距离时触发|() =\> void|-|
@@ -38,6 +39,7 @@
 |----------|-------------|------|
 |dom|最外层元素 DOM|HTMLDivElement|
 |changeStatus|手动更改组件状态|(status: LoadMoreStatus, scene?: string) =\> void|
+|getDataWithEndReachCheck|判断是否滚动到底部并手动触发数据获取|() =\> void|
 
 > LoadMoreStatus
 

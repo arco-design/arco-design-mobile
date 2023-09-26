@@ -15,7 +15,7 @@
     "author": "taoyiyue@bytedance.com",
     "license": "ISC",
     "dependencies": {
-        "@arco-design/mobile-utils": "2.16.8-c987b9a.2+c987b9a",
+        "@arco-design/mobile-utils": "2.16.7",
         "@arco-design/transformable": "^1.0.0",
         "lodash.throttle": "^4.1.1",
         "resize-observer-polyfill": "^1.5.1"
