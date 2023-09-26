@@ -12,7 +12,7 @@ module.exports = {
         '/scripts/',
         '/icon/',
         '/components/_helpers/',
-        '/transition/',
+        // '/transition/',
     ],
     moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'md'],
     setupFiles: ['./tests/setup.js'],
