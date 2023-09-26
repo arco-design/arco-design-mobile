@@ -43,30 +43,34 @@ exports[`show-monitor demo test show-monitor demo: once.md renders correctly 1`]
 `;
 
 exports[`show-monitor demo test show-monitor demo: overflow.md renders correctly 1`] = `
-<div
-  class="show-monitor-demo-1-wrapper"
->
+<DocumentFragment>
   <div
-    class="show-monitor-demo-title"
-  >
-    Please swipe within the grey area
-  </div>
-  <div
-    class="show-monitor-demo-scroller"
+    class="show-monitor-demo-1-wrapper"
   >
     <div
-      class="show-monitor-demo-scroller-inner"
+      class="show-monitor-demo-title"
+    >
+      Please swipe within the grey area
+    </div>
+    <div
+      class="show-monitor-demo-scroller"
+      data-show-listened="1"
+      style="overflow-y: auto;"
     >
       <div
-        class="arco-show-monitor"
+        class="show-monitor-demo-scroller-inner"
       >
         <div
-          class="show-monitor-content"
+          class="arco-show-monitor"
         >
-          Arco
+          <div
+            class="show-monitor-content"
+          >
+            Arco
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

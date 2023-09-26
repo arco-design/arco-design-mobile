@@ -116,6 +116,11 @@ export interface ShowMonitorRef {
      * @en Ignore the state of the element before and after, manually check whether the element is in the viewport, trigger the onVisibleChange callback function
      */
     checkVisible: () => boolean;
+    /**
+     * 重置元素初始可见态为false，并重新对元素可见度发起检测，优先级低于disabled（通常用在对ShowMonitor内部元素变化时发起的重新监听）
+     * @en Reset the initial visible state of the element to false, and re-detect the visibility of the element, the priority is lower than 'disabled'(Usually used to re-listen when elements inside ShowMonitor change)
+     */
+    flushVisibleStatus: () => void;
 }
 
 type TListenerEntity = {
@@ -299,6 +304,8 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
         curVisible !== preVisible &&
             handleCheckChildrenExist() &&
             onCompVisibleChange(curVisible, node);
+        // TODO: tbc
+        component.isVisible = curVisible;
         const key = wrapperKey.current;
         /**
          * 监听一次后加入 pendingList 队列，随后被 listeners 过滤掉
