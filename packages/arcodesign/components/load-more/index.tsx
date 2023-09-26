@@ -162,6 +162,11 @@ export interface LoadMoreRef {
      * @en Change component state manually
      */
     changeStatus: (status: LoadMoreStatus, scene?: string) => void;
+    /**
+     * 判断是否滚动到底部并手动触发数据获取
+     * @en Determine whether to scroll to the bottom and manually trigger data acquisition
+     */
+    getDataWithEndReachCheck: () => void;
 }
 
 /**
@@ -296,11 +301,18 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         };
     }, [trigger, disabled, getScrollContainer, handleContainerScroll, throttle]);
 
+    const getDataWithEndReachCheck = () => {
+        if (checkNeedTrigger(0, threshold)) {
+            triggerGetData('pageEnd');
+        }
+    };
+
     useImperativeHandle(
         ref,
         () => ({
             dom: domRef.current,
             changeStatus,
+            getDataWithEndReachCheck,
         }),
         [changeStatus],
     );
