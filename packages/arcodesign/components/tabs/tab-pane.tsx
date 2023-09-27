@@ -220,7 +220,9 @@ const TabPane = forwardRef((props: TabPaneProps, ref: Ref<TabPaneRef>) => {
             return commonStyle;
         }
         const translateStr = translateZ ? ' translateZ(0)' : '';
-        const translatePercentInSSR = `${(100 / panes.length) * activeIndex * -rtlRatio}%`;
+        const translatePercentInSSR = `${
+            (panes.length ? 100 / panes.length : 0) * activeIndex * rtlRatio * -1
+        }%`;
         const verticalTranslate = `${distance - wrapWidth * activeIndex * rtlRatio}px`;
         const horizontalTranslate = `${distance - wrapHeight * activeIndex}px`;
         const sizeStyle =
