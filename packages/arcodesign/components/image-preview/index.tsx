@@ -852,12 +852,14 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
      * @en Change specified image status
      */
     function setImagesStatusByIndex(index: number, data: PreviewImageStatus) {
-        const newStatus = imagesStatusRef.current.slice();
-        newStatus[index] = {
-            ...(newStatus[index] || {}),
-            ...data,
-        };
-        setImagesStatus(newStatus);
+        setImagesStatus(current => {
+            const newStatus = current.slice();
+            newStatus[index] = {
+                ...(newStatus[index] || {}),
+                ...data,
+            };
+            return newStatus;
+        });
     }
 
     /**

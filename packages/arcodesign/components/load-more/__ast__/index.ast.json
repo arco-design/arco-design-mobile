@@ -392,6 +392,26 @@
                 "name": "boolean"
             }
         },
+        "getDataWhenNoScrollAtFirst": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "当 getDataAtFirst 值为 false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效\n@en Whether to trigger a request when getDataAtFirst equals false and the data is not full of one screen, valid when trigger=scroll",
+            "name": "getDataWhenNoScrollAtFirst",
+            "tags": {
+                "en": "Whether to trigger a request when getDataAtFirst equals false and the data is not full of one screen, valid when trigger=scroll",
+                "default": "false"
+            },
+            "descWithTags": "当 getDataAtFirst 值为 false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/load-more/index.tsx",
+                "name": "LoadMoreProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "onStatusChange": {
             "defaultValue": null,
             "description": "状态改变时回调\n@en Callback when state changes",
@@ -487,6 +507,19 @@
                     "en": "Change component state manually"
                 },
                 "descWithTags": "手动更改组件状态"
+            },
+            "getDataWithEndReachCheck": {
+                "name": "getDataWithEndReachCheck",
+                "required": true,
+                "description": "判断是否滚动到底部并手动触发数据获取\n@en Determine whether to scroll to the bottom and manually trigger data acquisition",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Determine whether to scroll to the bottom and manually trigger data acquisition"
+                },
+                "descWithTags": "判断是否滚动到底部并手动触发数据获取"
             }
         }
     },

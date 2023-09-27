@@ -9,6 +9,7 @@ import {
     Radio,
     Button,
 } from '@arco-design/mobile-react';
+import { ValidatorType } from '@arco-design/mobile-utils';
 import { useForm } from '@arco-design/mobile-react/esm/form';
 
 const options = [
@@ -27,6 +28,7 @@ const genderOptions = [
 const rules = {
     name: [
         {
+            type: ValidatorType.Custom,
             validator: (val, callback) => {
                 if (!val) {
                     callback('Please input user name');

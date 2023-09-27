@@ -114,3 +114,7 @@ export function isIPhoneX() {
         return false;
     }
 }
+
+export function isSSR() {
+    return typeof window === 'undefined';
+}
