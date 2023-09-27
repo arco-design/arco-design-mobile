@@ -28,7 +28,7 @@
 |throttle|节流粒度|number|0|
 |blockWhenLoading|是否在loading状态下不触发getData|boolean|true|
 |getDataAtFirst|刚加载好组件时是否自动先请求一次，trigger=scroll时有效|boolean|true|
-|getDataWhenNoScrollAtFirst|当 getDataAtFirst === false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效|boolean|false|
+|getDataWhenNoScrollAtFirst|当 getDataAtFirst 值为 false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效|boolean|false|
 |onStatusChange|状态改变时回调|(status: LoadMoreStatus, scene?: string) =\> void|-|
 |onClick|组件被点击时回调|(e: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
 |onEndReached|滚动到(底部 \- threshold)距离时触发|() =\> void|-|

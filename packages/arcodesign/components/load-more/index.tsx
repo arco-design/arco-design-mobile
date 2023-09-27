@@ -129,8 +129,8 @@ export interface LoadMoreProps {
      */
     getDataAtFirst?: boolean;
     /**
-     * 当 getDataAtFirst === false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效
-     * @en Whether to trigger a request when getDataAtFirst === false and the data is not full of one screen, valid when trigger=scroll
+     * 当 getDataAtFirst 值为 false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效
+     * @en Whether to trigger a request when getDataAtFirst equals false and the data is not full of one screen, valid when trigger=scroll
      * @default false
      */
     getDataWhenNoScrollAtFirst?: boolean;

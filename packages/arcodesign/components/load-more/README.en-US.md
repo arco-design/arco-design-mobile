@@ -28,7 +28,7 @@ Pull-up loading component, supports `scroll` and `click` two trigger loading met
 |throttle|Throttle granularity|number|0|
 |blockWhenLoading|Whether to not trigger getData in the loading state|boolean|true|
 |getDataAtFirst|Whether to automatically request once when the component is just loaded, valid when trigger=scroll|boolean|true|
-|getDataWhenNoScrollAtFirst|Whether to trigger a request when getDataAtFirst === false and the data is not full of one screen, valid when trigger=scroll|boolean|false|
+|getDataWhenNoScrollAtFirst|Whether to trigger a request when getDataAtFirst equals false and the data is not full of one screen, valid when trigger=scroll|boolean|false|
 |onStatusChange|Callback when state changes|(status: LoadMoreStatus, scene?: string) =\> void|-|
 |onClick|Callback when the component is clicked|(e: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
 |onEndReached|Callback when scrolling to (bottom \- threshold) distance|() =\> void|-|
