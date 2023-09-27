@@ -24,14 +24,6 @@ export function isCascadeArray(
 }
 
 /**
- * 判断是否为string类型
- * @en Determine whether it is of type string
- */
-export function isString(icon: string | ReactNode): icon is string {
-    return typeof icon === 'string';
-}
-
-/**
  * 格式化传入的数组
  * @en format the input array
  * @param {OptionsItem[][] | string[] | CascadeOptions[]} options 上层传入的选择项数组
