@@ -26,13 +26,12 @@ export function getOpenMethod<T extends { key?: string }, P extends OpenBaseProp
             close: () => {},
         };
 
-        let dynamicProps = { ...baseProps };
-
         // 不同的key用不同的容器挂载
         const id = `_${containerId || 'ARCO_MASKING'}_DIV_${config.key || ''}_`;
         const { child: div } = appendElementById(id, baseProps.getContainer);
         let leaving = false;
         const { render } = new ReactDOMRender(Component, div, context);
+        let dynamicProps = { ...baseProps, getContainer: () => div };
 
         function update(newConfig: T) {
             dynamicProps = {
