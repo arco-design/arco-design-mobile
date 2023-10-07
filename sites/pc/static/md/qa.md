@@ -5,9 +5,11 @@
 =====================
 
 ## Q: 引入了组件库包，但样式未引入或样式异常？
+
 A: 本组件库的样式在 npm 包中的主要输出形式为`less`文件，请检查项目内的 less 环境是否正常（如使用 webpack 需配置 less-loader）以及`lessOptions`是否正确配置，详情可见快速上手中的“自适应适配”。
 
 ## Q: 引入了组件库包，但样式展示异常？
+
 A: 本组件库使用`rem`做移动端自适应，需配合`flexible.js`来根据设备环境动态设置根元素的 font-size，详情可见快速上手中的“自适应适配”。
 
 ## Q: 是否支持在 SSR 环境下使用组件？
@@ -15,6 +17,7 @@ A: 本组件库使用`rem`做移动端自适应，需配合`flexible.js`来根�
 A: 本组件库中的组件均支持在 SSR 环境下使用，注意需使用`/cjs/`目录下的组件，而不是 /esm/ 目录。
 
 ## Q: 组件做自适应使用了 rem 单位，我想统一用 pxtovw 等插件来转换，能否禁用 rem ？
+
 A: 可以，在 lessOptions 中更改`@use-rem`变量的值为`0`即可。
 
 ```js
@@ -43,10 +46,14 @@ return ( <ContextProvider system="android">
 </ContextProvider>)"
 ```
 
-## Q：用 Toast.toast 等方法调用组件时，接不到传给 ContextProvider 的配置？
+## Q: 用 Toast.toast 等方法调用组件时，接不到传给 ContextProvider 的配置？
 
-使用方法调用的组件不是页面根节点下的子组件，因此需将 ContextProvider 的配置传给方法，如：`Toast.toast({ content: 'Tips' }, { prefixCls: 'aa' })`。（`2.24.0`之后支持）
+A: 使用方法调用的组件不是页面根节点下的子组件，因此需将 ContextProvider 的配置传给方法，如：`Toast.toast({ content: 'Tips' }, { prefixCls: 'aa' })`。（`2.24.0`之后支持）
 
-## Q：使用 Input/Textarea/SearchBar 的 autoFocus 不生效
+## Q: 使用 Input/Textarea/SearchBar 的 autoFocus 不生效
 
-autoFocus 在一些机型上是不支持的，组件底层只能尝试 focus，但是到底能不能聚焦还得看机型
+A: autoFocus 在一些机型上是不支持的，组件底层只能尝试 focus，但是到底能不能聚焦还得看机型
+
+## Q: 使用或构建时出现 SyntaxError: xxx is undefined 的问题
+
+A: @arco-design/mobile-react 包的版本需要和 @arco-design/mobile-utils 包的版本一一对应，可以查看项目中是否锁定或指定了 @arco-design/mobile-utils 包的版本。
