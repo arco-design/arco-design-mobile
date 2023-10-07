@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { isArray } from '@arco-design/mobile-utils';
 import { OptionsItem } from '../dropdown';
 import { CascadeOptions, ValueType } from './type';
