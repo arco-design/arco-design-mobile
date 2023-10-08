@@ -29,10 +29,13 @@ export interface ArcodesignToken extends Record<string, string> {
     'dark-danger-color': string;
     'warning-color': string;
     'dark-warning-color': string;
+    'success-color': string;
+    'dark-success-color': string;
     'disabled-color': string;
     'dark-disabled-color': string;
     'mask-background': string;
     'mask-content-color': string;
+    'dark-mask-content-color': string;
     'mask-content-background': string;
     'dark-mask-content-background': string;
     'scroller-buffer': string;
@@ -83,6 +86,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'dialog-footer-android-button-gutter': string;
     'dark-dialog-button-footer-primary-background': string;
     'dialog-button-footer-primary-background': string;
+    'dark-dialog-button-footer-primary-color': string;
     'dialog-button-footer-primary-color': string;
     'dark-dialog-button-footer-color': string;
     'dialog-button-footer-color': string;
@@ -92,6 +96,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'carousel-auto-transition': string;
     'carousel-slide-transition': string;
     'carousel-indicator-background': string;
+    'dark-carousel-indicator-active-background': string;
     'carousel-indicator-active-background': string;
     'dark-carousel-indicator-inverse-background': string;
     'carousel-indicator-inverse-background': string;
@@ -105,13 +110,13 @@ export interface ArcodesignToken extends Record<string, string> {
     'carousel-circle-indicator-size': string;
     'carousel-square-indicator-width': string;
     'carousel-square-indicator-height': string;
+    'dark-carousel-item-text-color': string;
     'carousel-item-text-color': string;
     'carousel-item-text-background': string;
     'carousel-item-text-height': string;
     'carousel-item-text-padding': string;
     'carousel-item-text-font-size': string;
     'input-height': string;
-    'input-disabled-background': string;
     'dark-input-disabled-color': string;
     'input-disabled-color': string;
     'dark-input-placeholder-color': string;
@@ -146,8 +151,10 @@ export interface ArcodesignToken extends Record<string, string> {
     'avatar-default-overlap-smaller-size': string;
     'avatar-default-overlap-ultra-small-size': string;
     'avatar-background': string;
+    'dark-avatar-background': string;
     'dark-avatar-default-overlap-background': string;
     'avatar-default-overlap-background': string;
+    'dark-avatar-text-font-color': string;
     'avatar-text-font-color': string;
     'avatar-large-text-font-size': string;
     'avatar-medium-text-font-size': string;
@@ -206,8 +213,10 @@ export interface ArcodesignToken extends Record<string, string> {
     'dark-button-primary-background': string;
     'button-primary-background': string;
     'button-primary-clicked-background': string;
+    'dark-button-primary-clicked-background': string;
     'dark-button-primary-disabled-background': string;
     'button-primary-disabled-background': string;
+    'dark-button-primary-text-color': string;
     'button-primary-text-color': string;
     'dark-button-primary-disabled-text-color': string;
     'button-primary-disabled-text-color': string;
@@ -248,14 +257,16 @@ export interface ArcodesignToken extends Record<string, string> {
     'ellipsis-float-ellipsis-node-background': string;
     'dark-ellipsis-float-ellipsis-node-background': string;
     'ellipsis-float-ellipsis-node-padding-left': string;
+    'dark-checkbox-icon-color': string;
     'checkbox-icon-color': string;
     'checkbox-icon-font-size': string;
     'checkbox-icon-margin-right': string;
     'dark-checkbox-icon-checked-color': string;
     'checkbox-icon-checked-color': string;
+    'dark-checkbox-icon-disabled-color': string;
     'checkbox-icon-disabled-color': string;
+    'dark-checkbox-icon-checked-disabled-color': string;
     'checkbox-icon-checked-disabled-color': string;
-    'checkbox-disabled-color': string;
     'checkbox-text-font-size': string;
     'checkbox-text-disabled-opacity': string;
     'checkbox-group-gutter': string;
@@ -268,6 +279,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'tabs-tab-bar-card-height': string;
     'dark-tabs-tab-bar-card-color': string;
     'tabs-tab-bar-card-color': string;
+    'dark-tabs-tab-bar-card-text-color': string;
     'tabs-tab-bar-card-text-color': string;
     'tabs-tab-bar-card-border-radius': string;
     'dark-tabs-tab-bar-line-active-color': string;
@@ -282,6 +294,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'tabs-tab-bar-tag-text-color': string;
     'dark-tabs-tab-bar-tag-active-background': string;
     'tabs-tab-bar-tag-active-background': string;
+    'dark-tabs-tab-bar-tag-active-text-color': string;
     'tabs-tab-bar-tag-active-text-color': string;
     'tabs-tab-bar-tag-padding': string;
     'dark-tabs-underline-color': string;
@@ -316,7 +329,9 @@ export interface ArcodesignToken extends Record<string, string> {
     'nav-bar-back-icon-height': string;
     'dark-image-placeholder-background': string;
     'image-placeholder-background': string;
+    'dark-image-loading-icon-color': string;
     'image-loading-icon-color': string;
+    'dark-image-retry-icon-color': string;
     'image-retry-icon-color': string;
     'image-mask-background': string;
     'image-transition-function': string;
@@ -324,6 +339,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'image-retry-font-size': string;
     'dark-switch-text-color': string;
     'switch-text-color': string;
+    'dark-switch-text-checked-color': string;
     'switch-text-checked-color': string;
     'switch-inner-background': string;
     'switch-inner-transition': string;
@@ -364,6 +380,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'switch-ios-disabled-checked-opacity': string;
     'switch-ios-disabled-background': string;
     'toast-background': string;
+    'dark-toast-text-color': string;
     'toast-text-color': string;
     'toast-font-size': string;
     'toast-line-height': string;
@@ -415,13 +432,16 @@ export interface ArcodesignToken extends Record<string, string> {
     'popover-inner-top-arrow-shadow': string;
     'popover-inner-bottom-arrow-shadow': string;
     'popover-background-color': string;
+    'dark-popover-white-theme-background-color': string;
     'popover-white-theme-background-color': string;
+    'dark-popover-content-color': string;
     'popover-content-color': string;
     'popover-content-padding': string;
     'popover-content-android-padding': string;
     'popover-content-font-size': string;
     'popover-content-line-height': string;
     'popover-content-disabled-color': string;
+    'dark-popover-content-white-theme-color': string;
     'popover-content-white-theme-color': string;
     'dark-popover-content-white-theme-disabled-color': string;
     'popover-content-white-theme-disabled-color': string;
@@ -433,6 +453,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'dark-popover-menu-icon-white-theme-color': string;
     'popover-menu-icon-white-theme-color': string;
     'popover-menu-active-background': string;
+    'dark-popover-menu-active-white-theme-background': string;
     'popover-menu-active-white-theme-background': string;
     'popover-horizontal-menu-max-width': string;
     'popover-horizontal-menu-item-size': string;
@@ -496,6 +517,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'tag-hollow-color': string;
     'dark-tag-hollow-border-color': string;
     'tag-hollow-border-color': string;
+    'dark-tag-solid-color': string;
     'tag-solid-color': string;
     'dark-tag-solid-background-color': string;
     'tag-solid-background-color': string;
@@ -503,8 +525,11 @@ export interface ArcodesignToken extends Record<string, string> {
     'tag-solid-border-color': string;
     'tag-list-horizontal-gutter': string;
     'tag-list-vertical-gutter': string;
+    'dark-tag-list-add-border-color': string;
     'tag-list-add-border-color': string;
+    'dark-tag-list-add-background': string;
     'tag-list-add-background': string;
+    'dark-tag-list-add-color': string;
     'tag-list-add-color': string;
     'image-preview-mask-background': string;
     'image-preview-indicator-font-size': string;
@@ -520,6 +545,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'dropdown-menu-selected-color': string;
     'dark-dropdown-menu-disabled-color': string;
     'dropdown-menu-disabled-color': string;
+    'dark-dropdown-menu-tip-color': string;
     'dropdown-menu-tip-color': string;
     'dropdown-menu-tip-min-width': string;
     'dropdown-menu-tip-padding-right': string;
@@ -581,6 +607,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'pull-refresh-label-font-size': string;
     'dark-pull-refresh-content-background-color': string;
     'pull-refresh-content-background-color': string;
+    'dark-pull-refresh-label-text-color': string;
     'pull-refresh-label-text-color': string;
     'dark-pull-refresh-label-loading-color': string;
     'pull-refresh-label-loading-color': string;
@@ -615,6 +642,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'slider-mark-label-line-height': string;
     'slider-horizontal-mark-label-top': string;
     'slider-vertical-mark-label-right': string;
+    'dark-swipe-load-label-background': string;
     'swipe-load-label-background': string;
     'swipe-load-label-border-radius': string;
     'swipe-load-label-text-margin-left': string;
@@ -636,11 +664,13 @@ export interface ArcodesignToken extends Record<string, string> {
     'notice-bar-vertical-padding': string;
     'notice-bar-horizontal-padding': string;
     'notice-bar-gradient-width': string;
+    'dark-notify-success-background': string;
     'notify-success-background': string;
     'dark-notify-error-background': string;
     'notify-error-background': string;
     'dark-notify-warn-background': string;
     'notify-warn-background': string;
+    'dark-notify-font-color': string;
     'notify-font-color': string;
     'dark-notify-info-font-color': string;
     'notify-info-font-color': string;
@@ -670,12 +700,14 @@ export interface ArcodesignToken extends Record<string, string> {
     'steps-icon-svg-standard-font-size': string;
     'dark-steps-finish-icon-svg-color': string;
     'steps-finish-icon-svg-color': string;
+    'dark-steps-error-icon-svg-color': string;
     'steps-error-icon-svg-color': string;
     'steps-error-icon-svg-font-size': string;
     'steps-icon-num-font-size': string;
     'steps-icon-num-line-height': string;
     'dark-steps-icon-num-color': string;
     'steps-icon-num-color': string;
+    'dark-steps-process-icon-num-color': string;
     'steps-process-icon-num-color': string;
     'dark-steps-finish-dot-border-color': string;
     'steps-finish-dot-border-color': string;
@@ -710,6 +742,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'steps-description-margin-top': string;
     'steps-vertical-padding-bottom': string;
     'steps-vertical-padding-left': string;
+    'dark-steps-process-with-config-item-icon-color': string;
     'steps-process-with-config-item-icon-color': string;
     'swipe-action-open-transition': string;
     'swipe-action-close-transition': string;
@@ -717,12 +750,14 @@ export interface ArcodesignToken extends Record<string, string> {
     'swipe-action-info-bounce-buffer': string;
     'swipe-action-text-font-size': string;
     'swipe-action-text-line-height': string;
+    'dark-swipe-action-text-color': string;
     'swipe-action-text-color': string;
     'swipe-action-icon-width': string;
     'swipe-action-icon-height': string;
     'swipe-action-icon-margin-right': string;
     'dark-badge-background-color': string;
     'badge-background-color': string;
+    'dark-badge-text-color': string;
     'badge-text-color': string;
     'badge-font-size': string;
     'badge-dot-width': string;
@@ -731,6 +766,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'badge-text-deviation': string;
     'badge-dot-deviation': string;
     'badge-border-radius': string;
+    'dark-badge-border-color': string;
     'badge-border-color': string;
     'circle-progress-font-size': string;
     'dark-circle-progress-primary-color': string;
@@ -771,6 +807,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'pagination-field-btn-icon-side-margin': string;
     'dark-pagination-field-primary-background': string;
     'pagination-field-primary-background': string;
+    'dark-pagination-field-primary-text-color': string;
     'pagination-field-primary-text-color': string;
     'dark-pagination-field-default-background': string;
     'pagination-field-default-background': string;
@@ -790,6 +827,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'pagination-item-primary-text-color': string;
     'dark-pagination-item-default-text-color': string;
     'pagination-item-default-text-color': string;
+    'dark-progress-text-inner-color': string;
     'progress-text-inner-color': string;
     'progress-text-gutter': string;
     'progress-text-font-size': string;
@@ -856,6 +894,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'search-bar-cancel-btn-color': string;
     'search-bar-cancel-btn-font-size': string;
     'search-bar-cancel-btn-margin-left': string;
+    'dark-search-bar-association-background-color': string;
     'search-bar-association-background-color': string;
     'search-bar-association-item-height': string;
     'search-bar-association-item-padding': string;
@@ -870,12 +909,15 @@ export interface ArcodesignToken extends Record<string, string> {
     'dark-image-picker-add-background': string;
     'image-picker-add-background': string;
     'image-picker-add-icon-font-size': string;
+    'dark-image-picker-add-icon-color': string;
     'image-picker-add-icon-color': string;
     'image-picker-add-text-font-size': string;
     'dark-image-picker-add-text-color': string;
     'image-picker-add-text-color': string;
+    'dark-image-picker-error-color': string;
     'image-picker-error-color': string;
     'image-picker-error-background': string;
+    'dark-image-picker-close-color': string;
     'image-picker-close-color': string;
     'image-picker-close-font-size': string;
     'image-picker-close-width': string;
@@ -903,6 +945,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'index-bar-sidebar-item-width': string;
     'index-bar-sidebar-sweat-padding': string;
     'index-bar-sidebar-sweat-background': string;
+    'dark-index-bar-sidebar-sweat-color': string;
     'index-bar-sidebar-sweat-color': string;
     'index-bar-sidebar-sweat-right': string;
     'index-bar-sidebar-sweat-font-size': string;
@@ -910,6 +953,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'index-bar-sidebar-sweat-triangle-position': string;
     'index-bar-sidebar-sweat-triangle-border': string;
     'index-bar-sidebar-toast-background': string;
+    'dark-index-bar-sidebar-toast-color': string;
     'index-bar-sidebar-toast-color': string;
     'index-bar-sidebar-toast-height': string;
     'index-bar-sidebar-toast-radius': string;
@@ -939,6 +983,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'form-item-label-item-color': string;
     'form-item-label-item-gutter': string;
     'form-item-label-item-width': string;
+    'dark-form-item-border-divider-color': string;
     'form-item-border-divider-color': string;
     'dark-form-item-label-item-required-asterisk-color': string;
     'form-item-label-item-required-asterisk-color': string;
@@ -972,6 +1017,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'keyboard-unified-margin': string;
     'dark-keyboard-confirm-key-background': string;
     'keyboard-confirm-key-background': string;
+    'dark-keyboard-confirm-key-color': string;
     'keyboard-confirm-key-color': string;
     'keyboard-confirm-key-font-size': string;
     'keyboard-key-font-weight': string;

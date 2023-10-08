@@ -30,6 +30,7 @@
   &-input {
     flex: 1;
     background-color: transparent;
+    .use-var(color, font-color);
     .use-var(height, search-bar-input-height);
     .use-var(caret-color, search-bar-input-caret-color);
     &-left {
@@ -99,7 +100,7 @@
       .use-var(color, search-bar-association-item-color);
       .use-var(padding, search-bar-association-item-padding);
       .use-var(font-size, search-bar-association-item-font-size);
-      
+
       &:not(:last-child) {
         .onepx-border-var(bottom, line-color);
       }

@@ -4,12 +4,13 @@
     &-item {
         display: flex;
         align-items: flex-start;
-        border-top: 1px solid var(--form-item-border-divider-color);
-        // padding: 16px 0;
+        border-top-width: 1px;
+        border-top-style: solid;
+        .use-var(border-top-color, form-item-border-divider-color);
+
         &:first-child {
             border: none;
         }
-
     }
 
     &-label-item {

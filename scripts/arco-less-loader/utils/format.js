@@ -28,29 +28,41 @@ const addTabs = (str, depth = 1) => {
 function commonContextConvert(selector, rule, options) {
     const createLine = ({ name, values, modifyVars }) => `
 ${modifyVars
-            ? Object.entries(modifyVars)
-                .map(([key, val]) => `@${key}: ${val};\n`)
-                .join('')
-            : ''
-        }${name}(${values.join(', ')});`
-
-    let res = `${rule.lines && rule.lines.map(mixinLine => createLine(mixinLine)).join('')}${rule.children
-            ? Object.entries(rule.children)
-                .map(([key, value]) => commonContextConvert(key, value, options))
-                .join('')
-            : ''
-        }
-`
+    ? Object.entries(modifyVars)
+        .map(([key, val]) => `@${key}: ${val};\n`)
+        .join('')
+    : ''
+}${name}(${values.join(', ')});`
+    const linesStr = rule.lines && rule.lines.map(mixinLine => createLine(mixinLine)).join('')
+    const { condition, removeDefault } = options.customDarkCondition || {}
+    const needWrapCondition = condition && linesStr
+    let res = `${linesStr}${
+        rule.children
+        ? Object.entries(rule.children)
+            .map(([key, value]) => commonContextConvert(key, value, options).text)
+            .join('')
+        : ''
+    }\n`
+    const resWithCondition = `${needWrapCondition ? `\n${condition} & {${addTabs(linesStr)}\n}` : ''}${
+        rule.children
+        ? Object.entries(rule.children)
+            .map(([key, value]) => commonContextConvert(key, value, options).textWithCondition)
+            .join('')
+        : ''
+    }\n`
     if (selector === DARK_MODE_KEY) {
-        const { condition, removeDefault } = options.customDarkCondition || {}
         res = `
-& when (@use-dark-mode = 1) {
-${removeDefault ? '' : `  @media (prefers-color-scheme: dark) {${addTabs(res, 2)}  }`}
-${condition ? `  ${condition} {${addTabs(res, 2)}  }\n` : ''}}`
-    } else {
-        res = `\n${selector.trim()} {${addTabs(res)}}`
+    & when (@use-dark-mode = 1) {${removeDefault ? '' : `\n  @media (prefers-color-scheme: dark) {${addTabs(res, 2)}  }`}
+    ${condition ? addTabs(resWithCondition) : ''}}`
+        return {
+            text: res,
+            textWithCondition: res,
+        }
     }
-    return res
+    return {
+        text: `\n${selector.trim()} {${addTabs(res)}}`,
+        textWithCondition: `\n${selector.trim()} {${resWithCondition ? addTabs(resWithCondition) : addTabs(res)}}`,
+    }
 }
 
 /**
@@ -63,7 +75,7 @@ ${condition ? `  ${condition} {${addTabs(res, 2)}  }\n` : ''}}`
 const genLessFromContext = (context, options) => {
     return Object.entries(context)
         .map(([key, value]) => {
-            return commonContextConvert(key, value, options)
+            return commonContextConvert(key, value, options).text
         })
         .join('')
 }

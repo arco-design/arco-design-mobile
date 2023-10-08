@@ -379,6 +379,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
                     `type-${type}`,
                     { fixed: tabBarFixed },
                     { 'has-divider': hasDivider },
+                    system,
                 )}
                 style={typeof tabBarFixed === 'object' ? tabBarFixed : {}}
             >
