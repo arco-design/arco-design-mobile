@@ -1,22 +1,20 @@
 import React from 'react';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
-import { defaultContext } from '../../context-provider';
 import Keyboard from '..';
 
 demoTest('keyboard');
 
 mountTest(Keyboard, 'Keyboard');
 
-const prefix = `${defaultContext.prefixCls}-keyboard`;
-const keyboardKey = `${prefix}-key`;
-
 describe('Keyboard', () => {
     it('onChange listener correctly', () => {
         const onChange = jest.fn();
-        const wrapper = mount(<Keyboard onChange={onChange} />);
-        const input = wrapper.find(keyboardKey);
-        input.simulate('click');
+        render(<Keyboard visible type="number" onChange={onChange} />);
+        const input = screen.getByText('1');
+        userEvent.click(input);
         expect(onChange.mock.calls.length).toBe(1);
     });
 });
