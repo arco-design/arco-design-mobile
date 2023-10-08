@@ -1,18 +1,18 @@
 import React from 'react';
+import { act, fireEvent, render } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import SwipeLoad from '..';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import { defaultContext } from '../../context-provider';
-import { createMoveTouchEventObject, createStartTouchEventObject, mockAddListener } from '../../../tests/helpers/mockEvent';
+import {
+    createMoveTouchEventObject,
+    createStartTouchEventObject,
+} from '../../../tests/helpers/mockEvent';
 
 demoTest('swipe-load');
 
 mountTest(SwipeLoad, 'SwipeLoad');
 
 describe('SwipeLoad', () => {
-
     beforeEach(() => {
         jest.useFakeTimers();
     });
@@ -22,71 +22,49 @@ describe('SwipeLoad', () => {
     });
 
     it('should render correctly when set swipe-load and children', () => {
-        const component = mount(<SwipeLoad
-            maxElementOffset={54.5}
-            maxLabelOffset={38.5}
-            minConfirmOffset={25}
-        >
-            <div
-                className="list-container"
-                style={{ overflowX: 'auto' }}
-            >
-                <div className="course-list">
-                    {[1, 2, 3, 4, 5].map(item => {
-                        return (
-                            <div
-                                key={item}
-                                className="list-item"
-                                style={{ width: 96 }}
-                            />
-                        );
-                    })}
+        const { container } = render(
+            <SwipeLoad maxElementOffset={54.5} maxLabelOffset={38.5} minConfirmOffset={25}>
+                <div className="list-container" style={{ overflowX: 'auto' }}>
+                    <div className="course-list">
+                        {[1, 2, 3, 4, 5].map(item => {
+                            return <div key={item} className="list-item" style={{ width: 96 }} />;
+                        })}
+                    </div>
                 </div>
-            </div>
-        </SwipeLoad>);
-        expect(component.find('.list-item').length).toBe(5);
+            </SwipeLoad>,
+        );
+        expect(container.querySelectorAll('.list-item').length).toBe(5);
     });
     it('should callback correctly when scroll to the end', () => {
         const mockFn = jest.fn();
-        const component = mount(
-        <SwipeLoad
-            maxElementOffset={54.5}
-            maxLabelOffset={38.5}
-            minConfirmOffset={25}
-            disabled={false}
-            onConfirm={mockFn}
-        >
-            <div
-                className="list-container"
-                style={{ overflowX: 'auto' }}
+        const { container } = render(
+            <SwipeLoad
+                maxElementOffset={54.5}
+                maxLabelOffset={38.5}
+                minConfirmOffset={25}
+                disabled={false}
+                onConfirm={mockFn}
             >
-                <div className="course-list">
-                    {[1, 2, 3].map(item => {
-                        return (
-                            <div
-                                key={item}
-                                className="list-item"
-                                style={{ width: 96 }}
-                            />
-                        );
-                    })}
+                <div className="list-container" style={{ overflowX: 'auto' }}>
+                    <div className="course-list">
+                        {[1, 2, 3].map(item => {
+                            return <div key={item} className="list-item" style={{ width: 96 }} />;
+                        })}
+                    </div>
                 </div>
-            </div>
-        </SwipeLoad>);
-        const map = mockAddListener(component.find('.list-container'));
-        component.setProps({ disabled: true });
-        component.setProps({ disabled: false });
+            </SwipeLoad>,
+        );
+        const comp = container.querySelector('.list-container');
         act(() => {
-            map.touchstart(createStartTouchEventObject({ px: 500, py: 0 }));
-            map.touchmove(createMoveTouchEventObject({ px: 300, py: 0 }));
+            fireEvent.touchStart(comp, createStartTouchEventObject({ x: 500, y: 0 }));
+            fireEvent.touchMove(comp, createMoveTouchEventObject({ x: 300, y: 0 }));
         });
         act(() => {
-            map.touchend(createMoveTouchEventObject({ px: 0, py: 0 }));
+            fireEvent.touchEnd(comp, createMoveTouchEventObject({ x: 0, y: 0 }));
         });
         act(() => {
-            jest.advanceTimersByTime(250);
+            jest.runAllTimers();
         });
-        component.update();
         expect(mockFn).toBeCalled();
     });
 });
