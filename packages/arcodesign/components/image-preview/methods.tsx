@@ -8,6 +8,7 @@ export interface OpenBaseProps {
     close: (e) => void;
     openIndex: number;
     images: any[];
+    getContainer?: () => HTMLElement;
 }
 
 export function open<P extends OpenBaseProps>(Component: React.FunctionComponent<P>) {
@@ -30,14 +31,13 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
             close: () => {},
         };
 
-        let dynamicProps = { ...baseProps } as P;
-
         // 不同的key用不同的容器挂载
         // @en Different keys are mounted in different containers
         const id = `_ARCO_IMAGE_PREVIEW_DIV_${baseProps.key || ''}_`;
         const { child: div } = appendElementById(id, baseProps.getContainer);
         let leaving = false;
         const { render } = new ReactDOMRender(Component, div, context);
+        let dynamicProps = { ...baseProps, getContainer: () => div } as P;
 
         function update(newConfig: Config) {
             dynamicProps = {
