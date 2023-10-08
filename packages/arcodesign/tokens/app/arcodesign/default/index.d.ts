@@ -887,6 +887,8 @@ export interface ArcodesignToken extends Record<string, string> {
     'search-bar-prefix-margin-right': string;
     'dark-search-bar-clear-icon-color': string;
     'search-bar-clear-icon-color': string;
+    'search-bar-clear-icon-font-size': string;
+    'search-bar-clear-icon-padding-left': string;
     'dark-search-bar-search-icon-color': string;
     'search-bar-search-icon-color': string;
     'search-bar-search-icon-font-size': string;

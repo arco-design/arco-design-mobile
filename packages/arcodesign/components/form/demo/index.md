@@ -17,6 +17,7 @@ import {
     Rate,
     Slider
 } from '@arco-design/mobile-react';
+import { ValidatorType } from '@arco-design/mobile-utils';
 
 const options = [
     { label: 'horizontal', value: 'horizontal' },
@@ -34,6 +35,7 @@ const genderOptions = [
 const rules = {
     name: [
         {
+            type: ValidatorType.Custom,
             validator: (val, callback) => {
                 if (!val) {
                     callback('Please input name');

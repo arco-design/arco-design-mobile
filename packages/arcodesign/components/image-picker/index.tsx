@@ -7,6 +7,7 @@ import Image from '../image';
 import Grid from '../grid';
 import AddIcon from './add-icon';
 import { AdapterFile, ImagePickerProps, ImagePickerRef, ImagePickItem } from './type';
+import { useLatestRef } from '../_helpers';
 
 export * from './type';
 
@@ -43,7 +44,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
-    const cacheRef = useRef<ImagePickItem[]>([]);
+    const cacheRef = useLatestRef<ImagePickItem[]>(images);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -95,7 +96,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                 status: typeof upload === 'function' ? 'loading' : 'loaded',
                 file: files[index],
             })) as ImagePickItem[];
-            cacheRef.current = [...images, ...res];
+            cacheRef.current = [...cacheRef.current, ...res];
             onChange([...cacheRef.current]);
             // 执行upload
             if (typeof upload === 'function') {
@@ -103,15 +104,19 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                     upload(cacheRef.current.find(({ file }) => file === _file) as ImagePickItem)
                         .then(data => {
                             const index = cacheRef.current.findIndex(({ file }) => file === _file);
-                            cacheRef.current[index] = {
-                                ...cacheRef.current[index],
-                                ...data,
-                                status: undefined,
-                            };
+                            if (index !== -1) {
+                                cacheRef.current[index] = {
+                                    ...cacheRef.current[index],
+                                    ...data,
+                                    status: undefined,
+                                };
+                            }
                         })
                         .catch(() => {
                             const index = cacheRef.current.findIndex(({ file }) => file === _file);
-                            cacheRef.current[index].status = 'error';
+                            if (index !== -1) {
+                                cacheRef.current[index].status = 'error';
+                            }
                         })
                         .finally(() => {
                             onChange([...cacheRef.current]);

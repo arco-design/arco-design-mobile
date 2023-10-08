@@ -130,6 +130,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
     const touchStartXRef = useRef(0);
     const touchStartYRef = useRef(0);
     const touchStartTimeRef = useRef(0);
+    const touchMovedRef = useRef(false);
     const scrollingRef = useRef<boolean | null>(null);
     const touchStoppedRef = useRef(false);
     const changeFromRef = useRef('');
@@ -233,6 +234,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
                 return;
             }
             touchStartedRef.current = true;
+            touchMovedRef.current = false;
             setCellTrans(false);
             setPaneTrans(false);
             const evt = e.touches[0];
@@ -260,6 +262,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
                 e.cancelable && e.preventDefault();
                 return;
             }
+            touchMovedRef.current = true;
             const evt = e.changedTouches[0];
             const touchMoveX = evt.clientX || 0;
             const touchMoveY = evt.clientY || 0;
@@ -331,7 +334,12 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         if (scrollingRef.current && tabBarResetWhenScroll === 'touchend') {
             cellRef.current && cellRef.current.scrollToCenter();
         }
-        if (!touchStartedRef.current || posAdjustingRef.current || scrollingRef.current) {
+        if (
+            !touchStartedRef.current ||
+            posAdjustingRef.current ||
+            scrollingRef.current ||
+            !touchMovedRef.current
+        ) {
             return;
         }
         touchStartedRef.current = false;

@@ -1,5 +1,4 @@
 import React, {
-    useState,
     useRef,
     forwardRef,
     Ref,
@@ -14,7 +13,7 @@ import Loading from '../loading';
 import { GlobalContext } from '../context-provider';
 import { PullRefreshRef, PullRefreshStatus, PullRefreshBasicProps } from './model';
 import { useCommonState, useAddScrollEvents, useCheckAsStart } from './hooks';
-import { getStyleWithVendor } from '../_helpers';
+import { setStyleWithVendor } from '../_helpers';
 
 const dampRateCalculate = (val: number, tipsHeight: number, dampRate: number) =>
     val > tipsHeight ? tipsHeight + (val - tipsHeight) / dampRate : val;
@@ -56,11 +55,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
         onRefresh,
         allowPullWhenNotTop = false,
     } = props;
-    const [transition, setTransition] = useState<{
-        transform?: string;
-        transition?: string;
-    }>({});
-
+    const placeRef = useRef<HTMLDivElement>(null);
     const touchRef = useRef<{ start: number; x: number; y: number } | null>(null);
     const currentTranslateYRef = useRef(0);
     const onTouching = useRef(false);
@@ -98,26 +93,18 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
 
     const scroll = (y: number, ms: number, callback?: () => void) => {
         if (y < 5) {
-            if (y < 0) {
-                currentTranslateYRef.current = 0;
-                return;
-            }
-            if (ms === 0) {
-                setTimeout(() => {
-                    setTransition({
-                        transition: 'all 0s',
-                    });
-                });
+            if (y < 0 || ms === 0) {
                 currentTranslateYRef.current = 0;
                 return;
             }
         }
         const translateY = dampRateCalculate(y, loosingHeight, dampRate);
         currentTranslateYRef.current = translateY;
-        setTransition({
-            transform: translateY ? `translateY(${translateY}px)` : '',
-            transition: `all ${ms / 1000}s`,
-        });
+        placeRef.current &&
+            setStyleWithVendor(placeRef.current, {
+                transform: translateY ? `translateY(${translateY}px) translateZ(0)` : '',
+                ...(ms ? { transition: `all ${ms / 1000}s` } : {}),
+            });
         setTimeout(() => {
             callback?.();
         }, ms);
@@ -130,6 +117,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
             }
             loadingRef.current = false;
             setStatus(PullRefreshStatus.Static);
+            placeRef.current && setStyleWithVendor(placeRef.current, { transition: '' });
             callback();
         });
     };
@@ -249,10 +237,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
             style={style}
             ref={domRef}
         >
-            <div
-                className={cls(`${prefixCls}-pull-refresh-place`)}
-                style={getStyleWithVendor(transition)}
-            >
+            <div className={cls(`${prefixCls}-pull-refresh-place`)} ref={placeRef}>
                 <div
                     className={cls(`${prefixCls}-pull-refresh-label`)}
                     ref={labelRef}

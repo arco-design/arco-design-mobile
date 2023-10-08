@@ -899,6 +899,8 @@ var tokens = {
   "search-bar-prefix-margin-right": "0.18rem",
   "dark-search-bar-clear-icon-color": "var(--dark-disabled-color)",
   "search-bar-clear-icon-color": "var(--disabled-color)",
+  "search-bar-clear-icon-font-size": "16PX",
+  "search-bar-clear-icon-padding-left": "0.32rem",
   "dark-search-bar-search-icon-color": "var(--dark-sub-info-font-color)",
   "search-bar-search-icon-color": "var(--sub-info-font-color)",
   "search-bar-search-icon-font-size": "0.32rem",

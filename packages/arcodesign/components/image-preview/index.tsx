@@ -852,12 +852,14 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
      * @en Change specified image status
      */
     function setImagesStatusByIndex(index: number, data: PreviewImageStatus) {
-        const newStatus = imagesStatusRef.current.slice();
-        newStatus[index] = {
-            ...(newStatus[index] || {}),
-            ...data,
-        };
-        setImagesStatus(newStatus);
+        setImagesStatus(current => {
+            const newStatus = current.slice();
+            newStatus[index] = {
+                ...(newStatus[index] || {}),
+                ...data,
+            };
+            return newStatus;
+        });
     }
 
     /**
@@ -1045,7 +1047,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
             return renderIndicator(currentIndex, total, lastIndex);
         }
         return openLoaded ? (
-            <Portal>
+            <Portal getContainer={getContainer}>
                 <div className="image-preview-indicator">
                     {currentIndex + 1}/{total}
                 </div>
@@ -1082,7 +1084,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         // loadingArea提出来，放到过渡图上层
         // @en The loadingArea is extracted and placed on the upper layer of the transition image
         return index === openIndex ? (
-            <Portal>
+            <Portal getContainer={getContainer}>
                 <div className="image-preview-loading-area">
                     {loadingArea || <Loading type="circle" className="loading-icon" radius={7} />}
                 </div>

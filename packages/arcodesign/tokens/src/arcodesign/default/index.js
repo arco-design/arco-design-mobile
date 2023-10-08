@@ -3466,6 +3466,16 @@ function getCompTokens() {
          */
         searchBarClearIconColor: useGlobal('disabledColor'),
         /**
+         * 搜索栏清除按钮的大小
+         * @en Size of SearchBar clear icon
+         */
+        searchBarClearIconFontSize: '16PX',
+        /**
+         * 搜索栏清除按钮与输入框间距
+         * @en Padding left of SearchBar clear icon
+         */
+        searchBarClearIconPaddingLeft: getRem(16),
+        /**
          * 搜索栏搜索按钮的颜色
          * @en Color of SearchBar search icon
          */
