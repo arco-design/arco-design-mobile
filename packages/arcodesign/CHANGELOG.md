@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.5...@arco-design/mobile-react@2.29.6) (2023-10-09)
+
+
+### Bug Fixes
+
+* `Image` support loading & error area when using "staticLabel" ([#181](https://github.com/arco-design/arco-design-mobile/issues/181)) ([552a37d](https://github.com/arco-design/arco-design-mobile/commit/552a37d5a29cbbbe84107c0ba7cddeb1c685f2be))
+* `Tabs` duplicate scrolling when "activeTab" is controlled in scroll mode ([7632138](https://github.com/arco-design/arco-design-mobile/commit/7632138f8d1164d8be6b55f5a65cc543b3b22684))
+* incorrectly mounted elements when calling masking components using methods ([5740648](https://github.com/arco-design/arco-design-mobile/commit/5740648160fb6ff6d97a40da71c28d16034b4346))
+
+
+
+
+
 ## [2.29.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.4...@arco-design/mobile-react@2.29.5) (2023-10-07)
 
 

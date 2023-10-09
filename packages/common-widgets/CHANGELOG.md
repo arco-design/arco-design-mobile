@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.9](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.8...@arco-design/mobile-utils@2.16.9) (2023-10-09)
+
+
+### Bug Fixes
+
+* incorrectly mounted elements when calling masking components using methods ([5740648](https://github.com/arco-design/arco-design-mobile/commit/5740648160fb6ff6d97a40da71c28d16034b4346))
+
+
+
+
+
 ## [2.16.8](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.7...@arco-design/mobile-utils@2.16.8) (2023-10-07)
 
 
