@@ -5,9 +5,11 @@ Here is a summary of some common problems when using the component library.
 =====================
 
 ## Q: The component library package is imported, but the styles are not imported or the styles are abnormal?
+
 A: The main output form of the style of this component library in the npm package is the `less` file. Please check whether the less environment in the project is normal (for example, when using webpack, less-loader needs to be configured) and whether the `lessOptions` is configured correctly. For details, please refer to the "Self-adaptation" section in Quick Start.
 
 ## Q: The component library package is introduced, but the style display is abnormal?
+
 A: This component library uses `rem` for mobile adaptation. It needs to cooperate with `flexible.js` to dynamically set the font-size of the root element according to the device environment. For details, see "Self-adaptation" in Quick Start.
 
 ## Q: Are components supported in an SSR environment?
@@ -15,6 +17,7 @@ A: This component library uses `rem` for mobile adaptation. It needs to cooperat
 A: The components in this component library are all supported in the SSR environment. Note that you need to use the components in the`/cjs/`directory instead of the /esm/ directory.
 
 ## Q: The component uses the rem unit for self-adaptation. I want to use pxtovw or other plug-ins to unify the unit. Can I disable rem?
+
 A: Yes, change the value of the `@use-rem` variable to `0` in lessOptions.
 
 ```js
@@ -43,10 +46,14 @@ return ( <ContextProvider system="android">
 </ContextProvider>)"
 ```
 
-## Q：When using methods such as Toast.toast to call components, the configuration passed to ContextProvider cannot be received?
+## Q: When using methods such as Toast.toast to call components, the configuration passed to ContextProvider cannot be received?
 
-The component called by the method is not a subcomponent under the root node of the page, so the configuration of ContextProvider needs to be passed to the method, such as: `Toast.toast({ content: 'Tips' }, { prefixCls: 'aa' })`. (Supported after `2.24.0`)
+A: The component called by the method is not a subcomponent under the root node of the page, so the configuration of ContextProvider needs to be passed to the method, such as: `Toast.toast({ content: 'Tips' }, { prefixCls: 'aa' })`. (Supported after `2.24.0`)
 
 ## Q: AutoFocus does not work when using Input/Textarea/SearchBar
 
-autoFocus is not supported on some models, the bottom layer of the component can only try focus, but whether it can focus or not depends on the model
+A: autoFocus is not supported on some models, the bottom layer of the component can only try focus, but whether it can focus or not depends on the model
+
+## Q: SyntaxError: xxx is undefined occurs when using or building
+
+A: The version of the @arco-design/mobile-react package needs to correspond one-to-one with the version of the @arco-design/mobile-utils package. You can check whether the version of the @arco-design/mobile-utils package is locked or specified in the project.

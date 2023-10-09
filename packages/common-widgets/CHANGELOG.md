@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.9](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.8...@arco-design/mobile-utils@2.16.9) (2023-10-09)
+
+
+### Bug Fixes
+
+* incorrectly mounted elements when calling masking components using methods ([5740648](https://github.com/arco-design/arco-design-mobile/commit/5740648160fb6ff6d97a40da71c28d16034b4346))
+
+
+
+
+
+## [2.16.8](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.7...@arco-design/mobile-utils@2.16.8) (2023-10-07)
+
+
+### Bug Fixes
+
+* `LoadMore` support "getDataWithEndReachCheck" ([#180](https://github.com/arco-design/arco-design-mobile/issues/180)) ([25baa3c](https://github.com/arco-design/arco-design-mobile/commit/25baa3cae665edb7fa4f316d80886f497c38f7a3))
+* `Tabs` scroll offset in ssr when defaultActiveTab is greater than 0 ([#175](https://github.com/arco-design/arco-design-mobile/issues/175)) ([98aa1d7](https://github.com/arco-design/arco-design-mobile/commit/98aa1d7c5abe8851778f2aa5c2308fe807d5e4d9))
+
+
+
+
+
 ## [2.16.7](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.16.6...@arco-design/mobile-utils@2.16.7) (2023-09-13)
 
 **Note:** Version bump only for package @arco-design/mobile-utils

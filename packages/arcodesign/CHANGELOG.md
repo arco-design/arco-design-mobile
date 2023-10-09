@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.29.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.5...@arco-design/mobile-react@2.29.6) (2023-10-09)
+
+
+### Bug Fixes
+
+* `Image` support loading & error area when using "staticLabel" ([#181](https://github.com/arco-design/arco-design-mobile/issues/181)) ([552a37d](https://github.com/arco-design/arco-design-mobile/commit/552a37d5a29cbbbe84107c0ba7cddeb1c685f2be))
+* `Tabs` duplicate scrolling when "activeTab" is controlled in scroll mode ([7632138](https://github.com/arco-design/arco-design-mobile/commit/7632138f8d1164d8be6b55f5a65cc543b3b22684))
+* incorrectly mounted elements when calling masking components using methods ([5740648](https://github.com/arco-design/arco-design-mobile/commit/5740648160fb6ff6d97a40da71c28d16034b4346))
+
+
+
+
+
+## [2.29.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.4...@arco-design/mobile-react@2.29.5) (2023-10-07)
+
+
+### Bug Fixes
+
+* `ImagePicker` the image will show up again if deleted when uploading ([#182](https://github.com/arco-design/arco-design-mobile/issues/182)) ([f26512a](https://github.com/arco-design/arco-design-mobile/commit/f26512a165e3c8ca082f716a64bdc8e7e86517b7))
+* `ImagePreview` refresh problem when onload of multiple pictures is triggered at the same time ([#173](https://github.com/arco-design/arco-design-mobile/issues/173)) ([c71c526](https://github.com/arco-design/arco-design-mobile/commit/c71c526e81a2851df6653682bfad9b9b84704462))
+* `LoadMore` support "getDataWithEndReachCheck" ([#180](https://github.com/arco-design/arco-design-mobile/issues/180)) ([25baa3c](https://github.com/arco-design/arco-design-mobile/commit/25baa3cae665edb7fa4f316d80886f497c38f7a3))
+* `PullRefresh` optimize transform performance & fix decimal point deviation in ifShouldHandle ([#179](https://github.com/arco-design/arco-design-mobile/issues/179)) ([a826ed2](https://github.com/arco-design/arco-design-mobile/commit/a826ed26096cec3a6487d2bd58345113a5d17dfd))
+* `Tabs` scroll offset in ssr when defaultActiveTab is greater than 0 ([#175](https://github.com/arco-design/arco-design-mobile/issues/175)) ([98aa1d7](https://github.com/arco-design/arco-design-mobile/commit/98aa1d7c5abe8851778f2aa5c2308fe807d5e4d9))
+
+
+
+
+
 ## [2.29.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.3...@arco-design/mobile-react@2.29.4) (2023-09-13)
 
 
