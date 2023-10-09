@@ -85,12 +85,12 @@ function LinearEasing(x: number) {
  * const NEWTON_MIN_SLOPE = 0.001;
  * const SUBDIVISION_PRECISION = 0.0000001;
  * const SUBDIVISION_MAX_ITERATIONS = 10;
- * 
+ *
  * const kSplineTableSize = 11;
  * const kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
- * 
+ *
  * const float32ArraySupported = typeof Float32Array === 'function';
- * 
+ *
  * function A(aA1: number, aA2: number) {
  *    return 1.0 - 3.0 * aA2 + 3.0 * aA1;
  * }
@@ -125,7 +125,7 @@ function LinearEasing(x: number) {
  *    } while (Math.abs(currentX) > SUBDIVISION_PRECISION && ++i < SUBDIVISION_MAX_ITERATIONS);
  *    return currentT;
  * }
- * 
+ *
  * function newtonRaphsonIterate(aX: number, aGuessT: number, mX1: number, mX2: number) {
  *    for (let i = 0; i < NEWTON_ITERATIONS; ++i) {
  *        const currentSlope = getSlope(aGuessT, mX1, mX2);
@@ -144,9 +144,15 @@ function LinearEasing(x: number) {
  * ```
  * @example
  * ```
- * import { useGenSvgKey } from '@arco-design/mobile-react/esm/_helpers/hooks';
+ * import { bezierEasing } from '@arco-design/mobile-utils';
  *
- * const { svgKey } = useGenSvgKey(userSetSvgKey);
+ * const p = (Date.now() - start) / duration;
+ * if (p > 1) {
+ *     scrollTo(targetTop);
+ * } else {
+ *     const newTop = initTop + (targetTop - initTop) * bezierEasing(0.34, 0.69, 0.1, 1)(p);
+ *     scrollTo(newTop);
+ * }
  * ```
  */
 export default function bezier(mX1: number, mY1: number, mX2: number, mY2: number) {

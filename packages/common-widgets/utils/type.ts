@@ -17,8 +17,13 @@
  * @example
  * ```
  * import { componentWrapper } from '@arco-design/mobile-utils';
+ * import Group from './group';
  *
- * const newComponent = componentWrapper(Component, { TestComponent })
+ * const NewComponent1 = componentWrapper(Component, { Group });
+ * // usage: <NewComponent1.Group />
+ *
+ * const NewComponent2 = componentWrapper(Component, 'ComponentName');
+ * // usage: NewComponent2.displayName is 'ComponentName'
  * ```
  */
 export function componentWrapper<C, E extends {}>(

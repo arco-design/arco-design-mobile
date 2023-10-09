@@ -4,7 +4,6 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "init:react": "node scripts/sites/react-init.js",
         "init": "lerna bootstrap -- --legacy-peer-deps",
         "add": "node scripts/init/init-component.js",
         "add-composite": "node scripts/init/init-composite-component.js",

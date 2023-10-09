@@ -13,6 +13,7 @@
 ```
 import { fadeColor } from '@arco-design/mobile-utils';
 const transparentColor = fadeColor('#ffffff');
+// transparentColor is '#ffffff00'
 ```
 
 ## 类型

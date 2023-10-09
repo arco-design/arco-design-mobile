@@ -4,6 +4,7 @@
  */
 
 export { default as cls } from './classnames';
+export { default as bezierEasing } from './bezier-easing';
 export * from './dom';
 export * from './is';
 export * from './type';

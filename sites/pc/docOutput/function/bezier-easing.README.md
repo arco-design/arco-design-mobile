@@ -11,8 +11,14 @@
 ## 示例
 
 ```
-import { useGenSvgKey } from '@arco-design/mobile-react/esm/_helpers/hooks';
-const { svgKey } = useGenSvgKey(userSetSvgKey);
+import { bezierEasing } from '@arco-design/mobile-utils';
+const p = (Date.now() - start) / duration;
+if (p > 1) {
+     scrollTo(targetTop);
+} else {
+     const newTop = initTop + (targetTop - initTop) * bezierEasing(0.34, 0.69, 0.1, 1)(p);
+     scrollTo(newTop);
+}
 ```
 
 ## 类型

@@ -26,8 +26,8 @@ export const localeMap = {
         [LanguageSupport.EN]: 'Home',
     },
     Resource: {
-        [LanguageSupport.CH]: '资源',
-        [LanguageSupport.EN]: 'Resource',
+        [LanguageSupport.CH]: '工具函数',
+        [LanguageSupport.EN]: 'Tools',
     },
     DevelopmentResource: {
         [LanguageSupport.CH]: '开发资源',

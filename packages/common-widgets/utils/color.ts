@@ -330,6 +330,7 @@ export const w3cx11 = {
  * import { fadeColor } from '@arco-design/mobile-utils';
  *
  * const transparentColor = fadeColor('#ffffff');
+ * // transparentColor is '#ffffff00'
  * ```
  */
 export function fadeColor(color: string): string {

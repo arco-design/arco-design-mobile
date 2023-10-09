@@ -13,6 +13,7 @@
 ```
 import { cls } from '@arco-design/mobile-utils';
 <div className={cls('a', 'b', { ok: true })} />
+// result: <div class="a b ok"></div>
 ```
 
 ## 类型
@@ -64,7 +65,7 @@ function (...args: ClassNamesArg[]): string {
 
 > 输出
 
-{string} class字符串
+class字符串
 
 > ClassNamesArg
 

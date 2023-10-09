@@ -3,6 +3,7 @@
  * @desc {en} Get the operating system of the current device
  * @returns {string} 返回当前设备的操作系统，可能的值包括 'android'、'ios' 或 'pc'，如果无法获取，则返回空字符串
  * @returns {string} {en} Returns the operating system of the current device, possible values are 'android', 'ios', or 'pc'. Returns an empty string if it cannot be obtained
+ * @example
  * ```
  * import { getSystem } from '@arco-design/mobile-utils';
  *
@@ -115,6 +116,20 @@ export function isIPhoneX() {
     }
 }
 
+/**
+ * 检查是否在 SSR 环境
+ * @desc {en} Check if in ssr environment
+ * @example
+ * ```
+ * import { isSSR } from '@arco-design/mobile-utils';
+ *
+ * if (isSSR()) {
+ *     console.log("It is currently in the ssr stage");
+ * } else {
+ *     console.log("It is currently in the csr stage");
+ * }
+ * ```
+ */
 export function isSSR() {
     return typeof window === 'undefined';
 }

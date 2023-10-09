@@ -10,12 +10,13 @@ export type ClassNamesArg = string | string[] | { [key: string]: any } | undefin
  * 将传入的值转为class字符串
  * @param args 字符串，字符串数组，对象，undefined，null，boolean
  * @param args {en} string, string[], object, undefined, null, boolean
- * @returns {string} class字符串
- * @returns {string} {en} class string
+ * @returns class字符串
+ * @returns {en} class string
  * @example
  * import { cls } from '@arco-design/mobile-utils';
  *
  * <div className={cls('a', 'b', { ok: true })} />
+ * // result: <div class="a b ok"></div>
  */
 export default function (...args: ClassNamesArg[]): string {
     const { length } = args;
