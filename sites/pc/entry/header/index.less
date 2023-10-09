@@ -9,8 +9,9 @@
     height: 60px;
     display: flex;
     min-width: 1320px;
-    background: #FFF;
-    border-bottom: 1px solid #E5E6E8;
+    border-bottom: 1px solid;
+    .use-var(background-color, container-background-color);
+    .use-var(border-bottom-color, line-color);
     box-sizing: border-box;
     &-logo {
         display: flex;
@@ -23,7 +24,7 @@
             height: 32px;
             margin-right: 17px;
         }
-        img {
+        svg {
             max-height: 30px;
         }
     }
@@ -55,19 +56,19 @@
                 background-color: transparent;
                 border-color: transparent;
                 &:hover {
-                    background-color: #e5e6eb;
+                    .use-var(background-color, line-color);
                 }
                 svg {
-                    color: #86909c;
+                    .use-var(color, sub-info-font-color);
                 }
             }
         }
         .arco-input-inner-wrapper-focus.arco-input-inner-wrapper,
         .arco-search-input-open .arco-input-inner-wrapper {
             background-color: transparent;
-            border-color: rgb(#165dff);
+            .use-var(border-color, primary-color);
             svg {
-                color: #4e5969;
+                .use-var(color, sub-font-color);
             }
         }
         .arco-input-group-prefix {
@@ -77,12 +78,12 @@
             }
         }
         .arco-input-group-wrapper {
-            background: #f2f3f5;
+            .use-var(background-color, light-line-color);
         }
     }
     .highlight-word {
         font-weight: bold;
-        color: #165dff;
+        .use-var(color, primary-color);
     }
     .arcodesign-pc-search-title {
         font-size: 14px;
@@ -91,7 +92,7 @@
     }
     .arcodesign-pc-search-summary {
         font-size: 12px;
-        color: #4e5969;
+        .use-var(color, sub-font-color);
         padding: 12px 20px 4px 20px;
         font-weight: 400;
     }
@@ -102,7 +103,7 @@
         justify-content: center;
         font-size: 12px;
         font-weight: 400;
-        color: #4e5969;
+        .use-var(color, sub-font-color);
     }
     .arcodesign-pc-search-nodata {
         height: 100px;
@@ -118,7 +119,7 @@
     }
     .header-language-set {
         height: 27px;
-        color: #424E66;
+        .use-var(color, font-color);
         font-weight: 500;
         padding: 0 8px;
     }
@@ -132,13 +133,13 @@
                 position: relative;
                 padding: 3px 8px;
                 font-weight: 500;
-                color: #424E66;
+                .use-var(color, font-color);
                 font-size: 14px;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 &.active {
-                    color: @primary-color;
+                    .use-var(color, primary-color);
                     cursor: default;
                     &:after {
                         content: '';
@@ -147,20 +148,21 @@
                         right: 8px;
                         bottom: -18px;
                         height: 3px;
-                        background-color: @primary-color;
+                        .use-var(background-color, primary-color);
                     }
                 }
                 &:hover {
-                    background-color: #f2f3f5;
+                    .use-var(background-color, light-line-color);
                 }
             }
             &.language-item {
-                border-left: 1px solid #f1f1f1;
+                border-left: 1px solid;
+                .use-var(border-left-color, line-color);
                 margin-left: 14px;
             }
             a {
                 display: contents;
-                color: @primary-color;
+                .use-var(color, primary-color);
             }
             svg {
                 font-size: 22px;
@@ -178,7 +180,7 @@
                 height: 22px;
             }
             &.gitlab {
-                color: @primary-color;
+                .use-var(color, primary-color);
             }
         }
     }

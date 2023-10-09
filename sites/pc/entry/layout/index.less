@@ -10,6 +10,7 @@ body {
         position: relative;
         display: flex;
         height: 100%;
+        .use-var(background-color, background-color);
     }
     &-content {
         position: relative;
@@ -24,17 +25,19 @@ body {
         top: 0;
         width: 12px;
         height: 100vh;
-        background-color: #f7f8fa;
-        border-right: 1px solid #e5e6eb;
+        .use-var(background-color, card-background-color);
+        border-right: 1px solid;
+        .use-var(border-right-color, line-color);
         z-index: 1;
     }
     .arcodesign-pc-menu-collapse-btn {
         position: fixed;
         left: 247px;
         z-index: 2;
-        background-color: #FFF!important;
-        color: #4e5969;
-        border: 1px solid #e5e6eb!important;
+        .use-var(background-color, container-background-color);
+        .use-var(color, font-color);
+        border: 1px solid;
+        .use-var(border-color, line-color);
         box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
         transition: all .15s;
         svg {
@@ -57,7 +60,7 @@ body {
         display: flex;
     }
     .arco-timeline-item-dot {
-        background: @primary-color;
+        .use-var(background-color, primary-color);
     }
     .left {
         min-width: 100px;
@@ -67,12 +70,12 @@ body {
             font-size: 20px;
             line-height: 28px;
             font-weight: 500;
-            color: #1A2233;
+            .use-var(color, font-color);
         }
         p {
             font-size: 12px;
             line-height: 20px;
-            color: #86909c;
+            .use-var(color, sub-info-font-color);
             margin: 0;
         }
     }
@@ -81,7 +84,7 @@ body {
             font-weight: 500;
             font-size: 16px;
             line-height: 24px;
-            color: #1A2234;
+            .use-var(color, font-color);
             &:first-child {
                 margin-top: 0;
             }
@@ -91,10 +94,14 @@ body {
             li {
                 font-weight: 400;
                 line-height: 22px;
-                color: #424E66;
+                .use-var(color, sub-font-color);
                 line-height: 2;
                 word-wrap: break-word;
                 margin-bottom: 8px;
+
+                & > p {
+                    display: inline;
+                }
             }
         }
     }

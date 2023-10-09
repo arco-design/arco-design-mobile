@@ -46,8 +46,6 @@ body,
         top: 0;
         left: 0;
         z-index: 11;
-        background: #FFF url(../static/images/statusbar.png) no-repeat center center;
-        background-size: contain;
         & + .demo-content {
             .arcodesign-mobile-demo-nav {
                 height: 64px;
@@ -79,8 +77,9 @@ body,
 }
 
 .arcodesign-demo-logo {
-    .rem(padding, 52, 30, 40);
-    img {
+    .rem(padding, 52, 16, 40);
+    svg {
+        .rem(width, 200);
         .rem(height, 70);
     }
 }

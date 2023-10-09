@@ -5,7 +5,8 @@
     width: 260px;
     box-sizing: border-box;
     transition: all .15s;
-    border-right: 1px solid #e5e6eb;
+    border-right: 1px solid;
+    .use-var(border-right-color, line-color);
     opacity: 1;
     min-height: 1000px;
     flex-shrink: 0;
@@ -27,7 +28,7 @@
         box-sizing: border-box;
         cursor: pointer;
         text-align: center;
-        background: #FFF;
+        .use-var(background-color, container-background-color);
         .arco-radio-button-inner {
             width: 80px;
             text-align: center;
@@ -36,7 +37,7 @@
         }
         .arco-radio-checked {
             .arco-radio-button-inner {
-                color: @primary-color;
+                .use-var(color, primary-color);
             }
         }
     }
@@ -46,6 +47,7 @@
         padding-top: 20px;
         overflow-y: hidden;
         overflow-x: hidden;
+        .use-var(background-color, container-background-color);
         &:hover {
             overflow-y: auto;
         }
@@ -54,28 +56,22 @@
         }
         .arco-menu {
             padding-bottom: 30px;
+            background-color: transparent;
         }
         .arco-menu-inner {
             padding: 4px 12px;
         }
         .arco-menu-item {
-            color: #1A2234;
+            background-color: transparent;
             a {
                 display: block;
             }
         }
-        .arco-menu-item:hover,
-        .arco-menu-inline-header:hover {
-            background-color: #f7f8fa;
-            color: inherit;
+        .arco-menu-group-title {
+            background-color: transparent;
         }
-        .arco-menu-light .arco-menu-item.arco-menu-selected {
-            background-color: #f2f3f5;
-        }
-        .arco-menu-group {
-            .arco-menu-item.arco-menu-selected {
-                color: @primary-color;
-            }
+        .arco-menu-item.arco-menu-selected {
+            .use-var(background-color, card-background-color);
         }
         .arco-menu-item .arco-badge-dot {
             right: -4px;
@@ -85,11 +81,11 @@
             font-weight: bold;
             line-height: 24px;
             line-height: 40px;
-            color: #1A2234;
+            .use-var(color, font-color);
         }
         .arco-menu-group:not(.title-1)>.arco-menu-group-title>span {
             padding-left: 0!important;
-            color: #7A8499;
+            .use-var(color, sub-info-font-color);
         }
     }
 }

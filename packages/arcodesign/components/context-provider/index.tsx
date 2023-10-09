@@ -64,6 +64,7 @@ export const defaultContext: GlobalContextParams = {
 export const GlobalContext = createContext<GlobalContextParams>(defaultContext);
 
 export interface ContextProviderProps extends GlobalContextParams {
+    onDarkModeChange?: (isDark: boolean) => void;
     children: React.ReactNode;
 }
 
@@ -85,6 +86,7 @@ export default function ContextProvider(props: ContextProviderProps) {
         darkModeSelector = DEFAULT_DARK_MODE_SELECTOR,
         theme,
         locale = defaultLocale,
+        onDarkModeChange,
         ...restProps
     } = props;
 
@@ -94,6 +96,11 @@ export default function ContextProvider(props: ContextProviderProps) {
         }
         return false;
     });
+
+    const setDarkModeState = (isDark: boolean) => {
+        setIsDarkModeState(isDark);
+        onDarkModeChange && onDarkModeChange(isDark);
+    };
 
     const isDarkMode = useMemo(() => {
         // 如果未开启暗黑模式则不对body做操作
@@ -112,7 +119,7 @@ export default function ContextProvider(props: ContextProviderProps) {
     }, [userSetIsDarkMode, isDarkModeState, darkModeSelector, useDarkMode]);
 
     const changeDarkMode = useCallback(
-        (res: MediaQueryListEvent) => setIsDarkModeState(res.matches),
+        (res: MediaQueryListEvent) => setDarkModeState(res.matches),
         [],
     );
 
@@ -120,7 +127,7 @@ export default function ContextProvider(props: ContextProviderProps) {
         const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
         if (useDarkMode) {
             const dark = matchMedia.matches;
-            setIsDarkModeState(dark);
+            setDarkModeState(dark);
             if (typeof matchMedia.addEventListener === 'function') {
                 matchMedia.addEventListener('change', changeDarkMode);
             } else if (typeof matchMedia.addListener === 'function') {

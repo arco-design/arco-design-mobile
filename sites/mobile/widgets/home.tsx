@@ -8,6 +8,7 @@ import getUrlParam from '../../utils/getUrlParam';
 import { commonLocaleMap, LanguageSupport } from '../../utils/language';
 import { getMenuOrder } from '../../utils/menu';
 import { isFromDesignLab, sendDesignLabMessage } from '../../utils/designlab';
+import LogoPicture from '../../components/logo-pic';
 
 export function Arrow() {
     return (
@@ -71,10 +72,7 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
     return (
         <div className={`arcodesign-mobile-home-wrapper${hideHeader ? ' hide-header' : ''}`}>
             <div className="arcodesign-demo-logo">
-                <img
-                    src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/arco-mobile-home-logo.png"
-                    alt=""
-                />
+                <LogoPicture />
             </div>
             {Object.keys(actualRoutes).map((type, menuIndex) => (
                 <div className="arcodesign-demo-menu" key={menuIndex}>
