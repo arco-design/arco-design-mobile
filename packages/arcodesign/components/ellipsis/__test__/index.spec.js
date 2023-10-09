@@ -1,5 +1,6 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import React, { createRef } from 'react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
@@ -39,26 +40,43 @@ export function EllipsisDemo() {
             }}
         />
     );
-
 }
 
 describe('Ellipsis style', () => {
     it('Text multi-line omission renders correctly', () => {
-        const wrapper = mount(
+        const { container } = render(
             <Ellipsis text={text} maxLine={2}/>
         );
-        expect(wrapper.find(`.${prefix}-native.ellipsis`).props().style.WebkitLineClamp).toBe(2);
+        expect(container.querySelector(`.${prefix}-native.ellipsis`).style.WebkitLineClamp).toBe('2');
     });
 })
 
 describe('Ellipsis action', () => {
     it('Text multi-line omission renders correctly', () => {
-        const wrapper = mount(
+        const { container } = render(
             <EllipsisDemo />
         );
-        wrapper.find('.display').simulate('click');
-        expect(wrapper.find('.hide').text()).toEqual('收起');
-        wrapper.find('.hide').simulate('click');
-        expect(wrapper.find('.hide').length).toBe(0);
+        const ellipsisBtn = screen.getByText('display');
+        userEvent.click(ellipsisBtn);
+        const hideEllipsisBtn = container.querySelector('.hide');
+        expect(hideEllipsisBtn.textContent).toBe('收起');
+        userEvent.click(hideEllipsisBtn);
+        expect(container.querySelector(`.${prefix}-js-content-ellipsis`).style.display).toBe('none');
+    });
+
+    it('DangerousInnerHTML render correctly', async() => {
+        const ref = createRef();
+        const htmlText = `This wasn't the first time ''natural'' sounds had been used in <a class="demo-link-line">musical compositions</a>; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing`;
+        jest.spyOn(window, 'getComputedStyle').mockImplementation(() => ({
+            getPropertyValue: () => 'normal'
+        }));
+        const { container } = render(<Ellipsis text={htmlText} dangerouslyUseInnerHTML maxLine={2} ref={ref} onReflow={() => {}} />);
+        const child = container.querySelector(`.${prefix}-js`);
+        Object.defineProperty(child, 'getBoundingClientRect', {
+            value: jest.fn(() => ({ height: 60 })),
+        });
+        ref.current.reflow();
+        expect(container.querySelectorAll(`.${prefix}-js-content-text`).length).toEqual(1);
+        expect(container.querySelector(`.${prefix}-js-content-ellipsis`).style.display).toBe('inline');
     });
 })

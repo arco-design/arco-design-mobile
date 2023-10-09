@@ -153,16 +153,36 @@ exports[`ellipsis demo test ellipsis demo: rich-text.md renders correctly 1`] = 
     class="arco-ellipsis"
   >
     <div
-      class="arco-ellipsis-native ellipsis"
+      class="arco-ellipsis-js"
     >
-      <span>
-        This wasn't the first time ''natural'' sounds had been used in 
+      <span
+        class="arco-ellipsis-js-content"
+      >
+        <span
+          class="arco-ellipsis-js-content-text"
+        >
+          This wasn't the first time ''natural'' sounds had been used in 
+        </span>
         <a
           class="demo-link-line"
         >
-          musical compositions
+          <span
+            class="arco-ellipsis-js-content-text"
+          >
+            musical compositions
+          </span>
         </a>
-        ; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing.
+        <span
+          class="arco-ellipsis-js-content-text"
+        >
+          ; that sort of thing had been going on at least as far back as the 19th century, and the surrealists and futurists of the 1920s and 1930s were way into this kind of thing
+        </span>
+      </span>
+      <span
+        class="arco-ellipsis-js-content-ellipsis"
+        style="display: inline;"
+      >
+        ...
       </span>
     </div>
   </div>
