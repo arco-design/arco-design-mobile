@@ -516,3 +516,40 @@
 |@width|元素总宽度，包含内边距|string|必填|
 |@padding-left|左侧内边距|string|必填|
 |@padding-right|右侧内边距|string|必填|
+
+------
+
+# .set-steps-color-var
+
+设置Steps组件颜色
+
+======
+
+## 示例
+
+```
+@import '@arco-design/mobile-react/style/mixin.less';
+.demo {
+    .set-steps-color-var(primary-color, lighter-primary-color);
+}
+```
+
+## 源码
+
+```
+.set-steps-color-var(@color, @finish-color) {
+    .set-steps-color(@@color, @@finish-color);
+    & when (@use-css-vars = 1) {
+        .set-steps-color(var(~"--@{color}", @@color), var(~"--@{finish-color}", @@finish-color));
+    }
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|@color|使用css变量设置主颜色|string|必填|
+|@finish-color|使用css变量设置已完成步骤的颜色|string|必填|

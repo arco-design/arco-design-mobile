@@ -17,14 +17,14 @@ export interface ArcodesignToken extends Record<string, string> {
     'dark-sub-info-font-color': string;
     'line-color': string;
     'dark-line-color': string;
-    'light-line-color': string;
-    'dark-light-line-color': string;
+    'lighter-line-color': string;
+    'dark-lighter-line-color': string;
     'primary-color': string;
     'dark-primary-color': string;
     'primary-disabled-color': string;
     'dark-primary-disabled-color': string;
-    'light-primary-color': string;
-    'dark-light-primary-color': string;
+    'lighter-primary-color': string;
+    'dark-lighter-primary-color': string;
     'danger-color': string;
     'dark-danger-color': string;
     'warning-color': string;
@@ -406,7 +406,9 @@ export interface ArcodesignToken extends Record<string, string> {
     'picker-view-cell-height': string;
     'picker-view-wrapper-height': string;
     'picker-view-mask-top-background': string;
+    'dark-picker-view-mask-top-background': string;
     'picker-view-mask-bottom-background': string;
+    'dark-picker-view-mask-bottom-background': string;
     'dark-picker-view-selection-border-color': string;
     'picker-view-selection-border-color': string;
     'picker-wrapper-shadow': string;
@@ -932,8 +934,8 @@ export interface ArcodesignToken extends Record<string, string> {
     'index-bar-group-active-color': string;
     'index-bar-group-left-spacing': string;
     'index-bar-group-title-height': string;
-    'dark-index-bar-group-title-background': string;
     'index-bar-group-title-background': string;
+    'dark-index-bar-group-title-background': string;
     'dark-index-bar-group-title-font-color': string;
     'index-bar-group-title-font-color': string;
     'index-bar-group-title-font-size': string;

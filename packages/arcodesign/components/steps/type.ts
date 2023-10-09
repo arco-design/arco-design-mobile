@@ -34,7 +34,7 @@ export interface StepsProps {
     className?: string;
     /**
      * 自定义样式，如果想用 css 控制 icon 颜色，可使用公共 mixin '.set-steps-color(@color)'
-     * @en Custom stylesheet. If want to use CSS to control icon color, use public mixin ' set-steps-color(@color)'
+     * @en Custom stylesheet. If want to use CSS to control icon color, use public mixin '.set-steps-color(@color)'
      */
     style?: React.CSSProperties;
     /**

@@ -82,6 +82,7 @@ body {
             margin: 12px 0;
             font-size: 14px;
             line-height: 1.5;
+            .use-var(color, sub-font-color);
         }
 
         li {
@@ -92,7 +93,7 @@ body {
             font-family: Menlo, Consolas;
             font-size: 12px;
             .use-var(color, sub-font-color);
-            .use-var(background-color, light-line-color);
+            .use-var(background-color, lighter-line-color);
             border-radius: 3px;
             line-height: 1.45;
             padding: 24px;
@@ -115,7 +116,7 @@ body {
 
         h2 > code,
         p > code {
-            .use-var(background-color, light-line-color);
+            .use-var(background-color, lighter-line-color);
             .use-var(color, sub-font-color);
             border-radius: 2px;
             padding: 3px 8px;
@@ -205,7 +206,7 @@ body {
                 margin-top: 24px;
 
                 thead {
-                    .use-var(background-color, light-line-color);
+                    .use-var(background-color, lighter-line-color);
 
                     th {
                         font-weight: 500;
@@ -284,7 +285,7 @@ body {
         .demo-desc code,
         td code {
             // 描述文字中的内嵌code
-            .use-var(background-color, light-line-color);
+            .use-var(background-color, lighter-line-color);
             padding: 0 8px;
             font-size: 13px;
             display: inline-block;

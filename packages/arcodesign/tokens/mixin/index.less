@@ -347,3 +347,25 @@
     }
 }
 
+/**
+ * 设置Steps组件颜色
+ * @desc {en} set Steps component color
+ * @param @color 使用css变量设置主颜色
+ * @param @color {en} set main step color by CSS variable
+ * @param @finish-color 使用css变量设置已完成步骤的颜色
+ * @param @finish-color {en} set finished step color by CSS variable
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-steps-color-var(primary-color, lighter-primary-color);
+ * }
+ * ```
+ */
+.set-steps-color-var(@color, @finish-color) {
+    .set-steps-color(@@color, @@finish-color);
+    & when (@use-css-vars = 1) {
+        .set-steps-color(var(~"--@{color}", @@color), var(~"--@{finish-color}", @@finish-color));
+    }
+}
