@@ -10,6 +10,7 @@ import { HistoryContext } from '../context';
 import { localeMap } from '../../../utils/locale';
 import toQuery, { parseUrlQuery } from '../../../utils/toQuery';
 import './index.less';
+import Footer from '../footer';
 
 const AnchorLink = Anchor.Link;
 const urlQuery = parseUrlQuery();
@@ -181,7 +182,10 @@ export default function Demo(props: IDemoProps) {
 
     return (
         <Layout name={name} type={type} language={language}>
-            {doc}
+            <div className="demo-content-wrapper">
+                {doc}
+                <Footer />
+            </div>
             {needShowIframe && (
                 <div className="mobile-iframe">
                     <iframe src={getIframeSrc()} title="mobile sites" key={name} />

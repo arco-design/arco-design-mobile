@@ -2,6 +2,7 @@
 
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 .arcodesign-pc-site {
@@ -12,6 +13,8 @@ body {
         height: 100%;
     }
     &-content {
+        overflow-y: scroll;
+        height: 100vh;
         position: relative;
         display: flex;
         padding-top: 60px;
@@ -28,15 +31,18 @@ body {
         border-right: 1px solid #e5e6eb;
         z-index: 1;
     }
+    .ac-anchor-layout-holder {
+        height: 0;
+    }
     .arcodesign-pc-menu-collapse-btn {
         position: fixed;
         left: 247px;
         z-index: 2;
-        background-color: #FFF!important;
+        background-color: #fff !important;
         color: #4e5969;
-        border: 1px solid #e5e6eb!important;
-        box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
-        transition: all .15s;
+        border: 1px solid #e5e6eb !important;
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+        transition: all 0.15s;
         svg {
             vertical-align: -2px;
         }
@@ -67,7 +73,7 @@ body {
             font-size: 20px;
             line-height: 28px;
             font-weight: 500;
-            color: #1A2233;
+            color: #1a2233;
         }
         p {
             font-size: 12px;
@@ -81,7 +87,7 @@ body {
             font-weight: 500;
             font-size: 16px;
             line-height: 24px;
-            color: #1A2234;
+            color: #1a2234;
             &:first-child {
                 margin-top: 0;
             }
@@ -91,7 +97,7 @@ body {
             li {
                 font-weight: 400;
                 line-height: 22px;
-                color: #424E66;
+                color: #424e66;
                 line-height: 2;
                 word-wrap: break-word;
                 margin-bottom: 8px;

@@ -4,4 +4,5 @@ interface Window {
 }
 
 declare module 'arco';
+declare module 'fuse';
 declare module '*.json';

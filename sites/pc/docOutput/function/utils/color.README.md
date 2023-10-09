@@ -1,9 +1,31 @@
-/**
- * @type utils
- * @name color
- */
+### utils color
 
-export const w3cx11 = {
+------
+
+# fadeColor
+
+获取任意颜色的透明色
+
+======
+
+## 示例
+
+```
+import { fadeColor } from '@arco-design/mobile-utils';
+const transparentColor = fadeColor('#ffffff');
+// transparentColor is '#ffffff00'
+```
+
+## 类型
+
+```
+(color: string) => string
+```
+
+## 源码
+
+```
+const w3cx11 = {
     aliceblue: '#f0f8ff',
     antiquewhite: '#faebd7',
     aqua: '#00ffff',
@@ -160,22 +182,8 @@ export const w3cx11 = {
     yellow: '#ffff00',
     yellowgreen: '#9acd32',
 };
-
-/**
- * 获取任意颜色的透明色
- * @desc {en} Get any transparent color
- * @param color 颜色
- * @param color {en} color
- * @returns transparent color
- * @example
- * ```
- * import { fadeColor } from '@arco-design/mobile-utils';
- *
- * const transparentColor = fadeColor('#ffffff');
- * // transparentColor is '#ffffff00'
- * ```
- */
-export function fadeColor(color: string): string {
+ 
+function fadeColor(color: string): string {
     if (!color) {
         return '';
     }
@@ -190,3 +198,16 @@ export function fadeColor(color: string): string {
     }
     return '';
 }
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|color|颜色|string|必填|
+
+> 输出
+
+transparent color
