@@ -5,7 +5,9 @@
     .use-var(font-size, stepper-font-size);
 
     &.@{prefix}-square {
-        .use-var(border, stepper-square-border);
+        border-width: 1PX;
+        border-style: solid;
+        .use-var(border-color, stepper-square-border-color);
         .use-var(border-radius, stepper-square-border-radius);
 
         .@{prefix}-stepper {
@@ -15,8 +17,11 @@
                 .use-var(background, stepper-square-background-color);
             }
             &-input {
-                .use-var(border-left, stepper-square-border);
-                .use-var(border-right, stepper-square-border);
+                border-left-width: 1PX;
+                border-right-width: 1PX;
+                border-style: solid;
+                .use-var(border-left-color, stepper-square-border-color);
+                .use-var(border-right-color, stepper-square-border-color);
             }
         }
     }

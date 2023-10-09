@@ -11,7 +11,7 @@ Display the progress of a task, or guide users to complete a complex task.
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
 |className|Custom classname|string|-|
-|style|Custom stylesheet\. If want to use CSS to control icon color, use public mixin ' set\-steps\-color(|CSSProperties|-|
+|style|Custom stylesheet\. If want to use CSS to control icon color, use public mixin '\.set\-steps\-color(|CSSProperties|-|
 |direction|Step bar direction|"vertical" \| "horizontal"|horizontal|
 |align|Step alignment|"center" \| "start"|"center" when direction="horizontal" and "start" when direction="vertical"|
 |current|Specify the current step, counting from 0\. In the step children elements, the status can be overwritten through the status, and it is controlled if it is input|number|-|

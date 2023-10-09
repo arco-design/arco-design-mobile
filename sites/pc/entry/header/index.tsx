@@ -9,6 +9,7 @@ import { HistoryContext } from '../context';
 import { IMenu } from '../layout';
 import { localeMap } from '../../../utils/locale';
 import searchResource from '../../pages/resource/search.json';
+import LogoPicture from '../../../components/logo-pic';
 import './index.less';
 
 const options = {
@@ -20,7 +21,6 @@ const options = {
 const fuse = new Fuse(searchResource, options);
 
 const { OptGroup, Option } = AutoComplete;
-const logo = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/arco-design/arco-logo.svg';
 
 type ChildrenItem = {
     name: string;
@@ -30,6 +30,8 @@ type ChildrenItem = {
 interface IHeaderProps {
     menu: IMenu;
     language: LanguageSupport;
+    mode: 'light' | 'dark';
+    setMode: (mode: 'light' | 'dark') => void;
     setLanguage: (language: LanguageSupport) => void;
     getSiteContentRef: () => HTMLDivElement | null;
 }
@@ -61,7 +63,7 @@ type IFunctionList = Record<
 
 export default function Header(props: IHeaderProps) {
     const history = useContext(HistoryContext);
-    const { menu, setLanguage, language, getSiteContentRef } = props;
+    const { menu, setLanguage, language, getSiteContentRef, mode, setMode } = props;
     const [value, setValue] = useState('');
     const [list, setList] = useState<List | number[]>([]);
     const [functionList, setFunctionList] = useState<IFunctionList>({});
@@ -370,7 +372,7 @@ export default function Header(props: IHeaderProps) {
         <div className="arcodesign-pc-header">
             <div className="arcodesign-pc-header-logo">
                 <a href={getUrlsByLanguage(language).HOME}>
-                    <img src={logo} className="arcodesign-pc-header-logo-pic" />
+                    <LogoPicture />
                 </a>
             </div>
             <div className="arcodesign-pc-header-content" ref={contentDom}>
@@ -436,6 +438,62 @@ export default function Header(props: IHeaderProps) {
                                     </div>
                                 </div>
                             ))}
+                            <div className="arcodesign-pc-header-tabs-item">
+                                <div
+                                    className="arcodesign-pc-header-tabs-item-inner darkmode"
+                                    onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}
+                                >
+                                    <Tooltip
+                                        content={
+                                            mode === 'dark'
+                                                ? localeMap.SwitchToLightMode[language]
+                                                : localeMap.SwitchToDarkMode[language]
+                                        }
+                                        position="br"
+                                    >
+                                        {mode === 'dark' ? (
+                                            <svg
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="4"
+                                                viewBox="0 0 48 48"
+                                                width="1em"
+                                                height="1em"
+                                                className="arco-icon arco-icon-moon-fill"
+                                            >
+                                                <path
+                                                    fill="currentColor"
+                                                    stroke="none"
+                                                    d="M42.108 29.769c.124-.387-.258-.736-.645-.613A17.99 17.99 0 0 1 36 30c-9.941 0-18-8.059-18-18 0-1.904.296-3.74.844-5.463.123-.387-.226-.768-.613-.645C10.558 8.334 5 15.518 5 24c0 10.493 8.507 19 19 19 8.482 0 15.666-5.558 18.108-13.231z"
+                                                />
+                                            </svg>
+                                        ) : (
+                                            <svg
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="4"
+                                                viewBox="0 0 48 48"
+                                                width="1em"
+                                                height="1em"
+                                                className="arco-icon arco-icon-sun-fill"
+                                            >
+                                                <circle
+                                                    cx="24"
+                                                    cy="24"
+                                                    r="9"
+                                                    fill="currentColor"
+                                                    stroke="none"
+                                                />
+                                                <path
+                                                    fill="currentColor"
+                                                    stroke="none"
+                                                    d="M21 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5zM21 37.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5zM42.5 21a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5a.5.5 0 0 1 .5-.5h5zM10.5 21a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5a.5.5 0 0 1 .5-.5h5zM39.203 34.96a.5.5 0 0 1 0 .707l-3.536 3.536a.5.5 0 0 1-.707 0l-3.535-3.536a.5.5 0 0 1 0-.707l3.535-3.535a.5.5 0 0 1 .707 0l3.536 3.535zM16.575 12.333a.5.5 0 0 1 0 .707l-3.535 3.535a.5.5 0 0 1-.707 0L8.797 13.04a.5.5 0 0 1 0-.707l3.536-3.536a.5.5 0 0 1 .707 0l3.535 3.536zM13.04 39.203a.5.5 0 0 1-.707 0l-3.536-3.536a.5.5 0 0 1 0-.707l3.536-3.535a.5.5 0 0 1 .707 0l3.536 3.535a.5.5 0 0 1 0 .707l-3.536 3.536zM35.668 16.575a.5.5 0 0 1-.708 0l-3.535-3.535a.5.5 0 0 1 0-.707l3.535-3.536a.5.5 0 0 1 .708 0l3.535 3.536a.5.5 0 0 1 0 .707l-3.535 3.535z"
+                                                />
+                                            </svg>
+                                        )}
+                                    </Tooltip>
+                                </div>
+                            </div>
                             <div
                                 className="arcodesign-pc-header-tabs-item language-item"
                                 key="language"

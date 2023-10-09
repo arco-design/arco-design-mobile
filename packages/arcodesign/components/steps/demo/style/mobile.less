@@ -4,7 +4,7 @@
 
     .divide {
         .rem(height, 8);
-        background: #f7f8fa;
+        .use-var(background, card-background-color);
     }
     .@{prefix}-steps-item-custom-icon {
 
@@ -23,12 +23,11 @@
     }
 
     #demo-order-8 {
-
         .demo-svg {
             .@{prefix}-steps-item-custom-icon {
                 border-radius: 50%;
             }
-            .set-steps-color(#165DFF);
+            .set-steps-color-var(primary-color, lighter-primary-color);
             .@{prefix}-steps-item-custom-icon {
                 font-size: 11PX;
             }

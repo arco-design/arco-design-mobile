@@ -10,6 +10,7 @@ import { HistoryContext } from '../context';
 import { localeMap } from '../../../utils/locale';
 import toQuery, { parseUrlQuery } from '../../../utils/toQuery';
 import './index.less';
+import useMode from '../../../utils/useMode';
 import Footer from '../footer';
 
 const AnchorLink = Anchor.Link;
@@ -47,6 +48,7 @@ export default function Demo(props: IDemoProps) {
     const hideBack = getUrlParam('hide_back');
     const history = useContext(HistoryContext);
     const [anchorCollapse, setAnchorCollapse] = useState(window.innerWidth <= 1440);
+    const { mode, setMode } = useMode();
 
     useEffect(() => {
         // 强制组件渲染qrcode组件
@@ -181,14 +183,19 @@ export default function Demo(props: IDemoProps) {
     }, []);
 
     return (
-        <Layout name={name} type={type} language={language}>
+        <Layout name={name} type={type} language={language} mode={mode} setMode={setMode}>
             <div className="demo-content-wrapper">
                 {doc}
                 <Footer />
             </div>
             {needShowIframe && (
                 <div className="mobile-iframe">
-                    <iframe src={getIframeSrc()} title="mobile sites" key={name} />
+                    <iframe
+                        id="mobile-iframe"
+                        src={getIframeSrc()}
+                        title="mobile sites"
+                        key={name}
+                    />
                 </div>
             )}
             {update && doc && !isIcon && renderCodePopover()}

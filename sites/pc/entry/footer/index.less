@@ -1,16 +1,18 @@
+@import '../../../../packages/arcodesign/style/mixin.less';
+
 .arcodesign-pc-site-footer {
     display: flex;
     align-items: center;
     height: 60px;
     width: 100%;
-    background: #f7f8fa;
+    .use-var(background-color, card-background-color);
     font-size: 14px;
-    &-logo {
+    .arco-logo-picture {
         margin-left: 48px;
         margin-right: 20px;
     }
     &-team {
-        color: #1d2129;
+        .use-var(color, font-color);
         &-right {
             font-size: 12px;
             transform: scale(0.8);
@@ -23,6 +25,6 @@
     &-copyright {
         font-size: 12px;
         margin-top: 2px;
-        color: #4e5969;
+        .use-var(color, sub-font-color);
     }
 }

@@ -822,14 +822,14 @@
 ```
 @import '@arco-design/mobile-utils/style/mixin.less';
 .demo {
-    .set-steps-color(primary-color);
+    .set-steps-color(#FFB400);
 }
 ```
 
 ## 源码
 
 ```
-.set-steps-color(@color) {
+.set-steps-color(@color, @finish-color: fade(@color, 10%)) {
     .process-bg-color-with-config,
     .process-custom-icon-bg-color-with-config {
         background: @color;
@@ -837,7 +837,7 @@
     }
     .finish-bg-color-with-config,
     .finish-custom-icon-bg-color-with-config {
-        background: fade(@color, 10%);
+        background: @finish-color;
         color: @color;
         svg {
             color: inherit;
@@ -866,3 +866,4 @@
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |@color|当前步骤背景、标题文本颜色|string|必填|
+|@finish-color|已完成步骤背景色|string|-|

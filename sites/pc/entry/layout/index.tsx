@@ -13,6 +13,7 @@ import { LanguageSupport } from '../../../utils/language';
 import { getMenuOrder } from '../../../utils/menu';
 import { localeMap } from '../../../utils/locale';
 import './index.less';
+import { ContextProvider } from '../../../../packages/arcodesign/components';
 import { getPathname } from '../../../utils/url';
 
 type Items = {
@@ -59,6 +60,8 @@ export interface ILayoutProps {
     name: string;
     type: 'readme' | 'doc';
     language?: LanguageSupport;
+    mode: 'light' | 'dark';
+    setMode: (mode: 'light' | 'dark') => void;
 }
 const menuItemsMap = {
     [LanguageSupport.CH]: {
@@ -129,7 +132,14 @@ function initMenu(language: LanguageSupport, pathname: string) {
 }
 
 export default function Layout(props: ILayoutProps) {
-    const { children, name, type, language: defaultLanguage = LanguageSupport.CH } = props;
+    const {
+        children,
+        name,
+        type,
+        language: defaultLanguage = LanguageSupport.CH,
+        mode,
+        setMode,
+    } = props;
     const [menuCollapse, setMenuCollapse] = useState(false);
     const [navHeight, setNavHeight] = useState(241);
     const [language, setLanguage] = useState(defaultLanguage);
@@ -156,61 +166,70 @@ export default function Layout(props: ILayoutProps) {
         setNavHeight(el?.clientHeight ? el.clientHeight + 47 : 241);
     }, [children]);
     return (
-        <div className="arcodesign-pc-site">
-            <div className="arcodesign-pc-site-header">
-                <Header
-                    getSiteContentRef={getSiteContentRef}
-                    menu={menu}
-                    language={language}
-                    setLanguage={setLanguage}
-                />
-            </div>
-            <div className="arcodesign-pc-site-content-wrap">
-                <div
-                    className="arcodesign-pc-menu"
-                    style={{
-                        width: menuCollapse ? 0 : 260,
-                        opacity: menuCollapse ? 0 : 1,
-                    }}
-                >
-                    <Nav
+        <ContextProvider
+            useDarkMode
+            isDarkMode={mode === 'dark'}
+            onDarkModeChange={isDark => setMode(isDark ? 'dark' : 'light')}
+        >
+            <div className="arcodesign-pc-site">
+                <div className="arcodesign-pc-site-header">
+                    <Header
+                        getSiteContentRef={getSiteContentRef}
                         menu={menu}
-                        name={name}
                         language={language}
-                        style={menuCollapse ? { display: 'none' } : {}}
+                        setLanguage={setLanguage}
+                        mode={mode}
+                        setMode={setMode}
                     />
                 </div>
-
-                <div
-                    ref={siteContentRef}
-                    className={`arcodesign-pc-site-content ${type === 'readme' ? 'readme' : ''}`}
-                >
-                    {menuCollapse && <div className="arcodesign-pc-menu-holder" />}
-                    <Button
-                        shape="circle"
-                        size="mini"
-                        className={`arcodesign-pc-menu-collapse-btn ${
-                            menuCollapse ? 'arcodesign-pc-menu-collapse-btn-close' : ''
-                        }`}
-                        style={{ top: `${navHeight}px` }}
-                        icon={
-                            <svg width="13" height="12">
-                                <g fill="none" fillRule="evenodd">
-                                    <path d="M.19 0h12v12h-12z" />
-                                    <path
-                                        d="M7.797 2.243l.536.536L5.11 6l3.222 3.222-.536.536-3.75-3.75.007-.008-.007-.006 3.75-3.75z"
-                                        fill="#1d2129"
-                                    />
-                                </g>
-                            </svg>
-                        }
-                        onClick={() => {
-                            setMenuCollapse(!menuCollapse);
+                <div className="arcodesign-pc-site-content-wrap">
+                    <div
+                        className="arcodesign-pc-menu"
+                        style={{
+                            width: menuCollapse ? 0 : 260,
+                            opacity: menuCollapse ? 0 : 1,
                         }}
-                    />
-                    {children}
+                    >
+                        <Nav
+                            menu={menu}
+                            name={name}
+                            language={language}
+                            style={menuCollapse ? { display: 'none' } : {}}
+                        />
+                    </div>
+                    <div
+                        ref={siteContentRef}
+                        className={`arcodesign-pc-site-content ${
+                            type === 'readme' ? 'readme' : ''
+                        }`}
+                    >
+                        {menuCollapse && <div className="arcodesign-pc-menu-holder" />}
+                        <Button
+                            shape="circle"
+                            size="mini"
+                            className={`arcodesign-pc-menu-collapse-btn ${
+                                menuCollapse ? 'arcodesign-pc-menu-collapse-btn-close' : ''
+                            }`}
+                            style={{ top: `${navHeight}px` }}
+                            icon={
+                                <svg width="13" height="12">
+                                    <g fill="none" fillRule="evenodd">
+                                        <path d="M.19 0h12v12h-12z" />
+                                        <path
+                                            d="M7.797 2.243l.536.536L5.11 6l3.222 3.222-.536.536-3.75-3.75.007-.008-.007-.006 3.75-3.75z"
+                                            fill="currentColor"
+                                        />
+                                    </g>
+                                </svg>
+                            }
+                            onClick={() => {
+                                setMenuCollapse(!menuCollapse);
+                            }}
+                        />
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </ContextProvider>
     );
 }

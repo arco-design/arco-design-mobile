@@ -6,7 +6,7 @@
 import { SearchBar, Radio, Toast } from '@arco-design/mobile-react';
 import { useEffect, useState } from 'react';
 
-const style = { padding: 16, backgroundColor: 'white' };
+const style = { padding: 16 };
 const options = [
     { label: 'square', value: 'square' },
     { label: 'round', value: 'round' },

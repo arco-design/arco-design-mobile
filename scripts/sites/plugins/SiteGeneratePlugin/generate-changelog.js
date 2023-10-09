@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const { marked } = require('marked');
 const utils = require('../../../utils');
 const localeMap = require('../../../utils/language.json');
 
@@ -47,6 +48,7 @@ function generateChangelog(filePath, outputPath, language = 'ch') {
         return previous;
     }, []);
 
+    const renderer = new marked.Renderer();
     const emoji = {
         Bugfix: '🛠',
         Features: '💠️ '
@@ -84,7 +86,7 @@ export default function ChangelogFile() {
                                         return (
                                             `<h3>${emoji[item]} ${item}</h3>
                                         <ul>
-                                            ${changelog[item].map(log => `<li>• ${log}</li>`)}
+                                            ${changelog[item].map(log => `<li>• ${marked(log, { renderer })}</li>`)}
                                         </ul>`
                                         )
                                     })}

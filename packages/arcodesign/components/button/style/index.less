@@ -2,8 +2,6 @@
 
 @size-map: huge, large, medium, small, mini;
 
-@type-map: primary, default, ghost;
-
 .button-has-border(@color) {
     .use-var(border, @color, 1PX solid);
     &.half-border {
@@ -61,7 +59,50 @@
         display: inline-block;
     }
 
-    .set-button-type(length(@type-map));
+    &&-type-primary {
+        .use-var(background, button-primary-background);
+        .use-var(color, button-primary-text-color);
+        &-disabled {
+            .use-var(background, button-primary-disabled-background);
+            .use-var(color, button-primary-disabled-text-color)
+        }
+        &-active {
+            .use-var(background, button-primary-clicked-background);
+        }
+    }
+    &-type-primary {
+        .set-loading-color-var(button-primary-text-color);
+    }
+
+    &&-type-default {
+        .use-var(background, button-default-background);
+        .use-var(color, button-default-text-color);
+        &-disabled {
+            .use-var(background, button-default-disabled-background);
+            .use-var(color, button-default-disabled-text-color)
+        }
+        &-active {
+            .use-var(background, button-default-clicked-background);
+        }
+    }
+    &-type-default {
+        .set-loading-color-var(button-default-text-color);
+    }
+
+    &&-type-ghost {
+        .use-var(background, button-ghost-background);
+        .use-var(color, button-ghost-text-color);
+        &-disabled {
+            .use-var(background, button-ghost-disabled-background);
+            .use-var(color, button-ghost-disabled-text-color)
+        }
+        &-active {
+            .use-var(background, button-ghost-clicked-background);
+        }
+    }
+    &-type-ghost {
+        .set-loading-color-var(button-ghost-text-color);
+    }
 
     &&-type-ghost {
         .button-has-border-value(currentColor);
@@ -95,28 +136,6 @@
     &.has-custom-border {
         border: 1PX solid;
     }
-}
-
-
-.set-button-type(@index) when (@index > 0) {
-    @type: extract(@type-map, @index);
-
-    &&-type-@{type} {
-        .use-var(background, 'button-@{type}-background');
-        .use-var(color, 'button-@{type}-text-color');
-        &-disabled {
-            .use-var(background, 'button-@{type}-disabled-background');
-            .use-var(color, 'button-@{type}-disabled-text-color')
-        }
-        &-active {
-            .use-var(background, 'button-@{type}-clicked-background');
-        }
-    }
-    &-type-@{type} {
-        .set-loading-color-var('button-@{type}-text-color');
-    }
-
-    .set-button-type(@index - 1);
 }
 
 .set-button-size(@index) when (@index > 0) {
