@@ -1,7 +1,7 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'arco';
-import { IMenu } from '../layout';
+import { IMenu, ResChildren } from '../layout';
 import { LanguageSupport } from '../../../utils/language';
 import RadioBox from './radio';
 import './index.less';
@@ -61,6 +61,29 @@ export default function Nav(props: INavProps) {
                                     })}
                                 </MenuItemGroup>
                             );
+                        }
+                        if (_group.key === 'resource') {
+                            const resourceChildren = _group.children as ResChildren;
+                            return Object.keys(resourceChildren).map((category, i) => (
+                                <MenuItemGroup key={i} title={category} className="title-1">
+                                    {Object.keys(resourceChildren[category]).map(type => {
+                                        const item = resourceChildren[category][type];
+                                        return (
+                                            <MenuItemGroup className="title-2" key={i} title={type}>
+                                                {item.map(ele => (
+                                                    <MenuItem key={ele.key}>
+                                                        <Link
+                                                            to={`${langPath}/${_group.key}/${ele.key}`}
+                                                        >
+                                                            {ele.name}
+                                                        </Link>
+                                                    </MenuItem>
+                                                ))}
+                                            </MenuItemGroup>
+                                        );
+                                    })}
+                                </MenuItemGroup>
+                            ));
                         }
                         return (
                             <MenuItemGroup key={_group.key} title={_group.name} className="title-1">

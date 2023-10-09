@@ -89,7 +89,7 @@ body {
         }
 
         .demo-code-content {
-            font-family: Menlo,Consolas;
+            font-family: Menlo, Consolas;
             font-size: 12px;
             .use-var(color, sub-font-color);
             .use-var(background-color, light-line-color);
@@ -134,8 +134,10 @@ body {
         width: 100%;
 
         .demo-code-wrapper {
-
             .demo-code-title {
+                &:nth-child(n + 2) {
+                    margin-top: 24px;
+                }
                 font-size: 20px;
                 margin-bottom: 12px;
                 font-weight: 500;
@@ -166,7 +168,7 @@ body {
                     overflow-y: hidden;
                     font-size: 13px;
                     line-height: 22px;
-                    font-family: Menlo,Consolas;
+                    font-family: Menlo, Consolas;
                     box-sizing: border-box;
                     white-space: pre-wrap;
                 }
@@ -234,7 +236,6 @@ body {
                 }
 
                 th {
-
                     &.props-names {
                         width: 22%;
                     }
@@ -265,7 +266,7 @@ body {
             code {
                 line-height: 22px;
                 font-size: 13px;
-                font-family: Menlo,Consolas;
+                font-family: Menlo, Consolas;
                 white-space: pre-wrap;
                 word-break: normal;
             }
@@ -320,7 +321,6 @@ body {
 }
 
 .arco-menu-group .arco-menu-group-title {
-
     .arco-menu-indent {
         width: 0;
     }

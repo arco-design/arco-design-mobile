@@ -2,6 +2,7 @@
 
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 .arcodesign-pc-site {
@@ -13,6 +14,8 @@ body {
         .use-var(background-color, background-color);
     }
     &-content {
+        overflow-y: scroll;
+        height: 100vh;
         position: relative;
         display: flex;
         padding-top: 60px;
@@ -29,6 +32,9 @@ body {
         border-right: 1px solid;
         .use-var(border-right-color, line-color);
         z-index: 1;
+    }
+    .ac-anchor-layout-holder {
+        height: 0;
     }
     .arcodesign-pc-menu-collapse-btn {
         position: fixed;

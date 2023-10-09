@@ -15,7 +15,7 @@
         position: fixed;
         top: 60px;
         bottom: 0;
-        transition: left .15s;
+        transition: left 0.15s;
         left: -1px;
         display: flex;
         flex-direction: column;
@@ -76,15 +76,27 @@
         .arco-menu-item .arco-badge-dot {
             right: -4px;
         }
-        .title-1>.arco-menu-group-title {
+        .title-1 > .arco-menu-group-title {
             font-size: 16px;
             font-weight: bold;
             line-height: 24px;
             line-height: 40px;
             .use-var(color, font-color);
+            text-transform: capitalize;
         }
-        .arco-menu-group:not(.title-1)>.arco-menu-group-title>span {
-            padding-left: 0!important;
+
+        .title-2 > .arco-menu-group-title {
+            text-transform: capitalize;
+        }
+
+        .title-2 {
+            &.arco-menu-group {
+                padding-left: 10px;
+            }
+        }
+
+        .title-2 > .arco-menu-group:not(.title-1) > .arco-menu-group-title > span {
+            padding-left: 0 !important;
             .use-var(color, sub-info-font-color);
         }
     }

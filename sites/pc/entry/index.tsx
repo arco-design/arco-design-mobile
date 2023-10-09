@@ -9,6 +9,7 @@ import Home from './home';
 import readmeDocs from '../pages/guide';
 import { LanguageSupport } from '../../utils/language';
 import { render } from '../../../packages/arcodesign/components/_helpers';
+import resourceDoc from '../pages/resource';
 import { showGA } from '../../utils/ga';
 import { HistoryContext } from './context';
 import './index.less';
@@ -136,6 +137,83 @@ function App() {
                                 : null;
                         }}
                         exact
+                    />
+
+                    <Route
+                        path="/resource/:name"
+                        render={({ history, match }) => {
+                            const { name } = match.params;
+                            const Comp = resourceDoc[name];
+                            return Comp
+                                ? CompGenerator(
+                                      <Demo
+                                          type="readme"
+                                          name={name}
+                                          doc={<Comp />}
+                                          showQRCode={false}
+                                      />,
+                                      history,
+                                  )
+                                : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/en-US/resource/:name"
+                        render={({ history, match }) => {
+                            const { name } = match.params;
+                            const Comp = resourceDoc[`${name}-en-US`];
+                            return Comp
+                                ? CompGenerator(
+                                      <Demo
+                                          type="readme"
+                                          name={name}
+                                          doc={<Comp />}
+                                          showQRCode={false}
+                                          language={LanguageSupport.EN}
+                                      />,
+                                      history,
+                                  )
+                                : null;
+                        }}
+                        exact
+                    />
+                    <Route
+                        path="/resource"
+                        render={({ history }) => {
+                            const resourceFirstKey = Object.keys(resourceDoc)[0];
+                            const Comp = resourceDoc[resourceFirstKey];
+                            return Comp
+                                ? CompGenerator(
+                                      <Demo
+                                          type="readme"
+                                          name={resourceFirstKey}
+                                          doc={<Comp />}
+                                          showQRCode={false}
+                                      />,
+                                      history,
+                                  )
+                                : null;
+                        }}
+                    />
+                    <Route
+                        path="/en-US/resource"
+                        render={({ history }) => {
+                            const resourceFirstKey = Object.keys(resourceDoc)[0];
+                            const Comp = resourceDoc[`${resourceFirstKey}-en-US`];
+                            return Comp
+                                ? CompGenerator(
+                                      <Demo
+                                          type="readme"
+                                          name={resourceFirstKey}
+                                          doc={<Comp />}
+                                          showQRCode={false}
+                                          language={LanguageSupport.EN}
+                                      />,
+                                      history,
+                                  )
+                                : null;
+                        }}
                     />
                     <Route
                         path="/en-US"

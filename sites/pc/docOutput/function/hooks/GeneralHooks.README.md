@@ -1,30 +1,30 @@
-/**
- * @type hooks
- * @name GeneralHooks
- * @name_en General Hooks
- */
-import React, { useState, useRef, useEffect, useCallback, useContext } from 'react';
-import { getSystem, scrollWithAnimation, safeGetComputedStyle } from '@arco-design/mobile-utils';
-import { GlobalContext } from '../context-provider';
-import { BezierType } from '../progress';
+### hooks GeneralHooks
 
-/**
- * 监听页面resize事件的统一封装
- * @desc {en} Unified encapsulation for monitoring page resize events
- * @param resizeHandler resize事件回调
- * @param resizeHandler {en} Resize event callback
- * @param deps 触发事件绑定更新的依赖
- * @param deps {en} Dependencies that trigger event binding updates
- * @param needListen 是否开启事件监听，默认开启
- * @param needListen {en} Whether to enable event monitoring
- * @example
- * ```
- * import { useListenResize } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * useListenResize(setSize, [], listenResize);
- * ```
- */
-export function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen = true) {
+------
+
+# useListenResize
+
+监听页面resize事件的统一封装
+
+======
+
+## 示例
+
+```
+import { useListenResize } from '@arco-design/mobile-react/esm/_helpers/hooks';
+useListenResize(setSize, [], listenResize);
+```
+
+## 类型
+
+```
+(resizeHandler: () => void, deps?: any[], needListen?: boolean) => void
+```
+
+## 源码
+
+```
+function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen = true) {
     useEffect(() => {
         if (needListen) {
             window.addEventListener('resize', resizeHandler);
@@ -38,23 +38,48 @@ export function useListenResize(resizeHandler: () => void, deps: any[] = [], nee
         };
     }, [...deps, needListen]);
 }
+```
 
-/**
- * useState自定义封装，统一处理在组件卸载后还使用setState的行为
- * tips：在unmount后有异步处理未完成的场景使用，不推荐无脑替换useState
- * @desc {en} Custom encapsulation of useState, uniformly handle the behavior of using setState after the component is unloaded
- * @desc {en} Tips: Use in scenarios where asynchronous processing is not completed after unmount. It is not recommended to replace useState without brains
- * @param initialState 初始状态
- * @param initialState {en} Initial State
- * @returns [state, setState]，同useState返回值
- * @example
- * ```
- * import { useMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const [scrollValue, setScrollValue] = useMountedState(value);
- * ```
- */
-export function useMountedState<S>(initialState: S | (() => S)) {
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|resizeHandler|resize事件回调|() =\> void|必填|
+|deps|触发事件绑定更新的依赖|any\[\]|[]|
+|needListen|是否开启事件监听，默认开启|boolean|true|
+
+> 输出
+
+无
+
+------
+
+# useMountedState
+
+useState自定义封装，统一处理在组件卸载后还使用setState的行为
+tips：在unmount后有异步处理未完成的场景使用，不推荐无脑替换useState
+
+======
+
+## 示例
+
+```
+import { useMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [scrollValue, setScrollValue] = useMountedState(value);
+```
+
+## 类型
+
+```
+(initialState: S | (() => S)) => [S, Dispatch<SetStateAction<S>>]
+```
+
+## 源码
+
+```
+function useMountedState<S>(initialState: S | (() => S)) {
     const [state, setState] = useState<S>(initialState);
     const leavingRef = useRef(false);
     const setValidState = useCallback<typeof setState>(value => {
@@ -72,21 +97,45 @@ export function useMountedState<S>(initialState: S | (() => S)) {
     const result: [S, typeof setState] = [state, setValidState];
     return result;
 }
+```
 
-/**
- * 用useState管理状态，且在状态更新之前同步至ref，并返回ref
- * @desc {en} Use useState to manage the state, and synchronize to ref before the state is updated, and return ref
- * @param initialValue 初始状态
- * @param initialValue {en} Initial State
- * @returns [state, stateRef, setState]
- * @example
- * ```
- * import { useSameRefState } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const [opened, openedRef, setOpened] = useSameRefState(false);
- * ```
- */
-export function useSameRefState<T>(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|initialState|初始状态|S \| (() =\> S)|必填|
+
+> 输出
+
+[state, setState]，同useState返回值
+
+------
+
+# useSameRefState
+
+用useState管理状态，且在状态更新之前同步至ref，并返回ref
+
+======
+
+## 示例
+
+```
+import { useSameRefState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [opened, openedRef, setOpened] = useSameRefState(false);
+```
+
+## 类型
+
+```
+(initialValue: T) => [T, MutableRefObject<T>, (data: T) => void]
+```
+
+## 源码
+
+```
+function useSameRefState<T>(
     initialValue: T,
 ): [T, React.MutableRefObject<T>, (data: T) => void] {
     const [state, setState] = useState<T>(initialValue);
@@ -97,21 +146,45 @@ export function useSameRefState<T>(
     };
     return [state, stateRef, setStateProxy];
 }
+```
 
-/**
- * 用useState管理状态，且在状态更新后同步至ref，并返回ref
- * @desc {en} Use useState to manage the state, and synchronize to ref after the state is updated, and return ref
- * @param initialValue 初始状态
- * @param initialValue {en} Initial State
- * @returns [state, stateRef, setState]
- * @example
- * ```
- * import { useRefState } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const [index, indexRef, setIndex] = useRefState(currentIndex);
- * ```
- */
-export function useRefState<T>(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|initialValue|初始状态|T|必填|
+
+> 输出
+
+[state, stateRef, setState]
+
+------
+
+# useRefState
+
+用useState管理状态，且在状态更新后同步至ref，并返回ref
+
+======
+
+## 示例
+
+```
+import { useRefState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [index, indexRef, setIndex] = useRefState(currentIndex);
+```
+
+## 类型
+
+```
+(initialValue: T | (() => T)) => [T, MutableRefObject<T>, Dispatch<SetStateAction<T>>]
+```
+
+## 源码
+
+```
+function useRefState<T>(
     initialValue: T | (() => T),
 ): [T, React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>] {
     const [state, setState] = useState<T>(initialValue);
@@ -121,21 +194,45 @@ export function useRefState<T>(
     }, [state]);
     return [state, stateRef, setState];
 }
+```
 
-/**
- * 用useState管理状态，且在状态更新后同步至ref，并返回ref，统一处理在组件卸载后还使用setState的行为
- * @desc {en} Use useState to manage the state, and synchronize to ref after the state is updated, and return ref, and uniformly handle the behavior of using setState after the component is uninstalled
- * @param initialValue 初始状态
- * @param initialValue {en} Initial State
- * @returns [state, stateRef, setState]
- * @example
- * ```
- * import { useRefMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const [active, activeRef, setActive] = useRefMountedState(false);
- * ```
- */
-export function useRefMountedState<T>(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|initialValue|初始状态|T \| (() =\> T)|必填|
+
+> 输出
+
+[state, stateRef, setState]
+
+------
+
+# useRefMountedState
+
+用useState管理状态，且在状态更新后同步至ref，并返回ref，统一处理在组件卸载后还使用setState的行为
+
+======
+
+## 示例
+
+```
+import { useRefMountedState } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [active, activeRef, setActive] = useRefMountedState(false);
+```
+
+## 类型
+
+```
+(initialValue: T | (() => T)) => [T, MutableRefObject<T>, Dispatch<SetStateAction<T>>]
+```
+
+## 源码
+
+```
+function useRefMountedState<T>(
     initialValue: T | (() => T),
 ): [T, React.MutableRefObject<T>, React.Dispatch<React.SetStateAction<T>>] {
     const [state, setState] = useMountedState<T>(initialValue);
@@ -145,24 +242,47 @@ export function useRefMountedState<T>(
     }, [state]);
     return [state, stateRef, setState];
 }
+```
 
-/**
- * useEffect特殊封装，仅在非首次依赖更新时触发回调
- * @desc {en} Special encapsulation of useEffect, which only triggers the callback when the dependency is not updated for the first time
- * @param effect useEffect回调
- * @param effect {en} useEffect callback
- * @param dependencies useEffect依赖
- * @param dependencies {en} useEffect dependencies
- * @example
- * ```
- * import { useUpdateEffect } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * useUpdateEffect(() => {
- *     handleIndexChange(index);
- * }, [index]);
- * ```
- */
-export function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] = []) {
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|initialValue|初始状态|T \| (() =\> T)|必填|
+
+> 输出
+
+[state, stateRef, setState]
+
+------
+
+# useUpdateEffect
+
+useEffect特殊封装，仅在非首次依赖更新时触发回调
+
+======
+
+## 示例
+
+```
+import { useUpdateEffect } from '@arco-design/mobile-react/esm/_helpers/hooks';
+useUpdateEffect(() => {
+     handleIndexChange(index);
+}, [index]);
+```
+
+## 类型
+
+```
+(effect: () => void | (() => void), dependencies?: any[]) => void
+```
+
+## 源码
+
+```
+function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] = []) {
     const isInitialMount = useRef(true);
     useEffect(() => {
         if (isInitialMount.current) {
@@ -172,63 +292,138 @@ export function useUpdateEffect(effect: () => void | (() => void), dependencies:
         }
     }, dependencies);
 }
+```
 
-/**
- * 手动触发一次组件的rerender
- * @desc {en} Manually trigger the rerender of the component once
- * @example
- * ```
- * import { useForceUpdate } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const update = useForceUpdate();
- *
- * function forceUpdate() {
- *     update();
- * }
- * ```
- */
-export function useForceUpdate() {
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|effect|useEffect回调|() =\> void \| (() =\> void)|必填|
+|dependencies|useEffect依赖|any\[\]|[]|
+
+> 输出
+
+无
+
+------
+
+# useForceUpdate
+
+手动触发一次组件的rerender
+
+======
+
+## 示例
+
+```
+import { useForceUpdate } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const update = useForceUpdate();
+function forceUpdate() {
+     update();
+}
+```
+
+## 类型
+
+```
+() => () => void
+```
+
+## 源码
+
+```
+function useForceUpdate() {
     const [, setTick] = useState(0);
     const update = useCallback(() => {
         setTick(tick => tick + 1);
     }, []);
     return update;
 }
+```
 
-/**
- * 获取任意变量的最新ref值（用于监听属性、方法等非state变量）
- * @desc {en} Get the latest ref value of any variable (used to monitor non-state variables such as properties and methods)
- * @param variable 待获取最新值的变量
- * @param variable {en} Variable to get latest value
- * @returns variableRef，变量的最新ref值
- * @example
- * ```
- * import { useLatestRef } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const { wrapSize } = props;
- * const wrapSizeRef = useLatestRef(wrapSize);
- * ```
- */
-export function useLatestRef<T>(variable: T) {
+======
+
+> 输入
+
+无
+
+> 输出
+
+无
+
+------
+
+# useLatestRef
+
+获取任意变量的最新ref值（用于监听属性、方法等非state变量）
+
+======
+
+## 示例
+
+```
+import { useLatestRef } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const { wrapSize } = props;
+const wrapSizeRef = useLatestRef(wrapSize);
+```
+
+## 类型
+
+```
+(variable: T) => MutableRefObject<T>
+```
+
+## 源码
+
+```
+function useLatestRef<T>(variable: T) {
     const variableRef = useRef(variable);
     useEffect(() => {
         variableRef.current = variable;
     }, [variable]);
     return variableRef;
 }
+```
 
-/**
- * 从navigator.userAgent中获取当前操作系统，如果无法获取ua，则从ContextProvider传入的system中获取值
- * @desc {en} Get the current operating system from navigator.userAgent, if ua cannot be obtained, get the value from the system passed in by ContextProvider
- * @returns system 操作系统，"" | "pc" | "android" | "ios"
- * @example
- * ```
- * import { useSystem } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const system = useSystem();
- * ```
- */
-export function useSystem() {
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|variable|待获取最新值的变量|T|必填|
+
+> 输出
+
+variableRef，变量的最新ref值
+
+------
+
+# useSystem
+
+从navigator.userAgent中获取当前操作系统，如果无法获取ua，则从ContextProvider传入的system中获取值
+
+======
+
+## 示例
+
+```
+import { useSystem } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const system = useSystem();
+```
+
+## 类型
+
+```
+() => "" | "pc" | "android" | "ios"
+```
+
+## 源码
+
+```
+function useSystem() {
     const { system: currentSystem } = useContext(GlobalContext);
     const [system, setSystem] = useState(() => currentSystem || getSystem());
     useEffect(() => {
@@ -236,21 +431,43 @@ export function useSystem() {
     }, [currentSystem]);
     return system;
 }
+```
 
-/**
- * 获取页面视口宽高大小，并在页面有resize时更新大小
- * @desc {en} Get the width and height of the page viewport, and update the size when the page is resized
- * @param needListen 是否开启resize事件监听
- * @param needListen {en} Whether to enable resize event monitoring
- * @returns 页面宽高，{ windowWidth, windowHeight }
- * @example
- * ```
- * import { useWindowSize } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const { windowHeight, windowWidth } = useWindowSize();
- * ```
- */
-export function useWindowSize(listenResize?: boolean) {
+======
+
+> 输入
+
+无
+
+> 输出
+
+system 操作系统，"" | "pc" | "android" | "ios"
+
+------
+
+# useWindowSize
+
+获取页面视口宽高大小，并在页面有resize时更新大小
+
+======
+
+## 示例
+
+```
+import { useWindowSize } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const { windowHeight, windowWidth } = useWindowSize();
+```
+
+## 类型
+
+```
+(listenResize?: boolean | undefined) => { windowWidth: any; windowHeight: any; }
+```
+
+## 源码
+
+```
+function useWindowSize(listenResize?: boolean) {
     const [windowWidth, setWindowWidth] = useState(
         typeof window !== 'undefined' ? window.innerWidth : 0,
     );
@@ -270,38 +487,45 @@ export function useWindowSize(listenResize?: boolean) {
 
     return { windowWidth, windowHeight };
 }
+```
 
-export interface PopupScrollRefType {
-    ele: HTMLElement;
-    maxScrollX: number;
-    maxScrollY: number;
-}
+======
 
-/**
- * 弹窗中滚动统一处理，防止滚动穿透
- * @desc {en} Unified processing of scrolling in pop-up windows to prevent scrolling penetration
- * @param visible 弹窗是否被打开
- * @param visible {en} Whether the popup is opened
- * @param popupDom 弹窗的dom元素
- * @param popupDom {en} DOM element of the popup
- * @param getScrollContainer 弹窗中的滚动容器，可传入多个
- * @param getScrollContainer {en} The scrolling container in the popup, which can pass in multiple
- * @param orientationDirection 弹窗内容朝向，默认为top（从上到下），用于实现模拟横屏
- * @param orientationDirection {en} The content orientation of the popup, the default is top (from top to bottom), which is used to simulate a horizontal screen
- * @param preventCallback 在滚动穿透被阻止（preventDefault被触发）时的回调
- * @param preventCallback {en} Callback when scrolling is blocked (preventDefault is triggered)
- * @param onTouchMove touchmove 自定义事件
- * @param onTouchMove {en} Touchmove custom event
- * @param gestureOutOfControl 是否禁用滚动穿透处理
- * @param gestureOutOfControl {en} Whether to disable scroll through processing
- * @example
- * ```
- * import { usePopupScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * usePopupScroll(visible, domRef.current, getScrollContainer, orientationDirection, onPreventTouchMove, onTouchMove, gestureOutOfControl);
- * ```
- */
-export function usePopupScroll(
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|listenResize|\-|boolean \| undefined|-|
+
+> 输出
+
+页面宽高，{ windowWidth, windowHeight }
+
+------
+
+# usePopupScroll
+
+弹窗中滚动统一处理，防止滚动穿透
+
+======
+
+## 示例
+
+```
+import { usePopupScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
+usePopupScroll(visible, domRef.current, getScrollContainer, orientationDirection, onPreventTouchMove, onTouchMove, gestureOutOfControl);
+```
+
+## 类型
+
+```
+(visible: boolean, popupDom: HTMLDivElement | null, getScrollContainer?: (() => HTMLElement | (HTMLElement | null)[] | null) | undefined, orientationDirection?: "top" | "bottom" | "left" | "right", preventCallback?: ((e: TouchEvent, direction: "x" | "y") => void) | undefined, onTouchMove?: ((e: TouchEvent, prevented: boolean, direction: "x" | "y") => void) | undefined, gestureOutOfControl?: boolean | undefined) => void
+```
+
+## 源码
+
+```
+function usePopupScroll(
     visible: boolean,
     popupDom: HTMLDivElement | null,
     getScrollContainer?: () => (HTMLElement | null)[] | HTMLElement | null,
@@ -486,20 +710,51 @@ export function usePopupScroll(
         };
     }, [visible, popupDom, handleTouchStart, handleTouchMove]);
 }
+```
 
-/**
- * 在滑动类组件中，如果有内部可滚动区域，则在内部滚动区域滚动时禁用滑动事件
- * @desc {en} In the sliding class component, if there is an inner scrollable area, the sliding event is disabled when the inner scrolling area is scrolled
- * @param getInnerScrollContainer 内部可滚动区域，可传入多个
- * @param getInnerScrollContainer {en} Inner scrollable area, can pass in multiple
- * @example
- * ```
- * import { useSwiperInnerScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * useSwiperInnerScroll(getInnerScrollContainer);
- * ```
- */
-export function useSwiperInnerScroll(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|visible|弹窗是否被打开|boolean|必填|
+|popupDom|弹窗的dom元素|HTMLDivElement \| null|必填|
+|getScrollContainer|弹窗中的滚动容器，可传入多个|(() =\> HTMLElement \| (HTMLElement \| null)\[\] \| null) \| undefined|-|
+|orientationDirection|弹窗内容朝向，默认为top（从上到下），用于实现模拟横屏|"top" \| "bottom" \| "left" \| "right"|'top'|
+|preventCallback|在滚动穿透被阻止（preventDefault被触发）时的回调|((e: TouchEvent, direction: "x" \| "y") =\> void) \| undefined|-|
+|onTouchMove|touchmove 自定义事件|((e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> void) \| undefined|-|
+|gestureOutOfControl|是否禁用滚动穿透处理|boolean \| undefined|-|
+
+> 输出
+
+无
+
+------
+
+# useSwiperInnerScroll
+
+在滑动类组件中，如果有内部可滚动区域，则在内部滚动区域滚动时禁用滑动事件
+
+======
+
+## 示例
+
+```
+import { useSwiperInnerScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
+useSwiperInnerScroll(getInnerScrollContainer);
+```
+
+## 类型
+
+```
+(getInnerScrollContainer?: (() => HTMLElement | (HTMLElement | null)[] | null) | undefined) => void
+```
+
+## 源码
+
+```
+function useSwiperInnerScroll(
     getInnerScrollContainer?: () => (HTMLElement | null)[] | HTMLElement | null,
 ) {
     const stopFunc = useCallback((e: TouchEvent) => e.stopPropagation(), []);
@@ -526,27 +781,46 @@ export function useSwiperInnerScroll(
         };
     }, [getInnerScrollContainer]);
 }
+```
 
-/**
- * 事件绑定统一封装
- * @desc {en} Unified encapsulation of event binding
- * @param dom 待绑定事件的dom元素
- * @param dom {en} The dom element to be bound to the event
- * @param event 待绑定事件名称
- * @param event {en} The name of the event to be bound
- * @param handler 待绑定事件回调
- * @param handler {en} The callback of the event to be bound
- * @param options 待绑定事件配置，默认为 { capture: true }
- * @param options {en} Event configuration to be bound, the default is { capture: true }
- * @example
- * ```
- * import { useAddListener } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * useAddListener(domRef.current, 'touchstart', onTouchStart);
- * useAddListener(domRef.current, 'touchend', onTouchEnd);
- * ```
- */
-export function useAddListener(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|getInnerScrollContainer|内部可滚动区域，可传入多个|(() =\> HTMLElement \| (HTMLElement \| null)\[\] \| null) \| undefined|-|
+
+> 输出
+
+无
+
+------
+
+# useAddListener
+
+事件绑定统一封装
+
+======
+
+## 示例
+
+```
+import { useAddListener } from '@arco-design/mobile-react/esm/_helpers/hooks';
+useAddListener(domRef.current, 'touchstart', onTouchStart);
+useAddListener(domRef.current, 'touchend', onTouchEnd);
+```
+
+## 类型
+
+```
+(dom: HTMLDivElement | null, event: string, handler: any, options?: { capture: boolean; }) => void
+```
+
+## 源码
+
+```
+function useAddListener(
     dom: HTMLDivElement | null,
     event: string,
     handler,
@@ -564,31 +838,48 @@ export function useAddListener(
         };
     }, [handler]);
 }
+```
 
-/**
- * 统计同时出现的全屏组件
- * @en Count simultaneous full-screen components
- */
-let arcoFullScreenCount = 0;
-let arcoFullScreenOriginOverflow = '';
+======
 
-/**
- * 在全屏组件出现时，将body的overflow设置为hidden，防止滚动穿透
- * @desc {en} When the full screen component appears, set the overflow of the body to hidden to prevent scrolling penetration
- * @param visible 全屏组件是否被打开
- * @param visible {en} Whether the full screen component is opened
- * @param preventBodyScroll 是否启用防滚动穿透，默认启用
- * @param preventBodyScroll {en} Whether to enable anti-scroll penetration, enabled by default
- * @param initialBodyOverflow body在初始状态下的overflow值，在全屏组件全部关闭后会还原
- * @param initialBodyOverflow {en} The overflow value of the body in the initial state, which will be restored after all full-screen components are closed
- * @example
- * ```
- * import { usePreventBodyScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * usePreventBodyScroll(visible, preventBodyScroll, initialBodyOverflow);
- * ```
- */
-export function usePreventBodyScroll(
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|dom|待绑定事件的dom元素|HTMLDivElement \| null|必填|
+|event|待绑定事件名称|string|必填|
+|handler|待绑定事件回调|any|必填|
+|options|待绑定事件配置，默认为 \{ capture: true \}|\{ capture: boolean; \}|{ capture: true }|
+
+> 输出
+
+无
+
+------
+
+# usePreventBodyScroll
+
+在全屏组件出现时，将body的overflow设置为hidden，防止滚动穿透
+
+======
+
+## 示例
+
+```
+import { usePreventBodyScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
+usePreventBodyScroll(visible, preventBodyScroll, initialBodyOverflow);
+```
+
+## 类型
+
+```
+(visible: boolean, preventBodyScroll?: boolean, initialBodyOverflow?: string | undefined) => void
+```
+
+## 源码
+
+```
+function usePreventBodyScroll(
     visible: boolean,
     preventBodyScroll: boolean = true,
     initialBodyOverflow?: string,
@@ -635,19 +926,47 @@ export function usePreventBodyScroll(
         };
     }, [visible]);
 }
+```
 
-/**
- * 进度条计算公共逻辑，根据传入的参数计算出当前百分比和过渡效果开关，进度类组件内部使用
- * @desc {en} Progress bar calculation common logic, used internally by the progress class component
- * @returns [当前计算的百分比, 当前是否应有过渡效果]
- * @example
- * ```
- * import { usePreventBodyScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const [currentPercentage, transitionControl] = useProgress(mountedTransition, percentage, duration, mountedBezier, step);
- * ```
- */
-export function useProgress(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|visible|全屏组件是否被打开|boolean|必填|
+|preventBodyScroll|是否启用防滚动穿透，默认启用|boolean|true|
+|initialBodyOverflow|body在初始状态下的overflow值，在全屏组件全部关闭后会还原|string \| undefined|-|
+
+> 输出
+
+无
+
+------
+
+# useProgress
+
+进度条计算公共逻辑，根据传入的参数计算出当前百分比和过渡效果开关，进度类组件内部使用
+
+======
+
+## 示例
+
+```
+import { usePreventBodyScroll } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const [currentPercentage, transitionControl] = useProgress(mountedTransition, percentage, duration, mountedBezier, step);
+```
+
+## 类型
+
+```
+(mountedTransition: boolean, percentage: number, duration: number, mountedBezier: BezierType, step: number) => [number, boolean]
+```
+
+## 源码
+
+```
+function useProgress(
     mountedTransition: boolean,
     percentage: number,
     duration: number,
@@ -688,25 +1007,49 @@ export function useProgress(
 
     return [currentPercentage, transitionControl];
 }
+```
 
-/**
- * 单击和双击事件统一处理
- * @desc {en} Unified processing of single and double click events
- * @param onClick 单击事件回调
- * @param onClick {en} Callback of single click event
- * @param onDoubleClick 双击事件回调
- * @param onDoubleClick {en} Callback of double click event
- * @param delay 两次点击被判定为双击事件的最大间隔时间
- * @param delay {en} The maximum interval between two clicks is judged as a double-click event
- * @returns clickHandler，统一后的事件处理方法
- * @example
- * ```
- * import { useSingleAndDoubleClick } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const handleClick = useSingleAndDoubleClick(handleImageClick, handleImageDoubleClick);
- * ```
- */
-export function useSingleAndDoubleClick(
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|mountedTransition|\-|boolean|必填|
+|percentage|\-|number|必填|
+|duration|\-|number|必填|
+|mountedBezier|\-|BezierType|必填|
+|step|\-|number|必填|
+
+> 输出
+
+[当前计算的百分比, 当前是否应有过渡效果]
+
+------
+
+# useSingleAndDoubleClick
+
+单击和双击事件统一处理
+
+======
+
+## 示例
+
+```
+import { useSingleAndDoubleClick } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const handleClick = useSingleAndDoubleClick(handleImageClick, handleImageDoubleClick);
+```
+
+## 类型
+
+```
+(onClick: (e: MouseEvent<Element, MouseEvent>) => void, onDoubleClick: (e: MouseEvent<Element, MouseEvent>) => void, delay?: number) => (e: MouseEvent<Element, MouseEvent>) => void
+```
+
+## 源码
+
+```
+function useSingleAndDoubleClick(
     onClick: (e: React.MouseEvent) => void,
     onDoubleClick: (e: React.MouseEvent) => void,
     delay = 200,
@@ -730,27 +1073,49 @@ export function useSingleAndDoubleClick(
         setClickTimes(prev => prev + 1);
     };
 }
+```
 
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|onClick|单击事件回调|(e: MouseEvent\<Element, MouseEvent\>) =\> void|必填|
+|onDoubleClick|双击事件回调|(e: MouseEvent\<Element, MouseEvent\>) =\> void|必填|
+|delay|两次点击被判定为双击事件的最大间隔时间|number|200|
+
+> 输出
+
+clickHandler，统一后的事件处理方法
+
+------
+
+# useGenSvgKey
+
+自动生成svg <def>标签的唯一标识，用于区分不同svg的<def>内容
+
+======
+
+## 示例
+
+```
+import { useGenSvgKey } from '@arco-design/mobile-react/esm/_helpers/hooks';
+const { svgKey } = useGenSvgKey(userSetSvgKey);
+```
+
+## 类型
+
+```
+(userSetSvgKey: string) => { svgKey: string; }
+```
+
+## 源码
+
+```
 let arcoSvgKeyCount = 0;
-
-/**
- * 自动生成svg <def>标签的唯一标识，用于区分不同svg的<def>内容
- * @desc {en} Automatically generate the unique identifier of the svg <def> tag, which is used to distinguish the <def> content of different svg
- * @param userSetSvgKey 自定义唯一标识，传入则覆盖自动生成的值
- * @param userSetSvgKey {en} Customize the unique identifier, if passed in, it will override the automatically generated value
- * @returns 包含svgKey的对象 生成后的唯一标识
- * @globalVariable
- * ```
- * let arcoSvgKeyCount = 0;
- * ```
- * @example
- * ```
- * import { useGenSvgKey } from '@arco-design/mobile-react/esm/_helpers/hooks';
- *
- * const { svgKey } = useGenSvgKey(userSetSvgKey);
- * ```
- */
-export function useGenSvgKey(userSetSvgKey: string) {
+ 
+function useGenSvgKey(userSetSvgKey: string) {
     const [innerSvgKey, setInnerSvgKey] = useState('');
     const svgKey = userSetSvgKey || innerSvgKey;
 
@@ -761,3 +1126,16 @@ export function useGenSvgKey(userSetSvgKey: string) {
 
     return { svgKey };
 }
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|userSetSvgKey|自定义唯一标识，传入则覆盖自动生成的值|string|必填|
+
+> 输出
+
+包含svgKey的对象 生成后的唯一标识

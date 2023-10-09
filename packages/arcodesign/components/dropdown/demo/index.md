@@ -31,7 +31,7 @@ export default function DropdownDemo() {
                 showDropdown={showDropdown}
                 onOptionClick={() => { console.info('click'); }}
                 onOptionChange={(value, item) => {
-                    console.info(value,item);
+                    console.info(value, item);
                     setShowDropdown(false);
                 }}
                 onCancel={() => setShowDropdown(false)}
