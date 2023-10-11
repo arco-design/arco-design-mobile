@@ -10,7 +10,9 @@ const siteFolder = 'sites/mobile/pages/components';
 const compositeCompFolder = 'sites/mobile/pages/composite-comp';
 const compositeFolder = 'sites/composite-comp';
 const srcFolder = 'packages/arcodesign';
-const packageName = '@arco-design/mobile-react';
+const utilsFolder = 'packages/common-widgets';
+const compPackageName = '@arco-design/mobile-react';
+const utilsPackageName = '@arco-design/mobile-utils';
 const compFolder = path.posix.join(srcFolder, 'components');
 const compPath = path.join(rootPath, compFolder);
 const sitePath = path.join(rootPath, siteFolder);
@@ -22,14 +24,18 @@ function renderSource({ comp, demoName, depsCompSet, language, compileEnv, demoP
     const docPath = path.join(sitePath, comp);
     const demo = fs.readFileSync(path.join(demoPath, `${demoName}.md`), 'utf8');
     const renderer = new marked.Renderer();
-    const reg = new RegExp(packageName, 'g');
+    const compNpmReg = new RegExp(compPackageName, 'g');
+    const utilsNpmReg = new RegExp(utilsPackageName, 'g');
 
     let order = 0;
 
     renderer.code = code => {
         const filename = `_${utils.getCompName(demoName)}`;
         const content = `import React from 'react';
-${code.replace(reg, `../../../../../${compFolder}`).replace(/\/esm\//g, '/')}`;
+${code
+    .replace(compNpmReg, `../../../../../${compFolder}`)
+    .replace(utilsNpmReg, `../../../../../${utilsFolder}`)
+    .replace(/\/esm\//g, '/')}`;
 
         fs.mkdirpSync(docPath);
         const demoFileName = compileEnv === 'vite' ? `${filename}.jsx` : `${filename}.js`;
