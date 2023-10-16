@@ -2,8 +2,13 @@ import React from 'react';
 import { render } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
+import demoTest from '../../../tests/demoTest';
+import mountTest from '../../../tests/mountTest';
 import Textarea from '..';
 
+demoTest('textarea');
+
+mountTest(Textarea, 'Textarea');
 
 describe('Textarea', () => {
     it('should callback correctly when change text', () => {

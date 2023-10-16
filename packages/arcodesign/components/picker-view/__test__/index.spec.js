@@ -7,8 +7,9 @@ import {
     createMoveTouchEventObject,
     createStartTouchEventObject,
 } from '../../../tests/helpers/mockEvent';
+import demoTest from '../../../tests/demoTest';
+import mountTest from '../../../tests/mountTest';
 import PickerView from '..';
-
 
 const mockData=[
     {
@@ -135,8 +136,42 @@ const mockData=[
             },
         ],
         value: ['北京市', '北京市', '海淀区']
+    },
+    {
+        data: [
+            {
+                label: '北京市',
+                value: '北京市',
+                children: [
+                    {
+                        label: '朝阳区',
+                        value: '朝阳区',
+                    },
+                    {
+                        label: '海淀区',
+                        value: '海淀区',
+                    },
+                    {
+                        label: '东城区',
+                        value: '东城区',
+                    },
+                    {
+                        label: '西城区',
+                        value: '西城区',
+                    },
+                ],
+            },
+        ],
+        value: ['北京市', '海淀区'],
     }
 ]
+
+demoTest('picker-view');
+
+mountTest(PickerView, 'PickerView', {
+    data: mockData[3].data,
+    value: mockData[3].value
+});
 
 describe('pickerView render correctly',()=>{
 

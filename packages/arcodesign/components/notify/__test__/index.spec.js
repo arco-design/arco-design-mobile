@@ -3,7 +3,13 @@ import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import { defaultContext } from '../../context-provider';
+import demoTest from '../../../tests/demoTest';
+import mountTest from '../../../tests/mountTest';
 import Notify from '..';
+
+demoTest('notify');
+
+mountTest(Notify, 'Notify');
 
 describe('Notify work correctly', () => {
   it('should render notification correctly', () => {

@@ -2,7 +2,13 @@ import React from 'react';
 import { render, screen,fireEvent } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
+import demoTest from '../../../tests/demoTest';
+import mountTest from '../../../tests/mountTest';
 import LoadMore from '..';
+
+demoTest('load-more');
+
+mountTest(LoadMore, 'LoadMore');
 
 describe('LoadMore type', () => {
 

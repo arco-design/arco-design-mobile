@@ -3,7 +3,13 @@ import { act } from 'react-dom/test-utils';
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
+import demoTest from '../../../tests/demoTest';
+import mountTest from '../../../tests/mountTest';
 import Picker from '..';
+
+demoTest('picker');
+
+mountTest(Picker, 'Picker');
 
 const mockData = {
     data: [
