@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.30.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.6...@arco-design/mobile-react@2.30.0) (2023-10-19)
+
+
+### Features
+
+* support dark mode ([#163](https://github.com/arco-design/arco-design-mobile/issues/163)) ([1693b1f](https://github.com/arco-design/arco-design-mobile/commit/1693b1f13bde86a075b6059dae290b9832c5cb99))
+* support tool function & mixin analysis ([#147](https://github.com/arco-design/arco-design-mobile/issues/147)) ([f5b4dec](https://github.com/arco-design/arco-design-mobile/commit/f5b4decfb9b4ceadce8277be694f7f5a9a399d66))
+
+
+
+
+
 ## [2.29.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.5...@arco-design/mobile-react@2.29.6) (2023-10-09)
 
 
