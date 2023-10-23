@@ -3,8 +3,6 @@ import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import { defaultContext } from '../../context-provider';
-import glob from 'glob';
-import path from 'path';
 import mountTest from '../../../tests/mountTest';
 import Notify from '..';
 
