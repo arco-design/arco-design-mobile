@@ -10,16 +10,9 @@ import Notify from '..';
 
 mountTest(Notify, 'Notify');
 
-describe('notify demo test',() => {
-  const files = glob.sync(path.resolve(__dirname, `../components/notify/demo/*.md`));
-  files.forEach(file => {
-      const filename = file.split('/').slice(-1)[0];
-      it(`notify demo: ${filename} renders correctly`, () => {
-          const demo = require(file).default;
-          const { asFragment } = render(React.createElement(demo));
-          expect(asFragment()).toMatchSnapshot();
-      });
-  }); 
+describe('notify snapshot test',() => {
+  const { container } = render(<Notify visible content="Hello, world!"/>);
+  expect(container).toMatchSnapshot()
 })
 
 describe('Notify work correctly', () => {
