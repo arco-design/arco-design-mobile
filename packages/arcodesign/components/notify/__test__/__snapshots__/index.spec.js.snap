@@ -406,3 +406,18 @@ exports[`notify demo test notify demo: type.md renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`snapshot renders correctly 1`] = `
+<div>
+  <div
+    class="arco-notify arco-notify-info "
+    style="height: 0px;"
+  >
+    <div
+      class="arco-notify-content arco-notify-content-transition-Y0"
+    >
+      Hello, world!
+    </div>
+  </div>
+</div>
+`;

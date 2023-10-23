@@ -3,14 +3,24 @@ import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import { defaultContext } from '../../context-provider';
-import demoTest from '../../../tests/demoTest';
+import glob from 'glob';
+import path from 'path';
 import mountTest from '../../../tests/mountTest';
 import Notify from '..';
 
-// TODO: 注释掉demoTest，报错就消失了
-// demoTest('notify');
-
 mountTest(Notify, 'Notify');
+
+describe('notify demo test',() => {
+  const files = glob.sync(path.resolve(__dirname, `../components/notify/demo/*.md`));
+  files.forEach(file => {
+      const filename = file.split('/').slice(-1)[0];
+      it(`notify demo: ${filename} renders correctly`, () => {
+          const demo = require(file).default;
+          const { asFragment } = render(React.createElement(demo));
+          expect(asFragment()).toMatchSnapshot();
+      });
+  }); 
+})
 
 describe('Notify work correctly', () => {
   it('should render notification correctly', () => {
