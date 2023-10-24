@@ -270,6 +270,8 @@ describe('pickerView action correctly',()=>{
         })
         fireEvent.touchMove(weekdayOne,createMoveTouchEventObject({x: 500,y:500}))
         fireEvent.touchEnd(weekdayOne)
+        expect(mockFn).toBeCalled()
+        expect(mockFn).toBeCalledTimes(1)
         rerender(<PickerView 
             ref={ref} 
             data={mockData[1].data} 
@@ -281,5 +283,7 @@ describe('pickerView action correctly',()=>{
         fireEvent.touchStart(weekdayOne,createStartTouchEventObject({x: 100,y:100}))
         fireEvent.touchMove(weekdayOne,createMoveTouchEventObject({x: 500,y:500}))
         fireEvent.touchEnd(weekdayOne)
+        expect(mockFn).toBeCalled()
+        expect(mockFn).toBeCalledTimes(1)
     })
 })

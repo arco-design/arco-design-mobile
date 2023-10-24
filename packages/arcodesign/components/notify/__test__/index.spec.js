@@ -3,13 +3,15 @@ import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import { defaultContext } from '../../context-provider';
-import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import Notify from '..';
 
-demoTest('notify');
-
 mountTest(Notify, 'Notify');
+
+describe('notify snapshot test',() => {
+  const { container } = render(<Notify visible content="Hello, world!"/>);
+  expect(container).toMatchSnapshot()
+})
 
 describe('Notify work correctly', () => {
   it('should render notification correctly', () => {
@@ -54,7 +56,13 @@ describe('notify hook work correctly', () => {
     const buttonElement = screen.getByRole('button');
     userEvent.click(buttonElement);
     act(() => {
-      jest.runAllTimers(); 
+      jest.runOnlyPendingTimers(); 
     }); 
+    const successNotification = screen.getByText('Success notification');
+    expect(successNotification).toBeInTheDocument();
+    const warnNotification = screen.getByText('Warning notification');
+    expect(warnNotification).toBeInTheDocument();
+    const errorNotification = screen.getByText('Error notification');
+    expect(errorNotification).toBeInTheDocument();
   });
 });

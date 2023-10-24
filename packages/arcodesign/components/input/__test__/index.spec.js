@@ -91,15 +91,15 @@ describe('Input handle correctly', () => {
     expect(onKeyDownMock).toBeCalledTimes(1)
   });
 
-  it('triggers handleClick when input is clicked', () => {
+  it('input blur correctly', () => {
+    const isBlur = (element) => {
+      return document.activeElement !== element
+    }
     const handleClickMock = jest.fn();
     render(<Input handleClick={handleClickMock} blurBeforeFocus />)
     const input = screen.getByRole('textbox')
-    fireEvent.focus(input)
     fireEvent.blur(input)
-    userEvent.click(input)
-    // expect(handleClickMock).toBeCalled()
-    // expect(handleClickMock).toBeCalledTimes(1)
+    expect(isBlur(input)).toBeTruthy()
   });
 
   it('clearEvent run correctly',()=>{
@@ -109,7 +109,8 @@ describe('Input handle correctly', () => {
     const input = screen.getByRole('textbox')
     input.focus() 
     userEvent.click(clear)
-    fireEvent.mouseDown(clear)
     jest.runAllTimers()
+    expect(clear).toBeInTheDocument()
+    expect(input.textContent).toBe('')
   })
 });

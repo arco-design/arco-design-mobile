@@ -28,6 +28,8 @@ describe('Textarea', () => {
         const mockFn = jest.fn();
         const { container } = render(<Textarea statisticsMaxlength={5} onErrStatusChange={mockFn} />)
         const textArea = container.querySelector('textarea')
+        // 不清空输入会接收到234567891
+        userEvent.clear(textArea)
         userEvent.type(textArea,'123456789')
         expect(mockFn).toBeCalled()
         expect(mockFn).toBeCalledTimes(2)
@@ -35,8 +37,7 @@ describe('Textarea', () => {
         jest.advanceTimersByTime(5000)
         expect(statisticText).toHaveClass('exceed')
         expect(statisticText).toHaveTextContent('9/5')
-        // 这里实际接收到的是234567891
-        // expect(textArea).toHaveTextContent('123456789')
+        expect(textArea).toHaveTextContent('123456789')
     });
 
     it('should render correctly when set area limit', () => {
