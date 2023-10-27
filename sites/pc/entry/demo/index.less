@@ -17,9 +17,18 @@
     margin-left: 14px;
     cursor: pointer;
     &:hover {
-        color: @primary-color;
+        .use-var(color, primary-color);
     }
 }
+
+.demo-content-wrapper {
+    flex: 1;
+    .arcodesign-pc-site-footer {
+        position: absolute;
+        z-index: 1;
+    }
+}
+
 // 手机部分
 .mobile-iframe {
     position: relative;
@@ -32,7 +41,8 @@
         width: 375px;
         height: 667px;
         border-radius: 12px;
-        border: 1px solid #e5e6e8;
+        border: 1px solid;
+        .use-var(border-color, line-color);
         box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.07);
         box-sizing: border-box;
     }
@@ -46,7 +56,7 @@
     height: 100vh;
     padding: 110px 24px 24px;
     box-sizing: border-box;
-    background-color: #fff;
+    .use-var(background-color, container-background-color);
     transition: all 0.15s;
 
     .arco-anchor {

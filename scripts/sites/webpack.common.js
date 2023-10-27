@@ -1,5 +1,7 @@
 const autoprefixer = require('autoprefixer');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const customLessLoaderConfig = require('../../packages/arcodesign/less-loader.config');
 
 module.exports = {
     module: {
@@ -44,8 +46,10 @@ module.exports = {
                         },
                     },
                     {
-                        loader: 'less-loader',
+                        loader: path.resolve(__dirname, './loader/arcoLessLoader/index.js'),
                         options: {
+                            outputType: 'css',
+                            ...customLessLoaderConfig,
                             lessOptions: {
                                 javascriptEnabled: true,
                                 modifyVars: {

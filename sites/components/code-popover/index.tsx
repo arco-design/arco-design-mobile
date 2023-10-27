@@ -1,6 +1,14 @@
-import React, { PropsWithChildren, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    PropsWithChildren,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import ReactDOM from 'react-dom';
 import { QRCodeCanvas } from 'qrcode.react';
+import { GlobalContext } from '../../../packages/arcodesign/components/context-provider';
 import './index.less';
 
 export interface CodePopoverProps {
@@ -15,6 +23,7 @@ export default function CodePopover(props: PropsWithChildren<CodePopoverProps>) 
     const domRef = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState<[number, number]>([0, 0]);
     const [visible, setVisible] = useState(false);
+    const { isDarkMode } = useContext(GlobalContext);
 
     const updatePosition = useCallback(() => {
         const rect = domRef.current?.getBoundingClientRect();
@@ -43,7 +52,14 @@ export default function CodePopover(props: PropsWithChildren<CodePopoverProps>) 
                 >
                     <div className="home-code-popover-content">
                         {text}
-                        {url && <QRCodeCanvas value={url} className="code" />}
+                        {url && (
+                            <QRCodeCanvas
+                                bgColor="transparent"
+                                fgColor={isDarkMode ? '#f6f6f6' : '#000000'}
+                                value={url}
+                                className="code"
+                            />
+                        )}
                     </div>
                 </div>
             ) : null,

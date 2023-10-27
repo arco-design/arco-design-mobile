@@ -101,7 +101,7 @@ export const useCheckAsStart = ({
     domRef: RefObject<HTMLDivElement>;
 }) => {
     const ifShouldHandle = useCallback(() => {
-        const domRefHeight = domRef.current?.getBoundingClientRect()?.height ?? 0;
+        const domRefHeight = domRef.current?.offsetHeight ?? 0;
         return (
             domRef.current &&
             !(

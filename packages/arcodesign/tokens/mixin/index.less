@@ -1,7 +1,29 @@
+/**
+ * @type mixin-var
+ * @name GeneralMixinVars
+ * @name_en General Mixin
+ */
 @import '~@arco-design/mobile-utils/style/mixin.less';
 @import './vars-switch.less';
 @import './pxtorem.less';
 
+/**
+ * 根据base-font-size，设置单位尺寸为rem
+ * @desc {en} set the unit size to rem based on base-font-size
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @values css属性值，如果为复合属性，值可以用逗号分隔开
+ * @param @values {en} css property value, the values can be separated by commas when the style is composite
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .rem(font-size, 14);
+ *     .rem(padding, 16, 0);
+ * }
+ * ```
+ */
 .rem(@property; @values...) {
     @{property}: ~`(function () {
         var baseFontSize=@{base-font-size};
@@ -15,6 +37,23 @@
     }())`;
 }
 
+/**
+ * 根据base-font-size，设置常规模式和rtl模式下单位尺寸为rem
+ * @desc {en} set the unit size to rem for regular and RTL modes based on the base-font-size
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @values css属性值，如果为复合属性，值可以用逗号分隔开
+ * @param @values {en} css property value, the values can be separated by commas when the style is composite
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .rem-with-rtl(font-size, 14);
+ *     .rem-with-rtl(padding, 16, 0);
+ * }
+ * ```
+ */
 .rem-with-rtl(@property; @values...) {
     .rem(@property; @values...);
     [dir="rtl"] & {
@@ -24,7 +63,22 @@
     }
 }
 
-// for hack dark mode
+/**
+ * 当less变量use-dark-mode=1时，为原生暗黑模式媒体查询事件prefers-color-scheme:dark绑定对应css规则
+ * @desc {en} bind corresponding CSS rules to the native dark mode media query event prefers-color-scheme: dark when the less variable use-dark-mode=1.
+ * @param @rules 对应的暗黑模式规则
+ * @param @rules {en} Corresponding dark mode rules
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .use-dark-mode-query({
+ *         background-color: #000;
+ *     });
+ * }
+ * ```
+ */
 .use-dark-mode-query(@rules) {
     & when (@use-dark-mode = 1) {
         @media (prefers-color-scheme: dark) {
@@ -33,6 +87,28 @@
     }
 }
 
+/**
+ * 为属性设置arco提供的token变量
+ * @desc {en} set the token variable provided by Arco for the attribute
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @variables token变量名
+ * @param @variables {en} token variable name
+ * @param @preValues 复合属性css变量前缀
+ * @param @preValues {en} prefix for Compound Attribute CSS Variables
+ * @param @nextValues 复合属性css变量后缀
+ * @param @nextValues {en} suffix for Compound Attribute CSS Variables
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .use-var(background, primary-color);
+ *     .use-var(border, primary-color, 1px solid);
+ *     .use-var(border, cell-border-width, '', solid black);
+ * }
+ * ```
+ */
 .use-var(@property, @variables, @preValues: '', @nextValues: '') {
     @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
     & when (@use-css-vars = 1) {
@@ -40,6 +116,26 @@
     }
 }
 
+/**
+ * 在常规模式和rtl模式下为属性设置arco提供的token变量
+ * @desc {en} set the token variable provided by Arco for the attribute in regular mode and RTL mode
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @variables token变量名
+ * @param @variables {en} token variable name
+ * @param @preValues
+ * @param @preValues {en}
+ * @param @nextValues
+ * @param @nextValues {en}
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .use-var-with-rtl(margin-left, button-icon-text-gutter);
+ * }
+ * ```
+ */
 .use-var-with-rtl(@property, @variables, @preValues: '', @nextValues: '') {
     .use-var(@property, @variables, @preValues, @nextValues);
     [dir="rtl"] & {
@@ -49,6 +145,23 @@
     }
 }
 
+/**
+ * 0.5px的边框线
+ * @desc {en} a border line of 0.5 pixels
+ * @param @color 使用css变量为线设置颜色
+ * @param @color {en} set border-color by CSS variable
+ * @param @direction 边框方向，默认为全部方向
+ * @param @direction {en} border direction，default to all directions.
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .hairline-var(line-color);
+ *     .hairline-var(line-color, top);
+ * }
+ * ```
+ */
 .hairline-var(@color, @direction: all) {
     .hairline(@@color, @direction);
     & when (@use-css-vars = 1) {
@@ -56,6 +169,23 @@
     }
 }
 
+/**
+ * 字体加粗
+ * @desc {en} font bold
+ * @param @color 使用css变量设置加粗的字体颜色，默认继承文字当前颜色
+ * @param @color {en} set color by CSS variable
+ * @param @stroke 字体粗细，默认0.3px
+ * @param @stroke {en} font weight, default 0.3 pixel
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .text-medium-var();
+ *    .text-medium-var(primary-color, 0.5PX);
+ * }
+ * ```
+ */
 .text-medium-var(@color: currentColor, @stroke: 0.3PX) {
     .text-medium(@@color, @stroke);
     & when (@use-css-vars = 1) {
@@ -63,6 +193,29 @@
     }
 }
 
+/**
+ * 1px边框
+ * @desc {en} 1 pixel border
+ * @param @direction 边框方向
+ * @param @direction {en} border direction
+ * @param @borderColor 使用css变量设置边框颜色
+ * @param @borderColor {en} set border-color by CSS variable
+ * @param @borderRadius border-radius，默认为0
+ * @param @borderRadius {en} border-radius, default value is 0
+ * @param @borderWidth border-width，默认为1px
+ * @param @borderWidth {en} border-width, default value is 1 pixel
+ * @param @borderStyle border-style，默认为solid
+ * @param @borderStyle {en} border-style, default value is solid
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .onepx-border-var(top, line-color);
+ *    .onepx-border-var(all, line-color, 2, 2px, dashed);
+ * }
+ * ```
+ */
 .onepx-border-var(@direction, @borderColor, @borderRadius: 0, @borderWidth: 1PX, @borderStyle: solid) {
     .onepx-border(@direction, @@borderColor, @borderRadius, @borderWidth, @borderStyle);
     & when (@use-css-vars = 1) {
@@ -70,6 +223,20 @@
     }
 }
 
+/**
+ * 元素右下0.5px边框
+ * @desc {en} 0.5px border on bottom right
+ * @param @color 使用css变量设置边框颜色
+ * @param @color {en} set border-color by CSS variable
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .hairline-bottom-right-var(line-color);
+ * }
+ * ```
+ */
 .hairline-bottom-right-var(@color) {
     .hairline-bottom-right(@@color);
     & when (@use-css-vars = 1) {
@@ -77,6 +244,20 @@
     }
 }
 
+/**
+ * 元素左上0.5px边框
+ * @desc {en} 0.5px border on top left
+ * @param @color 使用css变量设置边框颜色
+ * @param @color {en} set border-color by CSS variable
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .hairline-top-left-var(line-color);
+ * }
+ * ```
+ */
 .hairline-top-left-var(@color) {
     .hairline-top-left(@@color);
     & when (@use-css-vars = 1) {
@@ -84,6 +265,20 @@
     }
 }
 
+/**
+ * 设置Loading组件颜色
+ * @desc {en} set Loading component color
+ * @param @color 使用css变量设置颜色
+ * @param @color {en} set color by CSS variable
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-loading-color-var(primary-color);
+ * }
+ * ```
+ */
 .set-loading-color-var(@color) {
     .set-loading-color(@@color);
     & when (@use-css-vars = 1) {
@@ -91,6 +286,23 @@
     }
 }
 
+/**
+ * 设置最小字号
+ * @desc {en} set minimum font-size
+ * @param @size 使用css变量设置最小字号
+ * @param @size {en} set minimum font-size by CSS variable
+ * @param @scale 设置最小字号下文字缩放比例，默认为0.9
+ * @param @scale {en} set minimum font-size down text scale，default value is 0.9
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-font-size-var(badge-font-size);
+ *    .set-font-size-var(badge-font-size, 0.5);
+ * }
+ * ```
+ */
 .set-font-size-var(@size, @scale: 0.9) {
     & when not (@use-css-vars = 1) {
         .set-font-size(@@size);
@@ -106,6 +318,26 @@
     }
 }
 
+/**
+ * 设置content-box盒模型下元素宽度
+ * @desc {en} set box width in content-box
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @width 元素总宽度，包含内边距
+ * @param @width element width, include padding
+ * @param @padding-left 左侧内边距
+ * @param @padding-left {en} padding-left
+ * @param @padding-right 右侧内边距
+ * @param @padding-right {en} padding-right
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-content-box-width-var(min-width, badge-text-width, badge-text-padding-left, badge-text-padding-right);
+ * }
+ * ```
+ */
 .set-content-box-width-var(@property, @width, @padding-left, @padding-right) {
     & when not (@use-css-vars = 1) {
         .set-content-box-width(@property, @@width, @@padding-left, @@padding-right);
@@ -115,3 +347,25 @@
     }
 }
 
+/**
+ * 设置Steps组件颜色
+ * @desc {en} set Steps component color
+ * @param @color 使用css变量设置主颜色
+ * @param @color {en} set main step color by CSS variable
+ * @param @finish-color 使用css变量设置已完成步骤的颜色
+ * @param @finish-color {en} set finished step color by CSS variable
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *    .set-steps-color-var(primary-color, lighter-primary-color);
+ * }
+ * ```
+ */
+.set-steps-color-var(@color, @finish-color) {
+    .set-steps-color(@@color, @@finish-color);
+    & when (@use-css-vars = 1) {
+        .set-steps-color(var(~"--@{color}", @@color), var(~"--@{finish-color}", @@finish-color));
+    }
+}

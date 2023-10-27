@@ -34,6 +34,7 @@ export interface PickerCellProps {
 export interface PickerCellRef {
     movingStatus: PickerCellMovingStatus;
     scrollToCurrentIndex: () => void;
+    getCurrentCellValue: () => ValueType;
 }
 
 const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) => {
@@ -198,9 +199,9 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     // Reference: https://juejin.im/post/6844904185121488910
     function momentum(current, start, duration, minY, maxY) {
         const durationMap = {
-            noBounce: 2000,
-            weekBounce: 500,
-            strongBounce: 300,
+            noBounce: 400,
+            weekBounce: 100,
+            strongBounce: 75,
         };
         const bezierMap = {
             noBounce: 'cubic-bezier(.17, .89, .45, 1)',
@@ -256,7 +257,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         const absDistY = Math.abs(transformY - lastTransformY);
         // 计算动量，保证滚动顺畅，条件：手势时间小于300ms && 移动距离绝对值大于30时
         // @en Calculate the momentum to ensure smooth scrolling, condition: the gesture time is less than 300ms && the absolute value of the moving distance is greater than 30
-        if (duration < 300 && absDistY > 30) {
+        if (duration < 300 && absDistY > 90) {
             const momentumY = momentum(
                 transformY,
                 lastTransformY,
@@ -298,6 +299,10 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         // 滚动（包括加动量的滚动）完成之后定位到最近的一个index上
         // @en After scrolling (including scrolling with momentum) is completed, it is positioned on the nearest index
         _scrollToIndexWithChange(nowIndex, 0);
+    }
+
+    function getCurrentCellValue() {
+        return currentValue || data[currentIndex]?.value;
     }
 
     function _clearTimer() {
@@ -365,6 +370,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     useImperativeHandle(ref, () => ({
         movingStatus: movingStatusRef.current,
         scrollToCurrentIndex,
+        getCurrentCellValue,
     }));
 
     return !hideEmptyCols || (data && data.length) ? (

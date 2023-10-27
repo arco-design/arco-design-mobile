@@ -266,12 +266,12 @@
         },
         "loadingArea": {
             "defaultValue": null,
-            "description": "自定义展示加载中内容，staticLabel=false时有效\n@en Custom display loading content, valid when staticLabel=false",
+            "description": "自定义展示加载中内容\n@en Custom display loading content, valid when staticLabel=false",
             "name": "loadingArea",
             "tags": {
                 "en": "Custom display loading content, valid when staticLabel=false"
             },
-            "descWithTags": "自定义展示加载中内容，staticLabel=false时有效",
+            "descWithTags": "自定义展示加载中内容",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
                 "name": "ImageProps"
@@ -283,12 +283,12 @@
         },
         "errorArea": {
             "defaultValue": null,
-            "description": "自定义展示加载失败内容，staticLabel=false时有效\n@en Custom display failed to load content, valid when staticLabel=false",
+            "description": "自定义展示加载失败内容\n@en Custom display failed to load content, valid when staticLabel=false",
             "name": "errorArea",
             "tags": {
                 "en": "Custom display failed to load content, valid when staticLabel=false"
             },
-            "descWithTags": "自定义展示加载失败内容，staticLabel=false时有效",
+            "descWithTags": "自定义展示加载失败内容",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
                 "name": "ImageProps"
@@ -300,12 +300,12 @@
         },
         "showLoading": {
             "defaultValue": null,
-            "description": "是否展示图片加载中提示，staticLabel=false时有效\n@en Whether to display the image loading prompt, valid when staticLabel=false",
+            "description": "是否展示图片加载中提示\n@en Whether to display the image loading prompt, valid when staticLabel=false",
             "name": "showLoading",
             "tags": {
                 "en": "Whether to display the image loading prompt, valid when staticLabel=false"
             },
-            "descWithTags": "是否展示图片加载中提示，staticLabel=false时有效",
+            "descWithTags": "是否展示图片加载中提示",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
                 "name": "ImageProps"
@@ -317,12 +317,12 @@
         },
         "showError": {
             "defaultValue": null,
-            "description": "是否展示图片加载失败提示，staticLabel=false时有效\n@en Whether to display the image loading failure prompt, valid when staticLabel=false",
+            "description": "是否展示图片加载失败提示\n@en Whether to display the image loading failure prompt, valid when staticLabel=false",
             "name": "showError",
             "tags": {
                 "en": "Whether to display the image loading failure prompt, valid when staticLabel=false"
             },
-            "descWithTags": "是否展示图片加载失败提示，staticLabel=false时有效",
+            "descWithTags": "是否展示图片加载失败提示",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/image/index.tsx",
                 "name": "ImageProps"

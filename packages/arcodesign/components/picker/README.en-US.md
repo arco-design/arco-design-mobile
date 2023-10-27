@@ -18,7 +18,7 @@ The selector component, in the form of a popup layer.
 |value|Value, the format is \[value1, value2, value3\], corresponding to the corresponding level value of the data source, if not passed, the first value of each column is selected by default|ValueType\[\]|-|
 |onHide|Callback for clicking on mask layer or cancel button, OK button|(scene?: string) =\> void|-|
 |onChange|Callback after selection|(selectedValue: ValueType\[\]) =\> void|-|
-|onPickerChange|The callback after each column data selection changes|(value: ValueType\[\], index: number) =\> void|-|
+|onPickerChange|The callback after each column data selection changes|(value: ValueType\[\], index: number, data: PickerData\[\]) =\> void|-|
 |itemStyle|Stylesheet per column|CSSProperties|-|
 |visible|whether to show the picker|boolean|false|
 |okText|Text of confirmed selected value of the popup|string|"OK"|

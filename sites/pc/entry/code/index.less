@@ -1,3 +1,5 @@
+@import '../../../../packages/arcodesign/style/mixin.less';
+
 .demo-code-container {
     position: relative;
     &:hover {
@@ -18,14 +20,12 @@
         transition: opacity 0.2s;
         display: none;
         .demo-code-operations-btn:not(.arco-btn-disabled) {
-            background: #fff;
-            border: 1px solid #e5e6e8;
+            .use-var(background-color, container-background-color);
+            border: 1px solid;
+            .use-var(border-color, line-color);
         }
         .demo-code-operations-btn {
             margin-left: 8px;
-        }
-        &-sandbox {
-            color: var(--color-text-2)!important;
         }
     }
     &.show-all {

@@ -14,9 +14,10 @@ import {
     getValidScrollContainer,
     defaultLocale,
     ILocale,
+    cls,
 } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
-import { useUpdateEffect } from '../_helpers';
+import { useLatestRef, useUpdateEffect } from '../_helpers';
 
 export type LoadMoreStatus = 'before-ready' | 'prepare' | 'loading' | 'nomore' | 'retry';
 
@@ -31,6 +32,11 @@ export interface LoadMoreProps {
      * @en Custom classname
      */
     className?: string;
+    /**
+     * 是否禁用加载能力
+     * @en Whether to disable the loading capability
+     */
+    disabled?: boolean;
     /**
      * 组件加载但尚未启用状态下的内容
      * @en Content when the component is loaded but not yet enabled
@@ -123,6 +129,12 @@ export interface LoadMoreProps {
      */
     getDataAtFirst?: boolean;
     /**
+     * 当 getDataAtFirst 值为 false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效
+     * @en Whether to trigger a request when getDataAtFirst equals false and the data is not full of one screen, valid when trigger=scroll
+     * @default false
+     */
+    getDataWhenNoScrollAtFirst?: boolean;
+    /**
      * 状态改变时回调
      * @en Callback when state changes
      */
@@ -150,6 +162,11 @@ export interface LoadMoreRef {
      * @en Change component state manually
      */
     changeStatus: (status: LoadMoreStatus, scene?: string) => void;
+    /**
+     * 判断是否滚动到底部并手动触发数据获取
+     * @en Determine whether to scroll to the bottom and manually trigger data acquisition
+     */
+    getDataWithEndReachCheck: () => void;
 }
 
 /**
@@ -164,6 +181,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     const {
         className = '',
         style,
+        disabled,
         beforeReadyArea,
         loadingArea,
         noMoreArea,
@@ -182,6 +200,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         onStatusChange,
         onClick,
         onEndReached,
+        getDataWhenNoScrollAtFirst = false,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const requestAtFirst = trigger === 'scroll' ? getDataAtFirst : false;
@@ -189,6 +208,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
     const lastScrollEndRef = useRef(false);
     const nowStatus = status || innerStatus;
     const statusRef = useRef<LoadMoreStatus>(nowStatus);
+    const disabledRef = useLatestRef(disabled);
 
     const changeStatus = useCallback(
         (st: LoadMoreStatus, scene?: string) => {
@@ -200,6 +220,9 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
 
     const triggerGetData = useCallback(
         (scene: string) => {
+            if (disabledRef.current) {
+                return;
+            }
             if (blockWhenLoading && statusRef.current === 'loading') {
                 return;
             }
@@ -228,11 +251,21 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
 
     useEffect(() => {
         if (requestAtFirst) {
-            if (statusRef.current === 'prepare') {
+            if (statusRef.current === 'prepare' && !disabled) {
                 triggerGetData('requestAtFirst');
             }
+        } else {
+            if (
+                trigger === 'scroll' &&
+                nowStatus === 'prepare' &&
+                checkNeedTrigger(0, threshold) &&
+                !disabled &&
+                getDataWhenNoScrollAtFirst
+            ) {
+                triggerGetData('pageEnd');
+            }
         }
-    }, [trigger]);
+    }, [trigger, disabled]);
 
     const handleContainerScroll = useCallback(() => {
         const scrollTop = getScrollContainerAttribute('scrollTop', getScrollContainer);
@@ -254,7 +287,7 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         const scrollFunc = throttle
             ? lodashThrottle(handleContainerScroll, throttle)
             : handleContainerScroll;
-        if (trigger === 'scroll') {
+        if (trigger === 'scroll' && !disabled) {
             const container = getValidScrollContainer(getScrollContainer);
             if (container) {
                 container.addEventListener('scroll', scrollFunc);
@@ -266,13 +299,20 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
                 binded.removeEventListener('scroll', scrollFunc);
             }
         };
-    }, [trigger, getScrollContainer, handleContainerScroll, throttle]);
+    }, [trigger, disabled, getScrollContainer, handleContainerScroll, throttle]);
+
+    const getDataWithEndReachCheck = () => {
+        if (checkNeedTrigger(0, threshold)) {
+            triggerGetData('pageEnd');
+        }
+    };
 
     useImperativeHandle(
         ref,
         () => ({
             dom: domRef.current,
             changeStatus,
+            getDataWithEndReachCheck,
         }),
         [changeStatus],
     );
@@ -338,7 +378,9 @@ const LoadMore = forwardRef((props: LoadMoreProps, ref: Ref<LoadMoreRef>) => {
         <ContextLayout>
             {({ prefixCls, locale = defaultLocale }) => (
                 <div
-                    className={`${prefixCls}-load-more status-${nowStatus} ${className}`}
+                    className={cls(`${prefixCls}-load-more status-${nowStatus}`, className, {
+                        [`${prefixCls}-load-more-disabled`]: disabled,
+                    })}
                     ref={domRef}
                     style={style}
                     onClick={handleClick}

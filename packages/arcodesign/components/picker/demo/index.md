@@ -74,6 +74,9 @@ export default function PickerDemo() {
                 onDismiss={() => {
                     console.log('------demo onDismiss');
                 }}
+                onOk={(val) => {
+                    console.log('------demo onOk', val);
+                }}
                 onPickerChange={(value) => {
                     console.info('-----demo onPickerChange', value);
                     if (pickerRef.current) {

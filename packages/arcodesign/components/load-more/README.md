@@ -12,6 +12,7 @@
 |----------|-------------|------|------|
 |style|自定义样式|CSSProperties|-|
 |className|自定义类名|string|-|
+|disabled|是否禁用加载能力|boolean|-|
 |beforeReadyArea|组件加载但尚未启用状态下的内容|ReactNode|null|
 |loadingArea|加载中状态下的内容|ReactNode|"正在努力加载中..."|
 |noMoreArea|无更多数据状态下的内容|ReactNode|"没有更多数据了"|
@@ -27,6 +28,7 @@
 |throttle|节流粒度|number|0|
 |blockWhenLoading|是否在loading状态下不触发getData|boolean|true|
 |getDataAtFirst|刚加载好组件时是否自动先请求一次，trigger=scroll时有效|boolean|true|
+|getDataWhenNoScrollAtFirst|当 getDataAtFirst 值为 false 且数据不满一屏时是否触发一次请求，trigger=scroll时有效|boolean|false|
 |onStatusChange|状态改变时回调|(status: LoadMoreStatus, scene?: string) =\> void|-|
 |onClick|组件被点击时回调|(e: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
 |onEndReached|滚动到(底部 \- threshold)距离时触发|() =\> void|-|
@@ -37,6 +39,7 @@
 |----------|-------------|------|
 |dom|最外层元素 DOM|HTMLDivElement|
 |changeStatus|手动更改组件状态|(status: LoadMoreStatus, scene?: string) =\> void|
+|getDataWithEndReachCheck|判断是否滚动到底部并手动触发数据获取|() =\> void|
 
 > LoadMoreStatus
 

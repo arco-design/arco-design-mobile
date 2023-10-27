@@ -173,7 +173,7 @@
             },
             "required": false,
             "type": {
-                "name": "(value: ValueType[], index: number) => void"
+                "name": "(value: ValueType[], index: number, data: PickerData[]) => void"
             }
         },
         "itemStyle": {

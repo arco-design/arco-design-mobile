@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import IconArrowBack from '../../../packages/arcodesign/components/icon/IconArrowBack';
 import getUrlParam from '../../utils/getUrlParam';
 import { analyseStyleSheets, isFromDesignLab, sendDesignLabMessage } from '../../utils/designlab';
+import StatusBar from '../../components/status-bar';
 
 export interface IDemoProps {
     name: string;
@@ -37,7 +38,11 @@ export default function Demo(props: IDemoProps) {
 
     return (
         <div className={`arcodesign-mobile-demo-wrapper${hideHeader ? ' hide-header' : ''}`}>
-            {isFromWeb ? <div className="status-bar" /> : null}
+            {isFromWeb ? (
+                <div className="status-bar">
+                    <StatusBar />
+                </div>
+            ) : null}
             <div className="demo-content" id={`demo-${name}`}>
                 {!hideBack ? (
                     <div

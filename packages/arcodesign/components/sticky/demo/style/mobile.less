@@ -4,13 +4,13 @@
     padding-bottom: 800px;
     .demo-sticky-container {
         height: 200px;
-        background: #f5f6f7;
+        .use-var(background, card-background-color);
         line-height: 80px;
         font-size: 14px;
         color: #939aa3;
         text-align: center;
     }
     .@{prefix}-button {
-        min-height: var(--button-large-height);
+        .use-var(min-height, button-large-height);
     }
 }

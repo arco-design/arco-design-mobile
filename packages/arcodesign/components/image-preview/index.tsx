@@ -184,6 +184,11 @@ export interface ImagePreviewProps
      */
     indicatorPos?: CarouselProps['indicatorPos'];
     /**
+     * 渲染自定义元素，如自定义关闭按钮
+     * @en Render custom elements such as custom close buttons
+     */
+    extra?: ReactNode;
+    /**
      * 图片捏合时最小缩放倍数，松手后仍会恢复到1的状态，默认为0.7
      * @en The minimum zoom factor when the image is pinched, it will still return to the state of 1 after letting go, the default is 0.7
      */
@@ -330,6 +335,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         scrollBezier,
         lazyloadCount = 1,
         swipeToClose = true,
+        extra,
         getMinScale,
         getMaxScale,
         getDoubleClickScale,
@@ -354,7 +360,6 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
     const imagesRef = useRef<(ImageRef | null)[]>([]);
     const carouselRef = useRef<CarouselRef | null>(null);
     const transformersRef = useRef<any[]>([]);
-    const dblTimerRef = useRef<number | null>(null);
     const longTimerRef = useRef<number | null>(null);
     const transImageRef = useRef<HTMLImageElement | null>(null);
     const imageDomsRef = useRef<(HTMLImageElement | null)[]>([]);
@@ -786,15 +791,13 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         if (movedRef.current) {
             return;
         }
-        // 300ms内再次点击则触发doubleClick，否则触发click
-        // @en Click again within 300ms to trigger doubleClick, otherwise trigger click
-        dblTimerRef.current = window.setTimeout(() => {
-            if (!dblClickingRef.current) {
-                if (!onImageClick || !onImageClick(innerIndexRef.current, e)) {
-                    goClose(e);
-                }
+        // 如果正在触发doubleClick就不触发click
+        // @en If doubleClick is being triggered, click will not be triggered
+        if (!dblClickingRef.current) {
+            if (!onImageClick || !onImageClick(innerIndexRef.current, e)) {
+                goClose(e);
             }
-        }, 300);
+        }
     }
 
     function handleImageDoubleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -803,10 +806,6 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
             return;
         }
         dblClickingRef.current = true;
-        if (dblTimerRef.current) {
-            clearTimeout(dblTimerRef.current);
-            dblTimerRef.current = null;
-        }
         const index = innerIndexRef.current;
         onImageDoubleClick && onImageDoubleClick(index, e);
         // 双击时根据配置放大或缩小
@@ -853,12 +852,14 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
      * @en Change specified image status
      */
     function setImagesStatusByIndex(index: number, data: PreviewImageStatus) {
-        const newStatus = imagesStatusRef.current.slice();
-        newStatus[index] = {
-            ...(newStatus[index] || {}),
-            ...data,
-        };
-        setImagesStatus(newStatus);
+        setImagesStatus(current => {
+            const newStatus = current.slice();
+            newStatus[index] = {
+                ...(newStatus[index] || {}),
+                ...data,
+            };
+            return newStatus;
+        });
     }
 
     /**
@@ -1046,7 +1047,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
             return renderIndicator(currentIndex, total, lastIndex);
         }
         return openLoaded ? (
-            <Portal>
+            <Portal getContainer={getContainer}>
                 <div className="image-preview-indicator">
                     {currentIndex + 1}/{total}
                 </div>
@@ -1083,7 +1084,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         // loadingArea提出来，放到过渡图上层
         // @en The loadingArea is extracted and placed on the upper layer of the transition image
         return index === openIndex ? (
-            <Portal>
+            <Portal getContainer={getContainer}>
                 <div className="image-preview-loading-area">
                     {loadingArea || <Loading type="circle" className="loading-icon" radius={7} />}
                 </div>
@@ -1210,6 +1211,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                                     )}
                                 </div>
                             ) : null}
+                            {extra}
                         </div>
                     </Transition>
                     {transImageInfo ? (

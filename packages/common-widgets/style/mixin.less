@@ -1,3 +1,25 @@
+/**
+ * @type mixin
+ * @name GeneralMixin
+ * @name_en General Mixin
+ */
+
+/**
+ * 文本溢出，支持1行/多行文本
+ * @desc {en} text overflow, support single line or multiple lines
+ * @param @lines 最大展示行数，默认为1行
+ * @param @lines {en} allows limiting of the contents of a block to the specified number of lines, default to 1
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ * .demo1{
+ *   .text-overflow();
+ * }
+ * .demo2 {
+ *   .text-overflow(2);
+ * }
+ * ```
+ */
 .text-overflow(@lines:1) when (@lines = 1) {
     overflow: hidden;
     white-space: nowrap;
@@ -14,6 +36,17 @@
     white-space: normal;
 }
 
+/**
+ * 禁用用户选择文本
+ * @desc {en} disable user selection of text
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *   .noselect();
+ * }
+ */
 .noselect() {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none;   /* Chrome/Safari/Opera */
@@ -23,6 +56,17 @@
     user-select: none;           /* Non-prefixed version, currently*/
 }
 
+/**
+ * 全屏布局
+ * @desc {en} full-screen layout
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *   .full-screen();
+ * }
+ */
 .full-screen() {
     position: fixed;
     top: 0;
@@ -31,6 +75,24 @@
     height: 100%;
 }
 
+/**
+ * 文本加粗，兼容安卓设备
+ * @desc {en} text-bold, compatible with Android devices
+ * @param @color 文本颜色，默认为currentColor
+ * @param @color {en} text color, default to currentColor
+ * @param @stroke 文本字符笔触宽度，默认为0.3PX
+ * @param @stroke {en} the width of strokes for text characters, default to 0.3PX
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo1 {
+ *   .text-medium();
+ * }
+ * .demo2 {
+ *   .text-medium(#fff, 0.5px);
+ * }
+ */
 .text-medium(@color: currentColor, @stroke: 0.3PX) {
     font-weight: bold;
     .android &,
@@ -42,6 +104,17 @@
     }
 }
 
+/**
+ * 消除文本加粗样式，兼容安卓设备
+ * @desc {en} remove text-bold, compatible with Android devices
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *   .remove-text-medium();
+ * }
+ */
 .remove-text-medium() {
     font-weight: normal;
     .android &,
@@ -53,6 +126,27 @@
     }
 }
 
+/**
+ * 1px(物理像素)边框
+ * @desc {en} a border line of 1 pixel
+ * @param @direction 边框方向
+ * @param @direction {en} border direction
+ * @param @borderColor 边框颜色，默认inherit
+ * @param @borderColor {en} border color, default to inherit
+ * @param @borderRadius 边框圆角，默认0
+ * @param @borderRadius {en} border radius, default to 0
+ * @param @borderWidth 边框宽度，默认1px
+ * @param @borderWidth {en} border width, default to 1px
+ * @param @borderStyle 边框样式，默认solid
+ * @param @borderStyle {en} border style, default to solid
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *   .onepx-border();
+ * }
+ */
 .onepx-border(@direction, @borderColor: inherit, @borderRadius: 0, @borderWidth: 1PX, @borderStyle: solid) {
     position: relative;
     border-width: 0;
@@ -184,6 +278,25 @@
     }
 }
 
+/**
+ * 0.5px的边框线
+ * @desc {en} a border line of 0.5 pixels
+ * @param @color 边框颜色
+ * @param @color {en} border-color
+ * @param @direction 边框方向，默认为全部方向
+ * @param @direction {en} border direction，default to all directions.
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo1 {
+ *     .hairline(#000);
+ * }
+ * .demo2 {
+ *     .hairline(#000, top);
+ * }
+ * ```
+ */
 .hairline(@color, @direction: all) {
     // 因为 Android/PC 不一定支持 0.5px border width
     box-shadow: @border-map[@@direction][@x] @border-map[@@direction][@y] 0 @border-map[@@direction][@spread] @color inset;
@@ -207,6 +320,20 @@
     }
 }
 
+/**
+ * 移除0.5px的边框线
+ * @desc {en} remove border line of 0.5 pixels
+ * @param @direction 边框方向，默认为全部方向
+ * @param @direction {en} border direction，default to all directions.
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *     .remove-hairline(all);
+ * }
+ * ```
+ */
 .remove-hairline(@direction: all) {
     box-shadow: none;
     @media (min-resolution: 2dppx) {
@@ -224,7 +351,20 @@
     }
 }
 
-// 元素右下 0.5px border
+/**
+ * 元素右下 0.5px border
+ * @desc {en} 0.5px border on bottom right
+ * @param @color 边框颜色
+ * @param @color {en} border-color
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *     .hairline-bottom-right(#000);
+ * }
+ * ```
+ */
 .hairline-bottom-right(@color) {
     box-shadow: -1PX -1PX 0 0 @color inset;
     @media (min-resolution: 2dppx) {
@@ -237,7 +377,20 @@
     }
 }
 
-// 元素左上 0.5px border
+/**
+ * 元素左上 0.5px border
+ * @desc {en} 0.5px border on top left
+ * @param @color 边框颜色
+ * @param @color {en} border-color
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *     .hairline-top-left(#000);
+ * }
+ * ```
+ */
 .hairline-top-left(@color) {
     box-shadow: 1PX 1PX 0 0 @color inset;
     @media (min-resolution: 2dppx) {
@@ -250,6 +403,20 @@
     }
 }
 
+/**
+ * 输入涉及左右相关的属性名，获取方向相反的属性名，可用于处理rtl模式
+ * @desc {en} get the property name in the opposite direction of the input property name, which can be used to process rtl mode
+ * @param @origin-property css属性名
+ * @param @origin-property {en} css property
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *   @a: .prop-with-rtl(margin-left)[@property-name]; // @a 变量值为margin-right
+ * }
+ * ```
+ */
 .prop-with-rtl(@origin-property) {
     @property-map: {
         @left: right;
@@ -268,6 +435,24 @@
     @property-name: @property-map[@@origin-property];
 }
 
+/**
+ * 设置涉及左右相关的属性名，在rtl模式下自动替换为相反的属性名
+ * @desc {en} set the property name related to left and right, and automatically replace it with the opposite attribute name in rtl mode
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @value css属性值
+ * @param @value {en} css property value
+ * @param @rules 自定义的复写规则，默认重置为initial
+ * @param @rules {en} customized rewrite rules, default to initial
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *   .set-prop-with-rtl(right, auto);
+ * }
+ * ```
+ */
 .set-prop-with-rtl(@property, @value, @rules: {
     @{property}: initial;
 }) {
@@ -279,6 +464,22 @@
     }
 }
 
+/**
+ * 设置涉及左右相关的属性值，在rtl模式下自动替换为相反的属性值
+ * @desc {en} set the property value related to left and right, and automatically replace it with the opposite attribute value in rtl mode
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @value css属性值
+ * @param @value {en} css property value
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *   .set-value-with-rtl(text-align, left);
+ * }
+ * ```
+ */
 .set-value-with-rtl(@property, @value) {
     @{property}: @value;
     [dir="rtl"] & {
@@ -287,6 +488,20 @@
     }
 }
 
+/**
+ * 设置Loading组件颜色
+ * @desc {en} set Loading component color
+ * @param @color 颜色
+ * @param @color {en} color
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *    .set-loading-color(#000);
+ * }
+ * ```
+ */
 .set-loading-color(@color) {
     .bg-color-with-config {
         background: @color;
@@ -302,6 +517,20 @@
     }
 }
 
+/**
+ * 设置最小字号
+ * @desc {en} set minimum font-size
+ * @param @size 最小字号
+ * @param @size {en} minimum font-size
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *    .set-font-size(10px);
+ * }
+ * ```
+ */
 .set-font-size(@size) {
     & when (@size < 12PX) {
         font-size: 12PX;
@@ -312,11 +541,47 @@
     }
 }
 
+/**
+ * 设置content-box盒模型下元素宽度
+ * @desc {en} set box width in content-box
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @param @width 元素总宽度，包含内边距
+ * @param @width element width, include padding
+ * @param @padding-left 左侧内边距
+ * @param @padding-left {en} padding-left
+ * @param @padding-right 右侧内边距
+ * @param @padding-right {en} padding-right
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *    .set-content-box-width(min-width, 300px, 10px, 10px);
+ * }
+ * ```
+ */
 .set-content-box-width(@property, @width, @padding-left, @padding-right) {
     @{property}: @width - @padding-left - @padding-right;
 }
 
-.set-steps-color(@color) {
+/**
+ * 设置Steps组件当前步骤主要颜色，已完成步骤颜色自动计算为当前步骤颜色透明度10%
+ * @desc {en} set Steps component color
+ * @param @color 当前步骤背景、标题文本颜色
+ * @param @color {en} color of current step background and title text
+ * @param @finish-color 已完成步骤背景色
+ * @param @finish-color {en} color of finished step background
+ * @example
+ * ```
+ * @import '@arco-design/mobile-utils/style/mixin.less';
+ *
+ * .demo {
+ *    .set-steps-color(#FFB400);
+ * }
+ * ```
+ */
+.set-steps-color(@color, @finish-color: fade(@color, 10%)) {
     .process-bg-color-with-config,
     .process-custom-icon-bg-color-with-config {
         background: @color;
@@ -324,7 +589,7 @@
     }
     .finish-bg-color-with-config,
     .finish-custom-icon-bg-color-with-config {
-        background: fade(@color, 10%);
+        background: @finish-color;
         color: @color;
         svg {
             color: inherit;
