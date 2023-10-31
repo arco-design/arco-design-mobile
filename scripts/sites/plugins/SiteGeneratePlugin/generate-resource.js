@@ -33,13 +33,13 @@ function getContentStr(
     type,
 ) {
     const { pathName, fileSuffix: tsxFileSuffix, language } = readFileName(func.slice());
-    const mdFileName = pathName.replace(/-(\w)/g, function (_, $1) {
-        return $1.toUpperCase();
-    });
+    // const mdFileName = pathName.replace(/-(\w)/g, function (_, $1) {
+    //     return $1.toUpperCase();
+    // });
     const { importStr, docStr } = generateResourcePage(
         path.join(functionSourceMdPath, func),
-        mdFileName,
-        path.join(functionSourceOutput, mdFileName),
+        pathName,
+        path.join(functionSourceOutput, pathName),
         resourceRoutes,
         category,
         {
@@ -172,19 +172,23 @@ function renderFuncSource(md, type) {
             type === 'mixin'
                 ? prism.highlight(code, prism.languages.less, 'less')
                 : prism.highlight(code, prism.languages.jsx, 'jsx');
-        return `<div class="demo-code-content">
-            <pre><code class="demo-code">${formatScript}</code></pre>
-        </div>`;
+        return `<Code showCodePen={false} codeSource="${encodeURIComponent(
+            codeSource,
+        )}" code={<div className="demo-code-wrapper
+            no-padding-top
+        " dangerouslySetInnerHTML={{ __html: ${JSON.stringify(`<div class="demo-code-content">
+        <pre><code class="demo-code">${formatScript}</code></pre>
+    </div>`)} }} />} />`;
     };
     renderer.heading = (text, level) => {
         if (level === 2 || level === 3) {
-            return `<h2 class="demo-code-title">${text}</h2>`;
+            return `<h2 className="demo-code-title">${text}</h2>`;
         }
         return '';
     };
 
     renderer.paragraph = text => {
-        return `<p class="demo-code-desc">${text}</p>`;
+        return `<p className="demo-code-desc">${text}</p>`;
     };
 
     const result = marked(md, { renderer });
@@ -222,8 +226,10 @@ function generateResourcePage(
     if (!/^###/.test(mdSplit[0])) {
         mdSplit[0] = `### ${category} ${mdFilename}\n\n` + mdSplit[0];
     }
+
     const typeStr = mdSplit[0].split(' ')[0] + ' ' + mdSplit[0].split(' ')[1]; // eg: ### hooks
     const nameStr = mdSplit[0].split(' ')[2] || mdFilename;
+    const routeStr = (mdSplit[0].split(' ')[3] || mdFilename).replace(/[\n]/g, '');
 
     let mdFileStr = `import React from 'react';
 import Code from '../../../../entry/code';
@@ -259,11 +265,7 @@ export default function Demo() {
             readmeStr[0] = `<div className="demo-nav-intro" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
                 introSource,
             )} }} />`;
-            readmeStr[1] = `<Code codeSource="${encodeURIComponent(codeSource)}" ${
-                category === 'mixin' ? 'showCodePen={false}' : ''
-            } code={<div className="demo-code-wrapper
-                no-padding-top
-            " dangerouslySetInnerHTML={{ __html: ${JSON.stringify(source)} }} />} />`;
+            readmeStr[1] = source;
             readmeStr[2] = `<div className="demo-props" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
                 propsSource,
             )} }} />`;
@@ -294,7 +296,7 @@ export default function Demo() {
             }
         });
         const mdCompName = `${prefix}${utils.getCompName(`${mdFilename}${tsxFileSuffix}`)}`;
-        const mdDocName = `${prefix.toLowerCase()}-${mdFilename}${tsxFileSuffix}`;
+        const mdDocName = `${prefix.toLowerCase()}-${routeStr}${tsxFileSuffix}`;
         importStr += `import ${mdCompName} from './${category}/${mdFilename}${
             tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
         }';\n`;
