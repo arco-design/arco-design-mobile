@@ -1,10 +1,9 @@
-
 import demoTest from '../../../tests/demoTest';
 import { defaultContext } from '../../context-provider';
 import Masking from '..';
 import { testMaskingCase } from './utils';
 
-demoTest('masking');
+demoTest('masking', { useFakeTimers: true });
 
 const prefix = `${defaultContext.prefixCls}-masking`;
 
@@ -18,5 +17,4 @@ describe('Masking', () => {
     });
 
     testMaskingCase('masking', Masking, prefix);
-
 });
