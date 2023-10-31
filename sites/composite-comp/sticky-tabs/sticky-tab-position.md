@@ -67,7 +67,15 @@ export default function StickyTabsPosition() {
                 className='sticky-tabs'
                 tabs={tabData}
                 renderTabBar={(TabBar) => (
-                    <Sticky getScrollContainer={() => document.getElementById('sticky-tabs-wrapper-position')} topOffset={0}>{TabBar}</Sticky>
+                    <Sticky
+                        // 下面属性为局部滚动时使用，根据不同滚动场景添加
+                        portalWhenSticky
+                        getPortalContainer={() => document.querySelectorAll('.arcodesign-mobile-demo-content')[2]}
+                        stickyStyle='absolute'
+                        getScrollContainer={() => document.getElementById('sticky-tabs-wrapper-position')}
+                    >
+                        {TabBar}
+                    </Sticky>
                 )}
                 onChange={onChange}
                 onAfterChange={onAfterChange}

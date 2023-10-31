@@ -57,3 +57,7 @@ A: autoFocus 在一些机型上是不支持的，组件底层只能尝试 focus�
 ## Q: 使用或构建时出现 SyntaxError: xxx is undefined 的问题
 
 A: @arco-design/mobile-react 包的版本需要和 @arco-design/mobile-utils 包的版本一一对应，可以查看项目中是否锁定或指定了 @arco-design/mobile-utils 包的版本。
+
+## Q: Popup.open 里使用了 Provider 时报错或无法使用 context
+
+A: XXX.open 之类的方法本质上都是通过创建 node 节点的方式去生成的，无法成为 provider 的子节点，所以容器内的 children 节点还需要包一层 provider
