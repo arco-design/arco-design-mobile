@@ -12,6 +12,8 @@ import {
 } from '../../../tests/helpers/mockEvent';
 import '@testing-library/jest-dom';
 
+demoTest('tabs', { useFakeTimers: true });
+
 const prefix = `${defaultContext.prefixCls}-tabs`;
 const prefixTab = `${defaultContext.prefixCls}-tab`;
 
@@ -255,6 +257,3 @@ describe('Tabs', () => {
         expect(indexIsActive(wrapper, 0)).toBe(true);
     });
 });
-
-// FIXME: 放最前面用例会不通过，还没仔细研究什么问题
-demoTest('tabs');
