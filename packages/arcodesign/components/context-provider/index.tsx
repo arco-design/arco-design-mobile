@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useCallback, useMemo } from 'react';
+import React, { createContext, useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { addCssRules, removeCssStyleDom, defaultLocale, ILocale } from '@arco-design/mobile-utils';
 
 export interface GlobalContextParams {
@@ -48,6 +48,11 @@ export interface GlobalContextParams {
      * @default false
      */
     useRtl?: boolean;
+    /**
+     * 当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效
+     * @en Triggered when the system's native dark mode changes, valid when useDarkMode=true
+     */
+    onDarkModeChange?: (isDark: boolean) => void;
 }
 
 const DEFAULT_DARK_MODE_SELECTOR = 'arco-theme-dark';
@@ -64,7 +69,6 @@ export const defaultContext: GlobalContextParams = {
 export const GlobalContext = createContext<GlobalContextParams>(defaultContext);
 
 export interface ContextProviderProps extends GlobalContextParams {
-    onDarkModeChange?: (isDark: boolean) => void;
     children: React.ReactNode;
 }
 
@@ -96,10 +100,11 @@ export default function ContextProvider(props: ContextProviderProps) {
         }
         return false;
     });
+    const mountedRef = useRef(false);
 
-    const setDarkModeState = (isDark: boolean) => {
+    const setDarkModeState = (isDark: boolean, needChange = true) => {
         setIsDarkModeState(isDark);
-        onDarkModeChange && onDarkModeChange(isDark);
+        needChange && onDarkModeChange && onDarkModeChange(isDark);
     };
 
     const isDarkMode = useMemo(() => {
@@ -127,13 +132,14 @@ export default function ContextProvider(props: ContextProviderProps) {
         const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
         if (useDarkMode) {
             const dark = matchMedia.matches;
-            setDarkModeState(dark);
+            setDarkModeState(dark, mountedRef.current);
             if (typeof matchMedia.addEventListener === 'function') {
                 matchMedia.addEventListener('change', changeDarkMode);
             } else if (typeof matchMedia.addListener === 'function') {
                 matchMedia.addListener(changeDarkMode);
             }
         }
+        mountedRef.current = true;
         return () => {
             if (useDarkMode) {
                 if (typeof matchMedia.removeEventListener === 'function') {

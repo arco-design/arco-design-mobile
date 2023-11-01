@@ -15,7 +15,7 @@ Navigation bar, supports ceiling and immersion, supports display at specified sc
 |leftContent|Navigation bar left content|ReactNode|Back button|
 |rightContent|Content on the right side of the navigation bar|ReactNode|-|
 |style|Custom stylesheet, background and text colors can be defined here|CSSProperties|-|
-|className|Custom classname|string|-|
+|className|Inner custom classname|string|-|
 |wrapClass|Outermost element custom classname|string|-|
 |fixed|Whether to fix|boolean|-|
 |statusBarHeight|Immersive status bar height|number|0|

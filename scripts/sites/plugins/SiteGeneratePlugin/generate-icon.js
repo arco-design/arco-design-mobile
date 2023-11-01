@@ -6,6 +6,7 @@ const localeMap = require('../../../utils/language.json');
 const rootPath = path.resolve(__dirname, '../../../../');
 const { renderNavIntro, renderReadmeTable } = require('./helpers');
 
+const avoidCurrentColorSvgs = ['IconCircleDisabled', 'IconSquareDisabled'];
 
 function generateIconDemoByLang(language) {
     const compFolder = path.join('packages/arcodesign', 'components');
@@ -39,7 +40,7 @@ function generateIconDemoByLang(language) {
                 dirName.startsWith('Icon'),
         )
         .reduce((pre, cur) => {
-            iconMap += `    {${cur}: <${cur} useCurrentColor={false} />},\n`;
+            iconMap += `    {${cur}: <${cur} ${avoidCurrentColorSvgs.includes(cur) ? 'useCurrentColor={false} ' : ''}/>},\n`;
             return (pre += `import ${cur} from '../../../../../packages/arcodesign/components/icon/${cur}';\n`);
         }, '');
 

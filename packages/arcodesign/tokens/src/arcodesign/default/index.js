@@ -1081,7 +1081,7 @@ function getCompTokens() {
          * @en Tabs tabbar background color
          * @override tabBarBackground
          */
-        tabsTabBarBackground: useGlobal('containerBackgroundColor'),
+        tabsTabBarBackground: useGlobal('backgroundColor'),
         /**
          * tabs 上下排布时 tabbar 容器高度
          * @en Height of the tabbar container when the tabs is vertical
@@ -1268,7 +1268,7 @@ function getCompTokens() {
          * navBar 背景色
          * @en NavBar background color
          */
-        navBarBackground: useGlobal('containerBackgroundColor'),
+        navBarBackground: useGlobal('backgroundColor'),
         /**
          * navBar 字体颜色
          * @en NavBar font color

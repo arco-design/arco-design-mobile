@@ -1076,7 +1076,12 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         const translateDis = noLoop
             ? noLoopDis - (total > 1 && index === total - 1 ? spaceBetween : 0) * rtlRatio
             : dis;
-        const transStr = childSize > 0 ? `${translateDis}px` : `-${index * 100}%`;
+        const initTranslateDis = -1 * index * 100;
+        // bugfix: prop `style` did not match in ssr
+        const transStr =
+            childSize > 0
+                ? `${translateDis}${translateDis ? 'px' : ''}`
+                : `${initTranslateDis}${initTranslateDis ? '%' : ''}`;
         if (vertical) {
             const translateStyle = getStyleWithVendor({
                 transform: `translateY(${transStr}) translateZ(0)`,
