@@ -1,6 +1,6 @@
 {
     "name": "@arco-design/mobile-react",
-    "version": "2.30.0",
+    "version": "2.30.1-5d8a34f.3+5d8a34f",
     "description": "",
     "main": "cjs/index.js",
     "module": "esm/index.js",
@@ -49,5 +49,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "gitHead": "1fcfc18668d480891d2fc6052b4dc2d84557e97e"
+    "gitHead": "5d8a34f0211ab614e612201ce68bb53748de880d"
 }
