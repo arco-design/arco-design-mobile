@@ -60,4 +60,4 @@ A: @arco-design/mobile-react 包的版本需要和 @arco-design/mobile-utils 包
 
 ## Q: Popup.open 里使用了 Provider 时报错或无法使用 context
 
-A: XXX.open 之类的方法本质上都是通过创建 node 节点的方式去生成的，无法成为 provider 的子节点，所以容器内的 children 节点还需要包一层 provider
+A: XXX.open 之类的方法本质上都是通过创建 node 节点的方式去生成的，无法成为 provider 的子节点，如果是使用 arco-mobile 的 ContextProvider，可以把 provider 作为 open 方法的第二个参数传递，如果是外部的 provider，需要在容器内的 children 节点再包一层 provider
