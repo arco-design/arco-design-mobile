@@ -89,11 +89,14 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
                 fieldValidator.validate(
                     { [field]: value },
                     (errorsMap: Record<string, ValidatorError[]>) => {
-                        const { errors, warnings } = getErrorAndWarnings(errorsMap?.[field] || []);
+                        const { errors, warnings, errorTypes } = getErrorAndWarnings(
+                            errorsMap?.[field] || [],
+                        );
                         this._errors = errors;
                         onValidateStatusChange({
                             errors: this._errors,
                             warnings,
+                            errorTypes,
                         });
                         return resolve({
                             errors: this._errors,
@@ -239,15 +242,18 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
     const { prefixCls } = useContext(GlobalContext);
     const { layout, disabled: propsDisabled } = useContext(FormItemContext);
     const [errors, setErrors] = useState<ReactNode | null>(null);
+    const [errorTypes, setErrorTypes] = useState<ReactNode | null>(null);
     const [warnings, setWarnings] = useState<ReactNode[]>([]);
     const formItemRef = useRef<HTMLDivElement | null>(null);
 
     const onValidateStatusChange = (validateResult: {
         errors: ReactNode[];
         warnings: ReactNode[];
+        errorTypes: ReactNode[];
     }) => {
-        const { errors: _errors, warnings: _warnings } = validateResult;
+        const { errors: _errors, warnings: _warnings, errorTypes: _errorTypes } = validateResult;
         setErrors(_errors.length ? _errors[0] : null);
+        setErrorTypes(_errorTypes.length ? _errorTypes[0] : null);
         setWarnings(_warnings);
     };
     const getFormItemRef = () => {
@@ -274,6 +280,7 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
                     disabled: fieldDisabled,
                     [`${prefixCls}-form-item-error`]: !!errors,
                     [`${prefixCls}-form-item-warning`]: Boolean(!errors && warnings),
+                    [`${prefixCls}-form-item-${errorTypes}`]: errorTypes,
                 },
             )}
             style={style}
