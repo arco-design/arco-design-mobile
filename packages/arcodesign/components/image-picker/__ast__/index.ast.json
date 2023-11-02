@@ -793,7 +793,7 @@
             "loadingArea": {
                 "name": "loadingArea",
                 "required": false,
-                "description": "自定义展示加载中内容，staticLabel=false时有效\n@en Custom display loading content, valid when staticLabel=false",
+                "description": "自定义展示加载中内容\n@en Custom display loading content, valid when staticLabel=false",
                 "defaultValue": null,
                 "type": {
                     "name": "ReactNode"
@@ -801,12 +801,12 @@
                 "tags": {
                     "en": "Custom display loading content, valid when staticLabel=false"
                 },
-                "descWithTags": "自定义展示加载中内容，staticLabel=false时有效"
+                "descWithTags": "自定义展示加载中内容"
             },
             "errorArea": {
                 "name": "errorArea",
                 "required": false,
-                "description": "自定义展示加载失败内容，staticLabel=false时有效\n@en Custom display failed to load content, valid when staticLabel=false",
+                "description": "自定义展示加载失败内容\n@en Custom display failed to load content, valid when staticLabel=false",
                 "defaultValue": null,
                 "type": {
                     "name": "ReactNode"
@@ -814,12 +814,12 @@
                 "tags": {
                     "en": "Custom display failed to load content, valid when staticLabel=false"
                 },
-                "descWithTags": "自定义展示加载失败内容，staticLabel=false时有效"
+                "descWithTags": "自定义展示加载失败内容"
             },
             "showLoading": {
                 "name": "showLoading",
                 "required": false,
-                "description": "是否展示图片加载中提示，staticLabel=false时有效\n@en Whether to display the image loading prompt, valid when staticLabel=false",
+                "description": "是否展示图片加载中提示\n@en Whether to display the image loading prompt, valid when staticLabel=false",
                 "defaultValue": null,
                 "type": {
                     "name": "boolean"
@@ -827,12 +827,12 @@
                 "tags": {
                     "en": "Whether to display the image loading prompt, valid when staticLabel=false"
                 },
-                "descWithTags": "是否展示图片加载中提示，staticLabel=false时有效"
+                "descWithTags": "是否展示图片加载中提示"
             },
             "showError": {
                 "name": "showError",
                 "required": false,
-                "description": "是否展示图片加载失败提示，staticLabel=false时有效\n@en Whether to display the image loading failure prompt, valid when staticLabel=false",
+                "description": "是否展示图片加载失败提示\n@en Whether to display the image loading failure prompt, valid when staticLabel=false",
                 "defaultValue": null,
                 "type": {
                     "name": "boolean"
@@ -840,7 +840,7 @@
                 "tags": {
                     "en": "Whether to display the image loading failure prompt, valid when staticLabel=false"
                 },
-                "descWithTags": "是否展示图片加载失败提示，staticLabel=false时有效"
+                "descWithTags": "是否展示图片加载失败提示"
             },
             "animateDuration": {
                 "name": "animateDuration",

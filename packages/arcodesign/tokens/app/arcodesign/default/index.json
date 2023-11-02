@@ -3239,9 +3239,9 @@
         "cssKey": "dark-nav-bar-background",
         "desc": "",
         "override": "",
-        "value": "@dark-container-background-color",
-        "jsValue": "@global@darkContainerBackgroundColor",
-        "staticValue": "#232324"
+        "value": "@dark-background-color",
+        "jsValue": "@global@darkBackgroundColor",
+        "staticValue": "#17171A"
     },
     "darkNavBarBottomBorderColor": {
         "cssKey": "dark-nav-bar-bottom-border-color",
@@ -4063,9 +4063,9 @@
         "cssKey": "dark-tabs-tab-bar-background",
         "desc": "",
         "override": "",
-        "value": "@dark-container-background-color",
-        "jsValue": "@global@darkContainerBackgroundColor",
-        "staticValue": "#232324"
+        "value": "@dark-background-color",
+        "jsValue": "@global@darkBackgroundColor",
+        "staticValue": "#17171A"
     },
     "darkTabsTabBarCardColor": {
         "cssKey": "dark-tabs-tab-bar-card-color",
@@ -6737,8 +6737,8 @@
         "cssKey": "nav-bar-background",
         "desc": "navBar 背景色",
         "override": "",
-        "value": "@container-background-color",
-        "jsValue": "@global@containerBackgroundColor",
+        "value": "@background-color",
+        "jsValue": "@global@backgroundColor",
         "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "navBar 背景色",
@@ -10709,8 +10709,8 @@
         "cssKey": "tabs-tab-bar-background",
         "desc": "tabs tabbar 背景色",
         "override": "tab-bar-background",
-        "value": "@container-background-color",
-        "jsValue": "@global@containerBackgroundColor",
+        "value": "@background-color",
+        "jsValue": "@global@backgroundColor",
         "staticValue": "#FFFFFF",
         "localeDesc": {
             "ch": "tabs tabbar 背景色",
