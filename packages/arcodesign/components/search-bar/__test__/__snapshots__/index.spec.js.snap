@@ -237,7 +237,7 @@ exports[`search-bar demo test search-bar demo: index.md renders correctly 1`] = 
   <div>
     <div
       class="arco-radio-group"
-      style="padding: 16px; background-color: white;"
+      style="padding: 16px;"
     >
       <div
         aria-checked="true"
