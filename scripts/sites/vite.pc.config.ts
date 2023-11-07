@@ -42,7 +42,8 @@ export default defineConfig({
         viteExternalsPlugin({
             'arco': 'arco',
             'react': 'React',
-            'react-dom': 'ReactDOM'
+            'react-dom': 'ReactDOM',
+            'fuse': 'Fuse',
         }),
         {
             ...transformSourceInjectPlugin('pc'),
