@@ -839,11 +839,33 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
 
     const handleClick = useSingleAndDoubleClick(handleImageClick, handleImageDoubleClick);
 
+    // 当使用 getThumbBounds 时，关闭图片预览有缩小效果
+    // @en When using getThumbBounds, closing the image preview has a shrinking effect
+    function animateBeforeClose() {
+        const index = innerIndexRef.current;
+        const imageDom = imagesRef.current[index]?.image;
+        const thumbBounds = getThumbBounds?.(index);
+        if (imageDom && thumbBounds && thumbBounds.width && thumbBounds.height) {
+            const imageDomRect = imageDom.getBoundingClientRect();
+            if (imageDomRect.width && imageDomRect.height) {
+                imageDom.classList.add('closing-animation');
+                setImageBounds(imageDom, imageDomRect, imageDomRect);
+                imageDom.style.objectPosition = images[index].thumbPosition || 'top center';
+                nextTick(() => {
+                    imageDom.style.transitionDuration = `${displayDuration}ms`;
+                    imageDom.style.webkitTransitionDuration = `${displayDuration}ms`;
+                    setImageBounds(imageDom, thumbBounds, imageDomRect);
+                });
+            }
+        }
+    }
+
     function goClose(e: React.MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent) {
         if (closingRef.current) {
             return;
         }
         closingRef.current = true;
+        animateBeforeClose();
         close(e);
     }
 
