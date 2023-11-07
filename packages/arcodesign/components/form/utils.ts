@@ -16,7 +16,7 @@ export const getErrorAndWarnings = (result: ValidatorError[]) => {
             warnings = [...warnings, ...message];
         } else {
             errors = [...errors, ...message];
-            errorTypes = [...resultErrorTypes, ...message];
+            errorTypes = [...errorTypes, ...resultErrorTypes];
         }
     });
     return { warnings, errors, errorTypes };
