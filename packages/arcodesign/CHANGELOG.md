@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.0...@arco-design/mobile-react@2.30.1) (2023-11-07)
+
+
+### Bug Fixes
+
+* `Form` put error types to classname & i18n usage description ([#192](https://github.com/arco-design/arco-design-mobile/issues/192)) ([d3a611a](https://github.com/arco-design/arco-design-mobile/commit/d3a611ab368a32c98495e1601a5e16e4d6f4f86f))
+* adjust dark mode style ([#193](https://github.com/arco-design/arco-design-mobile/issues/193)) ([919d661](https://github.com/arco-design/arco-design-mobile/commit/919d66120c1b2e445e3d0f95cf4d34e8c84e9998))
+
+
+
+
+
 # [2.30.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.6...@arco-design/mobile-react@2.30.0) (2023-10-19)
 
 
