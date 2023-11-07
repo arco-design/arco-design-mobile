@@ -46,7 +46,7 @@ function cjsBuild() {
 
 function copyLess() {
     return gulp
-        .src(['components/**/*.less', '!src/components/**/demo/**/*.less'])
+        .src(['components/**/*.less', '!components/**/demo/**/*.less'])
         .pipe(
             less({
                 outputType: 'less',
@@ -83,7 +83,7 @@ function buildStyle(src) {
 }
 
 function lessBuild() {
-    return buildStyle('components/**/*.less').pipe(
+    return buildStyle(['components/**/*.less', '!components/**/demo/**/*.less']).pipe(
         gulp.dest(file => {
             allCss.push(file.relative);
             return '_temp_style_';
