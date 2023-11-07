@@ -356,7 +356,11 @@ export interface IFormItemInnerProps {
      * 校验状态变化回调
      * @en The callback when validating status changes
      */
-    onValidateStatusChange: (data: { errors: any; warnings: any; errorTypes: any }) => void;
+    onValidateStatusChange: (data: {
+        errors: ReactNode[];
+        warnings: ReactNode[];
+        errorTypes: string[];
+    }) => void;
     /**
      * 获取内部表单项的dom
      * @en The dom of inner form item

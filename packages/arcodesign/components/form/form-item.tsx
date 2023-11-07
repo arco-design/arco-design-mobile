@@ -242,14 +242,14 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
     const { prefixCls } = useContext(GlobalContext);
     const { layout, disabled: propsDisabled } = useContext(FormItemContext);
     const [errors, setErrors] = useState<ReactNode | null>(null);
-    const [errorTypes, setErrorTypes] = useState<ReactNode | null>(null);
+    const [errorTypes, setErrorTypes] = useState<string | null>(null);
     const [warnings, setWarnings] = useState<ReactNode[]>([]);
     const formItemRef = useRef<HTMLDivElement | null>(null);
 
     const onValidateStatusChange = (validateResult: {
         errors: ReactNode[];
         warnings: ReactNode[];
-        errorTypes: ReactNode[];
+        errorTypes: string[];
     }) => {
         const { errors: _errors, warnings: _warnings, errorTypes: _errorTypes } = validateResult;
         setErrors(_errors.length ? _errors[0] : null);
@@ -280,7 +280,7 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
                     disabled: fieldDisabled,
                     [`${prefixCls}-form-item-error`]: !!errors,
                     [`${prefixCls}-form-item-warning`]: Boolean(!errors && warnings),
-                    [`${prefixCls}-form-item-${errorTypes}`]: errorTypes,
+                    [`${prefixCls}-form-item-error-${errorTypes}`]: errorTypes,
                 },
             )}
             style={style}
