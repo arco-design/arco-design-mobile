@@ -101,4 +101,7 @@ export interface ILocale {
             equal: string;
         };
     };
+    NavBar: {
+        backBtnAriaLabel: string;
+    };
 }
