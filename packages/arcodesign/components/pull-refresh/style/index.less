@@ -64,6 +64,9 @@
         align-items: center;
         .@{prefix}-loading + span {
             .rem(margin-left, 10);
+            [dir="rtl"] & {
+                .rem(margin-right, 10);
+            }
         }
     }
 
