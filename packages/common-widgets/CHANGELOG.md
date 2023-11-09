@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.1...@arco-design/mobile-utils@2.17.2) (2023-11-09)
+
+
+### Bug Fixes
+
+* `Input` & `Textarea` support appearance style ([#198](https://github.com/arco-design/arco-design-mobile/issues/198)) ([2872190](https://github.com/arco-design/arco-design-mobile/commit/28721909727cb7acd6d4853f176881110e90face))
+* `NavBar` add aria-label to back arrow ([#196](https://github.com/arco-design/arco-design-mobile/issues/196)) ([ad97b65](https://github.com/arco-design/arco-design-mobile/commit/ad97b652d142a4d2331fbc4699c7d15d61153e50))
+
+
+
+
+
 ## [2.17.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.0...@arco-design/mobile-utils@2.17.1) (2023-11-07)
 
 **Note:** Version bump only for package @arco-design/mobile-utils
