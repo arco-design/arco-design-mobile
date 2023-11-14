@@ -33,12 +33,12 @@
             .use-var(padding, picker-button-padding);
 
             &.left {
-                left: 0;
+                .set-prop-with-rtl(left, 0);
                 .use-var(color, picker-left-btn-color);
             }
 
             &.right {
-                right: 0;
+                .set-prop-with-rtl(right, 0);
                 .use-var(color, picker-right-btn-color);
             }
         }
