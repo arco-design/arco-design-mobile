@@ -31,7 +31,7 @@
         .use-var(color, slider-text-color);
 
         .is-horizontal & {
-            .use-var(margin-right, slider-label-gutter);
+            .use-var-with-rtl(margin-right, slider-label-gutter);
         }
 
         .is-vertical & {
@@ -44,7 +44,7 @@
 
         .is-horizontal & {
             margin-right: 0;
-            .use-var(margin-left, slider-label-gutter);
+            .use-var-with-rtl(margin-left, slider-label-gutter);
         }
 
         .is-vertical & {
@@ -124,13 +124,19 @@
                 bottom: 0;
 
                 &.is-end {
-                    right: 0;
+                    .set-prop-with-rtl(right, 0);
                     transform: translateX(50%);
+                    [dir="rtl"] & {
+                        transform: translateX(-50%);
+                    }
                 }
 
                 &.is-start {
-                    left: 0;
+                    .set-prop-with-rtl(left, 0);
                     transform: translateX(-50%);
+                    [dir="rtl"] & {
+                        transform: translateX(50%);
+                    }
                 }
             }
         }
@@ -236,6 +242,9 @@
             .use-var(border-radius, slider-mark-border-radius);
             .use-var(background, slider-line-color);
             transform: translateX(-50%);
+            [dir="rtl"] & {
+                transform: translateX(50%);
+            }
 
             &.is-activated {
                 .use-var(background, slider-line-activated-color);

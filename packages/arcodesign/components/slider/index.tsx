@@ -164,7 +164,7 @@ export interface SliderRef {
 }
 
 const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
-    const { prefixCls = '' } = useContext(GlobalContext);
+    const { prefixCls = '', useRtl } = useContext(GlobalContext);
     const { className, style, disabled, min, max, type, showTooltip, showMarks } =
         useContext(SliderContext);
     const domRef = useRef<HTMLDivElement>(null);
@@ -190,9 +190,10 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
             top: 0,
             height: 0,
         };
+        const leftValue = useRtl ? left + width : left;
         return {
             length: isHorizontal ? width : height,
-            start: isHorizontal ? left : top,
+            start: isHorizontal ? leftValue : top,
         };
     }, [isHorizontal, firstRender]);
 

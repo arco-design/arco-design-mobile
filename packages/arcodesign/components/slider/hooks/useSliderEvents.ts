@@ -8,6 +8,7 @@ import React, {
     useRef,
 } from 'react';
 import { SliderContext, LinePosition } from '.';
+import { GlobalContext } from '../../context-provider';
 
 enum IsTouchingStatus {
     Idle,
@@ -28,6 +29,7 @@ export const useSliderEvents = ({
     setValueGroup: React.Dispatch<React.SetStateAction<number | [number, number]>>;
     setCommonIsTouching: React.Dispatch<React.SetStateAction<number>>;
 }) => {
+    const { useRtl } = useContext(GlobalContext);
     const { disabled, step, min, max, type, draggableTrackOnly } = useContext(SliderContext);
     const [isTouching, setIsTouching] = useState(IsTouchingStatus.Idle);
     const [touchStartPosition, setTouchStartPosition] = useState(0);
@@ -49,7 +51,10 @@ export const useSliderEvents = ({
         (touchPosition: number) => {
             const { length, start } = linePositionRef.current;
             if (length === 0) return 0;
-            let newWidth = isHorizontal ? touchPosition - start : length - touchPosition + start;
+            const rtlRatio = useRtl ? -1 : 1;
+            let newWidth = isHorizontal
+                ? (touchPosition - start) * rtlRatio
+                : length - touchPosition + start;
             if (newWidth < 0) {
                 newWidth = 0;
             } else if (newWidth > length) {

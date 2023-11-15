@@ -25,7 +25,7 @@
         .center-box();
         .base-item {
             &:first-child {
-                margin-right: 66px;
+                .set-prop-with-rtl(margin-right, 66px);
             }
         }
         .@{prefix}-button {
@@ -41,7 +41,7 @@
         .direction-item {
             margin: 14px 0;
             &:nth-child(2n+1) {
-                margin-right: 59px;
+                .set-prop-with-rtl(margin-right, 60px);
             }
         }
 
@@ -51,6 +51,10 @@
                 padding: 0;
             }
         }
+    }
+
+    .popover-with-margin {
+        .set-prop-with-rtl(margin-right, 66px);
     }
 
     .white-theme-mask-demo-wrapper {
