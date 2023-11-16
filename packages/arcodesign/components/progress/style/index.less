@@ -5,7 +5,7 @@
     &.progress-fixed {
         position: fixed;
         width: 100%;
-        left: 0;
+        .set-prop-with-rtl(left, 0);
         z-index: @full-screen-z-index + 1;;
     }
 
@@ -39,7 +39,7 @@
 
             .wrapper {
                 position: absolute;
-                right: 0;
+                .set-prop-with-rtl(right, 0);
                 top: 50%;
                 transform: translateY(-50%);
             }
@@ -51,13 +51,13 @@
 
         .text {
             .use-var(font-size, progress-text-font-size);
-            .use-var(margin-left, progress-text-gutter);
+            .use-var-with-rtl(margin-left, progress-text-gutter);
             .use-var(color, progress-primary-color);
         }
 
         .text-left {
-            margin-left: 0;
-            .use-var(margin-right, progress-text-gutter);
+            .set-prop-with-rtl(margin-left, 0);
+            .use-var-with-rtl(margin-right, progress-text-gutter);
         }
 
         .text-innerLeft {
