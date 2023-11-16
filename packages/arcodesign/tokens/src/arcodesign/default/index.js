@@ -1896,10 +1896,10 @@ function getCompTokens() {
          */
         popoverIconPadding: `${getRem(0)} ${getRem(10)} ${getRem(0)} ${getRem(11)}`,
         /**
-         * textSuffix 元素 padding
+         * textSuffix 元素和气泡边缘的距离
          * @en Popover textSuffix element padding
          */
-        popoverTextSuffixPadding: `${getRem(0)} ${getRem(12)} ${getRem(0)} ${getRem(0)}`,
+        popoverTextSuffixEdge: getRem(12),
         /**
          * 气泡遮罩背景色
          * @en Popover mask background color

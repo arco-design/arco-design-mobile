@@ -7921,15 +7921,15 @@
             "en": "Popover shadow color"
         }
     },
-    "popoverTextSuffixPadding": {
-        "cssKey": "popover-text-suffix-padding",
-        "desc": "textSuffix 元素 padding",
+    "popoverTextSuffixEdge": {
+        "cssKey": "popover-text-suffix-edge",
+        "desc": "textSuffix 元素和气泡边缘的距离",
         "override": "",
-        "value": "~`pxtorem(0)` ~`pxtorem(12)` ~`pxtorem(0)` ~`pxtorem(0)`",
-        "jsValue": "@getRem@0 @getRem@12 @getRem@0 @getRem@0",
-        "staticValue": "0 0.24rem 0 0",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
         "localeDesc": {
-            "ch": "textSuffix 元素 padding",
+            "ch": "textSuffix 元素和气泡边缘的距离",
             "en": "Popover textSuffix element padding"
         }
     },

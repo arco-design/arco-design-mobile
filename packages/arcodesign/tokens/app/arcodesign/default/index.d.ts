@@ -465,7 +465,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'popover-icon-divider-height': string;
     'popover-icon-size': string;
     'popover-icon-padding': string;
-    'popover-text-suffix-padding': string;
+    'popover-text-suffix-edge': string;
     'popover-mask-background': string;
     'load-more-font-size': string;
     'dark-load-more-text-color': string;
