@@ -1,15 +1,15 @@
 export { default as Tabs } from './tabs';
 export { default as Sticky } from './sticky';
 export { default as Portal } from './portal';
-export { default as Avatar } from './avatar';
+export { default as Collapse } from './collapse';
 export { default as ActionSheet } from './action-sheet';
+export { default as Avatar } from './avatar';
 export { default as Badge } from './badge';
 export { default as Button } from './button';
 export { default as Carousel } from './carousel';
 export { default as Cell } from './cell';
 export { default as Checkbox } from './checkbox';
 export { default as CircleProgress } from './circle-progress';
-export { default as Collapse } from './collapse';
 export { default as ContextProvider } from './context-provider';
 export { default as CountDown } from './count-down';
 export { default as DatePicker } from './date-picker';
