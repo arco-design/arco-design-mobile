@@ -4,11 +4,24 @@
 
 ```js
 import { Steps } from '@arco-design/mobile-react';
-
+import { GlobalContext } from '@arco-design/mobile-react/esm/context-provider';
+import { useContext } from 'react';
 export default function StepsDemo() {
+    const { useRtl } = useContext(GlobalContext);
+    const getStyle = () => {
+        if(useRtl) {
+            return {
+                marginRight: '20px'
+            }
+        }
+        return {
+            marginLeft: '20px'
+        }
+    }
+    const style = getStyle()
     return (
         <div>
-            <Steps current={1} direction="horizontal" align="start" style={{ marginLeft: 20 }}>
+            <Steps current={1} direction="horizontal" align="start" style={style}>
                 <Steps.Step title="Start" description="Details" />
                 <Steps.Step title="Step 2" description="Details" />
                 <Steps.Step title="Step 3" description="Details" />
