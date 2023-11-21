@@ -425,7 +425,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
             transformersRef.current = [];
             // 移除过渡图片
             // @en Remove transition image
-            removeChild(document.querySelector('.image-preview-fake-trans-image'));
+            removeChild(transImageRef.current);
             setTransImageInfo(null);
             setPlaceholders({});
             const mounted = isInitialMount.current;
@@ -471,7 +471,10 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
 
     function removeChild(child?: Node | null) {
         try {
-            child && document.body.removeChild(child);
+            child &&
+                domRef.current
+                    ?.querySelectorAll('.carousel-item')
+                    ?.[innerIndexRef.current]?.removeChild(child);
         } catch (e) {}
     }
 
@@ -924,7 +927,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         transImage.style.opacity = '0';
         transImage.style.transitionDuration = `${displayDuration}ms`;
         transImage.style.webkitTransitionDuration = `${displayDuration}ms`;
-        document.body.appendChild(transImage);
+        domRef.current?.querySelectorAll('.carousel-item')?.[index]?.prepend(transImage);
         // 拿到放大之后的位置rect，没拿到就取消小图放大效果
         // @en Get the zoomed-in position rect, and cancel the zoom-in effect if not getting it
         getNewImageBounds(index, fallbackSrc, transImage, rect => {
@@ -1109,17 +1112,11 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         ) : null;
     }
 
-    function renderLoadingArea(index: number) {
-        // loadingArea提出来，放到过渡图上层
-        // @en The loadingArea is extracted and placed on the upper layer of the transition image
-        return index === openIndex ? (
-            <Portal getContainer={getContainer}>
-                <div className="image-preview-loading-area">
-                    {loadingArea || <Loading type="circle" className="loading-icon" radius={7} />}
-                </div>
-            </Portal>
-        ) : (
-            loadingArea
+    function renderLoadingArea() {
+        return (
+            <div className="image-preview-loading-area">
+                {loadingArea || <Loading type="circle" className="loading-icon" radius={7} />}
+            </div>
         );
     }
 
@@ -1176,7 +1173,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                                         imagesRef.current[index] = r;
                                     },
                                     showLoading,
-                                    loadingArea: renderLoadingArea(index),
+                                    loadingArea: renderLoadingArea(),
                                     errorArea,
                                     showError,
                                     retryTime,
