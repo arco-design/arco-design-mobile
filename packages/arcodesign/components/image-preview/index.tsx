@@ -51,6 +51,12 @@ export interface PreviewImageProps {
      */
     fallbackSrc?: string;
     /**
+     * 过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求
+     * @en After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed
+     * @default 30
+     */
+    transitionEndDelay?: number;
+    /**
      * 缩略图填充方式（backgroundPosition），默认top center
      * @en Thumbnail fill mode (backgroundPosition), default value is top center
      */
@@ -935,9 +941,10 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                 setTimeout(() => {
                     setPlaceholders(holders => ({ ...holders, [index]: true }));
                 }, Math.max(0, displayDuration - 80));
+                const transitionEndDelay = images[index].transitionEndDelay || 30;
                 setTimeout(() => {
                     resetAnimation(index);
-                }, displayDuration + 30);
+                }, displayDuration + transitionEndDelay);
             });
         });
     }
