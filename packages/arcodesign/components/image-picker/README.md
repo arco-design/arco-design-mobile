@@ -68,10 +68,10 @@
 |position|图片填充位置(object\-position)|ObjectPosition\<ReactText\>|"center"|
 |radius|图片圆角|ReactText|-|
 |bordered|是否加边框|boolean|-|
-|loadingArea|自定义展示加载中内容，staticLabel=false时有效|ReactNode|-|
-|errorArea|自定义展示加载失败内容，staticLabel=false时有效|ReactNode|-|
-|showLoading|是否展示图片加载中提示，staticLabel=false时有效|boolean|-|
-|showError|是否展示图片加载失败提示，staticLabel=false时有效|boolean|-|
+|loadingArea|自定义展示加载中内容|ReactNode|-|
+|errorArea|自定义展示加载失败内容|ReactNode|-|
+|showLoading|是否展示图片加载中提示|boolean|-|
+|showError|是否展示图片加载失败提示|boolean|-|
 |animateDuration|加载完时展现动画时长，staticLabel=false时有效|number|200|
 |retryTime|失败时自动重试次数|number|0|
 |forceHttps|是否强制使用https|boolean|-|

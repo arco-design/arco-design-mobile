@@ -37,7 +37,8 @@ export default defineConfig({
         viteExternalsPlugin({
             'Arco': 'Arco',
             'react': 'React',
-            'react-dom': 'ReactDOM'
+            'react-dom': 'ReactDOM',
+            'fuse': 'Fuse',
         }),
         {
             ...transformSourceInjectPlugin('home'),

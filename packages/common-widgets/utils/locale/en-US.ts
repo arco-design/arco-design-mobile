@@ -101,5 +101,8 @@ const localeConfig: ILocale = {
             equal: '%s is not equal to `%s`',
         },
     },
+    NavBar: {
+        backBtnAriaLabel: 'Back',
+    },
 };
 export default localeConfig;

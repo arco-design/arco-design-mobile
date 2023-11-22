@@ -80,23 +80,18 @@ export default function Header(props: IHeaderProps) {
         }
         setTimeout(() => {
             try {
-                const element = document.querySelector(`#res-${currentFunctionName}`);
-                const siteContent = getSiteContentRef();
-                if (element && siteContent) {
-                    const rect = element.getBoundingClientRect();
-                    if (rect) {
-                        siteContent.scrollBy({
-                            top: rect.top - 74,
-                            behavior: 'smooth',
-                        });
-                    }
-                }
+                const anchorTitleArray = document.getElementsByClassName('arco-anchor-link-title');
+                const targetAnchor: HTMLElement = Array.prototype.find.call(
+                    anchorTitleArray,
+                    (item: HTMLElement) => item.innerHTML === currentFunctionName,
+                );
+                targetAnchor.click();
             } catch (e) {
                 console.error('e: ', e);
                 throw e;
             }
         }, 0);
-    }, [currentFunctionName]);
+    }, [currentFunctionName, pathname]);
 
     useEffect(() => {
         const siteContent = getSiteContentRef();
@@ -300,7 +295,9 @@ export default function Header(props: IHeaderProps) {
                       <Option
                           onClick={() => {
                               setCurrentFunctionName(
-                                  ele.functionName.replace('.', '').split('-').join(''),
+                                  ele.category === 'mixin'
+                                      ? ele.functionName
+                                      : ele.functionName.replace('.', '').split('-').join(''),
                               );
                           }}
                           style={{

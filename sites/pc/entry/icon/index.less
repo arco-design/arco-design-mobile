@@ -3,19 +3,21 @@
 .iconlist-wrapper {
     margin-top: 40px;
     overflow: hidden;
-    color: #1d2129;
+    .use-var(color, font-color);
     .iconlist-title {
         padding: 12px;
         font-size: 16px;
         font-weight: 500;
-        border: 1px solid #e5e6eb;
+        border: 1px solid;
+        .use-var(border-color, line-color);
     }
     .iconlist {
         width: 100%;
         margin: 0;
         padding: 0;
         list-style: none;
-        border-left: 1px solid #e5e6eb;
+        border-left: 1px solid;
+        .use-var(border-left-color, line-color);
         box-sizing: border-box;
         overflow: hidden;
         .icon-cell {
@@ -26,10 +28,12 @@
             box-sizing: border-box;
             float: left;
             cursor: pointer;
-            border-right: 1px solid #e5e6eb;
-            border-bottom: 1px solid #e5e6eb;
+            border-right: 1px solid;
+            .use-var(border-right-color, line-color);
+            border-bottom: 1px solid;
+            .use-var(border-bottom-color, line-color);
             &:hover {
-                background: #f2f3f5;
+                .use-var(background-color, lighter-line-color);
                 svg {
                    transform: scale(1.4, 1.4);
                 }
@@ -56,6 +60,7 @@
                 svg {
                     font-size: 32px;
                     transition: all .3s;
+                    .use-var(color, font-color);
                 }
             }
         }

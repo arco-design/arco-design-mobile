@@ -605,7 +605,7 @@ export function getValidScrollContainer(getContainer?: () => HTMLElement | Windo
  * @desc {en} Get properties of the scrolling container. Perform additional attribute compatibility processing for window and document.
  * @param property 所需属性
  * @param property {en} Required attributes
- * @param getContainer 待计算滚动容器
+ * @param {() => HTMLElement | Window | Document | null} getContainer 待计算滚动容器
  * @param getContainer {en} Scrolling container to be calculated.
  * @example
  * ```
@@ -644,7 +644,7 @@ export function getScrollContainerAttribute(
 /**
  * 提供了元素的大小及其相对于视口的位置。
  * @desc {en} Provide information about the size of an element and its position relative to the viewport.
- * @param container 滚动容器
+ * @param {HTMLElement | Window | null} container 滚动容器
  * @param container {en} Scroll Container
  * @example
  * ```

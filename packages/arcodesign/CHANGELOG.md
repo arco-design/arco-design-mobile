@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.1...@arco-design/mobile-react@2.30.2) (2023-11-09)
+
+
+### Bug Fixes
+
+* `NavBar` add aria-label to back arrow ([#196](https://github.com/arco-design/arco-design-mobile/issues/196)) ([ad97b65](https://github.com/arco-design/arco-design-mobile/commit/ad97b652d142a4d2331fbc4699c7d15d61153e50))
+* `Picker` fix the issue that value=0 cannot be selected ([#199](https://github.com/arco-design/arco-design-mobile/issues/199)) ([acb97ac](https://github.com/arco-design/arco-design-mobile/commit/acb97ac158995cea86f99755e6d0d60b166717fd))
+
+
+
+
+
+## [2.30.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.0...@arco-design/mobile-react@2.30.1) (2023-11-07)
+
+
+### Bug Fixes
+
+* `Form` put error types to classname & i18n usage description ([#192](https://github.com/arco-design/arco-design-mobile/issues/192)) ([d3a611a](https://github.com/arco-design/arco-design-mobile/commit/d3a611ab368a32c98495e1601a5e16e4d6f4f86f))
+* adjust dark mode style ([#193](https://github.com/arco-design/arco-design-mobile/issues/193)) ([919d661](https://github.com/arco-design/arco-design-mobile/commit/919d66120c1b2e445e3d0f95cf4d34e8c84e9998))
+
+
+
+
+
 # [2.30.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.6...@arco-design/mobile-react@2.30.0) (2023-10-19)
 
 

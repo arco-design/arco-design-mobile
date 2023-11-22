@@ -57,3 +57,59 @@ A: autoFocus 在一些机型上是不支持的，组件底层只能尝试 focus�
 ## Q: 使用或构建时出现 SyntaxError: xxx is undefined 的问题
 
 A: @arco-design/mobile-react 包的版本需要和 @arco-design/mobile-utils 包的版本一一对应，可以查看项目中是否锁定或指定了 @arco-design/mobile-utils 包的版本。
+
+## Q: Popup.open 里使用了 Provider 时报错或无法使用 context
+
+A: XXX.open 之类的方法本质上都是通过创建 node 节点的方式去生成的，无法成为 provider 的子节点，如果是使用 arco-mobile 的 ContextProvider，可以把 ContextProvider 的配置作为 open 方法的第二个参数传递，如果是其他的 context 状态管理工具，需要在容器内的 children 节点再包一层工具的 provider，如果你的 provider 不方便给 children 节点包一层，可以使用 JSX 写法；
+
+```tsx
+// 使用 arco ContextProvider 时
+import { ContextProvider, GlobalContext } from '@arco-design/mobile-react';
+
+export const Demo1 = () => {
+    return (
+        <ContextProvider>
+            <Cell
+                onClick={() => {
+                    window.modalInstance = Popup.open({
+                        children: <Child />,
+                    },
+                    {
+                        system: 'ios' }
+                    );
+                }}/>
+        </ContextProvider>
+    )
+}
+
+// 使用外部 context 时
+const TestModel = createModel(() => {
+    const [count, setCount] = useState(0);
+    const add = (x: number) => setCount(count => count + x);
+    return {
+        count,
+        add,
+    }
+});
+
+export const Demo2 = () => {
+    return (
+        <TestModel.Provider>
+            <Cell
+                label="test"
+                onClick={() => {
+                    Popup.open(
+                        {
+                            children: (
+                                <TestModel.Provider>
+                                    <Child />
+                                </TestModel.Provider>
+                            ),
+                        }
+                    );
+                }}
+            />
+        </TestModel.Provider>
+    );
+};
+```

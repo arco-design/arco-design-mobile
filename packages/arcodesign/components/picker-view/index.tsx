@@ -126,7 +126,7 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
             : pickerCellsRef.current.map(cell => cell.getCurrentCellValue());
         // 移除级联带来的空列值，理论上非首尾列不会有空值
         // @en Remove empty values from cascader
-        return curValues.filter(v => v);
+        return curValues.filter(v => v !== undefined);
     };
 
     function getColumnValue(index = 0) {

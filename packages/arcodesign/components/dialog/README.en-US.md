@@ -107,11 +107,13 @@ A modal dialog, displayed in a floating layer, guides the user to perform relate
 |----------|-------------|------|------|
 |prefixCls|Component classname prefix|string|"arco"|
 |system|Manually control the current system, and the incoming value will be used directly after being passed in\. It is applicable when the initial value of the system needs to be specified in the ssr scenario\.|"" \| "ios" \| "android" \| "pc"|""|
-|useDarkMode|Whether to use dark mode|boolean|false|
-|isDarkMode|Whether it is in dark mode|boolean|false|
+|useDarkMode|Whether to monitor the system's native dark mode changes (prefers\-color\-scheme: dark) to determine whether to switch to dark mode|boolean|false|
+|isDarkMode|Whether it is in dark mode, the value shall prevail after being specified|boolean|false|
+|darkModeSelector|When in dark mode, the class name mounted on the body, if it is empty, the class name will not be mounted|string|"arco-theme-dark"|
 |theme|Theme variable\. The css variable will be replaced online after input\. The less variable needs to be set|Record\<string, string\>|-|
 |locale|Internationalized language configuration|ILocale|-|
 |useRtl|Whether to use rtl|boolean|false|
+|onDarkModeChange|Triggered when the system's native dark mode changes, valid when useDarkMode=true|(isDark: boolean) =\> void|-|
 
 > ConfirmOptions
 

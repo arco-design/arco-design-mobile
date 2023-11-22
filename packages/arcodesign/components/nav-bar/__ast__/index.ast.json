@@ -84,12 +84,12 @@
         },
         "style": {
             "defaultValue": null,
-            "description": "自定义样式，背景和文字颜色可在此定义\n@en Custom stylesheet, background and text colors can be defined here",
+            "description": "自定义样式，最外层元素的背景文字颜色可在此定义\n@en Custom stylesheet, background and text colors can be defined here",
             "name": "style",
             "tags": {
                 "en": "Custom stylesheet, background and text colors can be defined here"
             },
-            "descWithTags": "自定义样式，背景和文字颜色可在此定义",
+            "descWithTags": "自定义样式，最外层元素的背景文字颜色可在此定义",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
                 "name": "NavBarProps"
@@ -101,12 +101,12 @@
         },
         "className": {
             "defaultValue": null,
-            "description": "自定义类名\n@en Custom classname",
+            "description": "内层自定义类名\n@en Inner custom classname",
             "name": "className",
             "tags": {
-                "en": "Custom classname"
+                "en": "Inner custom classname"
             },
-            "descWithTags": "自定义类名",
+            "descWithTags": "内层自定义类名",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/nav-bar/index.tsx",
                 "name": "NavBarProps"

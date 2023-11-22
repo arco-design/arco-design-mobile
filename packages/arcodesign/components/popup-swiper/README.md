@@ -75,11 +75,13 @@
 |----------|-------------|------|------|
 |prefixCls|组件类名前缀|string|"arco"|
 |system|手动控制当前所在系统，传入后将直接使用传入的值，ssr场景需指定系统初始值时适用|"" \| "pc" \| "android" \| "ios"|""|
-|useDarkMode|是否使用暗黑模式|boolean|false|
+|useDarkMode|是否监听系统原生的暗黑模式变化(prefers\-color\-scheme: dark)以判断是否切为暗黑模式|boolean|false|
 |isDarkMode|是否处于暗黑模式，指定后以指定的值为准|boolean|false|
+|darkModeSelector|当处于暗黑模式时，body上挂载的类名，为空值时不挂载类名|string|"arco-theme-dark"|
 |theme|主题变量，传入后将在线替换css变量，需设置less变量 @use\-css\-vars: 1|Record\<string, string\>|-|
 |locale|国际化语言包配置|ILocale|-|
 |useRtl|是否使用Rtl模式|boolean|false|
+|onDarkModeChange|当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效|(isDark: boolean) =\> void|-|
 
 > ILocale
 
