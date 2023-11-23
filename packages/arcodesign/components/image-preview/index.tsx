@@ -854,19 +854,31 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         const index = innerIndexRef.current;
         const imageDom = imagesRef.current[index]?.image;
         const thumbBounds = getThumbBounds?.(index);
-        if (imageDom && thumbBounds && thumbBounds.width && thumbBounds.height) {
-            const imageDomRect = imageDom.getBoundingClientRect();
-            if (imageDomRect.width && imageDomRect.height) {
-                imageDom.classList.add('closing-animation');
-                setImageBounds(imageDom, imageDomRect, imageDomRect);
-                imageDom.style.objectPosition = images[index].thumbPosition || 'top center';
-                nextTick(() => {
-                    imageDom.style.transitionDuration = `${displayDuration}ms`;
-                    imageDom.style.webkitTransitionDuration = `${displayDuration}ms`;
-                    setImageBounds(imageDom, thumbBounds, imageDomRect);
-                });
-            }
+        if (!imageDom || !thumbBounds || !thumbBounds.width || !thumbBounds.height) {
+            return;
         }
+        // 小图超过一半在视野外时，不展示缩小效果
+        // @en When more than half of the thumbnail is outside the field of view, the zoom effect will not be displayed
+        if (
+            thumbBounds.top < (-1 * thumbBounds.height) / 2 ||
+            thumbBounds.top > windowHeight - thumbBounds.height / 2 ||
+            thumbBounds.left < (-1 * thumbBounds.width) / 2 ||
+            thumbBounds.left > windowWidth - thumbBounds.width / 2
+        ) {
+            return;
+        }
+        const imageDomRect = imageDom.getBoundingClientRect();
+        if (!imageDomRect.width || !imageDomRect.height) {
+            return;
+        }
+        imageDom.classList.add('closing-animation');
+        setImageBounds(imageDom, imageDomRect, imageDomRect);
+        imageDom.style.objectPosition = images[index].thumbPosition || 'top center';
+        nextTick(() => {
+            imageDom.style.transitionDuration = `${displayDuration}ms`;
+            imageDom.style.webkitTransitionDuration = `${displayDuration}ms`;
+            setImageBounds(imageDom, thumbBounds, imageDomRect);
+        });
     }
 
     function goClose(e: React.MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent) {
