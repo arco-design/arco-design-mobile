@@ -25,7 +25,7 @@ export default function PopoverDemo() {
     return (
         <div className="menu-demo-wrapper">
             <Popover.Menu
-                style={{marginRight: 66}}
+                className="popover-with-margin"
                 direction="bottomLeft"
                 onSelect={value => console.log('select', value)}
                 menu={menu}

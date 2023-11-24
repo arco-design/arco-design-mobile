@@ -10,6 +10,7 @@ export default function PopoverDemo() {
         <div className="popover-base-demo-wrapper">
             <div className="base-item" key="white">
                 <Popover
+                    className="popover-with-margin"
                     content="Bubble centered"
                     direction="topCenter"
                     theme="white"
