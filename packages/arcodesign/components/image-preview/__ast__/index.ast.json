@@ -936,6 +936,22 @@
                 },
                 "descWithTags": "过渡图url"
             },
+            "transitionEndDelay": {
+                "name": "transitionEndDelay",
+                "required": false,
+                "description": "过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求\n@en After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed",
+                "defaultValue": {
+                    "value": "30"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed",
+                    "default": "30"
+                },
+                "descWithTags": "过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求"
+            },
             "thumbPosition": {
                 "name": "thumbPosition",
                 "required": false,
@@ -1308,6 +1324,17 @@
                 "defaultValue": null,
                 "type": {
                     "name": "{ required: string; type: { email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; }; number: { min: string; max: string; equal: string; range: string; positive: string; negative: string; }; string: { ...; }; array: { ...; }; object: { ...; }; boolean: { ...; }; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "NavBar": {
+                "name": "NavBar",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ backBtnAriaLabel: string; }"
                 },
                 "tags": {},
                 "descWithTags": ""
