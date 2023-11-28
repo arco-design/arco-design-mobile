@@ -7,11 +7,7 @@
         justify-content: flex-start;
     }
     .avatar-left-margin {
-        margin-left: 24px;
-        [dir="rtl"] & {
-            margin-left: 0px;
-            margin-right: 24px;
-        }
+        .set-prop-with-rtl(margin-left, 24px)
     }
     .avatar-size-demo-box {
         display: flex;

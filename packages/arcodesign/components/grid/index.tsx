@@ -164,12 +164,13 @@ const Grid = forwardRef((props: GridProps, ref: Ref<GridRef>) => {
                             : typeof gutter === 'number'
                             ? gutter
                             : gutter?.x || 0;
-                    const marginRight = useRtl ? 0 : marginValue;
-                    const marginLeft = useRtl ? marginValue : 0;
+                    const marginStyle = {
+                        [useRtl ? 'marginLeft' : 'marginRight']: marginValue,
+                    };
                     return (
                         <div
                             key={index}
-                            style={{ marginBottom, marginLeft, marginRight, ...itemStyle }}
+                            style={{ marginBottom, ...marginStyle, ...itemStyle }}
                             onClick={() => {
                                 onClick && onClick(item);
                             }}
