@@ -114,7 +114,7 @@ class FormData {
         return false;
     };
 
-    registerField = (name: string, self: ReactNode) => {
+    registerField = (name: string, self: any) => {
         this._fieldsList[name] = self;
         const { initialValue } = (self as any).props;
         if (initialValue !== undefined && name) {

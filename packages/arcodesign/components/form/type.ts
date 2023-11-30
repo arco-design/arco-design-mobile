@@ -105,7 +105,7 @@ export interface IFormDataMethods {
      * 注册表单项
      * @en Register field
      */
-    registerField: (name: string, self: ReactNode) => () => void;
+    registerField: (name: string, self: any) => () => void;
 }
 
 export enum ValidateStatus {
@@ -139,7 +139,7 @@ export interface InternalHooks {
      * 注册表单项
      * @en Register field
      */
-    registerField: (name: string, self: ReactNode) => () => void;
+    registerField: (name: string, self: any) => () => void;
     setInitialValues: (values: FieldItem) => void;
     setCallbacks: (callbacks: Callbacks) => void;
 }

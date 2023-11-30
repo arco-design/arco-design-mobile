@@ -4,11 +4,10 @@
 
 ```js
 import { Steps } from '@arco-design/mobile-react';
-
 export default function StepsDemo() {
     return (
         <div>
-            <Steps current={1} direction="horizontal" align="start" style={{ marginLeft: 20 }}>
+            <Steps current={1} direction="horizontal" align="start" className='steps-custom-align'>
                 <Steps.Step title="Start" description="Details" />
                 <Steps.Step title="Step 2" description="Details" />
                 <Steps.Step title="Step 3" description="Details" />

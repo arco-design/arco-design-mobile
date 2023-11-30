@@ -70,13 +70,14 @@
 
 > PreviewImageProps
 
-|参数|描述|类型|
-|----------|-------------|------|
-|src|图片地址|string|
-|fit|图片布局方式，preview\-y为宽度撑满高度溢出滚动，preview\-x为高度撑满宽度溢出滚动|"preview\-y" \| "preview\-x"|
-|fallbackSrc|过渡图url|string|
-|thumbPosition|缩略图填充方式（backgroundPosition），默认top center|string|
-|extraNode|自定义DOM|ReactNode|
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|src|图片地址|string|必填|
+|fit|图片布局方式，preview\-y为宽度撑满高度溢出滚动，preview\-x为高度撑满宽度溢出滚动|"preview\-y" \| "preview\-x"|-|
+|fallbackSrc|过渡图url|string|-|
+|transitionEndDelay|过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求|number|30|
+|thumbPosition|缩略图填充方式（backgroundPosition），默认top center|string|-|
+|extraNode|自定义DOM|ReactNode|-|
 
 > GlobalContextParams
 
@@ -111,3 +112,4 @@
 |Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|
+|NavBar|-|\{ backBtnAriaLabel: string; \}|

@@ -7,7 +7,7 @@ exports["default"] = void 0;
 exports.getRem = getRem;
 
 function getRem(px, baseFontSize) {
-  var num = Math.round(px / Number(baseFontSize) * 1000000) / 1000000;
+  var num = Math.round(px / Number(baseFontSize) * 1e6) / 1e6;
   return num ? "".concat(num, "rem") : num;
 }
 
@@ -477,7 +477,7 @@ var tokens = {
   "popover-icon-divider-height": "0.24rem",
   "popover-icon-size": "0.32rem",
   "popover-icon-padding": "0 0.2rem 0 0.22rem",
-  "popover-text-suffix-padding": "0 0.24rem 0 0",
+  "popover-text-suffix-edge": "0.24rem",
   "popover-mask-background": "var(--mask-background)",
   "load-more-font-size": "0.28rem",
   "dark-load-more-text-color": "var(--dark-sub-info-font-color)",

@@ -6,6 +6,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
 }
 
 #demo-popover {
@@ -23,11 +26,6 @@
 
     .popover-base-demo-wrapper {
         .center-box();
-        .base-item {
-            &:first-child {
-                margin-right: 66px;
-            }
-        }
         .@{prefix}-button {
             width: 124px;
         }
@@ -38,10 +36,13 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        [dir="rtl"] & {
+            flex-direction: row-reverse;
+        }
         .direction-item {
             margin: 14px 0;
             &:nth-child(2n+1) {
-                margin-right: 59px;
+                margin-right: 60px;
             }
         }
 
@@ -51,6 +52,10 @@
                 padding: 0;
             }
         }
+    }
+
+    .popover-with-margin {
+        margin-right: 66px;
     }
 
     .white-theme-mask-demo-wrapper {
@@ -65,12 +70,8 @@
     }
 
     .suffix-demo-wrapper {
-        display: flex;
+        .center-box(130px);
         flex-wrap: wrap;
-        justify-content: space-between;
-        .@{prefix}-button {
-            margin: 14px 0;
-        }
 
         .custom-suffix-btn {
             display: flex;

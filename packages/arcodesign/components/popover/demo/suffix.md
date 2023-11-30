@@ -8,6 +8,7 @@ export default function PopoverDemo() {
     return (
         <div className="suffix-demo-wrapper">
             <Popover
+                className="popover-with-margin"
                 content="This is a single line of text with a close action style"
                 direction="topLeft"
                 showCloseIcon

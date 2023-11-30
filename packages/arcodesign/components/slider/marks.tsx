@@ -12,14 +12,15 @@ function Marks({
     className?: string;
     style?: CSSProperties;
 }) {
-    const { prefixCls = '' } = useContext(GlobalContext);
+    const { prefixCls = '', useRtl } = useContext(GlobalContext);
     const { type, showMarks, max, min } = useContext(SliderContext);
     const isHorizontal = /^horizontal/g.test(type);
 
     const genMarkStyle = useCallback(
         (value: number) => {
+            const leftStyle = useRtl ? 'right' : 'left';
             return {
-                [isHorizontal ? 'left' : 'bottom']: `${((value - min) / (max - min)) * 100}%`,
+                [isHorizontal ? leftStyle : 'bottom']: `${((value - min) / (max - min)) * 100}%`,
             };
         },
         [isHorizontal, min, max],

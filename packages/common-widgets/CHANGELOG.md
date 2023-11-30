@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.2...@arco-design/mobile-utils@2.17.3) (2023-11-24)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
 ## [2.17.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.1...@arco-design/mobile-utils@2.17.2) (2023-11-09)
 
 

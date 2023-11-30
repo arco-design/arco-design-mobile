@@ -70,13 +70,14 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 
 > PreviewImageProps
 
-|Property|Description|Type|
-|----------|-------------|------|
-|src|Image resource|string|
-|fit|Image layout, preview\-y is overflow scrolling with full width and height, preview\-x is overflow scrolling with full width and height|"preview\-y" \| "preview\-x"|
-|fallbackSrc|Transition image url|string|
-|thumbPosition|Thumbnail fill mode (backgroundPosition), default value is top center|string|
-|extraNode|Custom dom|ReactNode|
+|Property|Description|Type|DefaultValue|
+|----------|-------------|------|------|
+|src|Image resource|string|required|
+|fit|Image layout, preview\-y is overflow scrolling with full width and height, preview\-x is overflow scrolling with full width and height|"preview\-y" \| "preview\-x"|-|
+|fallbackSrc|Transition image url|string|-|
+|transitionEndDelay|After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed|number|30|
+|thumbPosition|Thumbnail fill mode (backgroundPosition), default value is top center|string|-|
+|extraNode|Custom dom|ReactNode|-|
 
 > GlobalContextParams
 
@@ -111,3 +112,4 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|
+|NavBar|-|\{ backBtnAriaLabel: string; \}|

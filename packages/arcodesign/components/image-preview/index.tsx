@@ -51,6 +51,12 @@ export interface PreviewImageProps {
      */
     fallbackSrc?: string;
     /**
+     * 过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求
+     * @en After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed
+     * @default 30
+     */
+    transitionEndDelay?: number;
+    /**
      * 缩略图填充方式（backgroundPosition），默认top center
      * @en Thumbnail fill mode (backgroundPosition), default value is top center
      */
@@ -419,7 +425,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
             transformersRef.current = [];
             // 移除过渡图片
             // @en Remove transition image
-            removeChild(document.querySelector('.image-preview-fake-trans-image'));
+            removeChild(transImageRef.current);
             setTransImageInfo(null);
             setPlaceholders({});
             const mounted = isInitialMount.current;
@@ -465,7 +471,10 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
 
     function removeChild(child?: Node | null) {
         try {
-            child && document.body.removeChild(child);
+            child &&
+                domRef.current
+                    ?.querySelectorAll('.carousel-item')
+                    ?.[innerIndexRef.current]?.removeChild(child);
         } catch (e) {}
     }
 
@@ -839,11 +848,45 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
 
     const handleClick = useSingleAndDoubleClick(handleImageClick, handleImageDoubleClick);
 
+    // 当使用 getThumbBounds 时，关闭图片预览有缩小效果
+    // @en When using getThumbBounds, closing the image preview has a shrinking effect
+    function animateBeforeClose() {
+        const index = innerIndexRef.current;
+        const imageDom = imagesRef.current[index]?.image;
+        const thumbBounds = getThumbBounds?.(index);
+        if (!imageDom || !thumbBounds || !thumbBounds.width || !thumbBounds.height) {
+            return;
+        }
+        // 小图超过一半在视野外时，不展示缩小效果
+        // @en When more than half of the thumbnail is outside the field of view, the zoom effect will not be displayed
+        if (
+            thumbBounds.top < (-1 * thumbBounds.height) / 2 ||
+            thumbBounds.top > windowHeight - thumbBounds.height / 2 ||
+            thumbBounds.left < (-1 * thumbBounds.width) / 2 ||
+            thumbBounds.left > windowWidth - thumbBounds.width / 2
+        ) {
+            return;
+        }
+        const imageDomRect = imageDom.getBoundingClientRect();
+        if (!imageDomRect.width || !imageDomRect.height) {
+            return;
+        }
+        imageDom.classList.add('closing-animation');
+        setImageBounds(imageDom, imageDomRect, imageDomRect);
+        imageDom.style.objectPosition = images[index].thumbPosition || 'top center';
+        nextTick(() => {
+            imageDom.style.transitionDuration = `${displayDuration}ms`;
+            imageDom.style.webkitTransitionDuration = `${displayDuration}ms`;
+            setImageBounds(imageDom, thumbBounds, imageDomRect);
+        });
+    }
+
     function goClose(e: React.MouseEvent<HTMLDivElement, MouseEvent> | TouchEvent) {
         if (closingRef.current) {
             return;
         }
         closingRef.current = true;
+        animateBeforeClose();
         close(e);
     }
 
@@ -896,7 +939,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         transImage.style.opacity = '0';
         transImage.style.transitionDuration = `${displayDuration}ms`;
         transImage.style.webkitTransitionDuration = `${displayDuration}ms`;
-        document.body.appendChild(transImage);
+        domRef.current?.querySelectorAll('.carousel-item')?.[index]?.prepend(transImage);
         // 拿到放大之后的位置rect，没拿到就取消小图放大效果
         // @en Get the zoomed-in position rect, and cancel the zoom-in effect if not getting it
         getNewImageBounds(index, fallbackSrc, transImage, rect => {
@@ -913,9 +956,10 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                 setTimeout(() => {
                     setPlaceholders(holders => ({ ...holders, [index]: true }));
                 }, Math.max(0, displayDuration - 80));
+                const transitionEndDelay = images[index].transitionEndDelay || 30;
                 setTimeout(() => {
                     resetAnimation(index);
-                }, displayDuration + 30);
+                }, displayDuration + transitionEndDelay);
             });
         });
     }
@@ -1080,17 +1124,11 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
         ) : null;
     }
 
-    function renderLoadingArea(index: number) {
-        // loadingArea提出来，放到过渡图上层
-        // @en The loadingArea is extracted and placed on the upper layer of the transition image
-        return index === openIndex ? (
-            <Portal getContainer={getContainer}>
-                <div className="image-preview-loading-area">
-                    {loadingArea || <Loading type="circle" className="loading-icon" radius={7} />}
-                </div>
-            </Portal>
-        ) : (
-            loadingArea
+    function renderLoadingArea() {
+        return (
+            <div className="image-preview-loading-area">
+                {loadingArea || <Loading type="circle" className="loading-icon" radius={7} />}
+            </div>
         );
     }
 
@@ -1147,7 +1185,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                                         imagesRef.current[index] = r;
                                     },
                                     showLoading,
-                                    loadingArea: renderLoadingArea(index),
+                                    loadingArea: renderLoadingArea(),
                                     errorArea,
                                     showError,
                                     retryTime,

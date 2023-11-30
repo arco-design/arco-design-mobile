@@ -4,7 +4,6 @@
 
 ```js
 import { Avatar } from '@arco-design/mobile-react';
-
 export default function AvatarDemo() {
     return (
         <div className="avatar-demo-box">
