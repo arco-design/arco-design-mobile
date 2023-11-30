@@ -363,10 +363,9 @@ exports[`collapse demo test collapse demo: style-header.md renders correctly 1`]
           style="display: flex; align-items: center;"
         >
           <svg
-            class="arco-icon arco-icon-notice "
+            class="arco-icon arco-icon-notice header-icon-notice"
             fill="currentColor"
             height="1em"
-            style="margin-right: 8px;"
             viewBox="0 0 1024 1024"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
@@ -418,10 +417,9 @@ exports[`collapse demo test collapse demo: style-header.md renders correctly 1`]
         >
           Title 2
           <svg
-            class="arco-icon arco-icon-question-circle "
+            class="arco-icon arco-icon-question-circle header-icon-question-circle"
             fill="currentColor"
             height="1em"
-            style="color: rgb(134, 144, 156); margin: -1px 0px 0px 5px;"
             viewBox="0 0 16 16"
             width="1em"
             xmlns="http://www.w3.org/2000/svg"

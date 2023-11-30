@@ -434,7 +434,7 @@ exports[`notice-bar demo test notice-bar demo: vertical.md renders correctly 1`]
           >
             <div
               class="arco-carousel-inner auto vertical"
-              style="transition-property: none; transition-duration: 0ms; transform: translateY(-0%) translateZ(0); width: 100%;"
+              style="transition-property: none; transition-duration: 0ms; transform: translateY(0) translateZ(0); width: 100%;"
             >
               <div
                 class="arco-carousel-item carousel-item normal-item active vertical"

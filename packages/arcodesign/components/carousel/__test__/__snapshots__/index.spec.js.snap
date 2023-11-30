@@ -10,7 +10,7 @@ exports[`carousel demo test carousel demo: basic.md renders correctly 1`] = `
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(-0%) translateZ(0);"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"
@@ -56,7 +56,7 @@ exports[`carousel demo test carousel demo: change.md renders correctly 1`] = `
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(-0%) translateZ(0);"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"
@@ -114,7 +114,7 @@ exports[`carousel demo test carousel demo: change-index.md renders correctly 1`]
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(-0%) translateZ(0);"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"
@@ -184,7 +184,7 @@ exports[`carousel demo test carousel demo: custom-width.md renders correctly 1`]
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: 900px; transition-property: none; transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
+        style="width: 900px; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"
@@ -242,7 +242,7 @@ exports[`carousel demo test carousel demo: indicator.md renders correctly 1`] = 
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(-0%) translateZ(0);"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"
@@ -296,7 +296,7 @@ exports[`carousel demo test carousel demo: lazy.md renders correctly 1`] = `
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(-0%) translateZ(0);"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"
@@ -356,7 +356,7 @@ exports[`carousel demo test carousel demo: list.md renders correctly 1`] = `
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(-0%) translateZ(0);"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"
@@ -487,7 +487,7 @@ exports[`carousel demo test carousel demo: outside.md renders correctly 1`] = `
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(-0%) translateZ(0);"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"
@@ -546,7 +546,7 @@ exports[`carousel demo test carousel demo: vertical.md renders correctly 1`] = `
     >
       <div
         class="arco-carousel-inner auto vertical"
-        style="transition-property: none; transition-duration: 0ms; transform: translateY(-0%) translateZ(0); width: 100%;"
+        style="transition-property: none; transition-duration: 0ms; transform: translateY(0) translateZ(0); width: 100%;"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active vertical"
@@ -605,7 +605,7 @@ exports[`carousel demo test carousel demo: vertical-text.md renders correctly 1`
     >
       <div
         class="arco-carousel-inner auto vertical"
-        style="transition-property: none; transition-duration: 0ms; transform: translateY(-0%) translateZ(0); width: 100%;"
+        style="transition-property: none; transition-duration: 0ms; transform: translateY(0) translateZ(0); width: 100%;"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active vertical"

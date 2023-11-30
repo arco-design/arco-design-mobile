@@ -19,7 +19,9 @@ exports[`nav-bar demo test nav-bar demo: index.md renders correctly 1`] = `
           class="arco-nav-bar-left"
         >
           <div
+            aria-label="返回"
             class="c-svg-arrow nav-bar-back"
+            role="button"
           >
             <svg
               height="100%"
@@ -74,7 +76,9 @@ exports[`nav-bar demo test nav-bar demo: index.md renders correctly 1`] = `
           class="arco-nav-bar-left"
         >
           <div
+            aria-label="返回"
             class="c-svg-arrow nav-bar-back"
+            role="button"
           >
             <svg
               height="100%"
@@ -120,7 +124,9 @@ exports[`nav-bar demo test nav-bar demo: index.md renders correctly 1`] = `
           class="arco-nav-bar-left"
         >
           <div
+            aria-label="返回"
             class="c-svg-arrow nav-bar-back"
+            role="button"
           >
             <svg
               height="100%"
@@ -217,7 +223,9 @@ exports[`nav-bar demo test nav-bar demo: index3.md renders correctly 1`] = `
           class="arco-nav-bar-left"
         >
           <div
+            aria-label="返回"
             class="c-svg-arrow nav-bar-back"
+            role="button"
           >
             <svg
               height="100%"
@@ -263,7 +271,9 @@ exports[`nav-bar demo test nav-bar demo: index3.md renders correctly 1`] = `
           class="arco-nav-bar-left"
         >
           <div
+            aria-label="返回"
             class="c-svg-arrow nav-bar-back"
+            role="button"
           >
             <svg
               height="100%"
@@ -334,7 +344,9 @@ exports[`nav-bar demo test nav-bar demo: index3.md renders correctly 1`] = `
           class="arco-nav-bar-left"
         >
           <div
+            aria-label="返回"
             class="c-svg-arrow nav-bar-back"
+            role="button"
           >
             <svg
               height="100%"
@@ -426,7 +438,9 @@ exports[`nav-bar demo test nav-bar demo: index4.md renders correctly 1`] = `
           class="arco-nav-bar-left"
         >
           <div
+            aria-label="返回"
             class="c-svg-arrow nav-bar-back"
+            role="button"
           >
             <svg
               height="100%"
@@ -491,7 +505,9 @@ exports[`nav-bar demo test nav-bar demo: index5.md renders correctly 1`] = `
           class="arco-nav-bar-left"
         >
           <div
+            aria-label="返回"
             class="c-svg-arrow nav-bar-back"
+            role="button"
           >
             <svg
               height="100%"
