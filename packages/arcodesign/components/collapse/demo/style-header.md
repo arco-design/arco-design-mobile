@@ -26,7 +26,7 @@ export default function CollapseItemDemo() {
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             Title 2
                             <IconQuestionCircle
-                               className='header-icon-question-circle'
+                                className='header-icon-question-circle'
                             />
                         </div>
                     ),
