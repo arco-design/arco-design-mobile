@@ -7,7 +7,8 @@ export const isFieldRequired = (rules: IRules[] = []) => {
 export const getErrorAndWarnings = (result: ValidatorError[]) => {
     let errors: string[] = [];
     let warnings: string[] = [];
-    result.map(({ message = [], validateLevel = 'error' }) => {
+    let errorTypes: string[] = [];
+    result.map(({ message = [], validateLevel = 'error', errorTypes: resultErrorTypes }) => {
         if (!message?.length) {
             return;
         }
@@ -15,7 +16,8 @@ export const getErrorAndWarnings = (result: ValidatorError[]) => {
             warnings = [...warnings, ...message];
         } else {
             errors = [...errors, ...message];
+            errorTypes = [...errorTypes, ...resultErrorTypes];
         }
     });
-    return { warnings, errors };
+    return { warnings, errors, errorTypes };
 };

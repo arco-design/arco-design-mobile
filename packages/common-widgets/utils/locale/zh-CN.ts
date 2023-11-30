@@ -100,6 +100,9 @@ const localeConfig: ILocale = {
             equal: '%s 不等于 `%s`',
         },
     },
+    NavBar: {
+        backBtnAriaLabel: '返回',
+    },
 };
 
 export default localeConfig;
