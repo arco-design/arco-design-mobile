@@ -1,4 +1,4 @@
-@import "../../../style/mixin.less";
+@import '../../../style/mixin.less';
 
 .@{prefix}-dropdown {
     position: fixed;
@@ -24,7 +24,6 @@
         }
 
         &-wrap {
-
             &.use-column {
                 display: flex;
                 flex-wrap: wrap;
@@ -38,7 +37,7 @@
             .use-var(font-size, dropdown-options-item-font-size);
             .use-var(line-height, dropdown-options-item-line-height);
             .use-var(color, dropdown-options-item-color);
-            text-align: left;
+            .set-value-with-rtl(text-align, left);
             position: relative;
 
             &.selected {
@@ -57,7 +56,7 @@
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                .use-var(right, dropdown-options-item-icon-right);
+                .use-var-with-rtl(right, dropdown-options-item-icon-right);
                 color: transparent;
             }
         }
