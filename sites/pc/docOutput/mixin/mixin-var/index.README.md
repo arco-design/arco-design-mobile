@@ -88,7 +88,7 @@
 
 # .use-dark-mode-query
 
-当less变量use-dark-mode=1时，为原生暗黑模式媒体查询事件prefers-color-scheme:dark绑定对应css规则
+当less变量use-dark-mode=1时，自定义暗黑模式样式规则
 
 ======
 
@@ -108,7 +108,7 @@
 ```
 .use-dark-mode-query(@rules) {
     & when (@use-dark-mode = 1) {
-        @media (prefers-color-scheme: dark) {
+        @{arco-dark-mode-selector} & {
             @rules();
         }
     }

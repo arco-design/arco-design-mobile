@@ -64,8 +64,8 @@
 }
 
 /**
- * 当less变量use-dark-mode=1时，为原生暗黑模式媒体查询事件prefers-color-scheme:dark绑定对应css规则
- * @desc {en} bind corresponding CSS rules to the native dark mode media query event prefers-color-scheme: dark when the less variable use-dark-mode=1.
+ * 当less变量use-dark-mode=1时，自定义暗黑模式样式规则
+ * @desc {en} Customize dark mode style rules when the less variable use-dark-mode=1.
  * @param @rules 对应的暗黑模式规则
  * @param @rules {en} Corresponding dark mode rules
  * @example
@@ -81,7 +81,7 @@
  */
 .use-dark-mode-query(@rules) {
     & when (@use-dark-mode = 1) {
-        @media (prefers-color-scheme: dark) {
+        @{arco-dark-mode-selector} & {
             @rules();
         }
     }
