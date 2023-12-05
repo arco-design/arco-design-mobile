@@ -5,6 +5,7 @@
 
 ```js
 import { Pagination, Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function PaginationDemo() {
     const [current, setCurrent] = React.useState(1);
@@ -44,5 +45,11 @@ export default function PaginationDemo() {
             onChange={({ current }) => setCurrent(current)}
         />
     );
+}
+```
+
+```less
+.demo-btn {
+    font-size: 16px;
 }
 ```

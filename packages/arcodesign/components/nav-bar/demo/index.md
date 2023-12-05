@@ -5,6 +5,7 @@
 ```js
 import { NavBar } from '@arco-design/mobile-react';
 import IconMore from '@arco-design/mobile-react/esm/icon/IconMore';
+import './index.less';
 
 export default function NavBarDemo() {
     // const [icon, setIcon] = React.useState('black');
@@ -22,14 +23,14 @@ export default function NavBarDemo() {
             }}
             onClickRight={() => {}}
         />
-        <div className="gap-line"></div>
+        <div className="gap-line" />
         <NavBar
             ref={navBarRef}
             fixed={false}
             title="Title"
             hasBottomLine={false}
         />
-        <div className="gap-line"></div>
+        <div className="gap-line" />
         <NavBar
             fixed={false}
             title="Message"
@@ -38,5 +39,12 @@ export default function NavBarDemo() {
             rightContent={<IconMore />}
         />
     </>);
+}
+```
+
+```less
+.gap-line {
+    height: 20px;
+    .use-var(background, background-color);
 }
 ```

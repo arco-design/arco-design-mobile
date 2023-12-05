@@ -7,6 +7,7 @@
 
 ```js
 import { PopupSwiper, Cell } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function PopupSwiperDemo() {
     const [value, setValue] = React.useState('bottom');
@@ -40,5 +41,23 @@ export default function PopupSwiperDemo() {
             </div>
         </PopupSwiper>
     </>);
+}
+```
+
+```less
+.popup-demo {
+    &-title {
+        .rem(line-height, 44);
+        .rem(font-size, 18);
+        .use-var(color, font-color);
+        font-weight: bold;
+        .rem(padding, 0, 16);
+    }
+    &-content {
+        .use-var(color, font-color);
+        .rem(font-size, 16);
+        .use-var(color, sub-info-font-color);
+        .rem(padding, 20, 16);
+    }
 }
 ```

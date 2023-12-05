@@ -4,6 +4,7 @@
 
 ```js
 import { Steps } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function StepsDemo() {
     return (
@@ -17,4 +18,8 @@ export default function StepsDemo() {
         </div>
     );
 }
+```
+
+```less
+.set-steps-color(#FFB400);
 ```

@@ -4,6 +4,7 @@
 
 ```js
 import { Progress } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ProgressDemo() {
     return (
@@ -19,5 +20,18 @@ export default function ProgressDemo() {
            </div>
         </>
     );
+}
+```
+
+```less
+.progress-demo-custom-size {
+    .rem(padding-top, 16);
+    .rem(padding-bottom, 16);
+    &:first-child {
+        padding-top: 0;
+    }
+    &:last-child {
+        padding-bottom: 0;
+    }
 }
 ```

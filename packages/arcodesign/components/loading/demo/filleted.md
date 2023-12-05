@@ -4,6 +4,7 @@
 
 ```js
 import { Loading } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function LoadingDemo() {
     return (
@@ -14,5 +15,14 @@ export default function LoadingDemo() {
             <Loading type="dot" filleted={false} />
         </div>
     );
+}
+```
+
+```less
+.loading-demo-basic {
+    .@{prefix}-loading {
+        .rem(margin-right, 20);
+        vertical-align: middle;
+    }
 }
 ```

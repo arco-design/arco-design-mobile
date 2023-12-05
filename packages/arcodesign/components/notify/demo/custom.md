@@ -5,6 +5,7 @@
 ```js
 import { Notify, Cell } from '@arco-design/mobile-react';
 import { useRef, useEffect } from 'react';
+import './index.less';
 
 export default function NotifyDemo() {
     const notify = (func, options) => {
@@ -79,5 +80,24 @@ export default function NotifyDemo() {
             />
         </Cell.Group>
     );
+}
+```
+
+```less-global
+.notify-last-div + .arcodesign-mobile-title {
+    .rem(padding-top, 8);
+}
+.notify-custom-content {
+    .rem(border-radius, 18);
+    .rem(padding, 0, 16);
+    .rem(height, 36);
+    color: inherit;
+    border: 0.5px solid;
+    .use-var(border-color, line-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .rem(font-size, 14);
+    .rem(margin, 10, 0);
 }
 ```

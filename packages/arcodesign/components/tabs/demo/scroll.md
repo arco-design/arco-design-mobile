@@ -4,6 +4,7 @@
 
 ```js
 import { Tabs, Sticky } from '@arco-design/mobile-react';
+import './index.less';
 
 const tabData = [
     { title: 'Example 1' },
@@ -20,16 +21,13 @@ export default function TabsDemo() {
             mode="scroll"
             tabs={tabData}
             useCaterpillar={true}
-            // defaultActiveTab={1}
             tabBarPadding={22}
             activeTab={index}
             onChange={(_, index) => setIndex(index)}
             onAfterChange={(tab, index) => {
                 console.log('[tabs]', tab, index);
             }}
-            // scrollOffset={44}
             tabPaneClass="demo-tab-pane-scroll"
-            // renderTabBar={(TabBar) => <Sticky>{TabBar}</Sticky>}
             tabPaneStyle={{ height: 150, overflowY: 'auto' }}
             getScrollContainer={() => document.querySelector('.demo-tab-pane-scroll')}
         >
@@ -50,5 +48,14 @@ export default function TabsDemo() {
             </div>
         </Tabs>
     );
+}
+```
+
+```less
+.demo-tab-scroll-content {
+    .rem(padding, 22);
+    .rem(height, 100);
+    .rem(font-size, 15);
+    .use-var(color, sub-info-font-color);
 }
 ```

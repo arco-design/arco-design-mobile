@@ -1,9 +1,12 @@
 ## 无内容时隐藏滚动条效果 @en{Hide scrollbar effect when there is no content}
 
-当某个 tab 内容较少时隐藏滚动条
+```desc
+## 当某个 tab 内容较少时隐藏滚动条
+```
 
 ```js
 import { Tabs, Sticky } from '@arco-design/mobile-react';
+import './index.less';
 
 const tabData = [
     { title: 'Example 1' },
@@ -80,4 +83,24 @@ export default function StickyTabsHide() {
         </div>
     );
 }
+```
+
+```less
+#sticky-tabs-wrapper-hide {
+    height: 500px;
+    overflow: scroll;
+    .placeholder {
+        color: #000;
+        .rem(font-size, 20);
+        .rem(height, 100);
+    }
+    .demo-tab-content {
+        .rem(font-size, 20);
+        .use-var(color, sub-info-font-color);
+    }
+    .arcodesign-mobile-demo-content {
+        position: relative;
+    }
+}
+
 ```

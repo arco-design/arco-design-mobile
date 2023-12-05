@@ -40,7 +40,7 @@ export default function TabBarDemo() {
         },
     ];
     return (
-        <TabBar activeCustomStyle={{ color: '#FF5722' }} dataSource={tabs} fixed={false}></TabBar>
+        <TabBar activeCustomStyle={{ color: '#FF5722' }} dataSource={tabs} fixed={false} />
     );
 }
 ```

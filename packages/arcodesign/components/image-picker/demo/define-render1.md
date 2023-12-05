@@ -4,6 +4,8 @@
 
 ```js
 import { ImagePicker } from '@arco-design/mobile-react';
+import './index.less';
+
 const DeleteIcon = () => (
     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect
@@ -75,5 +77,27 @@ export default function ImagePickerDemo() {
             />
         </div>
     );
+}
+```
+
+```less
+.demo-space {
+    font-size: 14px;
+    line-height: 1;
+    margin: 8px 0;
+}
+.custom-delete {
+    top: 4px;
+    right: 4px;
+    font-size: 18px;
+    position: absolute;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    line-height: 16px;
+    text-align: center;
+}
+.custom-delete-bg {
+    background-color: #0000004d;
 }
 ```

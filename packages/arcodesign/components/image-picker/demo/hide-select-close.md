@@ -8,6 +8,7 @@ alwaysShowSelect的优先级高于hideSelect
 
 ```js
 import { ImagePicker } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ImagePickerDemo() {
     const [images, setImages] = React.useState([
@@ -19,5 +20,13 @@ export default function ImagePickerDemo() {
         <div className="demo-space" />
         <ImagePicker images={images} onChange={setImages} hideSelect={true} />
     </div>;
+}
+```
+
+```less
+.demo-space {
+    font-size: 14px;
+    line-height: 1;
+    margin: 8px 0;
 }
 ```

@@ -4,6 +4,7 @@
 
 ```js
 import { Cell, Radio } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function RadioDemo() {
     const [value, setValue] = React.useState(1)
@@ -27,5 +28,14 @@ export default function RadioDemo() {
             </Radio.Group>
         </Cell.Group>
     );
+}
+```
+
+```less
+.demo-radio-no-padding {
+    .rem(margin, -16, 0);
+}
+.demo-radio-cell-group {
+    .rem(margin, 0, -16);
 }
 ```

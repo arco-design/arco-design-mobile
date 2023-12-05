@@ -4,6 +4,7 @@
 
 ```js
 import { NavBar } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function NavBarDemo() {
     return (
@@ -28,5 +29,12 @@ export default function NavBarDemo() {
             <div className="gap-line"></div>
         </>
     );
+}
+```
+
+```less
+.gap-line {
+    height: 20px;
+    .use-var(background, background-color);
 }
 ```

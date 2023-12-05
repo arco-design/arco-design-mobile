@@ -4,6 +4,7 @@
 
 ```js
 import { Input, Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function InputDemo() {
     const inputRef = React.useRef();
@@ -24,5 +25,14 @@ export default function InputDemo() {
             ref={inputRef}
         />
     );
+}
+```
+
+```less
+.demo-input-btn-input .@{prefix}-input-wrap {
+    height: auto;
+}
+.demo-input-btn-wrap {
+    .rem(padding, 11, 0);
 }
 ```

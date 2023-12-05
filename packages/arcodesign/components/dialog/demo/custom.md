@@ -4,6 +4,7 @@
 
 ```js
 import { Dialog, Cell, Loading } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function DialogDemo() {
     const [visible, setVisible] = React.useState(false);
@@ -76,5 +77,30 @@ export default function DialogDemo() {
             ]}
         >I am the text which is centered single-line content.</Dialog>
     </div>);
+}
+```
+
+```less-global
+.dialog-input-demo {
+    &-input {
+        .rem(margin-top, 8);
+        .rem(padding, 8, 12);
+        .rem(font-size, 14);
+        .rem(line-height, 20);
+        .use-var(background-color, card-background-color);
+        width: 100%;
+        .use-var(caret-color, primary-color);
+    }
+    &-hint {
+        .use-var(color, sub-info-font-color);
+        .rem(margin-top, 8);
+        .rem(font-size, 13);
+        .rem(line-height, 18);
+    }
+    .@{prefix}-dialog-footer {
+        .dialog-footer-button.cancel {
+            .use-var(color, font-color);
+        }
+    }
 }
 ```

@@ -7,6 +7,7 @@
 
 ```js
 import { Carousel } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CarouselDemo() {
     return (
@@ -24,5 +25,13 @@ export default function CarouselDemo() {
             }]}
         />
     );
+}
+```
+
+```less
+.@{prefix}-carousel-item > img,
+.@{prefix}-carousel-item-inner > img,
+.@{prefix}-carousel-item .carousel-item-img {
+    height: auto;
 }
 ```

@@ -4,6 +4,8 @@
 
 ```js
 import { SwipeLoad, Toast } from '@arco-design/mobile-react';
+import './index.less';
+
 export default function SwipeLoadDemo() {
     return (
         <SwipeLoad
@@ -25,5 +27,13 @@ export default function SwipeLoadDemo() {
             })}
         </SwipeLoad>
     );
+}
+```
+
+```less
+.list-item-color {
+    height: 72px;
+    margin-right: 10px;
+    .use-var(background, primary-disabled-color);
 }
 ```

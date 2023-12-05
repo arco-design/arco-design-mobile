@@ -4,6 +4,7 @@
 
 ```js
 import { Radio } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function RadioDemo() {
     const options = [
@@ -46,5 +47,14 @@ export default function RadioDemo() {
             }}
         />
     );
+}
+```
+
+```less
+.demo-radio-custom-group {
+    .@{prefix}-radio {
+        width: 30%;
+        line-height: 2;
+    }
 }
 ```

@@ -4,6 +4,7 @@
 
 ```js
 import { Switch, Loading, Cell } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function SwitchDemo() {
     return (
@@ -16,5 +17,13 @@ export default function SwitchDemo() {
             />
         </Cell>
     );
+}
+```
+
+```less
+.demo-3 {
+    &.checked {
+        .use-var(background, primary-color);
+    }
 }
 ```

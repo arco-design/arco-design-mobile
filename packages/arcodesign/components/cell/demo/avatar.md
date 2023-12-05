@@ -4,6 +4,7 @@
 
 ```js
 import { Cell, Avatar } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CellDemo() {
     return (<>
@@ -19,5 +20,27 @@ export default function CellDemo() {
             } />
         </Cell.Group>
     </>);
+}
+```
+
+```less
+.demo-cell-avatar-label {
+    display: flex;
+    align-items: center;
+    .@{prefix}-avatar {
+        .rem(width, 32);
+        .rem(height, 32);
+        .rem-with-rtl(margin-right, 12);
+    }
+}
+.demo-cell-avatar {
+    .cell-text {
+        font-size: 0;
+    }
+    .@{prefix}-avatar {
+        .rem(width, 24);
+        .rem(height, 24);
+        display: inline-block;
+    }
 }
 ```

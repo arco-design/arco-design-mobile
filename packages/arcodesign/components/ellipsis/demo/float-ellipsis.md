@@ -4,6 +4,7 @@
 
 ```js
 import { Ellipsis } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function EllipsisDemo() {
     const [ellipsis, setEllipsis] = React.useState(true);
@@ -21,5 +22,11 @@ export default function EllipsisDemo() {
             floatEllipsisNode
         />
     );
+}
+```
+
+```less
+.demo-link {
+    .use-var(color, primary-color);
 }
 ```

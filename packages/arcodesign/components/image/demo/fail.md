@@ -7,6 +7,7 @@
 
 ```js
 import { Image } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ImageDemo() {
     return (<div className="image-fit-demo">
@@ -61,5 +62,33 @@ function LoadFailPlaceholder() {
             <path fillRule="evenodd" clipRule="evenodd" d="M28.7987 27.0083C28.8768 26.9302 28.8768 26.8036 28.7987 26.7255L27.0179 24.9447L28.7861 23.1764C28.8642 23.0983 28.8642 22.9717 28.7861 22.8936L28.0083 22.1157C27.9302 22.0376 27.8036 22.0376 27.7255 22.1157L25.9572 23.884L24.1318 22.0586C24.0537 21.9805 23.9271 21.9805 23.849 22.0586L23.0712 22.8364C22.9931 22.9145 22.9931 23.0411 23.0712 23.1192L24.8966 24.9447L23.0586 26.7827C22.9805 26.8608 22.9805 26.9874 23.0586 27.0655L23.8364 27.8433C23.9145 27.9214 24.0411 27.9214 24.1192 27.8433L25.9572 26.0053L27.7381 27.7861C27.8162 27.8642 27.9428 27.8642 28.0209 27.7861L28.7987 27.0083Z" fill="white"/>
         </svg>
     );
+}
+```
+
+```less
+.image-fit-demo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &.fill {
+        .@{prefix}-image {
+            .rem(width, 64);
+            .rem(height, 64);
+        }
+        .group-text {
+            .rem(font-size, 12);
+        }
+    }
+}
+.image-group {
+    display: inline-block;
+    vertical-align: top;
+    .group-text {
+        .rem(font-size, 14);
+        .rem(margin-top, 8);
+        color: #939AA3;
+        text-align: center;
+    }
 }
 ```

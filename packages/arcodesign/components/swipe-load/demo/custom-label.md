@@ -4,6 +4,8 @@
 
 ```js
 import { SwipeLoad, Toast } from '@arco-design/mobile-react';
+import './index.less';
+
 const renderLabel = offset => {
     return (
         <div className={`mylabel-start ${Math.abs(offset) > 30 ? 'end' : ''}`} />
@@ -38,5 +40,26 @@ export default function SwipeLoadDemo() {
             </div>
         </SwipeLoad>
     );
+}
+```
+
+```less
+.list-container {
+    width: 100%;
+    .use-var(background, line-color);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+.course-list {
+    display: inline-flex;
+    align-items: flex-start;
+    padding: 12px 0;
+}
+.list-item {
+    height: 72px;
+    margin-right: 10px;
+    .use-var(background, background-color);
 }
 ```

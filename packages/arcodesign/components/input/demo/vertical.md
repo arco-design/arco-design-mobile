@@ -4,6 +4,7 @@
 
 ```js
 import { Input } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function InputDemo() {
     return (<>
@@ -13,5 +14,14 @@ export default function InputDemo() {
             border="none"
         />
     </>);
+}
+```
+
+```less
+.demo-input-title {
+    .rem(font-size, 13);
+    .rem(line-height, 18);
+    .rem(margin-bottom, -8);
+    .rem(padding, 16, 16, 0, 16);
 }
 ```

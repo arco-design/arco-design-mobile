@@ -6,6 +6,7 @@
 import { Avatar } from '@arco-design/mobile-react';
 
 const demoAvatarSrc = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/small_image_5.jpg';
+import './index.less';
 
 export default function AvatarDemo() {
     return (
@@ -32,5 +33,28 @@ export default function AvatarDemo() {
             </div>
         </div>
     );
+}
+```
+
+```less
+.avatar-demo-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.avatar-left-margin {
+    .set-prop-with-rtl(margin-left, 24px);
+}
+.avatar-size-demo-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 77px;
+    .size-text {
+        font-size: 12px;
+        line-height: 17px;
+        color: #939AA3;
+    }
 }
 ```

@@ -135,6 +135,10 @@ body {
         width: 100%;
 
         .demo-code-wrapper {
+            .arco-tabs-content {
+                padding-top: 0;
+            }
+
             .demo-code-title {
                 &:nth-child(n + 2) {
                     margin-top: 24px;
@@ -153,10 +157,6 @@ body {
                 position: relative;
                 overflow: hidden;
                 max-height: 240px;
-                border: 1px solid;
-                .use-var(border-color, line-color);
-                margin-top: 24px;
-                border-radius: 2px;
                 .use-var(background-color, card-background-color);
 
                 .demo-code {
@@ -164,7 +164,7 @@ body {
                     width: 100%;
                     display: block;
                     word-break: normal;
-                    padding: 22px 48px 28px;
+                    padding: 12px 24px;
                     overflow-x: auto;
                     overflow-y: hidden;
                     font-size: 13px;

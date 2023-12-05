@@ -7,6 +7,7 @@
 
 ```js
 import { Tabs } from '@arco-design/mobile-react';
+import './index.less';
 
 const tabData = [
     { title: 'Example' },
@@ -42,5 +43,38 @@ export default function TabsDemo() {
             <div className="demo-tab-content">Content area</div>
         </Tabs>
     );
+}
+```
+
+```less
+.demo-tabs-add-extra {
+    position: absolute;
+    .set-prop-with-rtl(right, 0);
+    top: 0;
+    background: linear-gradient(270deg, #fff 66.04%, rgba(255, 255, 255, 0) 105%);
+    .rem(width, 64);
+    .rem(font-size, 13);
+    .rem(padding-right, 14);
+    .use-var(color, sub-info-font-color);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: bold;
+    [dir="rtl"] & {
+        justify-content: flex-start;
+        transform: rotate(180deg);
+    }
+    .arco-theme-dark & {
+        background: linear-gradient(270deg, @dark-background-color 66.04%, rgba(@dark-background-color, 0) 105%);
+    }
+}
+.demo-tab-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .rem(font-size, 15);
+    .rem(height, 80);
+    .use-var(color, sub-info-font-color);
 }
 ```

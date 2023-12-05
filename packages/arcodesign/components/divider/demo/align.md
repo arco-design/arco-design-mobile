@@ -4,6 +4,7 @@
 
 ```js
 import { Divider } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function DividerDemo() {
     return (
@@ -13,5 +14,11 @@ export default function DividerDemo() {
             <Divider content="text" align="right" />
         </>
     );
+}
+```
+
+```less
+.demo-gap {
+    height: 8px;
 }
 ```

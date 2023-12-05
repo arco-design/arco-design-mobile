@@ -6,6 +6,7 @@
 @en{If `status` is set manually, the manually set value will prevail. Set `loadingArea` to customize the loading content.}
 ```js
 import { Image } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ImageDemo() {
     return (<div className="image-fit-demo">
@@ -44,5 +45,46 @@ function LoadingPicture() {
             <path fillRule="evenodd" clipRule="evenodd" d="M24.7 0C25.3853 0 25.9468 0.530321 25.9964 1.20298L26 1.3V24.7C26 25.3853 25.4697 25.9468 24.797 25.9964L24.7 26H1.3C0.614665 26 0.0531927 25.4697 0.00356573 24.797L0 24.7V1.3C0 0.614665 0.530321 0.0531927 1.20298 0.00356573L1.3 0H24.7ZM24 2H2V24H24V2ZM20.7716 10.7024C20.8663 10.7971 20.9194 10.9255 20.9194 11.0594V20.1892C20.9194 20.3983 20.7499 20.5678 20.5408 20.5678H11.1063C11.071 20.5678 11.0368 20.563 11.0044 20.5539L5.60569 20.5401C5.39659 20.5396 5.22749 20.3697 5.228 20.1606C5.22824 20.0605 5.26811 19.9645 5.33889 19.8938L10.5546 14.6781C10.7517 14.481 11.0713 14.481 11.2685 14.6781L13.6748 17.0846L20.0577 10.7024C20.2548 10.5053 20.5745 10.5053 20.7716 10.7024ZM9.5664 5.42578V9.21184H5.78034V5.42578H9.5664Z" fill="#C9CDD4"/>
         </svg>
     );
+}
+```
+
+```less
+.image-fit-demo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &.fill {
+        .@{prefix}-image {
+            .rem(width, 64);
+            .rem(height, 64);
+        }
+        .group-text {
+            .rem(font-size, 12);
+        }
+    }
+}
+.image-loading-demo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.image-group {
+    display: inline-block;
+    vertical-align: top;
+    .group-text {
+        .rem(font-size, 14);
+        .rem(margin-top, 8);
+        color: #939AA3;
+        text-align: center;
+    }
 }
 ```

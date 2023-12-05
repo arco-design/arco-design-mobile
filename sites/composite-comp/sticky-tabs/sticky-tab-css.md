@@ -1,10 +1,15 @@
 ## 使用 position: sticky 替换 Sticky @en{Replace Sticky with position: sticky}
 
-当使用 sticky tabs 复合组件时，安卓机型经常会出现 tabBar 闪动的情况，可以通过 css 实现 sticky 的方式去优化性能
-注意：sticky css 属性兼容性有待考证；arco 已验证安卓5.1.1 vivoX7 支持；iPhone6plus ios 11.2.5不支持
+```desc
+## 当使用 sticky tabs 复合组件时，安卓机型经常会出现 tabBar 闪动的情况，可以通过 css 实现 sticky 的方式去优化性能
+
+## 注意：sticky css 属性兼容性有待考证；arco 已验证安卓5.1.1 vivoX7 支持；iPhone6plus ios 11.2.5不支持
+```
+
 
 ```js
 import { Tabs, Sticky, Portal } from '@arco-design/mobile-react';
+import './index.less';
 
 const tabData = [
     { title: 'Example 1' },
@@ -53,5 +58,29 @@ export default function StickyTabsCss() {
             </Tabs>
         </div>
     );
+}
+```
+
+```less
+#sticky-tabs-wrapper-css {
+    height: 500px;
+    overflow: visible;
+
+    .placeholder {
+        color: #000;
+        .rem(font-size, 20);
+        .rem(height, 100);
+    }
+
+    .demo-tab-content {
+        .rem(font-size, 20);
+        .use-var(color, sub-info-font-color);
+    }
+
+    .sticky-tabs-wrapper-css-nav-bar {
+        position: sticky;
+        background: #fff;
+        top: 44px;
+    }
 }
 ```

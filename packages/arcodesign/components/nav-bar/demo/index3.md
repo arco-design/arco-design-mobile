@@ -5,6 +5,7 @@
 ```js
 import { NavBar } from '@arco-design/mobile-react';
 import IconMore from '@arco-design/mobile-react/esm/icon/IconMore';
+import './index.less';
 
 export default function NavBarDemo() {
     return (
@@ -42,6 +43,16 @@ export default function NavBarDemo() {
             />
         </>
     );
+}
+```
+
+```less
+.gap-line {
+    height: 20px;
+    .use-var(background, background-color);
+}
+.immersive-navbar {
+    padding-bottom: 126px;
 }
 ```
 

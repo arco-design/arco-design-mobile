@@ -4,6 +4,7 @@
 
 ```js
 import { Input } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function InputDemo() {
     const [input, setInput] = React.useState('');
@@ -33,5 +34,13 @@ export default function InputDemo() {
             border="none"
         />
     </>);
+}
+```
+
+```less
+.demo-input-money {
+    .rem(font-size, 20);
+    font-weight: bold;
+    .rem-with-rtl(margin-right, -12);
 }
 ```

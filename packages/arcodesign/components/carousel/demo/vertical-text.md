@@ -4,6 +4,7 @@
 
 ```js
 import { Carousel } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CarouselDemo() {
     return (
@@ -18,5 +19,13 @@ export default function CarouselDemo() {
             <div className="vertical-text">Carousel 2</div>
         </Carousel>
     );
+}
+```
+
+```less
+.vertical-text {
+    .rem(font-size, 16);
+    .rem(line-height, 22);
+    .use-var(color, font-color);
 }
 ```

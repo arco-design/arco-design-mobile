@@ -6,6 +6,7 @@
 import { NavBar } from '@arco-design/mobile-react';
 import IconClose from '@arco-design/mobile-react/esm/icon/IconClose';
 import IconSearch from '@arco-design/mobile-react/esm/icon/IconSearch';
+import './index.less';
 
 export default function NavBarDemo() {
     return (
@@ -28,3 +29,9 @@ export default function NavBarDemo() {
 }
 ```
 
+```less
+.gap-line {
+    height: 20px;
+    .use-var(background, background-color);
+}
+```

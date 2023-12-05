@@ -4,6 +4,7 @@
 
 ```js
 import { Avatar } from '@arco-design/mobile-react';
+import './index.less';
 
 const demoAvatarSrc = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/small_image_5.jpg';
 
@@ -21,5 +22,13 @@ export default function AvatarDemo() {
             <Avatar size="ultra-small" src={demoAvatarSrc} avatarName="Username" avatarDesc="Auxiliary information" />
         </div>
     );
+}
+```
+
+```less
+.avatar-divider {
+    height: 8px;
+    .use-var(background-color, card-background-color);
+    margin: 0 -16px;
 }
 ```

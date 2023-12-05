@@ -5,6 +5,7 @@
 ```js
 import { IndexBar, Radio, Tabs, Toast } from '@arco-design/mobile-react';
 import { useState, useRef } from 'react';
+import './index.less';
 
 const locationData = {
     A: ['鞍山', '安庆', '安阳', '安康'],
@@ -88,5 +89,17 @@ export default function IndexBarDemo() {
             {renderIndexBarWithJsx()}
         </Tabs>
     );
+}
+```
+
+```less
+.custom-index-bar-height {
+    height: 480px;
+}
+.arco-tab-cell.vertical.line {
+    .rem(font-size, 16);
+    &:not(.last) {
+        .rem(margin-right, 139);
+    }
 }
 ```

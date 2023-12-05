@@ -1,5 +1,6 @@
 const fs = require('fs-extra');
 const path = require('path');
+const prettier = require('prettier');
 
 const utils = {
     getFolderName(str) {
@@ -42,7 +43,23 @@ const utils = {
             }
             textMap[r[1]] =  r[1] in textMap ? `${textMap[r[1]]} ${r[2].trim()}`: r[2].trim();
         }
-        return language in textMap || language !== 'ch' ? (textMap[language] || textMap.default) : textMap.default; 
+        return language in textMap || language !== 'ch' ? (textMap[language] || textMap.default) : textMap.default;
+    },
+    // 替换 less 变量.@{prefix} -> .arco
+    replaceStyleLessVars(less) {
+        return less.replace(/@\{prefix\}/g, 'arco');
+    },
+    formatTsCode(code) {
+        return prettier.format(code, {
+            parser: 'babel',
+            tabWidth: 4
+        });
+    },
+    formatLessCode(code) {
+        return prettier.format(code, {
+            parser: 'less',
+            tabWidth: 4
+        });
     }
 };
 

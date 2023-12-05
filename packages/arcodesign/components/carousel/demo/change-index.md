@@ -1,9 +1,10 @@
 ## 手动切换 @en{Manually change index}
 
-#### 10.5
+#### 9
 
 ```js
 import { Carousel, Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CarouselDemo() {
     const ref = React.useRef();
@@ -33,5 +34,16 @@ export default function CarouselDemo() {
             >Next</Button>
         </div>
     </>);
+}
+```
+
+```less
+.change-index-btns {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    button {
+        width: 40%;
+    }
 }
 ```

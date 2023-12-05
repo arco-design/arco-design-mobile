@@ -4,6 +4,7 @@
 
 ```js
 import { Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ButtonDemo() {
     const dangerBgColor = {
@@ -55,5 +56,17 @@ export default function ButtonDemo() {
             </div>
         </>
     );
+}
+```
+
+```less
+.button-inline-flex {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: space-between;
+    .@{prefix}-button {
+        width: 45%;
+    }
 }
 ```

@@ -4,6 +4,7 @@
 
 ```js
 import { Popover, Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function PopoverDemo() {
     return (
@@ -37,5 +38,26 @@ export default function PopoverDemo() {
             </div>
         </div>
     );
+}
+```
+
+```less
+.center-box(@height: 100px) {
+    height: @height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+}
+.popover-base-demo-wrapper {
+    .center-box();
+    .@{prefix}-button {
+        width: 124px;
+    }
+}
+.popover-with-margin {
+    margin-right: 66px;
 }
 ```

@@ -4,6 +4,7 @@
 
 ```js
 import { CountDown, Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CountDownDemo7() {
     const ref = React.useRef(null);
@@ -41,5 +42,37 @@ export default function CountDownDemo7() {
             </div>
         </div>
     );
+}
+```
+
+```less
+.count-down-demo-control {
+    display: flex;
+    justify-content: space-between;
+    .count-down {
+        flex-basis: 300px;
+    }
+    .btn-wrap {
+        display: flex;
+        .@{prefix}-button.type-primary {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .rem(padding, 4, 16);
+            width: auto;
+            height: auto;
+            border: .5px solid;
+            .use-var(border-color, primary-color);
+            background-color: transparent;
+            .rem(border-radius, 20);
+            .btn-text {
+                .rem(font-size, 14);
+                .use-var(color, primary-color);
+            }
+            &:last-child {
+                .rem(margin-left, 10);
+            }
+        }
+    }
 }
 ```

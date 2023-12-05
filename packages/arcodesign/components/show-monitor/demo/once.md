@@ -4,6 +4,7 @@
 
 ```js
 import { ShowMonitor, Toast } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ShowMonitorDemo() {
     const [show, setShow] = React.useState(true);
@@ -15,5 +16,13 @@ export default function ShowMonitorDemo() {
             <div className="show-monitor-content">Arco</div>
         </ShowMonitor>
     );
+}
+```
+
+```less-global
+#demo-show-monitor {
+    #demo-order-3 {
+        padding: 500px 16px 40px;
+    }
 }
 ```

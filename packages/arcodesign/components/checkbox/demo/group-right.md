@@ -4,6 +4,7 @@
 
 ```js
 import { Cell, Checkbox } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CheckboxDemo() {
     return (
@@ -24,5 +25,11 @@ export default function CheckboxDemo() {
             </Checkbox.Group>
         </Cell.Group>
     );
+}
+```
+
+```less
+.demo-checkbox-cell-group {
+    .rem(margin, -16);
 }
 ```

@@ -4,6 +4,7 @@
 
 ```js
 import { Cell, Loading } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CellDemo() {
     return (<>
@@ -22,5 +23,15 @@ export default function CellDemo() {
             <Cell label="List Content" showArrow />
         </Cell.Group>
     </>);
+}
+```
+
+```less
+.demo-cell-loading-group {
+    text-align: center;
+    .demo-cell-loading {
+        vertical-align: middle;
+        .rem-with-rtl(margin-right, 5);
+    }
 }
 ```

@@ -4,7 +4,7 @@
 
 ```js
 import { Picker, Cell } from '@arco-design/mobile-react';
-
+import './index.less';
 
 export default function PickerDemo() {
     const [singleVisible, setSingleVisible] = React.useState(false);
@@ -46,5 +46,20 @@ export default function PickerDemo() {
             />
         </>
     );
+}
+```
+
+```less-global
+.demo-picker-color {
+    i {
+        width: 14px;
+        height: 14px;
+        border-radius: 2px;
+        margin-right: 8px;
+    }
+    i, span {
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
 ```

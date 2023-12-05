@@ -4,6 +4,7 @@
 
 ```js
 import { Radio } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function RadioDemo() {
     return (
@@ -14,5 +15,14 @@ export default function RadioDemo() {
         </div>
       </Radio>
     );
+}
+```
+
+```less
+.demo-radio-desc {
+    .rem(font-size, 12);
+    .rem(line-height, 16);
+    .rem(margin-top, 6);
+    .use-var(color, sub-info-font-color);
 }
 ```

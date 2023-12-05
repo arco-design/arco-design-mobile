@@ -4,6 +4,7 @@
 
 ```js
 import { Grid, Badge } from '@arco-design/mobile-react';
+import './index.less';
 
 const renderGrid0 = (item, colIndex) => {
     return (
@@ -77,5 +78,31 @@ export default function GridDemo() {
     return (
         <Grid data={data} />
     );
+}
+```
+
+```less
+.grid-demo-rows-item {
+    display: flex;
+    position: relative;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .rem(font-size, 15);
+    &-text {
+        .rem(margin-top, 8);
+    }
+}
+.grid-demo-block {
+    .use-var(background, primary-disabled-color);
+    opacity: .5;
+    border-radius: 2px;
+    .rem(width, 32);
+    .rem(height, 32);
+    position: relative;
+}
+.@{prefix}-grid-rows-item-title {
+    .rem(font-size, 15);
 }
 ```

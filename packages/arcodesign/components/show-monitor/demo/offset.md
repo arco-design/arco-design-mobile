@@ -4,6 +4,7 @@
 
 ```js
 import { ShowMonitor, Toast } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ShowMonitorDemo() {
     function onVisibleChange(visible, node) {
@@ -14,5 +15,13 @@ export default function ShowMonitorDemo() {
             <div className="show-monitor-content">Arco</div>
         </ShowMonitor>
     );
+}
+```
+
+```less-global
+#demo-show-monitor {
+    #demo-order-2 {
+        padding: 400px 16px 40px;
+    }
 }
 ```

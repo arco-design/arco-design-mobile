@@ -4,6 +4,7 @@
 
 ```js
 import { Image, ImagePreview } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ImagePreviewDemo() {
     const [openIndex, setOpenIndex] = React.useState(-1);
@@ -48,5 +49,20 @@ export default function ImagePreviewDemo() {
             }]}
         />
     </div>);
+}
+```
+
+```less
+.image-fit-demo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .@{prefix}-image {
+        .rem(width, 109);
+        .rem(height, 109);
+        border-radius: 2px;
+        overflow: hidden;
+    }
 }
 ```

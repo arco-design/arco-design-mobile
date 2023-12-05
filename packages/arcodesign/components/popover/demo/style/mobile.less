@@ -1,16 +1,6 @@
 
 @import '../../../../style/mixin.less';
 
-.center-box(@height: 100px) {
-    height: @height;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    [dir="rtl"] & {
-        flex-direction: row-reverse;
-    }
-}
-
 #demo-popover {
     padding-bottom: 200px;
     .base-demo-wrapper {
@@ -21,81 +11,6 @@
             flex: 0 0  50%;
             text-align: center;
             margin-top: 24px;
-        }
-    }
-
-    .popover-base-demo-wrapper {
-        .center-box();
-        .@{prefix}-button {
-            width: 124px;
-        }
-    }
-
-    .direction-demo-wrapper {
-        height: 190px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        [dir="rtl"] & {
-            flex-direction: row-reverse;
-        }
-        .direction-item {
-            margin: 14px 0;
-            &:nth-child(2n+1) {
-                margin-right: 60px;
-            }
-        }
-
-        .@{prefix}-button {
-            width: 124px;
-            &.size-large {
-                padding: 0;
-            }
-        }
-    }
-
-    .popover-with-margin {
-        margin-right: 66px;
-    }
-
-    .white-theme-mask-demo-wrapper {
-        .center-box();
-    }
-
-    .menu-demo-wrapper {
-        .center-box();
-        .@{prefix}-button {
-            width: 124px;
-        }
-    }
-
-    .suffix-demo-wrapper {
-        .center-box(130px);
-        flex-wrap: wrap;
-
-        .custom-suffix-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 24px;
-            .use-var(background-color, container-background-color);
-            border-radius: 40px;
-            .use-var(color, font-color);
-            font-size: 12px;
-        }
-    }
-
-    .custom-demo-wrapper {
-        .center-box();
-    }
-
-    .custom-popover {
-        .@{prefix}-popover-inner .popover-bg {
-            background: linear-gradient(278.7deg, #0578FF 5.08%, #15D5FF 108.09%);
-        }
-        .@{prefix}-popover-inner .popover-arrow {
-            background-color: #2db1f8;
         }
     }
 }

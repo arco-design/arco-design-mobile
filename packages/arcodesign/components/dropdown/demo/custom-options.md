@@ -4,6 +4,7 @@
 
 ```js
 import { Dropdown, Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function DropdownDemo() {
     const [showDropdown, setShowDropdown] = React.useState(false);
@@ -78,5 +79,13 @@ export default function DropdownDemo() {
             </Dropdown>
         </div>
     );
+}
+```
+
+```less-global
+.demo-dropdown-option-desc {
+    .rem(font-size, 16);
+    .rem(padding, 16);
+    font-weight: bold;
 }
 ```

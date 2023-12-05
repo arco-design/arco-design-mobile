@@ -5,6 +5,7 @@
 ```js
 import { Avatar } from '@arco-design/mobile-react';
 import IconUserFill from '@arco-design/mobile-react/esm/icon/IconUserFill';
+import './index.less';
 
 export default function AvatarDemo() {
     return (
@@ -16,5 +17,16 @@ export default function AvatarDemo() {
             </Avatar>
         </div>
     );
+}
+```
+
+```less
+.avatar-demo-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.custom-avatar-icon {
+    font-size: 15px;
 }
 ```

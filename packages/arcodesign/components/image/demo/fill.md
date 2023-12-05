@@ -7,6 +7,7 @@
 
 ```js
 import { Image } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ImageDemo() {
     return (<div className="image-fit-demo fill">
@@ -56,5 +57,33 @@ export default function ImageDemo() {
             <div className="group-text">scale-down</div>
         </div>
     </div>);
+}
+```
+
+```less
+.image-fit-demo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &.fill {
+        .@{prefix}-image {
+            .rem(width, 64);
+            .rem(height, 64);
+        }
+        .group-text {
+            .rem(font-size, 12);
+        }
+    }
+}
+.image-group {
+    display: inline-block;
+    vertical-align: top;
+    .group-text {
+        .rem(font-size, 14);
+        .rem(margin-top, 8);
+        color: #939AA3;
+        text-align: center;
+    }
 }
 ```

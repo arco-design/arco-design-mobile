@@ -3,6 +3,7 @@
 
 ```js
 import { Popover, Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function PopoverDemo() {
     const menu = [
@@ -39,5 +40,26 @@ export default function PopoverDemo() {
             </Popover.Menu>
         </div>
     );
+}
+```
+
+```less
+.center-box(@height: 100px) {
+    height: @height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+}
+.menu-demo-wrapper {
+    .center-box();
+    .@{prefix}-button {
+        width: 124px;
+    }
+}
+.popover-with-margin {
+    margin-right: 66px;
 }
 ```

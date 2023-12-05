@@ -4,6 +4,7 @@
 
 ```js
 import { Badge, Button, Cell } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function BadgeDemo5() {
     const [visible, setVisible] = React.useState(true);
@@ -44,5 +45,13 @@ export default function BadgeDemo5() {
             <Button onClick={() => setVisible(pre => !pre)}>{visible?'Close Badge':'Open Badge'}</Button>
         </div>
     );
+}
+```
+
+```less
+.badge-demo-cell-label {
+    .rem(font-size, 16);
+    .rem(line-height, 22);
+    .use-var(color, cell-label-color);
 }
 ```

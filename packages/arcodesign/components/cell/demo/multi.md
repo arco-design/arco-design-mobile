@@ -4,6 +4,7 @@
 
 ```js
 import { Cell, Avatar } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CellDemo() {
     return (<>
@@ -21,5 +22,19 @@ export default function CellDemo() {
             </Cell>
         </Cell.Group>
     </>);
+}
+```
+
+```less
+.demo-cell-info {
+    text-align: right;
+    .info {
+        .use-var(color, font-color);
+        .rem(font-size, 16);
+    }
+    .sub-info {
+        .use-var(color, cell-desc-color);
+        .rem(font-size, 14);
+    }
 }
 ```

@@ -4,6 +4,8 @@
 
 ```js
 import { SwipeLoad, Toast } from '@arco-design/mobile-react';
+import './index.less';
+
 const renderLabel = offset => {
     return (
         <div className="mylabel-single" />
@@ -23,5 +25,18 @@ export default function SwipeLoadDemo() {
             <div className="single-element" />
         </SwipeLoad>
     );
+}
+```
+
+```less
+.mylabel-single {
+    width: 100px;
+    height: 88px;
+    .use-var(background, primary-disabled-color);
+}
+
+.single-element {
+    height: 88px;
+    .use-var(background, primary-disabled-color);
 }
 ```

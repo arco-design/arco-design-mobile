@@ -4,6 +4,7 @@
 
 ```js
 import { Ellipsis } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function EllipsisDemo() {
     const text =
@@ -31,5 +32,11 @@ export default function EllipsisDemo() {
             }}
         />
     );
+}
+```
+
+```less
+.demo-link {
+    .use-var(color, primary-color);
 }
 ```

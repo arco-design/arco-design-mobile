@@ -4,6 +4,7 @@
 
 ```js
 import { Sticky, Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function StickyDemo2() {
     return (
@@ -20,5 +21,16 @@ export default function StickyDemo2() {
             </div>
         </>
     );
+}
+```
+
+```less
+.demo-sticky-container {
+    height: 200px;
+    .use-var(background, card-background-color);
+    line-height: 80px;
+    font-size: 14px;
+    color: #939aa3;
+    text-align: center;
 }
 ```

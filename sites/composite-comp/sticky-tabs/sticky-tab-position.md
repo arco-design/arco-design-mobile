@@ -1,9 +1,12 @@
 ## 独立面板效果 @en{Independent panel effect}
 
-每个 tab 面板都有自己的定位逻辑
+```desc
+## 当某个 tab 内容较少时隐藏滚动条
+```
 
 ```js
 import { Tabs, Sticky } from '@arco-design/mobile-react';
+import './index.less';
 
 const tabData = [
     { title: 'Example 1' },
@@ -89,5 +92,24 @@ export default function StickyTabsPosition() {
             </Tabs>
         </div>
     );
+}
+```
+
+```less
+#sticky-tabs-wrapper-position {
+    height: 500px;
+    overflow: scroll;
+    .placeholder {
+        color: #000;
+        .rem(font-size, 20);
+        .rem(height, 100);
+    }
+    .demo-tab-content {
+        .rem(font-size, 20);
+        .use-var(color, sub-info-font-color);
+    }
+    .arcodesign-mobile-demo-content {
+        position: relative;
+    }
 }
 ```

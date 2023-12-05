@@ -4,6 +4,7 @@
 
 ```js
 import { Switch, Cell } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function SwitchDemo() {
     const [checked, setChecked] = React.useState(false);
@@ -23,5 +24,13 @@ export default function SwitchDemo() {
             />
         </Cell>
     );
+}
+```
+
+```less
+.demo-4 {
+    &.checked {
+        .use-var(background, primary-color);
+    }
 }
 ```

@@ -1,7 +1,7 @@
-const prism = require('../../../../sites/pc/static/js/prism');
 const { marked } = require('marked');
 const fs = require('fs-extra');
 const path = require('path');
+const prism = require('../../../../sites/pc/static/js/prism');
 const utils = require('../.././../utils');
 const localeMap = require('../../../utils/language.json');
 /**
@@ -157,26 +157,36 @@ function renderReadmeTable(readme, language = 'ch') {
 /** 渲染demo代码块 */
 function renderDemoSource(demoPath, demoName, language = 'ch') {
     const renderer = new marked.Renderer();
+    const rendererStyle = new marked.Renderer();
     const demo = fs.readFileSync(path.join(demoPath, `${demoName}.md`), 'utf8');
     let order = 0;
     let codeSource = '';
     let title = '';
-    renderer.code = code => {
-        codeSource = code;
-        const formatScript = prism.highlight(code, prism.languages.jsx, 'jsx');
-        return `<div class="demo-code-content">
-            <pre><code class="demo-code">${formatScript}</code></pre>
-        </div>`;
+    let paragraphSlotContent = '';
+    let styleSource = '';
+    renderer.code = (code, info) => {
+        if (info === 'js') {
+            codeSource = code;
+            const formatScript = prism.highlight(code, prism.languages.jsx, 'jsx');
+            return `<div class="demo-code-content">
+                <pre><code class="demo-code">${formatScript}</code></pre>
+            </div>`;
+        }
+        if (info === 'desc') {
+            code.split('\n').forEach(desc => {
+                paragraphSlotContent += `<p className='demo-code-desc-content'>${desc.replace('##', '')}</p>`;
+            });
+        }
+        return '';
     };
 
     renderer.heading = (text, level) => {
         if (level === 2 || level === 3) {
             const lastText = utils.getReadMeTextByLang(text, language);
             title = lastText;
-            return `<h2 class="demo-code-title">${lastText}</h2>`;
+            return '';
         }
         if (level === 4) {
-            title = text;
             order = Number(text) || 0;
         }
         return '';
@@ -186,12 +196,31 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
         return `<p class="demo-code-desc">${utils.getReadMeTextByLang(text, language)}</p>`;
     };
 
+    rendererStyle.code = (code, info) => {
+        if (info === 'less' || info === 'less-global') {
+            code = utils.replaceStyleLessVars(code);
+            styleSource += code;
+            const formatStyle = prism.highlight(code, prism.languages.css, 'css');
+            return `<div class='demo-code-content'>
+                <pre><code class='demo-code'>${formatStyle}</code></pre>
+            </div>`;
+        }
+        return '';
+    }
+    rendererStyle.heading = () => '';
+    renderer.paragraph = () => '';
+
     const result = marked(demo, { renderer });
+    const style = marked(demo, { renderer: rendererStyle });
+
     return {
         order,
         title,
         source: result,
+        style,
+        styleSource: utils.formatLessCode(styleSource),
         codeSource,
+        paragraphSlotContent
     };
 }
 

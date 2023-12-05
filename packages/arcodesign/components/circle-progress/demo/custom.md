@@ -4,6 +4,7 @@
 
 ```js
 import { CircleProgress } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CircleProgressDemo() {
     return (
@@ -12,5 +13,14 @@ export default function CircleProgressDemo() {
             <CircleProgress className="circle-progress-demo-custom" progressColorStart="#14CAFF" progressColorEnd="#4776E6" percentage={100} />
         </>
     );
+}
+```
+
+```less
+.circle-progress-demo-custom {
+    display: inline-block;
+    &:nth-child(2) {
+        .rem(margin-left, 48);
+    }
 }
 ```

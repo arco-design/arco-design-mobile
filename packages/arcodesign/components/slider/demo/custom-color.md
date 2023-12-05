@@ -4,6 +4,7 @@
 
 ```js
 import { Slider } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function SliderDemo() {
     return (
@@ -13,5 +14,13 @@ export default function SliderDemo() {
             defaultValue={32}
         />
     );
+}
+```
+
+```less
+.slider-custom-yellow {
+    .@{prefix}-slider-line.is-activated {
+        background: #ffb400;
+    }
 }
 ```

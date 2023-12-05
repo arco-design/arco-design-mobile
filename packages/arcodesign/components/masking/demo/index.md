@@ -4,6 +4,7 @@
 
 ```js
 import { Masking, Cell } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function MaskingDemo() {
     const [visible, setVisible] = React.useState(false);
@@ -53,5 +54,20 @@ export default function MaskingDemo() {
             <img src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/get-prize.png" alt="" />
         </Masking>
     </>);
+}
+```
+
+```less-global
+.demo-masking-img img {
+    .rem(width, 144);
+}
+.demo-masking-scroll {
+    .use-var(background, background-color);
+    .rem(border-radius, 8);
+    .rem(font-size, 14);
+    .rem(padding, 16);
+    .rem(height, 150);
+    text-align: center;
+    overflow-y: auto;
 }
 ```

@@ -8,6 +8,7 @@ import IconGift from '@arco-design/mobile-react/esm/icon/IconGift';
 import IconShop from '@arco-design/mobile-react/esm/icon/IconShop';
 import IconShopping from '@arco-design/mobile-react/esm/icon/IconShopping';
 import IconSubway from '@arco-design/mobile-react/esm/icon/IconSubway';
+import './index.less';
 
 export default function StepsDemo() {
     return (
@@ -27,5 +28,21 @@ export default function StepsDemo() {
             </Steps>
         </div>
     );
+}
+```
+
+```less
+.divide {
+    .rem(height, 8);
+    .use-var(background, card-background-color);
+}
+.demo-svg {
+    .@{prefix}-steps-item-custom-icon {
+        border-radius: 50%;
+    }
+    .set-steps-color-var(primary-color, lighter-primary-color);
+    .@{prefix}-steps-item-custom-icon {
+        font-size: 11PX;
+    }
 }
 ```

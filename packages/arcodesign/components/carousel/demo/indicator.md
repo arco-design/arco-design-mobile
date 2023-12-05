@@ -7,6 +7,7 @@
 
 ```js
 import { Carousel } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function CarouselDemo() {
     return (
@@ -24,5 +25,18 @@ export default function CarouselDemo() {
             <img src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg" alt="" />
         </Carousel>
     );
+}
+```
+
+```less
+.radius-num-indicator {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.3);
+    .rem(border-radius, 20);
+    .rem(font-size, 12);
+    .rem(padding, 2, 6);
+    .rem(margin-right, -8);
+    .rem(margin-bottom, -4);
+    color: #ffffff;
 }
 ```

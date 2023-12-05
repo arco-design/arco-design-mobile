@@ -4,6 +4,7 @@
 
 ```js
 import { Button } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function ButtonDemo() {
     return (
@@ -11,5 +12,14 @@ export default function ButtonDemo() {
             Banner
         </Button>
     );
+}
+```
+
+```less-global
+#demo-button {
+    #demo-order-8 {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 ```

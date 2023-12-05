@@ -4,6 +4,7 @@
 
 ```js
 import { Badge } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function BadgeDemo2() {
     return (
@@ -34,5 +35,27 @@ export default function BadgeDemo2() {
             </div>
         </div>
     );
+}
+```
+
+```less
+.badge-demo-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.badge-demo-rectangle {
+    .rem(width, 32);
+    .rem(height, 32);
+    background: #bedaff;
+    border-radius: 2PX;
+    position: relative;
+}
+.badge-demo-item-text {
+    .rem(font-size, 14);
+    .rem(line-height, 20);
+    .rem(margin-top, 8);
+    text-align: center;
 }
 ```

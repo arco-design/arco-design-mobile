@@ -4,6 +4,7 @@
 
 ```js
 import { Transition, Cell } from '@arco-design/mobile-react';
+import './index.less';
 
 export default function TransitionDemo() {
     const [visible, setVisible] = React.useState(false);
@@ -27,5 +28,17 @@ export default function TransitionDemo() {
             ></div>
         </Transition>
     </>);
+}
+```
+
+```less
+.demo-transition-mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
 }
 ```
