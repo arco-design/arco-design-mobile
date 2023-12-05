@@ -27,7 +27,7 @@
                 display: inline-block;
                 white-space: nowrap;
                 .use-var(color, dropdown-menu-tip-color);
-                .use-var(padding-right, dropdown-menu-tip-padding-right);
+                .use-var-with-rtl(padding-right, dropdown-menu-tip-padding-right);
             }
             &-label {
                 display: flex;
@@ -47,7 +47,7 @@
                 .use-var(color, dropdown-menu-icon-color);
                 .use-var(width, dropdown-menu-icon-size);
                 .use-var(height, dropdown-menu-icon-size);
-                .use-var(margin-left, dropdown-menu-icon-margin-left);
+                .use-var-with-rtl(margin-left, dropdown-menu-icon-margin-left);
                 transform: rotate(0deg);
                 transition: transform .2s cubic-bezier(.34, .69, .1, 1);
                 &.is-show {
