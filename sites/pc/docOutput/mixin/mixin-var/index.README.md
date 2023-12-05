@@ -4,7 +4,7 @@
 
 # .rem
 
-根据base-font-size，设置单位尺寸为rem
+根据 base-font-size，设置单位尺寸为 rem
 
 ======
 
@@ -48,7 +48,7 @@
 
 # .rem-with-rtl
 
-根据base-font-size，设置常规模式和rtl模式下单位尺寸为rem
+根据 base-font-size，设置常规模式和 rtl 模式下单位尺寸为 rem
 
 ======
 
@@ -88,7 +88,7 @@
 
 # .use-dark-mode-query
 
-当less变量use-dark-mode=1时，自定义暗黑模式样式规则
+当 less 变量 use-dark-mode=1 时，自定义暗黑模式样式规则
 
 ======
 
@@ -127,7 +127,7 @@
 
 # .use-var
 
-为属性设置arco提供的token变量
+为属性设置 arco 提供的 token 变量
 
 ======
 
@@ -168,7 +168,7 @@
 
 # .use-var-with-rtl
 
-在常规模式和rtl模式下为属性设置arco提供的token变量
+在常规模式和 rtl 模式下为属性设置 arco 提供的 token 变量
 
 ======
 
@@ -200,8 +200,8 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@property|css属性名|string|必填|
-|@variables|token变量名|string|必填|
+|@property|css 属性名|string|必填|
+|@variables|token 变量名|string|必填|
 |@preValues|\-|string|-|
 |@nextValues|\-|string|-|
 
@@ -209,7 +209,7 @@
 
 # .hairline-var
 
-0.5px的边框线
+0.5px 的边框线
 
 ======
 
@@ -240,7 +240,7 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@color|使用css变量为线设置颜色|string|必填|
+|@color|使用 css 变量为线设置颜色|string|必填|
 |@direction|边框方向，默认为全部方向|string|all|
 
 ------
@@ -278,14 +278,14 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@color|使用css变量设置加粗的字体颜色，默认继承文字当前颜色|string|currentColor|
-|@stroke|字体粗细，默认0\.3px|string|0.3PX|
+|@color|使用 css 变量设置加粗的字体颜色，默认继承文字当前颜色|string|currentColor|
+|@stroke|字体粗细，默认 0\.3px|string|0.3PX|
 
 ------
 
 # .onepx-border-var
 
-1px边框
+1px 边框
 
 ======
 
@@ -317,16 +317,16 @@
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |@direction|边框方向|string|必填|
-|@borderColor|使用css变量设置边框颜色|string|必填|
-|@borderRadius|border\-radius，默认为0|number|0|
-|@borderWidth|border\-width，默认为1px|string|1PX|
-|@borderStyle|border\-style，默认为solid|string|solid|
+|@borderColor|使用 css 变量设置边框颜色|string|必填|
+|@borderRadius|border\-radius，默认为 0|number|0|
+|@borderWidth|border\-width，默认为 1px|string|1PX|
+|@borderStyle|border\-style，默认为 solid|string|solid|
 
 ------
 
 # .hairline-bottom-right-var
 
-元素右下0.5px边框
+元素右下 0.5px 边框
 
 ======
 
@@ -356,13 +356,13 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@color|使用css变量设置边框颜色|string|必填|
+|@color|使用 css 变量设置边框颜色|string|必填|
 
 ------
 
 # .hairline-top-left-var
 
-元素左上0.5px边框
+元素左上 0.5px 边框
 
 ======
 
@@ -392,13 +392,13 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@color|使用css变量设置边框颜色|string|必填|
+|@color|使用 css 变量设置边框颜色|string|必填|
 
 ------
 
 # .set-loading-color-var
 
-设置Loading组件颜色
+设置 Loading 组件颜色
 
 ======
 
@@ -428,7 +428,7 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@color|使用css变量设置颜色|string|必填|
+|@color|使用 css 变量设置颜色|string|必填|
 
 ------
 
@@ -473,14 +473,14 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@size|使用css变量设置最小字号|string|必填|
-|@scale|设置最小字号下文字缩放比例，默认为0\.9|string|0.9|
+|@size|使用 css 变量设置最小字号|string|必填|
+|@scale|设置最小字号下文字缩放比例，默认为 0\.9|string|0.9|
 
 ------
 
 # .set-content-box-width-var
 
-设置content-box盒模型下元素宽度
+设置 content-box 盒模型下元素宽度
 
 ======
 
@@ -512,7 +512,7 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@property|css属性名|string|必填|
+|@property|css 属性名|string|必填|
 |@width|元素总宽度，包含内边距|string|必填|
 |@padding-left|左侧内边距|string|必填|
 |@padding-right|右侧内边距|string|必填|
@@ -521,7 +521,7 @@
 
 # .set-steps-color-var
 
-设置Steps组件颜色
+设置 Steps 组件颜色
 
 ======
 
@@ -551,5 +551,5 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|@color|使用css变量设置主颜色|string|必填|
-|@finish-color|使用css变量设置已完成步骤的颜色|string|必填|
+|@color|使用 css 变量设置主颜色|string|必填|
+|@finish-color|使用 css 变量设置已完成步骤的颜色|string|必填|
