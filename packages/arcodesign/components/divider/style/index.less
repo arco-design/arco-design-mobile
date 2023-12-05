@@ -40,12 +40,12 @@
         .use-var(color, divider-content-font-color);
 
         &::before {
-            .use-var(margin-right, divider-content-padding);
+            .use-var-with-rtl(margin-right, divider-content-padding);
         }
 
         &::after {
             content: '';
-            .use-var(margin-left, divider-content-padding);
+            .use-var-with-rtl(margin-left, divider-content-padding);
         }
     }
 
