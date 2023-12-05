@@ -900,7 +900,7 @@ const scrollTop = getScrollContainerAttribute('scrollTop', () => contentRef.curr
 ## 类型
 
 ```
-(property: string, getContainer?: (() => any) | undefined) => number
+(property: string, getContainer?: () => HTMLElement | Window | Document | null) => number
 ```
 
 ## 源码
@@ -940,7 +940,7 @@ function getScrollContainerAttribute(
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |property|所需属性|string|必填|
-|getContainer|待计算滚动容器|(() =\> any) \| undefined|-|
+|getContainer|待计算滚动容器|() =\> HTMLElement \| Window \| Document \| null|-|
 
 > 输出
 
@@ -965,7 +965,7 @@ const scrollTop = getScrollContainerAttribute('scrollTop', () => contentRef.curr
 ## 类型
 
 ```
-(container: any) => { isGlobal: boolean; scrollEle: any; containerRect: Pick<any, string | number | symbol>; }
+(container: HTMLElement | Window | null) => { isGlobal: boolean; scrollEle: any; containerRect: Pick<any, string | number | symbol>; }
 ```
 
 ## 源码
@@ -1011,7 +1011,7 @@ function getScrollContainerRect(container: HTMLElement | Window | null) {
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|container|滚动容器|any|必填|
+|container|滚动容器|HTMLElement \| Window \| null|必填|
 
 > 输出
 
