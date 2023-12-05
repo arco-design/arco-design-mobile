@@ -20,7 +20,7 @@ import './index.less';
 
 setRootPixel();
 
-const useRtl = false;
+const useRtl = true;
 
 function App() {
     const { locale } = useLocale();
