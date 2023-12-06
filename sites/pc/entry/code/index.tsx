@@ -40,7 +40,7 @@ export default function Code(props: IDocProps) {
     } = props;
     const [showAll, setShowAll] = useState(false);
     const demoDomRef = useRef(null);
-    const copySource = useRef(codeSource);
+    const copySource = useRef(decodeURIComponent(codeSource));
 
     const codeData: CodeInfo = {
         version: version || '',

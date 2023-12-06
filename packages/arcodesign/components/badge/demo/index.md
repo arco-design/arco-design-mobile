@@ -73,14 +73,6 @@ export default function BadgeDemo() {
 }
 ```
 
-```less-global
-#demo-badge {
-    #demo-order-1 {
-        background: transparent;
-    }
-}
-```
-
 ```less
 .badge-demo-item-wrap {
     .rem(padding, 16, 0);

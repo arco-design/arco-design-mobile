@@ -173,9 +173,7 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
             </div>`;
         }
         if (info === 'desc') {
-            code.split('\n').forEach(desc => {
-                paragraphSlotContent += `<p className='demo-code-desc-content'>${desc.replace('##', '')}</p>`;
-            });
+            paragraphSlotContent += `<p className='demo-code-desc-content'>${code}</p>`;
         }
         return '';
     };
@@ -193,7 +191,8 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
     };
 
     renderer.paragraph = text => {
-        return `<p class="demo-code-desc">${utils.getReadMeTextByLang(text, language)}</p>`;
+        paragraphSlotContent += `<p className='demo-code-desc-content'>${utils.getReadMeTextByLang(text, language)}</p>`;
+        return '';
     };
 
     rendererStyle.code = (code, info) => {
@@ -208,7 +207,7 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
         return '';
     }
     rendererStyle.heading = () => '';
-    renderer.paragraph = () => '';
+    rendererStyle.paragraph = () => '';
 
     const result = marked(demo, { renderer });
     const style = marked(demo, { renderer: rendererStyle });

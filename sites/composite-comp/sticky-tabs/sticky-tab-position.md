@@ -1,8 +1,6 @@
 ## 独立面板效果 @en{Independent panel effect}
 
-```desc
-## 当某个 tab 内容较少时隐藏滚动条
-```
+当某个 tab 内容较少时隐藏滚动条
 
 ```js
 import { Tabs, Sticky } from '@arco-design/mobile-react';

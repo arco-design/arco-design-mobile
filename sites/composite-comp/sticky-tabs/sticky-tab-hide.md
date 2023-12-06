@@ -1,8 +1,6 @@
 ## 无内容时隐藏滚动条效果 @en{Hide scrollbar effect when there is no content}
 
-```desc
-## 当某个 tab 内容较少时隐藏滚动条
-```
+当某个 tab 内容较少时隐藏滚动条
 
 ```js
 import { Tabs, Sticky } from '@arco-design/mobile-react';
