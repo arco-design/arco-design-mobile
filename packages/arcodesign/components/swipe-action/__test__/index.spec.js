@@ -104,6 +104,7 @@ describe('SwipeAction', () => {
 
     it('should allow to drag to show menu', async () => {
         const mockOpenFn = jest.fn();
+        const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
         Element.prototype.getBoundingClientRect = () => ({
             width: 64,
         });
@@ -118,6 +119,7 @@ describe('SwipeAction', () => {
             await jest.advanceTimersByTime(500);
         });
         expect(mockOpenFn).toBeCalled();
+        Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
     });
 
     it('click document the swipe action should close', async () => {

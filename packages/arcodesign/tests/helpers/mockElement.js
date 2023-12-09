@@ -1,3 +1,34 @@
+export const defineHtmlRefProperties = properties => {
+    const originalValues = {};
+
+    Object.keys(properties).forEach(key => {
+        originalValues[key] = Object.getOwnPropertyDescriptor(HTMLElement.prototype, key);
+    });
+
+    const setHTMLProperties = () => {
+        Object.entries(properties).forEach(([key, value]) => {
+            Object.defineProperty(HTMLElement.prototype, key, {
+                configurable: true,
+                value,
+            });
+        });
+    };
+    const unsetHTMLProperties = () => {
+        Object.keys(properties).forEach(key => {
+            if (originalValues[key]) {
+                // @ts-ignore
+                Object.defineProperty(HTMLElement.prototype, key, originalValues[key]);
+            }
+        });
+    };
+
+    return {
+        setHTMLProperties,
+
+        unsetHTMLProperties,
+    };
+};
+
 export function mockElementProperty(element, prop, value) {
     Object.defineProperty(element, prop, {
         value,

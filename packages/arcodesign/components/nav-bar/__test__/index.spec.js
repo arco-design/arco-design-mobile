@@ -9,13 +9,18 @@ import {
     createStartTouchEventObject,
     createMoveTouchEventObject,
 } from '../../../tests/helpers/mockEvent';
-import { mockContainerSize, resetContainerSizeMock } from '../../../tests/helpers/mockElement';
+import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
 
 const prefix = `${defaultContext.prefixCls}-nav-bar`;
 
 demoTest('nav-bar');
 
 mountTest(NavBar, 'NavBar');
+
+const { setHTMLProperties, unsetHTMLProperties } = defineHtmlRefProperties({
+    offsetWidth: 375,
+    offsetHeight: 200,
+});
 
 describe('NavBar style', () => {
     it('Common styles render correctly', () => {
@@ -29,11 +34,13 @@ describe('NavBar style', () => {
 
 describe('NavBar actions', () => {
     beforeAll(() => {
-        mockContainerSize();
+        // mockContainerSize();
+        setHTMLProperties();
     });
 
     afterAll(() => {
-        resetContainerSizeMock();
+        // resetContainerSizeMock();
+        unsetHTMLProperties();
     });
 
     beforeEach(() => {
