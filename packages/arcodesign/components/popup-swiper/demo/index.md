@@ -7,7 +7,6 @@
 
 ```js
 import { PopupSwiper, Cell } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function PopupSwiperDemo() {
     const [value, setValue] = React.useState('bottom');

@@ -4,7 +4,6 @@
 
 ```js
 import { PullRefresh, Toast, Loading, Tabs } from '@arco-design/mobile-react';
-import './index.less';
 
 const tabData = [
     { title: 'Basic' },

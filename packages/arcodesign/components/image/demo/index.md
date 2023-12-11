@@ -6,7 +6,6 @@
 @en{The loading content can be displayed before the image is loaded, and there will be a cut-in animation when the image is loaded. You can also configure the `animate` property to turn off the cut-in animation.}
 ```js
 import { Image } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function ImageDemo() {
     return (<div className="image-fit-demo">

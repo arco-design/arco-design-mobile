@@ -4,7 +4,6 @@
 
 ```js
 import { Cell, Radio } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function RadioDemo() {
     const [value, setValue] = React.useState(1)

@@ -4,7 +4,6 @@
 
 ```js
 import { CountDown, Button } from '@arco-design/mobile-react';
-import './index.less';
 
 const initTime = {hours: 4, minutes: 36, seconds: 9}
 export default function CountDownDemo3() {

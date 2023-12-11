@@ -4,7 +4,6 @@
 
 ```js
 import { ShowMonitor, Toast } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function ShowMonitorDemo() {
     function onVisibleChange(visible, node) {
@@ -54,7 +53,7 @@ export default function ShowMonitorDemo() {
         }
     }
 }
- .show-monitor-content {
+.show-monitor-content {
     display: flex;
     align-items: center;
     justify-content: center;

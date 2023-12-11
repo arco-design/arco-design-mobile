@@ -7,7 +7,6 @@
 
 ```js
 import { Popup, Cell } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function PopupDemo() {
     const [value, setValue] = React.useState('bottom');

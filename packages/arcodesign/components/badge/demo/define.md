@@ -4,7 +4,6 @@
 
 ```js
 import { Badge } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function BadgeDemo2() {
     return (

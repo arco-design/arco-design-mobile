@@ -6,7 +6,6 @@
 
 ```js
 import { Tabs, Sticky, Portal } from '@arco-design/mobile-react';
-import './index.less';
 
 const tabData = [
     { title: 'Example 1' },

@@ -4,7 +4,6 @@
 
 ```js
 import { Sticky, Button } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function StickyDemo3() {
     const container = React.useRef(null);

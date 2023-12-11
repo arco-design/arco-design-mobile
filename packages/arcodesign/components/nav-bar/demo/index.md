@@ -5,7 +5,6 @@
 ```js
 import { NavBar } from '@arco-design/mobile-react';
 import IconMore from '@arco-design/mobile-react/esm/icon/IconMore';
-import './index.less';
 
 export default function NavBarDemo() {
     // const [icon, setIcon] = React.useState('black');

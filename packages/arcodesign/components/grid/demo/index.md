@@ -4,7 +4,6 @@
 
 ```js
 import { Grid } from '@arco-design/mobile-react';
-import './index.less';
 
 const getData = count => Array.from(new Array(count)).map(() => ({
   img: <div className="grid-demo-block"></div>,
@@ -19,15 +18,6 @@ export default function GridDemo() {
             <Grid key={index} className={`demo-multi-grid col-${count}`} data={getData(count)} columns={count} />
         ))}
     </>);
-}
-```
-
-```
-#demo-grid {
-    #demo-order-1 {
-        background: transparent;
-        padding: 0;
-    }
 }
 ```
 

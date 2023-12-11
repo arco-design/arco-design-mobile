@@ -4,7 +4,6 @@
 
 ```js
 import { Grid } from '@arco-design/mobile-react';
-import './index.less';
 
 const data = Array.from(new Array(20)).map(() => ({
     img: <div className="grid-demo-block"></div>,

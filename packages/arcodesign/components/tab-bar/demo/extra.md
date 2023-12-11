@@ -11,7 +11,6 @@ import {
     IconNotice,
     IconStarFill,
 } from '@arco-design/mobile-react/esm/icon';
-import './index.less';
 
 export default function TabBarDemo() {
     const tabs = [

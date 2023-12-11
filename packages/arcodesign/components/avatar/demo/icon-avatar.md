@@ -5,7 +5,6 @@
 ```js
 import { Avatar } from '@arco-design/mobile-react';
 import IconUserFill from '@arco-design/mobile-react/esm/icon/IconUserFill';
-import './index.less';
 
 export default function AvatarDemo() {
     return (

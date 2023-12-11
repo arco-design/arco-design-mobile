@@ -5,7 +5,6 @@
 ```js
 import { IndexBar, Radio, Tabs, Toast } from '@arco-design/mobile-react';
 import { useState, useRef } from 'react';
-import './index.less';
 
 const locationData = {
     A: ['鞍山', '安庆', '安阳', '安康'],

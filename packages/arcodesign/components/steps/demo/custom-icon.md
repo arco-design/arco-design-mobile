@@ -1,6 +1,6 @@
 ## 图标步骤条 @en{Icon Steps Bar}
 
-#### 8
+#### 9
 
 ```js
 import { Steps } from '@arco-design/mobile-react';
@@ -8,7 +8,6 @@ import IconGift from '@arco-design/mobile-react/esm/icon/IconGift';
 import IconShop from '@arco-design/mobile-react/esm/icon/IconShop';
 import IconShopping from '@arco-design/mobile-react/esm/icon/IconShopping';
 import IconSubway from '@arco-design/mobile-react/esm/icon/IconSubway';
-import './index.less';
 
 export default function StepsDemo() {
     return (

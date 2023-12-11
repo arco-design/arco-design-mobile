@@ -1,10 +1,9 @@
 ## 自定义样式  @en{Custom Style}
 
-#### 7
+#### 8
 
 ```js
 import { Steps } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function StepsDemo() {
     return (
@@ -20,6 +19,10 @@ export default function StepsDemo() {
 }
 ```
 
-```less
-.set-steps-color(#FFB400);
+```less-global
+#demo-steps {
+    #demo-order-8 {
+        .set-steps-color(#FFB400);
+    }
+}
 ```

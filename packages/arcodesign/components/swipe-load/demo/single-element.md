@@ -4,7 +4,6 @@
 
 ```js
 import { SwipeLoad, Toast } from '@arco-design/mobile-react';
-import './index.less';
 
 const renderLabel = offset => {
     return (

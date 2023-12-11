@@ -4,7 +4,6 @@
 
 ```js
 import { Grid, Badge } from '@arco-design/mobile-react';
-import './index.less';
 
 const renderGrid0 = (item, colIndex) => {
     return (

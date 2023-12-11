@@ -5,7 +5,6 @@
 ```js
 import { Badge } from '@arco-design/mobile-react';
 import IconStarFill from '@arco-design/mobile-react/esm/icon/IconStarFill';
-import './index.less';
 
 export default function BadgeDemo() {
     return (

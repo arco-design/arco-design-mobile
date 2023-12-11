@@ -3,7 +3,6 @@
 
 ```js
 import { Popover, Button } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function PopoverDemo() {
     return (

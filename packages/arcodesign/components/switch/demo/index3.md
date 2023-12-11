@@ -4,7 +4,6 @@
 
 ```js
 import { Switch, Loading, Cell } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function SwitchDemo() {
     return (

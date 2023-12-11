@@ -6,7 +6,6 @@
 
 ```js
 import { Loading } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function LoadingDemo() {
     return (

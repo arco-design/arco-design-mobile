@@ -4,7 +4,6 @@
 
 ```js
 import { Cell, Checkbox } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function CheckboxDemo() {
     const [value, setValue] = React.useState([1, 3]);

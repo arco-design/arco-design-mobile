@@ -4,7 +4,6 @@
 
 ```js
 import { Badge, Button, Cell } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function BadgeDemo5() {
     const [visible, setVisible] = React.useState(true);

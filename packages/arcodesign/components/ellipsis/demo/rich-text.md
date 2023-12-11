@@ -6,7 +6,6 @@
 
 ```js
 import { Ellipsis } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function EllipsisDemo() {
     const text =

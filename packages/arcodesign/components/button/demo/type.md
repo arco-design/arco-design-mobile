@@ -1,10 +1,9 @@
 ## 按钮类型 @en{Button type}
 
-#### 9
+#### 10
 
 ```js
 import { Button } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function ButtonDemo() {
     const dangerBgColor = {

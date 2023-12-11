@@ -4,7 +4,6 @@
 
 ```js
 import { NavBar } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function NavBarDemo() {
     return (

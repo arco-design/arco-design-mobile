@@ -251,7 +251,7 @@ function generateSiteDemo({
 
             demoSource.sort((a, b) => a.order - b.order);
 
-            // 读取 demo 下公共 style
+            // 引入 demo 目录下公共 style
             const demoStylePath = path.join(demoPath, 'style');
             if (fs.existsSync(demoStylePath)) {
                 const styles = fs.readdirSync(demoStylePath);
@@ -284,6 +284,7 @@ function generateSiteDemo({
                 if (globalDemoShowStyle) {
                     lessStyle += globalDemoShowStyle;
                 }
+                importStr += `import './index.less';`;
                 const formattedStyle = utils.formatLessCode(lessStyle);
 
                 fs.writeFile(path.join(docPath, 'index.less'), formattedStyle);
@@ -443,6 +444,7 @@ function generateSiteCompositeDemo({
                 if (globalDemoShowStyle) {
                     lessStyle += globalDemoShowStyle;
                 }
+                importStr += `import './index.less';`;
                 const formattedStyle = utils.formatLessCode(lessStyle);
                 fs.writeFile(path.join(docPath, 'index.less'), formattedStyle);
             }

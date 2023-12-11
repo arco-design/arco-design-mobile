@@ -4,7 +4,6 @@
 
 ```js
 import { Picker, Cell } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function PickerDemo() {
     const [singleVisible, setSingleVisible] = React.useState(false);

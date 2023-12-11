@@ -5,7 +5,6 @@
 ```js
 import { Notify, Cell } from '@arco-design/mobile-react';
 import { useRef, useEffect } from 'react';
-import './index.less';
 
 export default function NotifyDemo() {
     const notify = (func, options) => {

@@ -4,7 +4,6 @@
 
 ```js
 import { CircleProgress } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function CircleProgressDemo() {
     return (

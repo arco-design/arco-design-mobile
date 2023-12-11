@@ -4,7 +4,6 @@
 
 ```js
 import { Cell, ImagePreview } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function ImagePreviewDemo() {
     return (<>

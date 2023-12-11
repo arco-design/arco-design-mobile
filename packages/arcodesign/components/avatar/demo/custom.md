@@ -4,7 +4,6 @@
 
 ```js
 import { Avatar } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function AvatarDemo() {
     return (

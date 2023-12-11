@@ -6,7 +6,6 @@
 @en{If `status` is set manually, the manually set value will prevail. Set `loadingArea` to customize the loading content.}
 ```js
 import { Image } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function ImageDemo() {
     return (<div className="image-fit-demo">

@@ -4,7 +4,6 @@
 
 ```js
 import { Dialog, Cell, Loading } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function DialogDemo() {
     const [visible, setVisible] = React.useState(false);

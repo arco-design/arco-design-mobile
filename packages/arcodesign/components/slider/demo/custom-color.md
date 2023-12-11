@@ -4,7 +4,6 @@
 
 ```js
 import { Slider } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function SliderDemo() {
     return (

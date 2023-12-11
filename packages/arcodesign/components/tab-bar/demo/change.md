@@ -6,7 +6,6 @@
 import { TabBar, Button, NavBar, Toast } from '@arco-design/mobile-react';
 import { IconUser, IconHome, IconSetting, IconNotice } from '@arco-design/mobile-react/esm/icon';
 import { useRef, useState } from 'react';
-import './index.less';
 
 export default function TabBarDemo() {
     const tabs = [

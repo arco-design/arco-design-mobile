@@ -6,7 +6,6 @@
 @en{It can be used with the `ShowMonitor` component to achieve the effect of lazy loading of pictures.}
 ```js
 import { Image, ShowMonitor } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function ImageDemo() {
     const [show, setShow] = React.useState(false);

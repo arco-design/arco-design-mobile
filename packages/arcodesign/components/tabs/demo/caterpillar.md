@@ -7,7 +7,6 @@
 
 ```js
 import { Tabs } from '@arco-design/mobile-react';
-import './index.less';
 
 const tabData = [
     { title: 'Example' },

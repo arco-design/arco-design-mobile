@@ -4,7 +4,6 @@
 
 ```js
 import { Input } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function InputDemo() {
     return (<>

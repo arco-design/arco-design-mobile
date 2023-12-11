@@ -4,7 +4,6 @@
 
 ```js
 import { Grid } from '@arco-design/mobile-react';
-import './index.less';
 
 const data = Array.from(new Array(5)).map(() => ({
     img: <div className="grid-demo-block"></div>,
@@ -16,14 +15,6 @@ export default function GridDemo() {
     return (
         <Grid data={data} columns={2} direction="horizontal" />
     );
-}
-```
-
-```less-global
-#demo-grid {
-    #demo-order-7 {
-        padding: 0;
-    }
 }
 ```
 

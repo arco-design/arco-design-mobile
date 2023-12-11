@@ -4,7 +4,6 @@
 
 ```js
 import { ActionSheet, Cell, Loading, Badge } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function ActionSheetDemo() {
     const [visible, setVisible] = React.useState(false);

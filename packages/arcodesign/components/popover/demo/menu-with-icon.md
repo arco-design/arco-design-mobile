@@ -6,7 +6,6 @@ import { Popover, Button } from '@arco-design/mobile-react';
 import IconHome from '@arco-design/mobile-react/esm/icon/IconHome';
 import IconSearch from '@arco-design/mobile-react/esm/icon/IconSearch';
 import IconScan from '@arco-design/mobile-react/esm/icon/IconScan';
-import './index.less';
 
 export default function PopoverDemo() {
     const menu = [

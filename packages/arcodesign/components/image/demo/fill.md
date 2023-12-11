@@ -7,7 +7,6 @@
 
 ```js
 import { Image } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function ImageDemo() {
     return (<div className="image-fit-demo fill">

@@ -6,7 +6,6 @@
 import { Avatar } from '@arco-design/mobile-react';
 
 const demoAvatarSrc = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/small_image_5.jpg';
-import './index.less';
 
 export default function AvatarDemo() {
     return (

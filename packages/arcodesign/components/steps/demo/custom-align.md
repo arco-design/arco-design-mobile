@@ -1,10 +1,9 @@
 ## 自定义对齐方式 @en{Custom Alignment}
 
-#### 6.5
+#### 7
 
 ```js
 import { Steps } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function StepsDemo() {
     return (

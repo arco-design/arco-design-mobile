@@ -4,7 +4,6 @@
 
 ```js
 import { Avatar } from '@arco-design/mobile-react';
-import './index.less';
 
 const demoAvatarSrc = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/small_image_5.jpg';
 

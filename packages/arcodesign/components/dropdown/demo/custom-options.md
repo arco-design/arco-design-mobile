@@ -4,7 +4,6 @@
 
 ```js
 import { Dropdown, Button } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function DropdownDemo() {
     const [showDropdown, setShowDropdown] = React.useState(false);

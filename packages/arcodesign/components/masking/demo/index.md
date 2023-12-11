@@ -4,7 +4,6 @@
 
 ```js
 import { Masking, Cell } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function MaskingDemo() {
     const [visible, setVisible] = React.useState(false);

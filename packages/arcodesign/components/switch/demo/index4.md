@@ -4,7 +4,6 @@
 
 ```js
 import { Switch, Cell } from '@arco-design/mobile-react';
-import './index.less';
 
 export default function SwitchDemo() {
     const [checked, setChecked] = React.useState(false);

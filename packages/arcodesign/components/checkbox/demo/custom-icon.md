@@ -8,7 +8,6 @@ import IconCheck from '@arco-design/mobile-react/esm/icon/IconCheck';
 import IconSquareChecked from '@arco-design/mobile-react/esm/icon/IconSquareChecked';
 import IconSquareUnchecked from '@arco-design/mobile-react/esm/icon/IconSquareUnchecked';
 import IconSquareDisabled from '@arco-design/mobile-react/esm/icon/IconSquareDisabled';
-import './index.less';
 
 export default function CheckboxDemo() {
     const checkIcon = {
