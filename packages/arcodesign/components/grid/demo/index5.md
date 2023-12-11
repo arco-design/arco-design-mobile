@@ -24,8 +24,7 @@ export default function GridDemo() {
     .rem(font-size, 13);
 }
 .grid-demo-block {
-    .use-var(background, primary-disabled-color);
-    opacity: .5;
+    .use-var(background, lighter-primary-color);
     border-radius: 2px;
     .rem(width, 32);
     .rem(height, 32);

@@ -22,17 +22,10 @@ const renderGrid0 = (item, colIndex) => {
 const renderGrid1 = (item, colIndex) => {
     return (
         <div className="grid-demo-rows-item" key={colIndex}>
-            <div className="grid-demo-block"></div>
-            <Badge
-                absolute
-                text="New"
-                style={
-                    {
-                        marginLeft: '-52px',
-                        marginTop: '-6px'
-                    }
-                }/>
-            <div className="grid-demo-rows-item-text" >
+            <div className="grid-demo-block">
+                <Badge absolute text="New" />
+            </div>
+            <div className="grid-demo-rows-item-text">
                 <span className="grid-demo-rows-item-title">{item.title}</span>
             </div>
         </div>
@@ -42,17 +35,10 @@ const renderGrid1 = (item, colIndex) => {
 const renderGrid2 = (item, colIndex) => {
     return (
         <div className="grid-demo-rows-item" key={colIndex}>
-            <div className="grid-demo-block"></div>
-            <Badge
-                absolute
-                text="100"
-                style={
-                    {
-                        marginLeft: '-50px',
-                        marginTop: '-6px'
-                    }
-                }/>
-            <div className="grid-demo-rows-item-text" >
+            <div className="grid-demo-block">
+                <Badge absolute text="100" />
+            </div>
+            <div className="grid-demo-rows-item-text">
                 <span className="grid-demo-rows-item-title">{item.title}</span>
             </div>
         </div>
@@ -95,8 +81,7 @@ export default function GridDemo() {
     }
 }
 .grid-demo-block {
-    .use-var(background, primary-disabled-color);
-    opacity: .5;
+    .use-var(background, lighter-primary-color);
     border-radius: 2px;
     .rem(width, 32);
     .rem(height, 32);
