@@ -289,7 +289,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
             // 图片有宽高认为正常加载，否则认为加载错误
             // @en If the image has width and height, it is considered to be loaded normally, otherwise it is considered to be a loading error
             if (imageDomRef.current.naturalWidth || imageDomRef.current.naturalHeight) {
-                handleImageLoaded(null, imageDomRef.current);
+                handleStaticImageLoaded(null, imageDomRef.current);
             } else {
                 handleStaticImageError(null);
             }
@@ -313,7 +313,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         }
     }
 
-    function handleImageLoaded(evt: Event | null, image: HTMLImageElement) {
+    function handleImageLoaded(image: HTMLImageElement) {
         hasLoadedRef.current = true;
         changeStatus('loaded');
         const { width: imageWidth = 0, height: imageHeight = 0 } = image;
@@ -341,7 +341,6 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         }
         extraClass && image.classList.add(extraClass);
         setWrapClass(extraClass ? `${extraClass}-container` : '');
-        onLoad && onLoad(evt, image);
     }
 
     function loadImage(isFromRetry?: boolean) {
@@ -366,8 +365,9 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         image.onload = evt => {
             loadingImageRef.current = null;
             imageDomRef.current = image;
-            handleImageLoaded(evt, image);
+            handleImageLoaded(image);
             replaceChild(image);
+            onLoad && onLoad(evt, image);
         };
         image.onerror = evt => {
             loadingImageRef.current = null;
@@ -387,6 +387,11 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
             image.alt = attrs.alt;
             loadingImageRef.current = image;
         });
+    }
+
+    function handleStaticImageLoaded(evt: Event | null, image: HTMLImageElement) {
+        handleImageLoaded(image);
+        onLoad && onLoad(evt, image);
     }
 
     function handleStaticImageError(e: React.SyntheticEvent<HTMLImageElement, Event> | null) {
@@ -468,7 +473,9 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                                 {...nativeProps}
                                 {...attrs}
                                 ref={imageDomRef}
-                                onLoad={e => handleImageLoaded(e.nativeEvent, imageDomRef.current!)}
+                                onLoad={e =>
+                                    handleStaticImageLoaded(e.nativeEvent, imageDomRef.current!)
+                                }
                                 onError={handleStaticImageError}
                             />
                         ) : null}

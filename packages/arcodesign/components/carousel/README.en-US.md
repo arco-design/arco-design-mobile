@@ -55,6 +55,7 @@ Carousel component, supports custom carousel index style and slider width. **Not
 |fakeItem|Whether to fake the first and last items, which is used for the connection of the circular rotation when the offsetBetween is not equal to 0|boolean|false|
 |allowEndBlank|Whether to allow white space when sliding to the end, only valid when loop=false and width is set|boolean|false|
 |iOSVisibleOptimize|Whether to do DOM forced refresh optimization when the screen is off under iOS, to fix the rendering problem of automatic playback when the iOS screen is off|boolean|true|
+|renderExtra|Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger\-interactive hotspot|(currentIndex: number) =\> ReactNode|-|
 |distanceProcessor|Customize the calculation method of the finger swipe distance\. posDis \- touchmove distance, wrapSize \- container size in the sliding direction, childSize \- slider size in the sliding direction|(posDis: number, wrapSize: number, childSize: number) =\> number|(posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)|
 |getInnerScrollContainer|The scroll container inside the component, used to exempt the sliding event response|() =\> HTMLElement \| HTMLElement\[\]|-|
 |onTouchStopped|Triggered when the carousel does not support looping and slides to the front or back, but want to slide again|(direction: 1 \| \-1) =\> void|-|

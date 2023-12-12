@@ -79,6 +79,8 @@ export interface ImagePreviewProps
         | 'distanceToChange'
         | 'speedToChange'
         | 'swipeable'
+        | 'offsetBetween'
+        | 'renderExtra'
     > {
     /**
      * 自定义样式
@@ -851,6 +853,9 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
     // 当使用 getThumbBounds 时，关闭图片预览有缩小效果
     // @en When using getThumbBounds, closing the image preview has a shrinking effect
     function animateBeforeClose() {
+        if (isTransformed()) {
+            return;
+        }
         const index = innerIndexRef.current;
         const imageDom = imagesRef.current[index]?.image;
         const thumbBounds = getThumbBounds?.(index);
@@ -1051,13 +1056,11 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                             />
                         </div>
                     );
-                    return image.extraNode ? (
+                    return (
                         <div className="preview-image-wrap-container" key={`outer-${index}`}>
                             {innerNode}
                             {image.extraNode}
                         </div>
-                    ) : (
-                        innerNode
                     );
                 })}
             </Carousel>

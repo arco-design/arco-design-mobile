@@ -54,6 +54,8 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |distanceToChange|Sliding switching distance threshold (fixed px width), if both this property and the \`percentToChange\` property are set, the actual calculation result will take effect with a larger one|number|10|
 |speedToChange|The sliding switching speed threshold (the sliding speed of the finger from pressing to lifting, in px/s), when it is set at the same time as the sliding switching distance threshold, it will take effect if one of them is satisfied\.|number|200|
 |swipeable|Whether to respond to gesture swipe|boolean|true|
+|offsetBetween|The exposed distance of the front and rear\. When the value is set, the carousel cannot be rotated\.|number \| \{ left?: number; right?: number; \}|0|
+|renderExtra|Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger\-interactive hotspot|(currentIndex: number) =\> ReactNode|-|
 
 > Refs
 

@@ -895,6 +895,23 @@
                 "name": "boolean"
             }
         },
+        "renderExtra": {
+            "defaultValue": null,
+            "description": "在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区\n@en Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot",
+            "name": "renderExtra",
+            "tags": {
+                "en": "Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot"
+            },
+            "descWithTags": "在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(currentIndex: number) => ReactNode"
+            }
+        },
         "distanceProcessor": {
             "defaultValue": {
                 "value": "(posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)"
