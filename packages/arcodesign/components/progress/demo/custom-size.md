@@ -21,3 +21,16 @@ export default function ProgressDemo() {
     );
 }
 ```
+
+```less
+.progress-demo-custom-size {
+    .rem(padding-top, 16);
+    .rem(padding-bottom, 16);
+    &:first-child {
+        padding-top: 0;
+    }
+    &:last-child {
+        padding-bottom: 0;
+    }
+}
+```

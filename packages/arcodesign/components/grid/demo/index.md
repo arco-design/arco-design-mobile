@@ -20,3 +20,35 @@ export default function GridDemo() {
     </>);
 }
 ```
+
+```less
+.grid-demo-block {
+    .use-var(background, lighter-primary-color);
+    border-radius: 2px;
+    .rem(width, 32);
+    .rem(height, 32);
+    position: relative;
+}
+.demo-multi-grid {
+    .use-var(background, background-color);
+    .rem(padding, 16);
+    &:not(:first-child) {
+        .rem(margin-top, 16);
+    }
+    &.col-2 {
+        .@{prefix}-grid-rows-item-title {
+            .rem(font-size, 16);
+        }
+    }
+    &.col-4 {
+        .@{prefix}-grid-rows-item-title {
+            .rem(font-size, 14);
+        }
+    }
+    &.col-5 {
+        .@{prefix}-grid-rows-item-title {
+            .rem(font-size, 13);
+        }
+    }
+}
+```

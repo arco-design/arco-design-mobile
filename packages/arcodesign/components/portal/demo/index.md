@@ -11,3 +11,15 @@ export default function PortalDemo() {
     </Portal>);
 }
 ```
+
+```less-global
+.demo-protal-text {
+    .rem(font-size, 16);
+    .use-var(background, background-color);
+    .use-var(color, font-color);
+    .rem(margin, 0, 16);
+    .rem(padding, 12, 16);
+    .rem(border-radius, 8);
+    overflow: hidden;
+}
+```

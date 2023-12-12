@@ -4,6 +4,7 @@
 
 ```js
 import { ImagePicker } from '@arco-design/mobile-react';
+
 const SadEmoji = () => (
     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -55,5 +56,28 @@ export default function ImagePickerDemo1() {
             />
         </div>
     );
+}
+```
+
+```less
+.loading,
+.loading1,
+.load-error,
+.load-error1 {
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    line-height: 1.5;
+    font-size: 14px;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.demo-space {
+    font-size: 14px;
+    line-height: 1;
+    margin: 8px 0;
 }
 ```

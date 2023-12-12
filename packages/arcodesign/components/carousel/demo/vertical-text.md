@@ -20,3 +20,11 @@ export default function CarouselDemo() {
     );
 }
 ```
+
+```less
+.vertical-text {
+    .rem(font-size, 16);
+    .rem(line-height, 22);
+    .use-var(color, font-color);
+}
+```

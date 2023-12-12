@@ -41,3 +41,24 @@ export default function PopoverDemo() {
     );
 }
 ```
+
+```less
+.center-box(@height: 100px) {
+    height: @height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+}
+.menu-demo-wrapper {
+    .center-box();
+    .@{prefix}-button {
+        width: 124px;
+    }
+}
+.popover-with-margin {
+    margin-right: 66px;
+}
+```

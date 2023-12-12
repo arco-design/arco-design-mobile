@@ -4,46 +4,11 @@
     .arcodesign-mobile-title {
         display: none;
     }
-    .@{prefix}-tab {
-        &s {
-            width: 100vw;
-        }
-        &-pane {
-            height: 100%;
-            &-container {
-                // flex: 1;
-            }
-        }
-    }
-    .@{prefix}-pull-refresh {
-        &, &-content, &-content-wrapper {
-            background: transparent;
-        }
-        &-content {
-            .rem(height, 500);
-            .rem(padding-top, 200);
-            .rem(font-size, 16);
-            .use-var(color, sub-info-font-color);
-            text-align: center;
-        }
-    }
     .arcodesign-mobile-demo-content {
         position: relative;
         padding: 0;
         flex: 1;
         .rem(font-size, 14);
         background: transparent;
-        .pull-refresh-custom-loading,
-        .pull-refresh-custom-success {
-            width: 100%;
-            .rem(font-size, 14);
-            .rem(line-height, 44);
-            text-align: center;
-        }
-
-        .pull-refresh-custom-success {
-            color: #ff7d00;
-            background: #fff7e8;
-        }
     }
 }

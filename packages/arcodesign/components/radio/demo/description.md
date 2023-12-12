@@ -39,3 +39,18 @@ export default function RadioDemo() {
     );
 }
 ```
+
+```less
+.demo-radio-cell-group {
+    .rem(margin, 0, -16);
+}
+.demo-radio-no-padding {
+    .rem(margin, -16, 0);
+}
+.demo-radio-desc {
+    .rem(font-size, 12);
+    .rem(line-height, 16);
+    .rem(margin-top, 6);
+    .use-var(color, sub-info-font-color);
+}
+```

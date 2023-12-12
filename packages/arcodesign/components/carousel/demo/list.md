@@ -26,3 +26,11 @@ export default function CarouselDemo() {
     );
 }
 ```
+
+```less
+.@{prefix}-carousel-item > img,
+.@{prefix}-carousel-item-inner > img,
+.@{prefix}-carousel-item .carousel-item-img {
+    height: auto;
+}
+```

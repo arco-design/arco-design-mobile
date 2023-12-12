@@ -46,3 +46,9 @@ export default function PaginationDemo() {
     );
 }
 ```
+
+```less
+.demo-btn {
+    font-size: 16px;
+}
+```

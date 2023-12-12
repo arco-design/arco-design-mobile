@@ -81,3 +81,23 @@ export default function StickyTabsHide() {
     );
 }
 ```
+
+```less
+#sticky-tabs-wrapper-hide {
+    height: 500px;
+    overflow: scroll;
+    .placeholder {
+        color: #000;
+        .rem(font-size, 20);
+        .rem(height, 100);
+    }
+    .demo-tab-content {
+        .rem(font-size, 20);
+        .use-var(color, sub-info-font-color);
+    }
+    .arcodesign-mobile-demo-content {
+        position: relative;
+    }
+}
+
+```

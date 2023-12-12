@@ -44,3 +44,14 @@ export default function StickyDemo3() {
     </>);
 }
 ```
+
+```less
+.demo-sticky-container {
+    height: 200px;
+    .use-var(background, card-background-color);
+    line-height: 80px;
+    font-size: 14px;
+    color: #939aa3;
+    text-align: center;
+}
+```

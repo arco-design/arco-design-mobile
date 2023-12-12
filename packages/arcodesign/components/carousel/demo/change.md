@@ -1,6 +1,6 @@
 ## 监听切换事件 @en{Listen for the onChange event}
 
-#### 8
+#### 7
 
 ```js
 import { Carousel, Toast } from '@arco-design/mobile-react';

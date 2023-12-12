@@ -2,7 +2,7 @@
 
 #### 2
 
-可通过传属性调用，也可通过`Popup.open`方法调用。 
+可通过传属性调用，也可通过`Popup.open`方法调用。
 @en{It can be called by passing the property or by the `Popup.open` method.}
 
 ```js
@@ -37,5 +37,23 @@ export default function PopupDemo() {
             }} />
         </Cell.Group>
     </>);
+}
+```
+
+```less-global
+.popup-demo {
+    &-title {
+        .rem(line-height, 44);
+        .rem(font-size, 18);
+        .use-var(color, font-color);
+        font-weight: bold;
+        .rem(padding, 0, 16);
+    }
+    &-content {
+        .use-var(color, font-color);
+        .rem(font-size, 16);
+        .use-var(color, sub-info-font-color);
+        .rem(padding, 20, 16);
+    }
 }
 ```

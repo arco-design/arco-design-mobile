@@ -46,3 +46,44 @@ function LoadingPicture() {
     );
 }
 ```
+
+```less
+.image-fit-demo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &.fill {
+        .@{prefix}-image {
+            .rem(width, 64);
+            .rem(height, 64);
+        }
+        .group-text {
+            .rem(font-size, 12);
+        }
+    }
+}
+.image-loading-demo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.image-group {
+    display: inline-block;
+    vertical-align: top;
+    .group-text {
+        .rem(font-size, 14);
+        .rem(margin-top, 8);
+        color: #939AA3;
+        text-align: center;
+    }
+}
+```

@@ -41,3 +41,14 @@ export default function TabsDemo() {
     );
 }
 ```
+
+```less
+.demo-tab-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .rem(font-size, 15);
+    .rem(height, 80);
+    .use-var(color, sub-info-font-color);
+}
+```

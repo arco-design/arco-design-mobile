@@ -23,3 +23,9 @@ export default function EllipsisDemo() {
     );
 }
 ```
+
+```less
+.demo-link {
+    .use-var(color, primary-color);
+}
+```

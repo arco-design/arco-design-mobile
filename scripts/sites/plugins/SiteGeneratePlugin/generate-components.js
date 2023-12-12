@@ -1,5 +1,4 @@
 const fs = require('fs-extra');
-const { resolve } = require('path');
 const path = require('path');
 const utils = require('../../../utils');
 const languageUtils = require('../../../utils/language');
@@ -18,9 +17,7 @@ function generateComponents({
     if (compileComps && compileComps.length) {
         compNames = compileComps;
     } else {
-        compNames = fs.readdirSync(path.join(compSrcPath)).filter(name => {
-            return fs.lstatSync(path.join(compSrcPath, name)).isDirectory();
-        });
+        compNames = fs.readdirSync(path.join(compSrcPath)).filter(name => fs.lstatSync(path.join(compSrcPath, name)).isDirectory());
     }
     const suffix =
         language in languageUtils.lang2SuffixMap ? languageUtils.lang2SuffixMap[language] : '';
@@ -29,8 +26,8 @@ function generateComponents({
     const importName = utils.getCompName(`icon${tsxFileSuffix}`);
     let compDocsImportStr = `import ${importName} from './icon${
         tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
-    }';\n`;
-    let compDocsStr = `    'icon': ${importName},\n`;
+    }';`;
+    let compDocsStr = `'icon': ${importName},`;
     const compRoutes = {};
     const promises = compNames.map(comp => {
         return new Promise(resolve => {
@@ -93,25 +90,25 @@ function generateComponents({
             });
 
             // 创建 demo 目录写入 index 文件
-            const entry = `import React from 'react';
-import Code from '../../../entry/code';
-import { LanguageSupport } from '../../../../utils/language';
-interface IProps {
-language?: LanguageSupport;
-}
-export default function Demo({ language = LanguageSupport.CH}: IProps) {
-return (
-<div className="pc-site-wrapper">
-    ${readmeStr[0] || ''}
-    <div className="pc-site-content" id="demo-${comp}">
-        ${demoSource.map(demo => demo.source).join(`\n${' '.repeat(12)}`)}
-        ${readmeStr[1] || ''}
-        ${faqNodeStr || ''}
-    </div>
-</div>
-);
-}
-`;
+            const entry = utils.formatTsCode(`
+                import React from 'react';
+                import Code from '../../../entry/code';
+                import { LanguageSupport } from '../../../../utils/language';
+                interface IProps {
+                    language?: LanguageSupport;
+                }
+                export default function Demo({ language = LanguageSupport.CH}: IProps) {
+                    return (
+                        <div className="pc-site-wrapper">
+                            ${readmeStr[0] || ''}
+                            <div className="pc-site-content" id="demo-${comp}">
+                                ${demoSource.map(demo => demo.source).join('')}
+                                ${readmeStr[1] || ''}
+                                ${faqNodeStr || ''}
+                            </div>
+                        </div>
+                    );
+                }`);
             const docPath = path.join(compPagePath, comp);
             fs.mkdirpSync(docPath);
             fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), entry, () => {
@@ -125,38 +122,35 @@ return (
                 compDocsImportStr += `import ${importName} from './${comp}${
                     tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
                 }';\n`;
-                compDocsStr += `    '${route}': ${importName},\n`;
+                compDocsStr += `'${route}': ${importName},`;
             }
         });
     });
 
     // 全量编译，重写入口 index.ts index.json 文件
     if (!compileComps.length) {
-        promises.push([
-            new Promise(resolve => {
-                const docEntryStr = `${compDocsImportStr}
-    const docs = {\n${compDocsStr}};
-
-    export default docs;
-    `;
-                fs.writeFile(
-                    path.join(compPagePath, `index${tsxFileSuffix}.ts`),
-                    docEntryStr,
-                    () => {
-                        resolve('>>> Write sites entry file finished.');
-                    },
-                );
-            }),
-            new Promise(resolve => {
-                fs.writeFile(
-                    path.join(compPagePath, `index${tsxFileSuffix}.json`),
-                    JSON.stringify(compRoutes, null, 4),
-                    () => {
-                        resolve('>>> Write sites entry json finished.');
-                    },
-                );
-            }),
-        ]);
+        promises.push([new Promise(resolve => {
+            const docEntryStr = utils.formatTsCode(`
+                ${compDocsImportStr}
+                const docs = {${compDocsStr}};
+                export default docs;`);
+            fs.writeFile(
+                path.join(compPagePath, `index${tsxFileSuffix}.ts`),
+                docEntryStr,
+                () => {
+                    resolve('>>> Write sites entry file finished.');
+                }
+            );
+        }),
+        new Promise(resolve => {
+            fs.writeFile(
+                path.join(compPagePath, `index${tsxFileSuffix}.json`),
+                JSON.stringify(compRoutes, null, 4),
+                () => {
+                    resolve('>>> Write sites entry json finished.');
+                }
+            );
+        })]);
     }
 
     Promise.all(promises).then(() => {

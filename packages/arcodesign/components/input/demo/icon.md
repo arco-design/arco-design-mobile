@@ -19,3 +19,10 @@ export default function InputDemo() {
     </>);
 }
 ```
+
+```less
+.demo-input-icon {
+    display: flex;
+    align-items: center;
+}
+```

@@ -71,3 +71,37 @@ export default function BadgeDemo() {
     );
 }
 ```
+
+```less
+.badge-demo-item-wrap {
+    .rem(padding, 16, 0);
+    .rem(margin-top, 22);
+    &:nth-child(1) {
+        margin-top: 0;
+    }
+    .use-var(background, background-color);
+}
+.badge-demo-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.badge-demo-rectangle {
+    .rem(width, 32);
+    .rem(height, 32);
+    background: #bedaff;
+    border-radius: 2PX;
+    position: relative;
+}
+.badge-demo-item-text {
+    .rem(font-size, 14);
+    .rem(line-height, 20);
+    .rem(margin-top, 8);
+    text-align: center;
+}
+.demo-icon {
+    font-size: 16PX;
+    padding: 2PX 1.5PX 3PX 2PX;
+}
+```

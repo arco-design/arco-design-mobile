@@ -4,6 +4,7 @@
 
 ```js
 import { Avatar } from '@arco-design/mobile-react';
+
 export default function AvatarDemo() {
     return (
         <div className="avatar-demo-box">
@@ -12,5 +13,16 @@ export default function AvatarDemo() {
             <Avatar size="small" shape="square" textAvatar="Garth" className="avatar-left-margin" avatarStyle={{backgroundColor: '#C9CDD4'}} />
         </div>
     );
+}
+```
+
+```less
+.avatar-demo-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.avatar-left-margin {
+    .set-prop-with-rtl(margin-left, 24px);
 }
 ```

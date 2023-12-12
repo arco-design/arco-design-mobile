@@ -17,3 +17,12 @@ export default function LoadingDemo() {
     );
 }
 ```
+
+```less
+.loading-demo-basic {
+    .@{prefix}-loading {
+        .rem(margin-right, 20);
+        vertical-align: middle;
+    }
+}
+```

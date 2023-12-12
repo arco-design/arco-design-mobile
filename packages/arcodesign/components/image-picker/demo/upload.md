@@ -4,6 +4,7 @@
 
 ```js
 import { ImagePicker } from '@arco-design/mobile-react';
+
 export const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
 export async function mockUpload({file}) {
@@ -39,5 +40,13 @@ export default function ImagePickerDemo() {
             <ImagePicker images={images1} onChange={setImages1} upload={mockUploadFail} />
         </div>
     );
+}
+```
+
+```less
+.demo-space {
+    font-size: 14px;
+    line-height: 1;
+    margin: 8px 0;
 }
 ```

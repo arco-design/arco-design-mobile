@@ -1,6 +1,6 @@
 ## 按钮形状 @en{Button shape}
 
-#### 7
+#### 8
 
 ```js
 import { Button } from '@arco-design/mobile-react';

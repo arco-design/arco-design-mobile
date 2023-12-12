@@ -45,3 +45,23 @@ export default function AvatarDemo() {
     );
 }
 ```
+
+```less
+.avatar-demo-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.avatar-left-margin {
+    .set-prop-with-rtl(margin-left, 24px);
+}
+.avatar-group-demo {
+    padding-top: 16px;
+    .demo-sub-title {
+        font-size: 12px;
+        line-height: 20px;
+        margin-bottom: 8px;
+        .use-var(color, font-color);
+    }
+}
+```

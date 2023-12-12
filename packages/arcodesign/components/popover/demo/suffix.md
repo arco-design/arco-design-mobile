@@ -55,3 +55,33 @@ export default function PopoverDemo() {
     );
 }
 ```
+
+```less
+.center-box(@height: 100px) {
+    height: @height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+}
+.suffix-demo-wrapper {
+    .center-box(130px);
+    flex-wrap: wrap;
+    .custom-suffix-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 24px;
+        background: #fff;
+        border-radius: 40px;
+        color: #1d2129;
+        font-size: 12px;
+    }
+}
+.popover-with-margin {
+    margin-right: 66px;
+}
+```

@@ -28,3 +28,9 @@ export default function NavBarDemo() {
 }
 ```
 
+```less
+.gap-line {
+    height: 20px;
+    .use-var(background, background-color);
+}
+```

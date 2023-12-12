@@ -15,3 +15,9 @@ export default function DividerDemo() {
     );
 }
 ```
+
+```less
+.demo-gap {
+    height: 8px;
+}
+```

@@ -26,3 +26,12 @@ export default function InputDemo() {
     );
 }
 ```
+
+```less
+.demo-input-btn-input .@{prefix}-input-wrap {
+    height: auto;
+}
+.demo-input-btn-wrap {
+    .rem(padding, 11, 0);
+}
+```

@@ -51,3 +51,37 @@ export default function PullRefreshDemo() {
     );
 }
 ```
+
+```less
+.@{prefix}-tab {
+    &s {
+        width: 100vw;
+    }
+    &-pane {
+        height: 100%;
+    }
+}
+.@{prefix}-pull-refresh {
+    &, &-content, &-content-wrapper {
+        background: transparent;
+    }
+    &-content {
+        .rem(height, 500);
+        .rem(padding-top, 200);
+        .rem(font-size, 16);
+        .use-var(color, sub-info-font-color);
+        text-align: center;
+    }
+}
+.pull-refresh-custom-success {
+    color: #ff7d00;
+    background: #fff7e8;
+}
+.pull-refresh-custom-loading,
+.pull-refresh-custom-success {
+    width: 100%;
+    .rem(font-size, 14);
+    .rem(line-height, 44);
+    text-align: center;
+}
+```

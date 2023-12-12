@@ -65,3 +65,28 @@ export default function GridDemo() {
     );
 }
 ```
+
+```less
+.grid-demo-rows-item {
+    display: flex;
+    position: relative;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .rem(font-size, 15);
+    &-text {
+        .rem(margin-top, 8);
+    }
+}
+.grid-demo-block {
+    .use-var(background, lighter-primary-color);
+    border-radius: 2px;
+    .rem(width, 32);
+    .rem(height, 32);
+    position: relative;
+}
+.@{prefix}-grid-rows-item-title {
+    .rem(font-size, 15);
+}
+```

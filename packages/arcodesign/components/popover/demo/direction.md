@@ -57,3 +57,27 @@ export default function PopoverDemo() {
     );
 }
 ```
+
+```less
+.direction-demo-wrapper {
+    height: 190px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+    .direction-item {
+        margin: 14px 0;
+        &:nth-child(2n+1) {
+            margin-right: 60px;
+        }
+    }
+    .@{prefix}-button {
+        width: 124px;
+        &.size-large {
+            padding: 0;
+        }
+    }
+}
+```

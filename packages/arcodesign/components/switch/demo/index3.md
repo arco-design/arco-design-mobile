@@ -18,3 +18,11 @@ export default function SwitchDemo() {
     );
 }
 ```
+
+```less
+.demo-3 {
+    &.checked {
+        .use-var(background, primary-color);
+    }
+}
+```
