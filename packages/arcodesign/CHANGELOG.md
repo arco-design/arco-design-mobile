@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.3...@arco-design/mobile-react@2.30.4) (2023-12-14)
+
+
+### Bug Fixes
+
+* `ImagePreview` fix problem that long image cannot scroll ([#207](https://github.com/arco-design/arco-design-mobile/issues/207)) ([78cf5a6](https://github.com/arco-design/arco-design-mobile/commit/78cf5a6f225f40a637368e85f998575be8148ba4))
+* export `Skeleton` type ([#208](https://github.com/arco-design/arco-design-mobile/issues/208)) ([067907f](https://github.com/arco-design/arco-design-mobile/commit/067907f5432746690b5f8fa4a87a5560e9730d82))
+* rtl for `PullRefresh`, `Avatar`, `Collapse`, `ImagePicker`, `Steps`, `Tag` ([#201](https://github.com/arco-design/arco-design-mobile/issues/201)) ([213a003](https://github.com/arco-design/arco-design-mobile/commit/213a003134d4e43539db1772b8b8dbd1dd37c907))
+* support rtl for `DropdownMenu` ([#204](https://github.com/arco-design/arco-design-mobile/issues/204)) ([453dddb](https://github.com/arco-design/arco-design-mobile/commit/453dddb60b8f64e02654a8c3ece79bdc90e08fa6))
+* support rtl for `Grid`, `Divider` ([#203](https://github.com/arco-design/arco-design-mobile/issues/203)) ([55a1f61](https://github.com/arco-design/arco-design-mobile/commit/55a1f619e430801d6cdb29f8fe90fe391eb26014))
+
+
+
+
+
 ## [2.30.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.2...@arco-design/mobile-react@2.30.3) (2023-11-24)
 
 
