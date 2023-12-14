@@ -295,6 +295,11 @@ export interface CarouselProps {
      */
     iOSVisibleOptimize?: boolean;
     /**
+     * 在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区
+     * @en Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot
+     */
+    renderExtra?: (currentIndex: number) => ReactNode;
+    /**
      * 自定义手指滑动跟手的距离计算方式，posDis表示touchmove的距离，wrapSize表示容器在滑动方向的尺寸，childSize表示滑块在滑动方向的尺寸
      * @en Customize the calculation method of the finger swipe distance. posDis - touchmove distance, wrapSize - container size in the sliding direction, childSize - slider size in the sliding direction
      * @default (posDis, wrapSize, childSize) => childSize * (posDis / wrapSize)
@@ -447,6 +452,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
         bounceWhenNoLoop = false,
         bounceDampRate = 3,
         iOSVisibleOptimize = true,
+        renderExtra,
         distanceProcessor,
         getInnerScrollContainer,
         onChange,
@@ -1417,6 +1423,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
                         })}
                         {renderAllFakeItem(prefix)}
                     </div>
+                    {renderExtra?.(shownIndex)}
                 </div>
                 {showIndicator && (total > 1 || !hideSingleIndicator) ? (
                     <div

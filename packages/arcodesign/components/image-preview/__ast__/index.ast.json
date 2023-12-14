@@ -38,7 +38,7 @@
                     "description": null,
                     "name": "config",
                     "type": {
-                        "name": "Pick<WithGlobalContext<ImagePreviewProps & RefAttributes<ImagePreviewRef>>, \"animateDurationSlide\" | ... 44 more ... | \"context\">"
+                        "name": "Pick<WithGlobalContext<ImagePreviewProps & RefAttributes<ImagePreviewRef>>, \"animateDurationSlide\" | ... 46 more ... | \"context\">"
                     }
                 },
                 {
@@ -868,6 +868,43 @@
             "required": false,
             "type": {
                 "name": "boolean"
+            }
+        },
+        "offsetBetween": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "前后两端露出距离，设置值时不能循环轮播\n@en The exposed distance of the front and rear. When the value is set, the carousel cannot be rotated.",
+            "name": "offsetBetween",
+            "tags": {
+                "en": "The exposed distance of the front and rear. When the value is set, the carousel cannot be rotated.",
+                "default": "0"
+            },
+            "descWithTags": "前后两端露出距离，设置值时不能循环轮播",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { left?: number; right?: number; }"
+            }
+        },
+        "renderExtra": {
+            "defaultValue": null,
+            "description": "在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区\n@en Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot",
+            "name": "renderExtra",
+            "tags": {
+                "en": "Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot"
+            },
+            "descWithTags": "在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(currentIndex: number) => ReactNode"
             }
         },
         "ref": {

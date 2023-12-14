@@ -54,6 +54,8 @@
 |distanceToChange|滑动切换距离阈值(固定px宽度)，如果该属性和\`percentToChange\`属性均设置，则实际计算结果更大的生效|number|10|
 |speedToChange|滑动切换速度阈值(手指从按下到抬起之间的滑动速度，单位为px/s)，与滑动切换距离阈值同时设置时，满足其中一个即生效|number|200|
 |swipeable|是否响应手势滑动|boolean|true|
+|offsetBetween|前后两端露出距离，设置值时不能循环轮播|number \| \{ left?: number; right?: number; \}|0|
+|renderExtra|在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区|(currentIndex: number) =\> ReactNode|-|
 
 > 引用/Refs
 
