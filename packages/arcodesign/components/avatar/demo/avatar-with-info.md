@@ -23,3 +23,11 @@ export default function AvatarDemo() {
     );
 }
 ```
+
+```less
+.avatar-divider {
+    height: 8px;
+    .use-var(background-color, card-background-color);
+    margin: 0 -16px;
+}
+```

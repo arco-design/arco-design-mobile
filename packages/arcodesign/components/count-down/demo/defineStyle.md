@@ -31,3 +31,24 @@ export default function CountDownDemo3() {
     );
 }
 ```
+
+```less
+.count-down-demo-define-style {
+    .colon {
+        display: inline-block;
+        .rem(margin, 0, 6);
+        color: #165dff;
+    }
+    .block {
+        .rem(width, 25);
+        .rem(font-size, 14);
+        .rem(line-height, 24);
+        font-weight: 500;
+        color: #165dff;
+        background: #e8f3ff;
+        border-radius: 2PX;
+        display: inline-block;
+        text-align: center;
+    }
+}
+```

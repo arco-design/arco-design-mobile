@@ -52,7 +52,7 @@ ${modifyVars
     }\n`
     if (selector === DARK_MODE_KEY) {
         res = `
-    & when (@use-dark-mode = 1) {${removeDefault ? '' : `\n  @media (prefers-color-scheme: dark) {${addTabs(res, 2)}  }`}
+& when (@use-dark-mode = 1) {${removeDefault ? '' : `\n  @media (prefers-color-scheme: dark) {${addTabs(res, 2)}  }`}
     ${condition ? addTabs(resWithCondition) : ''}}`
         return {
             text: res,

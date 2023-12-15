@@ -1,6 +1,6 @@
 ## 垂直轮播 @en{vertical carousel}
 
-#### 9
+#### 8
 
 ```js
 import { Carousel } from '@arco-design/mobile-react';

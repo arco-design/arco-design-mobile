@@ -80,3 +80,11 @@ export default function DropdownDemo() {
     );
 }
 ```
+
+```less-global
+.demo-dropdown-option-desc {
+    .rem(font-size, 16);
+    .rem(padding, 16);
+    font-weight: bold;
+}
+```

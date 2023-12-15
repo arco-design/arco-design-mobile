@@ -14,7 +14,6 @@ const tabData = [
 export default function TabsDemo() {
     return (
         <Tabs
-            
             tabs={tabData}
             type="line-divide"
             tabBarHasDivider={false}
@@ -30,5 +29,16 @@ export default function TabsDemo() {
             <div className="demo-tab-content">Content area</div>
         </Tabs>
     );
+}
+```
+
+```less
+.demo-tab-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .rem(font-size, 15);
+    .rem(height, 80);
+    .use-var(color, sub-info-font-color);
 }
 ```

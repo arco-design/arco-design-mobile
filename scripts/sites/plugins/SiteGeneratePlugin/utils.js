@@ -47,14 +47,21 @@ function renderComponentsDemos({
             return;
         }
         const demoName = name.replace('.md', '');
-        const { order, source, codeSource, title } = renderDemoSource(demoSrcPath, demoName, language);
+        const { order, source, codeSource, title, style = '', paragraphSlotContent, styleSource = '' } = renderDemoSource(demoSrcPath, demoName, language);
         demoSource.push({
             order,
-            source: `<Code codeSource="${encodeURIComponent(
-                codeSource
-            )}" version="${latestVersion}" compKey="${comp}" demoKey="demo-${comp}" name="${title}" code={<div className="demo-code-wrapper" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
-                source,
-            )} }} />} language={language || LanguageSupport.CH} />`,
+            source: `<Code
+                codeSource="${encodeURIComponent(codeSource)}"
+                styleSource="${encodeURIComponent(styleSource)}"
+                version="${latestVersion}"
+                compKey="${comp}"
+                demoKey="demo-${comp}"
+                name="${title}"
+                key="${comp}-${order}"
+                paragraphSlotContent={<>${paragraphSlotContent}</>}
+                tsxContent={<div dangerouslySetInnerHTML={{__html: ${JSON.stringify(source)}}} />}
+                lessContent={${style ? `<div dangerouslySetInnerHTML={{__html: ${JSON.stringify(style)}}} />` : null}}
+                language={language || LanguageSupport.CH} />`
         });
     });
     demoSource.sort((a, b) => a.order - b.order);

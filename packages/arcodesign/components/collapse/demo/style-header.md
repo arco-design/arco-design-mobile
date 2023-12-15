@@ -6,7 +6,6 @@
 import { Collapse } from '@arco-design/mobile-react';
 import IconNotice from '@arco-design/mobile-react/esm/icon/IconNotice';
 import IconQuestionCircle from '@arco-design/mobile-react/esm/icon/IconQuestionCircle';
-
 export default function CollapseItemDemo() {
     return (
         <Collapse.Group
@@ -14,7 +13,7 @@ export default function CollapseItemDemo() {
                 {
                     header: (
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <IconNotice style={{ marginRight: '8px' }} />
+                            <IconNotice className='header-icon-notice'/>
                             Title 1
                         </div>
                     ),
@@ -27,7 +26,7 @@ export default function CollapseItemDemo() {
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             Title 2
                             <IconQuestionCircle
-                                style={{ color: '#86909C', margin: '-1px 0 0 5px' }}
+                                className='header-icon-question-circle'
                             />
                         </div>
                     ),

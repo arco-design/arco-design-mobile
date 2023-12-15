@@ -1,6 +1,6 @@
 ## 自定义样式  @en{Custom Style}
 
-#### 7
+#### 8
 
 ```js
 import { Steps } from '@arco-design/mobile-react';
@@ -16,5 +16,13 @@ export default function StepsDemo() {
             </Steps>
         </div>
     );
+}
+```
+
+```less-global
+#demo-steps {
+    #demo-order-8 {
+        .set-steps-color(#FFB400);
+    }
 }
 ```

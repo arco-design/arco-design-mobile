@@ -48,3 +48,12 @@ export default function RadioDemo() {
     );
 }
 ```
+
+```less
+.demo-radio-custom-group {
+    .@{prefix}-radio {
+        width: 30%;
+        line-height: 2;
+    }
+}
+```

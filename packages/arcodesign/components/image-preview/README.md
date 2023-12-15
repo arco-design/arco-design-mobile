@@ -54,6 +54,8 @@
 |distanceToChange|滑动切换距离阈值(固定px宽度)，如果该属性和\`percentToChange\`属性均设置，则实际计算结果更大的生效|number|10|
 |speedToChange|滑动切换速度阈值(手指从按下到抬起之间的滑动速度，单位为px/s)，与滑动切换距离阈值同时设置时，满足其中一个即生效|number|200|
 |swipeable|是否响应手势滑动|boolean|true|
+|offsetBetween|前后两端露出距离，设置值时不能循环轮播|number \| \{ left?: number; right?: number; \}|0|
+|renderExtra|在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区|(currentIndex: number) =\> ReactNode|-|
 
 > 引用/Refs
 
@@ -70,13 +72,14 @@
 
 > PreviewImageProps
 
-|参数|描述|类型|
-|----------|-------------|------|
-|src|图片地址|string|
-|fit|图片布局方式，preview\-y为宽度撑满高度溢出滚动，preview\-x为高度撑满宽度溢出滚动|"preview\-y" \| "preview\-x"|
-|fallbackSrc|过渡图url|string|
-|thumbPosition|缩略图填充方式（backgroundPosition），默认top center|string|
-|extraNode|自定义DOM|ReactNode|
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|src|图片地址|string|必填|
+|fit|图片布局方式，preview\-y为宽度撑满高度溢出滚动，preview\-x为高度撑满宽度溢出滚动|"preview\-y" \| "preview\-x"|-|
+|fallbackSrc|过渡图url|string|-|
+|transitionEndDelay|过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求|number|30|
+|thumbPosition|缩略图填充方式（backgroundPosition），默认top center|string|-|
+|extraNode|自定义DOM|ReactNode|-|
 
 > GlobalContextParams
 
@@ -111,3 +114,4 @@
 |Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|
+|NavBar|-|\{ backBtnAriaLabel: string; \}|

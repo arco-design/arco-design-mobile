@@ -41,3 +41,28 @@ export default function InputDemo() {
     </>);
 }
 ```
+
+```less
+.demo-input-error-hint {
+    .rem(font-size, 12);
+    .use-var(color, danger-color);
+    .rem(padding, 0, 0, 16, 104);
+    .rem(margin-top, -8);
+
+    svg,
+    span {
+        vertical-align: middle;
+    }
+
+    svg {
+        .rem(margin-right, 4);
+    }
+}
+.demo-input-red-placeholder {
+    .use-var(caret-color, danger-color);
+
+    &::placeholder {
+       .use-var(color, danger-color);
+    }
+}
+```

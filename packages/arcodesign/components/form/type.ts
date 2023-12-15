@@ -105,7 +105,7 @@ export interface IFormDataMethods {
      * 注册表单项
      * @en Register field
      */
-    registerField: (name: string, self: ReactNode) => () => void;
+    registerField: (name: string, self: any) => () => void;
 }
 
 export enum ValidateStatus {
@@ -139,7 +139,7 @@ export interface InternalHooks {
      * 注册表单项
      * @en Register field
      */
-    registerField: (name: string, self: ReactNode) => () => void;
+    registerField: (name: string, self: any) => () => void;
     setInitialValues: (values: FieldItem) => void;
     setCallbacks: (callbacks: Callbacks) => void;
 }
@@ -356,7 +356,11 @@ export interface IFormItemInnerProps {
      * 校验状态变化回调
      * @en The callback when validating status changes
      */
-    onValidateStatusChange: (data: { errors: any; warnings: any }) => void;
+    onValidateStatusChange: (data: {
+        errors: ReactNode[];
+        warnings: ReactNode[];
+        errorTypes: string[];
+    }) => void;
     /**
      * 获取内部表单项的dom
      * @en The dom of inner form item

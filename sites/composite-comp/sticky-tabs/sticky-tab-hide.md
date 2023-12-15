@@ -57,7 +57,15 @@ export default function StickyTabsHide() {
                 className='sticky-tabs'
                 tabs={tabData}
                 renderTabBar={(TabBar) => (
-                    <Sticky getScrollContainer={() => document.getElementById('sticky-tabs-wrapper-hide')} topOffset={0}>{TabBar}</Sticky>
+                    <Sticky
+                        // 下面属性为局部滚动时使用，根据不同滚动场景添加
+                        portalWhenSticky
+                        getPortalContainer={() => document.querySelectorAll('.arcodesign-mobile-demo-content')[1]}
+                        stickyStyle='absolute'
+                        getScrollContainer={() => document.getElementById('sticky-tabs-wrapper-hide')}
+                    >
+                        {TabBar}
+                    </Sticky>
                 )}
                 ref={tabRef}
                 onAfterChange={onAfterChange}
@@ -72,4 +80,24 @@ export default function StickyTabsHide() {
         </div>
     );
 }
+```
+
+```less
+#sticky-tabs-wrapper-hide {
+    height: 500px;
+    overflow: scroll;
+    .placeholder {
+        color: #000;
+        .rem(font-size, 20);
+        .rem(height, 100);
+    }
+    .demo-tab-content {
+        .rem(font-size, 20);
+        .use-var(color, sub-info-font-color);
+    }
+    .arcodesign-mobile-demo-content {
+        position: relative;
+    }
+}
+
 ```

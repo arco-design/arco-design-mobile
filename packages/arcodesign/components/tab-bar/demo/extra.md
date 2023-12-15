@@ -11,6 +11,7 @@ import {
     IconNotice,
     IconStarFill,
 } from '@arco-design/mobile-react/esm/icon';
+
 export default function TabBarDemo() {
     const tabs = [
         {
@@ -33,6 +34,13 @@ export default function TabBarDemo() {
             extra: <Badge absolute dot className="tab-bar-badge" />,
         },
     ];
-    return <TabBar dataSource={tabs} fixed={false}></TabBar>;
+    return <TabBar dataSource={tabs} fixed={false} />;
+}
+```
+
+```less
+.tab-bar-badge {
+    margin-left: 0;
+    .rem(margin-top, 2);
 }
 ```

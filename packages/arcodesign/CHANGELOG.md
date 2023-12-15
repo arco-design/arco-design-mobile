@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.3...@arco-design/mobile-react@2.30.4) (2023-12-14)
+
+
+### Bug Fixes
+
+* `ImagePreview` fix problem that long image cannot scroll ([#207](https://github.com/arco-design/arco-design-mobile/issues/207)) ([78cf5a6](https://github.com/arco-design/arco-design-mobile/commit/78cf5a6f225f40a637368e85f998575be8148ba4))
+* export `Skeleton` type ([#208](https://github.com/arco-design/arco-design-mobile/issues/208)) ([067907f](https://github.com/arco-design/arco-design-mobile/commit/067907f5432746690b5f8fa4a87a5560e9730d82))
+* rtl for `PullRefresh`, `Avatar`, `Collapse`, `ImagePicker`, `Steps`, `Tag` ([#201](https://github.com/arco-design/arco-design-mobile/issues/201)) ([213a003](https://github.com/arco-design/arco-design-mobile/commit/213a003134d4e43539db1772b8b8dbd1dd37c907))
+* support rtl for `DropdownMenu` ([#204](https://github.com/arco-design/arco-design-mobile/issues/204)) ([453dddb](https://github.com/arco-design/arco-design-mobile/commit/453dddb60b8f64e02654a8c3ece79bdc90e08fa6))
+* support rtl for `Grid`, `Divider` ([#203](https://github.com/arco-design/arco-design-mobile/issues/203)) ([55a1f61](https://github.com/arco-design/arco-design-mobile/commit/55a1f619e430801d6cdb29f8fe90fe391eb26014))
+
+
+
+
+
+## [2.30.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.2...@arco-design/mobile-react@2.30.3) (2023-11-24)
+
+
+### Bug Fixes
+
+* `ImagePreview` support shrinking animation before closed ([#195](https://github.com/arco-design/arco-design-mobile/issues/195)) ([7420bd5](https://github.com/arco-design/arco-design-mobile/commit/7420bd533a6e22a38a6fbd64407918580f64e095))
+* support rtl for `Slider` & `Popover` ([#200](https://github.com/arco-design/arco-design-mobile/issues/200)) ([1756c8a](https://github.com/arco-design/arco-design-mobile/commit/1756c8a875f5e6fb3f8bdee7222d69c32a142ec3))
+
+
+
+
+
+## [2.30.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.1...@arco-design/mobile-react@2.30.2) (2023-11-09)
+
+
+### Bug Fixes
+
+* `NavBar` add aria-label to back arrow ([#196](https://github.com/arco-design/arco-design-mobile/issues/196)) ([ad97b65](https://github.com/arco-design/arco-design-mobile/commit/ad97b652d142a4d2331fbc4699c7d15d61153e50))
+* `Picker` fix the issue that value=0 cannot be selected ([#199](https://github.com/arco-design/arco-design-mobile/issues/199)) ([acb97ac](https://github.com/arco-design/arco-design-mobile/commit/acb97ac158995cea86f99755e6d0d60b166717fd))
+
+
+
+
+
+## [2.30.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.0...@arco-design/mobile-react@2.30.1) (2023-11-07)
+
+
+### Bug Fixes
+
+* `Form` put error types to classname & i18n usage description ([#192](https://github.com/arco-design/arco-design-mobile/issues/192)) ([d3a611a](https://github.com/arco-design/arco-design-mobile/commit/d3a611ab368a32c98495e1601a5e16e4d6f4f86f))
+* adjust dark mode style ([#193](https://github.com/arco-design/arco-design-mobile/issues/193)) ([919d661](https://github.com/arco-design/arco-design-mobile/commit/919d66120c1b2e445e3d0f95cf4d34e8c84e9998))
+
+
+
+
+
 # [2.30.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.29.6...@arco-design/mobile-react@2.30.0) (2023-10-19)
 
 

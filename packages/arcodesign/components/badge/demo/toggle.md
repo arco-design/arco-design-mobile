@@ -46,3 +46,11 @@ export default function BadgeDemo5() {
     );
 }
 ```
+
+```less
+.badge-demo-cell-label {
+    .rem(font-size, 16);
+    .rem(line-height, 22);
+    .use-var(color, cell-label-color);
+}
+```

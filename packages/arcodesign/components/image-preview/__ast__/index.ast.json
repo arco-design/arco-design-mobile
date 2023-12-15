@@ -38,7 +38,7 @@
                     "description": null,
                     "name": "config",
                     "type": {
-                        "name": "Pick<WithGlobalContext<ImagePreviewProps & RefAttributes<ImagePreviewRef>>, \"animateDurationSlide\" | ... 44 more ... | \"context\">"
+                        "name": "Pick<WithGlobalContext<ImagePreviewProps & RefAttributes<ImagePreviewRef>>, \"animateDurationSlide\" | ... 46 more ... | \"context\">"
                     }
                 },
                 {
@@ -870,6 +870,43 @@
                 "name": "boolean"
             }
         },
+        "offsetBetween": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "前后两端露出距离，设置值时不能循环轮播\n@en The exposed distance of the front and rear. When the value is set, the carousel cannot be rotated.",
+            "name": "offsetBetween",
+            "tags": {
+                "en": "The exposed distance of the front and rear. When the value is set, the carousel cannot be rotated.",
+                "default": "0"
+            },
+            "descWithTags": "前后两端露出距离，设置值时不能循环轮播",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { left?: number; right?: number; }"
+            }
+        },
+        "renderExtra": {
+            "defaultValue": null,
+            "description": "在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区\n@en Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot",
+            "name": "renderExtra",
+            "tags": {
+                "en": "Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot"
+            },
+            "descWithTags": "在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(currentIndex: number) => ReactNode"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",
@@ -935,6 +972,22 @@
                     "en": "Transition image url"
                 },
                 "descWithTags": "过渡图url"
+            },
+            "transitionEndDelay": {
+                "name": "transitionEndDelay",
+                "required": false,
+                "description": "过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求\n@en After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed",
+                "defaultValue": {
+                    "value": "30"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed",
+                    "default": "30"
+                },
+                "descWithTags": "过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求"
             },
             "thumbPosition": {
                 "name": "thumbPosition",
@@ -1308,6 +1361,17 @@
                 "defaultValue": null,
                 "type": {
                     "name": "{ required: string; type: { email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; }; number: { min: string; max: string; equal: string; range: string; positive: string; negative: string; }; string: { ...; }; array: { ...; }; object: { ...; }; boolean: { ...; }; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "NavBar": {
+                "name": "NavBar",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ backBtnAriaLabel: string; }"
                 },
                 "tags": {},
                 "descWithTags": ""

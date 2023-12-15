@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, Message, Tooltip } from 'arco';
+import { Button, Message, Tooltip, Tabs } from 'arco';
 import { LanguageSupport } from '../../../utils/language';
 
 import { CodeInfo, getCodePenData } from './codeBox';
@@ -9,14 +9,18 @@ import Sandbox from './sandbox';
 import './index.less';
 
 export interface IDocProps {
-    code: any;
-    codeSource: any;
+    code?: JSX.Element;
+    codeSource: string;
+    styleSource?: string;
     name?: string;
     demoKey?: string;
     version?: string;
     language?: LanguageSupport;
     compKey?: string;
     showCodePen?: boolean;
+    paragraphSlotContent?: JSX.Element;
+    tsxContent?: JSX.Element;
+    lessContent?: JSX.Element | null;
 }
 
 export default function Code(props: IDocProps) {
@@ -27,14 +31,22 @@ export default function Code(props: IDocProps) {
         compKey,
         demoKey,
         showCodePen = true,
+        name,
+        paragraphSlotContent,
+        tsxContent,
+        lessContent,
+        codeSource = '',
+        styleSource = '',
     } = props;
     const [showAll, setShowAll] = useState(false);
     const demoDomRef = useRef(null);
+    const copySource = useRef(decodeURIComponent(codeSource));
+
     const codeData: CodeInfo = {
         version: version || '',
-        content: decodeURIComponent(props.codeSource || ''),
-        key: props.demoKey || 'root',
-        name: props.name || 'Component Example',
+        content: decodeURIComponent(codeSource || ''),
+        key: demoKey || 'root',
+        name: name || 'Component Example',
     };
 
     function handleClickSpreadBtn() {
@@ -50,7 +62,7 @@ export default function Code(props: IDocProps) {
             click_content: 'copy',
             component_name: `${demoKey}${name}`,
         });
-        window.copyToClipboard(decodeURIComponent(props.codeSource));
+        window.copyToClipboard(copySource.current);
         Message.success(localeMap.CopySuccess[language]);
     }
 
@@ -65,9 +77,28 @@ export default function Code(props: IDocProps) {
         (demoDomRef.current as any).submit();
     }
 
+    function handleTabsChange(key: string) {
+        copySource.current = decodeURIComponent(key === 'tsx' ? codeSource : styleSource);
+    }
+
     return (
         <div className={`demo-code-container ${showAll ? 'show-all' : ''}`}>
-            {code}
+            {code || (
+                <div className="demo-code-wrapper">
+                    <h2 className="demo-code-title">{name}</h2>
+                    {paragraphSlotContent}
+                    <Tabs onChange={handleTabsChange}>
+                        <Tabs.TabPane key="tsx" title="index.tsx">
+                            {tsxContent}
+                        </Tabs.TabPane>
+                        {lessContent ? (
+                            <Tabs.TabPane key="less" title="index.less">
+                                {lessContent}
+                            </Tabs.TabPane>
+                        ) : null}
+                    </Tabs>
+                </div>
+            )}
             <div className="demo-code-operations">
                 <form
                     action="https://codepen.io/pen/define"

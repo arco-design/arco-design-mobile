@@ -1,6 +1,6 @@
 ## 图标步骤条 @en{Icon Steps Bar}
 
-#### 8
+#### 9
 
 ```js
 import { Steps } from '@arco-design/mobile-react';
@@ -27,5 +27,21 @@ export default function StepsDemo() {
             </Steps>
         </div>
     );
+}
+```
+
+```less
+.divide {
+    .rem(height, 8);
+    .use-var(background, card-background-color);
+}
+.demo-svg {
+    .@{prefix}-steps-item-custom-icon {
+        border-radius: 50%;
+    }
+    .set-steps-color-var(primary-color, lighter-primary-color);
+    .@{prefix}-steps-item-custom-icon {
+        font-size: 11PX;
+    }
 }
 ```

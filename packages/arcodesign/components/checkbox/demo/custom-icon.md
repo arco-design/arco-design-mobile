@@ -9,7 +9,6 @@ import IconSquareChecked from '@arco-design/mobile-react/esm/icon/IconSquareChec
 import IconSquareUnchecked from '@arco-design/mobile-react/esm/icon/IconSquareUnchecked';
 import IconSquareDisabled from '@arco-design/mobile-react/esm/icon/IconSquareDisabled';
 
-
 export default function CheckboxDemo() {
     const checkIcon = {
         normal: <IconCheck />,
@@ -55,6 +54,22 @@ export default function CheckboxDemo() {
             </div>
         </>
     );
+}
+```
+
+```less
+.custom-color {
+    .checkbox-icon {
+        color: #FF5722;
+    }
+}
+.custom-size {
+    .checkbox-icon {
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
 }
 ```
 

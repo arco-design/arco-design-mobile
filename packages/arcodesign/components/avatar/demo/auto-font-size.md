@@ -15,3 +15,14 @@ export default function AvatarDemo() {
     );
 }
 ```
+
+```less
+.avatar-demo-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.avatar-left-margin {
+    .set-prop-with-rtl(margin-left, 24px);
+}
+```

@@ -16,3 +16,18 @@ export default function GridDemo() {
     );
 }
 ```
+
+```less
+.@{prefix}-grid-rows-item {
+    .rem(width, 104);
+    .rem(height, 96);
+    .use-var(background, background-color);
+}
+.grid-demo-block {
+    .use-var(background, lighter-primary-color);
+    border-radius: 2px;
+    .rem(width, 32);
+    .rem(height, 32);
+    position: relative;
+}
+```

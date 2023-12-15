@@ -1,6 +1,6 @@
-import React, { useRef, forwardRef, Ref, useImperativeHandle, ReactNode } from 'react';
+import React, { useRef, forwardRef, Ref, useImperativeHandle, ReactNode, useContext } from 'react';
 import { cls } from '@arco-design/mobile-utils';
-import { ContextLayout } from '../context-provider';
+import { ContextLayout, GlobalContext } from '../context-provider';
 
 export interface GridProps {
     /**
@@ -123,7 +123,7 @@ const Grid = forwardRef((props: GridProps, ref: Ref<GridRef>) => {
         direction = 'vertical',
         isSliding = false,
     } = props;
-
+    const { useRtl } = useContext(GlobalContext);
     const domRef = useRef<HTMLDivElement | null>(null);
 
     useImperativeHandle(ref, () => ({
@@ -158,16 +158,19 @@ const Grid = forwardRef((props: GridProps, ref: Ref<GridRef>) => {
                     const marginBottom =
                         row + 1 === rows ? 0 : typeof gutter === 'number' ? gutter : gutter?.y || 0;
                     const rowLen = renderData.length;
-                    const marginRight =
+                    const marginValue =
                         index + 1 === rowLen
                             ? 0
                             : typeof gutter === 'number'
                             ? gutter
                             : gutter?.x || 0;
+                    const marginStyle = {
+                        [useRtl ? 'marginLeft' : 'marginRight']: marginValue,
+                    };
                     return (
                         <div
                             key={index}
-                            style={{ marginBottom, marginRight, ...itemStyle }}
+                            style={{ marginBottom, ...marginStyle, ...itemStyle }}
                             onClick={() => {
                                 onClick && onClick(item);
                             }}

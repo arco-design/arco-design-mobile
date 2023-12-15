@@ -16,3 +16,15 @@ export default function ShowMonitorDemo() {
     );
 }
 ```
+
+```less
+.show-monitor-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    color: #FFF;
+    font-size: 14px;
+    .use-var(background, primary-color);
+}
+```

@@ -35,3 +35,11 @@ export default function InputDemo() {
     </>);
 }
 ```
+
+```less
+.demo-input-money {
+    .rem(font-size, 20);
+    font-weight: bold;
+    .rem-with-rtl(margin-right, -12);
+}
+```

@@ -28,3 +28,17 @@ export default function ImagePreviewDemo() {
     </>);
 }
 ```
+
+```less
+.demo-image-preview-1 {
+    .image-description {
+        position: absolute;
+        transform: translateZ(0);
+        .rem(left, 54);
+        .rem(bottom, 10);
+        .rem(font-size, 14);
+        .rem(line-height, 22);
+        color: #fff;
+    }
+}
+```

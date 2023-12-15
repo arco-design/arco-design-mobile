@@ -12,7 +12,7 @@ export default function PopoverDemo() {
     return (
         <div className="menu-demo-wrapper">
             <Popover.Menu
-                style={{marginRight: 66}}
+                className="popover-with-margin"
                 direction="bottomLeft"
                 onSelect={value => console.log('select', value)}
                 menu={menu}
@@ -31,5 +31,26 @@ export default function PopoverDemo() {
             </Popover.Menu>
         </div>
     );
+}
+```
+
+```less
+.center-box(@height: 100px) {
+    height: @height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+}
+.menu-demo-wrapper {
+    .center-box();
+    .@{prefix}-button {
+        width: 124px;
+    }
+}
+.popover-with-margin {
+    margin-right: 66px;
 }
 ```

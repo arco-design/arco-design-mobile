@@ -26,3 +26,9 @@ export default function CheckboxDemo() {
     );
 }
 ```
+
+```less
+.demo-checkbox-cell-group {
+    .rem(margin, -16);
+}
+```

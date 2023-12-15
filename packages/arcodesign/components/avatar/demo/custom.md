@@ -13,3 +13,11 @@ export default function AvatarDemo() {
     );
 }
 ```
+
+```less
+.avatar-demo-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+```

@@ -25,3 +25,18 @@ export default function PopoverDemo() {
     );
 }
 ```
+
+```less
+.center-box(@height: 100px) {
+    height: @height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+}
+.white-theme-mask-demo-wrapper {
+    .center-box();
+}
+```

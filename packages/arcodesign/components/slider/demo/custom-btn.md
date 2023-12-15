@@ -15,3 +15,16 @@ export default function SliderDemo() {
     );
 }
 ```
+
+```less
+.slider-custom-thumb-two {
+    padding: 2px 8px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    .use-var(background, primary-color);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+```

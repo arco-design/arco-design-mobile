@@ -29,7 +29,6 @@
     position: absolute;
     width: max-content;
     z-index: @full-screen-z-index + 10;
-    right: 0;
     background-color: transparent;
     visibility: hidden;
     will-change: transform;
@@ -104,7 +103,7 @@
     }
 
     .text-suffix {
-        .use-var(padding, popover-text-suffix-padding);
+        .use-var-with-rtl(padding-right, popover-text-suffix-edge);
         flex: 0 0 auto;
     }
 

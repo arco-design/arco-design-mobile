@@ -68,7 +68,7 @@
     }
     .@{prefix}-icon:not(.tag-close-icon) {
         vertical-align: middle;
-        .use-var(margin-right, tag-icon-margin-right);
+        .use-var-with-rtl(margin-right, tag-icon-margin-right);
         .use-var(font-size, tag-icon-font-size);
     }
 
@@ -78,7 +78,7 @@
 
     .tag-close-icon {
         vertical-align: middle;
-        .use-var(margin-left, tag-icon-close-margin-left);
+        .use-var-with-rtl(margin-left, tag-icon-close-margin-left);
         .use-var(font-size, tag-icon-font-size);
     }
 
@@ -114,7 +114,7 @@
         vertical-align: top;
 
         &:not(:last-child) {
-            .use-var(margin-right, tag-list-horizontal-gutter);
+            .use-var-with-rtl(margin-right, tag-list-horizontal-gutter);
         }
         .use-var(margin-bottom, tag-list-vertical-gutter);
     }

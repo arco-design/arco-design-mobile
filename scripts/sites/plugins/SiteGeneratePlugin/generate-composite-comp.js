@@ -40,23 +40,23 @@ function generateCompositeComponents(compSrcPath, compPagePath, language, latest
         });
 
         // 创建 demo 目录写入 index 文件
-        const entry = `import React from 'react';
-import Code from '../../../entry/code';
-import { LanguageSupport } from '../../../../utils/language';
-interface IProps {
-    language?: LanguageSupport;
-}
-export default function Demo({ language = LanguageSupport.CH}: IProps) {
-    return (
-        <div className="pc-site-wrapper">
-            ${readmeStr[0] || ''}
-            <div className="pc-site-content" id="demo-${comp}">
-                ${demoSource.map(demo => demo.source).join(`\n${' '.repeat(12)}`)}
-            </div>
-        </div>
-    );
-}
-`;
+        const entry = utils.formatTsCode(`
+            import React from 'react';
+            import Code from '../../../entry/code';
+            import { LanguageSupport } from '../../../../utils/language';
+            interface IProps {
+                language?: LanguageSupport;
+            }
+            export default function Demo({ language = LanguageSupport.CH}: IProps) {
+                return (
+                    <div className="pc-site-wrapper">
+                        ${readmeStr[0] || ''}
+                        <div className="pc-site-content" id="demo-${comp}">
+                            ${demoSource.map(demo => demo.source).join('')}
+                        </div>
+                    </div>
+                );
+            }`);
         const docPath = path.join(compPagePath, comp);
         fs.mkdirpSync(docPath);
         fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), entry, () => {
@@ -67,18 +67,17 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
         if (demoSource.length) {
             const importName = utils.getCompName(comp);
             const route = utils.getFolderName(comp);
-            compDocsImportStr += `import ${importName} from './${comp}${tsxFileSuffix ? `/index${tsxFileSuffix}` : ''}';\n`;
-            compDocsStr += `    '${route}': ${importName},\n`;
+            compDocsImportStr += `import ${importName} from './${comp}${tsxFileSuffix ? `/index${tsxFileSuffix}` : ''}';`;
+            compDocsStr += `'${route}': ${importName},`;
         }
 
     });
 
     // 写入入口文件
-    const docEntryStr = `${compDocsImportStr}
-const docs = {\n${compDocsStr}};
-
-export default docs;
-`;
+    const docEntryStr = utils.formatTsCode(
+        `${compDocsImportStr}
+        const docs = {\n${compDocsStr}};
+        export default docs;`);
     fs.writeFile(path.join(compPagePath, `index${tsxFileSuffix}.ts`), docEntryStr, () => {
         console.log('>>> Write sites entry file finished.');
     });

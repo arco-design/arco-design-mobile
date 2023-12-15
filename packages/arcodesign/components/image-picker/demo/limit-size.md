@@ -44,3 +44,11 @@ export default function ImagePickerDemo() {
     );
 }
 ```
+
+```less
+.demo-space {
+    font-size: 14px;
+    line-height: 1;
+    margin: 8px 0;
+}
+```
