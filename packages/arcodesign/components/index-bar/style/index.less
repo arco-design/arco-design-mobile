@@ -18,7 +18,7 @@
             .use-var(color, index-bar-group-active-color);
         }
         &-title {
-            .use-var(padding-left, index-bar-group-left-spacing);
+            .use-var-with-rtl(padding-left, index-bar-group-left-spacing);
             .use-var(height, index-bar-group-title-height);
             .use-var(background, index-bar-group-title-background);
             .use-var(font-size, index-bar-group-title-font-size);
@@ -30,7 +30,7 @@
             .use-var(height, index-bar-group-item-height);
             display: flex;
             align-items: center;
-            .use-var(margin-left, index-bar-group-left-spacing);
+            .use-var-with-rtl(margin-left, index-bar-group-left-spacing);
             .use-var(font-size, index-bar-group-item-font-size);
 
             &:not(:last-child) {
@@ -40,15 +40,16 @@
     }
 
     &-sidebar {
-        &-touching {
-            left: 0;
-        }
         position: absolute;
         z-index: 2;
-        right: 0;
+        .set-prop-with-rtl(right, 0);
         top: 50%;
         transform: translateY(-50%) translateZ(0);
         user-select: none;
+
+        &-touching {
+            width: 100%;
+        }
 
         &-item {
             display: flex;
@@ -84,7 +85,7 @@
             text-align: center;
             .use-var(padding, index-bar-sidebar-sweat-padding);
             .use-var(background, index-bar-sidebar-sweat-background);
-            .use-var(right, index-bar-sidebar-sweat-right);
+            .use-var-with-rtl(right, index-bar-sidebar-sweat-right);
             .use-var(font-size, index-bar-sidebar-sweat-font-size);
             .use-var(color, index-bar-sidebar-sweat-color);
             &::before {
@@ -93,12 +94,11 @@
                 top: 0;
                 bottom: 0;
                 margin: auto;
-                .use-var(right, index-bar-sidebar-sweat-triangle-position);
+                .use-var-with-rtl(right, index-bar-sidebar-sweat-triangle-position);
                 width: 0;
                 height: 0;
                 .use-var(border, index-bar-sidebar-sweat-triangle-border);
-                border: 18px solid transparent;
-                .use-var(border-left-color, index-bar-sidebar-sweat-background);
+                .use-var-with-rtl(border-left-color, index-bar-sidebar-sweat-background);
                 border-radius: 4px;
             }
         }

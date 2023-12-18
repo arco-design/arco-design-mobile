@@ -54,7 +54,7 @@ export default function PickerDemo() {
         width: 14px;
         height: 14px;
         border-radius: 2px;
-        margin-right: 8px;
+        .set-prop-with-rtl(margin-right, 8px);
     }
     i, span {
         display: inline-block;

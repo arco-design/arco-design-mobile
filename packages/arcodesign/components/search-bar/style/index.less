@@ -34,10 +34,10 @@
         .use-var(height, search-bar-input-height);
         .use-var(caret-color, search-bar-input-caret-color);
         &-left {
-            text-align: left;
+            .set-value-with-rtl(text-align, left);
         }
         &-right {
-            text-align: right;
+            .set-value-with-rtl(text-align, right);
         }
         &-center {
             text-align: center;
@@ -62,13 +62,13 @@
     }
 
     &-prefix {
-        .use-var(margin-right, search-bar-prefix-margin-right);
+        .use-var-with-rtl(margin-right, search-bar-prefix-margin-right);
     }
 
     &-clear {
         .use-var(color, search-bar-clear-icon-color);
         .use-var(font-size, search-bar-clear-icon-font-size);
-        .use-var(padding-left, search-bar-clear-icon-padding-left);
+        .use-var-with-rtl(padding-left, search-bar-clear-icon-padding-left);
     }
 
     &-search-icon {
@@ -77,7 +77,7 @@
     }
 
     &-cancel-btn {
-        .use-var(margin-left, search-bar-cancel-btn-margin-left);
+        .use-var-with-rtl(margin-left, search-bar-cancel-btn-margin-left);
         .use-var(color, search-bar-cancel-btn-color);
         .use-var(font-size, search-bar-cancel-btn-font-size);
     }
