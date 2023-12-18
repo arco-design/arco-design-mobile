@@ -511,6 +511,7 @@ const ImagePreview = forwardRef((props: ImagePreviewProps, ref: Ref<ImagePreview
                 dragMode: 'always',
                 transformMode: 'matrix',
                 useDomBoundary: false,
+                preventScroll: false,
                 cubic: {
                     scroll: scrollBezier,
                 },
