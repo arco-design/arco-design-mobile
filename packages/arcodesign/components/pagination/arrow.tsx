@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Arrow() {
     return (
-        <svg width="8" height="14" viewBox="0 0 8 14" fill="none">
+        <svg width="2" height="14" viewBox="3 0 2 14" fill="none" style={{ overflow: 'visible' }}>
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"

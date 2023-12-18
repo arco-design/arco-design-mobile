@@ -48,7 +48,7 @@
         user-select: none;
 
         &-touching {
-            .set-prop-with-rtl(left, 0, { left: 0 });
+            width: 100%;
         }
 
         &-item {
@@ -98,11 +98,7 @@
                 width: 0;
                 height: 0;
                 .use-var(border, index-bar-sidebar-sweat-triangle-border);
-                border: 18px solid transparent;
                 .use-var-with-rtl(border-left-color, index-bar-sidebar-sweat-background);
-                [dir="rtl"] & {
-                    border-left-color: transparent;
-                }
                 border-radius: 4px;
             }
         }

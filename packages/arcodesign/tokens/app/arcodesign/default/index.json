@@ -6089,9 +6089,9 @@
         "cssKey": "index-bar-sidebar-sweat-background",
         "desc": "索引栏侧边栏水滴提示气泡背景颜色",
         "override": "",
-        "value": "rgba(0, 0, 0, 0.8)",
-        "jsValue": "rgba(0, 0, 0, 0.8)",
-        "staticValue": "rgba(0, 0, 0, 0.8)",
+        "value": "#333333",
+        "jsValue": "#333333",
+        "staticValue": "#333333",
         "localeDesc": {
             "ch": "索引栏侧边栏水滴提示气泡背景颜色",
             "en": "IndexBar sidebar water drop prompt bubble background color"
@@ -6173,9 +6173,9 @@
         "cssKey": "index-bar-sidebar-sweat-triangle-position",
         "desc": "索引栏侧边栏三角气泡位置",
         "override": "",
-        "value": "~`pxtorem(-27)`",
-        "jsValue": "@getRem@-27",
-        "staticValue": "-0.54rem",
+        "value": "~`pxtorem(-28)`",
+        "jsValue": "@getRem@-28",
+        "staticValue": "-0.56rem",
         "localeDesc": {
             "ch": "索引栏侧边栏三角气泡位置",
             "en": "The position of the triangle bubble in the sidebar of the IndexBar"
@@ -7069,25 +7069,13 @@
             "en": "The spacing between the button and the page number when pagination is centered"
         }
     },
-    "paginationFieldBtnIconSideMargin": {
-        "cssKey": "pagination-field-btn-icon-side-margin",
-        "desc": "分页器翻页按钮图标与按钮边缘的间距",
-        "override": "",
-        "value": "~`pxtorem(-3)`",
-        "jsValue": "@getRem@-3",
-        "staticValue": "-0.06rem",
-        "localeDesc": {
-            "ch": "分页器翻页按钮图标与按钮边缘的间距",
-            "en": "The spacing between the button's icon and the edge of the button"
-        }
-    },
     "paginationFieldBtnIconTextGutter": {
         "cssKey": "pagination-field-btn-icon-text-gutter",
         "desc": "分页器翻页按钮文字与图标的间距",
         "override": "",
-        "value": "~`pxtorem(8)`",
-        "jsValue": "@getRem@8",
-        "staticValue": "0.16rem",
+        "value": "~`pxtorem(11)`",
+        "jsValue": "@getRem@11",
+        "staticValue": "0.22rem",
         "localeDesc": {
             "ch": "分页器翻页按钮文字与图标的间距",
             "en": "The spacing between the text and the icon of the pagination button"

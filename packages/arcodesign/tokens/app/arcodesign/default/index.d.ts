@@ -806,7 +806,6 @@ export interface ArcodesignToken extends Record<string, string> {
     'pagination-field-button-padding': string;
     'pagination-field-btn-text-font-size': string;
     'pagination-field-btn-icon-text-gutter': string;
-    'pagination-field-btn-icon-side-margin': string;
     'dark-pagination-field-primary-background': string;
     'pagination-field-primary-background': string;
     'dark-pagination-field-primary-text-color': string;

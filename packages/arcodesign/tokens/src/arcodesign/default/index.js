@@ -3158,12 +3158,7 @@ function getCompTokens() {
          * 分页器翻页按钮文字与图标的间距
          * @en The spacing between the text and the icon of the pagination button
          */
-        paginationFieldBtnIconTextGutter: getRem(8),
-        /**
-         * 分页器翻页按钮图标与按钮边缘的间距
-         * @en The spacing between the button's icon and the edge of the button
-         */
-        paginationFieldBtnIconSideMargin: getRem(-3),
+        paginationFieldBtnIconTextGutter: getRem(11),
         /**
          * 分页器翻页primary按钮背景颜色
          * @en Background color of the primary pagination button
@@ -3694,7 +3689,7 @@ function getCompTokens() {
          * 索引栏侧边栏水滴提示气泡背景颜色
          * @en IndexBar sidebar water drop prompt bubble background color
          */
-        indexBarSidebarSweatBackground: 'rgba(0, 0, 0, 0.8)',
+        indexBarSidebarSweatBackground: '#333333',
         /**
          * 索引栏侧边栏水滴提示文案颜色
          * @en The color of the water drop prompt text in the sidebar of the IndexBar
@@ -3719,7 +3714,7 @@ function getCompTokens() {
          * 索引栏侧边栏三角气泡位置
          * @en The position of the triangle bubble in the sidebar of the IndexBar
          */
-        indexBarSidebarSweatTrianglePosition: getRem(-27),
+        indexBarSidebarSweatTrianglePosition: getRem(-28),
         /**
          * 索引栏侧边栏三角气泡的border
          * @en The border of the triangle bubble in the sidebar of the IndexBar
