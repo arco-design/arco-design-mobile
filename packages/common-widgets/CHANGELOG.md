@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.4...@arco-design/mobile-utils@2.17.5) (2023-12-19)
+
+
+### Bug Fixes
+
+* `ImagePreview` disable duplicate preventDefault ([#212](https://github.com/arco-design/arco-design-mobile/issues/212)) ([d91d251](https://github.com/arco-design/arco-design-mobile/commit/d91d251a64bd64ae914e88c119dda442bd72d722))
+* rtl for `Progress`, `Pagination`, `Picker`, `SearchBar`, `Dialog`, `IndexBar` ([#213](https://github.com/arco-design/arco-design-mobile/issues/213)) ([498a777](https://github.com/arco-design/arco-design-mobile/commit/498a777992fc44410944ddc17bd2090c9b06a2f2))
+
+
+
+
+
 ## [2.17.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.3...@arco-design/mobile-utils@2.17.4) (2023-12-14)
 
 
