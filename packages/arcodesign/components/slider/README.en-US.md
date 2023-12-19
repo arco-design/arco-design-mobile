@@ -33,6 +33,7 @@ Slide input component, displays the current value and optional range.
 |onAfterChange|Callback after value changes, the timing is the same as touchend|(value: number \| \[number, number\]) =\> void|-|
 |onChange|Callback when value changes in real time|(value: number \| \[number, number\]) =\> void|-|
 |renderThumb|Custom slider|(value: number) =\> ReactNode|-|
+|renderThumbPopover|Custom slider popover，priority is higher than formatTooltip\. value \- current sliding progress, visible \- visibility of the bubble, index \- current slider index, thumbEl \- current slider element\.|(config: \{ value: number; visible: boolean; index: number; thumbEl: ReactNode; \}) =\> ReactNode|-|
 
 > Refs
 
