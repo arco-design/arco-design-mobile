@@ -4,7 +4,7 @@ import { SliderContext } from './hooks';
 import { GlobalContext } from '../context-provider';
 
 function Thumb({
-    className,
+    className = '',
     value,
     style,
     isTouching,
@@ -39,7 +39,7 @@ function Thumb({
         );
 
     return (
-        <div className={`${prefixCls}-slider-thumb-wrapper ${className}`} style={{ ...style }}>
+        <div className={`${prefixCls}-slider-thumb-wrapper ${className}`} style={style}>
             {isHidden ? thumbEl : popoverEl}
         </div>
     );

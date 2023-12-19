@@ -154,8 +154,8 @@ export interface SliderProps {
      */
     renderThumb?: (value: number) => ReactNode;
     /**
-     * 自定义滑块的 Popover
-     * @en Custom slider popover
+     * 自定义滑块的Popover，优先级高于formatTooltip。value表示当前滑动进度，visible表示气泡的可见性，index表示当前滑块索引，thumbEl表示当前滑块元素。
+     * @en Custom slider popover，priority is higher than formatTooltip. value - current sliding progress, visible - visibility of the bubble, index - current slider index, thumbEl - current slider element.
      */
     renderThumbPopover?: (config: {
         value: number;
