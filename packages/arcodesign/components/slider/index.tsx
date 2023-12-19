@@ -153,6 +153,16 @@ export interface SliderProps {
      * @en Custom slider
      */
     renderThumb?: (value: number) => ReactNode;
+    /**
+     * 自定义滑块的 Popover
+     * @en Custom slider popover
+     */
+    renderThumbPopover?: (config: {
+        value: number;
+        visible: boolean;
+        index: number;
+        thumbEl: React.ReactNode;
+    }) => ReactNode;
 }
 
 export interface SliderRef {
@@ -272,6 +282,7 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
                                 key={idx}
                                 {...{
                                     value: Array.isArray(valueGroup) ? valueGroup[idx] : valueGroup,
+                                    idx,
                                     min,
                                     max,
                                     isTouching: commonIsTouching === idx,
