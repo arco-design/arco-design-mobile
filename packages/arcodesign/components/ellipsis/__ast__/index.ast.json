@@ -1,7 +1,7 @@
 {
-    "description": "文本缩略组件，支持多行缩略、富文本、自定义缩略符、尾字符过滤等。",
+    "description": "文本缩略组件，支持多行缩略、富文本、自定义缩略符、尾字符过滤等。如果传入的文本内容中包含换行符号`\\n`，建议将`\\n`替换为`<br/>`，并设置`dangerouslyUseInnerHTML=true`。",
     "descriptionTags": {
-        "en": "Text ellipsis component supports multi-line abbreviations, rich text, custom abbreviations, tail character filtering, etc.",
+        "en": "Text ellipsis component supports multi-line abbreviations, rich text, custom abbreviations, tail character filtering, etc. If the incoming text contains newline characters `\\n`, it is recommended to replace `\\n` with `<br/>`, and set `dangerouslyUseInnerHTML=true`.",
         "type": "信息展示",
         "type_en": "Data Display",
         "name": "文本缩略",

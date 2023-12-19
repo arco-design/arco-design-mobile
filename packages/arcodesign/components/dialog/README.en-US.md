@@ -92,6 +92,7 @@ A modal dialog, displayed in a floating layer, guides the user to perform relate
 |Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|
+|NavBar|-|\{ backBtnAriaLabel: string; \}|
 
 > AlertOptions
 

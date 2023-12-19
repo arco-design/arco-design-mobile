@@ -1,21 +1,24 @@
-import React, { useMemo, CSSProperties, useContext, ReactNode } from 'react';
+import React, { useMemo, CSSProperties, useContext } from 'react';
 import { Popover } from './popover';
 import { SliderContext } from './hooks';
 import { GlobalContext } from '../context-provider';
 
-const Thumb = ({
-    className,
+function Thumb({
+    className = '',
     value,
     style,
     isTouching,
+    idx,
 }: {
     className?: string;
     value: number;
     isTouching: boolean;
     style?: CSSProperties;
-}) => {
+    idx: number;
+}) {
     const { prefixCls = '' } = useContext(GlobalContext);
-    const { showTooltip, renderThumb, formatTooltip } = useContext(SliderContext);
+    const { showTooltip, renderThumb, formatTooltip, renderThumbPopover } =
+        useContext(SliderContext);
     const isHidden = showTooltip === 'never';
 
     const renderValue = useMemo(() => formatTooltip(value), [formatTooltip, value]);
@@ -25,21 +28,21 @@ const Thumb = ({
         return isTouching;
     }, [showTooltip, isTouching]);
 
-    const renderWrapper = (el: ReactNode) => (
-        <div className={`${prefixCls}-slider-thumb-wrapper ${className}`} style={{ ...style }}>
-            {el}
+    const thumbEl = typeof renderThumb === 'function' ? renderThumb(value) : renderThumb;
+    const popoverEl =
+        typeof renderThumbPopover === 'function' ? (
+            renderThumbPopover({ value, visible: isTooltipVisible, thumbEl, index: idx })
+        ) : (
+            <Popover visible={isTooltipVisible} content={renderValue}>
+                {thumbEl}
+            </Popover>
+        );
+
+    return (
+        <div className={`${prefixCls}-slider-thumb-wrapper ${className}`} style={style}>
+            {isHidden ? thumbEl : popoverEl}
         </div>
     );
-
-    const thumbEl = typeof renderThumb === 'function' ? renderThumb(value) : renderThumb;
-
-    if (isHidden) return renderWrapper(thumbEl);
-
-    return renderWrapper(
-        <Popover visible={isTooltipVisible} content={renderValue}>
-            {thumbEl}
-        </Popover>,
-    );
-};
+}
 
 export default Thumb;

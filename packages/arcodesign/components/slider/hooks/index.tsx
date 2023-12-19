@@ -15,8 +15,8 @@ export type LinePosition = {
 // 参数通过 context 共享
 // @en Parameters are shared through context
 export const SliderContext = createContext<
-    Required<Omit<SliderProps, 'value' | 'marks' | 'defaultValue'>> &
-        Pick<SliderProps, 'value' | 'marks' | 'defaultValue'>
+    Required<Omit<SliderProps, 'value' | 'marks' | 'defaultValue' | 'renderThumbPopover'>> &
+        Pick<SliderProps, 'value' | 'marks' | 'defaultValue' | 'renderThumbPopover'>
 >({
     className: '',
     style: {},

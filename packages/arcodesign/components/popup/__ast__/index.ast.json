@@ -1032,6 +1032,17 @@
                 },
                 "tags": {},
                 "descWithTags": ""
+            },
+            "NavBar": {
+                "name": "NavBar",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ backBtnAriaLabel: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
             }
         }
     },
