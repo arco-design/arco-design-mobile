@@ -1,8 +1,8 @@
 ### Data Display
 
-# Ellipsis 
+# Ellipsis
 
-Text ellipsis component supports multi-line abbreviations, rich text, custom abbreviations, tail character filtering, etc.
+Text ellipsis component supports multi-line abbreviations, rich text, custom abbreviations, tail character filtering, etc. If the incoming text contains newline characters `\n`, it is recommended to replace `\n` with `<br/>`, and render the text using **dangerouslyUseInnerHTML**.
 
 ======
 
