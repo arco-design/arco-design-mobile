@@ -127,9 +127,9 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                         range[0] = minDateObjRef.current[type];
                         currentDateObj = {
                             ...currentDateObj,
-                            // 取当前日期时间和minTs的最小值
-                            // @en Take the minimum value between the current date and time and minTs.
-                            [type]: Math.min(minDateObjRef.current[type], currentDateObj[type]),
+                            // 取当前日期时间和minTs的最大值
+                            // @en Take the maximum value between the current date and time and minTs.
+                            [type]: Math.max(minDateObjRef.current[type], currentDateObj[type]),
                         };
                     }
 
