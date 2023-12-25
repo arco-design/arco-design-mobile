@@ -9,7 +9,7 @@ exports[`pull-refresh demo test pull-refresh demo: index.md renders correctly 1`
       class="arco-tab-cell-container-wrap vertical type-line-divide pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"

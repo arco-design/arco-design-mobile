@@ -1,77 +1,26 @@
 import React, { createRef } from 'react';
+import { act } from 'react-dom/test-utils';
+import { fireEvent, render, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
+import {
+    createMoveTouchEventObject,
+    createStartTouchEventObject,
+} from '../../../tests/helpers/mockEvent';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import PickerView from '..';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
-import { defaultContext } from '../../context-provider';
 
-const pickerPrefix = `${defaultContext.prefixCls}-picker`;
-
-demoTest('picker-view');
-
-mountTest(PickerView, 'PickerView', {
-    data: [
-        {
-            label: '北京市',
-            value: '北京市',
-            children: [
-                {
-                    label: '朝阳区',
-                    value: '朝阳区',
-                },
-                {
-                    label: '海淀区',
-                    value: '海淀区',
-                },
-                {
-                    label: '东城区',
-                    value: '东城区',
-                },
-                {
-                    label: '西城区',
-                    value: '西城区',
-                },
-            ],
-        },
-    ],
-    value: ['北京市', '海淀区'],
-});
-
-describe('PickerView', () => {
-
-    beforeEach(() => {
-        jest.useFakeTimers();
-    });
-
-    afterEach(() => {
-        jest.useRealTimers();
-    });
-
-    it('should render correctly when set default value as ValueType[][]', () => {
-        const data = [
+const mockData=[
+    {
+        data: [
             ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
             ['上午', '下午', '晚上'],
-        ];
-        const defaultValue = ['周三', '上午'];
-        const component = mount(
-            <PickerView data={data} value={defaultValue} cascade={false} />,
-        );
-        const firstCol = component.find(`.${pickerPrefix}-column`).first();
-        expect(firstCol.find(`.${pickerPrefix}-column-item`).length).toBe(7);
-        expect(firstCol.find('.selected-neighbor-2').length).toBe(2);
-        expect(firstCol.find('.selected-neighbor-1').length).toBe(2);
-        expect(firstCol.find('.selected').length).toBe(1);
-        expect(firstCol.find('.selected').text()).toBe('周三');
-        const secondCol = component.find(`.${pickerPrefix}-column`).last();
-        expect(secondCol.find(`.${pickerPrefix}-column-item`).length).toBe(3);
-        expect(secondCol.find('.selected-neighbor-2').length).toBe(1);
-        expect(secondCol.find('.selected-neighbor-1').length).toBe(1);
-        expect(secondCol.find('.selected').length).toBe(1);
-        expect(secondCol.find('.selected').text()).toBe('上午');
-    });
-    it('should render correctly when set default value as PickerData[][]', () => {
-        const data = [
+        ],
+        value: ['周三', '上午']
+    },
+    {
+        data: [
             [
                 { label: '周一', value: '周一' },
                 { label: '周二', value: '周二' },
@@ -86,63 +35,11 @@ describe('PickerView', () => {
                 { label: '下午', value: '下午' },
                 { label: '晚上', value: '晚上' },
             ],
-        ];
-        const defaultValue = ['周三', '上午'];
-        const component = mount(
-            <PickerView data={data} value={defaultValue} cascade={false} />,
-        );
-        const firstCol = component.find(`.${pickerPrefix}-column`).first();
-        expect(firstCol.find(`.${pickerPrefix}-column-item`).length).toBe(7);
-        expect(firstCol.find('.selected-neighbor-2').length).toBe(2);
-        expect(firstCol.find('.selected-neighbor-1').length).toBe(2);
-        expect(firstCol.find('.selected').length).toBe(1);
-        expect(firstCol.find('.selected').text()).toBe('周三');
-        const secondCol = component.find(`.${pickerPrefix}-column`).last();
-        expect(secondCol.find(`.${pickerPrefix}-column-item`).length).toBe(3);
-        expect(secondCol.find('.selected-neighbor-2').length).toBe(1);
-        expect(secondCol.find('.selected-neighbor-1').length).toBe(1);
-        expect(secondCol.find('.selected').length).toBe(1);
-        expect(secondCol.find('.selected').text()).toBe('上午');
-    });
-    it('should callback correctly when un cascade picker view is clicked', () => {
-        const mockFn = jest.fn();
-        const ref = createRef();
-        const data = [
-            [
-                { label: '周一', value: '周一' },
-                { label: '周二', value: '周二' },
-                { label: '周三', value: '周三' },
-                { label: '周四', value: '周四' },
-                { label: '周五', value: '周五' },
-                { label: '周六', value: '周六' },
-                { label: '周日', value: '周日' },
-            ],
-            [
-                { label: '上午', value: '上午' },
-                { label: '下午', value: '下午' },
-                { label: '晚上', value: '晚上' },
-            ],
-        ];
-        const defaultValue = ['周三', '上午'];
-        const component = mount(
-            <PickerView ref={ref} data={data} value={defaultValue} onPickerChange={mockFn} cascade={false} />,
-        );
-        const { getColumnValue } = ref.current;
-        const firstCol = component.find(`.${pickerPrefix}-column`).first();
-        const neighborNode = firstCol.find(`.${pickerPrefix}-column-item`).first();
-        const valueBeforeClick = getColumnValue();
-        expect(valueBeforeClick).toBe('周三');
-        neighborNode.simulate('click');
-        act(() => {
-            jest.advanceTimersByTime(200);
-        })
-        component.update();
-        const valueAfterClick = getColumnValue();
-        expect(mockFn).toBeCalled();
-        expect(valueAfterClick).toBe('周一');
-    });
-    it('should render and callback correctly when use cascade picker view click', () => {
-        const data = [
+        ],
+        value: ['周三', '上午']
+    },
+    {
+        data: [
             {
                 label: '北京市',
                 value: '北京市',
@@ -237,31 +134,156 @@ describe('PickerView', () => {
                     },
                 ],
             },
-        ];
-        const value = ['北京市', '北京市', '海淀区'];
+        ],
+        value: ['北京市', '北京市', '海淀区']
+    },
+    {
+        data: [
+            {
+                label: '北京市',
+                value: '北京市',
+                children: [
+                    {
+                        label: '朝阳区',
+                        value: '朝阳区',
+                    },
+                    {
+                        label: '海淀区',
+                        value: '海淀区',
+                    },
+                    {
+                        label: '东城区',
+                        value: '东城区',
+                    },
+                    {
+                        label: '西城区',
+                        value: '西城区',
+                    },
+                ],
+            },
+        ],
+        value: ['北京市', '海淀区'],
+    }
+]
+
+demoTest('picker-view');
+
+mountTest(PickerView, 'PickerView', {
+    data: mockData[3].data,
+    value: mockData[3].value
+});
+
+describe('pickerView render correctly',()=>{
+
+    it('should render correctly when set default value as ValueType[][]', () => {
+        render( <PickerView data={mockData[0].data} value={mockData[0].value} cascade={false} />)
+        const selectedColumnsItem = screen.getByRole('generic',{ name: '周三'})
+        const selectedColumnsItemWrap = screen.getByRole('generic',{ name: '上午'})
+        const luckyElement1 = screen.getByText('周六')
+        const luckyElement2 = screen.getByText('上午')
+        expect(selectedColumnsItem).toBeInTheDocument()
+        expect(selectedColumnsItemWrap).toBeInTheDocument()
+        expect(luckyElement1).toBeInTheDocument()
+        expect(luckyElement2).toBeInTheDocument()
+    })
+
+    it('should render correctly when set default value as PickerData[][]', () => {
+        render( <PickerView data={mockData[1].data} value={mockData[1].value} cascade={false} />)
+        const selectedColumnsItem = screen.getByRole('generic',{ name: '周三'})
+        const selectedColumnsItemWrap = screen.getByRole('generic',{ name: '上午'})
+        const luckyElement1 = screen.getByText('周六')
+        const luckyElement2 = screen.getByText('上午')
+        expect(selectedColumnsItem).toBeInTheDocument()
+        expect(selectedColumnsItemWrap).toBeInTheDocument()
+        expect(luckyElement1).toBeInTheDocument()
+        expect(luckyElement2).toBeInTheDocument()
+    });
+})
+
+describe('pickerView action correctly',()=>{
+
+    beforeAll(() => {
+        jest.useFakeTimers()
+    })
+
+    it('should callback correctly when un cascade picker view is clicked', () => {
+        const mockFn = jest.fn();
         const ref = createRef();
-        const components = mount(<PickerView
+        render(<PickerView 
+            ref={ref} 
+            data={mockData[1].data} 
+            value={mockData[1].value} 
+            onPickerChange={mockFn} 
+            cascade={false}/>)
+        const { getColumnValue } = ref.current;
+        const valueBeforeClick = getColumnValue();
+        expect(valueBeforeClick).toBe('周三');
+        const weekdayOne = screen.getByText('周一');
+        userEvent.click(weekdayOne)
+        act(() => {
+            jest.runAllTimers()
+        })
+        const ValueAfterClick = getColumnValue();
+        expect(ValueAfterClick).toBe('周一');
+    });
+
+    it('should render and callback correctly when use cascade picker view click', () => {
+        const ref = createRef();
+        render(<PickerView
             cascade={true}
             ref={ref}
-            data={data}
-            value={value}
+            data={mockData[2].data}
+            value={mockData[2].value}
             cols={3}
-        />);
+        />)
         const { getColumnValue, getAllColumnValues } = ref.current;
-        const firstCol = components.find(`.${pickerPrefix}-column`).first();
-        const firstColLastNode = firstCol.find(`.${pickerPrefix}-column-item`).last();
         const valueBeforeClick = getColumnValue();
         const valuesBeforeClick = getAllColumnValues();
         expect(valueBeforeClick).toBe('北京市');
         expect(valuesBeforeClick).toEqual(['北京市', '北京市', '海淀区']);
-        firstColLastNode.simulate('click');
-        act(() => {
-            jest.advanceTimersByTime(200);
+        const yunnan = screen.getByText('云南省');
+        userEvent.click(yunnan)
+        act(()=>{
+            jest.runAllTimers()
         })
-        components.update();
         const valueAfterClick = getColumnValue();
         const valuesAfterClick = getAllColumnValues();
         expect(valueAfterClick).toBe('云南省');
         expect(valuesAfterClick).toEqual(['云南省', '昆明市', '五华区']);
     });
-});
+
+    it('picker-cell touchAction work correctly',() => {
+        const mockFn = jest.fn();
+        const ref = createRef();
+        const { rerender } = render(<PickerView 
+            ref={ref} 
+            data={mockData[1].data} 
+            value={mockData[1].value} 
+            onPickerChange={mockFn} 
+            cascade={false}
+            touchToStop={true}/>
+        )
+        const weekdayOne = screen.getByText('周一');
+        fireEvent.touchStart(weekdayOne,createStartTouchEventObject({x: 100,y:100}))
+        act(() => {
+            jest.runAllTimers()
+        })
+        fireEvent.touchMove(weekdayOne,createMoveTouchEventObject({x: 500,y:500}))
+        fireEvent.touchEnd(weekdayOne)
+        expect(mockFn).toBeCalled()
+        expect(mockFn).toBeCalledTimes(1)
+        rerender(<PickerView 
+            ref={ref} 
+            data={mockData[1].data} 
+            value={mockData[1].value} 
+            onPickerChange={mockFn} 
+            cascade={false}
+            disabled/>
+        )
+        fireEvent.touchStart(weekdayOne,createStartTouchEventObject({x: 100,y:100}))
+        fireEvent.touchMove(weekdayOne,createMoveTouchEventObject({x: 500,y:500}))
+        fireEvent.touchEnd(weekdayOne)
+        expect(mockFn).toBeCalled()
+        expect(mockFn).toBeCalledTimes(1)
+    })
+})

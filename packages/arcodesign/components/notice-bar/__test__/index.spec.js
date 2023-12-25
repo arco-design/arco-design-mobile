@@ -6,7 +6,7 @@ import mountTest from '../../../tests/mountTest';
 import NoticeBar from '..';
 import IconNotice from '../../icon/IconNotice';
 import { defaultContext } from '../../context-provider';
-import { mockContainerSize, resetContainerSizeMock } from '../../../tests/helpers/mockElement';
+import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
 
 const { prefixCls } = defaultContext;
 const prefix = `${prefixCls}-notice-bar`;
@@ -14,6 +14,11 @@ const prefix = `${prefixCls}-notice-bar`;
 demoTest('notice-bar');
 
 mountTest(NoticeBar, 'NoticeBar');
+
+const { setHTMLProperties, unsetHTMLProperties } = defineHtmlRefProperties({
+    offsetWidth: 375,
+    offsetHeight: 200,
+});
 
 function NoticeBarDemo() {
     const [text, setText] = React.useState('Click I will grow and start scrolling!');
@@ -54,11 +59,13 @@ describe('NoticeBar style', () => {
 
 describe('NoticeBar actions', () => {
     beforeAll(() => {
-        mockContainerSize();
+        // mockContainerSize();
+        setHTMLProperties();
     });
 
     afterAll(() => {
-        resetContainerSizeMock();
+        // resetContainerSizeMock();
+        unsetHTMLProperties();
     });
 
     beforeEach(() => {

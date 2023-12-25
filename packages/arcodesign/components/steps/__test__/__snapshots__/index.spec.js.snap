@@ -4,8 +4,7 @@ exports[`steps demo test steps demo: custom-align.md renders correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="arco-steps all-border-box  horizontal pc"
-      style="margin-left: 20px;"
+      class="arco-steps all-border-box steps-custom-align horizontal pc"
     >
       <div
         class="arco-steps-item arco-steps-item-align-start finish horizontal number"

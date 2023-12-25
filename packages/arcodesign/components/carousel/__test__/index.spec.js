@@ -5,13 +5,22 @@ import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import Carousel from '..';
 import ContextProvider, { defaultContext } from '../../context-provider';
-import { createMoveTouchEventObject, mockAddListener, mockDocumentVisibility } from '../../../tests/helpers/mockEvent';
-import { mockContainerSize, resetContainerSizeMock } from '../../../tests/helpers/mockElement';
+import {
+    createMoveTouchEventObject,
+    mockAddListener,
+    mockDocumentVisibility,
+} from '../../../tests/helpers/mockEvent';
+import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
 import { mockSwipe } from './utils';
 
 demoTest('carousel');
 
 mountTest(Carousel, 'Carousel');
+
+const { setHTMLProperties, unsetHTMLProperties } = defineHtmlRefProperties({
+    offsetWidth: 375,
+    offsetHeight: 200,
+});
 
 const prefix = `${defaultContext.prefixCls}-carousel`;
 
@@ -21,13 +30,12 @@ function indexIsActive(wrapper, index) {
 }
 
 describe('Carousel', () => {
-
     beforeAll(() => {
-        mockContainerSize();
+        setHTMLProperties();
     });
 
     afterAll(() => {
-        resetContainerSizeMock();
+        unsetHTMLProperties();
     });
 
     beforeEach(() => {
@@ -40,10 +48,12 @@ describe('Carousel', () => {
 
     it('should auto play correctly', () => {
         const onChange = jest.fn();
-        const wrapper = mount(<Carousel stayDuration={1000} boxWidth={375} onChange={onChange}>
-            <div />
-            <div />
-        </Carousel>);
+        const wrapper = mount(
+            <Carousel stayDuration={1000} boxWidth={375} onChange={onChange}>
+                <div />
+                <div />
+            </Carousel>,
+        );
         act(() => {
             jest.advanceTimersByTime(1600);
         });
@@ -54,9 +64,11 @@ describe('Carousel', () => {
     });
 
     it('should render correctly and disable loop when only one child', () => {
-        const wrapper = mount(<Carousel stayDuration={1000} boxWidth={375}>
-            <div />
-        </Carousel>);
+        const wrapper = mount(
+            <Carousel stayDuration={1000} boxWidth={375}>
+                <div />
+            </Carousel>,
+        );
         const inner = wrapper.find(`.${prefix}-inner`);
         expect(inner.children).toHaveLength(1);
         act(() => {
@@ -67,19 +79,25 @@ describe('Carousel', () => {
     });
 
     it('should render correctly when using the property `list`', () => {
-        const wrapper = render(<Carousel list={[
-            { src: '11', text: 'test 1' },
-            { src: '22', text: 'test 2' },
-        ]} />);
+        const wrapper = render(
+            <Carousel
+                list={[
+                    { src: '11', text: 'test 1' },
+                    { src: '22', text: 'test 2' },
+                ]}
+            />,
+        );
         const items = wrapper.find(`.${prefix}-item`);
         expect(items).toHaveLength(2);
     });
 
     it('should disable loop playback when using the property `offsetBetween`', () => {
-        const wrapper = mount(<Carousel stayDuration={1000} boxWidth={375} offsetBetween={20}>
-            <div />
-            <div />
-        </Carousel>);
+        const wrapper = mount(
+            <Carousel stayDuration={1000} boxWidth={375} offsetBetween={20}>
+                <div />
+                <div />
+            </Carousel>,
+        );
         act(() => {
             jest.advanceTimersByTime(1600);
         });
@@ -88,17 +106,19 @@ describe('Carousel', () => {
     });
 
     it('should enable loop playback and render fake dom when using the property `offsetBetween` and `fakeItem`', () => {
-        const wrapper = mount(<Carousel
-            stayDuration={1000}
-            boxWidth={375}
-            offsetBetween={20}
-            fakeItem={true}
-            initialIndex={2}
-        >
-            <div />
-            <div />
-            <div />
-        </Carousel>);
+        const wrapper = mount(
+            <Carousel
+                stayDuration={1000}
+                boxWidth={375}
+                offsetBetween={20}
+                fakeItem
+                initialIndex={2}
+            >
+                <div />
+                <div />
+                <div />
+            </Carousel>,
+        );
         act(() => {
             jest.advanceTimersByTime(1600);
         });
@@ -110,10 +130,12 @@ describe('Carousel', () => {
 
     it('should support using ref to change index', () => {
         const ref = React.createRef();
-        const wrapper = mount(<Carousel autoPlay={false} boxWidth={375} ref={ref}>
-            <div />
-            <div />
-        </Carousel>);
+        const wrapper = mount(
+            <Carousel autoPlay={false} boxWidth={375} ref={ref}>
+                <div />
+                <div />
+            </Carousel>,
+        );
         const { changeIndex } = ref.current;
         expect(typeof changeIndex).toBe('function');
         act(() => {
@@ -125,14 +147,12 @@ describe('Carousel', () => {
     });
 
     it('should handle touch event correctly', () => {
-        const wrapper = mount(<Carousel
-            autoPlay={false}
-            boxWidth={375}
-            swipeable={false}
-        >
-            <div />
-            <div />
-        </Carousel>);
+        const wrapper = mount(
+            <Carousel autoPlay={false} boxWidth={375} swipeable={false}>
+                <div />
+                <div />
+            </Carousel>,
+        );
         const map = mockAddListener(wrapper.find(`.${prefix}`));
         wrapper.setProps({ swipeable: true });
 
@@ -153,19 +173,23 @@ describe('Carousel', () => {
     it('should support using `onTouchStart` to prevent default logic', () => {
         const onTouchStart = jest.fn(() => true);
         const onTouchEnd = jest.fn(() => true);
-        const wrapper = mount(<Carousel
-            autoPlay={false}
-            boxWidth={375}
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
-            swipeable={false}
-            autoHeight={true}
-        >
-            <div />
-            <div />
-        </Carousel>);
+        const wrapper = mount(
+            <Carousel
+                autoPlay={false}
+                boxWidth={375}
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
+                swipeable={false}
+                autoHeight
+            >
+                <div />
+                <div />
+            </Carousel>,
+        );
         // should not trigger touchend when swipeable=false
-        wrapper.find(`.${prefix}`).simulate('touchEnd', createMoveTouchEventObject({ x: 100, y: 0 }));
+        wrapper
+            .find(`.${prefix}`)
+            .simulate('touchEnd', createMoveTouchEventObject({ x: 100, y: 0 }));
         expect(onTouchEnd.mock.calls).toHaveLength(0);
 
         // should prevent default logic when onTouchStart or onTouchEnd return true
@@ -177,12 +201,14 @@ describe('Carousel', () => {
     });
 
     it('should hide carousel when invisible and rerender forcibly when visible in ios', () => {
-        const wrapper = mount(<ContextProvider system="ios">
-            <Carousel boxWidth={375}>
-                <div />
-                <div />
-            </Carousel>
-        </ContextProvider>);
+        const wrapper = mount(
+            <ContextProvider system="ios">
+                <Carousel boxWidth={375}>
+                    <div />
+                    <div />
+                </Carousel>
+            </ContextProvider>,
+        );
         const dom = wrapper.find(`.${prefix}:not(.wrap-placeholder)`).at(0).getDOMNode();
         act(() => {
             mockDocumentVisibility('hidden');

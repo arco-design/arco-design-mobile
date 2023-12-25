@@ -9,7 +9,7 @@ exports[`popover demo test popover demo: base.md renders correctly 1`] = `
       class="base-item"
     >
       <div
-        class="arco-popover white-theme follow-mode"
+        class="arco-popover popover-with-margin white-theme follow-mode"
       >
         <div
           class="popover-child-inner"
@@ -227,8 +227,7 @@ exports[`popover demo test popover demo: menu.md renders correctly 1`] = `
     class="menu-demo-wrapper"
   >
     <div
-      class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
-      style="margin-right: 66px;"
+      class="arco-popover popover-with-margin arco-popover-menu white-theme follow-mode bordered custom-content"
     >
       <div
         class="popover-child-inner"
@@ -273,8 +272,7 @@ exports[`popover demo test popover demo: menu-with-click-status.md renders corre
     class="menu-demo-wrapper"
   >
     <div
-      class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
-      style="margin-right: 66px;"
+      class="arco-popover popover-with-margin arco-popover-menu white-theme follow-mode bordered custom-content"
     >
       <div
         class="popover-child-inner"
@@ -319,8 +317,7 @@ exports[`popover demo test popover demo: menu-with-disabled-status.md renders co
     class="menu-demo-wrapper"
   >
     <div
-      class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
-      style="margin-right: 66px;"
+      class="arco-popover popover-with-margin arco-popover-menu white-theme follow-mode bordered custom-content"
     >
       <div
         class="popover-child-inner"
@@ -365,8 +362,7 @@ exports[`popover demo test popover demo: menu-with-icon.md renders correctly 1`]
     class="menu-demo-wrapper"
   >
     <div
-      class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
-      style="margin-right: 66px;"
+      class="arco-popover popover-with-margin arco-popover-menu white-theme follow-mode bordered custom-content"
     >
       <div
         class="popover-child-inner"
@@ -413,7 +409,7 @@ exports[`popover demo test popover demo: suffix.md renders correctly 1`] = `
     class="suffix-demo-wrapper"
   >
     <div
-      class="arco-popover black-theme follow-mode"
+      class="arco-popover popover-with-margin black-theme follow-mode"
     >
       <div
         class="popover-child-inner"

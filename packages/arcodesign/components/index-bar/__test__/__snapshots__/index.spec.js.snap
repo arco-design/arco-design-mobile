@@ -9,7 +9,7 @@ exports[`index-bar demo test index-bar demo: index.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line has-divider"
+        class="arco-tab-cell-container-inner vertical pos-top type-line has-divider pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"

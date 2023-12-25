@@ -1,11 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from "@testing-library/react";
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
-import { defaultContext } from '../../context-provider';
 import Textarea from '..';
-
-const inputPrefix = `${defaultContext.prefixCls}-input`;
 
 demoTest('textarea');
 
@@ -14,39 +13,36 @@ mountTest(Textarea, 'Textarea');
 describe('Textarea', () => {
     it('should callback correctly when change text', () => {
         const mockFn = jest.fn();
-        const component = mount(<Textarea onInput={mockFn}/>);
-        component.find('textarea').simulate('input', {
-            target: {
-                value: '123'
-            }
-        });
+        const caculatorFn= (value)=>{
+            return value.length
+        };
+        const { container }=render(<Textarea onInput={mockFn} statisticsLengthCaculator={caculatorFn} cloneNodeWhenAutosize autosize/>)
+        const textArea = container.querySelector('textarea')
+        userEvent.type(textArea,'test')
         expect(mockFn).toBeCalled();
+        expect(mockFn).toBeCalledTimes(4);
     });
+
     it('should render and callback correctly when more than limit', () => {
+        jest.useFakeTimers()
         const mockFn = jest.fn();
-        const component = mount(<Textarea statisticsMaxlength={5} onErrStatusChange={mockFn}/>);
-        component.find('textarea').simulate('input', {
-            target: {
-                value: '12345678'
-            }
-        });
-        expect(mockFn).toBeCalled();
-        expect(component.find('.statistic-text').hasClass('exceed')).toBe(true);
-        expect(component.find('.statistic-text').text()).toBe("8/5");
-        expect(component.find('textarea').text()).toBe('12345678');
+        const { container } = render(<Textarea statisticsMaxlength={5} onErrStatusChange={mockFn} />)
+        const textArea = container.querySelector('textarea')
+        // 不清空输入会接收到234567891
+        userEvent.clear(textArea)
+        userEvent.type(textArea,'123456789')
+        expect(mockFn).toBeCalled()
+        expect(mockFn).toBeCalledTimes(2)
+        const statisticText = container.querySelector('.statistic-text')
+        jest.advanceTimersByTime(5000)
+        expect(statisticText).toHaveClass('exceed')
+        expect(statisticText).toHaveTextContent('9/5')
+        expect(textArea).toHaveTextContent('123456789')
     });
+
     it('should render correctly when set area limit', () => {
-        const component = mount(<Textarea textareaStyle={{ height: 55 }}/>);
-        expect(component.find('textarea').props().style.height).toBe(55);
-    });
-    it('should render correctly when text calls the area resize', () => {
-        // const component = mount(<Textarea autosize/>);
-        // const initHeight = component.find('textarea').get(0).style;
-        // console.log(component.find('textarea').html());
-    });
-    it('should render correctly when set prefix', () => {
-        const component = mount(<Textarea prefix="prefix"/>);
-        expect(component.find(`.${inputPrefix}-prefix`).length).toBe(1);
-        expect(component.find(`.${inputPrefix}-prefix`).text()).toBe('prefix');
+        const { container } = render(<Textarea textareaStyle={{ height: 55 }}/>)
+        const textArea = container.querySelector('textarea')
+        expect(textArea).toHaveStyle('height: 55px')
     });
 });

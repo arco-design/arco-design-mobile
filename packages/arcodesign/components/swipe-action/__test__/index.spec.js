@@ -1,12 +1,12 @@
 import React, { createRef } from 'react';
+import { act, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import SwipeAction from '..';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
-import { mockAddListener } from '../../../tests/helpers/mockEvent';
 import { mockSwipe } from './utils';
+
 demoTest('swipe-action');
 
 mountTest(SwipeAction, 'SwipeAction');
@@ -55,7 +55,9 @@ const contentStyle = {
     width: '100%',
     height: '50px',
 };
-const ContentDiv = () => <div style={contentStyle}></div>;
+function ContentDiv() {
+    return <div style={contentStyle} />;
+}
 
 describe('SwipeAction', () => {
     beforeEach(() => {
@@ -67,22 +69,22 @@ describe('SwipeAction', () => {
     });
 
     it('should render correctly when set swipe-action and children', () => {
-        const component = mount(
+        const { container } = render(
             <SwipeAction {...props}>
                 <ContentDiv />
             </SwipeAction>,
         );
-        expect(component.find(`.${prefix}`).length).toBe(1);
-        expect(component.find(`.${prefix}-menu`).length).toBe(2);
-        expect(component.find(`.${prefix}-menu-action-left`).length).toBe(2);
-        expect(component.find(`.${prefix}-menu-action-right`).length).toBe(3);
+        expect(container.querySelectorAll(`.${prefix}`).length).toBe(1);
+        expect(container.querySelectorAll(`.${prefix}-menu`).length).toBe(2);
+        expect(container.querySelectorAll(`.${prefix}-menu-action-left`).length).toBe(2);
+        expect(container.querySelectorAll(`.${prefix}-menu-action-right`).length).toBe(3);
     });
 
     it('should should support swipe-action to onClose and onOpen', async () => {
         const mockOpenFn = jest.fn();
         const mockCloseFn = jest.fn();
         const ref = createRef();
-        mount(
+        render(
             <SwipeAction {...props} ref={ref} onOpen={mockOpenFn} onClose={mockCloseFn}>
                 <ContentDiv />
             </SwipeAction>,
@@ -100,26 +102,30 @@ describe('SwipeAction', () => {
         expect(mockCloseFn).toBeCalled();
     });
 
-    it('should allow to drag to show  menu', async () => {
-        const ref = createRef();
+    it('should allow to drag to show menu', async () => {
         const mockOpenFn = jest.fn();
-        const component = mount(
-            <SwipeAction {...props} ref={ref} onOpen={mockOpenFn}>
+        const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
+        Element.prototype.getBoundingClientRect = () => ({
+            width: 64,
+        });
+        const { container } = render(
+            <SwipeAction {...props} onOpen={mockOpenFn}>
                 <ContentDiv />
             </SwipeAction>,
         );
-        const map = mockAddListener(component.find(`.${prefix}`).at(0));
-        mockSwipe(map, component, prefix, { touchstart: 100, touchmove: 200, touchend: 400 });
+        const comp = container.querySelector(`.${prefix}`);
+        mockSwipe(comp, { touchstart: 100, touchmove: 200, touchend: 400 });
         await act(async () => {
             await jest.advanceTimersByTime(500);
         });
         expect(mockOpenFn).toBeCalled();
+        Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
     });
 
     it('click document the swipe action should close', async () => {
         const ref = createRef();
         const mockFn = jest.fn();
-        const component = mount(
+        const { container } = render(
             <SwipeAction closeOnTouchOutside ref={ref} {...props} onClose={mockFn}>
                 <ContentDiv />
             </SwipeAction>,
@@ -135,5 +141,13 @@ describe('SwipeAction', () => {
             await jest.advanceTimersByTime(500);
         });
         expect(mockFn).toBeCalled();
+        act(() => {
+            SwipeElement.open('right');
+        });
+        userEvent.click(container.querySelector(`.${prefix}-menu-action-left`));
+        await act(async () => {
+            await jest.advanceTimersByTime(500);
+        });
+        expect(mockFn).toBeCalledTimes(2);
     });
 });

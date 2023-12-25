@@ -10,11 +10,16 @@ import Image from '../../image';
 import { delay, pureDelay } from '../../../tests/helpers/utils';
 import { createStartTouchEventObject, mockAddListener } from '../../../tests/helpers/mockEvent';
 import { mockSwipe, mockSwipeEnd } from '../../carousel/__test__/utils-rtl';
-import { mockContainerSize, resetContainerSizeMock } from '../../../tests/helpers/mockElement';
+import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
 
 demoTest('image-preview');
 
 mountTest(ImagePreview, 'ImagePreview');
+
+const { setHTMLProperties, unsetHTMLProperties } = defineHtmlRefProperties({
+    offsetWidth: 375,
+    offsetHeight: 200,
+});
 
 const prefix = `${defaultContext.prefixCls}-image-preview`;
 const imagePrefix = `${defaultContext.prefixCls}-image`;
@@ -76,12 +81,14 @@ function openAndLoadImage(view, props, index) {
 
 describe('ImagePreview', () => {
     beforeAll(() => {
-        mockContainerSize();
+        // mockContainerSize();
+        setHTMLProperties();
         window.requestAnimationFrame = jest.fn(fn => fn());
     });
 
     afterAll(() => {
-        resetContainerSizeMock();
+        // resetContainerSizeMock();
+        unsetHTMLProperties();
     });
 
     beforeEach(() => {

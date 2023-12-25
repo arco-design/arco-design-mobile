@@ -72,7 +72,7 @@ exports[`load-more demo test load-more demo: index.md renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="arco-load-more status-loading "
+      class="arco-load-more status-loading"
       style="padding-top: 16px; padding-bottom: 44px;"
     >
       <div

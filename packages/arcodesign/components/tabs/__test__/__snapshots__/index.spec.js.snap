@@ -9,7 +9,7 @@ exports[`tabs demo test tabs demo: adaptive.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line"
+        class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"
@@ -82,7 +82,7 @@ exports[`tabs demo test tabs demo: basic.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line-divide pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
@@ -146,7 +146,7 @@ exports[`tabs demo test tabs demo: card.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-card pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-card"
+        class="arco-tab-cell-container-inner vertical pos-top type-card pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-card shown"
@@ -202,7 +202,7 @@ exports[`tabs demo test tabs demo: caterpillar.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line"
+        class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
@@ -296,7 +296,7 @@ exports[`tabs demo test tabs demo: click.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line-divide pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
@@ -360,7 +360,7 @@ exports[`tabs demo test tabs demo: custom-bar.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-tag-divide pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-tag-divide"
+        class="arco-tab-cell-container-inner vertical pos-top type-tag-divide pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-tag-divide shown"
@@ -461,7 +461,7 @@ exports[`tabs demo test tabs demo: duration.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line-divide pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
@@ -534,7 +534,7 @@ exports[`tabs demo test tabs demo: energy-saving.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line-divide pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
@@ -602,7 +602,7 @@ exports[`tabs demo test tabs demo: extra.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line"
+        class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
@@ -726,7 +726,7 @@ exports[`tabs demo test tabs demo: scroll.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-line has-divider"
+        class="arco-tab-cell-container-inner vertical pos-top type-line has-divider pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
@@ -853,7 +853,7 @@ exports[`tabs demo test tabs demo: sticky.md renders correctly 1`] = `
           class="arco-tab-cell-container-wrap vertical type-line pc"
         >
           <div
-            class="arco-tab-cell-container-inner vertical pos-top type-line"
+            class="arco-tab-cell-container-inner vertical pos-top type-line pc"
           >
             <div
               class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
@@ -948,7 +948,7 @@ exports[`tabs demo test tabs demo: tag.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-tag pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-tag"
+        class="arco-tab-cell-container-inner vertical pos-top type-tag pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-start type-tag shown"
@@ -1057,7 +1057,7 @@ exports[`tabs demo test tabs demo: tag-divide.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap vertical type-tag-divide pc"
     >
       <div
-        class="arco-tab-cell-container-inner vertical pos-top type-tag-divide"
+        class="arco-tab-cell-container-inner vertical pos-top type-tag-divide pc"
       >
         <div
           class="arco-tab-cell-container vertical pos-top arrange-center type-tag-divide shown"
@@ -1118,7 +1118,7 @@ exports[`tabs demo test tabs demo: vertical.md renders correctly 1`] = `
       class="arco-tab-cell-container-wrap horizontal type-line pc"
     >
       <div
-        class="arco-tab-cell-container-inner horizontal pos-left type-line"
+        class="arco-tab-cell-container-inner horizontal pos-left type-line pc"
       >
         <div
           class="arco-tab-cell-container horizontal pos-left arrange-center type-line shown"

@@ -1665,16 +1665,16 @@ exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
       >
         <div
           class="grid-demo-block"
-        />
-        <div
-          class="arco-badge arco-badge-absolute absolute"
-          style="margin-left: -52px; margin-top: -6px;"
         >
-          <span
-            class="arco-badge-text badge-text"
+          <div
+            class="arco-badge arco-badge-absolute absolute"
           >
-            New
-          </span>
+            <span
+              class="arco-badge-text badge-text"
+            >
+              New
+            </span>
+          </div>
         </div>
         <div
           class="grid-demo-rows-item-text"
@@ -1691,16 +1691,16 @@ exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
       >
         <div
           class="grid-demo-block"
-        />
-        <div
-          class="arco-badge arco-badge-absolute absolute"
-          style="margin-left: -50px; margin-top: -6px;"
         >
-          <span
-            class="arco-badge-text badge-text"
+          <div
+            class="arco-badge arco-badge-absolute absolute"
           >
-            99+
-          </span>
+            <span
+              class="arco-badge-text badge-text"
+            >
+              99+
+            </span>
+          </div>
         </div>
         <div
           class="grid-demo-rows-item-text"

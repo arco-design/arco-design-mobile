@@ -10,7 +10,7 @@ exports[`swipe-load demo test swipe-load demo: carousel-label.md renders correct
     >
       <div
         class="arco-carousel-inner auto"
-        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(-0%) translateZ(0);"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
           class="arco-carousel-item carousel-item normal-item active"

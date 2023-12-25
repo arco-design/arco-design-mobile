@@ -1,23 +1,31 @@
-import { act } from 'react-dom/test-utils';
-import { createMoveTouchEventObject, createStartTouchEventObject } from '../../../tests/helpers/mockEvent';
+import { act, fireEvent } from '@testing-library/react';
+import {
+    createMoveTouchEventObject,
+    createStartTouchEventObject,
+} from '../../../tests/helpers/mockEvent';
 
-export function mockSwipeStart(map, clientXMap) {
+export function mockSwipeStart(comp, clientXMap) {
     const { touchstart, touchmove } = clientXMap;
     act(() => {
-        map.touchstart(createStartTouchEventObject({ x: touchstart, y: 0 }));
-        map.touchmove(createMoveTouchEventObject({ x: touchmove, y: 0 }));
+        fireEvent.touchStart(
+            comp,
+            createStartTouchEventObject({ x: touchstart, px: touchstart, y: 0 }),
+        );
+        fireEvent.touchMove(
+            comp,
+            createMoveTouchEventObject({ x: touchmove, px: touchmove, y: 0 }),
+        );
     });
 }
-export function mockSwipeEnd(wrapper, className, touchend) {
-    wrapper.find(`.${className}`).simulate('touchEnd', createMoveTouchEventObject({ x: touchend, y: 0 }));
+export function mockSwipeEnd(comp, touchend) {
+    fireEvent.touchEnd(comp, createMoveTouchEventObject({ x: touchend, px: touchend, y: 0 }));
     act(() => {
         jest.advanceTimersByTime(600);
     });
-    wrapper.update();
 }
 
-export function mockSwipe(map, wrapper, className, clientXMap) {
+export function mockSwipe(comp, clientXMap) {
     const { touchend } = clientXMap;
-    mockSwipeStart(map, clientXMap);
-    mockSwipeEnd(wrapper, className, touchend);
+    mockSwipeStart(comp, clientXMap);
+    mockSwipeEnd(comp, touchend);
 }

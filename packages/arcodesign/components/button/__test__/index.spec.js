@@ -1,8 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { screen, render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import Button from '..';
+import '@testing-library/jest-dom';
 
 demoTest('button');
 
@@ -13,54 +15,44 @@ describe('Button', () => {
     mountTest(() => <Button size="small" />, 'Small Button');
     it('should callback correctly when clicked', () => {
         const mockFn = jest.fn();
-        const component = mount(<Button onClick={mockFn} />);
-        const btn = component.find('button');
-        btn.simulate('click');
+        const { rerender } = render(<Button onClick={mockFn} />);
+        const btn = screen.getByRole('button');
+        userEvent.click(btn);
         const mockFnCallLength = mockFn.mock.calls.length;
         expect(mockFnCallLength).toBe(1);
-
-        component.setProps({
-            disabled: true,
-        });
-        btn.simulate('click');
+        rerender(<Button onClick={mockFn} disabled />);
+        userEvent.click(btn);
         expect(mockFnCallLength).toBe(mockFnCallLength);
     });
     it('should render active correctly when clicked/touched', () => {
-        const component = mount(<Button />);
-        const btn = component.find('button');
-        btn.simulate('mousedown');
-        expect(component.find('.active').length).toBe(1);
-        btn.simulate('mouseup');
-        expect(component.find('.active').length).toBe(0);
-
-        component.setProps({
-            needActive: false,
-        });
-        btn.simulate('mousedown');
-        expect(component.find('.active').length).toBe(0);
-        btn.simulate('mouseup');
-        expect(component.find('.active').length).toBe(0);
+        const { container, rerender } = render(<Button />);
+        const btn = screen.getByRole('button');
+        fireEvent.touchStart(btn);
+        expect(container.querySelectorAll('.active').length).toBe(1);
+        fireEvent.touchEnd(btn);
+        expect(container.querySelectorAll('.active').length).toBe(0);
+        rerender(<Button needActive={false} />);
+        fireEvent.touchStart(btn);
+        expect(container.querySelectorAll('.active').length).toBe(0);
+        fireEvent.touchEnd(btn);
+        expect(container.querySelectorAll('.active').length).toBe(0);
     });
     it('should render correctly when set inline/disabled/halfBorder', () => {
-        const component1 = mount(<Button inline disabled halfBorder />);
-        expect(component1.find('.inline').length).toBe(1);
-        expect(component1.find('.disabled').length).toBe(1);
-        expect(component1.find('.half-border').length).toBe(1);
-        const component2 = mount(<Button />);
-        expect(component2.find('.inline').length).toBe(0);
-        expect(component2.find('.disabled').length).toBe(0);
-        expect(component2.find('.half-border').length).toBe(0);
+        const { container: component1 } = render(<Button inline disabled halfBorder />);
+        expect(component1.querySelectorAll('.inline').length).toBe(1);
+        expect(component1.querySelectorAll('.disabled').length).toBe(1);
+        expect(component1.querySelectorAll('.half-border').length).toBe(1);
+        const { container: component2 } = render(<Button />);
+        expect(component2.querySelectorAll('.inline').length).toBe(0);
+        expect(component2.querySelectorAll('.disabled').length).toBe(0);
+        expect(component2.querySelectorAll('.half-border').length).toBe(0);
     });
     it('should reset when loading state is end', () => {
-        const component = mount(<Button />);
-        component.setProps({
-            loading: true,
-        });
-        expect(component.find('.loading').length).toBe(1);
-        component.setProps({
-            loading: false,
-        });
-        expect(component.find('.loading').length).toBe(0);
+        const { container, rerender } = render(<Button />);
+        rerender(<Button loading />);
+        expect(container.querySelectorAll('.loading').length).toBe(1);
+        rerender(<Button loading={false} />);
+        expect(container.querySelectorAll('.loading').length).toBe(0);
     });
     it('should render correctly when set custom color config', () => {
         const colorConfig = {
@@ -68,27 +60,27 @@ describe('Button', () => {
             active: '#F53F3F',
             disabled: '#FBACA3',
         };
-        const component = mount(
+        render(
             <Button bgColor={colorConfig} borderColor={colorConfig}>
                 Text
             </Button>,
         );
-        const btn = component.find('button');
-        expect(btn.props().style.borderColor).toBe('#FF5722');
-        expect(btn.props().style.background).toBe('#FF5722');
+        const btn = screen.getByRole('button');
+        expect(btn).toHaveStyle({ borderColor: '#FF5722' });
+        expect(btn).toHaveStyle({ background: '#FF5722' });
     });
     it('should render icon correctly when loading', () => {
-        // const component = mount(<Button loadingIcon="123" />);
-        // expect(component.find('.btn-icon').text()).toEqual('123')
+        const { container } = render(<Button loading loadingIcon="123" />);
+        expect(container.querySelector('.btn-icon').textContent).toEqual('123');
     });
     it('should render empty button without errors', () => {
-        const wrapper = mount(
+        const { container } = render(
             <Button>
                 {null}
                 {undefined}
             </Button>,
         );
-        expect(wrapper.text()).toBe('');
+        expect(container.textContent).toBe('');
     });
     it('should not throw error when size/type is wrong', () => {});
 });
