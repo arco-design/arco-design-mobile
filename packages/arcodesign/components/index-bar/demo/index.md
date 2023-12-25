@@ -90,3 +90,15 @@ export default function IndexBarDemo() {
     );
 }
 ```
+
+```less
+.custom-index-bar-height {
+    height: 480px;
+}
+.arco-tab-cell.vertical.line {
+    .rem(font-size, 16);
+    &:not(.last) {
+        .rem(margin-right, 139);
+    }
+}
+```

@@ -4,6 +4,7 @@
 
 ```js
 import { SwipeLoad, Carousel, Toast } from '@arco-design/mobile-react';
+
 const renderLabel = () => {
     return (
         <div
@@ -45,5 +46,18 @@ export default function SwipeLoadDemo() {
             </SwipeLoad>
         </Carousel>
     );
+}
+```
+
+```less
+.mylabel-start {
+    width: 100px;
+    height: 96px;
+    transition: background 0.2s;
+    .use-var(background, background-color);
+
+    &.end {
+        .use-var(background, line-color);
+    }
 }
 ```

@@ -75,22 +75,22 @@ export interface ImageProps {
      *  */
     bordered?: boolean;
     /**
-     * 自定义展示加载中内容，staticLabel=false时有效
+     * 自定义展示加载中内容
      * @en Custom display loading content, valid when staticLabel=false
      *  */
     loadingArea?: ReactNode;
     /**
-     * 自定义展示加载失败内容，staticLabel=false时有效
+     * 自定义展示加载失败内容
      * @en Custom display failed to load content, valid when staticLabel=false
      *  */
     errorArea?: ReactNode;
     /**
-     * 是否展示图片加载中提示，staticLabel=false时有效
+     * 是否展示图片加载中提示
      * @en Whether to display the image loading prompt, valid when staticLabel=false
      *  */
     showLoading?: boolean;
     /**
-     * 是否展示图片加载失败提示，staticLabel=false时有效
+     * 是否展示图片加载失败提示
      * @en Whether to display the image loading failure prompt, valid when staticLabel=false
      *  */
     showError?: boolean;
@@ -163,17 +163,17 @@ export interface ImageProps {
      * 图片加载完毕时触发的回调
      * @en Callback when the image is loaded
      * */
-    onLoad?: (e: Event, image: HTMLImageElement) => void;
+    onLoad?: (e: Event | null, image: HTMLImageElement) => void;
     /**
      * 图片加载失败时触发的回调，如果有自动重试则在重试最终失败后触发
      * @en Callback when the image fails to load, triggered after the retry finally fails if there is an automatic retry
      */
-    onError?: (e: string | Event) => void;
+    onError?: (e: string | Event | null) => void;
     /**
      * 图片加载失败时自动重试触发的回调
      * @en Callback triggered by automatic retry when image loading fails
      */
-    onAutoRetry?: (e: string | Event) => void;
+    onAutoRetry?: (e: string | Event | null) => void;
 }
 
 export interface ImageRef {
@@ -203,17 +203,6 @@ export interface ImageRef {
  * @name_en Image
  */
 export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
-    const system = useSystem();
-    const { windowWidth, windowHeight } = useWindowSize();
-    const [imageStatus, setImageStatus] = useMountedState<ImageStatus>('init');
-    const [wrapClass, setWrapClass] = useMountedState('');
-    const [staticRetrying, setStaticRetrying] = useMountedState(false);
-    const imageRef = useRef<HTMLDivElement | null>(null);
-    const imageDomRef = useRef<HTMLImageElement | null>(null);
-    const wrapRef = useRef<HTMLDivElement | null>(null);
-    const retryCountRef = useRef(0);
-    const loadingImageRef = useRef<HTMLImageElement | null>(null);
-    const hasLoadedRef = useRef(false);
     const {
         style,
         className,
@@ -246,6 +235,19 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         onError,
         onAutoRetry,
     } = props;
+    const system = useSystem();
+    const { windowWidth, windowHeight } = useWindowSize();
+    const [imageStatus, setImageStatus] = useMountedState<ImageStatus>(
+        staticLabel && showLoading ? 'loading' : 'init',
+    );
+    const [wrapClass, setWrapClass] = useMountedState('');
+    const [staticRetrying, setStaticRetrying] = useMountedState(false);
+    const imageRef = useRef<HTMLDivElement | null>(null);
+    const imageDomRef = useRef<HTMLImageElement | null>(null);
+    const wrapRef = useRef<HTMLDivElement | null>(null);
+    const retryCountRef = useRef(0);
+    const loadingImageRef = useRef<HTMLImageElement | null>(null);
+    const hasLoadedRef = useRef(false);
     const isPreview = Boolean(fit.indexOf('preview') >= 0);
     const actualBoxWidth = boxWidth || windowWidth;
     const actualBoxHeight = boxHeight || windowHeight;
@@ -280,6 +282,20 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         loadImage();
     }, [attrs, width, height, showImage, staticLabel]);
 
+    useEffect(() => {
+        // 当使用img标签时，onLoad可能加载完成前已经执行完，此时手动触发一次
+        // @en When using the img tag, onLoad may have been executed before loading is complete, and it needs to be triggered manually
+        if (staticLabel && !hasLoadedRef.current && imageDomRef.current?.complete) {
+            // 图片有宽高认为正常加载，否则认为加载错误
+            // @en If the image has width and height, it is considered to be loaded normally, otherwise it is considered to be a loading error
+            if (imageDomRef.current.naturalWidth || imageDomRef.current.naturalHeight) {
+                handleStaticImageLoaded(null, imageDomRef.current);
+            } else {
+                handleStaticImageError(null);
+            }
+        }
+    }, [staticLabel]);
+
     function changeStatus(newStatus: ImageStatus) {
         setImageStatus(newStatus);
         onChange && onChange(newStatus);
@@ -295,6 +311,36 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         } else {
             dom.appendChild(newChild);
         }
+    }
+
+    function handleImageLoaded(image: HTMLImageElement) {
+        hasLoadedRef.current = true;
+        changeStatus('loaded');
+        const { width: imageWidth = 0, height: imageHeight = 0 } = image;
+        let extraClass = '';
+        if (isPreview) {
+            const scale = imageWidth / imageHeight;
+            const windowScale = actualBoxWidth / actualBoxHeight;
+            if (fit === 'preview-y') {
+                if (scale < windowScale) {
+                    image.style.width = `${actualBoxWidth}px`;
+                    image.style.height = `${actualBoxWidth / scale}px`;
+                    extraClass = 'preview-overflow-y';
+                } else {
+                    extraClass = 'preview-fit-contain-y';
+                }
+            } else if (fit === 'preview-x') {
+                if (scale > windowScale) {
+                    image.style.width = `${actualBoxHeight * scale}px`;
+                    image.style.height = `${actualBoxHeight}px`;
+                    extraClass = 'preview-overflow-x';
+                } else {
+                    extraClass = 'preview-fit-contain-x';
+                }
+            }
+        }
+        extraClass && image.classList.add(extraClass);
+        setWrapClass(extraClass ? `${extraClass}-container` : '');
     }
 
     function loadImage(isFromRetry?: boolean) {
@@ -319,33 +365,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         image.onload = evt => {
             loadingImageRef.current = null;
             imageDomRef.current = image;
-            hasLoadedRef.current = true;
-            changeStatus('loaded');
-            const { width: imageWidth = 0, height: imageHeight = 0 } = image;
-            let extraClass = '';
-            if (isPreview) {
-                const scale = imageWidth / imageHeight;
-                const windowScale = actualBoxWidth / actualBoxHeight;
-                if (fit === 'preview-y') {
-                    if (scale < windowScale) {
-                        image.style.width = `${actualBoxWidth}px`;
-                        image.style.height = `${actualBoxWidth / scale}px`;
-                        extraClass = 'preview-overflow-y';
-                    } else {
-                        extraClass = 'preview-fit-contain-y';
-                    }
-                } else if (fit === 'preview-x') {
-                    if (scale > windowScale) {
-                        image.style.width = `${actualBoxHeight * scale}px`;
-                        image.style.height = `${actualBoxHeight}px`;
-                        extraClass = 'preview-overflow-x';
-                    } else {
-                        extraClass = 'preview-fit-contain-x';
-                    }
-                }
-            }
-            extraClass && image.classList.add(extraClass);
-            setWrapClass(extraClass ? `${extraClass}-container` : '');
+            handleImageLoaded(image);
             replaceChild(image);
             onLoad && onLoad(evt, image);
         };
@@ -369,9 +389,15 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         });
     }
 
-    function handleStaticImageError(e: React.SyntheticEvent<HTMLImageElement, Event>) {
-        const evt = e.nativeEvent;
+    function handleStaticImageLoaded(evt: Event | null, image: HTMLImageElement) {
+        handleImageLoaded(image);
+        onLoad && onLoad(evt, image);
+    }
+
+    function handleStaticImageError(e: React.SyntheticEvent<HTMLImageElement, Event> | null) {
+        const evt = e ? e.nativeEvent : null;
         if (retryCountRef.current >= retryTime) {
+            changeStatus('error');
             onError && onError(evt);
         } else {
             retryCountRef.current += 1;
@@ -447,7 +473,9 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                                 {...nativeProps}
                                 {...attrs}
                                 ref={imageDomRef}
-                                onLoad={e => onLoad && onLoad(e.nativeEvent, imageDomRef.current!)}
+                                onLoad={e =>
+                                    handleStaticImageLoaded(e.nativeEvent, imageDomRef.current!)
+                                }
                                 onError={handleStaticImageError}
                             />
                         ) : null}

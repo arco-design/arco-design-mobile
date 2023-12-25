@@ -51,9 +51,9 @@
             .@{prefix}-grid-rows-item {
 
                 &-text {
-                    .use-var(margin-left, grid-horizontal-text-margin-left);
+                    .use-var-with-rtl(margin-left, grid-horizontal-text-margin-left);
                     margin-top: 0;
-                    text-align: left;
+                    .set-value-with-rtl(text-align, left);
                 }
 
                 &-content {

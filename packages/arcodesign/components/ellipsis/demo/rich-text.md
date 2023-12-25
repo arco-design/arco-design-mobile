@@ -13,3 +13,12 @@ export default function EllipsisDemo() {
     return <Ellipsis text={text} dangerouslyUseInnerHTML={true} maxLine={2} />;
 }
 ```
+
+```less
+.demo-link-line {
+    .use-var(color, primary-color);
+}
+.demo-link-line {
+    text-decoration: underline;
+}
+```

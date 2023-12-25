@@ -1,3 +1,8 @@
+/**
+ * @type utils
+ * @name color
+ */
+
 export const w3cx11 = {
     aliceblue: '#f0f8ff',
     antiquewhite: '#faebd7',
@@ -156,6 +161,20 @@ export const w3cx11 = {
     yellowgreen: '#9acd32',
 };
 
+/**
+ * 获取任意颜色的透明色
+ * @desc {en} Get any transparent color
+ * @param color 颜色
+ * @param color {en} color
+ * @returns transparent color
+ * @example
+ * ```
+ * import { fadeColor } from '@arco-design/mobile-utils';
+ *
+ * const transparentColor = fadeColor('#ffffff');
+ * // transparentColor is '#ffffff00'
+ * ```
+ */
 export function fadeColor(color: string): string {
     if (!color) {
         return '';

@@ -22,6 +22,7 @@ export interface CascaderProps {
 export interface CascaderRef {
     getCellMovingStatus: () => PickerCellMovingStatus[];
     scrollToCurrentIndex: () => void;
+    getAllCellsValue: () => ValueType[];
 }
 
 const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
@@ -45,6 +46,7 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
     useImperativeHandle(ref, () => ({
         getCellMovingStatus,
         scrollToCurrentIndex,
+        getAllCellsValue,
     }));
 
     function getCellMovingStatus() {
@@ -53,6 +55,10 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
 
     function scrollToCurrentIndex() {
         pickerCellsRef.current.forEach(cell => cell.scrollToCurrentIndex());
+    }
+
+    function getAllCellsValue() {
+        return pickerCellsRef.current.map(cell => cell.getCurrentCellValue());
     }
 
     function _onValueChange(value: ValueType[], index: number, newData: PickerData[]) {

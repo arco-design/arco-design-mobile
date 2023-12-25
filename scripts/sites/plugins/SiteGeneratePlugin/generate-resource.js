@@ -8,85 +8,128 @@ const utils = require('../../../utils');
 const languageUtils = require('../../../utils/language');
 const localeMap = require('../../../utils/language.json');
 
+const itemList = [];
 
-function readFileName (path) {
+function readFileName(path) {
     const pathName = path.replace(/\.readme.*\.md/i, '');
     const matchRes = path.match(/\.readme(.*)\.md/i);
-    if(matchRes.length > 1) {
-        const fileSuffix = matchRes[1].replace(/\./, '-')
-        const lang = fileSuffix.slice(1) in languageUtils.suffix2LangMap ? languageUtils.suffix2LangMap[fileSuffix.slice(1)] : 'ch';
+    if (matchRes.length > 1) {
+        const fileSuffix = matchRes[1].replace(/\./, '-');
+        const lang =
+            fileSuffix.slice(1) in languageUtils.suffix2LangMap
+                ? languageUtils.suffix2LangMap[fileSuffix.slice(1)]
+                : 'ch';
         return { pathName, fileSuffix, language: lang };
     }
-    return { pathName, fileSuffix: '' }
+    return { pathName, fileSuffix: '' };
 }
+
+function getContentStr(
+    func,
+    functionSourceMdPath,
+    functionSourceOutput,
+    resourceRoutes,
+    category,
+    type,
+) {
+    const { pathName, fileSuffix: tsxFileSuffix, language } = readFileName(func.slice());
+    // const mdFileName = pathName.replace(/-(\w)/g, function (_, $1) {
+    //     return $1.toUpperCase();
+    // });
+    const { importStr, docStr } = generateResourcePage(
+        path.join(functionSourceMdPath, func),
+        pathName,
+        path.join(functionSourceOutput, pathName),
+        resourceRoutes,
+        category,
+        {
+            tsxFileSuffix,
+            language,
+        },
+        type,
+    );
+
+    return {
+        importStr,
+        docStr,
+    };
+}
+
 function generateResource(resourcePagePath, docPath) {
     let resourceImportStr = '';
     let resourceDocStr = '';
     const resourceRoutes = {};
     // 公用开发资源
-    const hooksSourceMdPath = path.join(docPath, 'hooks');
-    const utilsSourceMdPath = path.join(docPath, 'utils');
+    const functionSourceMdPath = path.join(docPath, 'function');
     const mixinSourceMdPath = path.join(docPath, 'mixin');
-    const hooksSourceOutput = path.join(resourcePagePath, 'hooks');
-    const utilsSourceOutput = path.join(resourcePagePath, 'utils');
+    const functionSourceOutput = path.join(resourcePagePath, 'function');
     const mixinSourceOutput = path.join(resourcePagePath, 'mixin');
-    fs.removeSync(resourcePagePath)
-    fs.mkdirpSync(hooksSourceOutput);
-    fs.mkdirpSync(utilsSourceOutput);
+    fs.removeSync(resourcePagePath);
+    fs.mkdirpSync(functionSourceOutput);
     fs.mkdirpSync(mixinSourceOutput);
-    const hooksSource = fs.readdirSync(hooksSourceMdPath);
-    const utilsSource = fs.readdirSync(utilsSourceMdPath);
-    const mixinSource = fs.readdirSync(mixinSourceMdPath);
-    hooksSource.forEach(hook => {
-        const { pathName: mdFileName, fileSuffix: tsxFileSuffix, language } = readFileName(hook.slice());
-        const { importStr, docStr } = generateResourcePage(
-            path.join(hooksSourceMdPath, hook),
-            mdFileName,
-            path.join(hooksSourceOutput, mdFileName),
-            resourceRoutes,
-            'hooks',
-            {
-                tsxFileSuffix,
-                language
-            }
-        );
-        resourceImportStr += importStr;
-        resourceDocStr += docStr;
-    });
-    utilsSource.forEach(util => {
-        const { pathName, fileSuffix: tsxFileSuffix, language } = readFileName(util.slice());
-        const mdFileName = pathName.replace(/-(\w)/g, function (_, $1) {
-                return $1.toUpperCase();
+    const functionDir = fs.existsSync(functionSourceMdPath)
+        ? fs.readdirSync(functionSourceMdPath)
+        : [];
+    const mixinSource = fs.existsSync(mixinSourceMdPath) ? fs.readdirSync(mixinSourceMdPath) : [];
+
+    functionDir.forEach(dir => {
+        const totalPath = path.join(functionSourceMdPath, dir);
+        const stat = fs.lstatSync(totalPath);
+        if (stat.isDirectory()) {
+            const functionSource = fs.readdirSync(totalPath);
+            functionSource.forEach(func => {
+                const { importStr, docStr } = getContentStr(
+                    func,
+                    totalPath,
+                    functionSourceOutput,
+                    resourceRoutes,
+                    'function',
+                    dir,
+                );
+                resourceImportStr += importStr;
+                resourceDocStr += docStr;
             });
-        const { importStr, docStr } = generateResourcePage(
-            path.join(utilsSourceMdPath, util),
-            mdFileName,
-            path.join(utilsSourceOutput, mdFileName),
-            resourceRoutes,
-            'utils',
-            {
-                tsxFileSuffix,
-                language
-            }
-        );
-        resourceImportStr += importStr;
-        resourceDocStr += docStr;
+        } else {
+            const { importStr, docStr } = getContentStr(
+                dir,
+                functionSourceMdPath,
+                functionSourceOutput,
+                resourceRoutes,
+                'function',
+            );
+            resourceImportStr += importStr;
+            resourceDocStr += docStr;
+        }
     });
-    mixinSource.forEach(mixin => {
-        const { pathName: mdFileName, fileSuffix: tsxFileSuffix, language } = readFileName(mixin.slice());
-        const { importStr, docStr } = generateResourcePage(
-            path.join(mixinSourceMdPath, mixin),
-            mdFileName,
-            path.join(mixinSourceOutput, mdFileName),
-            resourceRoutes,
-            'mixin',
-            {
-                tsxFileSuffix,
-                language
-            }
-        );
-        resourceImportStr += importStr;
-        resourceDocStr += docStr;
+
+    mixinSource.forEach(dir => {
+        const totalPath = path.join(mixinSourceMdPath, dir);
+        const stat = fs.lstatSync(totalPath);
+        if (stat.isDirectory()) {
+            const mixinSource = fs.readdirSync(totalPath);
+            mixinSource.forEach(mixin => {
+                const { importStr, docStr } = getContentStr(
+                    mixin,
+                    totalPath,
+                    mixinSourceOutput,
+                    resourceRoutes,
+                    'mixin',
+                    dir,
+                );
+                resourceImportStr += importStr;
+                resourceDocStr += docStr;
+            });
+        } else {
+            const { importStr, docStr } = getContentStr(
+                dir,
+                mixinSourceMdPath,
+                mixinSourceOutput,
+                resourceRoutes,
+                'mixin',
+            );
+            resourceImportStr += importStr;
+            resourceDocStr += docStr;
+        }
     });
     const resourceEntryStr = `${resourceImportStr}
 const docs = {\n${resourceDocStr}};
@@ -104,10 +147,18 @@ export default docs;
     fs.writeFile(path.join(resourcePagePath, `index.ts`), resourceEntryStr, () => {
         console.log('>>> Write sites resource route file finished');
     });
+    fs.writeFile(
+        path.join(resourcePagePath, `search.json`),
+        JSON.stringify(itemList, null, 4),
+        () => {
+            console.log('>>> Write sites search list file finished');
+        },
+    );
+    itemList.splice(0, itemList.length);
 }
 
 // demo部分
-function renderFuncSource(md) {
+function renderFuncSource(md, type) {
     if (!md) {
         return {
             source: '',
@@ -117,20 +168,27 @@ function renderFuncSource(md) {
     let codeSource = '';
     renderer.code = code => {
         codeSource = code;
-        const formatScript = prism.highlight(code, prism.languages.jsx, 'jsx');
-        return `<div class="demo-code-content">
-            <pre><code class="demo-code">${formatScript}</code></pre>
-        </div>`;
+        const formatScript =
+            type === 'mixin'
+                ? prism.highlight(code, prism.languages.less, 'less')
+                : prism.highlight(code, prism.languages.jsx, 'jsx');
+        return `<Code showCodePen={false} codeSource="${encodeURIComponent(
+            codeSource,
+        )}" code={<div className="demo-code-wrapper
+            no-padding-top
+        " dangerouslySetInnerHTML={{ __html: ${JSON.stringify(`<div class="demo-code-content">
+        <pre><code class="demo-code">${formatScript}</code></pre>
+    </div>`)} }} />} />`;
     };
     renderer.heading = (text, level) => {
         if (level === 2 || level === 3) {
-            return `<h2 class="demo-code-title">${text}</h2>`;
+            return `<h2 className="demo-code-title">${text}</h2>`;
         }
         return '';
     };
 
     renderer.paragraph = text => {
-        return `<p class="demo-code-desc">${text}</p>`;
+        return `<p className="demo-code-desc">${text}</p>`;
     };
 
     const result = marked(md, { renderer });
@@ -147,7 +205,15 @@ function renderFuncSource(md) {
  * @param {生成结果文件夹} outputFolder
  * @param {解析类型} type
  */
-function generateResourcePage(filePath, mdFilename, outputFolder, resourceRoutes, type = 'utils', {tsxFileSuffix = '', language = 'ch'}) {
+function generateResourcePage(
+    filePath,
+    mdFilename,
+    outputFolder,
+    resourceRoutes,
+    category = 'utils',
+    { tsxFileSuffix = '', language = 'ch' },
+    type = 'other',
+) {
     let importStr = '';
     let docStr = '';
     const md = fs.readFileSync(filePath, 'utf8');
@@ -158,10 +224,12 @@ function generateResourcePage(filePath, mdFilename, outputFolder, resourceRoutes
     const mdSplit = md.split(/---+\n/);
 
     if (!/^###/.test(mdSplit[0])) {
-        mdSplit[0] = `### ${type} ${mdFilename}\n\n` + mdSplit[0];
+        mdSplit[0] = `### ${category} ${mdFilename}\n\n` + mdSplit[0];
     }
+
     const typeStr = mdSplit[0].split(' ')[0] + ' ' + mdSplit[0].split(' ')[1]; // eg: ### hooks
     const nameStr = mdSplit[0].split(' ')[2] || mdFilename;
+    const routeStr = (mdSplit[0].split(' ')[3] || mdFilename).replace(/[\n]/g, '');
 
     let mdFileStr = `import React from 'react';
 import Code from '../../../../entry/code';
@@ -169,7 +237,7 @@ export default function Demo() {
     return (
         <div className="pc-site-wrapper arco-resource">`;
     let pageStr = `\n`;
-    const prefix = type.slice(0, 1).toUpperCase();
+    const prefix = category.slice(0, 1).toUpperCase();
     mdSplit.slice(1).forEach((md, index) => {
         // 各部分内容使用======分隔开
         const funcSplit = md.split(/=====+/);
@@ -181,9 +249,14 @@ export default function Demo() {
             'resource-title',
             'res-',
         );
+        itemList.push({
+            category,
+            filename: mdFilename,
+            functionName: name,
+        });
 
         // 代码
-        const { source: codeSource, source } = renderFuncSource(funcSplit[1]);
+        const { source: codeSource, source } = renderFuncSource(funcSplit[1], category);
 
         // 属性等
         const { source: propsSource } = renderReadmeTable(funcSplit[2]);
@@ -192,11 +265,7 @@ export default function Demo() {
             readmeStr[0] = `<div className="demo-nav-intro" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
                 introSource,
             )} }} />`;
-            readmeStr[1] = `<Code codeSource="${encodeURIComponent(
-                codeSource,
-            )}" code={<div className="demo-code-wrapper
-                no-padding-top
-            " dangerouslySetInnerHTML={{ __html: ${JSON.stringify(source)} }} />} />`;
+            readmeStr[1] = source;
             readmeStr[2] = `<div className="demo-props" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(
                 propsSource,
             )} }} />`;
@@ -227,17 +296,22 @@ export default function Demo() {
             }
         });
         const mdCompName = `${prefix}${utils.getCompName(`${mdFilename}${tsxFileSuffix}`)}`;
-        const mdDocName = `${prefix.toLowerCase()}-${utils.getFolderName(mdFilename)}${tsxFileSuffix}`;
-        importStr += `import ${mdCompName} from './${type}/${mdFilename}${tsxFileSuffix ? `/index${tsxFileSuffix}` : ''}';\n`;
+        const mdDocName = `${prefix.toLowerCase()}-${routeStr}${tsxFileSuffix}`;
+        importStr += `import ${mdCompName} from './${category}/${mdFilename}${
+            tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
+        }';\n`;
         docStr += `    '${mdDocName}': ${mdCompName},\n`;
         const resourceRoute = {
             name: nameStr,
             key: mdDocName,
         };
-        if (!resourceRoutes[type]) {
-            !tsxFileSuffix && (resourceRoutes[type] = [resourceRoute]);
-        } else {
-            !tsxFileSuffix && resourceRoutes[type].push(resourceRoute);
+        if (!tsxFileSuffix) {
+            if (!resourceRoutes[category]) {
+                resourceRoutes[category] = {};
+            }
+            !resourceRoutes[category][type]
+                ? (resourceRoutes[category][type] = [resourceRoute])
+                : resourceRoutes[category][type].push(resourceRoute);
         }
     } catch (err) {
         console.info(`>>>>> 写入出错啦 >>>>>\n`, err);

@@ -153,6 +153,16 @@ export interface SliderProps {
      * @en Custom slider
      */
     renderThumb?: (value: number) => ReactNode;
+    /**
+     * 自定义滑块的Popover，优先级高于formatTooltip。value表示当前滑动进度，visible表示气泡的可见性，index表示当前滑块索引，thumbEl表示当前滑块元素。
+     * @en Custom slider popover，priority is higher than formatTooltip. value - current sliding progress, visible - visibility of the bubble, index - current slider index, thumbEl - current slider element.
+     */
+    renderThumbPopover?: (config: {
+        value: number;
+        visible: boolean;
+        index: number;
+        thumbEl: React.ReactNode;
+    }) => ReactNode;
 }
 
 export interface SliderRef {
@@ -164,7 +174,7 @@ export interface SliderRef {
 }
 
 const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
-    const { prefixCls = '' } = useContext(GlobalContext);
+    const { prefixCls = '', useRtl } = useContext(GlobalContext);
     const { className, style, disabled, min, max, type, showTooltip, showMarks } =
         useContext(SliderContext);
     const domRef = useRef<HTMLDivElement>(null);
@@ -190,9 +200,10 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
             top: 0,
             height: 0,
         };
+        const leftValue = useRtl ? left + width : left;
         return {
             length: isHorizontal ? width : height,
-            start: isHorizontal ? left : top,
+            start: isHorizontal ? leftValue : top,
         };
     }, [isHorizontal, firstRender]);
 
@@ -271,6 +282,7 @@ const Slider = forwardRef((_, ref: Ref<SliderRef>) => {
                                 key={idx}
                                 {...{
                                     value: Array.isArray(valueGroup) ? valueGroup[idx] : valueGroup,
+                                    idx,
                                     min,
                                     max,
                                     isTouching: commonIsTouching === idx,

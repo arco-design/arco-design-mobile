@@ -1,37 +1,10 @@
 @import '../../../../style/mixin.less';
 
 #demo-carousel {
-    .radius-num-indicator {
-        display: inline-block;
-        background: rgba(0, 0, 0, 0.3);
-        .rem(border-radius, 20);
-        .rem(font-size, 12);
-        .rem(padding, 2, 6);
-        .rem(margin-right, -8);
-        .rem(margin-bottom, -4);
-        color: #ffffff;
-    }
-    .vertical-text {
-        .rem(font-size, 16);
-        .rem(line-height, 22);
-    }
     .@{prefix}-carousel-indicator.outside {
         padding-bottom: 0;
     }
     .@{prefix}-carousel-item > img, .@{prefix}-carousel-item-inner > img, .@{prefix}-carousel-item .carousel-item-img {
         height: 140px;
-    }
-    #demo-order-11 {
-        .@{prefix}-carousel-item > img, .@{prefix}-carousel-item-inner > img, .@{prefix}-carousel-item .carousel-item-img {
-            height: auto;
-        }
-    }
-    .change-index-btns {
-        margin-top: 16px;
-        display: flex;
-        justify-content: space-between;
-        button {
-            width: 40%;
-        }
     }
 }

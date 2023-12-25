@@ -16,3 +16,12 @@ export default function RadioDemo() {
     );
 }
 ```
+
+```less
+.demo-radio-desc {
+    .rem(font-size, 12);
+    .rem(line-height, 16);
+    .rem(margin-top, 6);
+    .use-var(color, sub-info-font-color);
+}
+```

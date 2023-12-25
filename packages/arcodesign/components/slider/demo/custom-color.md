@@ -15,3 +15,11 @@ export default function SliderDemo() {
     );
 }
 ```
+
+```less
+.slider-custom-yellow {
+    .@{prefix}-slider-line.is-activated {
+        background: #ffb400;
+    }
+}
+```

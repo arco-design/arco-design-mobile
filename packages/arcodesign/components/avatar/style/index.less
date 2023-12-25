@@ -12,7 +12,7 @@
     .use-var(background-color, avatar-background);
 
     &-mode-image {
-        background-color: transparent;
+        background-color: transparent !important;
     }
 
     &-default-overlap {
@@ -56,7 +56,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        .rem(margin-left, 16);
+        .rem-with-rtl(margin-left, 16);
     }
 
     &-name {
@@ -99,7 +99,7 @@
 
     &-size-@{size} {
         .@{prefix}-avatar-wrapper {
-            .use-var(margin-left, "avatar-group-@{size}-size-offset");
+            .use-var-with-rtl(margin-left, "avatar-group-@{size}-size-offset");
         }
         .@{prefix}-avatar {
             .use-var(border-width, "avatar-group-@{size}-size-border");

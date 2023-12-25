@@ -20,6 +20,6 @@ export default function TabBarDemo() {
             title: 'Settings',
         },
     ];
-    return <TabBar dataSource={tabs} fixed={false}></TabBar>;
+    return <TabBar dataSource={tabs} fixed={false} />;
 }
 ```

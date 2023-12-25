@@ -82,3 +82,11 @@ export default function ActionSheetDemo() {
     </>);
 }
 ```
+
+```less
+.demo-action-sheet {
+    .primary-item {
+        .use-var(color, primary-color);
+    }
+}
+```

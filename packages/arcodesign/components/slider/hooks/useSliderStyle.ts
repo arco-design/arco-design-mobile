@@ -1,5 +1,6 @@
 import { useContext, useMemo, CSSProperties } from 'react';
 import { SliderContext, LinePosition } from '.';
+import { GlobalContext } from '../../context-provider';
 
 export const useSliderStyle = ({
     getLinePosition,
@@ -10,6 +11,7 @@ export const useSliderStyle = ({
     getLinePosition: () => LinePosition;
     valueGroup: number | [number, number];
 }) => {
+    const { useRtl } = useContext(GlobalContext);
     const { size, useAnimation, min, max, type } = useContext(SliderContext);
     const isHorizontal = /^horizontal/g.test(type);
 
@@ -33,8 +35,9 @@ export const useSliderStyle = ({
             start = ((smaller - min) / (max - min)) * length;
             length = ((larger - min) / (max - min)) * length - start;
         }
+        const leftStyle = useRtl ? 'right' : 'left';
         return {
-            [isHorizontal ? 'left' : 'bottom']: `${start}px`,
+            [isHorizontal ? leftStyle : 'bottom']: `${start}px`,
             [isHorizontal ? 'width' : 'height']: `${Math.abs(length)}px`,
         };
     }, [valueGroup, getLinePosition, min, max, isHorizontal]);

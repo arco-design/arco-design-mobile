@@ -10,12 +10,12 @@ import enCompositeDocs from '../pages/composite-comp/index-en-US';
 import Demo from '../widgets/demo';
 import Home from '../widgets/home';
 import TypicalDemo from '../widgets/typicalDemo';
-import useTheme from './useTheme';
 import '../../../packages/arcodesign/components/style';
 import '../../../packages/arcodesign/tools/touch2mouse';
 import { render } from '../../../packages/arcodesign/components/_helpers';
 import useLocale from './useLocale';
 import { HistoryContext } from './context';
+import useMode from '../../utils/useMode';
 import './index.less';
 
 setRootPixel();
@@ -23,15 +23,21 @@ setRootPixel();
 const useRtl = false;
 
 function App() {
-    const { theme } = useTheme();
     const { locale } = useLocale();
+    const { mode, setMode } = useMode(true);
 
     useEffect(() => {
         useRtl && document.documentElement.setAttribute('dir', 'rtl');
     }, []);
 
     return (
-        <ContextProvider theme={theme} locale={locale} useRtl={useRtl}>
+        <ContextProvider
+            locale={locale}
+            useRtl={useRtl}
+            useDarkMode
+            isDarkMode={mode === 'dark'}
+            onDarkModeChange={isDark => setMode(isDark ? 'dark' : 'light')}
+        >
             <HashRouter>
                 <Switch>
                     <Route

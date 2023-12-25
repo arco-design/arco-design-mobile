@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef, forwardRef, Ref, useImperativeHandle } from 'react';
+import React, { useEffect, useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { cls, componentWrapper, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Popup from '../popup';
 import PickerView, { PickerViewRef, ValueType, PickerCellMovingStatus } from '../picker-view';
 import { PickerProps } from './type';
-import { useListenResize } from '../_helpers';
+import { useLatestRef, useListenResize } from '../_helpers';
 
 export * from './type';
 export { MultiPicker, PickerCell, Cascader } from '../picker-view';
@@ -70,7 +70,7 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
         ...otherProps
     } = props;
 
-    const [scrollValue, setScrollValue] = useState(value);
+    const scrollValueRef = useLatestRef(value);
     const domRef = useRef<HTMLDivElement | null>(null);
     const pickerViewRef = useRef<PickerViewRef>(null);
 
@@ -95,7 +95,7 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
     const handleConfirm = () => {
         pickerViewRef.current?.scrollToCurrentIndex();
         nextTick(() => {
-            const val = pickerViewRef.current?.getAllColumnValues() || scrollValue || [];
+            const val = pickerViewRef.current?.getAllColumnValues() || scrollValueRef.current || [];
             if (onOk) {
                 onOk(val);
             }
@@ -107,10 +107,6 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
             }
         });
     };
-
-    useEffect(() => {
-        setScrollValue(value);
-    }, [value, setScrollValue]);
 
     useListenResize(updateLayoutByVisible, [visible]);
 

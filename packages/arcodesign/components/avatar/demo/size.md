@@ -34,3 +34,26 @@ export default function AvatarDemo() {
     );
 }
 ```
+
+```less
+.avatar-demo-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.avatar-left-margin {
+    .set-prop-with-rtl(margin-left, 24px);
+}
+.avatar-size-demo-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 77px;
+    .size-text {
+        font-size: 12px;
+        line-height: 17px;
+        color: #939AA3;
+    }
+}
+```

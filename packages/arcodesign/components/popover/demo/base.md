@@ -10,6 +10,7 @@ export default function PopoverDemo() {
         <div className="popover-base-demo-wrapper">
             <div className="base-item" key="white">
                 <Popover
+                    className="popover-with-margin"
                     content="Bubble centered"
                     direction="topCenter"
                     theme="white"
@@ -36,5 +37,26 @@ export default function PopoverDemo() {
             </div>
         </div>
     );
+}
+```
+
+```less
+.center-box(@height: 100px) {
+    height: @height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+}
+.popover-base-demo-wrapper {
+    .center-box();
+    .@{prefix}-button {
+        width: 124px;
+    }
+}
+.popover-with-margin {
+    margin-right: 66px;
 }
 ```

@@ -36,7 +36,7 @@ export default function TabBarDemo() {
             fixed={false}
         >
             {tabs.map((tab, index) => (
-                <TabBar.Item title={tab.title} icon={tab.icon} key={index}></TabBar.Item>
+                <TabBar.Item title={tab.title} icon={tab.icon} key={index} />
             ))}
         </TabBar>
     );

@@ -29,7 +29,6 @@
     position: absolute;
     width: max-content;
     z-index: @full-screen-z-index + 10;
-    right: 0;
     background-color: transparent;
     visibility: hidden;
     will-change: transform;
@@ -37,13 +36,11 @@
     .use-var(color, popover-content-color);
 
     &.with-shadow {
-
         .popover-bg {
             .use-var(box-shadow, popover-inner-background-shadow);
         }
 
         .popover-arrow {
-
             &.topRight,
             &.topCenter,
             &.topLeft {
@@ -87,7 +84,6 @@
     }
 
     &.with-suffix {
-
         .popover-content {
             display: flex;
             align-items: center;
@@ -107,7 +103,7 @@
     }
 
     .text-suffix {
-        .use-var(padding, popover-text-suffix-padding);
+        .use-var-with-rtl(padding-right, popover-text-suffix-edge);
         flex: 0 0 auto;
     }
 
@@ -121,7 +117,6 @@
         &.topRight,
         &.topCenter,
         &.topLeft {
-
             &,
             .popover-arrow-content {
                 .use-var(border-bottom-right-radius, popover-arrow-border-radius);
@@ -131,7 +126,6 @@
         &.bottomRight,
         &.bottomCenter,
         &.bottomLeft {
-
             &,
             .popover-arrow-content {
                 .use-var(border-top-left-radius, popover-arrow-border-radius);
@@ -198,7 +192,6 @@
     // 带border的白色主题
 
     &.white-theme.bordered {
-
         .popover-bg {
             .hairline-var(popover-content-white-theme-border-color);
         }
@@ -208,11 +201,9 @@
         }
 
         .popover-arrow {
-
             &.topRight,
             &.topCenter,
             &.topLeft {
-
                 .popover-arrow-content {
                     .hairline-bottom-right-var(popover-content-white-theme-border-color);
                 }
@@ -221,7 +212,6 @@
             &.bottomRight,
             &.bottomCenter,
             &.bottomLeft {
-
                 .popover-arrow-content {
                     .hairline-top-left-var(popover-content-white-theme-border-color);
                 }
@@ -234,4 +224,3 @@
 .global-mode.@{prefix}-popover-inner {
     position: fixed;
 }
-

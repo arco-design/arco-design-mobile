@@ -45,3 +45,13 @@ export default function NavBarDemo() {
 }
 ```
 
+```less
+.gap-line {
+    height: 20px;
+    .use-var(background, background-color);
+}
+.immersive-navbar {
+    padding-bottom: 126px;
+}
+```
+

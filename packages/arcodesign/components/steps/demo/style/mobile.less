@@ -1,13 +1,7 @@
 @import "../../../../style/mixin.less";
 
 #demo-steps {
-
-    .divide {
-        .rem(height, 8);
-        background: #f7f8fa;
-    }
     .@{prefix}-steps-item-custom-icon {
-
         img {
             .rem(width, 20);
             .rem(height, 20);
@@ -16,22 +10,5 @@
 
     .arcodesign-mobile-demo-content {
         padding: 0!important;
-    }
-
-    #demo-order-7 {
-        .set-steps-color(#FFB400);
-    }
-
-    #demo-order-8 {
-
-        .demo-svg {
-            .@{prefix}-steps-item-custom-icon {
-                border-radius: 50%;
-            }
-            .set-steps-color(#165DFF);
-            .@{prefix}-steps-item-custom-icon {
-                font-size: 11PX;
-            }
-        }
     }
 }

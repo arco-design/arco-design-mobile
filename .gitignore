@@ -19,6 +19,7 @@ output_resource/
 .history
 *.func-info.json
 *.mixin-info.json
+.npmrc
 
 # Emacs
 *~

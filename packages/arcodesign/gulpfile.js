@@ -1,15 +1,14 @@
 const gulp = require('gulp');
-const childProcess = require('child_process');
 const path = require('path');
 const ts = require('gulp-typescript');
 const babel = require('gulp-babel');
-const less = require('gulp-less');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const replace = require('gulp-replace');
-const NpmImportPlugin = require('less-plugin-npm-import');
 const fs = require('fs-extra');
 const { changeBabelModule } = require('./pack-util');
+const { gulpLess: less } = require('../../scripts/arco-less-loader');
+const customLessLoaderConfig = require('./less-loader.config');
 
 const dts = ts.createProject('../../tsconfig.json', { emitDeclarationOnly: true });
 const allCss = [];
@@ -47,7 +46,16 @@ function cjsBuild() {
 
 function copyLess() {
     return gulp
-        .src('components/**/*.less')
+        .src(['components/**/*.less', '!components/**/demo/**/*.less'])
+        .pipe(
+            less({
+                outputType: 'less',
+                ...customLessLoaderConfig,
+                lessOptions: {
+                    javascriptEnabled: true,
+                },
+            }),
+        )
         .pipe(gulp.dest('esm'))
         .pipe(gulp.dest('umd'))
         .pipe(gulp.dest('cjs'));
@@ -58,8 +66,11 @@ function buildStyle(src) {
         .src(src)
         .pipe(
             less({
-                javascriptEnabled: true,
-                plugins: [new NpmImportPlugin({ prefix: '~' })],
+                outputType: 'css',
+                ...customLessLoaderConfig,
+                lessOptions: {
+                    javascriptEnabled: true,
+                },
             }),
         )
         .pipe(
@@ -72,7 +83,7 @@ function buildStyle(src) {
 }
 
 function lessBuild() {
-    return buildStyle('components/**/*.less').pipe(
+    return buildStyle(['components/**/*.less', '!components/**/demo/**/*.less']).pipe(
         gulp.dest(file => {
             allCss.push(file.relative);
             return '_temp_style_';

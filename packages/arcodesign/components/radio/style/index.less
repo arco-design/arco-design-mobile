@@ -4,6 +4,11 @@
     display: inline-flex;
     align-items: center;
 
+    // iOS low-end machine style compatibility issues
+    &:focus {
+        outline: none;
+    }
+
     .radio-icon {
         display: inline-flex;
         align-items: center;
@@ -20,6 +25,10 @@
 
         &.checked.disabled {
             .use-var(color, checkbox-icon-checked-disabled-color);
+        }
+
+        .@{prefix}-icon-circle-disabled path {
+            .use-var(stroke, line-color);
         }
     }
 

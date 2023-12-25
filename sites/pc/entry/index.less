@@ -1,6 +1,14 @@
 @import "../static/style/public.less";
 @import "../static/style/prism.css";
 @import "../../../packages/arcodesign/style/mixin.less";
+@import "../../../packages/arcodesign/style/public.less";
+
+body {
+    background-color: var(--background-color);
+    &[arco-theme=dark] {
+        background-color: var(--dark-background-color);
+    }
+}
 
 .arcodesign-pc-site-wrap {
     height: 100%;
@@ -16,18 +24,19 @@
         padding: 36px 56px 20px;
         width: 100%;
 
-        .demo-comp-type {
+        .demo-comp-type,
+        .demo-doc-type {
             line-height: 20px;
-            color: #424e66;
+            .use-var(color, sub-info-font-color);
 
             .separator {
-                color: #c9cdd4;
+                .use-var(color, sub-info-font-color);
                 padding: 0 5px;
                 font-weight: 900;
             }
 
             strong {
-                color: #1a2234;
+                .use-var(color, font-color);
                 font-weight: 600;
             }
         }
@@ -37,12 +46,12 @@
             margin: 20px 0 0;
             font-size: 36px;
             font-weight: 500;
-            color: #1a2234;
+            .use-var(color, font-color);
         }
 
         .demo-comp-desc,
         .demo-doc-desc {
-            color: #424e66;
+            .use-var(color, sub-font-color);
             margin-top: 12px;
             line-height: 20px;
         }
@@ -51,7 +60,7 @@
 
     .demo-doc-description {
         padding: 0 43px 140px 56px;
-        color: #1d252f;
+        .use-var(color, font-color);
         width: 100%;
         flex: 1;
 
@@ -73,6 +82,7 @@
             margin: 12px 0;
             font-size: 14px;
             line-height: 1.5;
+            .use-var(color, sub-font-color);
         }
 
         li {
@@ -80,14 +90,16 @@
         }
 
         .demo-code-content {
-            font-family: Menlo,Consolas;
+            font-family: Menlo, Consolas;
             font-size: 12px;
-            color: #4e5969;
-            background-color: #f2f3f5;
+            .use-var(color, sub-font-color);
+            .use-var(background-color, lighter-line-color);
             border-radius: 3px;
             line-height: 1.45;
             padding: 24px;
             margin: 16px 0;
+            border: 1px solid;
+            .use-var(border-color, line-color);
 
             .demo-code {
                 white-space: pre-wrap;
@@ -104,9 +116,9 @@
 
         h2 > code,
         p > code {
-            background: #f2f3f5;
+            .use-var(background-color, lighter-line-color);
+            .use-var(color, sub-font-color);
             border-radius: 2px;
-            color: #424e66;
             padding: 3px 8px;
             margin: 0 2px;
         }
@@ -119,12 +131,18 @@
 
     .pc-site-content {
         padding: 0 43px 140px 56px;
-        color: #1d252f;
+        .use-var(color, font-color);
         width: 100%;
 
         .demo-code-wrapper {
+            .arco-tabs-content {
+                padding-top: 0;
+            }
 
             .demo-code-title {
+                &:nth-child(n + 2) {
+                    margin-top: 24px;
+                }
                 font-size: 20px;
                 margin-bottom: 12px;
                 font-weight: 500;
@@ -132,32 +150,35 @@
 
             .demo-code-desc {
                 line-height: 1.5;
-                color: #424e66;
+                .use-var(color, sub-font-color);
             }
 
             .demo-code-content {
                 position: relative;
                 overflow: hidden;
                 max-height: 240px;
-                border: 1px solid #e5e6e8;
-                margin-top: 24px;
-                border-radius: 2px;
-                background: #f7f8fa;
+                .use-var(background-color, card-background-color);
 
                 .demo-code {
-                    color: #4e5969;
+                    .use-var(color, sub-font-color);
                     width: 100%;
                     display: block;
                     word-break: normal;
-                    padding: 22px 48px 28px;
+                    padding: 12px 24px;
                     overflow-x: auto;
                     overflow-y: hidden;
                     font-size: 13px;
                     line-height: 22px;
-                    font-family: Menlo,Consolas;
+                    font-family: Menlo, Consolas;
                     box-sizing: border-box;
                     white-space: pre-wrap;
                 }
+            }
+        }
+
+        .demo-code-title {
+            &:nth-child(n + 2) {
+                margin-top: 20px;
             }
         }
 
@@ -169,14 +190,14 @@
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 28px;
-                color: #1a2234;
+                .use-var(color, font-color);
                 margin-top: 24px;
             }
 
             .demo-desc {
                 margin-top: 12px;
                 font-size: 14px;
-                color: #424e66;
+                .use-var(color, sub-font-color);
             }
             // 属性说明的表格
 
@@ -184,30 +205,34 @@
                 text-align: left;
                 width: 100%;
                 border-radius: 0 0 2px 2px;
-                border: 1px solid #e5e6e8;
-                color: #1a2234;
+                border: 1px solid;
+                .use-var(border-color, line-color);
+                .use-var(color, font-color);
                 font-size: 13px;
                 margin-top: 24px;
 
                 thead {
-                    background-color: #f2f3f5;
+                    .use-var(background-color, lighter-line-color);
 
                     th {
                         font-weight: 500;
                         white-space: nowrap;
-                        border-bottom: 1px solid #e5e6e8;
+                        border-bottom: 1px solid;
+                        .use-var(border-bottom-color, line-color);
 
                         &:not(:last-of-type) {
-                            border-right: 1px solid #e5e6e8;
+                            border-right: 1px solid;
+                            .use-var(border-right-color, line-color);
                         }
                     }
                 }
 
                 tbody {
-                    background-color: #fff;
+                    .use-var(background-color, background-color);
 
                     tr {
-                        border-bottom: 1px solid #e5e6e8;
+                        border-bottom: 1px solid;
+                        .use-var(border-bottom-color, line-color);
                     }
                 }
 
@@ -218,7 +243,6 @@
                 }
 
                 th {
-
                     &.props-names {
                         width: 22%;
                     }
@@ -233,14 +257,14 @@
                 }
 
                 td.special {
-                    color: @primary-color;
+                    .use-var(color, primary-color);
                 }
             }
-            // ts类型代码块
 
             pre {
-                background: #f7f8fa;
-                border: 1px solid #e5e6e8;
+                .use-var(background-color, card-background-color);
+                border: 1px solid;
+                .use-var(border-color, line-color);
                 padding: 12px 20px;
                 overflow: auto;
                 margin-top: 24px;
@@ -249,7 +273,7 @@
             code {
                 line-height: 22px;
                 font-size: 13px;
-                font-family: Menlo,Consolas;
+                font-family: Menlo, Consolas;
                 white-space: pre-wrap;
                 word-break: normal;
             }
@@ -267,12 +291,12 @@
         .demo-desc code,
         td code {
             // 描述文字中的内嵌code
-            background-color: #f5f6f7;
+            .use-var(background-color, lighter-line-color);
             padding: 0 8px;
             font-size: 13px;
             display: inline-block;
             line-height: 22px;
-            color: #606a78;
+            .use-var(color, sub-font-color);
             margin: 0 2px;
             border-radius: 2px;
         }
@@ -283,7 +307,7 @@
         // 示例代码的容器
 
         .demo-content {
-            background-color: #fafbfc;
+            .use-var(background-color, card-background-color);
             padding: 24px 28px;
             border-radius: 0 0 2px 2px;
 
@@ -304,7 +328,6 @@
 }
 
 .arco-menu-group .arco-menu-group-title {
-
     .arco-menu-indent {
         width: 0;
     }

@@ -27,3 +27,13 @@ export default function InputDemo() {
     </>);
 }
 ```
+
+```less
+.demo-input-maxlength {
+    .rem(font-size, 14);
+    .use-var(color, sub-info-font-color);
+    &.error {
+        .use-var(color, danger-color);
+    }
+}
+```

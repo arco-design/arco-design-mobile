@@ -304,7 +304,6 @@ const ShowMonitor = forwardRef((props: ShowMonitorProps, ref: Ref<ShowMonitorRef
         curVisible !== preVisible &&
             handleCheckChildrenExist() &&
             onCompVisibleChange(curVisible, node);
-        // TODO: tbc
         component.isVisible = curVisible;
         const key = wrapperKey.current;
         /**

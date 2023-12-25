@@ -22,3 +22,23 @@ export default function GridDemo() {
     );
 }
 ```
+
+```less
+.@{prefix}-grid-rows-item-title {
+    .rem(font-size, 13);
+}
+.grid-demo-block {
+    .use-var(background, lighter-primary-color);
+    border-radius: 2px;
+    .rem(width, 32);
+    .rem(height, 32);
+    position: relative;
+}
+.grid-item-more {
+    img {
+        .rem(width, 24);
+        .rem(height, 24);
+        .rem(margin, 4);
+    }
+}
+```

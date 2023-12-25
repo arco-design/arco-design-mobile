@@ -66,6 +66,32 @@ function LinearEasing(x: number) {
     return x;
 }
 
+/**
+ * 获取一个用于计算贝塞尔曲线的函数
+ * @desc {en} Gets a function used to calculate Bezier curves
+ * @param mX1 第一个点的x坐标
+ * @param mX1 {en} The X coordinate of first point
+ * @param mY1 第一个点的y坐标
+ * @param mY1 {en} The Y coordinate of first point
+ * @param mX2 第二个点的x坐标
+ * @param mX2 {en} The X coordinate of second point
+ * @param mY2 第二个点的y坐标
+ * @param mY2 {en} The Y coordinate of second point
+ * @returns 计算贝塞尔曲线的函数
+ * @returns {function} {en} The function of calculating bezier curve
+ * @example
+ * ```
+ * import { bezierEasing } from '@arco-design/mobile-utils';
+ *
+ * const p = (Date.now() - start) / duration;
+ * if (p > 1) {
+ *     scrollTo(targetTop);
+ * } else {
+ *     const newTop = initTop + (targetTop - initTop) * bezierEasing(0.34, 0.69, 0.1, 1)(p);
+ *     scrollTo(newTop);
+ * }
+ * ```
+ */
 export default function bezier(mX1: number, mY1: number, mX2: number, mY2: number) {
     if (!(mX1 >= 0 && mX1 <= 1 && mX2 >= 0 && mX2 <= 1)) {
         throw new Error('bezier x values must be in [0, 1] range');

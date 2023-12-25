@@ -24,3 +24,13 @@ export default function CellDemo() {
     </>);
 }
 ```
+
+```less
+.demo-cell-loading-group {
+    text-align: center;
+    .demo-cell-loading {
+        vertical-align: middle;
+        .rem-with-rtl(margin-right, 5);
+    }
+}
+```

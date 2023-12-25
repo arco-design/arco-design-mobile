@@ -11,6 +11,8 @@ import {
 } from './elements';
 import { SkeletonContext } from './skeleton-context';
 
+export * from './type';
+
 function getComponentProps<T>(prop?: T | boolean): T | {} {
     if (prop && typeof prop === 'object') {
         return prop;

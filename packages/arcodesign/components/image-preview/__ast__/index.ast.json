@@ -38,7 +38,7 @@
                     "description": null,
                     "name": "config",
                     "type": {
-                        "name": "Pick<WithGlobalContext<ImagePreviewProps & RefAttributes<ImagePreviewRef>>, \"animateDurationSlide\" | ... 43 more ... | \"context\">"
+                        "name": "Pick<WithGlobalContext<ImagePreviewProps & RefAttributes<ImagePreviewRef>>, \"animateDurationSlide\" | ... 46 more ... | \"context\">"
                     }
                 },
                 {
@@ -439,6 +439,23 @@
                         "value": "\"end\""
                     }
                 ]
+            }
+        },
+        "extra": {
+            "defaultValue": null,
+            "description": "渲染自定义元素，如自定义关闭按钮\n@en Render custom elements such as custom close buttons",
+            "name": "extra",
+            "tags": {
+                "en": "Render custom elements such as custom close buttons"
+            },
+            "descWithTags": "渲染自定义元素，如自定义关闭按钮",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-preview/index.tsx",
+                "name": "ImagePreviewProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
             }
         },
         "getMinScale": {
@@ -853,6 +870,43 @@
                 "name": "boolean"
             }
         },
+        "offsetBetween": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "前后两端露出距离，设置值时不能循环轮播\n@en The exposed distance of the front and rear. When the value is set, the carousel cannot be rotated.",
+            "name": "offsetBetween",
+            "tags": {
+                "en": "The exposed distance of the front and rear. When the value is set, the carousel cannot be rotated.",
+                "default": "0"
+            },
+            "descWithTags": "前后两端露出距离，设置值时不能循环轮播",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number | { left?: number; right?: number; }"
+            }
+        },
+        "renderExtra": {
+            "defaultValue": null,
+            "description": "在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区\n@en Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot",
+            "name": "renderExtra",
+            "tags": {
+                "en": "Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger-interactive hotspot"
+            },
+            "descWithTags": "在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/carousel/index.tsx",
+                "name": "CarouselProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(currentIndex: number) => ReactNode"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",
@@ -918,6 +972,22 @@
                     "en": "Transition image url"
                 },
                 "descWithTags": "过渡图url"
+            },
+            "transitionEndDelay": {
+                "name": "transitionEndDelay",
+                "required": false,
+                "description": "过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求\n@en After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed",
+                "defaultValue": {
+                    "value": "30"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "tags": {
+                    "en": "After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed",
+                    "default": "30"
+                },
+                "descWithTags": "过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求"
             },
             "thumbPosition": {
                 "name": "thumbPosition",
@@ -1025,7 +1095,7 @@
             "useDarkMode": {
                 "name": "useDarkMode",
                 "required": false,
-                "description": "是否使用暗黑模式\n@en Whether to use dark mode",
+                "description": "是否监听系统原生的暗黑模式变化(prefers-color-scheme: dark)以判断是否切为暗黑模式\n@en Whether to monitor the system's native dark mode changes (prefers-color-scheme: dark) to determine whether to switch to dark mode",
                 "defaultValue": {
                     "value": "false"
                 },
@@ -1033,15 +1103,15 @@
                     "name": "boolean"
                 },
                 "tags": {
-                    "en": "Whether to use dark mode",
+                    "en": "Whether to monitor the system's native dark mode changes (prefers-color-scheme: dark) to determine whether to switch to dark mode",
                     "default": "false"
                 },
-                "descWithTags": "是否使用暗黑模式"
+                "descWithTags": "是否监听系统原生的暗黑模式变化(prefers-color-scheme: dark)以判断是否切为暗黑模式"
             },
             "isDarkMode": {
                 "name": "isDarkMode",
                 "required": false,
-                "description": "是否处于暗黑模式，指定后以指定的值为准\n@en Whether it is in dark mode",
+                "description": "是否处于暗黑模式，指定后以指定的值为准\n@en Whether it is in dark mode, the value shall prevail after being specified",
                 "defaultValue": {
                     "value": "false"
                 },
@@ -1049,10 +1119,26 @@
                     "name": "boolean"
                 },
                 "tags": {
-                    "en": "Whether it is in dark mode",
+                    "en": "Whether it is in dark mode, the value shall prevail after being specified",
                     "default": "false"
                 },
                 "descWithTags": "是否处于暗黑模式，指定后以指定的值为准"
+            },
+            "darkModeSelector": {
+                "name": "darkModeSelector",
+                "required": false,
+                "description": "当处于暗黑模式时，body上挂载的类名，为空值时不挂载类名\n@en When in dark mode, the class name mounted on the body, if it is empty, the class name will not be mounted",
+                "defaultValue": {
+                    "value": "\"arco-theme-dark\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "When in dark mode, the class name mounted on the body, if it is empty, the class name will not be mounted",
+                    "default": "\"arco-theme-dark\""
+                },
+                "descWithTags": "当处于暗黑模式时，body上挂载的类名，为空值时不挂载类名"
             },
             "theme": {
                 "name": "theme",
@@ -1096,6 +1182,19 @@
                     "default": "false"
                 },
                 "descWithTags": "是否使用Rtl模式"
+            },
+            "onDarkModeChange": {
+                "name": "onDarkModeChange",
+                "required": false,
+                "description": "当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效\n@en Triggered when the system's native dark mode changes, valid when useDarkMode=true",
+                "defaultValue": null,
+                "type": {
+                    "name": "(isDark: boolean) => void"
+                },
+                "tags": {
+                    "en": "Triggered when the system's native dark mode changes, valid when useDarkMode=true"
+                },
+                "descWithTags": "当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效"
             }
         },
         "ILocale": {
@@ -1262,6 +1361,17 @@
                 "defaultValue": null,
                 "type": {
                     "name": "{ required: string; type: { email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; }; number: { min: string; max: string; equal: string; range: string; positive: string; negative: string; }; string: { ...; }; array: { ...; }; object: { ...; }; boolean: { ...; }; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "NavBar": {
+                "name": "NavBar",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ backBtnAriaLabel: string; }"
                 },
                 "tags": {},
                 "descWithTags": ""

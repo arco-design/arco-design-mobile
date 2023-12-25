@@ -6,6 +6,7 @@
 import { TabBar, Button, NavBar, Toast } from '@arco-design/mobile-react';
 import { IconUser, IconHome, IconSetting, IconNotice } from '@arco-design/mobile-react/esm/icon';
 import { useRef, useState } from 'react';
+
 export default function TabBarDemo() {
     const tabs = [
         {
@@ -49,5 +50,29 @@ export default function TabBarDemo() {
             </div>
         </div>
     );
+}
+```
+
+```less
+.tab-bar-toast-content {
+    .rem(height,134);
+    display: flex;
+    flex-direction: column;
+    .tab-bar-notify-content {
+        .rem(height,84);
+        .@{prefix}-toast-wrapper {
+            position: static;
+        }
+        .@{prefix}-toast.all-border-box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .@{prefix}-toast-wrapper.from-top {
+            padding: 0;
+        }
+    }
 }
 ```

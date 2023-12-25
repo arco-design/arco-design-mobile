@@ -25,9 +25,21 @@ export const localeMap = {
         [LanguageSupport.CH]: '首页',
         [LanguageSupport.EN]: 'Home',
     },
+    Resource: {
+        [LanguageSupport.CH]: '工具函数',
+        [LanguageSupport.EN]: 'Tools',
+    },
     DevelopmentResource: {
         [LanguageSupport.CH]: '开发资源',
         [LanguageSupport.EN]: 'Development Resource',
+    },
+    SwitchToDarkMode: {
+        [LanguageSupport.CH]: '切换至暗黑模式',
+        [LanguageSupport.EN]: 'Switch to dark mode',
+    },
+    SwitchToLightMode: {
+        [LanguageSupport.CH]: '切换至亮色模式',
+        [LanguageSupport.EN]: 'Switch to light mode',
     },
     Copy: {
         [LanguageSupport.CH]: '复制',

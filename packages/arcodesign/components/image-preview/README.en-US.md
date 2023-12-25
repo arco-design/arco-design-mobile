@@ -30,6 +30,7 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |lazyloadCount|Only load n content adjacent to the current page, when it is 0, all adjacent content will be destroyed|number|1|
 |swipeToClose|When the image is scrolled to the edge, whether to close the preview when continuing to swipe|boolean|true|
 |indicatorPos|Carousel indicator position|"start" \| "center" \| "end"|"start"|
+|extra|Render custom elements such as custom close buttons|ReactNode|-|
 |getMinScale|The minimum zoom factor when the image is pinched, it will still return to the state of 1 after letting go, the default is 0\.7|(image: HTMLImageElement, imageIndex: number) =\> number|-|
 |getMaxScale|The maximum zoom factor of the image, the default is adjusted according to the picture size|(image: HTMLImageElement, imageIndex: number) =\> number|-|
 |getDoubleClickScale|The zoom factor of the image when double\-clicking the image|(currentScale: number, maxScale: number, image: HTMLImageElement, imageIndex: number) =\> number|-|
@@ -53,6 +54,8 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |distanceToChange|Sliding switching distance threshold (fixed px width), if both this property and the \`percentToChange\` property are set, the actual calculation result will take effect with a larger one|number|10|
 |speedToChange|The sliding switching speed threshold (the sliding speed of the finger from pressing to lifting, in px/s), when it is set at the same time as the sliding switching distance threshold, it will take effect if one of them is satisfied\.|number|200|
 |swipeable|Whether to respond to gesture swipe|boolean|true|
+|offsetBetween|The exposed distance of the front and rear\. When the value is set, the carousel cannot be rotated\.|number \| \{ left?: number; right?: number; \}|0|
+|renderExtra|Render an additional element inside the carousel, which does not slide with the carousel, but is in a finger\-interactive hotspot|(currentIndex: number) =\> ReactNode|-|
 
 > Refs
 
@@ -69,13 +72,14 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 
 > PreviewImageProps
 
-|Property|Description|Type|
-|----------|-------------|------|
-|src|Image resource|string|
-|fit|Image layout, preview\-y is overflow scrolling with full width and height, preview\-x is overflow scrolling with full width and height|"preview\-y" \| "preview\-x"|
-|fallbackSrc|Transition image url|string|
-|thumbPosition|Thumbnail fill mode (backgroundPosition), default value is top center|string|
-|extraNode|Custom dom|ReactNode|
+|Property|Description|Type|DefaultValue|
+|----------|-------------|------|------|
+|src|Image resource|string|required|
+|fit|Image layout, preview\-y is overflow scrolling with full width and height, preview\-x is overflow scrolling with full width and height|"preview\-y" \| "preview\-x"|-|
+|fallbackSrc|Transition image url|string|-|
+|transitionEndDelay|After the transition image to the original image enlargement effect is completed, the delay time (ms) before the transition image is removed|number|30|
+|thumbPosition|Thumbnail fill mode (backgroundPosition), default value is top center|string|-|
+|extraNode|Custom dom|ReactNode|-|
 
 > GlobalContextParams
 
@@ -83,11 +87,13 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |----------|-------------|------|------|
 |prefixCls|Component classname prefix|string|"arco"|
 |system|Manually control the current system, and the incoming value will be used directly after being passed in\. It is applicable when the initial value of the system needs to be specified in the ssr scenario\.|"" \| "pc" \| "android" \| "ios"|""|
-|useDarkMode|Whether to use dark mode|boolean|false|
-|isDarkMode|Whether it is in dark mode|boolean|false|
+|useDarkMode|Whether to monitor the system's native dark mode changes (prefers\-color\-scheme: dark) to determine whether to switch to dark mode|boolean|false|
+|isDarkMode|Whether it is in dark mode, the value shall prevail after being specified|boolean|false|
+|darkModeSelector|When in dark mode, the class name mounted on the body, if it is empty, the class name will not be mounted|string|"arco-theme-dark"|
 |theme|Theme variable\. The css variable will be replaced online after input\. The less variable needs to be set|Record\<string, string\>|-|
 |locale|Internationalized language configuration|ILocale|-|
 |useRtl|Whether to use rtl|boolean|false|
+|onDarkModeChange|Triggered when the system's native dark mode changes, valid when useDarkMode=true|(isDark: boolean) =\> void|-|
 
 > ILocale
 
@@ -108,3 +114,4 @@ The image preview, supports circular rotation, two-finger/double-tap zoom, and t
 |Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|
+|NavBar|-|\{ backBtnAriaLabel: string; \}|

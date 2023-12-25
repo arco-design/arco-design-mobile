@@ -17,3 +17,13 @@ export default function GridDemo3() {
     );
 }
 ```
+
+```less
+.grid-demo-block {
+    .use-var(background, lighter-primary-color);
+    border-radius: 2px;
+    .rem(width, 32);
+    .rem(height, 32);
+    position: relative;
+}
+```

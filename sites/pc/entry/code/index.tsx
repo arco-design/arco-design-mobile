@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, Message, Tooltip } from 'arco';
+import { Button, Message, Tooltip, Tabs } from 'arco';
 import { LanguageSupport } from '../../../utils/language';
 
 import { CodeInfo, getCodePenData } from './codeBox';
@@ -9,24 +9,44 @@ import Sandbox from './sandbox';
 import './index.less';
 
 export interface IDocProps {
-    code: any;
-    codeSource: any;
+    code?: JSX.Element;
+    codeSource: string;
+    styleSource?: string;
     name?: string;
     demoKey?: string;
     version?: string;
     language?: LanguageSupport;
     compKey?: string;
+    showCodePen?: boolean;
+    paragraphSlotContent?: JSX.Element;
+    tsxContent?: JSX.Element;
+    lessContent?: JSX.Element | null;
 }
 
 export default function Code(props: IDocProps) {
-    const { code, language = LanguageSupport.CH, version, compKey, demoKey } = props;
+    const {
+        code,
+        language = LanguageSupport.CH,
+        version,
+        compKey,
+        demoKey,
+        showCodePen = true,
+        name,
+        paragraphSlotContent,
+        tsxContent,
+        lessContent,
+        codeSource = '',
+        styleSource = '',
+    } = props;
     const [showAll, setShowAll] = useState(false);
     const demoDomRef = useRef(null);
+    const copySource = useRef(decodeURIComponent(codeSource));
+
     const codeData: CodeInfo = {
         version: version || '',
-        content: decodeURIComponent(props.codeSource || ''),
-        key: props.demoKey || 'root',
-        name: props.name || 'Component Example',
+        content: decodeURIComponent(codeSource || ''),
+        key: demoKey || 'root',
+        name: name || 'Component Example',
     };
 
     function handleClickSpreadBtn() {
@@ -42,7 +62,7 @@ export default function Code(props: IDocProps) {
             click_content: 'copy',
             component_name: `${demoKey}${name}`,
         });
-        window.copyToClipboard(decodeURIComponent(props.codeSource));
+        window.copyToClipboard(copySource.current);
         Message.success(localeMap.CopySuccess[language]);
     }
 
@@ -57,9 +77,28 @@ export default function Code(props: IDocProps) {
         (demoDomRef.current as any).submit();
     }
 
+    function handleTabsChange(key: string) {
+        copySource.current = decodeURIComponent(key === 'tsx' ? codeSource : styleSource);
+    }
+
     return (
         <div className={`demo-code-container ${showAll ? 'show-all' : ''}`}>
-            {code}
+            {code || (
+                <div className="demo-code-wrapper">
+                    <h2 className="demo-code-title">{name}</h2>
+                    {paragraphSlotContent}
+                    <Tabs onChange={handleTabsChange}>
+                        <Tabs.TabPane key="tsx" title="index.tsx">
+                            {tsxContent}
+                        </Tabs.TabPane>
+                        {lessContent ? (
+                            <Tabs.TabPane key="less" title="index.less">
+                                {lessContent}
+                            </Tabs.TabPane>
+                        ) : null}
+                    </Tabs>
+                </div>
+            )}
             <div className="demo-code-operations">
                 <form
                     action="https://codepen.io/pen/define"
@@ -120,29 +159,31 @@ export default function Code(props: IDocProps) {
                     />
                 </Tooltip>
 
-                <Tooltip content="CodePen">
-                    <Button
-                        shape="circle"
-                        size="small"
-                        onClick={toCodePen}
-                        className="demo-code-operations-btn"
-                        icon={
-                            <svg
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="4"
-                                viewBox="0 0 48 48"
-                                className="arco-icon arco-icon-codepen"
-                            >
-                                <path
-                                    fill="currentColor"
-                                    stroke="none"
-                                    d="M45 15.7v17.1L24.5 44.7c-.3.2-.7.2-1 0l-20-11.5c-.3-.2-.5-.5-.5-.9V15.7c0-.4.2-.7.5-.9l20-11.6c.3-.2.7-.2 1 0l20 11.6c.3.2.5.5.5.9zM26 9v9.8l5.5 3.2 8.5-4.9L26 9zm-4 0L8 17.1l8.4 4.9 5.6-3.2V9zm0 21.2L16.5 27 9 31.4 22 39v-8.8zm17 1.2L31.4 27 26 30.2V39l13-7.6zm2-3.4v-6l-5 3 5 3zm-29-3-5-3v6l5-3zm8 0 4 2 4-2-4-2-4 2z"
-                                />
-                            </svg>
-                        }
-                    />
-                </Tooltip>
+                {showCodePen && (
+                    <Tooltip content="CodePen">
+                        <Button
+                            shape="circle"
+                            size="small"
+                            onClick={toCodePen}
+                            className="demo-code-operations-btn"
+                            icon={
+                                <svg
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="4"
+                                    viewBox="0 0 48 48"
+                                    className="arco-icon arco-icon-codepen"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        stroke="none"
+                                        d="M45 15.7v17.1L24.5 44.7c-.3.2-.7.2-1 0l-20-11.5c-.3-.2-.5-.5-.5-.9V15.7c0-.4.2-.7.5-.9l20-11.6c.3-.2.7-.2 1 0l20 11.6c.3.2.5.5.5.9zM26 9v9.8l5.5 3.2 8.5-4.9L26 9zm-4 0L8 17.1l8.4 4.9 5.6-3.2V9zm0 21.2L16.5 27 9 31.4 22 39v-8.8zm17 1.2L31.4 27 26 30.2V39l13-7.6zm2-3.4v-6l-5 3 5 3zm-29-3-5-3v6l5-3zm8 0 4 2 4-2-4-2-4 2z"
+                                    />
+                                </svg>
+                            }
+                        />
+                    </Tooltip>
+                )}
                 <Sandbox codeData={codeData} compKey={compKey} />
             </div>
         </div>

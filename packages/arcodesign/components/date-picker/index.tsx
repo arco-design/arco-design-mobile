@@ -67,11 +67,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     }));
 
     function _getColumns() {
-        const dateObj = {} as Record<ItemType, PickerData[]>;
-
-        allTypes.forEach(type => {
-            dateObj[type] = _getActualArray(type, currentDateObjRef.current);
-        });
+        const dateObj = _getActualArray();
         let columns = keyOptions.map(opt => dateObj[opt]);
         if (columnsProcessor) {
             columns = columnsProcessor(columns, currentDateObjRef.current);
@@ -106,30 +102,51 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
     // 根据当前选中的日期动态改变其他列的options
     // @en Dynamically change the options of other columns based on the currently selected date
-    function _getActualArray(type: ItemType, nowDateObj: IDateObj) {
-        const normalRange = _getNormalRange(type, nowDateObj);
+    function _getActualArray() {
+        const dateObj = {} as Record<ItemType, PickerData[]>;
+        // 当前时间对象
+        // @en current Date object
+        let currentDateObj = { ...currentDateObjRef.current };
+        allTypes.forEach(type => {
+            // 根据日期类型，计算出默认的日期范围
+            // @en According to the date type, calculate the default date range.
+            const normalRange = _getNormalRange(type, currentDateObj);
+            let range = [] as number[];
+            switch (type) {
+                case 'year':
+                    // 默认使用minTs和maxTs年份区间
+                    // @en Default use minTs and maxTs years.
+                    range = [minDateObjRef.current.year, maxDateObjRef.current.year];
+                    break;
+                default: {
+                    // 除了年份外，其他日期类型都需要判断上一级日期是否相同
+                    // @en In addition to the year, other date types need to check if the upper-level date is the same.
+                    const checkKeys = allTypes.slice(0, allTypes.indexOf(type));
+                    range = normalRange;
+                    if (judgeObj(currentDateObj, minDateObjRef.current, checkKeys)) {
+                        range[0] = minDateObjRef.current[type];
+                        currentDateObj = {
+                            ...currentDateObj,
+                            // 取当前日期时间和minTs的最大值
+                            // @en Take the maximum value between the current date and time and minTs.
+                            [type]: Math.max(minDateObjRef.current[type], currentDateObj[type]),
+                        };
+                    }
 
-        let range = [] as number[];
-
-        switch (type) {
-            case 'year':
-                range = [minDateObjRef.current.year, maxDateObjRef.current.year];
-                break;
-            default: {
-                const checkKeys = allTypes.slice(0, allTypes.indexOf(type));
-
-                range = normalRange;
-
-                if (judgeObj(nowDateObj, minDateObjRef.current, checkKeys)) {
-                    range[0] = minDateObjRef.current[type];
-                }
-
-                if (judgeObj(nowDateObj, maxDateObjRef.current, checkKeys)) {
-                    range[range.length - 1] = maxDateObjRef.current[type];
+                    if (judgeObj(currentDateObj, maxDateObjRef.current, checkKeys)) {
+                        range[range.length - 1] = maxDateObjRef.current[type];
+                        currentDateObj = {
+                            ...currentDateObj,
+                            // 取当前日期时间和maxTs的最小值
+                            // @en Take the minimum value between the current date and time and maxTs.
+                            [type]: Math.min(maxDateObjRef.current[type], currentDateObj[type]),
+                        };
+                    }
                 }
             }
-        }
-        return _convertRangeToArr(type, range);
+            dateObj[type] = _convertRangeToArr(type, range);
+        });
+        return dateObj;
     }
 
     function _convertRangeToArr(type, range) {

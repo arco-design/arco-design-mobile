@@ -1,13 +1,6 @@
 
 @import '../../../../style/mixin.less';
 
-.center-box(@height: 100px) {
-    height: @height;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #demo-popover {
     padding-bottom: 200px;
     .base-demo-wrapper {
@@ -18,83 +11,6 @@
             flex: 0 0  50%;
             text-align: center;
             margin-top: 24px;
-        }
-    }
-
-    .popover-base-demo-wrapper {
-        .center-box();
-        .base-item {
-            &:first-child {
-                margin-right: 66px;
-            }
-        }
-        .@{prefix}-button {
-            width: 124px;
-        }
-    }
-
-    .direction-demo-wrapper {
-        height: 190px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        .direction-item {
-            margin: 14px 0;
-            &:nth-child(2n+1) {
-                margin-right: 59px;
-            }
-        }
-
-        .@{prefix}-button {
-            width: 124px;
-            &.size-large {
-                padding: 0;
-            }
-        }
-    }
-
-    .white-theme-mask-demo-wrapper {
-        .center-box();
-    }
-
-    .menu-demo-wrapper {
-        .center-box();
-        .@{prefix}-button {
-            width: 124px;
-        }
-    }
-
-    .suffix-demo-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        .@{prefix}-button {
-            margin: 14px 0;
-        }
-
-        .custom-suffix-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 64px;
-            height: 24px;
-            background: #fff;
-            border-radius: 40px;
-            color: #1d2129;
-            font-size: 12px;
-        }
-    }
-
-    .custom-demo-wrapper {
-        .center-box();
-    }
-
-    .custom-popover {
-        .@{prefix}-popover-inner .popover-bg {
-            background: linear-gradient(278.7deg, #0578FF 5.08%, #15D5FF 108.09%);
-        }
-        .@{prefix}-popover-inner .popover-arrow {
-            background-color: #2db1f8;
         }
     }
 }

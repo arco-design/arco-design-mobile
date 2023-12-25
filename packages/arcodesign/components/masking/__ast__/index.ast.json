@@ -706,7 +706,7 @@
             "useDarkMode": {
                 "name": "useDarkMode",
                 "required": false,
-                "description": "是否使用暗黑模式\n@en Whether to use dark mode",
+                "description": "是否监听系统原生的暗黑模式变化(prefers-color-scheme: dark)以判断是否切为暗黑模式\n@en Whether to monitor the system's native dark mode changes (prefers-color-scheme: dark) to determine whether to switch to dark mode",
                 "defaultValue": {
                     "value": "false"
                 },
@@ -714,15 +714,15 @@
                     "name": "boolean"
                 },
                 "tags": {
-                    "en": "Whether to use dark mode",
+                    "en": "Whether to monitor the system's native dark mode changes (prefers-color-scheme: dark) to determine whether to switch to dark mode",
                     "default": "false"
                 },
-                "descWithTags": "是否使用暗黑模式"
+                "descWithTags": "是否监听系统原生的暗黑模式变化(prefers-color-scheme: dark)以判断是否切为暗黑模式"
             },
             "isDarkMode": {
                 "name": "isDarkMode",
                 "required": false,
-                "description": "是否处于暗黑模式，指定后以指定的值为准\n@en Whether it is in dark mode",
+                "description": "是否处于暗黑模式，指定后以指定的值为准\n@en Whether it is in dark mode, the value shall prevail after being specified",
                 "defaultValue": {
                     "value": "false"
                 },
@@ -730,10 +730,26 @@
                     "name": "boolean"
                 },
                 "tags": {
-                    "en": "Whether it is in dark mode",
+                    "en": "Whether it is in dark mode, the value shall prevail after being specified",
                     "default": "false"
                 },
                 "descWithTags": "是否处于暗黑模式，指定后以指定的值为准"
+            },
+            "darkModeSelector": {
+                "name": "darkModeSelector",
+                "required": false,
+                "description": "当处于暗黑模式时，body上挂载的类名，为空值时不挂载类名\n@en When in dark mode, the class name mounted on the body, if it is empty, the class name will not be mounted",
+                "defaultValue": {
+                    "value": "\"arco-theme-dark\""
+                },
+                "type": {
+                    "name": "string"
+                },
+                "tags": {
+                    "en": "When in dark mode, the class name mounted on the body, if it is empty, the class name will not be mounted",
+                    "default": "\"arco-theme-dark\""
+                },
+                "descWithTags": "当处于暗黑模式时，body上挂载的类名，为空值时不挂载类名"
             },
             "theme": {
                 "name": "theme",
@@ -777,6 +793,19 @@
                     "default": "false"
                 },
                 "descWithTags": "是否使用Rtl模式"
+            },
+            "onDarkModeChange": {
+                "name": "onDarkModeChange",
+                "required": false,
+                "description": "当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效\n@en Triggered when the system's native dark mode changes, valid when useDarkMode=true",
+                "defaultValue": null,
+                "type": {
+                    "name": "(isDark: boolean) => void"
+                },
+                "tags": {
+                    "en": "Triggered when the system's native dark mode changes, valid when useDarkMode=true"
+                },
+                "descWithTags": "当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效"
             }
         },
         "ILocale": {
@@ -943,6 +972,17 @@
                 "defaultValue": null,
                 "type": {
                     "name": "{ required: string; type: { email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; }; number: { min: string; max: string; equal: string; range: string; positive: string; negative: string; }; string: { ...; }; array: { ...; }; object: { ...; }; boolean: { ...; }; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "NavBar": {
+                "name": "NavBar",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ backBtnAriaLabel: string; }"
                 },
                 "tags": {},
                 "descWithTags": ""

@@ -29,7 +29,7 @@ export default function DialogDemo() {
                     title: 'New Label',
                     contentAlign: 'left',
                     children: (<>
-                        <input className="dialog-input-demo-input" placeholder="请输入标签名称" />
+                        <input className="dialog-input-demo-input" placeholder="Please input label name" />
                         <div className="dialog-input-demo-hint">Here is the prompt text entered</div>
                     </>),
                 });
@@ -62,9 +62,9 @@ export default function DialogDemo() {
             platform="ios"
             title="Dialog Title"
             footer={[
-                { content: 'Auxiliary operation' },
+                { content: 'Auxiliary' },
                 {
-                    content: loading ? <Loading type="circle" stroke={3} radius={8.5} /> : 'Primary operation',
+                    content: loading ? <Loading type="circle" stroke={3} radius={8.5} /> : 'Primary',
                     onClick: () => new Promise((res) => {
                         setLoading(true);
                         setTimeout(() => {
@@ -76,5 +76,30 @@ export default function DialogDemo() {
             ]}
         >I am the text which is centered single-line content.</Dialog>
     </div>);
+}
+```
+
+```less-global
+.dialog-input-demo {
+    &-input {
+        .rem(margin-top, 8);
+        .rem(padding, 8, 12);
+        .rem(font-size, 14);
+        .rem(line-height, 20);
+        .use-var(background-color, card-background-color);
+        width: 100%;
+        .use-var(caret-color, primary-color);
+    }
+    &-hint {
+        .use-var(color, sub-info-font-color);
+        .rem(margin-top, 8);
+        .rem(font-size, 13);
+        .rem(line-height, 18);
+    }
+    .@{prefix}-dialog-footer {
+        .dialog-footer-button.cancel {
+            .use-var(color, font-color);
+        }
+    }
 }
 ```

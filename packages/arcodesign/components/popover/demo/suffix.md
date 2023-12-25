@@ -8,6 +8,7 @@ export default function PopoverDemo() {
     return (
         <div className="suffix-demo-wrapper">
             <Popover
+                className="popover-with-margin"
                 content="This is a single line of text with a close action style"
                 direction="topLeft"
                 showCloseIcon
@@ -52,5 +53,35 @@ export default function PopoverDemo() {
             </Popover>
         </div>
     );
+}
+```
+
+```less
+.center-box(@height: 100px) {
+    height: @height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    [dir="rtl"] & {
+        flex-direction: row-reverse;
+    }
+}
+.suffix-demo-wrapper {
+    .center-box(130px);
+    flex-wrap: wrap;
+    .custom-suffix-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 64px;
+        height: 24px;
+        background: #fff;
+        border-radius: 40px;
+        color: #1d2129;
+        font-size: 12px;
+    }
+}
+.popover-with-margin {
+    margin-right: 66px;
 }
 ```

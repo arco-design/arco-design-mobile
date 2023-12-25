@@ -23,3 +23,17 @@ export default function CellDemo() {
     </>);
 }
 ```
+
+```less
+.demo-cell-info {
+    text-align: right;
+    .info {
+        .use-var(color, font-color);
+        .rem(font-size, 16);
+    }
+    .sub-info {
+        .use-var(color, cell-desc-color);
+        .rem(font-size, 14);
+    }
+}
+```

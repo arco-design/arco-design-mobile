@@ -2,6 +2,7 @@ const path = require('path');
 const { generateGuide } = require('./generate-guide');
 const { generateComponents } = require('./generate-components');
 const { generateCompositeComponents } = require('./generate-composite-comp');
+const { generateResource } = require('./generate-resource');
 const rootPath = path.resolve(__dirname, '../../../../');
 const fs = require('fs-extra');
 
@@ -15,8 +16,9 @@ function generateSite({
     latestVersion = '0.0.0',
     compositeSrc = 'sites/composite-comp',
     compositeComp = 'sites/pc/pages/composite-comp',
+    docPath = 'sites/pc/docOutput',
     compileComps = [],
-    compileGuides = []
+    compileGuides = [],
 } = {}) {
     const srcPath = path.join(rootPath, srcFolder);
     const compSrcPath = path.join(rootPath, srcFolder, 'components');
@@ -25,11 +27,12 @@ function generateSite({
     const resourcePagePath = path.join(rootPath, resourcePageFolder);
     const compositeCompPath = path.join(rootPath, compositeComp);
     const compositeSrcPath = path.join(rootPath, compositeSrc);
+    const outputDocPath = path.join(rootPath, docPath);
     // 单组件编译
     if (compileComps.length) {
         compileComps.forEach(comp => {
             const compPath = path.join(compPagePath, comp);
-            fs.removeSync(compPath)
+            fs.removeSync(compPath);
         });
     } else {
         fs.removeSync(compPagePath);
@@ -39,7 +42,7 @@ function generateSite({
     if (compileGuides.length) {
         compileGuides.forEach(guide => {
             const guidePath = path.join(guidePagePath, guide);
-            fs.removeSync(guidePath)
+            fs.removeSync(guidePath);
         });
     } else {
         fs.removeSync(guidePagePath);
@@ -53,7 +56,7 @@ function generateSite({
         srcPath,
         tokenInfo,
         extraMdPath: path.resolve('sites/pc/static/md'),
-        languages
+        languages,
     });
     languages.forEach(language => {
         generateCompositeComponents(compositeSrcPath, compositeCompPath, language, latestVersion);
@@ -62,9 +65,10 @@ function generateSite({
             compPagePath,
             language,
             latestVersion,
-            compileComps
+            compileComps,
         });
     });
+    generateResource(resourcePagePath, outputDocPath);
 }
 
 module.exports = {

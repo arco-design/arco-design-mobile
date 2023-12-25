@@ -14,3 +14,12 @@ export default function CircleProgressDemo() {
     );
 }
 ```
+
+```less
+.circle-progress-demo-custom {
+    display: inline-block;
+    &:nth-child(2) {
+        .rem(margin-left, 48);
+    }
+}
+```

@@ -29,9 +29,10 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
         }),
     ],
     externals: [
-        { "arco": 'arco' },
-        { "react": "React" },
-        { "react-dom": "ReactDOM" },
+        { arco: 'arco' },
+        { react: 'React' },
+        { 'react-dom': 'ReactDOM' },
+        { fuse: 'Fuse' },
     ]
 })
 

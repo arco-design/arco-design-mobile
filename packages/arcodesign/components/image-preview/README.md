@@ -30,6 +30,7 @@
 |lazyloadCount|只加载当前页相邻的n个内容，为0时会销毁所有相邻内容|number|1|
 |swipeToClose|当图片滚动到边缘时，继续滑动是否关闭预览|boolean|true|
 |indicatorPos|轮播索引位置|"start" \| "center" \| "end"|"start"|
+|extra|渲染自定义元素，如自定义关闭按钮|ReactNode|-|
 |getMinScale|图片捏合时最小缩放倍数，松手后仍会恢复到1的状态，默认为0\.7|(image: HTMLImageElement, imageIndex: number) =\> number|-|
 |getMaxScale|图片最大缩放倍数，默认根据图片尺寸调节|(image: HTMLImageElement, imageIndex: number) =\> number|-|
 |getDoubleClickScale|当双击图片时，图片应缩放的倍数|(currentScale: number, maxScale: number, image: HTMLImageElement, imageIndex: number) =\> number|-|
@@ -53,6 +54,8 @@
 |distanceToChange|滑动切换距离阈值(固定px宽度)，如果该属性和\`percentToChange\`属性均设置，则实际计算结果更大的生效|number|10|
 |speedToChange|滑动切换速度阈值(手指从按下到抬起之间的滑动速度，单位为px/s)，与滑动切换距离阈值同时设置时，满足其中一个即生效|number|200|
 |swipeable|是否响应手势滑动|boolean|true|
+|offsetBetween|前后两端露出距离，设置值时不能循环轮播|number \| \{ left?: number; right?: number; \}|0|
+|renderExtra|在轮播图内部渲染额外元素，该元素不随轮播滑动，但处于手指可交互热区|(currentIndex: number) =\> ReactNode|-|
 
 > 引用/Refs
 
@@ -69,13 +72,14 @@
 
 > PreviewImageProps
 
-|参数|描述|类型|
-|----------|-------------|------|
-|src|图片地址|string|
-|fit|图片布局方式，preview\-y为宽度撑满高度溢出滚动，preview\-x为高度撑满宽度溢出滚动|"preview\-y" \| "preview\-x"|
-|fallbackSrc|过渡图url|string|
-|thumbPosition|缩略图填充方式（backgroundPosition），默认top center|string|
-|extraNode|自定义DOM|ReactNode|
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|src|图片地址|string|必填|
+|fit|图片布局方式，preview\-y为宽度撑满高度溢出滚动，preview\-x为高度撑满宽度溢出滚动|"preview\-y" \| "preview\-x"|-|
+|fallbackSrc|过渡图url|string|-|
+|transitionEndDelay|过渡图到原图放大动效完成后，移除过渡图的延迟时间(ms)，一般当原图过大时有调整需求|number|30|
+|thumbPosition|缩略图填充方式（backgroundPosition），默认top center|string|-|
+|extraNode|自定义DOM|ReactNode|-|
 
 > GlobalContextParams
 
@@ -83,11 +87,13 @@
 |----------|-------------|------|------|
 |prefixCls|组件类名前缀|string|"arco"|
 |system|手动控制当前所在系统，传入后将直接使用传入的值，ssr场景需指定系统初始值时适用|"" \| "pc" \| "android" \| "ios"|""|
-|useDarkMode|是否使用暗黑模式|boolean|false|
+|useDarkMode|是否监听系统原生的暗黑模式变化(prefers\-color\-scheme: dark)以判断是否切为暗黑模式|boolean|false|
 |isDarkMode|是否处于暗黑模式，指定后以指定的值为准|boolean|false|
+|darkModeSelector|当处于暗黑模式时，body上挂载的类名，为空值时不挂载类名|string|"arco-theme-dark"|
 |theme|主题变量，传入后将在线替换css变量，需设置less变量 @use\-css\-vars: 1|Record\<string, string\>|-|
 |locale|国际化语言包配置|ILocale|-|
 |useRtl|是否使用Rtl模式|boolean|false|
+|onDarkModeChange|当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效|(isDark: boolean) =\> void|-|
 
 > ILocale
 
@@ -108,3 +114,4 @@
 |Stepper|-|\{ minusButtonName: string; addButtonName: string; \}|
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; string: \{ \.\.\.; \}; array: \{ \.\.\.; \}; object: \{ \.\.\.; \}; boolean: \{ \.\.\.; \}; \}|
+|NavBar|-|\{ backBtnAriaLabel: string; \}|

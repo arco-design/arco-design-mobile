@@ -1,3 +1,5 @@
+@import '../../../packages/arcodesign/style/mixin.less';
+
 .home-code-popover-inner {
     display: inline-block;
 }
@@ -8,13 +10,15 @@
     transform: translateX(-50%);
     &-content {
         position: relative;
-        background: #ffffff;
+        .use-var(background-color, container-background-color);
         padding: 14px 20px 20px;
         font-size: 14px;
         line-height: 20px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         border-radius: 4px;
-        border: 1px solid #E5E6E8;
+        border: 1px solid;
+        .use-var(border-color, line-color);
+        .use-var(color, font-color);
         text-align: center;
     }
     &-content::after {

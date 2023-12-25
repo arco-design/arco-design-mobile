@@ -5,7 +5,6 @@
 ```js
 import { Picker, Cell } from '@arco-design/mobile-react';
 
-
 export default function PickerDemo() {
     const [singleVisible, setSingleVisible] = React.useState(false);
     const [singleValue, setSingeValue] = React.useState(['orange']);
@@ -46,5 +45,20 @@ export default function PickerDemo() {
             />
         </>
     );
+}
+```
+
+```less-global
+.demo-picker-color {
+    i {
+        width: 14px;
+        height: 14px;
+        border-radius: 2px;
+        .set-prop-with-rtl(margin-right, 8px);
+    }
+    i, span {
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
 ```

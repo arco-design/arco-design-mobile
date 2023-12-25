@@ -14,7 +14,7 @@ import MultiPicker from '../picker-view/components/multi-picker';
 import PickerCell, { PickerCellRef } from '../picker-view/components/picker-cell';
 import Cascader, { CascaderRef } from '../picker-view/components/cascader';
 import { PickerViewProps, ValueType, PickerData, PickerCellMovingStatus } from './type';
-import { useLatestRef, useMountedState } from '../_helpers';
+import { useMountedState } from '../_helpers';
 
 export * from './type';
 export { MultiPicker, PickerCell, Cascader };
@@ -79,9 +79,20 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
     const wrapperRef = useRef<HTMLDivElement>(null);
     const domRef = useRef<HTMLDivElement | null>(null);
     const barRef = useRef<HTMLDivElement | null>(null);
-    const scrollValueRef = useLatestRef(scrollValue);
     const pickerCellsRef = useRef<PickerCellRef[]>([]);
     const cascaderRef = useRef<CascaderRef>(null);
+
+    // itemStyle height 同时对 selection-bar 生效，这里不单独抛出 selection-bar 的高度设置属性
+    // @en The height of itemStyle applies to the selection-bar as well, without separately exposing the height setting property for the selection-bar.
+    const selectionBarHeight = useMemo(
+        () =>
+            itemStyle?.height
+                ? {
+                      height: itemStyle.height,
+                  }
+                : {},
+        [itemStyle],
+    );
 
     const innerData = useMemo(() => {
         let newData: PickerData[][];
@@ -109,10 +120,17 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         return newData;
     }, [data]);
 
-    const getAllColumnValues = () => scrollValueRef.current || [];
+    const getAllColumnValues = () => {
+        const curValues = cascade
+            ? cascaderRef.current?.getAllCellsValue() || []
+            : pickerCellsRef.current.map(cell => cell.getCurrentCellValue());
+        // 移除级联带来的空列值，理论上非首尾列不会有空值
+        // @en Remove empty values from cascader
+        return curValues.filter(v => v !== undefined);
+    };
 
     function getColumnValue(index = 0) {
-        return scrollValueRef.current?.[index];
+        return getAllColumnValues()[index];
     }
 
     function getCellMovingStatus() {
@@ -238,7 +256,11 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
                         <div
                             className={`${prefixCls}-picker-selection-mask ${prefixCls}-picker-selection-mask-top`}
                         />
-                        <div ref={barRef} className={`${prefixCls}-picker-selection-bar`} />
+                        <div
+                            ref={barRef}
+                            className={`${prefixCls}-picker-selection-bar`}
+                            style={selectionBarHeight}
+                        />
                         <div
                             className={`${prefixCls}-picker-selection-mask ${prefixCls}-picker-selection-mask-bottom`}
                         />
