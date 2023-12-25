@@ -40,6 +40,10 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
             onReflow(isEllipsis, result);
         }
     }
+    function getActualHeight(container: HTMLElement) {
+        const { height } = container.getBoundingClientRect();
+        return Math.round(height);
+    }
     function truncateText(container: HTMLElement, textContainer: HTMLElement, max: number) {
         const content = textContainer.textContent || '';
         let currentText = '';
@@ -53,8 +57,8 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
             }
             const temp = content.slice(l, m);
             textContainer.innerText = currentText + temp;
-            const { height } = container.getBoundingClientRect();
-            if (height > max) {
+            const actualHeight = getActualHeight(container);
+            if (actualHeight > max) {
                 r = m;
             } else {
                 currentText += temp;
@@ -72,6 +76,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
     function truncateHTML(container: HTMLElement, textContainer: HTMLElement, max: number) {
         // only enter this function when container overflow.
         const children = textContainer.childNodes;
+        const actualHeight = getActualHeight(container);
         if (children.length === 1) {
             const node = children[0] as HTMLElement;
             if (node.nodeType === Node.TEXT_NODE) {
@@ -80,8 +85,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
                 const html = node.innerHTML;
                 // clear content to determine whether the empty node can be placed.
                 node.innerHTML = '';
-                const { height } = container.getBoundingClientRect();
-                if (height > max) {
+                if (actualHeight > max) {
                     // return after remove the node, if overflow with empty node.
                     textContainer.removeChild(node);
                     handleOnReflow(true, textContainer.innerHTML);
@@ -98,8 +102,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
             // find the critical node
             while (i < nodes.length) {
                 textContainer.appendChild(nodes[i]);
-                const { height } = container.getBoundingClientRect();
-                if (height > max) {
+                if (actualHeight > max) {
                     if (nodes[i].childNodes && nodes[i].childNodes.length) {
                         break;
                     } else {
@@ -132,9 +135,9 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
             return;
         }
         textRef.current.classList.remove(`${prefixCls}-js-content-text-pre`);
-        const { height } = domRef.current.getBoundingClientRect();
+        const actualHeight = getActualHeight(domRef.current);
         const max = isNaN(Number(maxHeight)) ? lineHeightRef.current * maxLine : Number(maxHeight);
-        if (height <= max) {
+        if (actualHeight <= max) {
             handleOnReflow(false, text);
             return;
         }
