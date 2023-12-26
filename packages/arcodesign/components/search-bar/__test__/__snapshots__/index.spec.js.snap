@@ -33,7 +33,7 @@ exports[`search-bar demo test search-bar demo: action-btn.md renders correctly 1
       />
     </div>
     <span
-      style="margin-left: 16px; color: rgb(22, 93, 255); font-size: 15px;"
+      class="demo-search-btn"
     >
       Search
     </span>
@@ -163,13 +163,12 @@ exports[`search-bar demo test search-bar demo: custom-pend.md renders correctly 
     role="search"
   >
     <div
-      style="display: flex; align-items: center; font-size: 14px; margin-right: 10px;"
+      class="demo-search-pend-wrapper"
     >
       City 
       <svg
-        class="arco-icon arco-icon-arrow-down "
+        class="arco-icon arco-icon-arrow-down demo-search-pend-icon"
         height="1em"
-        style="margin-left: 5px; font-size: 10px;"
         viewBox="0 0 1024 1024"
         width="1em"
         xmlns="http://www.w3.org/2000/svg"
@@ -207,8 +206,7 @@ exports[`search-bar demo test search-bar demo: custom-pend.md renders correctly 
       />
     </div>
     <div
-      class="arco-avatar-wrapper ultra-small circle arco-avatar-wrapper-shape-circle"
-      style="margin-left: 13px;"
+      class="arco-avatar-wrapper demo-search-pend-avatar ultra-small circle arco-avatar-wrapper-shape-circle"
     >
       <div
         class="arco-avatar arco-avatar-size-ultra-small ultra-small arco-avatar-shape-circle circle arco-avatar-default-overlap default-overlap"

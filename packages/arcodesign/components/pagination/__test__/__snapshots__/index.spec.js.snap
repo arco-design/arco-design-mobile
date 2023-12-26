@@ -17,8 +17,9 @@ exports[`pagination demo test pagination demo: icon.md renders correctly 1`] = `
           <svg
             fill="none"
             height="14"
-            viewBox="0 0 8 14"
-            width="8"
+            style="overflow: visible;"
+            viewBox="3 0 2 14"
+            width="2"
           >
             <path
               clip-rule="evenodd"
@@ -62,8 +63,9 @@ exports[`pagination demo test pagination demo: icon.md renders correctly 1`] = `
           <svg
             fill="none"
             height="14"
-            viewBox="0 0 8 14"
-            width="8"
+            style="overflow: visible;"
+            viewBox="3 0 2 14"
+            width="2"
           >
             <path
               clip-rule="evenodd"
@@ -96,8 +98,9 @@ exports[`pagination demo test pagination demo: icon2.md renders correctly 1`] = 
           <svg
             fill="none"
             height="14"
-            viewBox="0 0 8 14"
-            width="8"
+            style="overflow: visible;"
+            viewBox="3 0 2 14"
+            width="2"
           >
             <path
               clip-rule="evenodd"
@@ -131,8 +134,9 @@ exports[`pagination demo test pagination demo: icon2.md renders correctly 1`] = 
           <svg
             fill="none"
             height="14"
-            viewBox="0 0 8 14"
-            width="8"
+            style="overflow: visible;"
+            viewBox="3 0 2 14"
+            width="2"
           >
             <path
               clip-rule="evenodd"

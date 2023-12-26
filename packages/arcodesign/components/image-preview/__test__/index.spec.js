@@ -118,7 +118,7 @@ describe('ImagePreview', () => {
         expect(onImageDoubleClick.mock.calls).toHaveLength(1);
     });
 
-    it('should support thumb bounds', () => {
+    it('should support thumb bounds', async () => {
         const props = {
             staticLabel: true,
             images: [
@@ -152,6 +152,24 @@ describe('ImagePreview', () => {
         });
         pureDelay(1000);
         expect(document.querySelectorAll('.image-preview-fake-rect')).toHaveLength(0);
+        loadImage(document.querySelector(`.${imagePrefix}`), {
+            top: 0,
+            bottom: 700,
+            left: 0,
+            right: 375,
+            width: 375,
+            height: 700,
+        });
+        expect(document.querySelector(`.${prefix}`)).not.toBeNull();
+        fireEvent.click(document.querySelector('.image-container img'));
+        pureDelay(300);
+        expect(document.querySelector('.closing-animation')).not.toBeNull();
+        await waitFor(
+            () => {
+                expect(document.querySelector(`.${prefix}`)).toBeNull();
+            },
+            { timeout: 1000 },
+        );
     });
 
     it('should support touch event correctly', () => {
@@ -197,14 +215,18 @@ describe('ImagePreview', () => {
 
     it('should support `ImagePreview.open`', async () => {
         const onClose = jest.fn();
-        window.instance = ImagePreview.open({ staticLabel: true, onClose, images: demoImages });
-        // TODO: ReactDOM.render 不生效，待升级 react 18 版本对应的rtl
-        // pureDelay(1100);
-        // expect(document.querySelectorAll(`.${imagePrefix}`)).toHaveLength(2);
+        window.instance = ImagePreview.open({
+            staticLabel: true,
+            onClose,
+            images: demoImages,
+            openIndex: 0,
+        });
+        pureDelay(1100);
+        expect(document.querySelectorAll(`.${imagePrefix}`)).toHaveLength(2);
         expect(typeof window.instance.close).toBe('function');
         expect(typeof window.instance.update).toBe('function');
         window.instance.close();
-        // pureDelay(1100);
-        // expect(onClose.mock.calls).toHaveLength(1);
+        pureDelay(1100);
+        expect(onClose.mock.calls).toHaveLength(1);
     });
 });
