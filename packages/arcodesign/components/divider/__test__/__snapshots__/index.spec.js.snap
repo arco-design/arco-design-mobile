@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`divider demo test divider demo: align.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-left"
+  >
+    text
+  </div>
+  <div
+    class="demo-gap"
+  />
+  <div
+    class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-right"
+  >
+    text
+  </div>
+</DocumentFragment>
+`;
+
+exports[`divider demo test divider demo: index.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-divider arco-divider--hairline"
+  />
+</DocumentFragment>
+`;
+
+exports[`divider demo test divider demo: style.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-center"
+    style="color: rgb(22, 93, 255); border-color: #94bfff; border-style: dashed;"
+  >
+    Text
+  </div>
+</DocumentFragment>
+`;
+
+exports[`divider demo test divider demo: text.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-center"
+  >
+    Text
+  </div>
+</DocumentFragment>
+`;
+
+exports[`divider demo test divider demo: thick.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-divider"
+  />
+</DocumentFragment>
+`;
+
+exports[`divider demo test divider demo: width.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-divider arco-divider--hairline arco-divider--with-text arco-divider--text-center arco-divider--with-width"
+    style="flex-basis: 40px;"
+  >
+    Text
+  </div>
+</DocumentFragment>
+`;

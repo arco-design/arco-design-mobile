@@ -1,51 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`circle-progress demo test circle-progress demo: clockwise.md renders correctly 1`] = `
-<div
-  class="arco-circle-progress"
-  style="width:68px;height:68px"
->
-  <svg
-    style="transform:rotateY(180deg) rotateZ(-90deg);-webkit-transform:rotateY(180deg) rotateZ(-90deg)"
-    viewBox="0 0 68 68"
-  >
-    <circle
-      class="track-color"
-      cx="34"
-      cy="34"
-      fill="none"
-      r="30"
-      stroke-width="2"
-    />
-    <circle
-      class="color"
-      cx="34"
-      cy="34"
-      fill="none"
-      r="30"
-      stroke-dasharray="188.49555921538757"
-      stroke-dashoffset="188.49555921538757"
-      stroke-linecap="round"
-      stroke-width="4"
-      style="transition:;-webkit-transition:"
-    />
-  </svg>
+<DocumentFragment>
   <div
-    class="arco-circle-progress-text color arco-circle-progress-text-center"
-  >
-    0%
-  </div>
-</div>
-`;
-
-exports[`circle-progress demo test circle-progress demo: custom.md renders correctly 1`] = `
-Array [
-  <div
-    class="arco-circle-progress circle-progress-demo-custom"
-    style="width:68px;height:68px"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="25"
+    class="arco-circle-progress"
+    role="progressbar"
+    style="width: 68px; height: 68px;"
   >
     <svg
-      style="transform:rotateY(0deg) rotateZ(-90deg);-webkit-transform:rotateY(0deg) rotateZ(-90deg)"
+      style="transform: rotateY(180deg) rotateZ(-90deg);"
       viewBox="0 0 68 68"
     >
       <circle
@@ -63,25 +29,72 @@ Array [
         fill="none"
         r="30"
         stroke-dasharray="188.49555921538757"
-        stroke-dashoffset="188.49555921538757"
+        stroke-dashoffset="141.37166941154067"
         stroke-linecap="round"
         stroke-width="4"
-        style="transition:;-webkit-transition:;stroke:#FF5722"
       />
     </svg>
     <div
       class="arco-circle-progress-text color arco-circle-progress-text-center"
-      style="color:#FF5722"
     >
-      0%
+      25%
     </div>
-  </div>,
+  </div>
+</DocumentFragment>
+`;
+
+exports[`circle-progress demo test circle-progress demo: custom.md renders correctly 1`] = `
+<DocumentFragment>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
     class="arco-circle-progress circle-progress-demo-custom"
-    style="width:68px;height:68px"
+    role="progressbar"
+    style="width: 68px; height: 68px;"
   >
     <svg
-      style="transform:rotateY(0deg) rotateZ(-90deg);-webkit-transform:rotateY(0deg) rotateZ(-90deg)"
+      style="transform: rotateY(0deg) rotateZ(-90deg);"
+      viewBox="0 0 68 68"
+    >
+      <circle
+        class="track-color"
+        cx="34"
+        cy="34"
+        fill="none"
+        r="30"
+        stroke-width="2"
+      />
+      <circle
+        class="color"
+        cx="34"
+        cy="34"
+        fill="none"
+        r="30"
+        stroke-dasharray="188.49555921538757"
+        stroke-dashoffset="47.12388980384691"
+        stroke-linecap="round"
+        stroke-width="4"
+        style="stroke: #FF5722;"
+      />
+    </svg>
+    <div
+      class="arco-circle-progress-text color arco-circle-progress-text-center"
+      style="color: rgb(255, 87, 34);"
+    >
+      75%
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="100"
+    class="arco-circle-progress circle-progress-demo-custom"
+    role="progressbar"
+    style="width: 68px; height: 68px;"
+  >
+    <svg
+      style="transform: rotateY(0deg) rotateZ(-90deg);"
       viewBox="0 0 68 68"
     >
       <circle
@@ -93,8 +106,8 @@ Array [
         stroke-width="2"
       />
       <defs>
-        <linearGradient
-          id="-grad-circle-progress"
+        <lineargradient
+          id="inner-2-grad-circle-progress"
           x1="0%"
           x2="0%"
           y1="0%"
@@ -103,14 +116,14 @@ Array [
           <stop
             class="linear-gradient-end"
             offset="0%"
-            style="stop-color:#4776E6"
+            style="stop-color: rgb(71, 118, 230);"
           />
           <stop
             class="linear-gradient-start"
             offset="100%"
-            style="stop-color:#14CAFF"
+            style="stop-color: rgb(20, 202, 255);"
           />
-        </linearGradient>
+        </lineargradient>
       </defs>
       <circle
         class=""
@@ -118,166 +131,185 @@ Array [
         cy="34"
         fill="none"
         r="30"
-        stroke="url(#-grad-circle-progress)"
+        stroke="url(#inner-2-grad-circle-progress)"
         stroke-dasharray="188.49555921538757"
-        stroke-dashoffset="188.49555921538757"
+        stroke-dashoffset="0"
         stroke-linecap="round"
         stroke-width="4"
-        style="transition:;-webkit-transition:"
       />
     </svg>
     <div
       class="arco-circle-progress-text linear-gradient-text arco-circle-progress-text-center"
     >
-      0%
+      100%
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`circle-progress demo test circle-progress demo: index.md renders correctly 1`] = `
-<div
-  class="arco-circle-progress"
-  style="width:68px;height:68px"
->
-  <svg
-    style="transform:rotateY(0deg) rotateZ(-90deg);-webkit-transform:rotateY(0deg) rotateZ(-90deg)"
-    viewBox="0 0 68 68"
-  >
-    <circle
-      class="track-color"
-      cx="34"
-      cy="34"
-      fill="none"
-      r="30"
-      stroke-width="2"
-    />
-    <circle
-      class="color"
-      cx="34"
-      cy="34"
-      fill="none"
-      r="30"
-      stroke-dasharray="188.49555921538757"
-      stroke-dashoffset="188.49555921538757"
-      stroke-linecap="round"
-      stroke-width="4"
-      style="transition:;-webkit-transition:"
-    />
-  </svg>
+<DocumentFragment>
   <div
-    class="arco-circle-progress-text color arco-circle-progress-text-center"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-circle-progress"
+    role="progressbar"
+    style="width: 68px; height: 68px;"
   >
-    0%
+    <svg
+      style="transform: rotateY(0deg) rotateZ(-90deg);"
+      viewBox="0 0 68 68"
+    >
+      <circle
+        class="track-color"
+        cx="34"
+        cy="34"
+        fill="none"
+        r="30"
+        stroke-width="2"
+      />
+      <circle
+        class="color"
+        cx="34"
+        cy="34"
+        fill="none"
+        r="30"
+        stroke-dasharray="188.49555921538757"
+        stroke-dashoffset="47.12388980384691"
+        stroke-linecap="round"
+        stroke-width="4"
+      />
+    </svg>
+    <div
+      class="arco-circle-progress-text color arco-circle-progress-text-center"
+    >
+      75%
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`circle-progress demo test circle-progress demo: micro.md renders correctly 1`] = `
-<div
-  class="arco-circle-progress"
-  style="width:26px;height:26px"
->
-  <svg
-    style="transform:rotateY(0deg) rotateZ(-90deg);-webkit-transform:rotateY(0deg) rotateZ(-90deg)"
-    viewBox="0 0 26 26"
+<DocumentFragment>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="25"
+    class="arco-circle-progress"
+    role="progressbar"
+    style="width: 26px; height: 26px;"
   >
-    <circle
-      class="mini"
-      cx="13"
-      cy="13"
-      fill="none"
-      r="9"
-      stroke-width="4"
-    />
-    <circle
-      class="color"
-      cx="13"
-      cy="13"
-      fill="none"
-      r="9"
-      stroke-dasharray="56.548667764616276"
-      stroke-dashoffset="56.548667764616276"
-      stroke-linecap="square"
-      stroke-width="4"
-      style="transition:;-webkit-transition:"
-    />
-  </svg>
-</div>
+    <svg
+      style="transform: rotateY(0deg) rotateZ(-90deg);"
+      viewBox="0 0 26 26"
+    >
+      <circle
+        class="mini"
+        cx="13"
+        cy="13"
+        fill="none"
+        r="9"
+        stroke-width="4"
+      />
+      <circle
+        class="color"
+        cx="13"
+        cy="13"
+        fill="none"
+        r="9"
+        stroke-dasharray="56.548667764616276"
+        stroke-dashoffset="42.411500823462205"
+        stroke-linecap="square"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`circle-progress demo test circle-progress demo: size.md renders correctly 1`] = `
-<div
-  class="arco-circle-progress"
-  style="width:82px;height:82px"
->
-  <svg
-    style="transform:rotateY(0deg) rotateZ(-90deg);-webkit-transform:rotateY(0deg) rotateZ(-90deg)"
-    viewBox="0 0 82 82"
-  >
-    <circle
-      class="track-color"
-      cx="41"
-      cy="41"
-      fill="none"
-      r="37"
-      stroke-width="2"
-    />
-    <circle
-      class="color"
-      cx="41"
-      cy="41"
-      fill="none"
-      r="37"
-      stroke-dasharray="232.4778563656447"
-      stroke-dashoffset="232.4778563656447"
-      stroke-linecap="round"
-      stroke-width="4"
-      style="transition:;-webkit-transition:"
-    />
-  </svg>
+<DocumentFragment>
   <div
-    class="arco-circle-progress-text color arco-circle-progress-text-center"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-circle-progress"
+    role="progressbar"
+    style="width: 82px; height: 82px;"
   >
-    0%
+    <svg
+      style="transform: rotateY(0deg) rotateZ(-90deg);"
+      viewBox="0 0 82 82"
+    >
+      <circle
+        class="track-color"
+        cx="41"
+        cy="41"
+        fill="none"
+        r="37"
+        stroke-width="2"
+      />
+      <circle
+        class="color"
+        cx="41"
+        cy="41"
+        fill="none"
+        r="37"
+        stroke-dasharray="232.4778563656447"
+        stroke-dashoffset="58.119464091411174"
+        stroke-linecap="round"
+        stroke-width="4"
+      />
+    </svg>
+    <div
+      class="arco-circle-progress-text color arco-circle-progress-text-center"
+    >
+      75%
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`circle-progress demo test circle-progress demo: width.md renders correctly 1`] = `
-<div
-  class="arco-circle-progress"
-  style="width:72px;height:72px"
->
-  <svg
-    style="transform:rotateY(0deg) rotateZ(-90deg);-webkit-transform:rotateY(0deg) rotateZ(-90deg)"
-    viewBox="0 0 72 72"
-  >
-    <circle
-      class="track-color"
-      cx="36"
-      cy="36"
-      fill="none"
-      r="30"
-      stroke-width="4"
-    />
-    <circle
-      class="color"
-      cx="36"
-      cy="36"
-      fill="none"
-      r="30"
-      stroke-dasharray="188.49555921538757"
-      stroke-dashoffset="188.49555921538757"
-      stroke-linecap="round"
-      stroke-width="6"
-      style="transition:;-webkit-transition:"
-    />
-  </svg>
+<DocumentFragment>
   <div
-    class="arco-circle-progress-text color arco-circle-progress-text-center"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="75"
+    class="arco-circle-progress"
+    role="progressbar"
+    style="width: 72px; height: 72px;"
   >
-    0%
+    <svg
+      style="transform: rotateY(0deg) rotateZ(-90deg);"
+      viewBox="0 0 72 72"
+    >
+      <circle
+        class="track-color"
+        cx="36"
+        cy="36"
+        fill="none"
+        r="30"
+        stroke-width="4"
+      />
+      <circle
+        class="color"
+        cx="36"
+        cy="36"
+        fill="none"
+        r="30"
+        stroke-dasharray="188.49555921538757"
+        stroke-dashoffset="47.12388980384691"
+        stroke-linecap="round"
+        stroke-width="6"
+      />
+    </svg>
+    <div
+      class="arco-circle-progress-text color arco-circle-progress-text-center"
+    >
+      75%
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

@@ -16,17 +16,17 @@ export const touchEventCommonProps = {
     ...eventCommonProps,
 };
 
-export function createStartTouchEventObject({ x = 0, y = 0, px = 0, py = 0}) {
+export function createStartTouchEventObject({ x = 0, y = 0, px = 0, py = 0 }) {
     return {
-        touches: [{...createClientXY(x, y), ...createPageXY(px, py)}],
+        touches: [{ ...createClientXY(x, y), ...createPageXY(px, py) }],
         ...touchEventCommonProps,
     };
 }
 
-export function createMoveTouchEventObject({ x = 0, y = 0, px = 0, py = 0}) {
+export function createMoveTouchEventObject({ x = 0, y = 0, px = 0, py = 0 }) {
     return {
-        touches: [{...createClientXY(x, y), ...createPageXY(px, py)}],
-        changedTouches: [{...createClientXY(x, y), ...createPageXY(px, py)}],
+        touches: [{ ...createClientXY(x, y), ...createPageXY(px, py) }],
+        changedTouches: [{ ...createClientXY(x, y), ...createPageXY(px, py) }],
         ...touchEventCommonProps,
     };
 }
@@ -35,21 +35,24 @@ export function mockAddListener(component, isDomNode) {
     const map = {
         touchstart: () => {},
         touchmove: () => {},
-        touchend: () => {}
+        touchend: () => {},
     };
     const namedByRefDomNode = isDomNode ? component : component.getDOMNode();
     namedByRefDomNode.addEventListener = jest.fn((event, cb) => {
         if (event === 'scroll') {
             // replace the value with offsetTop, cause `scrollTop` returns undefined
-            var originalScrollTop = Object.getOwnPropertyDescriptor(HTMLElement.prototype, "offsetTop");
+            const originalScrollTop = Object.getOwnPropertyDescriptor(
+                HTMLElement.prototype,
+                'offsetTop',
+            );
             Object.defineProperty(
                 namedByRefDomNode === window ? document.documentElement : namedByRefDomNode,
                 'scrollTop',
                 {
-                    get: function() {
+                    get() {
                         return originalScrollTop.get.apply(this, arguments);
                     },
-                    set: function() {
+                    set() {
                         cb();
                     },
                     configurable: true,

@@ -1,1009 +1,1186 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tabs demo test tabs demo: basic.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
+exports[`tabs demo test tabs demo: adaptive.md renders correctly 1`] = `
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+      class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
-          class="arco-tab-cell vertical line-divide pc active no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line-divide pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line-divide pc no-shrink last"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell-underline"
+          class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"
         >
           <div
-            class="arco-tab-cell-underline-inner vertical"
-          />
+            class="arco-tab-cell vertical line pc active no-shrink"
+          >
+            Exam
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Ex
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink last"
+          >
+            Exaaample
+          </div>
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px) translateZ(0); width: auto;"
+          >
+            <div
+              class="arco-tab-cell-underline-inner vertical"
+              style="width: 0px; will-change: width;"
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:300%;transform:translateX(0px);-webkit-transform:translateX(0px);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
     <div
-      class="arco-tab-pane mode-swipe"
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 400%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
     >
       <div
-        class="demo-tab-content"
+        class="arco-tab-pane mode-swipe"
       >
-        Content area
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`tabs demo test tabs demo: basic.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+  >
+    <div
+      class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+    >
+      <div
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
+      >
+        <div
+          class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+        >
+          <div
+            class="arco-tab-cell vertical line-divide pc active no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink last"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px);"
+          >
+            <div
+              class="arco-tab-cell-underline-inner vertical"
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 300%; transform: translateX(0px); transition-duration: 0ms;"
+    >
+      <div
+        class="arco-tab-pane mode-swipe"
+      >
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: card.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box demo-tabs-card"
->
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-card pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box demo-tabs-card"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-card"
+      class="arco-tab-cell-container-wrap vertical type-card pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-center type-card shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-card pc"
       >
         <div
-          class="arco-tab-cell vertical card pc active no-shrink"
+          class="arco-tab-cell-container vertical pos-top arrange-center type-card shown"
         >
-          Tab 1
-        </div>
-        <div
-          class="arco-tab-cell vertical card pc no-shrink"
-        >
-          Tab 2
-        </div>
-        <div
-          class="arco-tab-cell vertical card pc no-shrink last"
-        >
-          Tab 3
+          <div
+            class="arco-tab-cell vertical card pc active no-shrink"
+          >
+            Tab 1
+          </div>
+          <div
+            class="arco-tab-cell vertical card pc no-shrink"
+          >
+            Tab 2
+          </div>
+          <div
+            class="arco-tab-cell vertical card pc no-shrink last"
+          >
+            Tab 3
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:300%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
     <div
-      class="arco-tab-pane mode-swipe"
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 300%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
     >
       <div
-        class="demo-tab-content"
+        class="arco-tab-pane mode-swipe"
       >
-        Content area
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
       </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
     </div>
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: caterpillar.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-line pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-line"
+      class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
-          class="arco-tab-cell vertical line pc active no-shrink"
-          style="margin-left:22px"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink last"
-        >
-          Example
-        </div>
-        <div
-          class="fake-padding"
-          style="width:22px;height:100%"
-        />
-        <div
-          class="arco-tab-cell-underline"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
         >
           <div
-            class="arco-tab-cell-underline-inner custom-animate vertical"
-            style="border-radius:6px"
+            class="arco-tab-cell vertical line pc active no-shrink"
+            style="margin-left: 22px;"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink last"
+          >
+            Example
+          </div>
+          <div
+            class="fake-padding"
+            style="width: 22px; height: 100%;"
           />
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px) translateZ(0); width: 6px; height: 6px;"
+          >
+            <div
+              class="arco-tab-cell-underline-inner custom-animate vertical"
+              style="border-radius: 6px; animation-duration: 240ms; width: 100%; will-change: width;"
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:600%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
     <div
-      class="arco-tab-pane mode-swipe"
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 600%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
     >
       <div
-        class="demo-tab-content"
+        class="arco-tab-pane mode-swipe"
       >
-        Content area
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
       </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
     </div>
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: click.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+      class="arco-tab-cell-container-wrap vertical type-line-divide pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
       >
         <div
-          class="arco-tab-cell vertical line-divide pc active no-shrink"
-        >
-          Example 1
-        </div>
-        <div
-          class="arco-tab-cell vertical line-divide pc no-shrink"
-        >
-          Example 2
-        </div>
-        <div
-          class="arco-tab-cell vertical line-divide pc no-shrink last"
-        >
-          Example 3
-        </div>
-        <div
-          class="arco-tab-cell-underline"
+          class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
         >
           <div
-            class="arco-tab-cell-underline-inner vertical"
-          />
+            class="arco-tab-cell vertical line-divide pc active no-shrink"
+          >
+            Example 1
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink"
+          >
+            Example 2
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink last"
+          >
+            Example 3
+          </div>
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
+          >
+            <div
+              class="arco-tab-cell-underline-inner vertical"
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:300%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
     <div
-      class="arco-tab-pane mode-swipe"
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 300%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
     >
       <div
-        class="demo-tab-content"
+        class="arco-tab-pane mode-swipe"
       >
-        Content area
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
       </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
     </div>
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: custom-bar.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box demo-tab-custom-bar"
->
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-tag-divide pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box demo-tab-custom-bar"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-tag-divide"
+      class="arco-tab-cell-container-wrap vertical type-tag-divide pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-center type-tag-divide shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-tag-divide pc"
       >
         <div
-          class="arco-tab-cell vertical tag-divide pc active no-shrink custom"
-          style="margin-right:45px;margin-left:22px"
+          class="arco-tab-cell-container vertical pos-top arrange-center type-tag-divide shown"
         >
           <div
-            class="custom-bar-item active"
+            class="arco-tab-cell vertical tag-divide pc active no-shrink custom"
+            style="margin-right: 45px; margin-left: 22px;"
           >
             <div
-              class="title"
+              class="custom-bar-item active"
             >
-              Example
-            </div>
-            <div
-              class="desc"
-            >
-              description
+              <div
+                class="title"
+              >
+                Example
+              </div>
+              <div
+                class="desc"
+              >
+                description
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="arco-tab-cell vertical tag-divide pc no-shrink custom"
-          style="margin-right:45px"
-        >
           <div
-            class="custom-bar-item "
+            class="arco-tab-cell vertical tag-divide pc no-shrink custom"
+            style="margin-right: 45px;"
           >
             <div
-              class="title"
+              class="custom-bar-item "
             >
-              Example
-            </div>
-            <div
-              class="desc"
-            >
-              description
+              <div
+                class="title"
+              >
+                Example
+              </div>
+              <div
+                class="desc"
+              >
+                description
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="arco-tab-cell vertical tag-divide pc no-shrink last custom"
-        >
           <div
-            class="custom-bar-item "
+            class="arco-tab-cell vertical tag-divide pc no-shrink last custom"
           >
             <div
-              class="title"
+              class="custom-bar-item "
             >
-              Example
-            </div>
-            <div
-              class="desc"
-            >
-              description
+              <div
+                class="title"
+              >
+                Example
+              </div>
+              <div
+                class="desc"
+              >
+                description
+              </div>
             </div>
           </div>
+          <div
+            class="fake-padding"
+            style="width: 22px; height: 100%;"
+          />
         </div>
-        <div
-          class="fake-padding"
-          style="width:22px;height:100%"
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:300%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
-    <div
-      class="arco-tab-pane mode-swipe"
-    >
-      <div
-        class="demo-tab-content"
-      >
-        Content area
       </div>
     </div>
     <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 300%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
+    >
+      <div
+        class="arco-tab-pane mode-swipe"
+      >
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: duration.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-line-divide"
+      class="arco-tab-cell-container-wrap vertical type-line-divide pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
       >
         <div
-          class="arco-tab-cell vertical line-divide pc active no-shrink"
-        >
-          Example 1
-        </div>
-        <div
-          class="arco-tab-cell vertical line-divide pc no-shrink"
-        >
-          Example 2
-        </div>
-        <div
-          class="arco-tab-cell vertical line-divide pc no-shrink"
-        >
-          Example 3
-        </div>
-        <div
-          class="arco-tab-cell vertical line-divide pc no-shrink last"
-        >
-          Example 4
-        </div>
-        <div
-          class="arco-tab-cell-underline"
+          class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
         >
           <div
-            class="arco-tab-cell-underline-inner vertical"
-          />
+            class="arco-tab-cell vertical line-divide pc active no-shrink"
+          >
+            Example 1
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink"
+          >
+            Example 2
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink"
+          >
+            Example 3
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink last"
+          >
+            Example 4
+          </div>
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
+          >
+            <div
+              class="arco-tab-cell-underline-inner vertical"
+              style="animation-duration: 400ms; transform: scaleX(1);"
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:400%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
     <div
-      class="arco-tab-pane mode-swipe"
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 400%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
     >
       <div
-        class="demo-tab-content"
+        class="arco-tab-pane mode-swipe"
       >
-        Content area
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`tabs demo test tabs demo: energy-saving.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+  >
+    <div
+      class="arco-tab-cell-container-wrap vertical type-line-divide pc"
+    >
+      <div
+        class="arco-tab-cell-container-inner vertical pos-top type-line-divide pc"
+      >
+        <div
+          class="arco-tab-cell-container vertical pos-top arrange-center type-line-divide shown"
+        >
+          <div
+            class="arco-tab-cell vertical line-divide pc active no-shrink"
+          >
+            Example 1
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink"
+          >
+            Example 2
+          </div>
+          <div
+            class="arco-tab-cell vertical line-divide pc no-shrink last"
+          >
+            Example 3
+          </div>
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
+          >
+            <div
+              class="arco-tab-cell-underline-inner vertical"
+              style="animation-duration: 240ms; transform: scaleX(1);"
+            />
+          </div>
+        </div>
       </div>
     </div>
     <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
+      class="arco-tab-pane-container vertical mode-swipe-energy-saving"
+      style="transition-duration: 0ms;"
+    >
+      <div
+        class="arco-tab-pane mode-swipe"
+        style="transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
+      >
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+        style="position: absolute; left: -100%; top: -100%;"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+        style="position: absolute; left: -100%; top: -100%;"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: extra.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-line pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-line"
+      class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
-          class="arco-tab-cell vertical line pc active no-shrink"
-          style="margin-right:42px;margin-left:22px"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-          style="margin-right:42px"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-          style="margin-right:42px"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-          style="margin-right:42px"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-          style="margin-right:42px"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink last"
-        >
-          Example
-        </div>
-        <div
-          class="fake-padding"
-          style="width:64px;height:100%"
-        />
-        <div
-          class="arco-tab-cell-underline"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
         >
           <div
-            class="arco-tab-cell-underline-inner vertical"
+            class="arco-tab-cell vertical line pc active no-shrink"
+            style="margin-right: 42px; margin-left: 22px;"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink last"
+          >
+            Example
+          </div>
+          <div
+            class="fake-padding"
+            style="width: 64px; height: 100%;"
           />
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
+          >
+            <div
+              class="arco-tab-cell-underline-inner vertical"
+            />
+          </div>
+        </div>
+        <div
+          class="demo-tabs-add-extra"
+        >
+          <svg
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+          >
+            <rect
+              fill="#86909C"
+              height="12"
+              rx="0.5"
+              width="2"
+              x="7"
+              y="2"
+            />
+            <rect
+              fill="#86909C"
+              height="12"
+              rx="0.5"
+              transform="rotate(90 14 7)"
+              width="2"
+              x="14"
+              y="7"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 600%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
+    >
+      <div
+        class="arco-tab-pane mode-swipe"
+      >
+        <div
+          class="demo-tab-content"
+        >
+          Content area
         </div>
       </div>
       <div
-        class="demo-tabs-add-extra"
-      >
-        <svg
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-        >
-          <rect
-            fill="#86909C"
-            height="12"
-            rx="0.5"
-            width="2"
-            x="7"
-            y="2"
-          />
-          <rect
-            fill="#86909C"
-            height="12"
-            rx="0.5"
-            transform="rotate(90 14 7)"
-            width="2"
-            x="14"
-            y="7"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:600%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
-    <div
-      class="arco-tab-pane mode-swipe"
-    >
+        class="arco-tab-pane mode-swipe"
+      />
       <div
-        class="demo-tab-content"
-      >
-        Content area
-      </div>
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
     </div>
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: scroll.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-line pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-line has-divider"
+      class="arco-tab-cell-container-wrap vertical type-line pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-line has-divider pc"
       >
         <div
-          class="arco-tab-cell vertical line pc active no-shrink"
-          style="margin-left:22px"
-        >
-          Example 1
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-        >
-          Example 2
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-        >
-          Example 3
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink"
-        >
-          Example 4
-        </div>
-        <div
-          class="arco-tab-cell vertical line pc no-shrink last"
-        >
-          Example 5
-        </div>
-        <div
-          class="fake-padding"
-          style="width:22px;height:100%"
-        />
-        <div
-          class="arco-tab-cell-underline"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
         >
           <div
-            class="arco-tab-cell-underline-inner vertical"
+            class="arco-tab-cell vertical line pc active no-shrink"
+            style="margin-left: 22px;"
+          >
+            Example 1
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Example 2
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Example 3
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+          >
+            Example 4
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink last"
+          >
+            Example 5
+          </div>
+          <div
+            class="fake-padding"
+            style="width: 22px; height: 100%;"
           />
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
+          >
+            <div
+              class="arco-tab-cell-underline-inner vertical"
+              style="animation-duration: 240ms; transform: scaleX(1);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane-container vertical mode-scroll demo-tab-pane-scroll mode-scroll-vertical"
+      style="height: 150px; overflow-y: auto;"
+    >
+      <div
+        class="arco-tab-pane mode-scroll"
+      >
+        <div
+          class="demo-tab-scroll-content"
+        >
+          <p>
+            Example Content 1
+          </p>
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-scroll"
+      >
+        <div
+          class="demo-tab-scroll-content"
+        >
+          <p>
+            Example Content 2
+          </p>
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-scroll"
+      >
+        <div
+          class="demo-tab-scroll-content"
+        >
+          <p>
+            Example Content 3
+          </p>
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-scroll"
+      >
+        <div
+          class="demo-tab-scroll-content"
+        >
+          <p>
+            Example Content 4
+          </p>
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-scroll"
+      >
+        <div
+          class="demo-tab-scroll-content"
+        >
+          <p>
+            Example Content 5
+          </p>
         </div>
       </div>
     </div>
   </div>
-  <div
-    class="arco-tab-pane-container vertical mode-scroll demo-tab-pane-scroll mode-scroll-vertical"
-    style="height:150px;overflow-y:auto"
-  >
-    <div
-      class="arco-tab-pane mode-scroll"
-    >
-      <div
-        class="demo-tab-scroll-content"
-      >
-        <p>
-          Example Content 1
-        </p>
-      </div>
-    </div>
-    <div
-      class="arco-tab-pane mode-scroll"
-    >
-      <div
-        class="demo-tab-scroll-content"
-      >
-        <p>
-          Example Content 2
-        </p>
-      </div>
-    </div>
-    <div
-      class="arco-tab-pane mode-scroll"
-    >
-      <div
-        class="demo-tab-scroll-content"
-      >
-        <p>
-          Example Content 3
-        </p>
-      </div>
-    </div>
-    <div
-      class="arco-tab-pane mode-scroll"
-    >
-      <div
-        class="demo-tab-scroll-content"
-      >
-        <p>
-          Example Content 4
-        </p>
-      </div>
-    </div>
-    <div
-      class="arco-tab-pane mode-scroll"
-    >
-      <div
-        class="demo-tab-scroll-content"
-      >
-        <p>
-          Example Content 5
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: sticky.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
-  <div>
-    <div />
-    <div
-      class="arco-sticky"
-    >
+<DocumentFragment>
+  <div
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+  >
+    <div>
       <div
-        class="arco-tab-cell-container-wrap vertical type-line pc"
+        style="height: 0px;"
+      />
+      <div
+        class="arco-sticky"
       >
         <div
-          class="arco-tab-cell-container-inner vertical pos-top type-line"
+          class="arco-tab-cell-container-wrap vertical type-line pc"
         >
           <div
-            class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
+            class="arco-tab-cell-container-inner vertical pos-top type-line pc"
           >
             <div
-              class="arco-tab-cell vertical line pc active no-shrink"
-              style="margin-left:22px"
-            >
-              Example 1
-            </div>
-            <div
-              class="arco-tab-cell vertical line pc no-shrink"
-            >
-              Example 2
-            </div>
-            <div
-              class="arco-tab-cell vertical line pc no-shrink"
-            >
-              Example 3
-            </div>
-            <div
-              class="arco-tab-cell vertical line pc no-shrink"
-            >
-              Example 4
-            </div>
-            <div
-              class="arco-tab-cell vertical line pc no-shrink"
-            >
-              Very long first Example
-            </div>
-            <div
-              class="arco-tab-cell vertical line pc no-shrink last"
-            >
-              Very long second Example
-            </div>
-            <div
-              class="fake-padding"
-              style="width:22px;height:100%"
-            />
-            <div
-              class="arco-tab-cell-underline"
+              class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
             >
               <div
-                class="arco-tab-cell-underline-inner vertical"
+                class="arco-tab-cell vertical line pc active no-shrink"
+                style="margin-left: 22px;"
+              >
+                Example 1
+              </div>
+              <div
+                class="arco-tab-cell vertical line pc no-shrink"
+              >
+                Example 2
+              </div>
+              <div
+                class="arco-tab-cell vertical line pc no-shrink"
+              >
+                Example 3
+              </div>
+              <div
+                class="arco-tab-cell vertical line pc no-shrink"
+              >
+                Example 4
+              </div>
+              <div
+                class="arco-tab-cell vertical line pc no-shrink"
+              >
+                Very long first Example
+              </div>
+              <div
+                class="arco-tab-cell vertical line pc no-shrink last"
+              >
+                Very long second Example
+              </div>
+              <div
+                class="fake-padding"
+                style="width: 22px; height: 100%;"
               />
+              <div
+                class="arco-tab-cell-underline"
+                style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
+              >
+                <div
+                  class="arco-tab-cell-underline-inner vertical"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:600%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
     <div
-      class="arco-tab-pane mode-swipe"
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 600%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
     >
       <div
-        class="demo-tab-content"
+        class="arco-tab-pane mode-swipe"
       >
-        Content area
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
       </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
     </div>
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tabs demo test tabs demo: tag.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
+<DocumentFragment>
   <div
-    class="arco-tab-cell-container-wrap vertical type-tag pc"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
     <div
-      class="arco-tab-cell-container-inner vertical pos-top type-tag"
+      class="arco-tab-cell-container-wrap vertical type-tag pc"
     >
       <div
-        class="arco-tab-cell-container vertical pos-top arrange-start type-tag shown"
+        class="arco-tab-cell-container-inner vertical pos-top type-tag pc"
       >
         <div
-          class="arco-tab-cell vertical tag pc active no-shrink"
-          style="margin-left:16px"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag pc no-shrink last"
-        >
-          Example
-        </div>
-        <div
-          class="fake-padding"
-          style="width:16px;height:100%"
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:900%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
-    <div
-      class="arco-tab-pane mode-swipe"
-    >
-      <div
-        class="demo-tab-content"
-      >
-        Content area
-      </div>
-    </div>
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-  </div>
-</div>
-`;
-
-exports[`tabs demo test tabs demo: tag-divide.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
->
-  <div
-    class="arco-tab-cell-container-wrap vertical type-tag-divide pc"
-  >
-    <div
-      class="arco-tab-cell-container-inner vertical pos-top type-tag-divide"
-    >
-      <div
-        class="arco-tab-cell-container vertical pos-top arrange-center type-tag-divide shown"
-      >
-        <div
-          class="arco-tab-cell vertical tag-divide pc active no-shrink"
-          style="margin-left:16px"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag-divide pc no-shrink"
-        >
-          Example
-        </div>
-        <div
-          class="arco-tab-cell vertical tag-divide pc no-shrink last"
-        >
-          Example
-        </div>
-        <div
-          class="fake-padding"
-          style="width:16px;height:100%"
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    class="arco-tab-pane-container vertical mode-swipe"
-    style="width:300%;transform:translateX(0px) translateZ(0);-webkit-transform:translateX(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
-  >
-    <div
-      class="arco-tab-pane mode-swipe"
-    >
-      <div
-        class="demo-tab-content"
-      >
-        Content area
-      </div>
-    </div>
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-  </div>
-</div>
-`;
-
-exports[`tabs demo test tabs demo: vertical.md renders correctly 1`] = `
-<div
-  class="arco-tabs arco-tabs-left arco-tabs-horizontal all-border-box"
->
-  <div
-    class="arco-tab-cell-container-wrap horizontal type-line pc"
-  >
-    <div
-      class="arco-tab-cell-container-inner horizontal pos-left type-line"
-    >
-      <div
-        class="arco-tab-cell-container horizontal pos-left arrange-center type-line shown"
-      >
-        <div
-          class="arco-tab-cell horizontal line pc active no-shrink"
-        >
-          <span>
-            Example 1
-          </span>
-        </div>
-        <div
-          class="arco-tab-cell horizontal line pc no-shrink"
-        >
-          <span>
-            Example 2
-          </span>
-        </div>
-        <div
-          class="arco-tab-cell horizontal line pc no-shrink"
-        >
-          <span>
-            Example 3
-          </span>
-        </div>
-        <div
-          class="arco-tab-cell horizontal line pc no-shrink last"
-        >
-          <span>
-            Example 4
-          </span>
-        </div>
-        <div
-          class="arco-tab-cell-underline"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-tag shown"
         >
           <div
-            class="arco-tab-cell-underline-inner horizontal"
+            class="arco-tab-cell vertical tag pc active no-shrink"
+            style="margin-left: 16px;"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag pc no-shrink last"
+          >
+            Example
+          </div>
+          <div
+            class="fake-padding"
+            style="width: 16px; height: 100%;"
           />
         </div>
       </div>
     </div>
+    <div
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 900%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
+    >
+      <div
+        class="arco-tab-pane mode-swipe"
+      >
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+    </div>
   </div>
+</DocumentFragment>
+`;
+
+exports[`tabs demo test tabs demo: tag-divide.md renders correctly 1`] = `
+<DocumentFragment>
   <div
-    class="arco-tab-pane-container horizontal mode-swipe"
-    style="height:400%;transform:translateY(0px) translateZ(0);-webkit-transform:translateY(0px) translateZ(0);transition-duration:0ms;-webkit-transition-duration:0ms"
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
     <div
-      class="arco-tab-pane mode-swipe"
+      class="arco-tab-cell-container-wrap vertical type-tag-divide pc"
     >
-      <div />
+      <div
+        class="arco-tab-cell-container-inner vertical pos-top type-tag-divide pc"
+      >
+        <div
+          class="arco-tab-cell-container vertical pos-top arrange-center type-tag-divide shown"
+        >
+          <div
+            class="arco-tab-cell vertical tag-divide pc active no-shrink"
+            style="margin-left: 16px;"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag-divide pc no-shrink"
+          >
+            Example
+          </div>
+          <div
+            class="arco-tab-cell vertical tag-divide pc no-shrink last"
+          >
+            Example
+          </div>
+          <div
+            class="fake-padding"
+            style="width: 16px; height: 100%;"
+          />
+        </div>
+      </div>
     </div>
     <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
-    <div
-      class="arco-tab-pane mode-swipe"
-    />
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 300%; transform: translateX(0px) translateZ(0); transition-duration: 0ms;"
+    >
+      <div
+        class="arco-tab-pane mode-swipe"
+      >
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
+`;
+
+exports[`tabs demo test tabs demo: vertical.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-tabs arco-tabs-left arco-tabs-horizontal all-border-box"
+  >
+    <div
+      class="arco-tab-cell-container-wrap horizontal type-line pc"
+    >
+      <div
+        class="arco-tab-cell-container-inner horizontal pos-left type-line pc"
+      >
+        <div
+          class="arco-tab-cell-container horizontal pos-left arrange-center type-line shown"
+        >
+          <div
+            class="arco-tab-cell horizontal line pc active no-shrink"
+          >
+            <span>
+              Example 1
+            </span>
+          </div>
+          <div
+            class="arco-tab-cell horizontal line pc no-shrink"
+          >
+            <span>
+              Example 2
+            </span>
+          </div>
+          <div
+            class="arco-tab-cell horizontal line pc no-shrink"
+          >
+            <span>
+              Example 3
+            </span>
+          </div>
+          <div
+            class="arco-tab-cell horizontal line pc no-shrink last"
+          >
+            <span>
+              Example 4
+            </span>
+          </div>
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateY(0px) translateZ(0);"
+          >
+            <div
+              class="arco-tab-cell-underline-inner horizontal"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane-container horizontal mode-swipe"
+      style="height: 400%; transform: translateY(0px) translateZ(0); transition-duration: 0ms;"
+    >
+      <div
+        class="arco-tab-pane mode-swipe"
+      >
+        <div />
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+    </div>
+  </div>
+</DocumentFragment>
 `;

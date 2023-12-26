@@ -1,478 +1,343 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`badge demo test badge demo: avatar.md renders correctly 1`] = `
-<div
-  class="badge-demo-avatar-wrap"
->
+<DocumentFragment>
   <div
-    class="badge-demo-avatar-box"
+    class="badge-demo-avatar-wrap"
   >
     <div
-      class="arco-avatar-wrapper small circle"
+      class="badge-demo-avatar-box"
     >
       <div
-        class="arco-avatar small circle arco-image-avatar"
+        class="arco-avatar-wrapper small circle arco-avatar-wrapper-shape-circle"
       >
         <div
-          class="arco-image all-border-box pc arco-avatar-img"
+          class="arco-avatar arco-avatar-size-small small arco-avatar-shape-circle circle arco-image-avatar arco-avatar-mode-image"
         >
           <div
-            class="image-content image-bottom-overlap"
+            class="arco-image all-border-box pc arco-avatar-img"
           >
             <div
-              class="image-placeholder"
+              class="image-content image-bottom-overlap"
+            >
+              <div
+                class="image-placeholder"
+              />
+            </div>
+            <div
+              class="image-container loading animate"
+              style="transition-duration: 200ms;"
             />
           </div>
-          <div
-            class="image-container init animate"
-            style="transition-duration:200ms;-webkit-transition-duration:200ms"
-          />
         </div>
       </div>
+      <div
+        class="arco-badge arco-badge-dot dot arco-badge-bordered bordered arco-badge-absolute absolute"
+        style="margin-left: -8px; margin-top: 4px;"
+      />
     </div>
-    <div
-      class="arco-badge dot bordered absolute"
-      style="margin-left:-8px;margin-top:4px"
-    />
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`badge demo test badge demo: define.md renders correctly 1`] = `
-<div
-  style="display:flex;justify-content:space-around;position:relative;padding:0.32rem 0"
->
+<DocumentFragment>
   <div
-    class="badge-demo-item"
+    style="display: flex; justify-content: space-around; position: relative; padding: 0.32rem 0px;"
   >
     <div
-      class="badge-demo-rectangle"
+      class="badge-demo-item"
     >
       <div
-        class="arco-badge dot absolute"
-        style="background:#ff5722"
-      />
-    </div>
-    <div
-      class="badge-demo-item-text"
-    >
-      Custom Color
-    </div>
-  </div>
-  <div
-    class="badge-demo-item"
-  >
-    <div
-      class="badge-demo-rectangle"
-    >
-      <div
-        class="arco-badge absolute"
-        style="border-radius:8px 8px 8px 0"
+        class="badge-demo-rectangle"
       >
-        <span
-          class="badge-text"
-        >
-          New
-        </span>
+        <div
+          class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
+          style="background: rgb(255, 87, 34);"
+        />
+      </div>
+      <div
+        class="badge-demo-item-text"
+      >
+        Custom Color
       </div>
     </div>
     <div
-      class="badge-demo-item-text"
-    >
-      Custom style
-    </div>
-  </div>
-  <div
-    class="badge-demo-item"
-  >
-    <div
-      class="badge-demo-rectangle"
+      class="badge-demo-item"
     >
       <div
-        class="arco-badge absolute"
-        style="background:linear-gradient(277.15deg, #0678FF -0.2%, #14CDFF 97.54%)"
+        class="badge-demo-rectangle"
       >
-        <span
-          class="badge-text"
+        <div
+          class="arco-badge arco-badge-absolute absolute"
+          style="border-radius: 8px 8px 8px 0;"
         >
-          Gradient
-        </span>
+          <span
+            class="arco-badge-text badge-text"
+          >
+            New
+          </span>
+        </div>
+      </div>
+      <div
+        class="badge-demo-item-text"
+      >
+        Custom style
       </div>
     </div>
     <div
-      class="badge-demo-item-text"
-    >
-      Custom color
-    </div>
-  </div>
-  <div
-    class="badge-demo-item"
-  >
-    <div
-      class="badge-demo-rectangle"
+      class="badge-demo-item"
     >
       <div
-        class="arco-badge absolute"
-        style="background:#ff5722"
+        class="badge-demo-rectangle"
       >
-        <span
-          class="badge-text"
+        <div
+          class="arco-badge arco-badge-absolute absolute"
         >
-          2
-        </span>
+          <span
+            class="arco-badge-text badge-text"
+          >
+            Gradient
+          </span>
+        </div>
+      </div>
+      <div
+        class="badge-demo-item-text"
+      >
+        Custom color
       </div>
     </div>
     <div
-      class="badge-demo-item-text"
+      class="badge-demo-item"
     >
-      Custom color
+      <div
+        class="badge-demo-rectangle"
+      >
+        <div
+          class="arco-badge arco-badge-absolute absolute"
+          style="background: rgb(255, 87, 34);"
+        >
+          <span
+            class="arco-badge-text badge-text"
+          >
+            2
+          </span>
+        </div>
+      </div>
+      <div
+        class="badge-demo-item-text"
+      >
+        Custom color
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`badge demo test badge demo: index.md renders correctly 1`] = `
-<div>
-  <div
-    class="badge-demo-item-wrap"
-  >
+<DocumentFragment>
+  <div>
     <div
-      style="display:flex;justify-content:space-around;position:relative"
+      class="badge-demo-item-wrap"
     >
       <div
-        class="badge-demo-item"
+        style="display: flex; justify-content: space-around; position: relative;"
       >
         <div
-          class="badge-demo-rectangle"
+          class="badge-demo-item"
         >
           <div
-            class="arco-badge dot absolute"
-          />
-        </div>
-        <div
-          class="badge-demo-item-text"
-        >
-          Dot badge
-        </div>
-      </div>
-      <div
-        class="badge-demo-item"
-      >
-        <div
-          class="badge-demo-rectangle"
-        >
-          <div
-            class="arco-badge absolute"
+            class="badge-demo-rectangle"
           >
-            <span
-              class="badge-text"
-            >
-              12
-            </span>
+            <div
+              class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
+            />
+          </div>
+          <div
+            class="badge-demo-item-text"
+          >
+            Dot badge
           </div>
         </div>
         <div
-          class="badge-demo-item-text"
-        >
-          Number badge
-        </div>
-      </div>
-      <div
-        class="badge-demo-item"
-      >
-        <div
-          class="badge-demo-rectangle"
+          class="badge-demo-item"
         >
           <div
-            class="arco-badge absolute"
+            class="badge-demo-rectangle"
           >
-            <span
-              class="badge-text"
+            <div
+              class="arco-badge arco-badge-absolute absolute"
             >
-              2
-            </span>
+              <span
+                class="arco-badge-text badge-text"
+              >
+                12
+              </span>
+            </div>
+          </div>
+          <div
+            class="badge-demo-item-text"
+          >
+            Number badge
           </div>
         </div>
         <div
-          class="badge-demo-item-text"
-        >
-          Odd badge
-        </div>
-      </div>
-      <div
-        class="badge-demo-item"
-      >
-        <div
-          class="badge-demo-rectangle"
+          class="badge-demo-item"
         >
           <div
-            class="arco-badge absolute"
+            class="badge-demo-rectangle"
           >
-            <span
-              class="badge-text"
+            <div
+              class="arco-badge arco-badge-absolute absolute"
             >
-              99+
-            </span>
+              <span
+                class="arco-badge-text badge-text"
+              >
+                2
+              </span>
+            </div>
+          </div>
+          <div
+            class="badge-demo-item-text"
+          >
+            Odd badge
           </div>
         </div>
         <div
-          class="badge-demo-item-text"
+          class="badge-demo-item"
         >
-          Maximum display
+          <div
+            class="badge-demo-rectangle"
+          >
+            <div
+              class="arco-badge arco-badge-absolute absolute"
+            >
+              <span
+                class="arco-badge-text badge-text"
+              >
+                99+
+              </span>
+            </div>
+          </div>
+          <div
+            class="badge-demo-item-text"
+          >
+            Maximum display
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="badge-demo-item-wrap"
+    >
+      <div
+        style="display: flex; justify-content: space-around; position: relative;"
+      >
+        <div
+          class="badge-demo-item"
+        >
+          <div
+            class="badge-demo-rectangle"
+          >
+            <div
+              class="arco-badge arco-badge-absolute absolute"
+            >
+              <span
+                class="arco-badge-text badge-text"
+              >
+                New
+              </span>
+            </div>
+          </div>
+          <div
+            class="badge-demo-item-text"
+          >
+            Text badge
+          </div>
+        </div>
+        <div
+          class="badge-demo-item"
+        >
+          <div
+            class="badge-demo-rectangle"
+          >
+            <div
+              class="arco-badge arco-badge-absolute absolute"
+            >
+              <span
+                class="arco-badge-text badge-text"
+              >
+                On Sale
+              </span>
+            </div>
+          </div>
+          <div
+            class="badge-demo-item-text"
+          >
+            Multiple text
+          </div>
+        </div>
+        <div
+          class="badge-demo-item"
+        >
+          <div
+            class="badge-demo-rectangle"
+          >
+            <div
+              class="arco-badge arco-badge-absolute absolute"
+              style="padding: 0px; width: 16px; height: 16px;"
+            >
+              <svg
+                class="arco-icon arco-icon-star-fill demo-icon"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 1024 1024"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs />
+                <path
+                  d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="badge-demo-item-text"
+          >
+            Icon badge
+          </div>
+        </div>
+        <div
+          class="badge-demo-item"
+        >
+          <div
+            class="badge-demo-rectangle"
+          >
+            <div
+              class="arco-badge arco-badge-absolute absolute"
+            >
+              <span
+                class="arco-badge-text badge-text"
+              >
+                New
+              </span>
+            </div>
+          </div>
+          <div
+            class="badge-demo-item-text"
+          >
+            Title text
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div
-    class="badge-demo-item-wrap"
-  >
-    <div
-      style="display:flex;justify-content:space-around;position:relative"
-    >
-      <div
-        class="badge-demo-item"
-      >
-        <div
-          class="badge-demo-rectangle"
-        >
-          <div
-            class="arco-badge absolute"
-          >
-            <span
-              class="badge-text"
-            >
-              New
-            </span>
-          </div>
-        </div>
-        <div
-          class="badge-demo-item-text"
-        >
-          Text badge
-        </div>
-      </div>
-      <div
-        class="badge-demo-item"
-      >
-        <div
-          class="badge-demo-rectangle"
-        >
-          <div
-            class="arco-badge absolute"
-          >
-            <span
-              class="badge-text"
-            >
-              On Sale
-            </span>
-          </div>
-        </div>
-        <div
-          class="badge-demo-item-text"
-        >
-          Multiple text
-        </div>
-      </div>
-      <div
-        class="badge-demo-item"
-      >
-        <div
-          class="badge-demo-rectangle"
-        >
-          <div
-            class="arco-badge absolute"
-            style="padding:0;width:16px;height:16px"
-          >
-            <svg
-              class="arco-icon arco-icon-star-fill demo-icon"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs />
-              <path
-                d="M497.371 826.514L270.63 936.23c-18.286 7.314-40.229 0-47.543-18.286-3.657-3.657-7.315-10.972-3.657-18.286l25.6-248.686c0-10.971-3.658-18.285-7.315-29.257L69.486 435.2c-14.629-14.629-10.972-36.571 3.657-51.2 3.657-3.657 10.971-7.314 14.628-7.314l245.029-51.2c10.971-3.657 18.286-7.315 21.943-18.286l128-219.429C490.057 73.143 512 65.83 530.286 76.8c3.657 3.657 10.971 7.314 14.628 14.629l128 219.428c3.657 7.314 14.629 14.629 21.943 18.286l245.029 51.2c18.285 3.657 32.914 21.943 25.6 43.886 0 7.314-3.657 10.971-7.315 14.628L789.943 621.714c-7.314 7.315-10.972 18.286-7.314 29.257l25.6 248.686c3.657 18.286-10.972 36.572-32.915 40.229-7.314 0-14.628 0-18.285-3.657L530.286 826.514c-10.972-7.314-25.6-7.314-32.915 0z"
-              />
-            </svg>
-          </div>
-        </div>
-        <div
-          class="badge-demo-item-text"
-        >
-          Icon badge
-        </div>
-      </div>
-      <div
-        class="badge-demo-item"
-      >
-        <div
-          class="badge-demo-rectangle"
-        >
-          <div
-            class="arco-badge absolute"
-          >
-            <span
-              class="badge-text"
-            >
-              New
-            </span>
-          </div>
-        </div>
-        <div
-          class="badge-demo-item-text"
-        >
-          Title text
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`badge demo test badge demo: list.md renders correctly 1`] = `
-<div
-  class="arco-cell-group all-border-box"
->
-  <div
-    class="cell-group-body bordered"
-  >
-    <div
-      class="arco-cell all-border-box bordered"
-    >
-      <div
-        class="arco-cell-inner"
-      >
-        <div
-          class="cell-label"
-        >
-          <div
-            class="cell-title"
-          >
-            List content
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            class="arco-badge dot"
-          />
-        </div>
-        <div
-          class="cell-arrow-icon"
-        >
-          <svg
-            class="arrow-icon-svg"
-            fill="none"
-            viewBox="0 0 8 14"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
-      <div
-        class="arco-cell-inner"
-      >
-        <div
-          class="cell-label"
-        >
-          <div
-            class="cell-title"
-          >
-            List content
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            class="arco-badge"
-          >
-            <span
-              class="badge-text"
-            >
-              2
-            </span>
-          </div>
-        </div>
-        <div
-          class="cell-arrow-icon"
-        >
-          <svg
-            class="arrow-icon-svg"
-            fill="none"
-            viewBox="0 0 8 14"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="arco-cell all-border-box bordered"
-    >
-      <div
-        class="arco-cell-inner"
-      >
-        <div
-          class="cell-label"
-        >
-          <div
-            class="cell-title"
-          >
-            List content
-          </div>
-        </div>
-        <div
-          class="cell-content has-label"
-        >
-          <div
-            class="arco-badge"
-          >
-            <span
-              class="badge-text"
-            >
-              99+
-            </span>
-          </div>
-        </div>
-        <div
-          class="cell-arrow-icon"
-        >
-          <svg
-            class="arrow-icon-svg"
-            fill="none"
-            viewBox="0 0 8 14"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
-<div>
+<DocumentFragment>
   <div
     class="arco-cell-group all-border-box"
   >
@@ -491,24 +356,16 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
             <div
               class="cell-title"
             >
-              <div
-                style="position:relative"
-              >
-                <span
-                  class="badge-demo-cell-label"
-                >
-                  List content
-                  <div
-                    class="arco-badge dot absolute"
-                    style="margin-left:0"
-                  />
-                </span>
-              </div>
+              List content
             </div>
           </div>
           <div
             class="cell-content has-label"
-          />
+          >
+            <div
+              class="arco-badge arco-badge-dot dot"
+            />
+          </div>
           <div
             class="cell-arrow-icon"
           >
@@ -538,30 +395,22 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
             <div
               class="cell-title"
             >
-              <div
-                style="position:relative"
-              >
-                <span
-                  class="badge-demo-cell-label"
-                >
-                  List content
-                  <div
-                    class="arco-badge absolute"
-                    style="margin-left:2px"
-                  >
-                    <span
-                      class="badge-text"
-                    >
-                      2
-                    </span>
-                  </div>
-                </span>
-              </div>
+              List content
             </div>
           </div>
           <div
             class="cell-content has-label"
-          />
+          >
+            <div
+              class="arco-badge"
+            >
+              <span
+                class="arco-badge-text badge-text"
+              >
+                2
+              </span>
+            </div>
+          </div>
           <div
             class="cell-arrow-icon"
           >
@@ -591,30 +440,22 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
             <div
               class="cell-title"
             >
-              <div
-                style="position:relative"
-              >
-                <span
-                  class="badge-demo-cell-label"
-                >
-                  List content
-                  <div
-                    class="arco-badge absolute"
-                    style="margin-left:2px"
-                  >
-                    <span
-                      class="badge-text"
-                    >
-                      99+
-                    </span>
-                  </div>
-                </span>
-              </div>
+              List content
             </div>
           </div>
           <div
             class="cell-content has-label"
-          />
+          >
+            <div
+              class="arco-badge"
+            >
+              <span
+                class="arco-badge-text badge-text"
+              >
+                99+
+              </span>
+            </div>
+          </div>
           <div
             class="cell-arrow-icon"
           >
@@ -634,18 +475,183 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
       </div>
     </div>
   </div>
-  <button
-    class="arco-button type-primary size-large is-semi pc"
-    type="button"
-  >
+</DocumentFragment>
+`;
+
+exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
+<DocumentFragment>
+  <div>
     <div
-      class="btn-icon"
-    />
-    <div
-      class="btn-text"
+      class="arco-cell-group all-border-box"
     >
-      Close Badge
+      <div
+        class="cell-group-body bordered"
+      >
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                <div
+                  style="position: relative;"
+                >
+                  <span
+                    class="badge-demo-cell-label"
+                  >
+                    List content
+                    <div
+                      class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
+                      style="margin-left: 0px;"
+                    />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+            <div
+              class="cell-arrow-icon"
+            >
+              <svg
+                class="arrow-icon-svg"
+                fill="none"
+                viewBox="0 0 8 14"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                <div
+                  style="position: relative;"
+                >
+                  <span
+                    class="badge-demo-cell-label"
+                  >
+                    List content
+                    <div
+                      class="arco-badge arco-badge-absolute absolute"
+                      style="margin-left: 2px;"
+                    >
+                      <span
+                        class="arco-badge-text badge-text"
+                      >
+                        2
+                      </span>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+            <div
+              class="cell-arrow-icon"
+            >
+              <svg
+                class="arrow-icon-svg"
+                fill="none"
+                viewBox="0 0 8 14"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          class="arco-cell all-border-box bordered"
+        >
+          <div
+            class="arco-cell-inner"
+          >
+            <div
+              class="cell-label"
+            >
+              <div
+                class="cell-title"
+              >
+                <div
+                  style="position: relative;"
+                >
+                  <span
+                    class="badge-demo-cell-label"
+                  >
+                    List content
+                    <div
+                      class="arco-badge arco-badge-absolute absolute"
+                      style="margin-left: 2px;"
+                    >
+                      <span
+                        class="arco-badge-text badge-text"
+                      >
+                        99+
+                      </span>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="cell-content has-label"
+            />
+            <div
+              class="cell-arrow-icon"
+            >
+              <svg
+                class="arrow-icon-svg"
+                fill="none"
+                viewBox="0 0 8 14"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M0.594858 1.24219C0.399596 1.43745 0.399596 1.75403 0.594859 1.94929L5.59905 6.95348L0.636039 11.9165C0.440776 12.1118 0.440776 12.4283 0.636038 12.6236L0.989592 12.9771C1.18485 13.1724 1.50144 13.1724 1.6967 12.9771L7.35355 7.3203C7.5296 7.14425 7.54692 6.86959 7.40553 6.67413C7.38216 6.62774 7.35111 6.58423 7.31237 6.54549L1.65552 0.888634C1.46026 0.693372 1.14367 0.693372 0.948411 0.888634L0.594858 1.24219Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </button>
-</div>
+    <button
+      class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+      type="button"
+    >
+      <div
+        class="arco-button-text arco-button-text-pc btn-text"
+      >
+        Close Badge
+      </div>
+    </button>
+  </div>
+</DocumentFragment>
 `;

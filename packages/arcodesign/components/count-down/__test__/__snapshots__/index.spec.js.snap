@@ -1,121 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`count-down demo test count-down demo: async.md renders correctly 1`] = `
-<div
-  class="arco-count-down "
->
-  04:36:09
-</div>
-`;
-
-exports[`count-down demo test count-down demo: base.md renders correctly 1`] = `
-<div
-  class="arco-count-down "
->
-  04:36:09
-</div>
-`;
-
-exports[`count-down demo test count-down demo: control.md renders correctly 1`] = `
-<div
-  class="count-down-demo-control"
->
+<DocumentFragment>
   <div
-    class="arco-count-down count-down"
+    class="arco-count-down "
   >
     04:36:09
   </div>
+</DocumentFragment>
+`;
+
+exports[`count-down demo test count-down demo: base.md renders correctly 1`] = `
+<DocumentFragment>
   <div
-    class="btn-wrap"
+    class="arco-count-down "
   >
-    <button
-      class="arco-button type-primary size-large is-semi pc"
-      type="button"
-    >
-      <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
-      >
-        Reset
-      </div>
-    </button>
-    <button
-      class="arco-button type-primary size-large is-semi pc"
-      type="button"
-    >
-      <div
-        class="btn-icon"
-      />
-      <div
-        class="btn-text"
-      >
-        Start
-      </div>
-    </button>
+    04:36:09
   </div>
-</div>
+</DocumentFragment>
+`;
+
+exports[`count-down demo test count-down demo: control.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="count-down-demo-control"
+  >
+    <div
+      class="arco-count-down count-down"
+    >
+      04:36:09
+    </div>
+    <div
+      class="btn-wrap"
+    >
+      <button
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="arco-button-text arco-button-text-pc btn-text"
+        >
+          Reset
+        </div>
+      </button>
+      <button
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="arco-button-text arco-button-text-pc btn-text"
+        >
+          Start
+        </div>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`count-down demo test count-down demo: defineFormat.md renders correctly 1`] = `
-<div>
-  <div
-    class="arco-count-down "
-  >
-    2 day, 04 : 36 : 09
+<DocumentFragment>
+  <div>
+    <div
+      class="arco-count-down "
+    >
+      2 day, 04 : 36 : 09
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`count-down demo test count-down demo: defineStyle.md renders correctly 1`] = `
-<div
-  class="count-down-demo-define-style"
->
+<DocumentFragment>
   <div
-    class="arco-count-down "
+    class="count-down-demo-define-style"
   >
-    <span
-      class="block"
+    <div
+      class="arco-count-down "
     >
-      04
-    </span>
-    <span
-      class="colon"
-    >
-      :
-    </span>
-    <span
-      class="block"
-    >
-      36
-    </span>
-    <span
-      class="colon"
-    >
-      :
-    </span>
-    <span
-      class="block"
-    >
-      09
-    </span>
+      <span
+        class="block"
+      >
+        04
+      </span>
+      <span
+        class="colon"
+      >
+        :
+      </span>
+      <span
+        class="block"
+      >
+        36
+      </span>
+      <span
+        class="colon"
+      >
+        :
+      </span>
+      <span
+        class="block"
+      >
+        09
+      </span>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`count-down demo test count-down demo: millsecond.md renders correctly 1`] = `
-<div
-  class="arco-count-down "
->
-  04:36:09.000
-</div>
+<DocumentFragment>
+  <div
+    class="arco-count-down "
+  >
+    04:36:09.000
+  </div>
+</DocumentFragment>
 `;
 
 exports[`count-down demo test count-down demo: server.md renders correctly 1`] = `
-<div
-  class="arco-count-down "
->
-  04:36:09
-</div>
+<DocumentFragment>
+  <div
+    class="arco-count-down "
+  >
+    04:36:09
+  </div>
+</DocumentFragment>
 `;

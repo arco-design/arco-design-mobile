@@ -12,7 +12,7 @@ export default function ShowMonitorDemo() {
     return (
         <div className="show-monitor-demo-1-wrapper">
             <div className="show-monitor-demo-title">Please swipe within the grey area</div>
-            <div className="show-monitor-demo-scroller">
+            <div className="show-monitor-demo-scroller" style={{ overflowY: 'auto' }}>
                 <div className="show-monitor-demo-scroller-inner">
                     <ShowMonitor overflow={true} onVisibleChange={onVisibleChange} threshold={0.7}>
                         <div className="show-monitor-content">Arco</div>
@@ -42,7 +42,6 @@ export default function ShowMonitorDemo() {
         top: 0;
         width: 100%;
         height: 100%;
-        overflow: auto;
         .show-monitor-demo-scroller-inner {
             padding-top: 500px;
             padding-bottom: 72px;

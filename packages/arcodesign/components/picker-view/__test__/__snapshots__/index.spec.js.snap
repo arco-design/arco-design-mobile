@@ -1,206 +1,233 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`picker-view demo test picker-view demo: cascader.md renders correctly 1`] = `
-<div
-  class="arco-picker-view all-border-box "
-  style="height:0px"
->
+<DocumentFragment>
   <div
-    class="arco-picker-multi"
-    style="line-height:0px"
+    class="arco-picker-view all-border-box "
+    style="height: 0px;"
   >
     <div
-      class="arco-picker-column"
+      class="arco-picker-multi"
+      style="line-height: 0px;"
     >
       <div
-        class="arco-picker-column-item-wrap"
-        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
+        class="arco-picker-column"
       >
         <div
-          class="arco-picker-column-item selected"
-          style="height:0px"
+          aria-disabled="false"
+          class="arco-picker-column-item-wrap"
+          style="transform: translate3d(0px, 0px, 0px); padding-bottom: 0px; padding-top: 0px;"
         >
-          Beijing
+          <div
+            aria-label="Beijing"
+            class="arco-picker-column-item selected"
+            style="height: 0px;"
+          >
+            Beijing
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-1"
+            style="height: 0px;"
+          >
+            Liaoning
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-2"
+            style="height: 0px;"
+          >
+            Yunnan
+          </div>
         </div>
+      </div>
+      <div
+        class="arco-picker-column"
+      >
         <div
-          class="arco-picker-column-item selected-neighbor-1"
-          style="height:0px"
+          aria-disabled="false"
+          class="arco-picker-column-item-wrap"
+          style="transform: translate3d(0px, 0px, 0px); padding-bottom: 0px; padding-top: 0px;"
         >
-          Liaoning
+          <div
+            aria-label="Beijing"
+            class="arco-picker-column-item selected"
+            style="height: 0px;"
+          >
+            Beijing
+          </div>
         </div>
+      </div>
+      <div
+        class="arco-picker-column"
+      >
         <div
-          class="arco-picker-column-item selected-neighbor-2"
-          style="height:0px"
+          aria-disabled="false"
+          class="arco-picker-column-item-wrap"
+          style="transform: translate3d(0px, 0px, 0px); padding-bottom: 0px; padding-top: 0px;"
         >
-          Yunnan
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-1"
+            style="height: 0px;"
+          >
+            Chaoyang
+          </div>
+          <div
+            aria-label="Haidian"
+            class="arco-picker-column-item selected"
+            style="height: 0px;"
+          >
+            Haidian
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-1"
+            style="height: 0px;"
+          >
+            Dongcheng
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-2"
+            style="height: 0px;"
+          >
+            Xicheng
+          </div>
         </div>
       </div>
     </div>
     <div
-      class="arco-picker-column"
+      class="arco-picker-selection"
     >
       <div
-        class="arco-picker-column-item-wrap"
-        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
-      >
-        <div
-          class="arco-picker-column-item selected"
-          style="height:0px"
-        >
-          Beijing
-        </div>
-      </div>
-    </div>
-    <div
-      class="arco-picker-column"
-    >
+        class="arco-picker-selection-mask arco-picker-selection-mask-top"
+      />
       <div
-        class="arco-picker-column-item-wrap"
-        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
-      >
-        <div
-          class="arco-picker-column-item selected"
-          style="height:0px"
-        >
-          Chaoyang
-        </div>
-        <div
-          class="arco-picker-column-item selected-neighbor-1"
-          style="height:0px"
-        >
-          Haidian
-        </div>
-        <div
-          class="arco-picker-column-item selected-neighbor-2"
-          style="height:0px"
-        >
-          Dongcheng
-        </div>
-        <div
-          class="arco-picker-column-item"
-          style="height:0px"
-        >
-          Xicheng
-        </div>
-      </div>
+        class="arco-picker-selection-bar"
+      />
+      <div
+        class="arco-picker-selection-mask arco-picker-selection-mask-bottom"
+      />
     </div>
   </div>
-  <div
-    class="arco-picker-selection"
-  >
-    <div
-      class="arco-picker-selection-mask arco-picker-selection-mask-top"
-    />
-    <div
-      class="arco-picker-selection-bar"
-    />
-    <div
-      class="arco-picker-selection-mask arco-picker-selection-mask-bottom"
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`picker-view demo test picker-view demo: index.md renders correctly 1`] = `
-<div
-  class="arco-picker-view all-border-box "
-  style="height:0px"
->
+<DocumentFragment>
   <div
-    class="arco-picker-multi"
-    style="line-height:0px"
+    class="arco-picker-view all-border-box "
+    style="height: 0px;"
   >
     <div
-      class="arco-picker-column"
+      class="arco-picker-multi"
+      style="line-height: 0px;"
     >
       <div
-        class="arco-picker-column-item-wrap"
-        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
+        class="arco-picker-column"
       >
         <div
-          class="arco-picker-column-item selected"
-          style="height:0px"
+          aria-disabled="false"
+          class="arco-picker-column-item-wrap"
+          style="transform: translate3d(0px, 0px, 0px); padding-bottom: 0px; padding-top: 0px;"
         >
-          Monday
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-2"
+            style="height: 0px;"
+          >
+            Monday
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-1"
+            style="height: 0px;"
+          >
+            Tuesday
+          </div>
+          <div
+            aria-label="Wednesday"
+            class="arco-picker-column-item selected"
+            style="height: 0px;"
+          >
+            Wednesday
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-1"
+            style="height: 0px;"
+          >
+            Thursday
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-2"
+            style="height: 0px;"
+          >
+            Friday
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item"
+            style="height: 0px;"
+          >
+            Saturday
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item"
+            style="height: 0px;"
+          >
+            Sunday
+          </div>
         </div>
+      </div>
+      <div
+        class="arco-picker-column"
+      >
         <div
-          class="arco-picker-column-item selected-neighbor-1"
-          style="height:0px"
+          aria-disabled="false"
+          class="arco-picker-column-item-wrap"
+          style="transform: translate3d(0px, 0px, 0px); padding-bottom: 0px; padding-top: 0px;"
         >
-          Tuesday
-        </div>
-        <div
-          class="arco-picker-column-item selected-neighbor-2"
-          style="height:0px"
-        >
-          Wednesday
-        </div>
-        <div
-          class="arco-picker-column-item"
-          style="height:0px"
-        >
-          Thursday
-        </div>
-        <div
-          class="arco-picker-column-item"
-          style="height:0px"
-        >
-          Friday
-        </div>
-        <div
-          class="arco-picker-column-item"
-          style="height:0px"
-        >
-          Saturday
-        </div>
-        <div
-          class="arco-picker-column-item"
-          style="height:0px"
-        >
-          Sunday
+          <div
+            aria-label="Morning"
+            class="arco-picker-column-item selected"
+            style="height: 0px;"
+          >
+            Morning
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-1"
+            style="height: 0px;"
+          >
+            Afternoon
+          </div>
+          <div
+            aria-label=""
+            class="arco-picker-column-item selected-neighbor-2"
+            style="height: 0px;"
+          >
+            Evening
+          </div>
         </div>
       </div>
     </div>
     <div
-      class="arco-picker-column"
+      class="arco-picker-selection"
     >
       <div
-        class="arco-picker-column-item-wrap"
-        style="transform:translate3d(0px, 0px, 0px);-webkit-transform:translate3d(0px, 0px, 0px);transition-timing-function:;-webkit-transition-timing-function:;padding-bottom:0px;padding-top:0px"
-      >
-        <div
-          class="arco-picker-column-item selected"
-          style="height:0px"
-        >
-          Morning
-        </div>
-        <div
-          class="arco-picker-column-item selected-neighbor-1"
-          style="height:0px"
-        >
-          Afternoon
-        </div>
-        <div
-          class="arco-picker-column-item selected-neighbor-2"
-          style="height:0px"
-        >
-          Evening
-        </div>
-      </div>
+        class="arco-picker-selection-mask arco-picker-selection-mask-top"
+      />
+      <div
+        class="arco-picker-selection-bar"
+      />
+      <div
+        class="arco-picker-selection-mask arco-picker-selection-mask-bottom"
+      />
     </div>
   </div>
-  <div
-    class="arco-picker-selection"
-  >
-    <div
-      class="arco-picker-selection-mask arco-picker-selection-mask-top"
-    />
-    <div
-      class="arco-picker-selection-bar"
-    />
-    <div
-      class="arco-picker-selection-mask arco-picker-selection-mask-bottom"
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;

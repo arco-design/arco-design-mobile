@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { isArray } from '@arco-design/mobile-utils';
 import { OptionsItem } from '../dropdown';
 import { CascadeOptions, ValueType } from './type';
@@ -21,14 +21,6 @@ export function isCascadeArray(
     options: string[] | OptionsItem[][] | CascadeOptions[],
 ): options is CascadeOptions[] {
     return typeof options[0] === 'object' && !isArray(options[0]);
-}
-
-/**
- * 判断是否为string类型
- * @en Determine whether it is of type string
- */
-export function isString(icon: string | ReactNode): icon is string {
-    return typeof icon === 'string';
 }
 
 /**

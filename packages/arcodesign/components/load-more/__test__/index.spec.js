@@ -1,71 +1,71 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { render, screen,fireEvent } from "@testing-library/react";
+import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
-import { defaultContext } from '../../context-provider';
-import { mockAddListener, createStartTouchEventObject, createMoveTouchEventObject } from '../../../tests/helpers/mockEvent';
-import { mockContainerSize, resetContainerSizeMock } from '../../../tests/helpers/mockElement';
 import LoadMore from '..';
-
-const prefix = `${defaultContext.prefixCls}-load-more`;
 
 demoTest('load-more');
 
 mountTest(LoadMore, 'LoadMore');
 
 describe('LoadMore type', () => {
+
     it('Loading state is rendered correctly', () => {
-        const wrapper = mount(<LoadMore status='loading' />);
-        expect(wrapper.find(`.${prefix}`).text()).toEqual('正在努力加载中...');
+        render(<LoadMore status = 'loading' />)
+        const element = screen.getByText('正在努力加载中...')
+        expect(element).toBeInTheDocument();
     });
+
     it('Prepare state is rendered correctly', () => {
-        const wrapper = mount(<LoadMore status='prepare' />);
-        expect(wrapper.find(`.${prefix}`).text()).toEqual('上拉加载更多');
+        render(<LoadMore status = 'prepare' />)
+        const element = screen.getByText('上拉加载更多')
+        expect(element).toBeInTheDocument();
     });
+
     it('Nomore state is rendered correctly', () => {
-        const wrapper = mount(<LoadMore status='nomore' />);
-        expect(wrapper.find(`.${prefix}`).text()).toEqual('没有更多数据了');
+        render(<LoadMore status = 'nomore' />)
+        const element = screen.getByText('没有更多数据了')
+        expect(element).toBeInTheDocument();
     });
+    
     it('Retry state is rendered correctly', () => {
-        const wrapper = mount(<LoadMore status='retry' />);
-        expect(wrapper.find(`.${prefix}`).text()).toEqual('加载失败，点击重试');
+        render(<LoadMore status = 'retry' />)
+        const element = screen.getByText('加载失败，点击重试')
+        expect(element).toBeInTheDocument();
+    });
+
+    it('BeforeReady state is rendered correctly', () => {
+        render(<LoadMore status = 'before-ready' beforeReadyArea = 'before-ready'/>)
+        const element = screen.getByText('before-ready')
+        expect(element).toBeInTheDocument();
+    });
+
+    it('Default state is rendered correctly', () => {
+        render(<LoadMore status = 'default' />)
+        const element = screen.getAllByRole('generic')
+        // 查询的第二个才是正确结果，所以是1
+        expect(element[1]).toBeEmptyDOMElement();
     });
 })
 
 describe('LoadMore action', () => {
 
-    beforeAll(() => {
-        mockContainerSize();
-    });
-
-    afterAll(() => {
-        resetContainerSizeMock();
-    });
-
-    beforeEach(() => {
-        jest.useFakeTimers();
-    });
-
-    afterEach(() => {
-        jest.useRealTimers();
-    });
-
     it('onClick listener correctly', () => {
         const onClick = jest.fn();
-        const wrapper = mount(<LoadMore onClick={onClick} throttle={200}/>);
-        const map = mockAddListener(wrapper.find(`.${prefix}`));
-        wrapper.setProps({
-            throttle: 500,
-        });
-        act(() => {
-            map.touchstart(createStartTouchEventObject({ x: 0, y: 0 }));
-            map.touchmove(createMoveTouchEventObject({ x: 0, y: 300 }));
-            jest.advanceTimersByTime(0);
-        });
-        act(() => {
-            map.touchend(createMoveTouchEventObject({ x: 0, y: 500 }));
-        });
-        wrapper.update();
+        render(<LoadMore onClick = {onClick} throttle = {200} trigger = 'click'/>)
+        userEvent.click(screen.getAllByRole('generic')[1])
+        expect(onClick).toBeCalled();
+        expect(onClick).toBeCalledTimes(1);
     });
+
+    it('onScroll listener correctly',()=>{
+        const onChange = jest.fn();
+        const { rerender } = render(<LoadMore status='ready' trigger='scroll' onStatusChange={onChange} threshold={0}/>)
+        rerender(<LoadMore status = 'prepare' trigger='scroll' onStatusChange={onChange} threshold={0}/>)
+        fireEvent.scroll(screen.getAllByRole('generic')[1])
+        expect(onChange).toBeCalled();
+        expect(onChange).toBeCalledTimes(1);
+    })
 })

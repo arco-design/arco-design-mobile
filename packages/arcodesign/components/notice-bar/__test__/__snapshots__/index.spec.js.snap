@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`notice-bar demo test notice-bar demo: custom.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-notice-bar no-wrap"
-    style="color:#FF5722;background-color:#FFF1E8"
+    style="color: rgb(255, 87, 34); background-color: rgb(255, 241, 232);"
   >
     <div
       class="arco-notice-bar-content"
@@ -19,15 +19,15 @@ Array [
       class="arco-notice-bar-right-part"
     >
       <div
-        style="background:#FF5722;line-height:24px;color:white;font-size:13px;border-radius:24px;padding:0 8px;margin-top:-2px"
+        style="background: rgb(255, 87, 34); line-height: 24px; color: white; font-size: 13px; border-radius: 24px; padding: 0px 8px; margin-top: -2px;"
       >
         Turn on
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-notice-bar no-wrap"
-    style="color:#00B42A;background-color:#E8FFEA;margin-top:12px"
+    style="color: rgb(0, 180, 42); background-color: rgb(232, 255, 234); margin-top: 12px;"
   >
     <div
       class="arco-notice-bar-left-part"
@@ -57,10 +57,10 @@ Array [
         File is uploaded successfully!
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-notice-bar no-wrap"
-    style="color:#F53F3F;background:#FFECE8;margin-top:12px"
+    style="color: rgb(245, 63, 63); background: rgb(255, 236, 232); margin-top: 12px;"
   >
     <div
       class="arco-notice-bar-left-part"
@@ -77,7 +77,7 @@ Array [
           d="M12 24C5.4 24 0 18.6 0 12S5.4 0 12 0s12 5.4 12 12-5.4 12-12 12zm0-22.5C6.2 1.5 1.5 6.2 1.5 12S6.2 22.5 12 22.5 22.5 17.8 22.5 12 17.8 1.5 12 1.5z"
         />
         <path
-          d="M11.8 15.2h.3c.4 0 .7-.3.7-.7V7.2c0-.4-.3-.7-.7-.7h-.3c-.4 0-.7.3-.7.7v7.3c0 .4.3.7.7.7zm.4 1.3h-.3c-.4 0-.7.3-.7.7v.3c0 .4.3.7.7.7h.3c.4 0 .7-.3.7-.7v-.3c0-.4-.3-.7-.7-.7z"
+          d="M11.8 15.2h.3c.4 0 .7-.3.7-.7V7.2c0-.4-.3-.7-.7-.7h-.3c-.4 0-.7.3-.7.7v7.3c0 .4.3.7.7.7zM12.2 16.5h-.3c-.4 0-.7.3-.7.7v.3c0 .4.3.7.7.7h.3c.4 0 .7-.3.7-.7v-.3c0-.4-.3-.7-.7-.7z"
         />
       </svg>
     </div>
@@ -106,125 +106,131 @@ Array [
         />
       </svg>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`notice-bar demo test notice-bar demo: ellipsis.md renders correctly 1`] = `
-<div
-  class="arco-notice-bar no-wrap ellipsis"
->
+<DocumentFragment>
   <div
-    class="arco-notice-bar-content"
+    class="arco-notice-bar no-wrap ellipsis"
   >
     <div
-      class="arco-notice-bar-content-inner"
+      class="arco-notice-bar-content"
     >
-      Note that this is a reminder message. This message is very long and will be omitted
+      <div
+        class="arco-notice-bar-content-inner"
+      >
+        Note that this is a reminder message. This message is very long and will be omitted
+      </div>
+    </div>
+    <div
+      class="arco-notice-bar-close"
+    >
+      <svg
+        class="arco-icon arco-icon-close "
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+          fill="currentColor"
+        />
+      </svg>
     </div>
   </div>
-  <div
-    class="arco-notice-bar-close"
-  >
-    <svg
-      class="arco-icon arco-icon-close "
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
-        fill="currentColor"
-      />
-    </svg>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`notice-bar demo test notice-bar demo: icon.md renders correctly 1`] = `
-<div
-  class="arco-notice-bar no-wrap"
->
+<DocumentFragment>
   <div
-    class="arco-notice-bar-left-part"
-  >
-    <svg
-      class="arco-icon arco-icon-notice "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M618.667 853.333A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248V704h64a21.333 21.333 0 0121.334 21.333V768a21.333 21.333 0 01-21.334 21.333H106.667A21.333 21.333 0 0185.333 768v-42.667A21.333 21.333 0 01106.667 704h64V459.008c0-164.181 108.8-302.123 256-341.248V85.333A21.333 21.333 0 01448 64h128zm-64 128c-141.376 0-256 119.595-256 267.136V704h512V459.136C768 311.595 653.376 192 512 192z"
-      />
-    </svg>
-  </div>
-  <div
-    class="arco-notice-bar-content"
+    class="arco-notice-bar no-wrap"
   >
     <div
-      class="arco-notice-bar-content-inner"
+      class="arco-notice-bar-left-part"
     >
-      Note that this is a reminder message.
+      <svg
+        class="arco-icon arco-icon-notice "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M618.667 853.333A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248V704h64a21.333 21.333 0 0121.334 21.333V768a21.333 21.333 0 01-21.334 21.333H106.667A21.333 21.333 0 0185.333 768v-42.667A21.333 21.333 0 01106.667 704h64V459.008c0-164.181 108.8-302.123 256-341.248V85.333A21.333 21.333 0 01448 64h128zm-64 128c-141.376 0-256 119.595-256 267.136V704h512V459.136C768 311.595 653.376 192 512 192z"
+        />
+      </svg>
+    </div>
+    <div
+      class="arco-notice-bar-content"
+    >
+      <div
+        class="arco-notice-bar-content-inner"
+      >
+        Note that this is a reminder message.
+      </div>
+    </div>
+    <div
+      class="arco-notice-bar-close"
+    >
+      <svg
+        class="arco-icon arco-icon-close "
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+          fill="currentColor"
+        />
+      </svg>
     </div>
   </div>
-  <div
-    class="arco-notice-bar-close"
-  >
-    <svg
-      class="arco-icon arco-icon-close "
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
-        fill="currentColor"
-      />
-    </svg>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`notice-bar demo test notice-bar demo: index.md renders correctly 1`] = `
-<div
-  class="arco-notice-bar no-wrap"
->
+<DocumentFragment>
   <div
-    class="arco-notice-bar-content"
+    class="arco-notice-bar no-wrap"
   >
     <div
-      class="arco-notice-bar-content-inner"
+      class="arco-notice-bar-content"
     >
-      Note that this is a reminder message.
+      <div
+        class="arco-notice-bar-content-inner"
+      >
+        Note that this is a reminder message.
+      </div>
+    </div>
+    <div
+      class="arco-notice-bar-close"
+    >
+      <svg
+        class="arco-icon arco-icon-close "
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+          fill="currentColor"
+        />
+      </svg>
     </div>
   </div>
-  <div
-    class="arco-notice-bar-close"
-  >
-    <svg
-      class="arco-icon arco-icon-close "
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
-        fill="currentColor"
-      />
-    </svg>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`notice-bar demo test notice-bar demo: marquee.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-notice-bar no-wrap"
   >
@@ -253,10 +259,10 @@ Array [
         />
       </svg>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-notice-bar no-wrap"
-    style="margin-top:12px"
+    style="margin-top: 12px;"
   >
     <div
       class="arco-notice-bar-content"
@@ -283,10 +289,10 @@ Array [
         />
       </svg>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-notice-bar no-wrap"
-    style="margin-top:12px"
+    style="margin-top: 12px;"
   >
     <div
       class="arco-notice-bar-content"
@@ -313,205 +319,215 @@ Array [
         />
       </svg>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`notice-bar demo test notice-bar demo: more.md renders correctly 1`] = `
-<div
-  class="arco-notice-bar no-wrap"
->
+<DocumentFragment>
   <div
-    class="arco-notice-bar-content"
+    class="arco-notice-bar no-wrap"
   >
     <div
-      class="arco-notice-bar-content-inner"
+      class="arco-notice-bar-content"
     >
-      Note that this is a reminder message.
+      <div
+        class="arco-notice-bar-content-inner"
+      >
+        Note that this is a reminder message.
+      </div>
+    </div>
+    <div
+      class="arco-notice-bar-right-part"
+    >
+      <svg
+        class="arco-icon arco-icon-arrow-in "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.9 8L8.4 2.6c-.1-.1-.1-.3 0-.5l.5-.5c.1-.1.3-.1.5 0l5.9 5.9c.3.3.3.7 0 .9l-5.9 5.9c-.1.1-.3.1-.5 0l-.5-.5c-.1-.1-.1-.3 0-.5L13.9 8z"
+        />
+      </svg>
     </div>
   </div>
-  <div
-    class="arco-notice-bar-right-part"
-  >
-    <svg
-      class="arco-icon arco-icon-arrow-in "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M13.9 8L8.4 2.6c-.1-.1-.1-.3 0-.5l.5-.5c.1-.1.3-.1.5 0l5.9 5.9c.3.3.3.7 0 .9l-5.9 5.9c-.1.1-.3.1-.5 0l-.5-.5c-.1-.1-.1-.3 0-.5L13.9 8z"
-      />
-    </svg>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`notice-bar demo test notice-bar demo: none.md renders correctly 1`] = `
-<div
-  class="arco-notice-bar no-wrap"
->
+<DocumentFragment>
   <div
-    class="arco-notice-bar-content"
+    class="arco-notice-bar no-wrap"
   >
     <div
-      class="arco-notice-bar-content-inner"
-    >
-      Note that this is a reminder message.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`notice-bar demo test notice-bar demo: noshow.md renders correctly 1`] = `
-<div
-  class="arco-notice-bar no-wrap"
->
-  <div
-    class="arco-notice-bar-content"
-  >
-    <div
-      class="arco-notice-bar-content-inner"
-    >
-      This is a reminder message.
-    </div>
-  </div>
-  <div
-    class="arco-notice-bar-close"
-  >
-    Do not remind again
-  </div>
-</div>
-`;
-
-exports[`notice-bar demo test notice-bar demo: vertical.md renders correctly 1`] = `
-<div
-  class="arco-notice-bar no-wrap"
->
-  <div
-    class="arco-notice-bar-left-part"
-  >
-    <svg
-      class="arco-icon arco-icon-notice "
-      fill="currentColor"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs />
-      <path
-        d="M618.667 853.333A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248V704h64a21.333 21.333 0 0121.334 21.333V768a21.333 21.333 0 01-21.334 21.333H106.667A21.333 21.333 0 0185.333 768v-42.667A21.333 21.333 0 01106.667 704h64V459.008c0-164.181 108.8-302.123 256-341.248V85.333A21.333 21.333 0 01448 64h128zm-64 128c-141.376 0-256 119.595-256 267.136V704h512V459.136C768 311.595 653.376 192 512 192z"
-      />
-    </svg>
-  </div>
-  <div
-    class="arco-notice-bar-content"
-  >
-    <div
-      class="arco-notice-bar-content-inner"
+      class="arco-notice-bar-content"
     >
       <div
-        class="arco-carousel-wrap"
+        class="arco-notice-bar-content-inner"
       >
-        <div
-          class="arco-carousel"
-        >
-          <div
-            class="arco-carousel-inner auto vertical"
-            style="transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateY(-0%) translateZ(0);-webkit-transform:translateY(-0%) translateZ(0);width:100%"
-          >
-            <div
-              class="arco-carousel-item carousel-item normal-item active vertical"
-              style="transform:translateY(0px);-webkit-transform:translateY(0px);padding-top:0;padding-bottom:0;box-sizing:border-box"
-            >
-              <div>
-                Note that this is the first reminder message.
-              </div>
-            </div>
-            <div
-              class="arco-carousel-item carousel-item normal-item vertical ssr-float"
-              style="transform:translateY(0px);-webkit-transform:translateY(0px);padding-top:0;padding-bottom:0;box-sizing:border-box"
-            >
-              <div>
-                Note that this is the second reminder message.
-              </div>
-            </div>
-            <div
-              class="arco-carousel-item carousel-item normal-item vertical ssr-float"
-              style="transform:translateY(0px);-webkit-transform:translateY(0px);padding-top:0;padding-bottom:0;box-sizing:border-box"
-            >
-              <div>
-                Note that this is the third reminder message.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="arco-carousel-indicator pos-center vertical ver-pos-left"
-        >
-          <i
-            class="indicator type-square active"
-          />
-          <i
-            class="indicator type-square"
-          />
-          <i
-            class="indicator type-square"
-          />
-        </div>
+        Note that this is a reminder message.
       </div>
     </div>
   </div>
+</DocumentFragment>
+`;
+
+exports[`notice-bar demo test notice-bar demo: noshow.md renders correctly 1`] = `
+<DocumentFragment>
   <div
-    class="arco-notice-bar-close"
+    class="arco-notice-bar no-wrap"
   >
-    <svg
-      class="arco-icon arco-icon-close "
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="arco-notice-bar-content"
     >
-      <path
-        d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
-        fill="currentColor"
-      />
-    </svg>
+      <div
+        class="arco-notice-bar-content-inner"
+      >
+        This is a reminder message.
+      </div>
+    </div>
+    <div
+      class="arco-notice-bar-close"
+    >
+      Do not remind again
+    </div>
   </div>
-</div>
+</DocumentFragment>
+`;
+
+exports[`notice-bar demo test notice-bar demo: vertical.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-notice-bar no-wrap"
+  >
+    <div
+      class="arco-notice-bar-left-part"
+    >
+      <svg
+        class="arco-icon arco-icon-notice "
+        fill="currentColor"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs />
+        <path
+          d="M618.667 853.333A21.333 21.333 0 01640 874.667v42.666a21.333 21.333 0 01-21.333 21.334H405.333A21.333 21.333 0 01384 917.333v-42.666a21.333 21.333 0 0121.333-21.334h213.334zM576 64a21.333 21.333 0 0121.333 21.333v32.427c147.222 39.125 256 177.067 256 341.248V704h64a21.333 21.333 0 0121.334 21.333V768a21.333 21.333 0 01-21.334 21.333H106.667A21.333 21.333 0 0185.333 768v-42.667A21.333 21.333 0 01106.667 704h64V459.008c0-164.181 108.8-302.123 256-341.248V85.333A21.333 21.333 0 01448 64h128zm-64 128c-141.376 0-256 119.595-256 267.136V704h512V459.136C768 311.595 653.376 192 512 192z"
+        />
+      </svg>
+    </div>
+    <div
+      class="arco-notice-bar-content"
+    >
+      <div
+        class="arco-notice-bar-content-inner"
+      >
+        <div
+          class="arco-carousel-wrap"
+        >
+          <div
+            class="arco-carousel"
+          >
+            <div
+              class="arco-carousel-inner auto vertical"
+              style="transition-property: none; transition-duration: 0ms; transform: translateY(0) translateZ(0); width: 100%;"
+            >
+              <div
+                class="arco-carousel-item carousel-item normal-item active vertical"
+                style="transform: translateY(0px); padding-top: 0px; padding-bottom: 0px; box-sizing: border-box;"
+              >
+                <div>
+                  Note that this is the first reminder message.
+                </div>
+              </div>
+              <div
+                class="arco-carousel-item carousel-item normal-item vertical ssr-float"
+                style="transform: translateY(0px); padding-top: 0px; padding-bottom: 0px; box-sizing: border-box;"
+              >
+                <div>
+                  Note that this is the second reminder message.
+                </div>
+              </div>
+              <div
+                class="arco-carousel-item carousel-item normal-item vertical ssr-float"
+                style="transform: translateY(0px); padding-top: 0px; padding-bottom: 0px; box-sizing: border-box;"
+              >
+                <div>
+                  Note that this is the third reminder message.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="arco-carousel-indicator pos-center arco-carousel-indicator-vertical vertical ver-pos-left"
+          >
+            <i
+              class="indicator type-square active"
+            />
+            <i
+              class="indicator type-square"
+            />
+            <i
+              class="indicator type-square"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-notice-bar-close"
+    >
+      <svg
+        class="arco-icon arco-icon-close "
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+          fill="currentColor"
+        />
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`notice-bar demo test notice-bar demo: wrap.md renders correctly 1`] = `
-<div
-  class="arco-notice-bar wrapable"
->
+<DocumentFragment>
   <div
-    class="arco-notice-bar-content"
+    class="arco-notice-bar wrapable"
   >
     <div
-      class="arco-notice-bar-content-inner"
+      class="arco-notice-bar-content"
     >
-      Note that this is a reminder message. The message is long, but I can choose to have it scroll or wrap, as it does now.
+      <div
+        class="arco-notice-bar-content-inner"
+      >
+        Note that this is a reminder message. The message is long, but I can choose to have it scroll or wrap, as it does now.
+      </div>
+    </div>
+    <div
+      class="arco-notice-bar-close"
+    >
+      <svg
+        class="arco-icon arco-icon-close "
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+          fill="currentColor"
+        />
+      </svg>
     </div>
   </div>
-  <div
-    class="arco-notice-bar-close"
-  >
-    <svg
-      class="arco-icon arco-icon-close "
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
-        fill="currentColor"
-      />
-    </svg>
-  </div>
-</div>
+</DocumentFragment>
 `;

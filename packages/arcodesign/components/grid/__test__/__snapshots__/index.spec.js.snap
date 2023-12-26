@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`grid demo test grid demo: index.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-grid demo-multi-grid col-2"
   >
@@ -10,7 +10,7 @@ Array [
     >
       <div
         class="arco-grid-rows-item horizontal"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -30,7 +30,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item horizontal"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -46,7 +46,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-grid demo-multi-grid col-3"
   >
@@ -55,7 +55,7 @@ Array [
     >
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -75,7 +75,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -95,7 +95,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -111,7 +111,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-grid demo-multi-grid col-4"
   >
@@ -120,7 +120,7 @@ Array [
     >
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -140,7 +140,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -160,7 +160,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -180,7 +180,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -196,7 +196,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-grid demo-multi-grid col-5"
   >
@@ -205,7 +205,7 @@ Array [
     >
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -225,7 +225,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -245,7 +245,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -265,7 +265,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -285,7 +285,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -301,151 +301,155 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`grid demo test grid demo: index2.md renders correctly 1`] = `
-<div
-  class="arco-grid"
->
+<DocumentFragment>
   <div
-    class="arco-grid-rows"
+    class="arco-grid"
   >
     <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
+      class="arco-grid-rows"
     >
       <div
-        class="grid-demo-block"
-        style="border-radius:20px;width:40px;height:40px"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <div
+          class="grid-demo-block"
+          style="border-radius: 20px; width: 40px; height: 40px;"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
       </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
       <div
-        class="grid-demo-block"
-        style="border-radius:20px;width:40px;height:40px"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <div
+          class="grid-demo-block"
+          style="border-radius: 20px; width: 40px; height: 40px;"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
       </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
       <div
-        class="grid-demo-block"
-        style="border-radius:20px;width:40px;height:40px"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <div
+          class="grid-demo-block"
+          style="border-radius: 20px; width: 40px; height: 40px;"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`grid demo test grid demo: index3.md renders correctly 1`] = `
-<div
-  class="arco-grid"
->
+<DocumentFragment>
   <div
-    class="arco-grid-rows"
+    class="arco-grid"
   >
     <div
-      class="arco-grid-rows-item border"
-      style="margin-bottom:0;margin-right:0;padding:16px"
+      class="arco-grid-rows"
     >
       <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="arco-grid-rows-item border"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 16px;"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
       </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item border"
-      style="margin-bottom:0;margin-right:0;padding:16px"
-    >
       <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="arco-grid-rows-item border"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 16px;"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
       </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item border"
-      style="margin-bottom:0;margin-right:0;padding:16px"
-    >
       <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="arco-grid-rows-item border"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 16px;"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`grid demo test grid demo: index4.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-grid demo-multi-grid"
   >
@@ -454,7 +458,7 @@ Array [
     >
       <div
         class="arco-grid-rows-item horizontal"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -479,7 +483,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item horizontal"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -500,7 +504,7 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     class="arco-grid demo-multi-grid"
   >
@@ -509,7 +513,7 @@ Array [
     >
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -534,7 +538,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -559,7 +563,7 @@ Array [
       </div>
       <div
         class="arco-grid-rows-item"
-        style="margin-bottom:0;margin-right:0"
+        style="margin-bottom: 0px; margin-right: 0px;"
       >
         <div
           class="grid-demo-block"
@@ -580,1204 +584,1199 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`grid demo test grid demo: index5.md renders correctly 1`] = `
-<div
-  class="arco-grid sliding"
->
+<DocumentFragment>
   <div
-    class="arco-grid-rows"
+    class="arco-grid sliding"
   >
     <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
+      class="arco-grid-rows"
     >
       <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;min-width:63px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`grid demo test grid demo: index6.md renders correctly 1`] = `
-<div
-  class="arco-grid"
->
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item grid-item-more"
-      style="margin-bottom:0;margin-right:0"
-    >
-      <img
-        class="arco-grid-rows-item-icon "
-        src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/grid-demo-more.png"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          More
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`grid demo test grid demo: index7.md renders correctly 1`] = `
-<div
-  class="arco-grid"
->
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item horizontal"
-      style="margin-bottom:0;margin-right:0;padding:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item horizontal"
-      style="margin-bottom:0;margin-right:0;padding:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="horizontal-border"
-      />
-    </div>
-  </div>
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item horizontal"
-      style="margin-bottom:0;margin-right:0;padding:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item horizontal"
-      style="margin-bottom:0;margin-right:0;padding:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="horizontal-border"
-      />
-    </div>
-  </div>
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item horizontal"
-      style="margin-bottom:0;margin-right:0;padding:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item fake-col"
-      style="min-width:50%"
-    />
-  </div>
-</div>
-`;
-
-exports[`grid demo test grid demo: index8.md renders correctly 1`] = `
-<div
-  class="arco-grid"
->
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="horizontal-border"
-      />
-    </div>
-  </div>
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="horizontal-border"
-      />
-    </div>
-  </div>
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0;padding:10px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`grid demo test grid demo: index9.md renders correctly 1`] = `
-<div
-  class="arco-grid"
->
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:16px;margin-right:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:16px;margin-right:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:16px;margin-right:0"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="horizontal-border"
-      />
-    </div>
-  </div>
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:16px;margin-right:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:16px;margin-right:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-      <i
-        class="horizontal-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:16px;margin-right:0"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="horizontal-border"
-      />
-    </div>
-  </div>
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:16px"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
-      >
-        <span
-          class="arco-grid-rows-item-title"
-        >
-          Title Text
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
-<div
-  class="arco-grid"
->
-  <div
-    class="arco-grid-rows"
-  >
-    <div
-      class="grid-demo-rows-item"
-    >
-      <div
-        class="grid-demo-block"
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
       >
         <div
-          class="arco-badge dot absolute"
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
         />
       </div>
       <div
-        class="grid-demo-rows-item-text"
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
       >
-        <span
-          class="grid-demo-rows-item-title"
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
-      </div>
-    </div>
-    <div
-      class="grid-demo-rows-item"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-badge absolute"
-        style="margin-left:-52px;margin-top:-6px"
-      >
-        <span
-          class="badge-text"
-        >
-          New
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
       </div>
       <div
-        class="grid-demo-rows-item-text"
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
       >
-        <span
-          class="grid-demo-rows-item-title"
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
-      </div>
-    </div>
-    <div
-      class="grid-demo-rows-item"
-    >
-      <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-badge absolute"
-        style="margin-left:-50px;margin-top:-6px"
-      >
-        <span
-          class="badge-text"
-        >
-          99+
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
       </div>
       <div
-        class="grid-demo-rows-item-text"
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
       >
-        <span
-          class="grid-demo-rows-item-title"
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; min-width: 63px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
+`;
+
+exports[`grid demo test grid demo: index6.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-grid"
+  >
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item grid-item-more"
+        style="margin-bottom: 0px; margin-right: 0px;"
+      >
+        <img
+          class="arco-grid-rows-item-icon "
+          src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/grid-demo-more.png"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            More
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`grid demo test grid demo: index7.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-grid"
+  >
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item horizontal"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item horizontal"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="horizontal-border"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item horizontal"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item horizontal"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="horizontal-border"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item horizontal"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item horizontal"
+        style="margin-bottom: 0px; margin-right: 0px;"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`grid demo test grid demo: index8.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-grid"
+  >
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="horizontal-border"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="horizontal-border"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px; padding: 10px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`grid demo test grid demo: index9.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-grid"
+  >
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 16px; margin-right: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 16px; margin-right: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 16px; margin-right: 0px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="horizontal-border"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 16px; margin-right: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 16px; margin-right: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+        <i
+          class="horizontal-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 16px; margin-right: 0px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="horizontal-border"
+        />
+      </div>
+    </div>
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 16px;"
+      >
+        <div
+          class="grid-demo-block"
+        />
+        <div
+          class="arco-grid-rows-item-text"
+        >
+          <span
+            class="arco-grid-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+        <i
+          class="vertical-border"
+        />
+      </div>
+      <div
+        class="arco-grid-rows-item"
+        style="margin-bottom: 0px; margin-right: 0px;"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-grid"
+  >
+    <div
+      class="arco-grid-rows"
+    >
+      <div
+        class="grid-demo-rows-item"
+      >
+        <div
+          class="grid-demo-block"
+        >
+          <div
+            class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
+          />
+        </div>
+        <div
+          class="grid-demo-rows-item-text"
+        >
+          <span
+            class="grid-demo-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+      </div>
+      <div
+        class="grid-demo-rows-item"
+      >
+        <div
+          class="grid-demo-block"
+        >
+          <div
+            class="arco-badge arco-badge-absolute absolute"
+          >
+            <span
+              class="arco-badge-text badge-text"
+            >
+              New
+            </span>
+          </div>
+        </div>
+        <div
+          class="grid-demo-rows-item-text"
+        >
+          <span
+            class="grid-demo-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+      </div>
+      <div
+        class="grid-demo-rows-item"
+      >
+        <div
+          class="grid-demo-block"
+        >
+          <div
+            class="arco-badge arco-badge-absolute absolute"
+          >
+            <span
+              class="arco-badge-text badge-text"
+            >
+              99+
+            </span>
+          </div>
+        </div>
+        <div
+          class="grid-demo-rows-item-text"
+        >
+          <span
+            class="grid-demo-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`grid demo test grid demo: index11.md renders correctly 1`] = `
-<div
-  class="arco-grid"
->
+<DocumentFragment>
   <div
-    class="arco-grid-rows"
+    class="arco-grid"
   >
     <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
+      class="arco-grid-rows"
     >
       <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="grid-demo-rows-item"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <img
+          class="grid-demo-rows-item-icon"
+          src="[object Object]"
+        />
+        <div
+          class="grid-demo-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="grid-demo-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
       </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
       <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="grid-demo-rows-item"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <img
+          class="grid-demo-rows-item-icon"
+          src="[object Object]"
+        />
+        <div
+          class="grid-demo-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="grid-demo-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
       </div>
-      <i
-        class="vertical-border"
-      />
-    </div>
-    <div
-      class="arco-grid-rows-item"
-      style="margin-bottom:0;margin-right:0"
-    >
       <div
-        class="grid-demo-block"
-      />
-      <div
-        class="arco-grid-rows-item-text"
+        class="grid-demo-rows-item"
       >
-        <span
-          class="arco-grid-rows-item-title"
+        <img
+          class="grid-demo-rows-item-icon"
+          src="[object Object]"
+        />
+        <div
+          class="grid-demo-rows-item-text"
         >
-          Title Text
-        </span>
+          <span
+            class="grid-demo-rows-item-title"
+          >
+            Title Text
+          </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

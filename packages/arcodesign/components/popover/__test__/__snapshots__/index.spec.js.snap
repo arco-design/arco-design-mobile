@@ -1,52 +1,261 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`popover demo test popover demo: base.md renders correctly 1`] = `
-<div
-  class="popover-base-demo-wrapper"
->
+<DocumentFragment>
   <div
-    class="base-item"
+    class="popover-base-demo-wrapper"
   >
     <div
-      class="arco-popover white-theme follow-mode"
+      class="base-item"
+    >
+      <div
+        class="arco-popover popover-with-margin white-theme follow-mode"
+      >
+        <div
+          class="popover-child-inner"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              White
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="base-item"
+    >
+      <div
+        class="arco-popover black-theme follow-mode"
+      >
+        <div
+          class="popover-child-inner"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Black
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`popover demo test popover demo: custom.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="custom-demo-wrapper"
+  >
+    <div
+      class="arco-popover custom-popover black-theme follow-mode"
     >
       <div
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Special bubble style
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="direction-demo-wrapper"
+  >
+    <div
+      class="direction-item"
+    >
+      <div
+        class="arco-popover black-theme follow-mode"
+      >
+        <div
+          class="popover-child-inner"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Top left
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="direction-item"
+    >
+      <div
+        class="arco-popover black-theme follow-mode"
+      >
+        <div
+          class="popover-child-inner"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Top right
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="direction-item"
+    >
+      <div
+        class="arco-popover black-theme follow-mode"
+      >
+        <div
+          class="popover-child-inner"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Bottom left
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="direction-item"
+    >
+      <div
+        class="arco-popover black-theme follow-mode"
+      >
+        <div
+          class="popover-child-inner"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Bottom right
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="direction-item"
+    >
+      <div
+        class="arco-popover black-theme follow-mode"
+      >
+        <div
+          class="popover-child-inner"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Top center
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="direction-item"
+    >
+      <div
+        class="arco-popover black-theme follow-mode"
+      >
+        <div
+          class="popover-child-inner"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Bottom center
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`popover demo test popover demo: menu.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="menu-demo-wrapper"
+  >
+    <div
+      class="arco-popover popover-with-margin arco-popover-menu white-theme follow-mode bordered custom-content"
+    >
+      <div
+        class="popover-child-inner"
+      >
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
+        >
           <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             White
           </div>
         </button>
       </div>
     </div>
-  </div>
-  <div
-    class="base-item"
-  >
     <div
-      class="arco-popover black-theme follow-mode"
+      class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
     >
       <div
         class="popover-child-inner"
       >
         <button
-          class="arco-button type-primary size-large is-semi pc"
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
           type="button"
         >
           <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
+            class="arco-button-text arco-button-text-pc btn-text"
           >
             Black
           </div>
@@ -54,490 +263,232 @@ exports[`popover demo test popover demo: base.md renders correctly 1`] = `
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`popover demo test popover demo: custom.md renders correctly 1`] = `
-<div
-  class="custom-demo-wrapper"
->
-  <div
-    class="arco-popover custom-popover black-theme follow-mode"
-  >
-    <div
-      class="popover-child-inner"
-    >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
-      >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
-        >
-          Special bubble style
-        </div>
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`popover demo test popover demo: direction.md renders correctly 1`] = `
-<div
-  class="direction-demo-wrapper"
->
-  <div
-    class="direction-item"
-  >
-    <div
-      class="arco-popover black-theme follow-mode"
-    >
-      <div
-        class="popover-child-inner"
-      >
-        <button
-          class="arco-button type-primary size-large is-semi pc"
-          type="button"
-        >
-          <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
-          >
-            Top left
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div
-    class="direction-item"
-  >
-    <div
-      class="arco-popover black-theme follow-mode"
-    >
-      <div
-        class="popover-child-inner"
-      >
-        <button
-          class="arco-button type-primary size-large is-semi pc"
-          type="button"
-        >
-          <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
-          >
-            Top right
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div
-    class="direction-item"
-  >
-    <div
-      class="arco-popover black-theme follow-mode"
-    >
-      <div
-        class="popover-child-inner"
-      >
-        <button
-          class="arco-button type-primary size-large is-semi pc"
-          type="button"
-        >
-          <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
-          >
-            Bottom left
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div
-    class="direction-item"
-  >
-    <div
-      class="arco-popover black-theme follow-mode"
-    >
-      <div
-        class="popover-child-inner"
-      >
-        <button
-          class="arco-button type-primary size-large is-semi pc"
-          type="button"
-        >
-          <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
-          >
-            Bottom right
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div
-    class="direction-item"
-  >
-    <div
-      class="arco-popover black-theme follow-mode"
-    >
-      <div
-        class="popover-child-inner"
-      >
-        <button
-          class="arco-button type-primary size-large is-semi pc"
-          type="button"
-        >
-          <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
-          >
-            Top center
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div
-    class="direction-item"
-  >
-    <div
-      class="arco-popover black-theme follow-mode"
-    >
-      <div
-        class="popover-child-inner"
-      >
-        <button
-          class="arco-button type-primary size-large is-semi pc"
-          type="button"
-        >
-          <div
-            class="btn-icon"
-          />
-          <div
-            class="btn-text"
-          >
-            Bottom center
-          </div>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`popover demo test popover demo: menu.md renders correctly 1`] = `
-<div
-  class="menu-demo-wrapper"
->
-  <div
-    class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
-    style="margin-right:66px"
-  >
-    <div
-      class="popover-child-inner"
-    >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
-      >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
-        >
-          White
-        </div>
-      </button>
-    </div>
-  </div>
-  <div
-    class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
-  >
-    <div
-      class="popover-child-inner"
-    >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
-      >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
-        >
-          Black
-        </div>
-      </button>
-    </div>
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`popover demo test popover demo: menu-with-click-status.md renders correctly 1`] = `
-<div
-  class="menu-demo-wrapper"
->
+<DocumentFragment>
   <div
-    class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
-    style="margin-right:66px"
+    class="menu-demo-wrapper"
   >
     <div
-      class="popover-child-inner"
+      class="arco-popover popover-with-margin arco-popover-menu white-theme follow-mode bordered custom-content"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
         >
-          White
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            White
+          </div>
+        </button>
+      </div>
     </div>
-  </div>
-  <div
-    class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
-  >
     <div
-      class="popover-child-inner"
+      class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
         >
-          Black
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Black
+          </div>
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`popover demo test popover demo: menu-with-disabled-status.md renders correctly 1`] = `
-<div
-  class="menu-demo-wrapper"
->
+<DocumentFragment>
   <div
-    class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
-    style="margin-right:66px"
+    class="menu-demo-wrapper"
   >
     <div
-      class="popover-child-inner"
+      class="arco-popover popover-with-margin arco-popover-menu white-theme follow-mode bordered custom-content"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
         >
-          White
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            White
+          </div>
+        </button>
+      </div>
     </div>
-  </div>
-  <div
-    class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
-  >
     <div
-      class="popover-child-inner"
+      class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
         >
-          Black
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Black
+          </div>
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`popover demo test popover demo: menu-with-icon.md renders correctly 1`] = `
-<div
-  class="menu-demo-wrapper"
->
+<DocumentFragment>
   <div
-    class="arco-popover arco-popover-menu white-theme follow-mode bordered custom-content"
-    style="margin-right:66px"
+    class="menu-demo-wrapper"
   >
     <div
-      class="popover-child-inner"
+      class="arco-popover popover-with-margin arco-popover-menu white-theme follow-mode bordered custom-content"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        style="padding:0"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          style="padding: 0px;"
+          type="button"
         >
-          Vertical menu
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Vertical menu
+          </div>
+        </button>
+      </div>
     </div>
-  </div>
-  <div
-    class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
-  >
     <div
-      class="popover-child-inner"
+      class="arco-popover arco-popover-menu black-theme follow-mode custom-content"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        style="padding:0"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          style="padding: 0px;"
+          type="button"
         >
-          Horizontal menu
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Horizontal menu
+          </div>
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`popover demo test popover demo: suffix.md renders correctly 1`] = `
-<div
-  class="suffix-demo-wrapper"
->
+<DocumentFragment>
   <div
-    class="arco-popover black-theme follow-mode"
+    class="suffix-demo-wrapper"
   >
     <div
-      class="popover-child-inner"
+      class="arco-popover popover-with-margin black-theme follow-mode"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
         >
-          Close Action
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Close Action
+          </div>
+        </button>
+      </div>
     </div>
-  </div>
-  <div
-    class="arco-popover black-theme follow-mode"
-  >
     <div
-      class="popover-child-inner"
+      class="arco-popover black-theme follow-mode"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
         >
-          Button Action
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Button Action
+          </div>
+        </button>
+      </div>
     </div>
-  </div>
-  <div
-    class="arco-popover black-theme follow-mode"
-  >
     <div
-      class="popover-child-inner"
+      class="arco-popover black-theme follow-mode"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
         >
-          Text Action
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Text Action
+          </div>
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`popover demo test popover demo: white-theme-mask.md renders correctly 1`] = `
-<div
-  class="white-theme-mask-demo-wrapper"
->
+<DocumentFragment>
   <div
-    class="arco-popover white-theme global-mode bordered"
+    class="white-theme-mask-demo-wrapper"
   >
     <div
-      class="popover-child-inner"
+      class="arco-popover white-theme global-mode bordered"
     >
-      <button
-        class="arco-button type-primary size-large is-semi pc"
-        type="button"
+      <div
+        class="popover-child-inner"
       >
-        <div
-          class="btn-icon"
-        />
-        <div
-          class="btn-text"
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
         >
-          White bubble with mask
-        </div>
-      </button>
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            White bubble with mask
+          </div>
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

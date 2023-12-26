@@ -11,6 +11,7 @@ module.exports = {
             return babel.transform(
                 `import React from 'react';${str[4]}`
                     .replace(/@arco-design\/mobile-react\/esm\/icon/g, path.resolve(__dirname, '../../components/icon'))
+                    .replace(/@arco-design\/mobile-react\/esm/g, path.resolve(__dirname, '../../components/'))
                     .replace(/@arco-design\/mobile-react/g, path.resolve(__dirname, '../../components')),
                 { ...babelConfig, filename: file },
             ).code;

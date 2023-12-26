@@ -3,7 +3,7 @@ import { defaultContext } from '../../context-provider';
 import { testMaskingCase } from '../../masking/__test__/utils';
 import Popup from '..';
 
-demoTest('popup');
+demoTest('popup', { useFakeTimers: true });
 
 const prefix = `${defaultContext.prefixCls}-popup`;
 
@@ -17,5 +17,4 @@ describe('Popup', () => {
     });
 
     testMaskingCase('popup', Popup, prefix);
-
 });

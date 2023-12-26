@@ -1,180 +1,184 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`tag demo test tag demo: border.md renders correctly 1`] = `
-<div
-  class="demo-tag-border"
->
+<DocumentFragment>
   <div
-    class="arco-tag all-border-box arco-tag-hollow pc size-small"
-    style="color:#165DFF;border-color:#94BFFF;border-style:solid"
+    class="demo-tag-border"
   >
-    <span
-      class="tag-text"
+    <div
+      class="arco-tag all-border-box arco-tag-hollow pc size-small"
+      style="color: rgb(22, 93, 255); border-color: #94bfff; border-style: solid;"
     >
-      Tag
-    </span>
-  </div>
-  <div
-    class="arco-tag all-border-box arco-tag-hollow half-border pc size-small"
-    style="color:#00B42A;border-color:#7BE188;border-style:solid"
-  >
-    <span
-      class="tag-text"
+      <span
+        class="tag-text"
+      >
+        Tag
+      </span>
+    </div>
+    <div
+      class="arco-tag all-border-box arco-tag-hollow half-border pc size-small"
+      style="color: rgb(0, 180, 42); border-color: #7be188; border-style: solid;"
     >
-      Tag
-    </span>
-  </div>
-  <div
-    class="arco-tag all-border-box arco-tag-hollow pc size-small"
-    style="color:#FF7D00;border-color:#FFCF8B;border-style:dashed"
-  >
-    <span
-      class="tag-text"
+      <span
+        class="tag-text"
+      >
+        Tag
+      </span>
+    </div>
+    <div
+      class="arco-tag all-border-box arco-tag-hollow pc size-small"
+      style="color: rgb(255, 125, 0); border-color: #ffcf8b; border-style: dashed;"
     >
-      Tag
-    </span>
-  </div>
-  <div
-    class="arco-tag all-border-box arco-tag-hollow half-border pc size-small"
-    style="color:#F53F3F;border-color:#FBACA3;border-style:dashed"
-  >
-    <span
-      class="tag-text"
+      <span
+        class="tag-text"
+      >
+        Tag
+      </span>
+    </div>
+    <div
+      class="arco-tag all-border-box arco-tag-hollow half-border pc size-small"
+      style="color: rgb(245, 63, 63); border-color: #fbaca3; border-style: dashed;"
     >
-      Tag
-    </span>
-  </div>
-  <div
-    class="arco-tag all-border-box arco-tag-hollow half-border pc size-small"
-    style="color:#4E5969;border-color:#C9CDD4;border-style:dotted"
-  >
-    <span
-      class="tag-text"
+      <span
+        class="tag-text"
+      >
+        Tag
+      </span>
+    </div>
+    <div
+      class="arco-tag all-border-box arco-tag-hollow half-border pc size-small"
+      style="color: rgb(78, 89, 105); border-color: #c9cdd4; border-style: dotted;"
     >
-      Tag
-    </span>
+      <span
+        class="tag-text"
+      >
+        Tag
+      </span>
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tag demo test tag demo: custom-color.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-tag all-border-box arco-tag-solid half-border pc size-medium"
-    style="background:#FF5722;border-style:solid"
+    style="background: rgb(255, 87, 34); border-style: solid;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-solid half-border pc size-medium"
-    style="background:linear-gradient(277.15deg, #0678FF -0.2%, #14CDFF 97.54%);border-style:solid"
+    style="border-style: solid;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
-    style="color:#0FC6C2;background:#E8FFFB;border-style:none"
+    style="color: rgb(15, 198, 194); background: rgb(232, 255, 251); border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
-    style="color:#B71DE8;background:#FDE8FF;border-style:none"
+    style="color: rgb(183, 29, 232); background: rgb(253, 232, 255); border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`tag demo test tag demo: custom-style.md renders correctly 1`] = `
-<div
-  class="arco-tag all-border-box arco-tag-solid half-border pc size-small"
-  style="background:#F53F3F;border-style:solid;border-radius:0 4px 0 4px;height:16px"
->
-  <span
-    class="tag-text"
+<DocumentFragment>
+  <div
+    class="arco-tag all-border-box arco-tag-solid half-border pc size-small"
+    style="background: rgb(245, 63, 63); border-style: solid; border-radius: 0 4px 0 4px; height: 16px;"
   >
-    Hot
-  </span>
-</div>
+    <span
+      class="tag-text"
+    >
+      Hot
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`tag demo test tag demo: filleted.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-tag all-border-box arco-tag-solid half-border pc size-medium filleted"
-    style="border-style:solid"
+    style="border-style: solid;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-solid half-border pc size-medium filleted"
-    style="background:#00B42A;border-style:solid"
+    style="background: rgb(0, 180, 42); border-style: solid;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-solid half-border pc size-medium filleted"
-    style="background:#FF7D00;border-style:solid"
+    style="background: rgb(255, 125, 0); border-style: solid;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-solid half-border pc size-medium filleted"
-    style="background:#F53F3F;border-style:solid"
+    style="background: rgb(245, 63, 63); border-style: solid;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-solid half-border pc size-medium filleted"
-    style="background:#C9CDD4;border-style:solid"
+    style="background: rgb(201, 205, 212); border-style: solid;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`tag demo test tag demo: icon.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
-    style="border-style:none"
+    style="border-style: none;"
   >
     <svg
       class="arco-icon arco-icon-star "
@@ -184,7 +188,7 @@ Array [
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M268.437 941.29a35.563 35.563 0 01-50.773-35.733l25.899-248.49a35.563 35.563 0 00-8.896-27.456L66.176 442.155a35.563 35.563 0 0119.008-58.539l246.507-52.608a35.563 35.563 0 0023.36-16.96L481.237 95.872a35.563 35.563 0 0161.568 0l126.187 218.176a35.525 35.525 0 0023.36 16.96l246.507 52.608a35.563 35.563 0 0119.008 58.539L789.376 629.61a35.533 35.533 0 00-8.917 27.456l25.898 248.49a35.563 35.563 0 01-50.773 35.734l-228.16-109.739a35.563 35.563 0 00-30.805 0L268.459 941.29zm191.147-186.645a120.896 120.896 0 01104.81 0l147.84 71.104-16.682-159.829a120.896 120.896 0 0130.336-93.355L836.864 449.11l-162.347-34.645a120.896 120.896 0 01-79.402-57.685L512 213.099l-83.115 143.68a120.896 120.896 0 01-79.402 57.685l-162.347 34.645 110.976 123.456a120.896 120.896 0 0130.336 93.355l-16.683 159.83 147.84-71.105z"
+        d="M268.437 941.29a35.563 35.563 0 01-50.773-35.733l25.899-248.49a35.563 35.563 0 00-8.896-27.456L66.176 442.155a35.563 35.563 0 0119.008-58.539l246.507-52.608a35.563 35.563 0 0023.36-16.96L481.237 95.872a35.563 35.563 0 0161.568 0l126.187 218.176a35.525 35.525 0 0023.36 16.96l246.507 52.608a35.563 35.563 0 0119.008 58.539L789.376 629.61a35.533 35.533 0 00-8.917 27.456l25.898 248.49a35.563 35.563 0 01-50.773 35.734l-228.16-109.739a35.563 35.563 0 00-30.805 0l-228.16 109.739zm191.147-186.645a120.896 120.896 0 01104.81 0l147.84 71.104-16.682-159.829a120.896 120.896 0 0130.336-93.355L836.864 449.11l-162.347-34.645a120.896 120.896 0 01-79.402-57.685L512 213.099l-83.115 143.68a120.896 120.896 0 01-79.402 57.685l-162.347 34.645 110.976 123.456a120.896 120.896 0 0130.336 93.355l-16.683 159.83 147.84-71.105z"
         fill="currentColor"
       />
     </svg>
@@ -193,10 +197,10 @@ Array [
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
-    style="color:#FF7D00;background:#FFF7E8;border-style:none"
+    style="color: rgb(255, 125, 0); background: rgb(255, 247, 232); border-style: none;"
   >
     <svg
       class="arco-icon arco-icon-notice "
@@ -216,192 +220,194 @@ Array [
     >
       Tag
     </span>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`tag demo test tag demo: index.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-small"
-    style="border-style:none"
+    style="border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-small"
-    style="color:#00B42A;background:#E8FFEA;border-style:none"
+    style="color: rgb(0, 180, 42); background: rgb(232, 255, 234); border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-small"
-    style="color:#FF7D00;background:#FFF7E8;border-style:none"
+    style="color: rgb(255, 125, 0); background: rgb(255, 247, 232); border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-small"
-    style="color:#F53F3F;background:#FFECE8;border-style:none"
+    style="color: rgb(245, 63, 63); background: rgb(255, 236, 232); border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-small"
-    style="color:#4E5969;background:#F2F3F5;border-style:none"
+    style="color: rgb(78, 89, 105); background: rgb(242, 243, 245); border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-small"
-    style="color:#86909C;background:#F2F3F5;border-style:none"
+    style="color: rgb(134, 144, 156); background: rgb(242, 243, 245); border-style: none;"
   >
     <span
       class="tag-text"
     >
       Disabled
     </span>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`tag demo test tag demo: list.md renders correctly 1`] = `
-<div
-  class="arco-tag-list"
-  style="margin-bottom:-10px"
->
+<DocumentFragment>
   <div
-    class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
-    style="color:#165DFF;background:#E8F3FF;border-style:none;margin-bottom:10px"
-  >
-    <span
-      class="tag-text"
-    >
-      Tag1
-    </span>
-    <div
-      class="tag-close-wrap"
-    >
-      <svg
-        class="arco-icon arco-icon-close tag-close-icon"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
-          fill="currentColor"
-        />
-      </svg>
-    </div>
-  </div>
-  <div
-    class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
-    style="color:#00B42A;background:#E8FFEA;border-style:none;margin-bottom:10px"
-  >
-    <span
-      class="tag-text"
-    >
-      Tag2
-    </span>
-    <div
-      class="tag-close-wrap"
-    >
-      <svg
-        class="arco-icon arco-icon-close tag-close-icon"
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
-          fill="currentColor"
-        />
-      </svg>
-    </div>
-  </div>
-  <div
-    class="tag-list-add-wrap"
+    class="arco-tag-list"
+    style="margin-bottom: -10px;"
   >
     <div
-      class="arco-tag all-border-box tag-list-add arco-tag-primary half-border pc size-medium"
-      style="border-style:dashed;margin-bottom:10px"
+      class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
+      style="color: rgb(22, 93, 255); background: rgb(232, 243, 255); border-style: none; margin-bottom: 10px;"
     >
-      <svg
-        class="arco-icon arco-icon-add "
-        height="1em"
-        viewBox="0 0 1024 1024"
-        width="1em"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
-          fill="currentColor"
-        />
-      </svg>
       <span
         class="tag-text"
       >
-        添加标签
+        Tag1
       </span>
+      <div
+        class="tag-close-wrap"
+      >
+        <svg
+          class="arco-icon arco-icon-close tag-close-icon"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
+      style="color: rgb(0, 180, 42); background: rgb(232, 255, 234); border-style: none; margin-bottom: 10px;"
+    >
+      <span
+        class="tag-text"
+      >
+        Tag2
+      </span>
+      <div
+        class="tag-close-wrap"
+      >
+        <svg
+          class="arco-icon arco-icon-close tag-close-icon"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M509.568 447.083L796.16 160.469a21.333 21.333 0 0130.165 0l30.166 30.166a21.333 21.333 0 010 30.186L569.899 507.435l286.613 286.592a21.333 21.333 0 010 30.165l-30.165 30.165a21.333 21.333 0 01-30.166 0L509.568 567.765 222.933 854.38a21.333 21.333 0 01-30.186 0l-30.166-30.166a21.333 21.333 0 010-30.165l286.614-286.613L162.603 220.8a21.333 21.333 0 010-30.187l30.165-30.165a21.333 21.333 0 0130.187 0l286.613 286.613z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="tag-list-add-wrap"
+    >
+      <div
+        class="arco-tag all-border-box tag-list-add arco-tag-primary half-border pc size-medium"
+        style="border-style: dashed; margin-bottom: 10px;"
+      >
+        <svg
+          class="arco-icon arco-icon-add "
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M527.317 85.333c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v356.65h356.65c9.515 0 12.95.982 16.427 2.859a19.337 19.337 0 018.064 8.064c1.877 3.477 2.859 6.912 2.859 16.427v30.634c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-356.65v356.65c0 9.515-.982 12.95-2.859 16.427a19.392 19.392 0 01-8.064 8.064c-3.477 1.877-6.912 2.859-16.427 2.859h-30.634c-9.515 0-12.95-.982-16.427-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427l-.021-356.65h-356.63c-9.514 0-12.949-.982-16.426-2.859a19.392 19.392 0 01-8.064-8.064c-1.877-3.477-2.859-6.912-2.859-16.427v-30.634c0-9.515.982-12.95 2.859-16.427a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859l356.65-.021v-356.63c0-9.514.982-12.949 2.859-16.426a19.392 19.392 0 018.064-8.064c3.477-1.877 6.912-2.859 16.427-2.859h30.634z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          class="tag-text"
+        >
+          添加标签
+        </span>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`tag demo test tag demo: size.md renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-small"
-    style="border-style:none"
+    style="border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-medium"
-    style="border-style:none"
+    style="border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
+  </div>
   <div
     class="arco-tag all-border-box arco-tag-primary half-border pc size-large"
-    style="border-style:none"
+    style="border-style: none;"
   >
     <span
       class="tag-text"
     >
       Tag
     </span>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;

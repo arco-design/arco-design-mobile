@@ -1,71 +1,94 @@
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import { act, render, waitFor, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import ImagePreview from '..';
 import Button from '../../button';
 import Image from '../../image';
-import { delay } from '../../../tests/helpers/utils';
+import { delay, pureDelay } from '../../../tests/helpers/utils';
 import { createStartTouchEventObject, mockAddListener } from '../../../tests/helpers/mockEvent';
-import { mockSwipe, mockSwipeEnd } from '../../carousel/__test__/utils';
-import { mockContainerSize, resetContainerSizeMock } from '../../../tests/helpers/mockElement';
+import { mockSwipe, mockSwipeEnd } from '../../carousel/__test__/utils-rtl';
+import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
 
 demoTest('image-preview');
 
 mountTest(ImagePreview, 'ImagePreview');
 
+const { setHTMLProperties, unsetHTMLProperties } = defineHtmlRefProperties({
+    offsetWidth: 375,
+    offsetHeight: 200,
+});
+
+const prefix = `${defaultContext.prefixCls}-image-preview`;
+const imagePrefix = `${defaultContext.prefixCls}-image`;
 const carouselPrefix = `${defaultContext.prefixCls}-carousel`;
 
-const TestDemo = (props = {}) => {
+const demoImages = [
+    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg' },
+    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
+    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg' },
+];
+
+function TestDemo(props = {}) {
     const { btnDefaultIndex = 0, onChange, ...restProps } = props;
     const [openIndex, setOpenIndex] = useState(-1);
     return (
         <>
-            <Button onClick={() => setOpenIndex(btnDefaultIndex)}>Click Me</Button>
+            <Button
+                className="image-preview-test-btn"
+                onClick={() => setOpenIndex(btnDefaultIndex)}
+            >
+                Click Me
+            </Button>
             <ImagePreview
                 showLoading={false}
                 openIndex={openIndex}
-                onChange={(index) => {
+                onChange={index => {
                     onChange && onChange(index);
                     setOpenIndex(index);
                 }}
                 close={() => setOpenIndex(-1)}
-                images={[
-                    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg' },
-                    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
-                    { src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg' },
-                ]}
+                images={demoImages}
                 {...restProps}
             />
         </>
     );
 }
 
-function loadImage(wrapper, rect) {
-    const img = wrapper.find('.image-container img');
-    expect(img).toHaveLength(1);
+function loadImage(container, rect) {
+    const img = container.querySelector('.image-container img');
+    expect(img).not.toBeNull();
     if (rect) {
-        img.getDOMNode().getBoundingClientRect = jest.fn(() => rect);
+        const mockBoundingClientRect = jest.fn(() => rect);
+        Object.defineProperty(img, 'getBoundingClientRect', {
+            value: mockBoundingClientRect,
+        });
     }
-    img.simulate('load');
+    fireEvent.load(img);
 }
 
-function openAndLoadImage(wrapper, index) {
-    wrapper.setProps({ btnDefaultIndex: index });
-    wrapper.find(Button).simulate('click');
-    expect(wrapper.find(ImagePreview).props().openIndex).toBe(index);
-    loadImage(wrapper.find(Image).at(index));
+function openAndLoadImage(view, props, index) {
+    const { container, rerender } = view;
+    rerender(<TestDemo {...props} btnDefaultIndex={index} />);
+    fireEvent.click(container.querySelector('.image-preview-test-btn'));
+    expect(document.querySelectorAll(`.${carouselPrefix}-item`)[index].classList).toContain(
+        'active',
+    );
+    loadImage(document.querySelectorAll(`.${imagePrefix}`)[index]);
 }
 
 describe('ImagePreview', () => {
     beforeAll(() => {
-        mockContainerSize();
+        // mockContainerSize();
+        setHTMLProperties();
+        window.requestAnimationFrame = jest.fn(fn => fn());
     });
 
     afterAll(() => {
-        resetContainerSizeMock();
+        // resetContainerSizeMock();
+        unsetHTMLProperties();
     });
 
     beforeEach(() => {
@@ -76,62 +99,102 @@ describe('ImagePreview', () => {
         jest.useRealTimers();
     });
 
-    it('should open preview correctly', () => {
+    it('should open preview correctly', async () => {
         const onImageDoubleClick = jest.fn();
-        const wrapper = mount(<TestDemo
-            staticLabel={true}
-            onImageDoubleClick={onImageDoubleClick}
-        />);
-        openAndLoadImage(wrapper, 0);
-        expect(wrapper.find(Image)).toHaveLength(2);
-        wrapper.find(ImagePreview).simulate('click');
-        delay(wrapper, 800);
-        expect(wrapper.find(ImagePreview).props().openIndex).toBe(-1);
-        openAndLoadImage(wrapper, 1);
-        expect(wrapper.find(Image)).toHaveLength(3);
-        wrapper.find(ImagePreview).simulate('doubleClick');
+        const props = { staticLabel: true, onImageDoubleClick };
+        const view = render(<TestDemo {...props} />);
+        openAndLoadImage(view, props, 0);
+        expect(document.querySelectorAll(`.${imagePrefix}`)).toHaveLength(2);
+        fireEvent.click(document.querySelector(`.${prefix}`));
+        await waitFor(
+            () => {
+                expect(document.querySelector(`.${prefix}`)).toBeNull();
+            },
+            { timeout: 1000 },
+        );
+        openAndLoadImage(view, props, 1);
+        expect(document.querySelectorAll(`.${imagePrefix}`)).toHaveLength(3);
+        fireEvent.doubleClick(document.querySelector(`.${prefix}`));
         expect(onImageDoubleClick.mock.calls).toHaveLength(1);
     });
 
-    it('should support thumb bounds', () => {
-        const wrapper = mount(<TestDemo
-            staticLabel={true}
-            images={[{
-                src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
-                fallbackSrc: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
-            }]}
-            getThumbBounds={() => ({ top: 100, bottom: 200, left: 20, right: 120, width: 100, height: 100 })}
-        />);
-        openAndLoadImage(wrapper, 0);
-        const fakeRect = wrapper.find('.image-preview-fake-rect');
-        expect(fakeRect).toHaveLength(1);
-        expect(fakeRect.find(Image)).toHaveLength(1);
-        loadImage(fakeRect.find(Image), { top: 0, bottom: 700, left: 0, right: 375, width: 375, height: 700 });
-        delay(wrapper, 1000);
-        expect(wrapper.find('.image-preview-fake-rect')).toHaveLength(0);
+    it('should support thumb bounds', async () => {
+        const props = {
+            staticLabel: true,
+            images: [
+                {
+                    src: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
+                    fallbackSrc:
+                        'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
+                },
+            ],
+            getThumbBounds: () => ({
+                top: 100,
+                bottom: 200,
+                left: 20,
+                right: 120,
+                width: 100,
+                height: 100,
+            }),
+        };
+        const view = render(<TestDemo {...props} />);
+        openAndLoadImage(view, props, 0);
+        const fakeRect = document.querySelector('.image-preview-fake-rect');
+        expect(fakeRect).not.toBeNull();
+        expect(fakeRect.querySelectorAll(`.${imagePrefix}`)).toHaveLength(1);
+        loadImage(fakeRect.querySelector(`.${imagePrefix}`), {
+            top: 0,
+            bottom: 700,
+            left: 0,
+            right: 375,
+            width: 375,
+            height: 700,
+        });
+        pureDelay(1000);
+        expect(document.querySelectorAll('.image-preview-fake-rect')).toHaveLength(0);
+        loadImage(document.querySelector(`.${imagePrefix}`), {
+            top: 0,
+            bottom: 700,
+            left: 0,
+            right: 375,
+            width: 375,
+            height: 700,
+        });
+        expect(document.querySelector(`.${prefix}`)).not.toBeNull();
+        fireEvent.click(document.querySelector('.image-container img'));
+        pureDelay(300);
+        expect(document.querySelector('.closing-animation')).not.toBeNull();
+        await waitFor(
+            () => {
+                expect(document.querySelector(`.${prefix}`)).toBeNull();
+            },
+            { timeout: 1000 },
+        );
     });
 
     it('should support touch event correctly', () => {
         const onChange = jest.fn();
         const onAfterChange = jest.fn();
         const onImageLongTap = jest.fn();
-        const wrapper = mount(<TestDemo
-            staticLabel={true}
-            swipeable={false}
-            onChange={onChange}
-            onAfterChange={onAfterChange}
-            onImageLongTap={onImageLongTap}
-        />);
-        openAndLoadImage(wrapper, 0);
+        const props = {
+            staticLabel: true,
+            swipeable: true,
+            onChange,
+            onAfterChange,
+            onImageLongTap,
+        };
+        const view = render(<TestDemo {...props} />);
+        openAndLoadImage(view, props, 0);
 
         // mock swipe and change index
-        const map = mockAddListener(wrapper.find(`.${carouselPrefix}`));
-        wrapper.setProps({ swipeable: true });
-        delay(wrapper, 100);
+        const map = mockAddListener(document.querySelector(`.${carouselPrefix}`), true);
+        view.rerender(<TestDemo {...props} swipeable />);
+        pureDelay(100);
+        const wrapper = document.querySelector(`.${prefix}`);
         mockSwipe(map, wrapper, carouselPrefix, { touchstart: 300, touchmove: 100, touchend: 30 });
         expect(onChange.mock.calls).toHaveLength(1);
         expect(onChange.mock.calls[0]).toEqual([1]);
-        delay(wrapper, 600);
+        pureDelay(600);
         expect(onAfterChange.mock.calls).toHaveLength(1);
         expect(onAfterChange.mock.calls[0]).toEqual([1]);
 
@@ -145,7 +208,25 @@ describe('ImagePreview', () => {
         expect(onImageLongTap.mock.calls[0][0]).toBe(1);
 
         // image load error
-        expect(wrapper.find(Image)).toHaveLength(3);
-        wrapper.find(Image).at(1).find('img').simulate('error');
+        const images = document.querySelectorAll(`.${imagePrefix}`);
+        expect(images).toHaveLength(3);
+        fireEvent.error(images[1].querySelector('img'));
     });
-})
+
+    it('should support `ImagePreview.open`', async () => {
+        const onClose = jest.fn();
+        window.instance = ImagePreview.open({
+            staticLabel: true,
+            onClose,
+            images: demoImages,
+            openIndex: 0,
+        });
+        pureDelay(1100);
+        expect(document.querySelectorAll(`.${imagePrefix}`)).toHaveLength(2);
+        expect(typeof window.instance.close).toBe('function');
+        expect(typeof window.instance.update).toBe('function');
+        window.instance.close();
+        pureDelay(1100);
+        expect(onClose.mock.calls).toHaveLength(1);
+    });
+});

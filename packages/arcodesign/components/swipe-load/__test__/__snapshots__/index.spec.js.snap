@@ -1,207 +1,218 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`swipe-load demo test swipe-load demo: carousel-label.md renders correctly 1`] = `
-<div
-  class="arco-carousel-wrap"
->
+<DocumentFragment>
   <div
-    class="arco-carousel"
+    class="arco-carousel-wrap"
   >
     <div
-      class="arco-carousel-inner auto"
-      style="width:auto;transition-property:none;-webkit-transition-property:none;transition-duration:0ms;-webkit-transition-duration:0ms;transform:translateX(-0%) translateZ(0);-webkit-transform:translateX(-0%) translateZ(0)"
+      class="arco-carousel"
     >
       <div
-        class="arco-carousel-item carousel-item normal-item active"
-        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+        class="arco-carousel-inner auto"
+        style="width: auto; transition-property: none; transition-duration: 0ms; transform: translateX(0) translateZ(0);"
       >
         <div
-          style="height:120px;background-color:#94BFFF"
-        />
-      </div>
-      <div
-        class="arco-carousel-item carousel-item normal-item ssr-float"
-        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
-      >
+          class="arco-carousel-item carousel-item normal-item active"
+          style="transform: translateX(0px); width: 100%; padding-left: 0px; padding-right: 0px; box-sizing: border-box;"
+        >
+          <div
+            style="height: 120px; background-color: rgb(148, 191, 255);"
+          />
+        </div>
         <div
-          style="height:120px;background-color:#BEDAFF"
+          class="arco-carousel-item carousel-item normal-item ssr-float"
+          style="transform: translateX(0px); width: 100%; padding-left: 0px; padding-right: 0px; box-sizing: border-box;"
+        >
+          <div
+            style="height: 120px; background-color: rgb(190, 218, 255);"
+          />
+        </div>
+        <div
+          class="arco-carousel-item carousel-item normal-item ssr-float"
+          style="transform: translateX(0px); width: 100%; padding-left: 0px; padding-right: 0px; box-sizing: border-box;"
         />
       </div>
-      <div
-        class="arco-carousel-item carousel-item normal-item ssr-float"
-        style="transform:translateX(0px);-webkit-transform:translateX(0px);width:100%;padding-left:0;padding-right:0;box-sizing:border-box"
+    </div>
+    <div
+      class="arco-carousel-indicator pos-center arco-carousel-indicator-horizontal"
+    >
+      <i
+        class="indicator type-square active"
+      />
+      <i
+        class="indicator type-square"
+      />
+      <i
+        class="indicator type-square"
       />
     </div>
   </div>
-  <div
-    class="arco-carousel-indicator pos-center"
-  >
-    <i
-      class="indicator type-square active"
-    />
-    <i
-      class="indicator type-square"
-    />
-    <i
-      class="indicator type-square"
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`swipe-load demo test swipe-load demo: custom-label.md renders correctly 1`] = `
-<div
-  class="arco-swipe-load "
->
+<DocumentFragment>
   <div
-    class="arco-list-area"
+    class="arco-swipe-load "
   >
     <div
-      class="list-container"
-      style="overflow-x:auto"
+      class="arco-list-area"
     >
       <div
-        class="course-list"
+        class="list-container"
+        style="overflow-x: auto;"
       >
         <div
-          class="list-item"
-          style="width:96px"
-        />
-        <div
-          class="list-item"
-          style="width:96px"
-        />
-        <div
-          class="list-item"
-          style="width:96px"
-        />
-        <div
-          class="list-item"
-          style="width:96px"
-        />
-        <div
-          class="list-item"
-          style="width:96px"
-        />
+          class="course-list"
+        >
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-custom-loading-area"
-    style="position:absolute;right:-100px"
-  >
     <div
-      class="mylabel-start "
-    />
+      class="arco-custom-loading-area"
+      style="position: absolute; right: -100px; display: none;"
+    >
+      <div
+        class="mylabel-start "
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`swipe-load demo test swipe-load demo: default-label.md renders correctly 1`] = `
-<div
-  class="arco-swipe-load "
->
+<DocumentFragment>
   <div
-    class="arco-list-area"
+    class="arco-swipe-load "
   >
     <div
-      class="list-container"
-      style="overflow-x:auto"
+      class="arco-list-area"
     >
       <div
-        class="course-list"
+        class="list-container"
+        style="overflow-x: auto;"
       >
         <div
-          class="list-item"
-          style="width:96px"
-        />
-        <div
-          class="list-item"
-          style="width:96px"
-        />
-        <div
-          class="list-item"
-          style="width:96px"
-        />
-        <div
-          class="list-item"
-          style="width:96px"
-        />
-        <div
-          class="list-item"
-          style="width:96px"
-        />
+          class="course-list"
+        >
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+          <div
+            class="list-item"
+            style="width: 96px;"
+          />
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class="arco-loading-area"
-    style="width:80px;height:80px;position:absolute;right:-80px"
-  >
     <div
-      class="arco-loading-label"
-    />
+      class="arco-loading-area"
+      style="width: 80px; height: 80px; position: absolute; right: -80px; display: none;"
+    >
+      <div
+        class="arco-loading-label"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`swipe-load demo test swipe-load demo: list-elements.md renders correctly 1`] = `
-<div
-  class="arco-swipe-load "
->
+<DocumentFragment>
   <div
-    class="arco-list-area"
+    class="arco-swipe-load "
   >
     <div
-      class="list-item-color"
-      style="min-width:96px"
-    />
+      class="arco-list-area"
+      style="width: 100%; overflow-x: scroll; display: inline-flex; webkit-overflow-scrolling: touch;"
+    >
+      <div
+        class="list-item-color"
+        style="min-width: 96px;"
+      />
+      <div
+        class="list-item-color"
+        style="min-width: 96px;"
+      />
+      <div
+        class="list-item-color"
+        style="min-width: 96px;"
+      />
+      <div
+        class="list-item-color"
+        style="min-width: 96px;"
+      />
+      <div
+        class="list-item-color"
+        style="min-width: 96px;"
+      />
+    </div>
     <div
-      class="list-item-color"
-      style="min-width:96px"
-    />
-    <div
-      class="list-item-color"
-      style="min-width:96px"
-    />
-    <div
-      class="list-item-color"
-      style="min-width:96px"
-    />
-    <div
-      class="list-item-color"
-      style="min-width:96px"
-    />
+      class="arco-loading-area"
+      style="width: 80px; height: 80px; position: absolute; right: -80px; display: none;"
+    >
+      <div
+        class="arco-loading-label"
+      />
+    </div>
   </div>
-  <div
-    class="arco-loading-area"
-    style="width:80px;height:80px;position:absolute;right:-80px"
-  >
-    <div
-      class="arco-loading-label"
-    />
-  </div>
-</div>
+</DocumentFragment>
 `;
 
 exports[`swipe-load demo test swipe-load demo: single-element.md renders correctly 1`] = `
-<div
-  class="arco-swipe-load "
->
+<DocumentFragment>
   <div
-    class="arco-list-area"
+    class="arco-swipe-load "
   >
     <div
-      class="single-element"
-    />
-  </div>
-  <div
-    class="arco-custom-loading-area"
-    style="position:absolute;right:-100px"
-  >
+      class="arco-list-area"
+    >
+      <div
+        class="single-element"
+      />
+    </div>
     <div
-      class="mylabel-single"
-    />
+      class="arco-custom-loading-area"
+      style="position: absolute; right: -100px; display: none;"
+    >
+      <div
+        class="mylabel-single"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;
