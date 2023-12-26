@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.5...@arco-design/mobile-react@2.30.6) (2023-12-26)
+
+
+### Bug Fixes
+
+* optimize `Ellipsis` height calculation ([#216](https://github.com/arco-design/arco-design-mobile/issues/216)) ([555723f](https://github.com/arco-design/arco-design-mobile/commit/555723f0091b6f0e28523a0aa37394bceacd6dc5))
+* remove system default outline on iOS low-end machine of `Radio` & `Checkbox` ([#215](https://github.com/arco-design/arco-design-mobile/issues/215)) ([76dc29a](https://github.com/arco-design/arco-design-mobile/commit/76dc29ad26a1dcd37ab8935d8fbcebaa9ebe134f))
+* resolve `DatePicker` rangeTs computed error ([#214](https://github.com/arco-design/arco-design-mobile/issues/214)) ([3dede0b](https://github.com/arco-design/arco-design-mobile/commit/3dede0bca7f0214d5e2b802038cafcc9390b2727))
+
+
+
+
+
 ## [2.30.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.4...@arco-design/mobile-react@2.30.5) (2023-12-19)
 
 
