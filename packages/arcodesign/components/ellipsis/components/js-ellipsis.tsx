@@ -76,7 +76,6 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
     function truncateHTML(container: HTMLElement, textContainer: HTMLElement, max: number) {
         // only enter this function when container overflow.
         const children = textContainer.childNodes;
-        const actualHeight = getActualHeight(container);
         if (children.length === 1) {
             const node = children[0] as HTMLElement;
             if (node.nodeType === Node.TEXT_NODE) {
@@ -85,6 +84,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
                 const html = node.innerHTML;
                 // clear content to determine whether the empty node can be placed.
                 node.innerHTML = '';
+                const actualHeight = getActualHeight(container);
                 if (actualHeight > max) {
                     // return after remove the node, if overflow with empty node.
                     textContainer.removeChild(node);
@@ -102,6 +102,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
             // find the critical node
             while (i < nodes.length) {
                 textContainer.appendChild(nodes[i]);
+                const actualHeight = getActualHeight(container);
                 if (actualHeight > max) {
                     if (nodes[i].childNodes && nodes[i].childNodes.length) {
                         break;
