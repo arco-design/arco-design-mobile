@@ -45,6 +45,9 @@ const devConfig = merge(genBaseConfig(baseConfig, 'pc'), {
         port: 8823,
         open: true,
         allowedHosts: 'all',
+        client: {
+            overlay: false,
+        },
     },
     plugins: [
         new SiteGeneratePlugin(),

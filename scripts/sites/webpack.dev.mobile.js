@@ -51,6 +51,9 @@ const devConfig = merge(baseConfig, {
         port: 8822,
         allowedHosts: "all",
         open: true,
+        client: {
+            overlay: false,
+        },
         ...(compileComps.length
             ? {
                 open: true,

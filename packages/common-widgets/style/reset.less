@@ -64,3 +64,8 @@ samp {
         box-sizing: border-box;
     }
 }
+
+// Solve the style problem caused by the tabIndex attribute of lower versions of iOS
+[tabIndex='0']:focus {
+    outline: none;
+}
