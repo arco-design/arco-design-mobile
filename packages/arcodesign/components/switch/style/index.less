@@ -15,6 +15,11 @@
         }
     }
 
+    // Solve the style problem caused by the tabIndex attribute of lower versions of iOS
+    &:focus {
+        outline: none;
+    }
+
     &.type-android {
         .use-var(width, switch-android-width);
         .use-var(height, switch-android-height);
