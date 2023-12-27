@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.7](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.6...@arco-design/mobile-utils@2.17.7) (2023-12-27)
+
+
+### Bug Fixes
+
+* style problem caused by the "tabIndex" attribute of lower versions of iOS ([#217](https://github.com/arco-design/arco-design-mobile/issues/217)) ([6a9406e](https://github.com/arco-design/arco-design-mobile/commit/6a9406ea0dfbdb50075a4c036757e6d7988c7d92))
+
+
+
+
+
 ## [2.17.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.5...@arco-design/mobile-utils@2.17.6) (2023-12-26)
 
 **Note:** Version bump only for package @arco-design/mobile-utils
