@@ -65,7 +65,7 @@ export default function TabsDemo() {
         transform: rotate(180deg);
     }
     .arco-theme-dark & {
-        background: linear-gradient(270deg, @dark-background-color 66.04%, rgba(@dark-background-color, 0) 105%);
+        background: linear-gradient(270deg, #17171A 66.04%, rgba(#17171A, 0) 105%);
     }
 }
 .demo-tab-content {

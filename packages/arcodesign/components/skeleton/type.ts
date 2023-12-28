@@ -81,7 +81,7 @@ export interface SkeletonParagraphProps extends SimpleBaseProps {
     width?: number | string | Array<number | string>;
 }
 
-export interface SkeletonAvatarProps extends SimpleBaseProps {}
+export type SkeletonAvatarProps = SimpleBaseProps;
 
 export interface SkeletonGridProps extends SimpleBaseProps {
     /**
@@ -92,7 +92,7 @@ export interface SkeletonGridProps extends SimpleBaseProps {
     columns?: number;
 }
 
-export interface SkeletonNodeProps extends BaseProps {}
+export type SkeletonNodeProps = BaseProps;
 
 export interface SkeletonRef {
     /**
