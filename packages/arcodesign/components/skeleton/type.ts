@@ -81,7 +81,13 @@ export interface SkeletonParagraphProps extends SimpleBaseProps {
     width?: number | string | Array<number | string>;
 }
 
-export type SkeletonAvatarProps = SimpleBaseProps;
+export interface SkeletonAvatarProps extends SimpleBaseProps {
+    /**
+     * 自定义样式
+     * @en Custom stylesheet
+     */
+    style?: React.CSSProperties;
+}
 
 export interface SkeletonGridProps extends SimpleBaseProps {
     /**
@@ -92,7 +98,13 @@ export interface SkeletonGridProps extends SimpleBaseProps {
     columns?: number;
 }
 
-export type SkeletonNodeProps = BaseProps;
+export interface SkeletonNodeProps extends BaseProps {
+    /**
+     * 自定义样式
+     * @en Custom stylesheet
+     */
+    style?: React.CSSProperties;
+}
 
 export interface SkeletonRef {
     /**
