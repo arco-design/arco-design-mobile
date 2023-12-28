@@ -1,5 +1,7 @@
 import { BaseProps, SimpleBaseProps } from '../_helpers';
 
+export { BaseProps, SimpleBaseProps };
+
 export interface SkeletonProps extends SimpleBaseProps {
     /**
      * 是否显示标题占位图
@@ -81,13 +83,7 @@ export interface SkeletonParagraphProps extends SimpleBaseProps {
     width?: number | string | Array<number | string>;
 }
 
-export interface SkeletonAvatarProps extends SimpleBaseProps {
-    /**
-     * 自定义样式
-     * @en Custom stylesheet
-     */
-    style?: React.CSSProperties;
-}
+export interface SkeletonAvatarProps extends SimpleBaseProps {}
 
 export interface SkeletonGridProps extends SimpleBaseProps {
     /**
@@ -98,13 +94,7 @@ export interface SkeletonGridProps extends SimpleBaseProps {
     columns?: number;
 }
 
-export interface SkeletonNodeProps extends BaseProps {
-    /**
-     * 自定义样式
-     * @en Custom stylesheet
-     */
-    style?: React.CSSProperties;
-}
+export interface SkeletonNodeProps extends BaseProps {}
 
 export interface SkeletonRef {
     /**
