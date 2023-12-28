@@ -1,5 +1,7 @@
 import { BaseProps, SimpleBaseProps } from '../_helpers';
 
+export { BaseProps, SimpleBaseProps };
+
 export interface SkeletonProps extends SimpleBaseProps {
     /**
      * 是否显示标题占位图
