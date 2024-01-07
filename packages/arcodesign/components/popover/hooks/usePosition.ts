@@ -243,14 +243,13 @@ export const usePosition = (
         if (mode === 'global') {
             const wrapperEl = wrapperRef.current;
             if (!wrapperEl) return newConfig;
-            const { top, left, bottom } = wrapperEl.getBoundingClientRect();
-            if (newConfig.left !== null) newConfig.left += left;
-            if (newConfig.top !== null) newConfig.top += top;
-            if (newConfig.bottom !== null) {
-                const windowInnerHeight =
-                    window.innerHeight || document.documentElement.clientHeight;
-                newConfig.bottom = windowInnerHeight - (bottom - newConfig.bottom);
-            }
+            const { top, left } = wrapperEl.getBoundingClientRect();
+            const scrollTop =
+                window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollLeft =
+                window.scrollX || document.documentElement.scrollLeft || document.body.scrollLeft;
+            if (newConfig.left !== null) newConfig.left += left + scrollLeft;
+            if (newConfig.top !== null) newConfig.top += top + scrollTop;
         }
 
         return newConfig;
@@ -300,7 +299,7 @@ export const usePosition = (
         const config: PopoverPosition = {
             left,
             width: popoverWidth,
-            top: null,
+            top: -bottom,
             height: popoverHeight,
             bottom,
             arrowLeft: 0,
@@ -315,7 +314,7 @@ export const usePosition = (
         const config: PopoverPosition = {
             left,
             width: popoverWidth,
-            top: null,
+            top: -bottom,
             height: popoverHeight,
             bottom,
             arrowLeft: 0,
@@ -330,7 +329,7 @@ export const usePosition = (
         const config: PopoverPosition = {
             left,
             width: popoverWidth,
-            top: null,
+            top: -bottom,
             height: popoverHeight,
             bottom,
             arrowLeft: 0,
