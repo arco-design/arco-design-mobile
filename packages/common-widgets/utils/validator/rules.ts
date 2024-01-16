@@ -141,8 +141,8 @@ export class StringValidator extends BaseValidator {
     }
 
     len(num: number) {
-        return this.dealError(!isEmptyValue(this.value) && this.value !== num, {
-            errTemplate: 'string.equal',
+        return this.dealError(!isEmptyValue(this.value) && this.value.length !== num, {
+            errTemplate: 'string.len',
             values: [this.field, `${num}`],
         });
     }
