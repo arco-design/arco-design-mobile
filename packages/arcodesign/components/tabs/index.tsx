@@ -404,10 +404,10 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         changeFromRef.current = changeFrom || '';
         setCellTrans(true);
         setInnerIndex(newIndex);
-        setDistance(0);
         if (newIndex !== activeIndexRef.current) {
             onChange && onChange(tabs[newIndex], newIndex, changeFrom);
         }
+        setDistance(0);
     }
 
     return (
