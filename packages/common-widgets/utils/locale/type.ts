@@ -81,6 +81,7 @@ export interface ILocale {
             max: string;
             min: string;
             len: string;
+            equal: string;
             match: string;
             uppercase: string;
             lowercase: string;

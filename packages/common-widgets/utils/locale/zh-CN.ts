@@ -80,6 +80,7 @@ const localeConfig: ILocale = {
             max: '%s 超过 %s 个字符',
             min: '%s 少于 %s 个字符',
             len: '%s 字符个数应为 %s',
+            equal: '%s 不等于 `%s`',
             match: '`%s` 不匹配 %s 模式',
             uppercase: '%s 需全为大写字符',
             lowercase: '%s 需全为小写字符',

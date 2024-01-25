@@ -45,6 +45,7 @@ export interface IStringValidator extends IBaseRules {
     min?: number;
     max?: number;
     len?: number;
+    equal?: string;
     match?: RegExp;
     uppercase?: boolean;
     lowercase?: boolean;
@@ -61,7 +62,7 @@ export interface ICustomValidator extends IBaseRules {
 
 export type ValidatorTypeMap = {
     [ValidatorType.Number]: INumberValidator;
-    [ValidatorType.String]: IArrayValidator;
+    [ValidatorType.String]: IStringValidator;
     [ValidatorType.Array]: IArrayValidator;
     [ValidatorType.Boolean]: IArrayValidator;
     [ValidatorType.Object]: IObjectValidator;
