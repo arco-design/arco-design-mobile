@@ -26,6 +26,7 @@ export const messageTemplate: IValidateMsgTemplate = {
         max: '%s cannot be longer than %s characters',
         min: '%s must be at least %s characters',
         len: '%s must be exactly %s characters',
+        equal: '%s is not equal to `%s`',
         match: '`%s` does not match the pattern %s',
         uppercase: '%s must be all uppercased',
         lowercase: '%s must be all lowercased',

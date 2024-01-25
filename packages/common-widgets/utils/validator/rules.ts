@@ -78,6 +78,20 @@ export class BaseValidator {
     }
 }
 
+export class BooleanValidator extends BaseValidator {
+    constructor(value, rules, options) {
+        super(value, rules, options);
+        this.validateRules = ['equal'];
+    }
+
+    equal(str: boolean) {
+        return this.dealError(!isEmptyValue(this.value) && this.value !== str, {
+            errTemplate: 'boolean.equal',
+            values: [this.field, `${str}`],
+        });
+    }
+}
+
 export class NumberValidator extends BaseValidator {
     constructor(value, rules, options) {
         super(value, rules, options);
@@ -123,7 +137,16 @@ export class NumberValidator extends BaseValidator {
 export class StringValidator extends BaseValidator {
     constructor(value, rules, options) {
         super(value, rules, options);
-        this.validateRules = ['min', 'max', 'len', 'match', 'uppercase', 'lowercase', 'whitespace'];
+        this.validateRules = [
+            'min',
+            'max',
+            'len',
+            'equal',
+            'match',
+            'uppercase',
+            'lowercase',
+            'whitespace',
+        ];
     }
 
     min(num: number) {
@@ -141,9 +164,16 @@ export class StringValidator extends BaseValidator {
     }
 
     len(num: number) {
-        return this.dealError(!isEmptyValue(this.value) && this.value !== num, {
-            errTemplate: 'string.equal',
+        return this.dealError(!isEmptyValue(this.value) && this.value.length !== num, {
+            errTemplate: 'string.len',
             values: [this.field, `${num}`],
+        });
+    }
+
+    equal(str: string) {
+        return this.dealError(!isEmptyValue(this.value) && this.value !== str, {
+            errTemplate: 'string.equal',
+            values: [this.field, `${str}`],
         });
     }
 
@@ -250,13 +280,14 @@ export class CustomValidator extends BaseValidator {
     validator(validatorTool: ICustomValidatorFunc | null) {
         if (validatorTool) {
             return new Promise(resolve => {
+                const validateLevel = this.rule.validateLevel || 'error';
                 const ret = validatorTool(this.value, (message: string = '') =>
                     this.addError('custom', message || ''),
                 );
                 if (ret && ret?.then) {
-                    ret.then(() => resolve(this.getErrors()));
+                    ret.then(() => resolve({ ...this.getErrors(), validateLevel }));
                 } else {
-                    resolve(this.getErrors());
+                    resolve({ ...this.getErrors(), validateLevel });
                 }
             });
         }
