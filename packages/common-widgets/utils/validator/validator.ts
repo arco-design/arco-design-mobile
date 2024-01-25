@@ -2,6 +2,7 @@ import { Promise } from 'es6-promise';
 import { isArray } from '../is';
 import {
     ArrayValidator,
+    BooleanValidator,
     BaseValidator,
     CustomValidator,
     NumberValidator,
@@ -23,6 +24,7 @@ export class Validator {
     options: { first: boolean; validateMessages?: Partial<IValidateMsgTemplate> };
 
     validatorGroup: {
+        boolean: BooleanValidator;
         number: NumberValidator;
         array: ArrayValidator;
         string: StringValidator;
@@ -44,6 +46,7 @@ export class Validator {
             validateMessage: this.options?.validateMessages,
         };
         return {
+            boolean: new BooleanValidator(value, rule, curOption),
             number: new NumberValidator(value, rule, curOption),
             array: new ArrayValidator(value, rule, curOption),
             string: new StringValidator(value, rule, curOption),

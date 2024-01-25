@@ -78,6 +78,20 @@ export class BaseValidator {
     }
 }
 
+export class BooleanValidator extends BaseValidator {
+    constructor(value, rules, options) {
+        super(value, rules, options);
+        this.validateRules = ['equal'];
+    }
+
+    equal(str: boolean) {
+        return this.dealError(!isEmptyValue(this.value) && this.value !== str, {
+            errTemplate: 'boolean.equal',
+            values: [this.field, `${str}`],
+        });
+    }
+}
+
 export class NumberValidator extends BaseValidator {
     constructor(value, rules, options) {
         super(value, rules, options);
