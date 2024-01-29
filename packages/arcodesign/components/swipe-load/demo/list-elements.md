@@ -32,7 +32,7 @@ export default function SwipeLoadDemo() {
 ```less
 .list-item-color {
     height: 72px;
-    margin-right: 10px;
+    .set-prop-with-rtl(margin-right, 10px);
     .use-var(background, primary-disabled-color);
 }
 ```

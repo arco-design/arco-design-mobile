@@ -33,15 +33,7 @@ export default function SwipeLoadDemo() {
                         height: 120,
                     }}
                 >
-                    <div
-                        style={{
-                            position: 'absolute',
-                            left: 0,
-                            height: 120,
-                            width: '150%',
-                            backgroundColor: '#FFCF8B',
-                        }}
-                    ></div>
+                    <div className='swipe-item'></div>
                 </div>
             </SwipeLoad>
         </Carousel>
@@ -50,6 +42,13 @@ export default function SwipeLoadDemo() {
 ```
 
 ```less
+.swipe-item {
+    position: absolute;
+    .set-prop-with-rtl(left, 0);
+    height: 120px;
+    width: 150%;
+    background-color: #FFCF8B;
+}
 .mylabel-start {
     width: 100px;
     height: 96px;

@@ -58,7 +58,7 @@ export default function SwipeLoadDemo() {
 }
 .list-item {
     height: 72px;
-    margin-right: 10px;
+    .set-prop-with-rtl(margin-right, 10px);
     .use-var(background, background-color);
 }
 ```
