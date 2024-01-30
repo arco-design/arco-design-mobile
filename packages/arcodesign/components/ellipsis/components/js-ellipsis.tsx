@@ -24,6 +24,8 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
     const domRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLSpanElement>(null);
     const ellipsisRef = useRef<HTMLSpanElement>(null);
+    const ellipsisValueRef = useRef(ellipsis);
+    ellipsisValueRef.current = ellipsis;
 
     const lineHeightRef = useRef(0);
     const setCurLineHeight = useCallback(() => {
@@ -132,7 +134,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
         } else {
             textRef.current.innerText = text;
         }
-        if (!ellipsis) {
+        if (!ellipsisValueRef.current) {
             return;
         }
         textRef.current.classList.remove(`${prefixCls}-js-content-text-pre`);
