@@ -51,7 +51,7 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
         onTouchMove,
         renderLabel,
     } = props;
-    const { locale = defaultLocale } = useContext(GlobalContext);
+    const { locale = defaultLocale, useRtl } = useContext(GlobalContext);
     const [disableState, setDisableState] = useState(disabled);
     const [labelOffsetState, setLabelOffsetState] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -119,15 +119,24 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
             // 判断元素是否属于滚动元素 先置为1 之后变成0表示非滚动容器
             // @en Determine whether the element belongs to a scrolling element. Set it to 1 and then change to 0 to indicate a non-scrolling container
             if (!scrollContainer.scrollLeft) {
-                scrollContainer.scrollLeft = 1;
+                scrollContainer.scrollLeft = useRtl ? -1 : 1;
             }
             endX = e.touches[0].clientX || 0;
             const diff = endX - startX;
             offsetRef.current = diff;
             const labelDiff = fingerDisToLabelDis(Math.abs(diff), damping);
+
+            // 判断是否是滚动到列表开始方向，ltr模式下是向左滚动，rtl模式下是向右滚动
+            const isScrollToLeft = useRtl ? diff < 0 : diff > 0;
+            // 判断是否是滚动到列表结束方向，ltr模式下是向右滚动，rtl模式下是向左滚动
+            const isScrollToRight = useRtl ? diff > 0 : diff < 0;
             // 滑动到最左侧，处理回弹效果
             // @en Swipe to the far left to handle the rebound effect
-            if (diff > 0 && scrollContainer.scrollLeft <= 1 && bounceWhenBumpBoundary) {
+            if (
+                isScrollToLeft &&
+                Math.abs(scrollContainer.scrollLeft) <= 1 &&
+                bounceWhenBumpBoundary
+            ) {
                 e.stopPropagation();
                 e.cancelBubble && e.preventDefault();
                 bouncingRef.current = true;
@@ -143,8 +152,8 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
             // 向左滑动到尽头 '更多'标签加载 根据scrollLeft判断 滚动容器到达边缘触发 非滚动容器不判断
             // @en Swipe left to the end and the 'more' label is loaded. Judging by scrollLeft, the scroll container reaches the edge and the non-scroll container does not judge
             if (
-                diff < 0 &&
-                (scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+                isScrollToRight &&
+                (Math.abs(scrollContainer.scrollLeft) + scrollContainer.clientWidth >=
                     scrollContainer.scrollWidth - 1 ||
                     !scrollContainer.scrollLeft) &&
                 !ifToRightRef.current
@@ -154,7 +163,7 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
             }
             // 继续滑动露出标签
             // @en Continue swiping to reveal labels
-            if (showLoadMoreRef.current && diff < 0) {
+            if (showLoadMoreRef.current && isScrollToRight) {
                 // 此时禁止list原生滚动
                 // @en Disable list native scrolling at this time
                 e.stopPropagation();
@@ -176,16 +185,20 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
                 }
                 setStyleWithVendor(loadingCurrent, {
                     transition: 'none',
-                    transform: `translateX(-${labelRightMargin}px) translateZ(0)`,
+                    transform: useRtl
+                        ? `translateX(${labelRightMargin}px) translateZ(0)`
+                        : `translateX(-${labelRightMargin}px) translateZ(0)`,
                 });
                 setStyleWithVendor(scrollContainer, {
                     transition: 'none',
-                    transform: `translateX(-${listRightMargin}px) translateZ(0)`,
+                    transform: useRtl
+                        ? `translateX(${listRightMargin}px) translateZ(0)`
+                        : `translateX(-${listRightMargin}px) translateZ(0)`,
                 });
             }
             if (
-                diff > 0 &&
-                scrollContainer.scrollLeft + scrollContainer.clientWidth <=
+                isScrollToLeft &&
+                Math.abs(scrollContainer.scrollLeft) + scrollContainer.clientWidth <=
                     scrollContainer.scrollWidth - 1
             ) {
                 showLoadMoreRef.current = false;
@@ -194,8 +207,8 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
             // 针对ios惯性滚动处理
             // @en Handling inertial scrolling for ios
             if (
-                diff < 0 &&
-                scrollContainer.scrollLeft + scrollContainer.clientWidth <=
+                isScrollToRight &&
+                Math.abs(scrollContainer.scrollLeft) + scrollContainer.clientWidth <=
                     scrollContainer.scrollWidth - 1
             ) {
                 ifToRightRef.current = false;
@@ -240,7 +253,7 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
             // @em Swipe left,  labels are all displayed
             if (
                 labelDiff >= minConfirmOffset &&
-                (scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+                (Math.abs(scrollContainer.scrollLeft) + scrollContainer.clientWidth >=
                     scrollContainer.scrollWidth - 1 ||
                     !scrollContainer.scrollLeft) &&
                 showLoadMoreRef.current
@@ -291,7 +304,7 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
                             ref={loadingRef}
                             style={{
                                 position: 'absolute',
-                                right: `${initPos}px`,
+                                [useRtl ? 'left' : 'right']: `${initPos}px`,
                             }}
                         >
                             {/*
@@ -308,7 +321,7 @@ const SwipeLoad = forwardRef((props: SwipeLoadProps, ref: Ref<SwipeLoadRef>) => 
                                 width: `${circleSize}px`,
                                 height: `${circleSize}px`,
                                 position: 'absolute',
-                                right: `-${circleSize}px`,
+                                [useRtl ? 'left' : 'right']: `-${circleSize}px`,
                             }}
                         >
                             <div

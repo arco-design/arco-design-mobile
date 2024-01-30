@@ -301,7 +301,7 @@ function generateSiteDemo({
                                     ${readmeInfo.title}
                                 </div>
                             </div>
-                            ${demoSource.map(demo => demo.source)}
+                            ${demoSource.map(demo => demo.source).join('')}
                         </div>
                     );
                 }`);
