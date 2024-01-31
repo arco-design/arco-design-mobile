@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.8](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.7...@arco-design/mobile-utils@2.17.8) (2024-01-31)
+
+
+### Bug Fixes
+
+* `Ellipsis` optimize line height caculation ([#227](https://github.com/arco-design/arco-design-mobile/issues/227)) ([c791a8e](https://github.com/arco-design/arco-design-mobile/commit/c791a8e36309ce4887297fe711348f427e12954d))
+* optimize string & boolean validator of `Form` ([#222](https://github.com/arco-design/arco-design-mobile/issues/222)) ([02c7158](https://github.com/arco-design/arco-design-mobile/commit/02c715895a32aa6e4bf364586445cc8ee31fd5a3))
+
+
+
+
+
 ## [2.17.7](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.6...@arco-design/mobile-utils@2.17.7) (2023-12-27)
 
 

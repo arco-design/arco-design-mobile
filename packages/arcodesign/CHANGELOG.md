@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.8](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.7...@arco-design/mobile-react@2.30.8) (2024-01-31)
+
+
+### Bug Fixes
+
+*  `SwipeLoad` supports RTL ([#225](https://github.com/arco-design/arco-design-mobile/issues/225)) ([e39d09e](https://github.com/arco-design/arco-design-mobile/commit/e39d09e69c72c6e3ca65addabd1d90d96ac91eb1))
+* `Ellipsis` optimize line height caculation ([#227](https://github.com/arco-design/arco-design-mobile/issues/227)) ([c791a8e](https://github.com/arco-design/arco-design-mobile/commit/c791a8e36309ce4887297fe711348f427e12954d))
+* `Ellipsis` use ellipsisValueRef to reduce reflow ([#226](https://github.com/arco-design/arco-design-mobile/issues/226)) ([cbb761f](https://github.com/arco-design/arco-design-mobile/commit/cbb761fd05788e3cf191c94fd5870474e990cfa1))
+* `Tabs` trigger "onChange" before distance is set to 0 ([#223](https://github.com/arco-design/arco-design-mobile/issues/223)) ([0f91c5b](https://github.com/arco-design/arco-design-mobile/commit/0f91c5b8e77d1b4688b47d3fd68e231ad964b214))
+
+
+
+
+
 ## [2.30.7](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.6...@arco-design/mobile-react@2.30.7) (2023-12-27)
 
 
