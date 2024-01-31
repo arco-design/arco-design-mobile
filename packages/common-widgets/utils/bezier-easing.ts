@@ -12,7 +12,6 @@ const SUBDIVISION_MAX_ITERATIONS = 10;
 
 const kSplineTableSize = 11;
 const kSampleStepSize = 1.0 / (kSplineTableSize - 1.0);
-
 const float32ArraySupported = typeof Float32Array === 'function';
 
 function A(aA1: number, aA2: number) {

@@ -3,6 +3,7 @@ import ResizeObserver from 'resize-observer-polyfill';
 
 import { JsEllipsisProps, JsEllipsisRef } from '../type';
 import { getLineHeight, wrapTextChildNodesWithSpan } from '../utils/dom';
+import { useLatestRef } from '../../_helpers';
 
 const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) => {
     const {
@@ -24,13 +25,12 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
     const domRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLSpanElement>(null);
     const ellipsisRef = useRef<HTMLSpanElement>(null);
-    const ellipsisValueRef = useRef(ellipsis);
-    ellipsisValueRef.current = ellipsis;
+    const ellipsisValueRef = useLatestRef(ellipsis);
 
     const lineHeightRef = useRef(0);
     const setCurLineHeight = useCallback(() => {
         if (domRef.current) {
-            lineHeightRef.current = getLineHeight(domRef.current);
+            lineHeightRef.current = Math.round(getLineHeight(domRef.current));
         }
     }, []);
     useEffect(() => {
