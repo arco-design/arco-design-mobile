@@ -31,13 +31,12 @@ export function createMoveTouchEventObject({ x = 0, y = 0, px = 0, py = 0 }) {
     };
 }
 
-export function mockAddListener(component, isDomNode) {
+export function mockAddListener(namedByRefDomNode) {
     const map = {
         touchstart: () => {},
         touchmove: () => {},
         touchend: () => {},
     };
-    const namedByRefDomNode = isDomNode ? component : component.getDOMNode();
     namedByRefDomNode.addEventListener = jest.fn((event, cb) => {
         if (event === 'scroll') {
             // replace the value with offsetTop, cause `scrollTop` returns undefined

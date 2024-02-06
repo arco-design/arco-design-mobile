@@ -1,4 +1,4 @@
-import { act } from 'react-dom/test-utils';
+import { act, fireEvent } from '@testing-library/react';
 import {
     createMoveTouchEventObject,
     createStartTouchEventObject,
@@ -12,13 +12,13 @@ export function mockSwipeStart(map, clientXMap) {
     });
 }
 export function mockSwipeEnd(wrapper, className, touchend) {
-    wrapper
-        .find(`.${className}`)
-        .simulate('touchEnd', createMoveTouchEventObject({ x: touchend, y: 0 }));
+    fireEvent.touchEnd(
+        wrapper.querySelector(`.${className}`),
+        createMoveTouchEventObject({ x: touchend, y: 0 }),
+    );
     act(() => {
         jest.advanceTimersByTime(600);
     });
-    wrapper.update();
 }
 
 export function mockSwipe(map, wrapper, className, clientXMap) {

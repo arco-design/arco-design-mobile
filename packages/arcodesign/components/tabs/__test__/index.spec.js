@@ -14,7 +14,6 @@ import '@testing-library/jest-dom';
 
 demoTest('tabs', { useFakeTimers: true });
 
-const prefix = `${defaultContext.prefixCls}-tabs`;
 const prefixTab = `${defaultContext.prefixCls}-tab`;
 
 function indexIsActive(container, index) {
@@ -128,7 +127,7 @@ describe('Tabs', () => {
         // mock size
         mockElementProperty(window, 'innerHeight', 700);
         mockContainer(ref);
-        const map = mockAddListener(window, true);
+        const map = mockAddListener(window);
         // wrapper.setProps({ mode: 'scroll', disabled: false, scrollThrottle: 0 });
         rerender(
             <Tabs
