@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { act, render, waitFor, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import ImagePreview from '..';
 import Button from '../../button';
-import Image from '../../image';
-import { delay, pureDelay } from '../../../tests/helpers/utils';
+import { pureDelay } from '../../../tests/helpers/utils';
 import { createStartTouchEventObject, mockAddListener } from '../../../tests/helpers/mockEvent';
-import { mockSwipe, mockSwipeEnd } from '../../carousel/__test__/utils-rtl';
+import { mockSwipe, mockSwipeEnd } from '../../carousel/__test__/utils';
 import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
 
 demoTest('image-preview');
@@ -187,7 +185,7 @@ describe('ImagePreview', () => {
         openAndLoadImage(view, props, 0);
 
         // mock swipe and change index
-        const map = mockAddListener(document.querySelector(`.${carouselPrefix}`), true);
+        const map = mockAddListener(document.querySelector(`.${carouselPrefix}`));
         view.rerender(<TestDemo {...props} swipeable />);
         pureDelay(100);
         const wrapper = document.querySelector(`.${prefix}`);

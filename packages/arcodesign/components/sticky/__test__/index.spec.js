@@ -1,10 +1,9 @@
 import React from 'react';
+import { act, render } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import Sticky from '..';
 import Button from '../../button';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import { mockAddListener } from '../../../tests/helpers/mockEvent';
 
 demoTest('sticky');
@@ -12,12 +11,11 @@ demoTest('sticky');
 mountTest(Sticky, 'Sticky');
 
 describe('Sticky', () => {
-
     beforeEach(() => {
         document.body.getBoundingClientRect = jest.fn(() => ({
             top: 100,
-            bottom: 300
-        }))
+            bottom: 300,
+        }));
         jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb());
         jest.useFakeTimers();
     });
@@ -29,15 +27,19 @@ describe('Sticky', () => {
 
     it('should callback correctly when scrolled', () => {
         const mockFn = jest.fn();
-        const component = mount(
+        const { rerender } = render(
             <Sticky topOffset={64} onTopChange={mockFn}>
                 <Button>Test</Button>
-            </Sticky>
+            </Sticky>,
         );
-        const map = mockAddListener(window, true);
-        component.setProps({ topOffset: 0 });
+        const map = mockAddListener(window);
+        rerender(
+            <Sticky topOffset={0} onTopChange={mockFn}>
+                <Button>Test</Button>
+            </Sticky>,
+        );
         act(() => {
-            map.scroll({currentTarget: window});
+            map.scroll({ currentTarget: window });
         });
         expect(mockFn).toBeCalled();
     });
