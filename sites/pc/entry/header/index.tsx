@@ -13,10 +13,12 @@ import LogoPicture from '../../../components/logo-pic';
 import './index.less';
 
 const options = {
-    threshold: 0.3,
+    threshold: 0.6,
     includeMatches: true,
-    keys: ['functionName'],
+    keys: ['functionName', 'description'],
 };
+const AUTO_COMPLETE_WIDTH = 480;
+const OPTION_HORIZONTAL_PADDING = 20;
 
 const fuse = new Fuse(searchResource, options);
 
@@ -58,6 +60,7 @@ type IFunctionList = Record<
     {
         functionName: string;
         category: string;
+        description: string;
     }[]
 >;
 
@@ -177,6 +180,17 @@ export default function Header(props: IHeaderProps) {
         return compName.replace(regExp, '<span class="highlight-word">$1</span>');
     }
 
+    function getCorrectStr(text: string, target: string, otherTextLength: number) {
+        const textWidth =
+            AUTO_COMPLETE_WIDTH - 2 * OPTION_HORIZONTAL_PADDING - 16 - otherTextLength * 13 * 0.647;
+        const displayLength = textWidth / 13 / 0.647; // 可以展示的字符数
+        const targetIndex = text.indexOf(target);
+        if (displayLength < text.length && targetIndex + target.length > displayLength) {
+            return `...${text.slice(targetIndex + target.length - displayLength + 5)}`;
+        }
+        return text;
+    }
+
     function getMatchMeta(inputValue: string) {
         return headerData.flattenMeta
             .filter(comp => ~comp.name.toLowerCase().indexOf(inputValue.toLowerCase()))
@@ -212,10 +226,7 @@ export default function Header(props: IHeaderProps) {
                     if (targetFileNameIndex === -1) {
                         temp[contentItem.filename] = [];
                     }
-                    temp[contentItem.filename].push({
-                        functionName: contentItem.functionName,
-                        category: contentItem.category,
-                    });
+                    temp[contentItem.filename].push(contentItem);
                 });
                 setFunctionList(temp);
             }
@@ -273,7 +284,7 @@ export default function Header(props: IHeaderProps) {
             style={{
                 height: 'auto',
                 lineHeight: 1.5715,
-                padding: '12px 20px',
+                padding: `12px ${OPTION_HORIZONTAL_PADDING}px`,
             }}
             key={index}
             value={index}
@@ -303,7 +314,7 @@ export default function Header(props: IHeaderProps) {
                           style={{
                               height: 'auto',
                               lineHeight: 1.5715,
-                              padding: '12px 20px',
+                              padding: `12px ${OPTION_HORIZONTAL_PADDING}px`,
                           }}
                           key={`${ele.functionName}-${idx}`}
                           value={`${ele.functionName}}-${idx}`}
@@ -320,6 +331,18 @@ export default function Header(props: IHeaderProps) {
                               <div
                                   dangerouslySetInnerHTML={{
                                       __html: highlightStr(ele.functionName, value),
+                                  }}
+                              />
+                              <div
+                                  dangerouslySetInnerHTML={{
+                                      __html: highlightStr(
+                                          getCorrectStr(
+                                              ele.description,
+                                              value,
+                                              ele.functionName.length + ele.category.length + 4,
+                                          ),
+                                          value,
+                                      ),
                                   }}
                               />
                           </Space>
@@ -383,7 +406,7 @@ export default function Header(props: IHeaderProps) {
                             triggerProps={{
                                 childrenPrefix: 'arco-search-input',
                                 unmountOnExit: false,
-                                popupStyle: { width: 480, padding: 0 },
+                                popupStyle: { width: AUTO_COMPLETE_WIDTH, padding: 0 },
                             }}
                             value={value}
                             onChange={onChangeInput}
