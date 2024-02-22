@@ -17,7 +17,6 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         const baseProps: Config & {
             // 从config继承的属性
             // @en Properties inherited from config
-            unmountOnExit?: boolean;
             getContainer?: () => HTMLElement;
             key?: string;
             openIndex: P['openIndex'];
@@ -26,7 +25,6 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
             onClose?: P['onClose'];
             close: P['close'];
         } = {
-            unmountOnExit: true,
             ...(config || {}),
             close: () => {},
         };
@@ -56,9 +54,7 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         dynamicProps.close = close;
         dynamicProps.onClose = () => {
             baseProps.onClose && baseProps.onClose();
-            if (baseProps.unmountOnExit) {
-                removeElement(div);
-            }
+            removeElement(div);
         };
         dynamicProps.openIndex = -1;
         render(dynamicProps);

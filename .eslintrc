@@ -12,7 +12,8 @@
         "airbnb",
         "plugin:react/recommended",
         "plugin:prettier/recommended",
-        "plugin:react-hooks/recommended"
+        "plugin:react-hooks/recommended",
+        "plugin:arco-mobile/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -21,7 +22,7 @@
         },
         "sourceType": "module"
     },
-    "plugins": ["import", "react", "babel", "@typescript-eslint/eslint-plugin"],
+    "plugins": ["import", "react", "babel", "@typescript-eslint/eslint-plugin", "arco-mobile"],
     "globals": {
         "ActiveXObject": false,
         "describe": false,

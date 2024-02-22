@@ -1,6 +1,6 @@
 import React from 'react';
 import { appendElementById, removeElement, nextTick } from '@arco-design/mobile-utils';
-import { ReactDOMRender } from '../_helpers/render';
+import { ReactDOMRender, renderRootCache } from '../_helpers/render';
 import { GlobalContextParams } from '../context-provider';
 
 export interface OpenBaseProps {
@@ -28,9 +28,16 @@ export function getOpenMethod<T extends { key?: string }, P extends OpenBaseProp
 
         // 不同的key用不同的容器挂载
         const id = `_${containerId || 'ARCO_MASKING'}_DIV_${config.key || ''}_`;
-        const { child: div } = appendElementById(id, baseProps.getContainer);
+        const existedDiv = baseProps.unmountOnExit ? null : document.getElementById(id);
+        const div = existedDiv || appendElementById(id, baseProps.getContainer).child;
         let leaving = false;
-        const { render } = new ReactDOMRender(Component, div, context);
+        const { render, unmount, setRootCache } = new ReactDOMRender(
+            Component,
+            div,
+            context,
+            id,
+            existedDiv ? renderRootCache[id] : undefined,
+        );
         let dynamicProps = { ...baseProps, getContainer: () => div };
 
         function update(newConfig: T) {
@@ -51,10 +58,14 @@ export function getOpenMethod<T extends { key?: string }, P extends OpenBaseProp
         dynamicProps.onClose = scene => {
             baseProps.onClose && baseProps.onClose(scene);
             if (baseProps.unmountOnExit) {
+                unmount();
                 removeElement(div);
             }
         };
         render(dynamicProps);
+        if (!baseProps.unmountOnExit) {
+            setRootCache();
+        }
         nextTick(() => {
             if (leaving) return;
             dynamicProps.visible = true;
