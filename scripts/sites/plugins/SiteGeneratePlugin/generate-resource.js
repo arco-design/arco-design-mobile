@@ -242,7 +242,11 @@ export default function Demo() {
         // 各部分内容使用======分隔开
         const funcSplit = md.split(/=====+/);
         // 介绍
-        const { source: introSource, name } = renderNavIntro(
+        const {
+            source: introSource,
+            name,
+            desc,
+        } = renderNavIntro(
             index === 0 ? typeStr + funcSplit[0] : funcSplit[0],
             localeMap.developmentResource[language],
             'type',
@@ -253,6 +257,7 @@ export default function Demo() {
             category,
             filename: mdFilename,
             functionName: name,
+            description: desc,
         });
 
         // 代码

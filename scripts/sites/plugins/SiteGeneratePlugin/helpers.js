@@ -57,6 +57,7 @@ function renderNavIntro(
     }
     const renderer = new marked.Renderer();
     let name = '',
+        desc = '',
         type = defaultType;
     renderer.heading = (text, level) => {
         if (level === 3) {
@@ -76,6 +77,7 @@ function renderNavIntro(
         return '';
     };
     renderer.paragraph = text => {
+        desc = text;
         return `<p class="demo-comp-desc">${text.replace('\n', '<br>')}</p>`;
     };
     const result = marked(readme, { renderer });
@@ -84,6 +86,7 @@ function renderNavIntro(
         source: result,
         name,
         type,
+        desc,
     };
 }
 
@@ -191,7 +194,10 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
     };
 
     renderer.paragraph = text => {
-        paragraphSlotContent += `<p className='demo-code-desc-content'>${utils.getReadMeTextByLang(text, language)}</p>`;
+        paragraphSlotContent += `<p className='demo-code-desc-content'>${utils.getReadMeTextByLang(
+            text,
+            language,
+        )}</p>`;
         return '';
     };
 
@@ -205,7 +211,7 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
             </div>`;
         }
         return '';
-    }
+    };
     rendererStyle.heading = () => '';
     rendererStyle.paragraph = () => '';
 
@@ -219,7 +225,7 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
         style,
         styleSource: utils.formatLessCode(styleSource),
         codeSource,
-        paragraphSlotContent
+        paragraphSlotContent,
     };
 }
 
