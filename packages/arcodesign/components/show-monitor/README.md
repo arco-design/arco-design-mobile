@@ -31,3 +31,4 @@
 |----------|-------------|------|
 |dom|最外层元素 DOM|HTMLDivElement|
 |checkVisible|忽略元素前后状态，手动检查元素是否在视口内，触发onVisibleChange回调函数|() =\> boolean|
+|flushVisibleStatus|重置元素初始可见态为false，并重新对元素可见度发起检测，优先级低于disabled（通常用在对ShowMonitor内部元素变化时发起的重新监听）|() =\> void|

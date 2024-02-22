@@ -31,7 +31,7 @@ describe('Dialog', () => {
         jest.useRealTimers();
     });
 
-    testMaskingCase('dialog', Dialog, prefix, `${prefix}-container`);
+    testMaskingCase('dialog', Dialog, prefix, 'ARCO_DIALOG', `${prefix}-container`);
 
     it('should support `footer` to customize operation buttons', async () => {
         const onOk = jest.fn();

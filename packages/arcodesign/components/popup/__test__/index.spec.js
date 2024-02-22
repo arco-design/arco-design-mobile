@@ -16,5 +16,5 @@ describe('Popup', () => {
         jest.useRealTimers();
     });
 
-    testMaskingCase('popup', Popup, prefix);
+    testMaskingCase('popup', Popup, prefix, 'ARCO_POPUP');
 });

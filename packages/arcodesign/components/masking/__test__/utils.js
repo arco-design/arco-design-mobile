@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { defaultContext } from '../../context-provider';
 import Button from '../../button';
 import '@testing-library/jest-dom';
+import { pureDelay } from '../../../tests/helpers/utils';
 
 const maskingPrefix = `${defaultContext.prefixCls}-masking`;
 
@@ -39,6 +40,7 @@ export function testMaskingCase(
     compName,
     Comp,
     prefix,
+    containerId,
     contentClass = `${prefix}-content`,
     maskClass = `${prefix}-mask`,
 ) {
@@ -97,23 +99,35 @@ export function testMaskingCase(
     it('should support `open`', () => {
         const onClose = jest.fn();
         const ref = React.createRef();
-        window.maskingInstance = Comp.open({
+        const props = {
             ref,
             onClose,
             maskTransitionTimeout: 1000,
             className: 'demo-global',
             children: 'Content',
+        };
+        const divId = `#_${containerId}_DIV__`;
+        // keep div after close when unmountOnExit=false
+        window.maskingInstance = Comp.open({
+            ...props,
+            unmountOnExit: false,
         });
-        act(() => {
-            jest.advanceTimersByTime(1100);
-        });
+        pureDelay(1100);
+        expect(document.querySelectorAll(divId)).toHaveLength(1);
+        window.maskingInstance.close();
+        pureDelay(1100);
+        expect(onClose.mock.calls).toHaveLength(1);
+        expect(document.querySelectorAll(divId)).toHaveLength(1);
         expect(document.querySelectorAll('.demo-global')).toHaveLength(1);
+        // open again without unmountOnExit=false to clear side effects
+        window.maskingInstance = Comp.open(props);
+        pureDelay(1100);
+        expect(document.querySelectorAll('.demo-global')).toHaveLength(1);
+        expect(document.querySelectorAll(divId)).toHaveLength(1);
         expect(typeof window.maskingInstance.close).toBe('function');
         expect(typeof window.maskingInstance.update).toBe('function');
         window.maskingInstance.close();
-        act(() => {
-            jest.advanceTimersByTime(1100);
-        });
-        expect(onClose.mock.calls).toHaveLength(1);
+        pureDelay(1100);
+        expect(document.querySelectorAll(divId)).toHaveLength(0);
     });
 }
