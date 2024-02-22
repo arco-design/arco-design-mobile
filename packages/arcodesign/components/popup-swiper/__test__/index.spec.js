@@ -48,6 +48,7 @@ describe('PopupSwiper', () => {
         'popup-swiper',
         PopupSwiper,
         prefix,
+        'ARCO_POPUP_SWIPER',
         `${popupPrefix}-content`,
         `${popupPrefix}-mask`,
     );

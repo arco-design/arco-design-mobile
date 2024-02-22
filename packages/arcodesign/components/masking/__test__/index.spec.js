@@ -16,5 +16,5 @@ describe('Masking', () => {
         jest.useRealTimers();
     });
 
-    testMaskingCase('masking', Masking, prefix);
+    testMaskingCase('masking', Masking, prefix, 'ARCO_MASKING');
 });
