@@ -31,3 +31,4 @@ Use scroll events to monitor whether children enter or leave the viewport.
 |----------|-------------|------|
 |dom|The outermost element DOM|HTMLDivElement|
 |checkVisible|Ignore the state of the element before and after, manually check whether the element is in the viewport, trigger the onVisibleChange callback function|() =\> boolean|
+|flushVisibleStatus|Reset the initial visible state of the element to false, and re\-detect the visibility of the element, the priority is lower than 'disabled'(Usually used to re\-listen when elements inside ShowMonitor change)|() =\> void|
