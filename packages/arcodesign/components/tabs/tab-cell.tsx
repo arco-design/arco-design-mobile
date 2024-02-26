@@ -7,6 +7,7 @@ import React, {
     useEffect,
     CSSProperties,
     useContext,
+    useCallback,
 } from 'react';
 import { cls, scrollWithAnimation, nextTick } from '@arco-design/mobile-utils';
 import { TabData, TabCellProps, TabCellRef, TabCellUnderlineRef, OffsetRect } from './type';
@@ -73,6 +74,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     const [originArrange, setOriginArrange] = useState(() =>
         tabs.length < overflowThreshold ? tabBarArrange : 'start',
     );
+    const [forceUpdate, setForceUpdate] = useState<boolean>(false);
     // 默认tab小于overflowThreshold个时不开启加载前隐藏，大于overflowThreshold个时开启
     const [showTab, setShowTab] = useState(() =>
         hideTabBarBeforeMounted === void 0
@@ -119,6 +121,10 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         tabDirection,
     ]);
 
+    const updateForce = () => {
+        setForceUpdate(!forceUpdate);
+    };
+
     useImperativeHandle(
         ref,
         () => ({
@@ -128,6 +134,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
             hasOverflow,
             setCaterpillarAnimate: ratio => underlineRef.current?.setCaterpillarAnimate(ratio),
             resetUnderlineStyle: () => underlineRef.current?.resetUnderlineStyle(),
+            updateForce: () => updateForce(),
         }),
         [scrollToCenter, scrollTo, hasOverflow],
     );
@@ -143,7 +150,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
                     : 0,
             );
         }
-    }, [activeIndex, wrapSize]);
+    }, [activeIndex, wrapSize, forceUpdate]);
 
     useEffect(() => {
         tabBarScrollChance !== 'none' && scrollToCenter(true);
@@ -275,7 +282,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         return typeof tab === 'string' ? tab : tab.title;
     }
 
-    function renderTabUnderline() {
+    const renderTabUnderline = useCallback(() => {
         if (!showUnderline || !isLine) {
             return null;
         }
@@ -308,7 +315,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
                 {...lineProps}
             />
         );
-    }
+    }, [forceUpdate]);
 
     const cellInner = (
         <>
