@@ -7,7 +7,6 @@ import React, {
     useEffect,
     CSSProperties,
     useContext,
-    useCallback,
 } from 'react';
 import { cls, scrollWithAnimation, nextTick } from '@arco-design/mobile-utils';
 import { TabData, TabCellProps, TabCellRef, TabCellUnderlineRef, OffsetRect } from './type';
@@ -120,24 +119,6 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         tabBarGutter,
         tabDirection,
     ]);
-
-    const updateForce = () => {
-        setForceUpdate(!forceUpdate);
-    };
-
-    useImperativeHandle(
-        ref,
-        () => ({
-            dom: domRef.current,
-            scrollTo,
-            scrollToCenter,
-            hasOverflow,
-            setCaterpillarAnimate: ratio => underlineRef.current?.setCaterpillarAnimate(ratio),
-            resetUnderlineStyle: () => underlineRef.current?.resetUnderlineStyle(),
-            updateForce: () => updateForce(),
-        }),
-        [scrollToCenter, scrollTo, hasOverflow],
-    );
 
     useEffect(() => {
         if (wrapSize && tabBarScrollChance !== 'none') {
@@ -282,7 +263,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         return typeof tab === 'string' ? tab : tab.title;
     }
 
-    const renderTabUnderline = useCallback(() => {
+    const renderTabUnderline = () => {
         if (!showUnderline || !isLine) {
             return null;
         }
@@ -315,7 +296,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
                 {...lineProps}
             />
         );
-    }, [forceUpdate]);
+    };
 
     const cellInner = (
         <>
@@ -365,6 +346,25 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
                 />
             ) : null}
         </>
+    );
+
+    const updateForce = () => {
+        setForceUpdate(!forceUpdate);
+        underlineRef.current?.resetUnderlineStyle();
+    };
+
+    useImperativeHandle(
+        ref,
+        () => ({
+            dom: domRef.current,
+            scrollTo,
+            scrollToCenter,
+            hasOverflow,
+            setCaterpillarAnimate: ratio => underlineRef.current?.setCaterpillarAnimate(ratio),
+            resetUnderlineStyle: () => underlineRef.current?.resetUnderlineStyle(),
+            updateForce: () => updateForce(),
+        }),
+        [scrollToCenter, scrollTo, hasOverflow],
     );
 
     return (
