@@ -6,6 +6,7 @@ import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { defaultContext } from '../../context-provider';
 import userEvent from '@testing-library/user-event';
+import { pureDelay } from '../../../tests/helpers/utils';
 
 const prefix = `${defaultContext.prefixCls}-collapse`;
 const headerPrefix = `.${prefix}-header`;
@@ -51,9 +52,7 @@ describe('Collapse', () => {
         const header = container.querySelectorAll(headerPrefix)[0];
         userEvent.click(header);
         // 有动画，在这停顿！
-        act(() => {
-            jest.advanceTimersByTime(1000);
-        });
+        pureDelay(1000);
         const content = container.querySelectorAll(contentPrefix)[0];
         const contentStyle = getComputedStyle(content);
         expect(contentStyle.getPropertyValue('height')).toBe('auto');
@@ -106,9 +105,7 @@ describe('Collapse', () => {
                 }
             />,
         );
-        act(() => {
-            jest.advanceTimersByTime(1000);
-        });
+        pureDelay(1000);
         const header = container.querySelectorAll(headerPrefix)[0];
         userEvent.click(header);
         const contentContainer = container.querySelectorAll(containerPrefix)[0];
@@ -125,9 +122,7 @@ describe('Collapse', () => {
         expect(contentStyle.getPropertyValue('height')).toBe('0px');
         const header = container.querySelectorAll(headerPrefix)[0];
         userEvent.click(header);
-        act(() => {
-            jest.advanceTimersByTime(1000);
-        });
+        pureDelay(1000);
         expect(contentStyle.getPropertyValue('height')).toBe('0px');
     });
 
@@ -160,9 +155,7 @@ describe('Collapse', () => {
 
         const header = container.querySelectorAll(headerPrefix)[2];
         userEvent.click(header);
-        act(() => {
-            jest.advanceTimersByTime(1000);
-        });
+        pureDelay(1000);
 
         expect(getContentHeightByIndex(0)).toBe('0px');
         expect(getContentHeightByIndex(1)).toBe('auto');

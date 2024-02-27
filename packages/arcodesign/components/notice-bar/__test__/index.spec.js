@@ -9,6 +9,7 @@ import { defaultContext } from '../../context-provider';
 import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { pureDelay } from '../../../tests/helpers/utils';
 
 const { prefixCls } = defaultContext;
 const prefix = `${prefixCls}-notice-bar`;
@@ -98,9 +99,7 @@ describe('NoticeBar actions', () => {
         const noticeBar = container.querySelectorAll(`.${prefix}`)[0];
 
         userEvent.click(noticeBar);
-        act(() => {
-            jest.advanceTimersByTime(2000);
-        });
+        pureDelay(2000);
         const content = container.querySelectorAll(`.${prefix}-content-inner`)[0];
         expect(content.textContent).toBe(longText);
     });
