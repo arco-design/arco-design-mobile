@@ -353,6 +353,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     );
 
     const updateLayout = () => {
+        setCellOverflow();
         setForceUpdate(!forceUpdate);
         underlineRef.current?.resetUnderlineStyle();
     };
