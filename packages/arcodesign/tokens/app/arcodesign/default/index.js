@@ -5,10 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 exports.getRem = getRem;
+
 function getRem(px, baseFontSize) {
   var num = Math.round(px / Number(baseFontSize) * 1000000) / 1000000;
   return num ? "".concat(num, "rem") : num;
 }
+
 var tokens = {
   "prefix": "arco",
   "base-font-size": "50",
@@ -1074,4 +1076,5 @@ var tokens = {
   "skeleton-medium-gutter": "0.16rem",
   "skeleton-large-gutter": "0.4rem"
 };
-var _default = exports["default"] = tokens;
+var _default = tokens;
+exports["default"] = _default;
