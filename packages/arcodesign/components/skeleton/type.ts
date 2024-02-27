@@ -1,6 +1,6 @@
 import { BaseProps, SimpleBaseProps } from '../_helpers';
 
-export { BaseProps, SimpleBaseProps };
+export type { BaseProps, SimpleBaseProps };
 
 export interface SkeletonProps extends SimpleBaseProps {
     /**
