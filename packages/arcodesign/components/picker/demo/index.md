@@ -74,11 +74,11 @@ export default function PickerDemo() {
                 onDismiss={() => {
                     console.log('------demo onDismiss');
                 }}
-                onOk={(val) => {
-                    console.log('------demo onOk', val);
+                onOk={(val, index, data) => {
+                    console.log('------demo onOk', val, index, data);
                 }}
-                onPickerChange={(value) => {
-                    console.info('-----demo onPickerChange', value);
+                onPickerChange={(value, index, data) => {
+                    console.info('-----demo onPickerChange', value, index, data);
                     if (pickerRef.current) {
                         console.info('-----demo getAllColumnValues', pickerRef.current.getAllColumnValues());
                     }
@@ -96,6 +96,9 @@ export default function PickerDemo() {
                 maskClosable={true}
                 onHide={() => {
                     setSingleVisible(false);
+                }}
+                onOk={(val, index, data) => {
+                    console.log('------demo onOk', val, index, data);
                 }}
                 value={singleValue}
             />

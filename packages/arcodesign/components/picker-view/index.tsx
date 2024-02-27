@@ -55,7 +55,90 @@ export interface PickerViewRef {
      * @en Jump directly to the current most recent line (will break scrolling when called)
      */
     scrollToCurrentIndex: () => void;
+    /**
+     * 获取选中的 picker-cell data
+     * @en Get the selected picker-cell data
+     */
+    getSelectedPickerCellData: () => ISelectedPickerCellData;
 }
+
+export interface ISelectedPickerCellData {
+    value: ValueType[];
+    index: number;
+    data: PickerData[];
+}
+
+const isArray = (
+    dt: PickerData[] | PickerData[][] | ValueType[][],
+): dt is ValueType[][] | PickerData[][] => (dt ? Array.isArray(dt[0]) : false);
+
+const isStrOrNum = (dt: ValueType[][] | PickerData[][]): dt is ValueType[][] =>
+    typeof dt[0][0] === 'string' || typeof dt[0][0] === 'number';
+
+const getInitValue = (
+    data: PickerData[] | PickerData[][] | ValueType[][],
+    value: ValueType[] | undefined,
+): ValueType[] => {
+    if (value === undefined) {
+        let newValue: ValueType[];
+        if (isArray(data)) {
+            if (isStrOrNum(data)) {
+                newValue = data.map((item: ValueType[]) => {
+                    return item[0];
+                });
+            } else {
+                newValue = data.map((item: PickerData[]) => {
+                    return item[0].value;
+                });
+            }
+        } else {
+            newValue = data.map((item: PickerData) => {
+                return item.value;
+            });
+        }
+        return newValue;
+    }
+    return value;
+};
+
+const getInitData = (
+    data: PickerData[] | PickerData[][] | ValueType[][],
+    value: ValueType[] | undefined,
+): PickerData[] => {
+    const initValue = getInitValue(data, value);
+    let newData: PickerData[];
+    if (isArray(data)) {
+        if (isStrOrNum(data)) {
+            newData = initValue.map((item: ValueType) => {
+                return {
+                    label: item,
+                    value: item,
+                };
+            });
+        } else {
+            newData = initValue.map((item: ValueType, index: number) => {
+                let newItem = data[index][0];
+                data[index].forEach((dataItem: PickerData) => {
+                    if (dataItem.value === item) {
+                        newItem = dataItem;
+                    }
+                });
+                return newItem;
+            });
+        }
+    } else {
+        newData = initValue.map((item: ValueType) => {
+            let newItem = data[0];
+            data.forEach((dataItem: PickerData) => {
+                if (dataItem.value === item) {
+                    newItem = dataItem;
+                }
+            });
+            return newItem;
+        });
+    }
+    return newData;
+};
 
 const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) => {
     const {
@@ -96,12 +179,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
 
     const innerData = useMemo(() => {
         let newData: PickerData[][];
-        const isArray = (
-            dt: PickerData[] | PickerData[][] | ValueType[][],
-        ): dt is ValueType[][] | PickerData[][] => (dt ? Array.isArray(dt[0]) : false);
-        const isStrOrNum = (dt: ValueType[][] | PickerData[][]): dt is ValueType[][] =>
-            typeof dt[0][0] === 'string' || typeof dt[0][0] === 'number';
-
         if (isArray(data)) {
             if (isStrOrNum(data)) {
                 newData = data.map(item =>
@@ -116,9 +193,14 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         } else {
             newData = [data];
         }
-
         return newData;
     }, [data]);
+
+    const selectedPickerCellDataRef = useRef<ISelectedPickerCellData>({
+        value: getInitValue(data, value),
+        index: 0,
+        data: getInitData(data, value),
+    });
 
     const getAllColumnValues = () => {
         const curValues = cascade
@@ -155,10 +237,16 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         updateLayout,
         resetValue,
         scrollToCurrentIndex,
+        getSelectedPickerCellData: () => selectedPickerCellDataRef.current,
     }));
 
     function _onValueChange(val: ValueType[], index: number, newData: PickerData[]) {
         setScrollValue(val);
+        selectedPickerCellDataRef.current = {
+            value: val,
+            index,
+            data: newData,
+        };
 
         if (onPickerChange) {
             onPickerChange(val, index, newData);
