@@ -5,6 +5,7 @@ import Button from '../../button';
 import { defaultContext } from '../../context-provider';
 
 const prefix = `${defaultContext.prefixCls}-dropdown`;
+const buttonPrefix = `${defaultContext.prefixCls}-button`;
 
 const options = [
   {
@@ -53,7 +54,7 @@ test('should open correctly', async () => {
         <TestDemo />
     );
     expect(document.querySelector(`.${prefix}`)).toBeNull();
-    fireEvent.click(container.querySelector(`.arco-button`));
+    fireEvent.click(container.querySelector(`.${buttonPrefix}`));
 
     await waitFor(
         () => {
@@ -68,11 +69,11 @@ test('can be properly closed', async () => {
         <TestDemo />
     );
     expect(document.querySelector(`.${prefix}`)).toBeNull();
-    fireEvent.click(container.querySelector(`.arco-button`));
+    fireEvent.click(container.querySelector(`.${buttonPrefix}`));
 
     await waitFor(
         () => {
-            fireEvent.click(container.querySelector(`.arco-button`));
+            fireEvent.click(container.querySelector(`.${buttonPrefix}`));
         },
         { timeout: 1000 },
     );
