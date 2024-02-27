@@ -166,10 +166,13 @@ describe('Tabs', () => {
         expect(onChange.mock.calls).toHaveLength(1);
         expect(onChange.mock.calls[0]).toEqual([{ title: 'Title 2' }, 1, 'scroll']);
         const onScroll = jest.fn();
-        const { scrollToIndex } = ref.current;
+        const { scrollToIndex, bar } = ref.current;
+        const { updateLayout } = bar || {};
         expect(typeof scrollToIndex).toBe('function');
+        expect(typeof updateLayout).toBe('function');
         // wrapper.setProps({ onScroll });
         scrollToIndex(0);
+        updateLayout();
         // wrapper.update();
         // expect(onScroll.mock.calls).toHaveLength(1);
     });

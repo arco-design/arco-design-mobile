@@ -94,6 +94,19 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
 
     const system = useSystem();
 
+    const updateScrollPosition = () => {
+        if (wrapSize && tabBarScrollChance !== 'none') {
+            setTimeout(
+                () => {
+                    scrollToCenter();
+                },
+                tabBarScrollChance === 'after-jump'
+                    ? Math.max(transitionDuration || 0, duration || 0)
+                    : 0,
+            );
+        }
+    };
+
     useEffect(() => {
         nextTick(() => {
             setCellOverflow();
@@ -121,16 +134,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     ]);
 
     useEffect(() => {
-        if (wrapSize && tabBarScrollChance !== 'none') {
-            setTimeout(
-                () => {
-                    scrollToCenter();
-                },
-                tabBarScrollChance === 'after-jump'
-                    ? Math.max(transitionDuration || 0, duration || 0)
-                    : 0,
-            );
-        }
+        updateScrollPosition();
     }, [activeIndex, wrapSize, forceUpdate]);
 
     useEffect(() => {
@@ -348,7 +352,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         </>
     );
 
-    const updateForce = () => {
+    const updateLayout = () => {
         setForceUpdate(!forceUpdate);
         underlineRef.current?.resetUnderlineStyle();
     };
@@ -362,7 +366,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
             hasOverflow,
             setCaterpillarAnimate: ratio => underlineRef.current?.setCaterpillarAnimate(ratio),
             resetUnderlineStyle: () => underlineRef.current?.resetUnderlineStyle(),
-            updateForce: () => updateForce(),
+            updateLayout: () => updateLayout(),
         }),
         [scrollToCenter, scrollTo, hasOverflow],
     );

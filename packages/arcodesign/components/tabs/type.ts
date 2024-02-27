@@ -621,7 +621,7 @@ export interface TabCellRef {
      * 强制更新 tab-cell
      * @en Force update tab-cell
      */
-    updateForce: () => void;
+    updateLayout: () => void;
 }
 
 export interface TabPaneProps
