@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
@@ -14,11 +16,6 @@ mountTest(Tag, 'Tag');
 describe('Tag', () => {
     mountTest(() => <Tag type="hollow">Tag</Tag>, 'should mount correctly when set type prop');
     mountTest(() => <Tag size="small">Tag</Tag>, 'should mount correctly when set size prop');
-
-    import { render } from '@testing-library/react';
-    import userEvent from '@testing-library/user-event';
-    import React from 'react';
-    import Tag from '../Tag'; // 请自行修改路径
 
     it('should callback correctly when close icon be clicked', () => {
         const mockFn = jest.fn();
