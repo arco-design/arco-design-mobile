@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
@@ -14,32 +14,50 @@ mountTest(Tag, 'Tag');
 describe('Tag', () => {
     mountTest(() => <Tag type="hollow">Tag</Tag>, 'should mount correctly when set type prop');
     mountTest(() => <Tag size="small">Tag</Tag>, 'should mount correctly when set size prop');
+
+    import { render } from '@testing-library/react';
+    import userEvent from '@testing-library/user-event';
+    import React from 'react';
+    import Tag from '../Tag'; // 请自行修改路径
+
     it('should callback correctly when close icon be clicked', () => {
         const mockFn = jest.fn();
-        const component = mount(<Tag closeable onClose={mockFn}>标签</Tag>);
-        expect(component.find('.tag-close-wrap').length).toBe(1);
-        component.find('.tag-close-wrap').simulate('click');
+        const { container } = render(
+            <Tag closeable onClose={mockFn}>
+                标签
+            </Tag>,
+        );
+        expect(container.querySelectorAll('.tag-close-wrap').length).toBe(1);
+        userEvent.click(container.querySelector('.tag-close-wrap'));
         expect(mockFn).toBeCalled();
     });
+
     it('should callback correctly when click tag', () => {
         const mockFn = jest.fn();
-        const component = mount(<Tag onClick={mockFn}>标签</Tag>);
-        component.simulate('click');
+        const { container } = render(<Tag onClick={mockFn}>标签</Tag>);
+        userEvent.click(container.firstChild);
         expect(mockFn).toBeCalled();
     });
+
     it('should render correctly when set filleted/halfBorder/borderStyle', () => {
-        const component = mount(<Tag filleted halfBorder borderStyle="solid">标签</Tag>);
-        expect(component.find(`.${prefix}`).hasClass('half-border')).toBe(true);
-        expect(component.find(`.${prefix}`).props().style.borderStyle).toBe('solid');
-        expect(component.find(`.${prefix}`).hasClass('filleted')).toBe(true);
+        const { container } = render(
+            <Tag filleted halfBorder borderStyle="solid">
+                标签
+            </Tag>,
+        );
+        const relevantComponent = container.querySelector(`.${prefix}`);
+        expect(relevantComponent).toHaveClass('half-border');
+        expect(relevantComponent.style.borderStyle).toBe('solid');
+        expect(relevantComponent).toHaveClass('filleted');
     });
+
     it('should render correctly when use tag list', () => {
         const list = [1, 1].map(item => ({
             closeable: true,
-            children: `标签${item}`
+            children: `标签${item}`,
         }));
-        const component = mount(<Tag.List list={list}/>);
-        expect(component.find(`.${prefix}`).length).toBe(3);
-        expect(component.find('.tag-list-add-wrap').length).toBe(1);
+        const { container } = render(<Tag.List list={list} />);
+        expect(container.querySelectorAll(`.${prefix}`).length).toBe(3);
+        expect(container.querySelectorAll('.tag-list-add-wrap').length).toBe(1);
     });
-})
+});
