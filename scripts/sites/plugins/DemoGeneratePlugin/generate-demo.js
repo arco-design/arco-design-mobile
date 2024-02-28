@@ -36,10 +36,6 @@ function renderSource({
     const notDevDemo = devComponents.includes(comp) && !devDemos.includes(demoName);
     const demo = fs.readFileSync(path.join(demoPath, `${demoName}.md`), 'utf8');
     const newDemo = notDevDemo ? demo.replace(/\(\) \{([\s\S]*?)\}\n```/g, '() { return null }\n```') : demo;
-    if (devComponents.includes(comp) && !devDemos.includes(demoName)) {
-        console.log(demo)
-        console.log(newDemo)
-    }
     const renderer = new marked.Renderer();
     const compNpmReg = new RegExp(compPackageName, 'g');
     const utilsNpmReg = new RegExp(utilsPackageName, 'g');
