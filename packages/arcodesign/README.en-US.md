@@ -59,8 +59,8 @@ React & ReactDOM: **<a href="https://reactjs.org/docs/cdn-links.html" target="_b
 React Transition Group: **<a href="https://reactcommunity.org/react-transition-group/" target="_blank">Click here</a>**
 
 ```
-<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.30.8/dist/style.min.css">
-<script src="https://unpkg.com/@arco-design/mobile-react@2.30.8/dist/index.min.js"></script>
+<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.30.9/dist/style.min.css">
+<script src="https://unpkg.com/@arco-design/mobile-react@2.30.9/dist/index.min.js"></script>
 ```
 
 ## Full import
@@ -132,6 +132,74 @@ Then you only need to write one line when importing, and it will be loaded on de
 import { Button as ArcoButton } from '@arco-design/mobile-react';
 
 import { IconAsk, IconBack } from '@arco-design/mobile-react/esm/icon';
+```
+
+
+## Partial import（Vite）
+
+It is recommended to use `vite-plugin-importer` to import（**<a href="https://www.npmjs.com/package/vite-plugin-importer" target="_blank">Click here</a>** to know more from this plugin）：
+
+```
+npm install vite-plugin-importer -D
+```
+
+### Import components on demand
+
+**vite.config.ts** ：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react",
+            libraryDirectory: "esm",
+            style: (path) => `${path}/style`,
+        })
+    ]
+})
+```
+
+### Import icons on demand
+
+**vite.config.ts** ：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react/esm/icon",
+            libraryDirectory: "",
+            camel2DashComponentName: false,
+        })
+    ]
+})
+```
+
+If both component and Icon need to be imported on demand, you just declare all and do not need any change.
+
+**vite.config.ts** ：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react",
+            libraryDirectory: "esm",
+            style: (path) => `${path}/style`,
+        }),
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react/esm/icon",
+            libraryDirectory: "",
+            camel2DashComponentName: false,
+        })
+    ]
+})
 ```
 
 ## Partial import (manual)

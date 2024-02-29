@@ -59,8 +59,8 @@ React & ReactDOM： **<a href="https://reactjs.org/docs/cdn-links.html" target="
 React Transition Group： **<a href="https://reactcommunity.org/react-transition-group/" target="_blank">戳这里获取</a>**
 
 ```
-<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.30.8/dist/style.min.css">
-<script src="https://unpkg.com/@arco-design/mobile-react@2.30.8/dist/index.min.js"></script>
+<link ref="stylesheet" href="https://unpkg.com/@arco-design/mobile-react@2.30.9/dist/style.min.css">
+<script src="https://unpkg.com/@arco-design/mobile-react@2.30.9/dist/index.min.js"></script>
 ```
 
 ## 引入全部
@@ -132,6 +132,73 @@ plugins: [
 import { Button as ArcoButton } from '@arco-design/mobile-react';
 
 import { IconAsk, IconBack } from '@arco-design/mobile-react/esm/icon';
+```
+
+## 部分引入（Vite）
+
+如果是 Vite 构建工具的话，则推荐使用 `vite-plugin-importer` 引入（该插件具体使用 **<a href="https://www.npmjs.com/package/vite-plugin-importer" target="_blank">戳这里</a>** ）：
+
+```
+npm install vite-plugin-importer -D
+```
+
+### 组件按需引入
+
+**vite.config.ts** 中配置：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react",
+            libraryDirectory: "esm",
+            style: (path) => `${path}/style`,
+        })
+    ]
+})
+```
+
+### Icon 按需引入
+
+**vite.config.ts** 中配置：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react/esm/icon",
+            libraryDirectory: "",
+            camel2DashComponentName: false,
+        })
+    ]
+})
+```
+
+如果同时存在 组件 和 Icon 的按需引入方式，不需要做改动，可以同时声明
+
+**vite.config.ts** 中配置：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react",
+            libraryDirectory: "esm",
+            style: (path) => `${path}/style`,
+        }),
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react/esm/icon",
+            libraryDirectory: "",
+            camel2DashComponentName: false,
+        })
+    ]
+})
 ```
 
 ## 部分引入（手动）

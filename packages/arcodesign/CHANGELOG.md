@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.9](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.8...@arco-design/mobile-react@2.30.9) (2024-02-27)
+
+
+### Bug Fixes
+
+* export type from `Skeleton` ([#233](https://github.com/arco-design/arco-design-mobile/issues/233)) ([7514ed9](https://github.com/arco-design/arco-design-mobile/commit/7514ed9baceccaf8f46c90b046bfe06594a66a59))
+* warning for repeatedly calling createRoot in react18 of masking related components ([#231](https://github.com/arco-design/arco-design-mobile/issues/231)) ([6879ad7](https://github.com/arco-design/arco-design-mobile/commit/6879ad7f6225128b87bbf82aad34ba5836d4ac18))
+
+
+
+
+
 ## [2.30.8](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.7...@arco-design/mobile-react@2.30.8) (2024-01-31)
 
 

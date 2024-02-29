@@ -8,6 +8,7 @@ module.exports = {
         'commit-msg': isWindows
             ? ''
             : `[[ -n $HUSKY_BYPASS ]] || commitlint -e $HUSKY_GIT_PARAMS --config ${commitLintConfig}`,
-        'pre-commit': 'node ./scripts/dev/generate-all.js && npm run lint-staged && git add -A',
+        'pre-commit':
+            'node ./scripts/dev/check-lock.js && node ./scripts/dev/generate-all.js && npm run lint-staged && git add -A',
     },
 };

@@ -7,6 +7,9 @@ import NoticeBar from '..';
 import IconNotice from '../../icon/IconNotice';
 import { defaultContext } from '../../context-provider';
 import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { pureDelay } from '../../../tests/helpers/utils';
 
 const { prefixCls } = defaultContext;
 const prefix = `${prefixCls}-notice-bar`;
@@ -20,6 +23,9 @@ const { setHTMLProperties, unsetHTMLProperties } = defineHtmlRefProperties({
     offsetHeight: 200,
 });
 
+const longText =
+    'I became a long long long long long long long long long long long reminder message';
+
 function NoticeBarDemo() {
     const [text, setText] = React.useState('Click I will grow and start scrolling!');
     const barRef = React.useRef();
@@ -29,9 +35,7 @@ function NoticeBarDemo() {
             marquee="always"
             autoSetGradientStyle={false}
             onClick={() => {
-                setText(
-                    'I became a long long long long long long long long long long long reminder message',
-                );
+                setText(longText);
                 if (barRef.current) {
                     barRef.current.updateData();
                 }
@@ -44,16 +48,18 @@ function NoticeBarDemo() {
 
 describe('NoticeBar style', () => {
     it('Common styles render correctly', () => {
-        const wrapper = mount(<NoticeBar>Note that this is a reminder message.</NoticeBar>);
-        expect(wrapper.text()).toEqual('Note that this is a reminder message.');
+        const { container } = render(<NoticeBar>Note that this is a reminder message.</NoticeBar>);
+        expect(container.textContent).toEqual('Note that this is a reminder message.');
     });
+
     it('Icon styles render correctly', () => {
-        const wrapper = mount(
+        const { container } = render(
             <NoticeBar leftContent={<IconNotice />}>
                 Note that this is a reminder message.
             </NoticeBar>,
         );
-        expect(wrapper.find('svg').length).toBe(2);
+        const svgArray = container.getElementsByTagName('svg');
+        expect(svgArray.length).toBe(2);
     });
 });
 
@@ -76,20 +82,25 @@ describe('NoticeBar actions', () => {
         jest.useRealTimers();
     });
 
-    it('Click render correctly', () => {
+    it('Click render correctly', async () => {
         const onClickRight = jest.fn();
-        const wrapper = mount(
-            <NoticeBar onClose={onClickRight}>Note that this is a reminder message.</NoticeBar>,
+        const { container } = render(
+            <div>
+                <NoticeBar onClose={onClickRight}>Note that this is a reminder message.</NoticeBar>,
+            </div>,
         );
-        wrapper.find(`.${prefixCls}-icon-close`).simulate('click');
+        const closeIcon = container.querySelectorAll(`.${prefixCls}-icon-close`)[0];
+        userEvent.click(closeIcon);
         expect(onClickRight.mock.calls.length).toBe(1);
     });
+
     it('Should support using ref to update', () => {
-        const wrapper = mount(<NoticeBarDemo />);
-        wrapper.find(NoticeBar).simulate('click');
-        act(() => {
-            jest.advanceTimersByTime(2000);
-        });
-        wrapper.update();
+        const { container } = render(<NoticeBarDemo />);
+        const noticeBar = container.querySelectorAll(`.${prefix}`)[0];
+
+        userEvent.click(noticeBar);
+        pureDelay(2000);
+        const content = container.querySelectorAll(`.${prefix}-content-inner`)[0];
+        expect(content.textContent).toBe(longText);
     });
 });

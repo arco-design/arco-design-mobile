@@ -19,10 +19,23 @@ const sitePath = path.join(rootPath, siteFolder);
 const compositeCompPath = path.join(rootPath, compositeCompFolder);
 const compositePath = path.join(rootPath, compositeFolder);
 
-function renderSource({ comp, demoName, depsCompSet, language, compileEnv, demoPath, sitePath }) {
+function renderSource({
+    comp,
+    demoName,
+    depsCompSet,
+    language,
+    compileEnv,
+    demoPath,
+    sitePath,
+    devComponents = [],
+    devDemos = [],
+}) {
     if (!/^\w+.*\w+$/g.test(demoName)) return;
     const docPath = path.join(sitePath, comp);
+    // 是当前组件且不是当前开发 demo 不用设置渲染内容
+    const notDevDemo = devComponents.includes(comp) && !devDemos.includes(demoName);
     const demo = fs.readFileSync(path.join(demoPath, `${demoName}.md`), 'utf8');
+    const newDemo = notDevDemo ? demo.replace(/export default ([\s\S]*?)\(\) \{([\s\S]*?)\}\n```/g, 'export default $1() { return null }\n```') : demo;
     const renderer = new marked.Renderer();
     const compNpmReg = new RegExp(compPackageName, 'g');
     const utilsNpmReg = new RegExp(utilsPackageName, 'g');
@@ -40,7 +53,6 @@ function renderSource({ comp, demoName, depsCompSet, language, compileEnv, demoP
                 .replace(compNpmReg, `../../../../../${compFolder}`)
                 .replace(utilsNpmReg, `../../../../../${utilsFolder}`)
                 .replace(/\/esm\//g, '/')}`);
-
             fs.mkdirpSync(docPath);
             const demoFileName = compileEnv === 'vite' ? `${filename}.jsx` : `${filename}.js`;
             const demoFilePath = path.join(docPath, demoFileName);
@@ -64,6 +76,9 @@ function renderSource({ comp, demoName, depsCompSet, language, compileEnv, demoP
     };
 
     renderer.heading = (text, level) => {
+        if (notDevDemo) {
+            return '';
+        }
         if (level === 2) {
             return `
             <div className="arcodesign-mobile-title">${utils.getReadMeTextByLang(text, language)}</div>`;
@@ -75,10 +90,13 @@ function renderSource({ comp, demoName, depsCompSet, language, compileEnv, demoP
     };
 
     renderer.paragraph = text => {
+        if (notDevDemo) {
+            return '';
+        }
         return `<p>${utils.getReadMeTextByLang(text, language)}</p>`;
     };
 
-    const result = marked(demo, { renderer });
+    const result = marked(newDemo, { renderer });
 
     return {
         order,
@@ -168,7 +186,9 @@ function generateSiteDemo({
     compileComps = [],
     language = 'ch',
     depsCompSet,
-    compileEnv
+    compileEnv,
+    devComponents,
+    devDemos,
 } = {}) {
     const readmeRoutes = {};
     let compNames;
@@ -224,7 +244,9 @@ function generateSiteDemo({
                     language,
                     compileEnv,
                     demoPath,
-                    sitePath
+                    sitePath,
+                    devComponents,
+                    devDemos,
                 });
                 importStr += `import ${importDemoName} from './_${importDemoName}';`;
                 demoSource.push({
@@ -500,6 +522,8 @@ function generateDemo({
     languages = ['ch', 'en'],
     compileComps = [],
     compileEnv = 'webpack',
+    devComponents,
+    devDemos,
 } = {}) {
     const depsCompSet = new Set();
     if (compileComps.length) {
@@ -516,7 +540,7 @@ function generateDemo({
     console.log(`>>> Start generate demo entry files...`);
     languages.forEach(language => {
         generateSiteCompositeDemo({ depsCompSet, language, compileEnv });
-        generateSiteDemo({ depsCompSet, language, compileComps, compileEnv });
+        generateSiteDemo({ depsCompSet, language, compileComps, compileEnv, devComponents, devDemos });
     });
     if (compileComps.length) {
         generateRootDemo(depsCompSet);
