@@ -96,9 +96,11 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
         pickerViewRef.current?.scrollToCurrentIndex();
         nextTick(() => {
             const val = pickerViewRef.current?.getAllColumnValues() || scrollValueRef.current || [];
-            const selectedData = pickerViewRef.current?.getSelectedPickerCellData();
-            if (onOk && selectedData) {
-                onOk(val, selectedData?.index, selectedData?.data);
+            const selectedDataIndex =
+                pickerViewRef.current?.getSelectedPickerCellData()?.index || 0;
+            const selectedDataData = pickerViewRef.current?.getSelectedPickerCellData()?.data || [];
+            if (onOk) {
+                onOk(val, selectedDataIndex, selectedDataData);
             }
             if (onChange) {
                 onChange(val);

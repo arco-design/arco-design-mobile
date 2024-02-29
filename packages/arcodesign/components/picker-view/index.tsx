@@ -75,71 +75,6 @@ const isArray = (
 const isStrOrNum = (dt: ValueType[][] | PickerData[][]): dt is ValueType[][] =>
     typeof dt[0][0] === 'string' || typeof dt[0][0] === 'number';
 
-const getInitValue = (
-    data: PickerData[] | PickerData[][] | ValueType[][],
-    value: ValueType[] | undefined,
-): ValueType[] => {
-    if (value === undefined) {
-        let newValue: ValueType[];
-        if (isArray(data)) {
-            if (isStrOrNum(data)) {
-                newValue = data.map((item: ValueType[]) => {
-                    return item[0];
-                });
-            } else {
-                newValue = data.map((item: PickerData[]) => {
-                    return item[0].value;
-                });
-            }
-        } else {
-            newValue = data.map((item: PickerData) => {
-                return item.value;
-            });
-        }
-        return newValue;
-    }
-    return value;
-};
-
-const getInitData = (
-    data: PickerData[] | PickerData[][] | ValueType[][],
-    value: ValueType[] | undefined,
-): PickerData[] => {
-    const initValue = getInitValue(data, value);
-    let newData: PickerData[];
-    if (isArray(data)) {
-        if (isStrOrNum(data)) {
-            newData = initValue.map((item: ValueType) => {
-                return {
-                    label: item,
-                    value: item,
-                };
-            });
-        } else {
-            newData = initValue.map((item: ValueType, index: number) => {
-                let newItem = data[index][0];
-                data[index].forEach((dataItem: PickerData) => {
-                    if (dataItem.value === item) {
-                        newItem = dataItem;
-                    }
-                });
-                return newItem;
-            });
-        }
-    } else {
-        newData = initValue.map((item: ValueType) => {
-            let newItem = data[0];
-            data.forEach((dataItem: PickerData) => {
-                if (dataItem.value === item) {
-                    newItem = dataItem;
-                }
-            });
-            return newItem;
-        });
-    }
-    return newData;
-};
-
 const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) => {
     const {
         className = '',
@@ -159,6 +94,7 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
     const [itemHeight, setItemHeight] = useState(0);
     const [wrapperHeight, setWrapperHeight] = useState(0);
     const [scrollValue, setScrollValue] = useMountedState(value);
+    const [scrollIndex, setScrollIndex] = useMountedState(0);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const domRef = useRef<HTMLDivElement | null>(null);
     const barRef = useRef<HTMLDivElement | null>(null);
@@ -196,12 +132,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         return newData;
     }, [data]);
 
-    const selectedPickerCellDataRef = useRef<ISelectedPickerCellData>({
-        value: getInitValue(data, value),
-        index: 0,
-        data: getInitData(data, value),
-    });
-
     const getAllColumnValues = () => {
         const curValues = cascade
             ? cascaderRef.current?.getAllCellsValue() || []
@@ -209,6 +139,21 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         // 移除级联带来的空列值，理论上非首尾列不会有空值
         // @en Remove empty values from cascader
         return curValues.filter(v => v !== undefined);
+    };
+
+    const getAllColumnData = () => {
+        const curValues = cascade
+            ? cascaderRef.current?.getAllCellsData() || []
+            : pickerCellsRef.current.map(cell => cell.getCurrentCellData());
+        return curValues.filter(v => v !== undefined);
+    };
+
+    const getSelectedPickerCellData = () => {
+        return {
+            value: getAllColumnValues(),
+            index: scrollIndex,
+            data: getAllColumnData(),
+        };
     };
 
     function getColumnValue(index = 0) {
@@ -237,16 +182,12 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         updateLayout,
         resetValue,
         scrollToCurrentIndex,
-        getSelectedPickerCellData: () => selectedPickerCellDataRef.current,
+        getSelectedPickerCellData,
     }));
 
     function _onValueChange(val: ValueType[], index: number, newData: PickerData[]) {
         setScrollValue(val);
-        selectedPickerCellDataRef.current = {
-            value: val,
-            index,
-            data: newData,
-        };
+        setScrollIndex(index);
 
         if (onPickerChange) {
             onPickerChange(val, index, newData);
@@ -280,6 +221,7 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
 
     function resetValue() {
         setScrollValue(value);
+        setScrollIndex(0);
     }
 
     const newItemStyle = {
