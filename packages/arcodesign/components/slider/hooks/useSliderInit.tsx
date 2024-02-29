@@ -122,15 +122,15 @@ export const useSliderInit = ({ commonIsTouching }: { commonIsTouching: number }
      * @en Monitor data value changes
      */
     useEffect(() => {
+        // 如果受控需要还原
+        // @en If controlled, it needs to restore
         if (value === void 0 || !firstRender || commonIsTouching !== -1) return;
         const newValue =
             isMultiThumb && typeof value === 'number'
                 ? formatMarksValue([value, value])
                 : formatMarksValue(value);
         setValueGroup(newValue);
-        // 如果受控需要还原
-        // @en If controlled, it needs to restore
-    }, [firstRender && value, commonIsTouching]);
+    }, [value]);
 
     /**
      * 上报排序后的值
@@ -153,10 +153,6 @@ export const useSliderInit = ({ commonIsTouching }: { commonIsTouching: number }
         if (!firstTouch) return;
         if (commonIsTouching === -1) {
             onAfterChange(formatMarksValue(formatValueGroup));
-            if (value === void 0) {
-                const newValue = formatMarksValue(valueGroup);
-                setValueGroup(newValue);
-            }
         }
     }, [commonIsTouching, formatMarksValue]);
 
