@@ -134,6 +134,74 @@ import { Button as ArcoButton } from '@arco-design/mobile-react';
 import { IconAsk, IconBack } from '@arco-design/mobile-react/esm/icon';
 ```
 
+
+## Partial import（Vite）
+
+It is recommended to use `vite-plugin-importer` to import（**<a href="https://www.npmjs.com/package/vite-plugin-importer" target="_blank">Click here</a>** to know more from this plugin）：
+
+```
+npm install vite-plugin-importer -D
+```
+
+### Import components on demand
+
+**vite.config.ts** ：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react",
+            libraryDirectory: "esm",
+            style: (path) => `${path}/style`,
+        })
+    ]
+})
+```
+
+### Import icons on demand
+
+**vite.config.ts** ：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react/esm/icon",
+            libraryDirectory: "",
+            camel2DashComponentName: false,
+        })
+    ]
+})
+```
+
+If both component and Icon need to be imported on demand, you just declare all and do not need any change.
+
+**vite.config.ts** ：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react",
+            libraryDirectory: "esm",
+            style: (path) => `${path}/style`,
+        }),
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react/esm/icon",
+            libraryDirectory: "",
+            camel2DashComponentName: false,
+        })
+    ]
+})
+```
+
 ## Partial import (manual)
 
 If you don't use babel-plugin-import, you need to import js and css files manually. The following example has the same effect as the import statement above:
