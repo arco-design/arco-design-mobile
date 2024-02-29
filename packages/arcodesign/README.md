@@ -134,6 +134,73 @@ import { Button as ArcoButton } from '@arco-design/mobile-react';
 import { IconAsk, IconBack } from '@arco-design/mobile-react/esm/icon';
 ```
 
+## 部分引入（Vite）
+
+如果是 Vite 构建工具的话，则推荐使用 `vite-plugin-importer` 引入（该插件具体使用 **<a href="https://www.npmjs.com/package/vite-plugin-importer" target="_blank">戳这里</a>** ）：
+
+```
+npm install vite-plugin-importer -D
+```
+
+### 组件按需引入
+
+**vite.config.ts** 中配置：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react",
+            libraryDirectory: "esm",
+            style: (path) => `${path}/style`,
+        })
+    ]
+})
+```
+
+### Icon 按需引入
+
+**vite.config.ts** 中配置：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react/esm/icon",
+            libraryDirectory: "",
+            camel2DashComponentName: false,
+        })
+    ]
+})
+```
+
+如果同时存在 组件 和 Icon 的按需引入方式，不需要做改动，可以同时声明
+
+**vite.config.ts** 中配置：
+
+```js
+import usePluginImport from 'vite-plugin-importer'
+
+export default defineConfig({
+    plugins: [
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react",
+            libraryDirectory: "esm",
+            style: (path) => `${path}/style`,
+        }),
+        usePluginImport({
+            libraryName: "@arco-design/mobile-react/esm/icon",
+            libraryDirectory: "",
+            camel2DashComponentName: false,
+        })
+    ]
+})
+```
+
 ## 部分引入（手动）
 
 如果不使用babel-plugin-import，则需要手动引入js和css文件。下方例子效果等同于上方引入语句：
