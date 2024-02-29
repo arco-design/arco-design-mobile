@@ -3,7 +3,7 @@
 #### 12
 
 ```js
-import { Tabs } from '@arco-design/mobile-react';
+import { Tabs, Button } from '@arco-design/mobile-react';
 
 const tabData = [
     { title: 'Example1' },
@@ -17,40 +17,41 @@ const tabData = [
 
 export default function TabsDemo() {
     const theRef = React.useRef();
-    React.useEffect(() => {
-        setTimeout(() => {
-            if (theRef.current) {
-                var divNodes = theRef.current.bar.dom.getElementsByTagName("div");
-                for (var i = 0; i < divNodes.length; i++) {
-                    divNodes[i].setAttribute("style", "font-size: 32px!important;");
-                }
-                setTimeout(() => {
-                    theRef.current.bar.updateLayout();
-                }, 1000)
+    const handleClick = () => {
+        if (theRef.current) {
+            var divNodes = theRef.current.bar.dom.getElementsByTagName("div");
+            for (var i = 0; i < divNodes.length; i++) {
+                divNodes[i].setAttribute("style", "font-size: 32px!important;");
             }
-        }, 1000)
-    }, [])
+            setTimeout(() => {
+                theRef.current.bar.updateLayout();
+            }, 20)
+        }
+    }
     return (
-        <Tabs
-            ref={theRef}
-            tabs={tabData}
-            tabBarPadding={{ left: 22, right: 64 }}
-            tabBarGutter={42}
-            defaultActiveTab={3}
-            onAfterChange={(tab, index) => {
-                console.log('[tabs]', tab, index);
-            }}
-            translateZ={false}
-            tabBarHasDivider={false}
-        >
-            <div className="demo-tab-content">Content area</div>
-            <div className="demo-tab-content">Content area</div>
-            <div className="demo-tab-content">Content area</div>
-            <div className="demo-tab-content">Content area</div>
-            <div className="demo-tab-content">Content area</div>
-            <div className="demo-tab-content">Content area</div>
-            <div className="demo-tab-content">Content area</div>
-        </Tabs>
+        <>
+            <Button onClick={handleClick}>点击放大字体</Button>
+            <Tabs
+                ref={theRef}
+                tabs={tabData}
+                tabBarPadding={{ left: 22, right: 64 }}
+                tabBarGutter={42}
+                defaultActiveTab={3}
+                onAfterChange={(tab, index) => {
+                    console.log('[tabs]', tab, index);
+                }}
+                translateZ={false}
+                tabBarHasDivider={false}
+            >
+                <div className="demo-tab-content">Content area</div>
+                <div className="demo-tab-content">Content area</div>
+                <div className="demo-tab-content">Content area</div>
+                <div className="demo-tab-content">Content area</div>
+                <div className="demo-tab-content">Content area</div>
+                <div className="demo-tab-content">Content area</div>
+                <div className="demo-tab-content">Content area</div>
+            </Tabs>
+        </>
     );
 }
 ```

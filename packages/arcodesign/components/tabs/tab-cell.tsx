@@ -135,7 +135,13 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
 
     useEffect(() => {
         updateScrollPosition();
-    }, [activeIndex, wrapSize, forceUpdate]);
+    }, [activeIndex, wrapSize]);
+
+    useEffect(() => {
+        setCellOverflow();
+        underlineRef.current?.resetUnderlineStyle();
+        updateScrollPosition();
+    }, [forceUpdate]);
 
     useEffect(() => {
         tabBarScrollChance !== 'none' && scrollToCenter(true);
@@ -353,9 +359,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     );
 
     const updateLayout = () => {
-        setCellOverflow();
         setForceUpdate(!forceUpdate);
-        underlineRef.current?.resetUnderlineStyle();
     };
 
     useImperativeHandle(
