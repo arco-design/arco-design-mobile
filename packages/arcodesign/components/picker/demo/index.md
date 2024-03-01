@@ -74,8 +74,8 @@ export default function PickerDemo() {
                 onDismiss={() => {
                     console.log('------demo onDismiss');
                 }}
-                onOk={(val, index, data) => {
-                    console.log('------demo onOk', val, index, data);
+                onOk={(val, data) => {
+                    console.log('------demo onOk', val, data);
                 }}
                 onPickerChange={(value, index, data) => {
                     console.info('-----demo onPickerChange', value, index, data);
@@ -97,8 +97,8 @@ export default function PickerDemo() {
                 onHide={() => {
                     setSingleVisible(false);
                 }}
-                onOk={(val, index, data) => {
-                    console.log('------demo onOk', val, index, data);
+                onOk={(val, data) => {
+                    console.log('------demo onOk', val, data);
                 }}
                 value={singleValue}
             />

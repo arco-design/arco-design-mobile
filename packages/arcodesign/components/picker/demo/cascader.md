@@ -95,8 +95,8 @@ export default function PickerDemo() {
                     console.log('------cell status', pickerRef.current.getCellMovingStatus());
                     setVisible(false);
                 }}
-                onOk={(value, index, data) => {
-                    console.log('on ok', value, index, data);
+                onOk={(value, data) => {
+                    console.log('on ok', value, data);
                     setPickerValue(value)
                 }}
                 onPickerChange={() => {

@@ -64,7 +64,6 @@ export interface PickerViewRef {
 
 export interface ISelectedPickerCellData {
     value: ValueType[];
-    index: number;
     data: PickerData[];
 }
 
@@ -94,7 +93,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
     const [itemHeight, setItemHeight] = useState(0);
     const [wrapperHeight, setWrapperHeight] = useState(0);
     const [scrollValue, setScrollValue] = useMountedState(value);
-    const [scrollIndex, setScrollIndex] = useMountedState(0);
     const wrapperRef = useRef<HTMLDivElement>(null);
     const domRef = useRef<HTMLDivElement | null>(null);
     const barRef = useRef<HTMLDivElement | null>(null);
@@ -151,7 +149,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
     const getSelectedPickerCellData = () => {
         return {
             value: getAllColumnValues(),
-            index: scrollIndex,
             data: getAllColumnData(),
         };
     };
@@ -187,7 +184,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
 
     function _onValueChange(val: ValueType[], index: number, newData: PickerData[]) {
         setScrollValue(val);
-        setScrollIndex(index);
 
         if (onPickerChange) {
             onPickerChange(val, index, newData);
@@ -221,7 +217,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
 
     function resetValue() {
         setScrollValue(value);
-        setScrollIndex(0);
     }
 
     const newItemStyle = {
