@@ -35,6 +35,7 @@ export interface PickerCellRef {
     movingStatus: PickerCellMovingStatus;
     scrollToCurrentIndex: () => void;
     getCurrentCellValue: () => ValueType;
+    getCurrentCellData: () => PickerData;
 }
 
 const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) => {
@@ -305,6 +306,10 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         return data[currentIndex]?.value;
     }
 
+    function getCurrentCellData() {
+        return data[currentIndex];
+    }
+
     function _clearTimer() {
         timeRef.current && clearTimeout(timeRef.current);
         timeRef.current = null;
@@ -371,6 +376,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
         movingStatus: movingStatusRef.current,
         scrollToCurrentIndex,
         getCurrentCellValue,
+        getCurrentCellData,
     }));
 
     return !hideEmptyCols || (data && data.length) ? (
