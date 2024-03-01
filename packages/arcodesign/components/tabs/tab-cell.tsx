@@ -359,7 +359,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     );
 
     const updateLayout = () => {
-        setForceUpdate(!forceUpdate);
+        setForceUpdate(val => !val);
     };
 
     useImperativeHandle(
