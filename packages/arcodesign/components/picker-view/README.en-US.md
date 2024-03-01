@@ -34,6 +34,7 @@ The picker view component, not has contain popup, which is convenient for the us
 |updateLayout|Manually update the element layout|() =\> void|
 |resetValue|Reset the selector's value to the input value \`value\`|() =\> void|
 |scrollToCurrentIndex|Jump directly to the current most recent line (will break scrolling when called)|() =\> void|
+|getAllColumnData|Get all column data|() =\> PickerData\[\]|
 
 > PickerData
 
