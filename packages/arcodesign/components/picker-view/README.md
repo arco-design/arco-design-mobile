@@ -34,6 +34,7 @@
 |updateLayout|手动更新元素布局|() =\> void|
 |resetValue|重置选择器的值为传入的\`value\`值|() =\> void|
 |scrollToCurrentIndex|直接跳到当前最近一行（调用时将中断滚动）|() =\> void|
+|getAllColumnData|获取所有列的 data|() =\> PickerData\[\]|
 
 > PickerData
 

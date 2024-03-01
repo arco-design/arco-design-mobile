@@ -55,7 +55,19 @@ export interface PickerViewRef {
      * @en Jump directly to the current most recent line (will break scrolling when called)
      */
     scrollToCurrentIndex: () => void;
+    /**
+     * 获取所有列的 data
+     * @en Get all column data
+     */
+    getAllColumnData: () => PickerData[];
 }
+
+const isArray = (
+    dt: PickerData[] | PickerData[][] | ValueType[][],
+): dt is ValueType[][] | PickerData[][] => (dt ? Array.isArray(dt[0]) : false);
+
+const isStrOrNum = (dt: ValueType[][] | PickerData[][]): dt is ValueType[][] =>
+    typeof dt[0][0] === 'string' || typeof dt[0][0] === 'number';
 
 const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) => {
     const {
@@ -96,12 +108,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
 
     const innerData = useMemo(() => {
         let newData: PickerData[][];
-        const isArray = (
-            dt: PickerData[] | PickerData[][] | ValueType[][],
-        ): dt is ValueType[][] | PickerData[][] => (dt ? Array.isArray(dt[0]) : false);
-        const isStrOrNum = (dt: ValueType[][] | PickerData[][]): dt is ValueType[][] =>
-            typeof dt[0][0] === 'string' || typeof dt[0][0] === 'number';
-
         if (isArray(data)) {
             if (isStrOrNum(data)) {
                 newData = data.map(item =>
@@ -116,7 +122,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         } else {
             newData = [data];
         }
-
         return newData;
     }, [data]);
 
@@ -126,6 +131,13 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
             : pickerCellsRef.current.map(cell => cell.getCurrentCellValue());
         // 移除级联带来的空列值，理论上非首尾列不会有空值
         // @en Remove empty values from cascader
+        return curValues.filter(v => v !== undefined);
+    };
+
+    const getAllColumnData = () => {
+        const curValues = cascade
+            ? cascaderRef.current?.getAllCellsData() || []
+            : pickerCellsRef.current.map(cell => cell.getCurrentCellData());
         return curValues.filter(v => v !== undefined);
     };
 
@@ -155,6 +167,7 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         updateLayout,
         resetValue,
         scrollToCurrentIndex,
+        getAllColumnData,
     }));
 
     function _onValueChange(val: ValueType[], index: number, newData: PickerData[]) {

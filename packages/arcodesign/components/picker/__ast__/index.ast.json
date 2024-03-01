@@ -269,7 +269,7 @@
             },
             "required": false,
             "type": {
-                "name": "(value: ValueType[]) => void"
+                "name": "(value: ValueType[], data: PickerData[]) => void"
             }
         },
         "onDismiss": {
