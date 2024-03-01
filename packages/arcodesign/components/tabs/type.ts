@@ -617,6 +617,11 @@ export interface TabCellRef {
      * @en Recalculate underline style
      */
     resetUnderlineStyle: () => void;
+    /**
+     * 强制更新 tab-cell
+     * @en Force update tab-cell
+     */
+    updateLayout: () => void;
 }
 
 export interface TabPaneProps
