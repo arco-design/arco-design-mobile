@@ -56,15 +56,10 @@ export interface PickerViewRef {
      */
     scrollToCurrentIndex: () => void;
     /**
-     * 获取选中的 picker-cell data
-     * @en Get the selected picker-cell data
+     * 获取所有列的 data
+     * @en Get all column data
      */
-    getSelectedPickerCellData: () => ISelectedPickerCellData;
-}
-
-export interface ISelectedPickerCellData {
-    value: ValueType[];
-    data: PickerData[];
+    getAllColumnData: () => PickerData[];
 }
 
 const isArray = (
@@ -146,13 +141,6 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         return curValues.filter(v => v !== undefined);
     };
 
-    const getSelectedPickerCellData = () => {
-        return {
-            value: getAllColumnValues(),
-            data: getAllColumnData(),
-        };
-    };
-
     function getColumnValue(index = 0) {
         return getAllColumnValues()[index];
     }
@@ -179,7 +167,7 @@ const PickerView = forwardRef((props: PickerViewProps, ref: Ref<PickerViewRef>) 
         updateLayout,
         resetValue,
         scrollToCurrentIndex,
-        getSelectedPickerCellData,
+        getAllColumnData,
     }));
 
     function _onValueChange(val: ValueType[], index: number, newData: PickerData[]) {
