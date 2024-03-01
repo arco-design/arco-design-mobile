@@ -719,6 +719,16 @@ exports[`tabs demo test tabs demo: extra.md renders correctly 1`] = `
 
 exports[`tabs demo test tabs demo: resize.md renders correctly 1`] = `
 <DocumentFragment>
+  <button
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+    type="button"
+  >
+    <div
+      class="arco-button-text arco-button-text-pc btn-text"
+    >
+      点击放大字体
+    </div>
+  </button>
   <div
     class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
   >
