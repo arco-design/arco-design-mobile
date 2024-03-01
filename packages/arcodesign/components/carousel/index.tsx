@@ -991,6 +991,9 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
 
     function getFakeChild() {
         if (noLoop) {
+            // 循环状态从有到无时，重置 transforms
+            // @en reset transforms when loop status changes to false
+            setTransforms([]);
             return;
         }
         const nowIndex = indexRef.current;
