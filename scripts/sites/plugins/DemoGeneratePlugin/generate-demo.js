@@ -35,7 +35,7 @@ function renderSource({
     // 是当前组件且不是当前开发 demo 不用设置渲染内容
     const notDevDemo = devComponents.includes(comp) && !devDemos.includes(demoName);
     const demo = fs.readFileSync(path.join(demoPath, `${demoName}.md`), 'utf8');
-    const newDemo = notDevDemo ? demo.replace(/\(\) \{([\s\S]*?)\}\n```/g, '() { return null }\n```') : demo;
+    const newDemo = notDevDemo ? demo.replace(/export default ([\s\S]*?)\(\) \{([\s\S]*?)\}\n```/g, 'export default $1() { return null }\n```') : demo;
     const renderer = new marked.Renderer();
     const compNpmReg = new RegExp(compPackageName, 'g');
     const utilsNpmReg = new RegExp(utilsPackageName, 'g');
