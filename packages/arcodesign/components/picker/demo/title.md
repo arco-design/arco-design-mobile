@@ -93,8 +93,8 @@ export default function PickerDemo() {
                 onHide={() => {
                     setVisible(false);
                 }}
-                onOk={(value) => {
-                    console.log('on ok', value);
+                onOk={(value, data) => {
+                    console.log('on ok', value, data);
                 }}
                 onPickerChange={() => {
                     if (pickerRef.current) {

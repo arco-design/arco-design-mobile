@@ -23,7 +23,7 @@
 |visible|是否展示选择器|boolean|false|
 |okText|弹窗确认已选值的文案|string|"确定"|
 |dismissText|弹窗取消的文案|string|"取消"|
-|onOk|点击选中时执行的回调|(value: ValueType\[\]) =\> void|-|
+|onOk|点击选中时执行的回调|(value: ValueType\[\], data: PickerData\[\]) =\> void|-|
 |onDismiss|点击取消时执行的回调|() =\> void|-|
 |clickable|是否可通过点击操作选择内容|boolean|true|
 |hideEmptyCols|是否隐藏无数据的空列，常用于级联选择|boolean|false|

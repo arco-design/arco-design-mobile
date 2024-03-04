@@ -174,6 +174,7 @@ string | { [x: string]: any; title: ReactNode; }
 |scrollToCenter|滚动 bar 使当前选中item到屏幕中间|(rightNow?: boolean) =\> void|
 |setCaterpillarAnimate|触发毛毛虫动画|(ratio?: number) =\> void|
 |resetUnderlineStyle|重新计算下划线样式|() =\> void|
+|updateLayout|强制更新 tab\-cell|() =\> void|
 
 > TabPaneRef
 

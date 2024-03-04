@@ -12,6 +12,9 @@ const compileComps = (process.env.FILTER_COMP || '').split(' ')
     .filter(e => e)
     .map(utils.getFolderName);
 
+const devComponents = (process.env.COMPONENTS || '').split(',');
+const devDemos = (process.env.DEMOS || '').split(',');
+
 const devConfig = merge(baseConfig, {
     mode: 'development',
     entry: {
@@ -64,7 +67,9 @@ const devConfig = merge(baseConfig, {
     plugins: [
         new VConsolePlugin({ enable: true }),
         new DemoGeneratePlugin({
-            compileComps
+            compileComps,
+            devComponents,
+            devDemos,
         }),
         new TokenGeneratePlugin(),
         new HtmlWebpackPlugin({

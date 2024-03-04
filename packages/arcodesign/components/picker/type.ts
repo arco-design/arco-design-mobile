@@ -93,7 +93,7 @@ export interface PickerProps
      * 点击选中时执行的回调
      * @en Callback when clicking on Ok
      */
-    onOk?: (value: ValueType[]) => void;
+    onOk?: (value: ValueType[], data: PickerData[]) => void;
     /**
      * 点击取消时执行的回调
      * @en Callback when clicking to cancel

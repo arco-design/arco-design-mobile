@@ -23,7 +23,7 @@ The selector component, in the form of a popup layer.
 |visible|whether to show the picker|boolean|false|
 |okText|Text of confirmed selected value of the popup|string|"OK"|
 |dismissText|Popup canceled text|string|"Cancel"|
-|onOk|Callback when clicking on Ok|(value: ValueType\[\]) =\> void|-|
+|onOk|Callback when clicking on Ok|(value: ValueType\[\], data: PickerData\[\]) =\> void|-|
 |onDismiss|Callback when clicking to cancel|() =\> void|-|
 |clickable|Whether content can be selected by clicking|boolean|true|
 |hideEmptyCols|Whether to hide empty columns without data, often used for cascading selection|boolean|false|

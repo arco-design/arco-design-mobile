@@ -2468,6 +2468,19 @@
                     "en": "Recalculate underline style"
                 },
                 "descWithTags": "重新计算下划线样式"
+            },
+            "updateLayout": {
+                "name": "updateLayout",
+                "required": true,
+                "description": "强制更新 tab-cell\n@en Force update tab-cell",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Force update tab-cell"
+                },
+                "descWithTags": "强制更新 tab-cell"
             }
         },
         "TabPaneRef": {
