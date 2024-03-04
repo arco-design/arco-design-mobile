@@ -55,7 +55,6 @@ test('should open correctly', async () => {
     );
     expect(document.querySelector(`.${prefix}`)).toBeNull();
     fireEvent.click(container.querySelector(`.${buttonPrefix}`));
-
     await waitFor(
         () => {
             expect(document.querySelector(`.${prefix}`)).not.toBeNull();
@@ -70,10 +69,18 @@ test('can be properly closed', async () => {
     );
     expect(document.querySelector(`.${prefix}`)).toBeNull();
     fireEvent.click(container.querySelector(`.${buttonPrefix}`));
-
     await waitFor(
         () => {
-            fireEvent.click(container.querySelector(`.${buttonPrefix}`));
+            console.log(document.querySelector(`.${prefix}`), ', test1')
+            expect(document.querySelector(`.${prefix}`)).not.toBeNull();
+        },
+        { timeout: 1000 },
+    );
+    fireEvent.click(container.querySelector(`.${buttonPrefix}`));
+    await waitFor(
+        () => {
+            console.log(document.querySelector(`.${prefix}`), ', test2')
+            expect(document.querySelector(`.${prefix}`)).toBeNull();
         },
         { timeout: 1000 },
     );
