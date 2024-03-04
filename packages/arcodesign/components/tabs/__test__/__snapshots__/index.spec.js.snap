@@ -726,7 +726,7 @@ exports[`tabs demo test tabs demo: resize.md renders correctly 1`] = `
     <div
       class="arco-button-text arco-button-text-pc btn-text"
     >
-      点击放大字体
+      Click to enlarge font size
     </div>
   </button>
   <div

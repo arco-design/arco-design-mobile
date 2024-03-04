@@ -19,9 +19,9 @@ export default function TabsDemo() {
     const theRef = React.useRef();
     const handleClick = () => {
         if (theRef.current) {
-            const divNodes = theRef.current.bar.dom.getElementsByTagName('div');
+            const divNodes = theRef.current.bar.dom.querySelectorAll('.line');
             for (let i = 0; i < divNodes.length; i++) {
-                divNodes[i].setAttribute('style', 'font-size: 32px!important;');
+                divNodes[i].setAttribute('style', 'font-size: 20px!important;');
             }
             setTimeout(() => {
                 theRef.current.bar.updateLayout();
@@ -30,7 +30,7 @@ export default function TabsDemo() {
     }
     return (
         <>
-            <Button onClick={handleClick}>点击放大字体</Button>
+            <Button onClick={handleClick}>Click to enlarge font size</Button>
             <Tabs
                 ref={theRef}
                 tabs={tabData}
