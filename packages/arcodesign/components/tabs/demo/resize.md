@@ -1,4 +1,4 @@
-## font-size 改变需要重新 rerender tab-cell @en{Font-size changes require rerendering tab-cell}
+## 手动重绘 TabCell @en{Manually rerender tab cell}
 
 #### 12
 
@@ -19,13 +19,13 @@ export default function TabsDemo() {
     const theRef = React.useRef();
     const handleClick = () => {
         if (theRef.current) {
-            var divNodes = theRef.current.bar.dom.getElementsByTagName("div");
-            for (var i = 0; i < divNodes.length; i++) {
-                divNodes[i].setAttribute("style", "font-size: 32px!important;");
+            const divNodes = theRef.current.bar.dom.getElementsByTagName('div');
+            for (let i = 0; i < divNodes.length; i++) {
+                divNodes[i].setAttribute('style', 'font-size: 32px!important;');
             }
             setTimeout(() => {
                 theRef.current.bar.updateLayout();
-            }, 20)
+            }, 20);
         }
     }
     return (
