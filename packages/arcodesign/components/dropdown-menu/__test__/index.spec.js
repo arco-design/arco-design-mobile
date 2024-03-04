@@ -18,7 +18,7 @@ mountTest(DropdownMenu, 'DropdownMenu');
 
 const options = ['海淀区', '丰台区', '昌平区'];
 
-describe('Dropdown', () => {
+describe('DropdownMenu', () => {
     it('dropdown open correctly', () => {
         const { container } = render(<DropdownMenu options={options} />);
         const item = container.querySelectorAll(selectItemPrefix)[0];
