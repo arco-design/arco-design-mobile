@@ -71,7 +71,6 @@ test('can be properly closed', async () => {
     fireEvent.click(container.querySelector(`.${buttonPrefix}`));
     await waitFor(
         () => {
-            console.log(document.querySelector(`.${prefix}`), ', test1')
             expect(document.querySelector(`.${prefix}`)).not.toBeNull();
         },
         { timeout: 1000 },
@@ -79,7 +78,6 @@ test('can be properly closed', async () => {
     fireEvent.click(container.querySelector(`.${buttonPrefix}`));
     await waitFor(
         () => {
-            console.log(document.querySelector(`.${prefix}`), ', test2')
             expect(document.querySelector(`.${prefix}`)).toBeNull();
         },
         { timeout: 1000 },
