@@ -1,11 +1,8 @@
-import React from 'react';
+import { act } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
-import Toast from '..';
-import Cell from '../../cell'
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import { defaultContext } from '../../context-provider';
+import Toast from '..';
 
 demoTest('toast');
 

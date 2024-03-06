@@ -1,14 +1,19 @@
-import React from 'react'; 
+import React from 'react';
+import { render } from '@testing-library/react';
 import mountTest from '../../../tests/mountTest';
 import Portal from '..';
-import { mount } from 'enzyme';
+import '@testing-library/jest-dom';
 
 mountTest(Portal, 'Portal');
 
 describe('Portal', () => {
     it('should render correctly when use portal', () => {
-        const component = mount(<Portal><div className="portal">Portal</div></Portal>);
-        expect(document.body.children.length).toBe(1);
-        expect(component.find('div').hasClass('portal')).toBe(true);
+        render(
+            <Portal>
+                <div className="portal">Portal</div>
+            </Portal>,
+        );
+        expect(document.body.children.length).toBe(2);
+        expect(document.querySelector('.portal')).toBeInTheDocument();
     });
 });

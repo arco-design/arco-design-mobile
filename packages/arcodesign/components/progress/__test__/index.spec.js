@@ -1,9 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import Progress from '..';
+import '@testing-library/jest-dom';
 
 const prefix = `${defaultContext.prefixCls}-progress`;
 
@@ -13,34 +14,40 @@ mountTest(Progress, 'Progress');
 
 describe('Progress', () => {
     it('should render correctly', () => {
-        const component = mount(<Progress percentage={75} mode="nav"/>);
-        expect(component.find('.progress-bar').props().style.width).toBe('75%');
-        expect(component.find('.nav-mode').length).toBe(1);
+        const { container: component } = render(<Progress percentage={75} mode="nav" />);
+        expect(component.querySelector('.progress-bar')).toHaveStyle({ width: '75%' });
+        expect(component.querySelectorAll('.nav-mode').length).toBe(1);
     });
     it('should render correctly when set disabled', () => {
-        const component = mount(<Progress percentage={75} disabled={true}/>);
-        expect(component.find(`.${prefix}`).hasClass('progress-disabled')).toBe(true);
+        const { container: component } = render(<Progress percentage={75} disabled={true} />);
+        expect(component.querySelector(`.${prefix}`)).toHaveClass('progress-disabled');
     });
     it('should render correctly when set percent inner', () => {
-        const component = mount(<Progress percentage={75} percentPosition="innerLeft"/>);
-        expect(component.find('.progress-track').hasClass('position-innerLeft')).toBe(true);
-        expect(component.find(`.${prefix}`).text()).toBe('75%');
+        const { container: component } = render(
+            <Progress percentage={75} percentPosition="innerLeft" />,
+        );
+        expect(component.querySelector('.progress-track')).toHaveClass('position-innerLeft');
+        expect(component.querySelector(`.${prefix}`)).toHaveTextContent('75%');
     });
     it('should render correctly when set track stroke', () => {
-        const component = mount(<Progress percentage={75} trackStroke={8}/>);
-        expect(component.find('.progress-track').props().style.height).toBe(8);
+        const { container: component } = render(<Progress percentage={75} trackStroke={8} />);
+        expect(component.querySelector('.progress-track')).toHaveStyle({ height: '8px' });
     });
     it('should render correctly when set percent position', () => {
-        const component = mount(<Progress percentage={75} percentPosition="follow" />);
-        expect(component.find('.text-follow').length).toBe(1);
-        expect(component.find('.text-follow').text()).toBe('75%');
+        const { container: component } = render(
+            <Progress percentage={75} percentPosition="follow" />,
+        );
+        expect(component.querySelectorAll('.text-follow').length).toBe(1);
+        expect(component.querySelector('.text-follow')).toHaveTextContent('75%');
     });
     it('should render correctly when set step', () => {
-        const component = mount(<Progress percentage={59} step={10} />);
-        expect(component.find('.progress-bar').props().style.width).toBe('50%');
+        const { container: component } = render(<Progress percentage={59} step={10} />);
+        expect(component.querySelector('.progress-bar')).toHaveStyle({ width: '50%' });
     });
     it('should render correctly when set progress color', () => {
-        const component = mount(<Progress percentage={75} progressColor="#FF5722" />);
-        expect(component.find('.progress-bar').props().style.background).toBe('#FF5722');
+        const { container: component } = render(
+            <Progress percentage={75} progressColor="#FF5722" />,
+        );
+        expect(component.querySelector('.progress-bar')).toHaveStyle({ background: '#FF5722' });
     });
 });
