@@ -1,7 +1,6 @@
 import React, { createRef } from 'react';
-import { fireEvent, render, screen as rtlScreen } from '@testing-library/react';
+import { act, fireEvent, render, screen as rtlScreen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act } from 'react-dom/test-utils';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
