@@ -1,11 +1,11 @@
 import React, { createRef } from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import SearchBar from '..';
-import { delay } from '../../../tests/helpers/utils';
+import { pureDelay as delay } from '../../../tests/helpers/utils';
 
 demoTest('search-bar');
 
@@ -35,6 +35,14 @@ const useFakeTimersTest = (description, callback) => {
 
 // useInputLogic钩子中，onBlur和onFocus的回调都被延长了一个nextTick(20ms)，导致视图更新的延迟
 // 因此需要手动延迟一段时间(比nextTick)长才能正确断言和显示隐藏相关的测试用例
+const focusSimulator = async (inputDom, delayTime) => {
+    await fireEvent.focus(inputDom);
+    await delay(delayTime);
+};
+const blurSimulator = async (inputDom, delayTime) => {
+    await fireEvent.blur(inputDom, 25);
+    await delay(delayTime);
+};
 const createInputDomSimulator = (inputDom, component) => {
     const originSimulate = inputDom.simulate;
     inputDom.simulate = (event, config) => {
@@ -45,121 +53,155 @@ const createInputDomSimulator = (inputDom, component) => {
 };
 
 describe('SearchBar', () => {
-    useFakeTimersTest('component should render correctly', root => {
-        const component = mount(<SearchBar />, { attachTo: root });
-        // 输入框框被正常渲染
-        expect(component.find(inputSelector).length).toBe(1);
-        // 搜索icon被正常渲染
-        expect(component.find(searchIconSelector).length).toBe(1);
-        const inputDom = createInputDomSimulator(component.find('input'), component);
-        inputDom.simulate('click');
-
-        // 清除按钮被正常渲染
-        expect(component.find(clearIconSelector).length).toBe(0);
-        inputDom.simulate('change', { target: { value: '测试' } });
-        expect(component.find(clearIconSelector).length).toBe(1);
-        // 右侧actionBtn被正常渲染
-        expect(component.find(cancelBtnSelector).length).toBe(1);
+    beforeEach(() => {
+        jest.useFakeTimers();
     });
 
-    useFakeTimersTest('actionBtn should render correctly', root => {
-        const handleCancel = jest.fn();
-        const component = mount(<SearchBar onCancel={handleCancel} />, { attachTo: root });
+    afterEach(() => {
+        jest.useRealTimers();
+    });
 
-        const inputDom = createInputDomSimulator(component.find(inputSelector), component);
+    it('component should render correctly', async () => {
+        const { container: component } = render(<SearchBar />);
+        // 输入框框被正常渲染
+        expect(component.querySelectorAll(inputSelector).length).toBe(1);
+        // 搜索icon被正常渲染
+        expect(component.querySelectorAll(searchIconSelector).length).toBe(1);
+        const inputDom = createInputDomSimulator(component.querySelector('input'), component);
+        await userEvent.click(inputDom);
+
+        // 清除按钮被正常渲染
+        expect(component.querySelectorAll(clearIconSelector).length).toBe(0);
+        userEvent.type(inputDom, '测试');
+        expect(component.querySelectorAll(clearIconSelector).length).toBe(1);
+        // 右侧actionBtn被正常渲染
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(1);
+    });
+
+    it('actionBtn should render correctly', async () => {
+        const handleCancel = jest.fn();
+        const { container: component, rerender } = render(<SearchBar onCancel={handleCancel} />);
+
+        const inputDom = createInputDomSimulator(component.querySelector(inputSelector), component);
 
         // 测试actionBtnShowType为default的情况
-        expect(component.find(cancelBtnSelector).length).toBe(0);
-        inputDom.simulate('focus');
-        expect(component.find(cancelBtnSelector).length).toBe(1);
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(0);
+        await focusSimulator(inputDom, 25);
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(1);
 
-        inputDom.simulate('blur');
-        expect(component.find(cancelBtnSelector).length).toBe(0);
+        await blurSimulator(inputDom, 25);
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(0);
 
-        inputDom.simulate('change', { target: { value: '测试' } });
-        expect(component.find(cancelBtnSelector).length).toBe(1);
+        userEvent.type(inputDom, '测试');
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(1);
 
-        inputDom.simulate('blur');
-        expect(component.find(cancelBtnSelector).length).toBe(1);
+        await blurSimulator(inputDom, 25);
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(1);
 
-        component.find(cancelBtnSelector).simulate('click');
-        delay(component, 25);
-        expect(component.find(cancelBtnSelector).length).toBe(0);
+        await userEvent.click(component.querySelector(cancelBtnSelector));
+        delay(25);
         expect(handleCancel).toBeCalledTimes(1);
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(0);
 
-        inputDom.simulate('focus');
-        expect(component.find(cancelBtnSelector).length).toBe(1);
-        component.find(cancelBtnSelector).simulate('click');
-        delay(component, 25);
-        expect(component.find(cancelBtnSelector).length).toBe(0);
+        await focusSimulator(inputDom, 25);
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(1);
+        await userEvent.click(component.querySelector(cancelBtnSelector));
+        delay(25);
+        expect(component.querySelectorAll(cancelBtnSelector).length).toBe(0);
         expect(handleCancel).toBeCalledTimes(2);
 
         // 测试自定义append是否正常
-        component.setProps({
-            actionButton: <span id="search">搜索</span>,
-            append: <span id="test">测试</span>,
-        });
-        component.update();
-        expect(component.find('#test').length).toBe(1);
-        expect(component.find('#search').length).toBe(1);
+        rerender(
+            <SearchBar
+                onCancel={handleCancel}
+                actionButton={<span id="search">搜索</span>}
+                append={<span id="test">测试</span>}
+            />,
+        );
+        expect(component.querySelectorAll('#test').length).toBe(1);
+        expect(component.querySelectorAll('#search').length).toBe(1);
+        // rerender(
+        //     <SearchBar
+        //         onCancel={handleCancel}
+        //         actionButton={<span id="search">搜索</span>}
+        //         append={() => <span id="test">测试</span>}
+        //     />,
+        // );
+        // expect(component.querySelectorAll('#test').length).toBe(1);
+        // expect(component.querySelectorAll('#search').length).toBe(1);
     });
 
-    it('association should render correctly', () => {
+    it('association should render correctly', async () => {
         const associationItems = [
             {
                 content: '测试',
             },
         ];
 
-        const component = mount(
+        const { container: component, rerender } = render(
             <SearchBar enableAssociation associationItems={associationItems} />,
         );
 
-        expect(component.find(associationContainerSelector).length).toBe(0);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(0);
 
         // associationShowType为default
-        const inputDom = component.find(inputSelector);
-        inputDom.simulate('change', { target: { value: '测' } });
-        expect(component.find(associationContainerSelector).length).toBe(1);
+        const inputDom = component.querySelector(inputSelector);
+        userEvent.type(inputDom, '测');
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
 
-        inputDom.simulate('blur');
-        expect(component.find(associationContainerSelector).length).toBe(0);
+        await blurSimulator(inputDom, 25);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(0);
 
-        inputDom.simulate('change', { target: { value: '' } });
-        expect(component.find(associationContainerSelector).length).toBe(0);
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, '');
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(0);
 
         // associationShowType为value，blur也不会消失
-        component.setProps({
-            associationShowType: 'value',
-        });
-        inputDom.simulate('change', { target: { value: '测' } });
-        expect(component.find(associationContainerSelector).length).toBe(1);
-        inputDom.simulate('blur');
-        expect(component.find(associationContainerSelector).length).toBe(1);
-        inputDom.simulate('change', { target: { value: '' } });
-        expect(component.find(associationContainerSelector).length).toBe(0);
+        rerender(
+            <SearchBar
+                enableAssociation
+                associationItems={associationItems}
+                associationShowType="value"
+            />,
+        );
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, '测');
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
+        await blurSimulator(inputDom, 25);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, '');
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(0);
 
         // associationShowType为focus, blur也消失
-        component.setProps({
-            associationShowType: 'focus',
-        });
-        inputDom.simulate('blur');
-        expect(component.find(associationContainerSelector).length).toBe(0);
-        inputDom.simulate('change', { target: { value: '测' } });
-        expect(component.find(associationContainerSelector).length).toBe(1);
+        rerender(
+            <SearchBar
+                enableAssociation
+                associationItems={associationItems}
+                associationShowType="focus"
+            />,
+        );
+        await blurSimulator(inputDom, 25);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(0);
+        userEvent.type(inputDom, '测');
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
 
-        component.setProps({
-            associationShowType: 'always',
-        });
-        inputDom.simulate('blur');
-        expect(component.find(associationContainerSelector).length).toBe(1);
-        inputDom.simulate('change', { target: { value: '' } });
-        expect(component.find(associationContainerSelector).length).toBe(1);
-        inputDom.simulate('blur');
-        expect(component.find(associationContainerSelector).length).toBe(1);
+        rerender(
+            <SearchBar
+                enableAssociation
+                associationItems={associationItems}
+                associationShowType="always"
+            />,
+        );
+        await blurSimulator(inputDom, 25);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
+        userEvent.type(inputDom, '');
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
+        await blurSimulator(inputDom, 25);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
     });
 
-    it('search-bar ref and on-event handler work correctly', () => {
+    it('search-bar ref and on-event handler work correctly', async () => {
         const associationItems = [
             {
                 content: '测试',
@@ -170,7 +212,7 @@ describe('SearchBar', () => {
         const handleAssociationClick = jest.fn();
         const handleAssociationItemClick = jest.fn();
 
-        const component = mount(
+        const { container: component } = render(
             <SearchBar
                 enableAssociation
                 ref={ref}
@@ -180,31 +222,28 @@ describe('SearchBar', () => {
             />,
         );
 
-        expect(component.find(associationContainerSelector).length).toBe(0);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(0);
         act(() => {
             ref.current.toggleAssociation();
         });
-        component.update();
-        expect(component.find(associationContainerSelector).length).toBe(1);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
         act(() => {
             ref.current.toggleAssociation();
         });
-        component.update();
-        expect(component.find(associationContainerSelector).length).toBe(0);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(0);
 
         act(() => {
             ref.current.toggleAssociation(true);
         });
-        component.update();
-        expect(component.find(associationContainerSelector).length).toBe(1);
+        expect(component.querySelectorAll(associationContainerSelector).length).toBe(1);
 
-        component.find(associationContainerSelector).simulate('click');
+        await userEvent.click(component.querySelector(associationContainerSelector));
         expect(handleAssociationClick).toBeCalled();
-        const associationItemDoms = component.find(associationItemSelector);
+        const associationItemDoms = component.querySelectorAll(associationItemSelector);
         expect(associationItemDoms.length).toBe(1);
 
-        const firstAssociationItem = associationItemDoms.at(0);
-        firstAssociationItem.simulate('click');
+        const firstAssociationItem = associationItemDoms[0];
+        await userEvent.click(firstAssociationItem);
         expect(handleAssociationItemClick).toHaveBeenCalledWith(associationItems[0], 0);
     });
 
@@ -227,44 +266,61 @@ describe('SearchBar', () => {
             },
         ];
 
-        const component = mount(
+        const { container: component, rerender } = render(
             <SearchBar enableAssociation associationItems={associationItems} />,
         );
 
-        expect(component.find(associationItemSelector).length).toBe(associationItems.length);
-        expect(component.find(highlightNodeSelector).length).toBe(0);
+        expect(component.querySelectorAll(associationItemSelector).length).toBe(
+            associationItems.length,
+        );
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(0);
 
-        component.setProps({
-            highlightMode: 'prefix',
-        });
-        const inputDom = component.find(inputSelector);
+        rerender(
+            <SearchBar
+                enableAssociation
+                associationItems={associationItems}
+                highlightMode="prefix"
+            />,
+        );
+        const inputDom = component.querySelector(inputSelector);
 
-        inputDom.simulate('change', { target: { value: 'A' } });
-        expect(component.find(highlightNodeSelector).length).toBe(2);
-        inputDom.simulate('change', { target: { value: 'Arco' } });
-        expect(component.find(highlightNodeSelector).length).toBe(2);
-        inputDom.simulate('change', { target: { value: 'react' } });
-        expect(component.find(highlightNodeSelector).length).toBe(1);
+        userEvent.type(inputDom, 'A');
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(2);
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, 'Arco');
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(2);
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, 'react');
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(1);
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, '');
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(0);
 
-        inputDom.simulate('change', { target: { value: '' } });
-        expect(component.find(highlightNodeSelector).length).toBe(0);
+        rerender(
+            <SearchBar
+                enableAssociation
+                associationItems={associationItems}
+                highlightMode="contain"
+            />,
+        );
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, '测试');
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(2);
 
-        component.setProps({
-            highlightMode: 'contain',
-        });
-        inputDom.simulate('change', { target: { value: '测试' } });
-        expect(component.find(highlightNodeSelector).length).toBe(2);
-
-        component.setProps({
-            highlightMode: (content, keyword, defaultClassName) =>
-                content.includes(keyword) ? (
-                    <span className={defaultClassName}>{content}</span>
-                ) : (
-                    content
-                ),
-        });
-        component.update();
-        expect(component.find(highlightNodeSelector).length).toBe(2);
+        rerender(
+            <SearchBar
+                enableAssociation
+                associationItems={associationItems}
+                highlightMode={(content, keyword, defaultClassName) =>
+                    content.includes(keyword) ? (
+                        <span className={defaultClassName}>{content}</span>
+                    ) : (
+                        content
+                    )
+                }
+            />,
+        );
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(2);
     });
 
     it('highlight prefix mode work correctly', () => {
@@ -286,7 +342,7 @@ describe('SearchBar', () => {
             },
         ];
 
-        const component = mount(
+        const { container: component } = render(
             <SearchBar
                 enableAssociation
                 associationItems={associationItems}
@@ -294,16 +350,19 @@ describe('SearchBar', () => {
             />,
         );
 
-        expect(component.find(associationItemSelector).length).toBe(associationItems.length);
-        expect(component.find(highlightNodeSelector).length).toBe(0);
-        const inputDom = component.find(inputSelector);
-        inputDom.simulate('change', { target: { value: 'e' } });
-
-        expect(component.find(highlightNodeSelector).length).toBe(4);
-        inputDom.simulate('change', { target: { value: 're' } });
-        expect(component.find(highlightNodeSelector).length).toBe(3);
-        inputDom.simulate('change', { target: { value: '' } });
-        expect(component.find(highlightNodeSelector).length).toBe(0);
+        expect(component.querySelectorAll(associationItemSelector).length).toBe(
+            associationItems.length,
+        );
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(0);
+        const inputDom = component.querySelector(inputSelector);
+        userEvent.type(inputDom, 'e');
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(4);
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, 're');
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(3);
+        userEvent.clear(inputDom);
+        userEvent.type(inputDom, '');
+        expect(component.querySelectorAll(highlightNodeSelector).length).toBe(0);
     });
 
     it('render function should work correctly', () => {
@@ -331,7 +390,7 @@ describe('SearchBar', () => {
             },
         ];
 
-        const component = mount(
+        const { container: component } = render(
             <SearchBar
                 enableAssociation
                 associationItems={associationItems}
@@ -341,10 +400,10 @@ describe('SearchBar', () => {
             />,
         );
 
-        const inputDom = component.find(inputSelector);
-        inputDom.simulate('change', { target: { value: 'test' } });
+        const inputDom = component.querySelector(inputSelector);
+        userEvent.type(inputDom, 'test');
 
-        expect(component.find('#test').length).toBe(1);
-        expect(component.find('#test-item').length).toBe(1);
+        expect(component.querySelectorAll('#test').length).toBe(1);
+        expect(component.querySelectorAll('#test-item').length).toBe(1);
     });
 });
