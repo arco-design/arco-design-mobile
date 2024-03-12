@@ -6,8 +6,7 @@
 import { Picker, Cell } from '@arco-design/mobile-react';
 
 export default function PickerDemo() {
-    const [singleVisible, setSingleVisible] = React.useState(false);
-    const [singleValue, setSingeValue] = React.useState(['orange']);
+    const [singleValue, setSingleValue] = React.useState(['orange']);
 
     const single = React.useMemo(() => {
         return [
@@ -27,21 +26,21 @@ export default function PickerDemo() {
 
     return (
         <>
-            <Cell
-                label="Complex style selection"
-                showArrow
-                onClick={() => {setSingleVisible(true);}}
-                bordered={false}
-            />
             <Picker
-                visible={singleVisible}
                 cascade={false}
                 data={single}
                 maskClosable={true}
-                onHide={() => {
-                    setSingleVisible(false);
-                }}
                 value={singleValue}
+                onChange={val => setSingleValue(val)}
+                mountOnEnter={false}
+                unmountOnExit={false}
+                renderLinkedContainer={(_, data) => (
+                    <Cell
+                        label="Complex style selection"
+                        showArrow
+                        bordered={false}
+                    >{data[0]?.label}</Cell>
+                )}
             />
         </>
     );

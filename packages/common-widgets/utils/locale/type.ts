@@ -101,6 +101,7 @@ export interface ILocale {
         boolean: {
             equal: string;
         };
+        pickerDefaultHint: string;
     };
     NavBar: {
         backBtnAriaLabel: string;

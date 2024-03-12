@@ -100,6 +100,7 @@ const localeConfig: ILocale = {
         boolean: {
             equal: '%s 不等于 `%s`',
         },
+        pickerDefaultHint: '请选择',
     },
     NavBar: {
         backBtnAriaLabel: '返回',
