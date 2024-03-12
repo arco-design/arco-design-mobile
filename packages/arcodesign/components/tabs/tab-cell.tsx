@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import { cls, scrollWithAnimation, nextTick } from '@arco-design/mobile-utils';
 import { TabData, TabCellProps, TabCellRef, TabCellUnderlineRef, OffsetRect } from './type';
-import { useSystem } from '../_helpers';
+import { useSystem, useUpdateEffect } from '../_helpers';
 import TabCellUnderline from './tab-cell-underline';
 import { GlobalContext } from '../context-provider';
 
@@ -137,7 +137,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         updateScrollPosition();
     }, [activeIndex, wrapSize]);
 
-    useEffect(() => {
+    useUpdateEffect(() => {
         setCellOverflow();
         underlineRef.current?.resetUnderlineStyle();
         updateScrollPosition();
