@@ -58,6 +58,7 @@ Date picker, based on the `Picker` component, supports the specified range, the 
 |hideEmptyCols|Whether to hide empty columns without data, often used for cascading selection|boolean|false|
 |title|Picker title|string|""|
 |touchToStop|Whether to stop sliding by long\-pressing, inputing in the number x means that the touch exceeds x milliseconds to count as long\-pressing, inputing true means that x=100, the long\-press event and the click event are mutually exclusive|number \| boolean|false|
+|renderLinkedContainer|Associate the hidden state of the picker and the display of the selected value with a container\. After passing it in, the container and the picker component will be rendered at the same time\. At this time, the visible and onHide attributes of the picker component are optional values\. Clicking the container will evoke the picker|(value: ReactText\[\], data: PickerData\[\]) =\> ReactNode|-|
 
 > Refs
 

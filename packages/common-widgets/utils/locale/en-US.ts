@@ -101,6 +101,7 @@ const localeConfig: ILocale = {
         boolean: {
             equal: '%s is not equal to `%s`',
         },
+        pickerDefaultHint: 'Please select',
     },
     NavBar: {
         backBtnAriaLabel: 'Back',

@@ -371,6 +371,66 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
         <div
           class="arco-form-label-item"
         >
+          Birthday
+        </div>
+        <div
+          class="arco-form-item-control-wrapper"
+        >
+          <div
+            class="arco-form-item-control"
+          >
+            <div
+              class="arco-picker-linked-container"
+            >
+              <div
+                class="arco-form-picker-link-container"
+              >
+                <span
+                  class="arco-form-picker-link-container-placeholder"
+                >
+                  请选择
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-form-item arco-form-item-horizontal arco-form-item-warning"
+      >
+        <div
+          class="arco-form-label-item"
+        >
+          Location
+        </div>
+        <div
+          class="arco-form-item-control-wrapper"
+        >
+          <div
+            class="arco-form-item-control"
+          >
+            <div
+              class="arco-picker-linked-container"
+            >
+              <div
+                class="arco-form-picker-link-container"
+              >
+                <span
+                  class="arco-form-picker-link-container-placeholder"
+                >
+                  请选择
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-form-item arco-form-item-horizontal arco-form-item-warning"
+      >
+        <div
+          class="arco-form-label-item"
+        >
           Score
         </div>
         <div

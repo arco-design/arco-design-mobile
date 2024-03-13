@@ -58,6 +58,7 @@
 |hideEmptyCols|是否隐藏无数据的空列，常用于级联选择|boolean|false|
 |title|选择器标题|string|""|
 |touchToStop|是否通过长按停止滑动，传入数字 x 表示触摸超过 x 毫秒算长按，传 true 表示 x=100，长按事件与 click 事件互斥|number \| boolean|false|
+|renderLinkedContainer|将选择器的展现隐藏状态及选中值的展示与某个容器关联，传入后将同时渲染该容器和选择器组件，此时选择器组件的 visible 和 onHide 属性可不传，点击该容器会唤起选择器|(value: ReactText\[\], data: PickerData\[\]) =\> ReactNode|-|
 
 > 引用/Refs
 

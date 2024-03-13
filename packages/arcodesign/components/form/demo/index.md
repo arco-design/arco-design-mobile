@@ -9,6 +9,7 @@ import {
     Textarea,
     Switch,
     DatePicker,
+    Picker,
     Radio,
     Button,
     Checkbox,
@@ -110,7 +111,17 @@ export default function FormDemo() {
                         <Checkbox value={3} style={{height: 42}}>Option content 3</Checkbox>
                     </Checkbox.Group>
                 </Form.Item>
-                 <Form.Item field="score" label="Score">
+                <Form.Item field="birthday" label="Birthday">
+                    <DatePicker maskClosable mode="date" />
+                </Form.Item>
+                <Form.Item field="location" label="Location">
+                    <Picker
+                        cascade={false}
+                        data={[['Beijing', 'Shanghai', 'Shenzhen']]}
+                        maskClosable={true}
+                    />
+                </Form.Item>
+                <Form.Item field="score" label="Score">
                     <Rate />
                 </Form.Item>
                 <Form.Item field="pictures" label="Pictures" initialValue={[

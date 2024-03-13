@@ -31,6 +31,7 @@
 |maskClosable|点击蒙层是否关闭菜单|boolean|false|
 |touchToStop|是否通过长按停止滑动，传入数字 x 表示触摸超过 x 毫秒算长按，传 true 表示 x=100，长按事件与 click 事件互斥|number \| boolean|false|
 |gestureOutOfControl|是否禁用滚动容器手势判断，禁用后交给业务方自己判断|boolean|true|
+|renderLinkedContainer|将选择器的展现隐藏状态及选中值的展示与某个容器关联，传入后将同时渲染该容器和选择器组件，此时选择器组件的 visible 和 onHide 属性可不传，点击该容器会唤起选择器|(value: ValueType\[\], data: PickerData\[\]) =\> ReactNode|-|
 |needBottomOffset|从底部滑出的菜单内容是否适配ipx底部|boolean|false|
 |translateZ|\[即将废弃\] 开启translateZ强制提升|boolean|false|
 |maskTransitionTimeout|菜单蒙层动画时长|number \| \{ appear?: number; enter?: number; exit?: number; \}|{ enter: 450, exit: 240 }|
