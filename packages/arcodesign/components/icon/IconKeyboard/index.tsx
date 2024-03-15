@@ -19,6 +19,7 @@ export default function IconKeyboard(props: IconProps) {
                     height="1em"
                     style={style}
                     version="1.1"
+                    id="svg_388a56dbb6__图层_1"
                     xmlns="http://www.w3.org/2000/svg"
                     x="0"
                     y="0"
