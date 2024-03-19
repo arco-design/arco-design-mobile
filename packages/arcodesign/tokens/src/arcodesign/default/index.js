@@ -4129,6 +4129,41 @@ function getCompTokens() {
          * 骨架屏元素外边距，大尺寸
          */
         skeletonLargeGutter: getRem(20),
+        /**
+         * 文件上传组件上传列表背景颜色
+         * @en Background color of uploader list
+         */
+        uploaderItemBackgroundColor: 'rgba(247, 248, 250, 1)',
+        /**
+         * 文件上传组件上传列表文件图标大小
+         * @en FileIcon size of uploader list
+         */
+        uploaderFileIconFontSize: getRem(16),
+        /**
+         * 文件上传组件上传列表文字大小
+         * @en Text fontSize of uploader list
+         */
+        uploaderItemTextFontSize: getRem(14),
+        /**
+         * 文件上传组件上传列表文字颜色
+         * @en Text color of uploader list
+         */
+        uploaderItemTextColor: 'rgba(29, 33, 41, 1)',
+        /**
+         * 文件上传组件上传列表加载成功图标大小
+         * @en LoadedIcon size of uploader list
+         */
+        uploaderLoadedIconFontSize: getRem(16),
+        /**
+         * 文件上传组件上传列表错误文字大小
+         * @en Error text fontSize of uploader list
+         */
+        uploaderErrorTextFontSize: getRem(12),
+        /**
+         * 文件上传组件上传列表删除图标大小
+         * @en deleteIcon size of uploader list
+         */
+        uploaderDeleteIconFontSize: getRem(12),
     };
 }
 

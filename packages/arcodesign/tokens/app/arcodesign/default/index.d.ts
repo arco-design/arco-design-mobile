@@ -1063,6 +1063,13 @@ export interface ArcodesignToken extends Record<string, string> {
     'skeleton-grid-text-height': string;
     'skeleton-medium-gutter': string;
     'skeleton-large-gutter': string;
+    'uploader-item-background-color': string;
+    'uploader-file-icon-font-size': string;
+    'uploader-item-text-font-size': string;
+    'uploader-item-text-color': string;
+    'uploader-loaded-icon-font-size': string;
+    'uploader-error-text-font-size': string;
+    'uploader-delete-icon-font-size': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;

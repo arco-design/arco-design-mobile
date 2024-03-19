@@ -1074,7 +1074,14 @@ var tokens = {
   "skeleton-grid-text-width": "1.28rem",
   "skeleton-grid-text-height": "0.32rem",
   "skeleton-medium-gutter": "0.16rem",
-  "skeleton-large-gutter": "0.4rem"
+  "skeleton-large-gutter": "0.4rem",
+  "uploader-item-background-color": "rgba(247, 248, 250, 1)",
+  "uploader-file-icon-font-size": "0.32rem",
+  "uploader-item-text-font-size": "0.28rem",
+  "uploader-item-text-color": "rgba(29, 33, 41, 1)",
+  "uploader-loaded-icon-font-size": "0.32rem",
+  "uploader-error-text-font-size": "0.24rem",
+  "uploader-delete-icon-font-size": "0.24rem"
 };
 var _default = tokens;
 exports["default"] = _default;
