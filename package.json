@@ -80,7 +80,7 @@
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-arco-mobile": "^1.0.1",
+        "eslint-plugin-arco-mobile": "^1.0.2",
         "eslint-plugin-babel": "^5.3.1",
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-jsx-a11y": "^6.5.1",
