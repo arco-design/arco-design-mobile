@@ -1,4 +1,4 @@
-## 组件示例1
+## 基础样式 @en{Basic Usage}
 
 #### 1
 
@@ -6,8 +6,8 @@
 import { Uploader } from '@arco-design/mobile-react';
 
 export default function UploaderDemo() {
-    return (
-        <Uploader />
-    );
+    const [files, setFiles] = React.useState([]);
+
+    return <Uploader files={files} onChange={setFiles} />;
 }
 ```
