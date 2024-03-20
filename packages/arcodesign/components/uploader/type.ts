@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 
-export interface FilePickItem {
+export interface FileItem {
     /**
      * 文件地址
      * @en file Url
@@ -40,18 +40,18 @@ export interface UploaderProps {
     style?: React.CSSProperties;
     /**
      * 已选择文件列表
-     * @en selected files list
+     * @en Selected files list
      */
-    files: FilePickItem[];
+    files: FileItem[];
     /**
      * 可以选择的文件类型
-     * @en Available File Types
-     * @default 'file'
+     * @en Available file types
+     * @default undefined
      */
-    accept?: string;
+    accept?: InputHTMLAttributes<unknown>['accept'];
     /**
      * 是否支持多选
-     * @en Whether To Support Multiple Selection
+     * @en Whether to support multiple selection
      */
     multiple?: boolean;
     /**
@@ -60,8 +60,8 @@ export interface UploaderProps {
      */
     capture?: InputHTMLAttributes<unknown>['capture'];
     /**
-     * 最多选择文件张数，超出数量自动隐藏上传按钮，0表示不做限制
-     * @en max Pictures Can Choose
+     * 最多选择文件数，超出数量自动隐藏上传按钮，0表示不做限制
+     * @en Max pictures can choose
      * @default 0
      */
     limit?: number;
@@ -71,90 +71,67 @@ export interface UploaderProps {
      */
     maxSize?: number;
     /**
-     * 是否隐藏删除Icon
-     * @en Whether to hide delete Icon
-     * @default false
-     */
-    hideDelete?: boolean;
-    /**
-     * 是否隐藏选择Icon
-     * @en Whether to hide Select Icon
-     * @default false
-     */
-    hideSelect?: boolean;
-    /**
-     * 是否隐藏文件Icon
-     * @en Whether to hide file Icon
-     * @default false
-     */
-    hideFile?: boolean;
-    /**
      * 是否隐藏文件上传状态
      * @en Whether to hide file upload status
      * @default false
      */
     hideStatus?: boolean;
     /**
-     * 是否总是展示选择Icon，默认情况下当文件数量超出limit值时会自动禁用选择Icon
+     * 是否总是展示选择Icon，默认情况下当文件数量超出limit值时会自动隐藏选择Icon
      * @en Whether to always show Select Icon
      * @default false
      */
     alwaysShowSelect?: boolean;
     /**
      * 禁用选择和删除图片
-     * @en Disable Select & Delete Image
+     * @en Disable select & delete image
      */
     disabled?: boolean;
     /**
-     * 自定义删除图标
-     * @en Defined Delete Icon
+     * 自定义删除区域
+     * @en Defined delete area
      */
-    deleteIcon?: React.ReactNode;
+    renderDeleteArea?: (fileItem: FileItem, index: number) => React.ReactNode;
     /**
-     * 自定义上传图标
-     * @en Defined Upload Icon
+     * 自定义上传成功区域
+     * @en Defined loaded area
      */
-    uploadIcon?: React.ReactNode;
+    renderLoadedArea?: (fileItem: FileItem, index: number) => React.ReactNode;
     /**
-     * 自定义上传图标
-     * @en Defined Loaded Icon
+     * 自定义上传中区域
+     * @en Defined loading area
      */
-    loadedIcon?: React.ReactNode;
+    renderLoadingArea?: (fileItem: FileItem, index: number) => React.ReactNode;
     /**
-     * 自定义上传图标
-     * @en Defined Loading Icon
+     * 自定义上传失败区域
+     * @en Defined error area
      */
-    loadingIcon?: React.ReactNode;
+    renderErrorArea?: (fileItem: FileItem, index: number) => React.ReactNode;
     /**
-     * 自定义上传图标
-     * @en Defined Error Icon
+     * 自定义文件索引区域
+     * @en Defined file index area
      */
-    errorIcon?: React.ReactNode;
+    renderFileIndexArea?: (fileItem: FileItem, index: number) => React.ReactNode;
     /**
-     * 自定义文件图标
-     * @en Defined File Icon
+     * 自定义上传按钮区域
+     * @en Defined upload button area
      */
-    fileIcon?: React.ReactNode;
-    /**
-     * 自定义上传按钮展示
-     * @en Defined upload failed display
-     */
-    renderButton?: () => React.ReactNode | React.ReactNode;
+    renderUploadArea?: () => React.ReactNode;
     /**
      * 自定义上传文件列表展示
-     * @en Defined uploading display
+     * @en Defined file list display
      */
-    renderFileList?: (props: UploaderProps) => React.ReactNode | React.ReactNode;
+    renderFileList?: (methods: FileListMethods) => React.ReactNode;
     /**
      * 上传方法
-     * @en upload function
+     * @en Upload function
      */
-    upload?: (file: FilePickItem) => Promise<FilePickItem | null>;
+    upload?: (file: FileItem) => Promise<FileItem | null>;
     /**
      * 已选文件列表发生变化
      * @en The list of selected files changes
      */
-    onChange?: (fileList: FilePickItem[]) => void;
+    onChange?: (fileList: FileItem[]) => void;
     /**
      * 文件超过限制大小
      * @en Image exceeds size limit
@@ -171,27 +148,22 @@ export interface UploaderProps {
      */
     onClick?: (
         e: React.MouseEvent<HTMLElement, MouseEvent>,
-        image: FilePickItem,
+        image: FileItem,
         index: number,
     ) => void;
-    /**
-     * 文件长按事件
-     * @en long press event
-     */
-    onLongPress?: (e: React.TouchEvent<HTMLElement>, image: FilePickItem, index: number) => void;
     /**
      * 文件选择适配器
      * @en Select Adaptor
      */
     selectAdapter?: () => Promise<SelectCallback>;
     /**
-     * 选文件点击事件
-     * @en Select Icon Click Event
+     * 上传文件点击事件
+     * @en Upload Area Click Event
      */
-    onSelectClick?: () => void;
+    onUploadClick?: () => void;
     /**
      * 删除点击事件
-     * @en Delete Icon Click Event
+     * @en Delete area click event
      */
     onDeleteClick?: (index: number) => void;
 }
@@ -202,4 +174,17 @@ export interface UploaderRef {
      * @en The outer DOM element of the component
      */
     dom: HTMLDivElement | null;
+}
+
+export interface FileListMethods {
+    /**
+     * 重新上传
+     * @en Retry to upload
+     */
+    retryUpload: (index: number) => void;
+    /**
+     * 删除文件
+     * @en Delete file
+     */
+    deleteFile: (index: number) => void;
 }

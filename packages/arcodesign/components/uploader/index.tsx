@@ -3,7 +3,7 @@ import { Promise } from 'es6-promise';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Button from '../button';
-import { AdapterFile, UploaderRef, UploaderProps, FilePickItem } from './type';
+import { AdapterFile, UploaderRef, UploaderProps, FileItem } from './type';
 import { useLatestRef } from '../_helpers';
 import { IconUpload, IconDelete, IconCheck, IconFile } from '../icon';
 import Loading from '../loading';
@@ -15,38 +15,33 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
         className = '',
         style,
         files = [],
-        accept = '*',
+        accept = undefined,
         multiple = false,
         capture,
         limit = 0,
         maxSize,
-        hideFile = false,
-        hideDelete = false,
-        hideSelect = false,
         hideStatus = false,
         alwaysShowSelect = false,
         disabled,
-        deleteIcon,
-        uploadIcon,
-        loadedIcon,
-        loadingIcon,
-        errorIcon,
-        fileIcon,
-        renderButton,
+        renderDeleteArea,
+        renderLoadedArea,
+        renderLoadingArea,
+        renderErrorArea,
+        renderFileIndexArea,
+        renderUploadArea,
         renderFileList,
         upload,
         onChange = () => null,
         onMaxSizeExceed,
         onLimitExceed,
         onClick,
-        onLongPress,
         selectAdapter,
-        onSelectClick,
+        onUploadClick,
         onDeleteClick,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
-    const cacheRef = useLatestRef<FilePickItem[]>(files);
+    const cacheRef = useLatestRef<FileItem[]>(files);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -80,13 +75,13 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                 url,
                 status: typeof upload === 'function' ? 'loading' : 'loaded',
                 file: newFiles[index],
-            })) as FilePickItem[];
+            })) as FileItem[];
             cacheRef.current = [...cacheRef.current, ...res];
             onChange([...cacheRef.current]);
             // 执行upload
             if (typeof upload === 'function') {
                 newFiles.forEach(_file => {
-                    upload(cacheRef.current.find(({ file }) => file === _file) as FilePickItem)
+                    upload(cacheRef.current.find(({ file }) => file === _file) as FileItem)
                         .then(data => {
                             const index = cacheRef.current.findIndex(({ file }) => file === _file);
                             if (index !== -1) {
@@ -132,31 +127,26 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
         handleFile(newFiles);
     };
 
-    const handleDelete = (index: number) => {
+    const deleteFile = (index: number) => {
         onDeleteClick && onDeleteClick(index);
         onChange(files.filter((_i, j) => j !== index));
     };
 
-    const reUpload = (index: number) => {
-        handleDelete(index);
+    const retryUpload = (index: number) => {
+        deleteFile(index);
         handleFile([files[index].file]);
     };
 
     // // click && longPress
     let timeOutEvent;
-    const handleTouchStart = (
-        e: React.TouchEvent<HTMLDivElement>,
-        file: FilePickItem,
-        index: number,
-    ) => {
+    const handleTouchStart = () => {
         timeOutEvent = setTimeout(() => {
             timeOutEvent = 0;
-            onLongPress?.(e, file, index);
         }, 750);
     };
     const handleClick = (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        file: FilePickItem,
+        file: FileItem,
         index: number,
     ) => {
         clearTimeout(timeOutEvent);
@@ -167,7 +157,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
 
     const handleSelect = (e: React.MouseEvent) => {
         if (e.target !== fileRef.current) {
-            onSelectClick && onSelectClick();
+            onUploadClick && onUploadClick();
             selectAdapter
                 ? selectAdapter().then(({ adapterFiles }) =>
                       handleChange({ target: { adapterFiles } }, true),
@@ -177,22 +167,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
     };
 
     const uploaderSelect = prefixCls => {
-        const showSelect = !hideSelect && files.length < (limit || Infinity);
-
-        const buttonNode = () => {
-            if (renderButton) {
-                return typeof renderButton === 'function' ? renderButton() : renderButton;
-            }
-            return (
-                <Button
-                    className={`${prefixCls}-uploader-add-button`}
-                    size="small"
-                    icon={uploadIcon || <IconUpload />}
-                >
-                    点击上传
-                </Button>
-            );
-        };
+        const showSelect = files.length < (limit || Infinity);
 
         return (
             (showSelect || alwaysShowSelect) && (
@@ -206,24 +181,23 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                         ref={fileRef}
                         disabled={disabled}
                     />
-                    {buttonNode()}
+                    {(renderUploadArea && renderUploadArea()) || (
+                        <Button
+                            className={`${prefixCls}-uploader-add-button`}
+                            size="small"
+                            icon={<IconUpload />}
+                        >
+                            点击上传
+                        </Button>
+                    )}
                 </div>
             )
         );
     };
 
     const getUploadList = prefixCls => {
-        const uploadListNode = () => {
-            if (renderFileList) {
-                return typeof renderFileList === 'function'
-                    ? renderFileList(props)
-                    : renderFileList;
-            }
-            return null;
-        };
-
         return (
-            uploadListNode() || (
+            (renderFileList && renderFileList({ retryUpload, deleteFile })) || (
                 <div className={`${prefixCls}-uploader-list`}>
                     {(limit && limit < files.length ? files.slice(0, limit) : files).map(
                         (fileItem, index) => {
@@ -232,17 +206,16 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                 <div className={`${prefixCls}-uploader-list-item`} key={index}>
                                     <div
                                         className={`${prefixCls}-uploader-list-item-container`}
-                                        onTouchStart={e => handleTouchStart(e, fileItem, index)}
+                                        onTouchStart={() => handleTouchStart()}
                                         onClick={e => handleClick(e, fileItem, index)}
                                     >
                                         <div className={`${prefixCls}-uploader-list-item-wrapper`}>
-                                            {!hideFile && (
-                                                <div
-                                                    className={`${prefixCls}-uploader-list-item-file`}
-                                                >
-                                                    {fileIcon || <IconFile />}
-                                                </div>
-                                            )}
+                                            <div className={`${prefixCls}-uploader-list-item-file`}>
+                                                {(renderFileIndexArea &&
+                                                    renderFileIndexArea(fileItem, index)) || (
+                                                    <IconFile />
+                                                )}
+                                            </div>
                                             <div
                                                 className={cls(
                                                     `${prefixCls}-uploader-list-item-text`,
@@ -260,7 +233,8 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                                 className={`${prefixCls}-uploader-list-item-status`}
                                             >
                                                 {(status === 'loaded' || status === undefined) &&
-                                                    (loadedIcon || (
+                                                    ((renderLoadedArea &&
+                                                        renderLoadedArea(fileItem, index)) || (
                                                         <div
                                                             className={`${prefixCls}-uploader-list-item-loaded`}
                                                         >
@@ -268,7 +242,8 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                                         </div>
                                                     ))}
                                                 {status === 'loading' &&
-                                                    (loadingIcon || (
+                                                    ((renderLoadingArea &&
+                                                        renderLoadingArea(fileItem, index)) || (
                                                         <div
                                                             className={`${prefixCls}-uploader-list-item-loading`}
                                                         >
@@ -276,8 +251,9 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                                         </div>
                                                     ))}
                                                 {status === 'error' && (
-                                                    <div onClick={() => reUpload(index)}>
-                                                        {errorIcon || (
+                                                    <div onClick={() => retryUpload(index)}>
+                                                        {(renderErrorArea &&
+                                                            renderErrorArea(fileItem, index)) || (
                                                             <span
                                                                 className={`${prefixCls}-uploader-list-item-error`}
                                                             >
@@ -289,14 +265,13 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                             </div>
                                         )}
                                     </div>
-                                    {!hideDelete && (
-                                        <div
-                                            className={`${prefixCls}-uploader-list-item-delete`}
-                                            onClick={() => handleDelete(index)}
-                                        >
-                                            {deleteIcon || <IconDelete />}
-                                        </div>
-                                    )}
+                                    <div
+                                        className={`${prefixCls}-uploader-list-item-delete`}
+                                        onClick={() => deleteFile(index)}
+                                    >
+                                        {(renderDeleteArea &&
+                                            renderDeleteArea(fileItem, index)) || <IconDelete />}
+                                    </div>
                                 </div>
                             );
                         },
