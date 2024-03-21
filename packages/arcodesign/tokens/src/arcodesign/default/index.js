@@ -4164,6 +4164,11 @@ function getCompTokens() {
          * @en deleteIcon size of uploader list
          */
         uploaderDeleteIconFontSize: getRem(12),
+        /**
+         * 文件上传组件禁用状态删除图标颜色
+         * @en disabled deleteIcon color of uploader list
+         */
+        uploaderDisabledDeleteIconColor: 'rgba(201, 205, 212, 1)',
     };
 }
 

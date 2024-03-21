@@ -88,7 +88,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                 cacheRef.current[index] = {
                                     ...cacheRef.current[index],
                                     ...data,
-                                    status: undefined,
+                                    status: 'loaded',
                                 };
                             }
                         })
@@ -137,24 +137,6 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
         handleFile([files[index].file]);
     };
 
-    // // click && longPress
-    let timeOutEvent;
-    const handleTouchStart = () => {
-        timeOutEvent = setTimeout(() => {
-            timeOutEvent = 0;
-        }, 750);
-    };
-    const handleClick = (
-        e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        file: FileItem,
-        index: number,
-    ) => {
-        clearTimeout(timeOutEvent);
-        if (timeOutEvent !== 0) {
-            onClick?.(e, file, index);
-        }
-    };
-
     const handleSelect = (e: React.MouseEvent) => {
         if (e.target !== fileRef.current) {
             onUploadClick && onUploadClick();
@@ -168,7 +150,6 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
 
     const uploaderSelect = prefixCls => {
         const showSelect = files.length < (limit || Infinity);
-
         return (
             (showSelect || alwaysShowSelect) && (
                 <div className={`${prefixCls}-uploader-add`} onClick={handleSelect}>
@@ -179,13 +160,13 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                         onChange={e => handleChange(e)}
                         multiple={multiple}
                         ref={fileRef}
-                        disabled={disabled}
                     />
                     {(renderUploadArea && renderUploadArea()) || (
                         <Button
                             className={`${prefixCls}-uploader-add-button`}
-                            size="small"
+                            size="medium"
                             icon={<IconUpload />}
+                            disabled={disabled}
                         >
                             点击上传
                         </Button>
@@ -206,8 +187,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                 <div className={`${prefixCls}-uploader-list-item`} key={index}>
                                     <div
                                         className={`${prefixCls}-uploader-list-item-container`}
-                                        onTouchStart={() => handleTouchStart()}
-                                        onClick={e => handleClick(e, fileItem, index)}
+                                        onClick={e => onClick && onClick(e, fileItem, index)}
                                     >
                                         <div className={`${prefixCls}-uploader-list-item-wrapper`}>
                                             <div className={`${prefixCls}-uploader-list-item-file`}>
@@ -232,7 +212,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                             <div
                                                 className={`${prefixCls}-uploader-list-item-status`}
                                             >
-                                                {(status === 'loaded' || status === undefined) &&
+                                                {status === 'loaded' &&
                                                     ((renderLoadedArea &&
                                                         renderLoadedArea(fileItem, index)) || (
                                                         <div
@@ -266,7 +246,10 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                         )}
                                     </div>
                                     <div
-                                        className={`${prefixCls}-uploader-list-item-delete`}
+                                        className={cls(`${prefixCls}-uploader-list-item-delete`, {
+                                            [`${prefixCls}-uploader-list-item-delete-disabled`]:
+                                                disabled,
+                                        })}
                                         onClick={() => deleteFile(index)}
                                     >
                                         {(renderDeleteArea &&

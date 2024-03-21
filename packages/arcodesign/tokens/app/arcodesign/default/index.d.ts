@@ -1070,6 +1070,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'uploader-loaded-icon-font-size': string;
     'uploader-error-text-font-size': string;
     'uploader-delete-icon-font-size': string;
+    'uploader-disabled-delete-icon-color': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;

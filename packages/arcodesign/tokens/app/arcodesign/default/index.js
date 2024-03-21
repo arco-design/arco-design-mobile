@@ -1081,7 +1081,8 @@ var tokens = {
   "uploader-item-text-color": "rgba(29, 33, 41, 1)",
   "uploader-loaded-icon-font-size": "0.32rem",
   "uploader-error-text-font-size": "0.24rem",
-  "uploader-delete-icon-font-size": "0.24rem"
+  "uploader-delete-icon-font-size": "0.24rem",
+  "uploader-disabled-delete-icon-color": "rgba(201, 205, 212, 1)"
 };
 var _default = tokens;
 exports["default"] = _default;

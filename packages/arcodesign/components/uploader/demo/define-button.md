@@ -1,6 +1,6 @@
 ## 自定义上传图标 @en{Defined Upload Button}
 
-#### 2
+#### 3
 
 ```js
 import { Uploader } from '@arco-design/mobile-react';
@@ -9,7 +9,7 @@ import IconUpload from '@arco-design/mobile-react/esm/icon/IconUpload';
 export default function UploaderDemo() {
     const [files, setFiles] = React.useState([]);
 
-    const renderButton = () => {
+    const uploadArea = () => {
         return (
             <a className="upload-button">
                 点击上传
@@ -18,7 +18,7 @@ export default function UploaderDemo() {
         );
     };
 
-    return <Uploader files={files} onChange={setFiles} renderButton={renderButton} />;
+    return <Uploader files={files} onChange={setFiles} renderUploadArea={uploadArea} />;
 }
 ```
 

@@ -11725,6 +11725,18 @@
             "en": "deleteIcon size of uploader list"
         }
     },
+    "uploaderDisabledDeleteIconColor": {
+        "cssKey": "uploader-disabled-delete-icon-color",
+        "desc": "文件上传组件禁用状态删除图标颜色",
+        "override": "",
+        "value": "rgba(201, 205, 212, 1)",
+        "jsValue": "rgba(201, 205, 212, 1)",
+        "staticValue": "rgba(201, 205, 212, 1)",
+        "localeDesc": {
+            "ch": "文件上传组件禁用状态删除图标颜色",
+            "en": "disabled deleteIcon color of uploader list"
+        }
+    },
     "uploaderErrorTextFontSize": {
         "cssKey": "uploader-error-text-font-size",
         "desc": "文件上传组件上传列表错误文字大小",

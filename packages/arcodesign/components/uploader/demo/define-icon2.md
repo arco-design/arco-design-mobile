@@ -1,6 +1,6 @@
 ## 自定义成功/失败/加载中区域 @en{Define Success/Fail/Loading area}
 
-#### 4
+#### 5
 
 ```js
 import { Uploader, CircleProgress } from '@arco-design/mobile-react';
@@ -9,7 +9,9 @@ import IconDownload from '@arco-design/mobile-react/esm/icon/IconDownload';
 export default function UploaderDemo() {
     const [files, setFiles] = React.useState([]);
 
-    const errorNode = () => {
+    const loadedArea = () => <IconDownload />;
+    const loadingArea = () => <CircleProgress size="mini" percentage={25} radius={8} />;
+    const errorArea = () => {
         return (
             <div className="upload-error">
                 <a>上传失败，点击重试</a>
@@ -21,9 +23,9 @@ export default function UploaderDemo() {
         <Uploader
             files={files}
             onChange={setFiles}
-            loadedIcon={<IconDownload />}
-            loadingIcon={<CircleProgress size="mini" percentage={25} radius={8} />}
-            errorIcon={errorNode()}
+            renderLoadedArea={loadingArea}
+            renderLoadingArea={loadingArea}
+            renderErrorArea={errorArea}
         />
     );
 }
