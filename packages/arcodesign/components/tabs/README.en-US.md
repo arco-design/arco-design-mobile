@@ -174,6 +174,7 @@ string | { [x: string]: any; title: ReactNode; }
 |scrollToCenter|Scroll the bar to bring the currently selected item to the middle of the screen|(rightNow?: boolean) =\> void|
 |setCaterpillarAnimate|Trigger caterpillar animation|(ratio?: number) =\> void|
 |resetUnderlineStyle|Recalculate underline style|() =\> void|
+|updateLayout|Force update tab\-cell|() =\> void|
 
 > TabPaneRef
 

@@ -1,4 +1,3 @@
-export { default as IconUpload } from './IconUpload';
 export { default as IconSquareChecked } from './IconSquareChecked';
 export { default as IconTriUp } from './IconTriUp';
 export { default as IconMore } from './IconMore';
@@ -54,4 +53,8 @@ export { default as IconGift } from './IconGift';
 export { default as IconStarHalf } from './IconStarHalf';
 export { default as IconKeyboard } from './IconKeyboard';
 export { default as IconKeyboardDelete } from './IconKeyboardDelete';
+export { default as IconDownload } from './IconDownload';
+export { default as IconFile } from './IconFile';
+export { default as IconUpload } from './IconUpload';
+
 export * from './type';

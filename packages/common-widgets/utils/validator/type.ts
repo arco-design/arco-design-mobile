@@ -87,7 +87,7 @@ export interface ValidatorError {
     validateLevel?: IValidateLevel;
 }
 
-export type IValidateMsgTemplate = Omit<ILocale['Form'], ''>;
+export type IValidateMsgTemplate = Omit<ILocale['Form'], 'pickerDefaultHint'>;
 export interface IValidateOption {
     validateMessage?: IValidateMsgTemplate;
     field: string;

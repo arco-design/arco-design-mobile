@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.10](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.9...@arco-design/mobile-react@2.30.10) (2024-03-04)
+
+
+### Bug Fixes
+
+* `Carousel` reset transforms when loop status changes ([#243](https://github.com/arco-design/arco-design-mobile/issues/243)) ([3983669](https://github.com/arco-design/arco-design-mobile/commit/398366920556ea4eb91ee87035f62443ad8db1d1))
+* `Picker` onOk method adds new parameters ([#237](https://github.com/arco-design/arco-design-mobile/issues/237)) ([ef2e800](https://github.com/arco-design/arco-design-mobile/commit/ef2e8001c390174a12ca8b815e96c71436420e94))
+* `Tabs` tab-cell support "updateLayout" method ([#234](https://github.com/arco-design/arco-design-mobile/issues/234)) ([1f17383](https://github.com/arco-design/arco-design-mobile/commit/1f17383592be7917a3f8392025ada60c788738f4))
+
+
+
+
+
 ## [2.30.9](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.8...@arco-design/mobile-react@2.30.9) (2024-02-27)
 
 

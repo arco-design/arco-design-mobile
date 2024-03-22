@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef, Ref, useImperativeHandle } from 'react';
+import React, { useEffect, useRef, forwardRef, Ref, useImperativeHandle, useState } from 'react';
 import { cls, componentWrapper, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Popup from '../popup';
@@ -56,7 +56,7 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
         clickable = true,
         hideEmptyCols = false,
         title = '',
-        visible = false,
+        visible: userSetVisible,
         value,
         needBottomOffset = false,
         onDismiss,
@@ -67,13 +67,18 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
         onPickerChange,
         touchToStop,
         gestureOutOfControl = true,
+        renderLinkedContainer,
         ...otherProps
     } = props;
 
     const scrollValueRef = useLatestRef(value);
     const domRef = useRef<HTMLDivElement | null>(null);
     const pickerViewRef = useRef<PickerViewRef>(null);
-
+    const [linkVisible, setLinkVisible] = useState(false);
+    const [linkArgs, setLinkArgs] = useState(() => getCurrentValueData());
+    // 来自linkedContainer的visible变化，优先级高于受控值
+    // @en Visible changes from linkedContainer which have priority over controlled values
+    const visible = linkVisible || userSetVisible || false;
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
         getCellMovingStatus: () => pickerViewRef.current?.getCellMovingStatus() || [],
@@ -83,30 +88,47 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
         scrollToCurrentIndex: () => pickerViewRef.current?.scrollToCurrentIndex(),
     }));
 
+    useEffect(() => {
+        nextTick(() => {
+            setLinkArgs(getCurrentValueData());
+        });
+    }, []);
+
+    function hidePicker(scene?: string | undefined) {
+        setLinkVisible(false);
+        onHide?.(scene);
+    }
+
     function handleDismiss() {
         if (onDismiss) {
             onDismiss();
         }
-        if (onHide) {
-            onHide('dismiss');
-        }
+        hidePicker('dismiss');
     }
 
-    const handleConfirm = () => {
+    function getCurrentValueData() {
+        const val = pickerViewRef.current?.getAllColumnValues() || scrollValueRef.current || [];
+        const selectedData = pickerViewRef.current?.getAllColumnData() || [];
+        return {
+            value: val,
+            data: selectedData,
+        };
+    }
+
+    function handleConfirm() {
         pickerViewRef.current?.scrollToCurrentIndex();
         nextTick(() => {
-            const val = pickerViewRef.current?.getAllColumnValues() || scrollValueRef.current || [];
+            const { value: val, data: selectedData } = getCurrentValueData();
+            setLinkArgs({ value: val, data: selectedData });
             if (onOk) {
-                onOk(val);
+                onOk(val, selectedData);
             }
             if (onChange) {
                 onChange(val);
             }
-            if (onHide) {
-                onHide('confirm');
-            }
+            hidePicker('confirm');
         });
-    };
+    }
 
     useListenResize(updateLayoutByVisible, [visible]);
 
@@ -124,48 +146,58 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
     return (
         <ContextLayout>
             {({ prefixCls, locale }) => (
-                <Popup
-                    visible={visible}
-                    className={cls(className, `${prefixCls}-picker all-border-box`)}
-                    close={() => onHide?.('mask')}
-                    direction="bottom"
-                    maskClosable={maskClosable}
-                    needBottomOffset={needBottomOffset}
-                    gestureOutOfControl={gestureOutOfControl}
-                    {...otherProps}
-                >
-                    <div className={`${prefixCls}-picker-wrap`} ref={domRef}>
-                        <div className={`${prefixCls}-picker-header`}>
-                            <div
-                                className={`${prefixCls}-picker-header-btn left`}
-                                onClick={handleDismiss}
-                            >
-                                {dismissText || locale?.Picker.cancelText}
-                            </div>
-                            <div className={`${prefixCls}-picker-header-title`}>{title}</div>
-                            <div
-                                className={`${prefixCls}-picker-header-btn right`}
-                                onClick={handleConfirm}
-                            >
-                                {okText || locale?.Picker.okText}
-                            </div>
+                <>
+                    {renderLinkedContainer ? (
+                        <div
+                            className={`${prefixCls}-picker-linked-container`}
+                            onClick={() => setLinkVisible(true)}
+                        >
+                            {renderLinkedContainer(linkArgs.value, linkArgs.data)}
                         </div>
-                        <PickerView
-                            ref={pickerViewRef}
-                            data={data}
-                            cascade={cascade}
-                            cols={cols}
-                            rows={rows}
-                            disabled={disabled}
-                            value={value}
-                            onPickerChange={onPickerChange}
-                            itemStyle={itemStyle}
-                            clickable={clickable}
-                            hideEmptyCols={hideEmptyCols}
-                            touchToStop={touchToStop}
-                        />
-                    </div>
-                </Popup>
+                    ) : null}
+                    <Popup
+                        visible={visible}
+                        className={cls(className, `${prefixCls}-picker all-border-box`)}
+                        close={() => hidePicker('mask')}
+                        direction="bottom"
+                        maskClosable={maskClosable}
+                        needBottomOffset={needBottomOffset}
+                        gestureOutOfControl={gestureOutOfControl}
+                        {...otherProps}
+                    >
+                        <div className={`${prefixCls}-picker-wrap`} ref={domRef}>
+                            <div className={`${prefixCls}-picker-header`}>
+                                <div
+                                    className={`${prefixCls}-picker-header-btn left`}
+                                    onClick={handleDismiss}
+                                >
+                                    {dismissText || locale?.Picker.cancelText}
+                                </div>
+                                <div className={`${prefixCls}-picker-header-title`}>{title}</div>
+                                <div
+                                    className={`${prefixCls}-picker-header-btn right`}
+                                    onClick={handleConfirm}
+                                >
+                                    {okText || locale?.Picker.okText}
+                                </div>
+                            </div>
+                            <PickerView
+                                ref={pickerViewRef}
+                                data={data}
+                                cascade={cascade}
+                                cols={cols}
+                                rows={rows}
+                                disabled={disabled}
+                                value={value}
+                                onPickerChange={onPickerChange}
+                                itemStyle={itemStyle}
+                                clickable={clickable}
+                                hideEmptyCols={hideEmptyCols}
+                                touchToStop={touchToStop}
+                            />
+                        </div>
+                    </Popup>
+                </>
             )}
         </ContextLayout>
     );

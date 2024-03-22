@@ -31,6 +31,20 @@ interface IFromItemInnerState {
     _touched: boolean;
 }
 
+export function DefaultPickerLinkedContainer({ value }: { value: (string | number)[] }) {
+    const { prefixCls, locale } = useContext(GlobalContext);
+    const className = `${prefixCls}-form-picker-link-container`;
+    return (
+        <div className={className}>
+            {value && value.length ? (
+                value.join('-')
+            ) : (
+                <span className={`${className}-placeholder`}>{locale?.Form.pickerDefaultHint}</span>
+            )}
+        </div>
+    );
+}
+
 class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerState> {
     // eslint-disable-next-line react/static-property-placement
     context!: React.ContextType<typeof FormItemContext>;
@@ -181,15 +195,21 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
             case FormInternalComponentType.DatePicker:
                 props = {
                     currentTs: getFieldValue(field),
-                    onChange: this.innerTriggerFunction,
+                    onChange: this.innerTriggerFunctionWithValueFirst,
                     disabled: this.props.disabled,
+                    renderLinkedContainer:
+                        children.props?.renderLinkedContainer ||
+                        (val => <DefaultPickerLinkedContainer value={val} />),
                 };
                 break;
             case FormInternalComponentType.Picker:
                 props = {
-                    data: getFieldValue(field),
-                    onPickerChange: this.innerTriggerFunction,
+                    value: getFieldValue(field),
+                    onChange: this.innerTriggerFunctionWithValueFirst,
                     disabled: this.props.disabled,
+                    renderLinkedContainer:
+                        children.props?.renderLinkedContainer ||
+                        (val => <DefaultPickerLinkedContainer value={val} />),
                 };
                 break;
 

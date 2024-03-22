@@ -717,6 +717,122 @@ exports[`tabs demo test tabs demo: extra.md renders correctly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`tabs demo test tabs demo: resize.md renders correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+    type="button"
+  >
+    <div
+      class="arco-button-text arco-button-text-pc btn-text"
+    >
+      Click to enlarge font size
+    </div>
+  </button>
+  <div
+    class="arco-tabs arco-tabs-top arco-tabs-vertical all-border-box"
+  >
+    <div
+      class="arco-tab-cell-container-wrap vertical type-line pc"
+    >
+      <div
+        class="arco-tab-cell-container-inner vertical pos-top type-line pc"
+      >
+        <div
+          class="arco-tab-cell-container vertical pos-top arrange-start type-line"
+        >
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px; margin-left: 22px;"
+          >
+            Example1
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example2
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example3
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc active no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example4
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example5
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink"
+            style="margin-right: 42px;"
+          >
+            Example6
+          </div>
+          <div
+            class="arco-tab-cell vertical line pc no-shrink last"
+          >
+            Example7
+          </div>
+          <div
+            class="fake-padding"
+            style="width: 64px; height: 100%;"
+          />
+          <div
+            class="arco-tab-cell-underline"
+            style="transition-duration: 0ms; transform: translateX(0px);"
+          >
+            <div
+              class="arco-tab-cell-underline-inner vertical"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="arco-tab-pane-container vertical mode-swipe"
+      style="width: 700%; transform: translateX(0px); transition-duration: 0ms;"
+    >
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      >
+        <div
+          class="demo-tab-content"
+        >
+          Content area
+        </div>
+      </div>
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`tabs demo test tabs demo: scroll.md renders correctly 1`] = `
 <DocumentFragment>
   <div

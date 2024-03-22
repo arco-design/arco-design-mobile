@@ -386,6 +386,19 @@
                     "en": "Jump directly to the current most recent line (will break scrolling when called)"
                 },
                 "descWithTags": "直接跳到当前最近一行（调用时将中断滚动）"
+            },
+            "getAllColumnData": {
+                "name": "getAllColumnData",
+                "required": true,
+                "description": "获取所有列的 data\n@en Get all column data",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => PickerData[]"
+                },
+                "tags": {
+                    "en": "Get all column data"
+                },
+                "descWithTags": "获取所有列的 data"
             }
         },
         "PickerCellMovingStatus": "\"normal\" | \"moving\" | \"scrolling\""

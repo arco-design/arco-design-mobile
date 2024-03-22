@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import { cls, scrollWithAnimation, nextTick } from '@arco-design/mobile-utils';
 import { TabData, TabCellProps, TabCellRef, TabCellUnderlineRef, OffsetRect } from './type';
-import { useSystem } from '../_helpers';
+import { useSystem, useUpdateEffect } from '../_helpers';
 import TabCellUnderline from './tab-cell-underline';
 import { GlobalContext } from '../context-provider';
 
@@ -73,6 +73,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     const [originArrange, setOriginArrange] = useState(() =>
         tabs.length < overflowThreshold ? tabBarArrange : 'start',
     );
+    const [forceUpdate, setForceUpdate] = useState<boolean>(false);
     // 默认tab小于overflowThreshold个时不开启加载前隐藏，大于overflowThreshold个时开启
     const [showTab, setShowTab] = useState(() =>
         hideTabBarBeforeMounted === void 0
@@ -92,6 +93,19 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     const wrapSize = isVertical ? wrapWidth : wrapHeight;
 
     const system = useSystem();
+
+    const updateScrollPosition = () => {
+        if (wrapSize && tabBarScrollChance !== 'none') {
+            setTimeout(
+                () => {
+                    scrollToCenter();
+                },
+                tabBarScrollChance === 'after-jump'
+                    ? Math.max(transitionDuration || 0, duration || 0)
+                    : 0,
+            );
+        }
+    };
 
     useEffect(() => {
         nextTick(() => {
@@ -119,31 +133,15 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         tabDirection,
     ]);
 
-    useImperativeHandle(
-        ref,
-        () => ({
-            dom: domRef.current,
-            scrollTo,
-            scrollToCenter,
-            hasOverflow,
-            setCaterpillarAnimate: ratio => underlineRef.current?.setCaterpillarAnimate(ratio),
-            resetUnderlineStyle: () => underlineRef.current?.resetUnderlineStyle(),
-        }),
-        [scrollToCenter, scrollTo, hasOverflow],
-    );
-
     useEffect(() => {
-        if (wrapSize && tabBarScrollChance !== 'none') {
-            setTimeout(
-                () => {
-                    scrollToCenter();
-                },
-                tabBarScrollChance === 'after-jump'
-                    ? Math.max(transitionDuration || 0, duration || 0)
-                    : 0,
-            );
-        }
+        updateScrollPosition();
     }, [activeIndex, wrapSize]);
+
+    useUpdateEffect(() => {
+        setCellOverflow();
+        underlineRef.current?.resetUnderlineStyle();
+        updateScrollPosition();
+    }, [forceUpdate]);
 
     useEffect(() => {
         tabBarScrollChance !== 'none' && scrollToCenter(true);
@@ -275,7 +273,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         return typeof tab === 'string' ? tab : tab.title;
     }
 
-    function renderTabUnderline() {
+    const renderTabUnderline = () => {
         if (!showUnderline || !isLine) {
             return null;
         }
@@ -308,7 +306,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
                 {...lineProps}
             />
         );
-    }
+    };
 
     const cellInner = (
         <>
@@ -358,6 +356,24 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
                 />
             ) : null}
         </>
+    );
+
+    const updateLayout = () => {
+        setForceUpdate(val => !val);
+    };
+
+    useImperativeHandle(
+        ref,
+        () => ({
+            dom: domRef.current,
+            scrollTo,
+            scrollToCenter,
+            hasOverflow,
+            setCaterpillarAnimate: ratio => underlineRef.current?.setCaterpillarAnimate(ratio),
+            resetUnderlineStyle: () => underlineRef.current?.resetUnderlineStyle(),
+            updateLayout: () => updateLayout(),
+        }),
+        [scrollToCenter, scrollTo, hasOverflow],
     );
 
     return (

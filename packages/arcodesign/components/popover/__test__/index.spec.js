@@ -1,26 +1,31 @@
 import React, { createRef } from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { act, fireEvent, render, screen as rtlScreen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
-import { mockElementProperty } from '../../../tests/helpers/mockElement';
+import { mockElementProperty, defineProperties } from '../../../tests/helpers/mockElement';
 import { eventCommonProps, mockAddListener } from '../../../tests/helpers/mockEvent';
 import Popover from '..';
 import Button from '../../button';
+import '@testing-library/jest-dom';
 
-demoTest('popover');
+demoTest('popover', { useFakeTimers: true });
 
 mountTest(Popover, 'Popover');
 
 const prefix = `${defaultContext.prefixCls}-popover`;
 
-function clickButton(wrapper, event = 'click') {
-    wrapper.find('button').simulate(event);
+async function clickButton(event = 'click') {
+    const btn = rtlScreen.getByRole('button');
+    if (event === 'touchstart') {
+        fireEvent.touchStart(btn);
+    } else {
+        await userEvent.click(btn);
+    }
     act(() => {
         jest.advanceTimersByTime(800);
     });
-    wrapper.update();
 }
 
 function mockPopoverSize(ref, width, height) {
@@ -32,21 +37,20 @@ function mockPopoverSize(ref, width, height) {
     mockElementProperty(content, 'offsetHeight', height);
 }
 
-function checkHasPopoverInner(wrapper) {
-    expect(wrapper.find(`.${prefix}-inner`)).toHaveLength(1);
+function checkHasPopoverInner() {
+    expect(document.querySelectorAll(`.${prefix}-inner`)).toHaveLength(1);
 }
 
-function checkHasNoPopoverInner(wrapper) {
-    expect(wrapper.find(`.${prefix}-inner`)).toHaveLength(0);
+function checkHasNoPopoverInner() {
+    expect(document.querySelectorAll(`.${prefix}-inner`)).toHaveLength(0);
 }
 
-function updatePopoverPosition(wrapper, ref) {
+function updatePopoverPosition(ref) {
     const { updatePosition } = ref.current;
     expect(typeof updatePosition).toBe('function');
     act(() => {
         updatePosition();
     });
-    wrapper.update();
 }
 
 describe('Popover', () => {
@@ -58,10 +62,10 @@ describe('Popover', () => {
         jest.useRealTimers();
     });
 
-    it('should open and close popover correctly', () => {
+    it('should open and close popover correctly', async () => {
         const onChange = jest.fn();
         const ref = createRef();
-        const wrapper = mount(
+        const { rerender } = render(
             <Popover
                 content="Bubble"
                 onChange={onChange}
@@ -75,88 +79,127 @@ describe('Popover', () => {
             </Popover>,
         );
         const map = mockAddListener(document.body);
-        checkHasNoPopoverInner(wrapper);
-        clickButton(wrapper);
+        checkHasNoPopoverInner();
+        await clickButton();
         mockPopoverSize(ref, 100, 60);
-        updatePopoverPosition(wrapper, ref);
+        updatePopoverPosition(ref);
         expect(onChange.mock.calls).toHaveLength(1);
         expect(onChange.mock.calls[0]).toEqual([true]);
-        checkHasPopoverInner(wrapper);
-        expect(wrapper.find('.popover-content')).toHaveLength(1);
-        expect(wrapper.find(`.${prefix}-inner`).hasClass('with-suffix')).toBe(true);
-        expect(wrapper.find('.content-text')).toHaveLength(1);
-        expect(wrapper.find('.text-close-icon')).toHaveLength(1);
-        expect(wrapper.find('.text-suffix')).toHaveLength(1);
+        checkHasPopoverInner();
+        expect(document.querySelectorAll('.popover-content')).toHaveLength(1);
+        expect(document.querySelector(`.${prefix}-inner`)).toHaveClass('with-suffix');
+        expect(document.querySelectorAll('.content-text')).toHaveLength(1);
+        expect(document.querySelectorAll('.text-close-icon')).toHaveLength(1);
+        expect(document.querySelectorAll('.text-suffix')).toHaveLength(1);
 
         // should not close when clickSelfToClose=false and click button
-        clickButton(wrapper);
+        await clickButton();
         expect(onChange.mock.calls).toHaveLength(1);
-        checkHasPopoverInner(wrapper);
+        checkHasPopoverInner();
 
         // should close when clickSelfToClose=true and click button
-        wrapper.setProps({
-            clickSelfToClose: true,
-            clickOtherToClose: true,
-            preventBodyClick: true,
-        });
-        clickButton(wrapper);
+        rerender(
+            <Popover
+                content="Bubble"
+                onChange={onChange}
+                showCloseIcon
+                textSuffix="suffix"
+                clickSelfToClose
+                clickOtherToClose
+                preventBodyClick
+                ref={ref}
+                direction="topRight"
+            >
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
         expect(onChange.mock.calls).toHaveLength(2);
         expect(onChange.mock.calls[1]).toEqual([false]);
-        checkHasNoPopoverInner(wrapper);
+        checkHasNoPopoverInner();
 
         // should close when clickOtherToClose=true and click body
-        clickButton(wrapper);
-        checkHasPopoverInner(wrapper);
+        await clickButton();
+        checkHasPopoverInner();
         act(() => {
             map.click({ target: document.body, ...eventCommonProps });
             jest.advanceTimersByTime(800);
         });
-        wrapper.update();
-        checkHasNoPopoverInner(wrapper);
+        checkHasNoPopoverInner();
 
         // should not close when touchToClose=true and button's click event triggered
-        wrapper.setProps({ touchToClose: true });
-        clickButton(wrapper);
-        checkHasPopoverInner(wrapper);
-        clickButton(wrapper);
-        checkHasPopoverInner(wrapper);
+        rerender(
+            <Popover
+                content="Bubble"
+                onChange={onChange}
+                showCloseIcon
+                textSuffix="suffix"
+                clickSelfToClose
+                clickOtherToClose
+                preventBodyClick
+                touchToClose
+                ref={ref}
+                direction="topRight"
+            >
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        checkHasPopoverInner();
+        await clickButton();
+        checkHasPopoverInner();
 
         // should not close when touchToClose=true and button's touchstart event triggered
-        clickButton(wrapper, 'touchstart');
-        checkHasNoPopoverInner(wrapper);
+        await clickButton('touchstart');
+        checkHasNoPopoverInner();
 
         // should support touch body to close
-        clickButton(wrapper);
-        checkHasPopoverInner(wrapper);
+        await clickButton();
+        checkHasPopoverInner();
         act(() => {
             map.touchstart({ targetTouches: [{ target: document.body }] });
             map.click({ target: document.body, ...eventCommonProps });
             jest.advanceTimersByTime(800);
         });
-        wrapper.update();
-        checkHasNoPopoverInner(wrapper);
+        checkHasNoPopoverInner();
 
         // should support the property `duration`
-        wrapper.setProps({ duration: 1000 });
-        clickButton(wrapper);
-        checkHasPopoverInner(wrapper);
+        rerender(
+            <Popover
+                content="Bubble"
+                onChange={onChange}
+                showCloseIcon
+                textSuffix="suffix"
+                clickSelfToClose
+                clickOtherToClose
+                preventBodyClick
+                touchToClose
+                ref={ref}
+                direction="topRight"
+                duration={1000}
+            >
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        checkHasPopoverInner();
         act(() => {
             jest.advanceTimersByTime(2000);
         });
-        wrapper.update();
-        checkHasNoPopoverInner(wrapper);
+        checkHasNoPopoverInner();
     });
 
-    it('should adjust itself correctly when shown on the edge', () => {
+    it('should adjust itself correctly when shown on the bottom edge', async () => {
         const ref = createRef();
-        const wrapper = mount(
+        const { rerender } = render(
             <Popover content="Bubble" ref={ref} direction="bottomCenter">
                 <Button>Button</Button>
             </Popover>,
         );
-        clickButton(wrapper);
+        await clickButton();
         mockElementProperty(screen, 'availWidth', 375);
-        window.innerHeight = 700;
+        const { setProperties, unsetProperties } = defineProperties(window, { innerHeight: 700 });
+        setProperties();
         const { child } = ref.current;
         expect(typeof child).toBe('object');
         // bottom overflow
@@ -169,8 +212,30 @@ describe('Popover', () => {
             width: 90,
             height: 90,
         }));
-        updatePopoverPosition(wrapper, ref);
-        expect(wrapper.find('.popover-content').hasClass('topCenter')).toBe(true);
+        updatePopoverPosition(ref);
+        expect(document.querySelector('.popover-content')).toHaveClass('topCenter');
+        rerender(
+            <Popover content="Bubble" ref={ref} direction="topLeft" mode="global">
+                <Button>Button</Button>
+            </Popover>,
+        );
+        expect(document.querySelector(`.${prefix}-inner`)).toHaveClass('global-mode');
+        unsetProperties();
+    });
+
+    it('should adjust itself correctly when shown on the top edge', async () => {
+        const ref = createRef();
+        render(
+            <Popover content="Bubble" ref={ref} direction="topLeft">
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        mockElementProperty(screen, 'availWidth', 375);
+        const { setProperties, unsetProperties } = defineProperties(window, { innerHeight: 700 });
+        setProperties();
+        const { child } = ref.current;
+        expect(typeof child).toBe('object');
         // top overflow
         mockPopoverSize(ref, 375, 100);
         child.getBoundingClientRect = jest.fn(() => ({
@@ -181,17 +246,15 @@ describe('Popover', () => {
             width: 90,
             height: 90,
         }));
-        wrapper.setProps({ direction: 'topLeft' });
-        wrapper.update();
-        expect(wrapper.find('.popover-content').hasClass('bottomLeft')).toBe(true);
-        wrapper.setProps({ mode: 'global' });
-        expect(wrapper.find(`.${prefix}-inner`).hasClass('global-mode')).toBe(true);
+        updatePopoverPosition(ref);
+        expect(document.querySelector('.popover-content')).toHaveClass('bottomLeft')
+        unsetProperties();
     });
 
-    it('should support Popover.Menu', () => {
+    it('should support Popover.Menu', async () => {
         const onChange = jest.fn();
         const onSelect = jest.fn();
-        const wrapper = mount(
+        const { rerender } = render(
             <Popover.Menu
                 onChange={onChange}
                 onSelect={onSelect}
@@ -217,19 +280,21 @@ describe('Popover', () => {
                 <Button>Button</Button>
             </Popover.Menu>,
         );
-        clickButton(wrapper);
-        checkHasPopoverInner(wrapper);
-        expect(wrapper.find(`.${prefix}-menu-content`)).toHaveLength(1);
-        expect(wrapper.find(`.${prefix}-menu-item`)).toHaveLength(4);
-        expect(wrapper.find(`.${prefix}-menu-item`).at(1).hasClass('disabled')).toBe(true);
+        await clickButton();
+        checkHasPopoverInner();
+        expect(document.querySelectorAll(`.${prefix}-menu-content`)).toHaveLength(1);
+        expect(document.querySelectorAll(`.${prefix}-menu-item`)).toHaveLength(4);
+        expect(document.querySelectorAll(`.${prefix}-menu-item`)[1]).toHaveClass('disabled');
         expect(
-            wrapper.find(`.${prefix}-menu-item`).at(2).find(`.${prefix}-menu-icon`),
+            document
+                .querySelectorAll(`.${prefix}-menu-item`)[2]
+                .querySelectorAll(`.${prefix}-menu-icon`),
         ).toHaveLength(1);
         // disabled item cannot trigger onSelect
-        wrapper.find(`.${prefix}-menu-item`).at(1).simulate('click');
+        await userEvent.click(document.querySelectorAll(`.${prefix}-menu-item`)[1]);
         expect(onSelect.mock.calls).toHaveLength(0);
-        wrapper.find(`.${prefix}-menu-item`).at(0).simulate('touchstart');
-        wrapper.find(`.${prefix}-menu-item`).at(0).simulate('click');
+        await fireEvent.touchStart(document.querySelector(`.${prefix}-menu-item`));
+        await userEvent.click(document.querySelector(`.${prefix}-menu-item`));
         expect(onSelect.mock.calls).toHaveLength(1);
         expect(onSelect.mock.calls[0]).toEqual([
             'first',
@@ -239,19 +304,41 @@ describe('Popover', () => {
             },
         ]);
         expect(onChange.mock.calls).toHaveLength(1);
-        wrapper.setProps({
-            useClickStatus: true,
-            clickStatusDuration: 500,
-            clickSelfToClose: true,
-        });
-        wrapper.find(`.${prefix}-menu-item`).at(2).simulate('touchstart');
-        wrapper.find(`.${prefix}-menu-item`).at(2).simulate('click');
-        expect(wrapper.find(`.${prefix}-menu-item`).at(2).hasClass('active')).toBe(true);
+        rerender(
+            <Popover.Menu
+                onChange={onChange}
+                onSelect={onSelect}
+                menu={[
+                    {
+                        value: 'first',
+                        text: 'Menu 1',
+                    },
+                    {
+                        text: 'Menu 2',
+                        disabled: true,
+                    },
+                    {
+                        text: 'Menu 3',
+                        icon: <div />,
+                    },
+                    'Menu 4',
+                ]}
+                theme="white"
+                key="vertical"
+                clickSelfToClose
+                useClickStatus
+                clickStatusDuration={500}
+            >
+                <Button>Button</Button>
+            </Popover.Menu>,
+        );
+        await fireEvent.touchStart(document.querySelectorAll(`.${prefix}-menu-item`)[2]);
+        await userEvent.click(document.querySelectorAll(`.${prefix}-menu-item`)[2]);
+        expect(document.querySelectorAll(`.${prefix}-menu-item`)[2]).toHaveClass('active');
         act(() => {
             jest.advanceTimersByTime(600);
         });
-        wrapper.update();
-        expect(wrapper.find(`.${prefix}-menu-item`)).toHaveLength(0);
+        expect(document.querySelectorAll(`.${prefix}-menu-item`)).toHaveLength(0);
         expect(onChange.mock.calls).toHaveLength(2);
         expect(onChange.mock.calls[1]).toEqual([false]);
     });
