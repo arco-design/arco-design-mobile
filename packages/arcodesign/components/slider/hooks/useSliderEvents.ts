@@ -73,7 +73,7 @@ export const useSliderEvents = ({
     const setCommonValue = useMemo(() => {
         const start = getValueFromPosition(touchStartPosition);
         if (!Array.isArray(valueGroup)) {
-            if (isTouching) {
+            if (isTouching !== IsTouchingStatus.Idle) {
                 setValueGroup(start);
                 setCommonIsTouching(0);
                 setIsTouching(IsTouchingStatus.Moving);
@@ -93,7 +93,7 @@ export const useSliderEvents = ({
                 return newValueGroup;
             });
         };
-        if (isTouching) {
+        if (isTouching !== IsTouchingStatus.Idle) {
             setCommonIsTouching(index);
             handleValue(start);
             setIsTouching(IsTouchingStatus.Moving);

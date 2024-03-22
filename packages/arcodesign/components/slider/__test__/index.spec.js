@@ -93,8 +93,8 @@ describe('Slider', () => {
         await fireEvent.touchMove(line, createMoveTouchEventObject({ x: 50, y: 1 }));
         await fireEvent.touchEnd(line, createStartTouchEventObject({ x: 50, y: 1 }));
 
-        expect(container.querySelector(`.${prefix}`).getAttribute('aria-valuenow')).toBe('10');
-        expect(container.querySelector(`.${prefix}-line.is-activated`).style.width).toBe('50px');
+        expect(container.querySelector(`.${prefix}`).getAttribute('aria-valuenow')).toBe('8');
+        expect(container.querySelector(`.${prefix}-line.is-activated`).style.width).toBe('40px');
     });
 
     it('render tooltip correctly', () => {

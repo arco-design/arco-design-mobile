@@ -4,7 +4,7 @@ import { SliderContext } from '.';
 export const useSliderInit = ({ commonIsTouching }: { commonIsTouching: number }) => {
     const ctx = useContext(SliderContext);
     const { value, min, max, onAfterChange, onChange, useMarkOnly, marks, useRange } = ctx;
-    const baseValue = ctx?.value ?? ctx?.defaultValue ?? min;
+    const baseValue = value ?? ctx?.defaultValue ?? min;
     const [valueGroup, setValueGroup] = useState<number | [number, number]>(baseValue);
     const [firstRender, setFirstRender] = useState(false);
     const [firstTouch, setFirstTouch] = useState(false);
@@ -118,21 +118,6 @@ export const useSliderInit = ({ commonIsTouching }: { commonIsTouching: number }
     }, [isMultiThumb]);
 
     /**
-     * 监听数据 value 变化
-     * @en Monitor data value changes
-     */
-    useEffect(() => {
-        if (value === void 0 || !firstRender || commonIsTouching !== -1) return;
-        const newValue =
-            isMultiThumb && typeof value === 'number'
-                ? formatMarksValue([value, value])
-                : formatMarksValue(value);
-        setValueGroup(newValue);
-        // 如果受控需要还原
-        // @en If controlled, it needs to restore
-    }, [firstRender && value, commonIsTouching]);
-
-    /**
      * 上报排序后的值
      * @en report sorted value
      */
@@ -153,10 +138,6 @@ export const useSliderInit = ({ commonIsTouching }: { commonIsTouching: number }
         if (!firstTouch) return;
         if (commonIsTouching === -1) {
             onAfterChange(formatMarksValue(formatValueGroup));
-            if (value === void 0) {
-                const newValue = formatMarksValue(valueGroup);
-                setValueGroup(newValue);
-            }
         }
     }, [commonIsTouching, formatMarksValue]);
 

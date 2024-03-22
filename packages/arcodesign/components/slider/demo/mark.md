@@ -6,6 +6,7 @@
 import { Slider } from '@arco-design/mobile-react';
 
 export default function SliderDemo() {
+    const [fontSize, setFontSize] = React.useState(0);
     return (
         <Slider
             showMarks
