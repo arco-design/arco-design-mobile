@@ -9,15 +9,11 @@ export default function SliderDemo() {
     const [fontSize, setFontSize] = React.useState(0);
     return (
         <Slider
-            showTooltip="never"
-            value={fontSize}
-            marks={[0, 1, 2]}
-            max={2}
-            onAfterChange={(value) => {
-                if (typeof value === 'number') {
-                    setFontSize(value);
-                }
-            }}
+            showMarks
+            useMarkOnly
+            max={20}
+            marks={[0, 5, 10, 15, 20]}
+            defaultValue={5}
         />
     );
 }
