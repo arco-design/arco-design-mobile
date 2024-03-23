@@ -5,7 +5,7 @@ export interface FileItem {
      * 文件地址
      * @en file Url
      */
-    url: string;
+    url?: string;
     /**
      * 文件
      * @en File

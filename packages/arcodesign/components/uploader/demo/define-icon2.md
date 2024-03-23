@@ -6,10 +6,21 @@
 import { Uploader, CircleProgress } from '@arco-design/mobile-react';
 import IconDownload from '@arco-design/mobile-react/esm/icon/IconDownload';
 
-export default function UploaderDemo() {
-    const [files, setFiles] = React.useState([]);
+const mimeType = 'text/plain';
+const blob = new Blob([''], { type: mimeType });
+const file = new File([blob], 'employeelist.doc', {
+    type: mimeType,
+    lastModified: new Date().getTime(),
+});
 
-    const loadedArea = () => <IconDownload />;
+export default function UploaderDemo() {
+    const [files, setFiles] = React.useState([
+        { file, status: 'loaded' },
+        { file, status: 'loading' },
+        { file, status: 'error' },
+    ]);
+
+    const loadedArea = () => <IconDownload className="upload-loaded" />;
     const loadingArea = () => <CircleProgress size="mini" percentage={25} radius={8} />;
     const errorArea = () => {
         return (
@@ -23,7 +34,7 @@ export default function UploaderDemo() {
         <Uploader
             files={files}
             onChange={setFiles}
-            renderLoadedArea={loadingArea}
+            renderLoadedArea={loadedArea}
             renderLoadingArea={loadingArea}
             renderErrorArea={errorArea}
         />
@@ -40,7 +51,7 @@ export default function UploaderDemo() {
     color: rgba(245, 63, 63, 1);
 }
 
-.upload-loading {
-    font-size: 16px;
+.upload-loaded {
+    color: rgba(78, 89, 105, 1);
 }
 ```

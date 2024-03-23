@@ -177,6 +177,18 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
     };
 
     const getUploadList = prefixCls => {
+        const generateItemArea = (fileItem, index, render, part, defaultArea) => {
+            if (render) {
+                const node = render(fileItem, index);
+                return node ? (
+                    <div className={`${prefixCls}-uploader-list-item-${part}`}>{node}</div>
+                ) : (
+                    node
+                );
+            }
+            return <div className={`${prefixCls}-uploader-list-item-${part}`}>{defaultArea}</div>;
+        };
+
         return (
             (renderFileList && renderFileList({ retryUpload, deleteFile })) || (
                 <div className={`${prefixCls}-uploader-list`}>
@@ -190,12 +202,13 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                         onClick={e => onClick && onClick(e, fileItem, index)}
                                     >
                                         <div className={`${prefixCls}-uploader-list-item-wrapper`}>
-                                            <div className={`${prefixCls}-uploader-list-item-file`}>
-                                                {(renderFileIndexArea &&
-                                                    renderFileIndexArea(fileItem, index)) || (
-                                                    <IconFile />
-                                                )}
-                                            </div>
+                                            {generateItemArea(
+                                                fileItem,
+                                                index,
+                                                renderFileIndexArea,
+                                                'file',
+                                                <IconFile />,
+                                            )}
                                             <div
                                                 className={cls(
                                                     `${prefixCls}-uploader-list-item-text`,
@@ -213,32 +226,29 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                                 className={`${prefixCls}-uploader-list-item-status`}
                                             >
                                                 {status === 'loaded' &&
-                                                    ((renderLoadedArea &&
-                                                        renderLoadedArea(fileItem, index)) || (
-                                                        <div
-                                                            className={`${prefixCls}-uploader-list-item-loaded`}
-                                                        >
-                                                            <IconCheck />
-                                                        </div>
-                                                    ))}
+                                                    generateItemArea(
+                                                        fileItem,
+                                                        index,
+                                                        renderLoadedArea,
+                                                        'loaded',
+                                                        <IconCheck />,
+                                                    )}
                                                 {status === 'loading' &&
-                                                    ((renderLoadingArea &&
-                                                        renderLoadingArea(fileItem, index)) || (
-                                                        <div
-                                                            className={`${prefixCls}-uploader-list-item-loading`}
-                                                        >
-                                                            <Loading type="arc" radius={8} />
-                                                        </div>
-                                                    ))}
+                                                    generateItemArea(
+                                                        fileItem,
+                                                        index,
+                                                        renderLoadingArea,
+                                                        'loading',
+                                                        <Loading type="circle" radius={8} />,
+                                                    )}
                                                 {status === 'error' && (
                                                     <div onClick={() => retryUpload(index)}>
-                                                        {(renderErrorArea &&
-                                                            renderErrorArea(fileItem, index)) || (
-                                                            <span
-                                                                className={`${prefixCls}-uploader-list-item-error`}
-                                                            >
-                                                                点击重试
-                                                            </span>
+                                                        {generateItemArea(
+                                                            fileItem,
+                                                            index,
+                                                            renderErrorArea,
+                                                            'error',
+                                                            <span>点击重试</span>,
                                                         )}
                                                     </div>
                                                 )}

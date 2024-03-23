@@ -6,25 +6,48 @@
 import { Uploader, Loading, Image } from '@arco-design/mobile-react';
 import IconCheck from '@arco-design/mobile-react/esm/icon/IconCheck';
 import IconDelete from '@arco-design/mobile-react/esm/icon/IconDelete';
+import IconWarnCircle from '@arco-design/mobile-react/esm/icon/IconWarnCircle';
 import { cls } from '@arco-design/mobile-utils';
 
+const mimeType = 'text/plain';
+const blob = new Blob([''], { type: mimeType });
+const file = new File([blob], 'user.png', {
+    type: mimeType,
+    lastModified: new Date().getTime(),
+});
+
 export default function UploaderDemo() {
-    const [files, setFiles] = React.useState([]);
+    const [files, setFiles] = React.useState([
+        {
+            file,
+            status: 'loaded',
+            url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
+        },
+        {
+            file,
+            status: 'loading',
+            url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
+        },
+        { file, status: 'error' },
+    ]);
 
     const fileList = fileListMethods => {
         return (
             <div className={`demo-uploader-list`}>
                 {files.map((fileItem, index) => {
-                    const { file, status } = fileItem;
+                    const { file, status, url } = fileItem;
                     return (
                         <div className={`demo-uploader-list-item`} key={index}>
-                            <Image className={`demo-uploader-list-item-image`} src={fileItem.url} />
+                            <Image className={`demo-uploader-list-item-image`} src={url} />
                             <div
                                 className={cls(`demo-uploader-list-item-text`, {
                                     [`demo-uploader-list-item-text-error`]: status === 'error',
                                 })}
                             >
-                                {file.name}
+                                <span>{file.name}</span>
+                                {status === 'error' && (
+                                    <IconWarnCircle className={`demo-uploader-list-item-warning`} />
+                                )}
                             </div>
                             <div className={`demo-uploader-list-item-status`}>
                                 {status === 'loaded' && (
@@ -34,13 +57,13 @@ export default function UploaderDemo() {
                                 )}
                                 {status === 'loading' && (
                                     <div className={`demo-uploader-list-item-loading`}>
-                                        <Loading type="arc" radius={8} />
+                                        <Loading type="circle" radius={8} />
                                     </div>
                                 )}
                                 {status === 'error' && (
                                     <div onClick={() => fileListMethods.retryUpload(index)}>
                                         <span className={`demo-uploader-list-item-error`}>
-                                            点击重试
+                                            重试
                                         </span>
                                     </div>
                                 )}
@@ -72,6 +95,7 @@ export default function UploaderDemo() {
         display: flex;
         align-items: center;
         margin-top: 16px;
+        border: solid 0.5px rgba(229, 230, 235, 1);
         &-image {
             width: 56px;
             height: 56px;
@@ -83,27 +107,30 @@ export default function UploaderDemo() {
             font-weight: 400;
             flex: 1;
             margin-left: 12px;
+            display: flex;
+            align-items: center;
             &-error {
                 color: rgba(245, 63, 63, 1);
             }
         }
+        &-warning {
+            line-height: 0;
+            margin-left: 12px;
+        }
         &-loaded {
             line-height: 0;
-            .use-var(font-size, uploader-loaded-icon-font-size);
-            .use-var(color, success-color);
+            font-size: 16px;
+            color: #00b42a;
         }
         &-error {
-            .use-var(font-size, uploader-error-text-font-size);
-            .use-var(color, primary-color);
+            font-size: 12px;
+            color: rgba(245, 63, 63, 1);
             font-weight: 400;
         }
         &-delete {
             line-height: 0;
             margin: 12px;
-            .use-var(font-size, uploader-delete-icon-font-size);
-            &-disabled {
-                .use-var(color, uploader-disabled-delete-icon-color);
-            }
+            font-size: 16px;
         }
     }
 }
