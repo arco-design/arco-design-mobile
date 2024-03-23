@@ -1,6 +1,6 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { Promise } from 'es6-promise';
-import { cls, componentWrapper } from '@arco-design/mobile-utils';
+import { cls, defaultLocale, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Button from '../button';
 import { AdapterFile, UploaderRef, UploaderProps, FileItem } from './type';
@@ -132,6 +132,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
         onChange(files.filter((_i, j) => j !== index));
     };
 
+    // 重新上传
     const retryUpload = (index: number) => {
         deleteFile(index);
         handleFile([files[index].file]);
@@ -148,7 +149,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
         }
     };
 
-    const uploaderSelect = prefixCls => {
+    const uploaderSelect = (prefixCls, locale) => {
         const showSelect = files.length < (limit || Infinity);
         return (
             (showSelect || alwaysShowSelect) && (
@@ -168,7 +169,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                             icon={<IconUpload />}
                             disabled={disabled}
                         >
-                            点击上传
+                            {locale.Uploader.uploadBtn}
                         </Button>
                     )}
                 </div>
@@ -176,7 +177,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
         );
     };
 
-    const getUploadList = prefixCls => {
+    const getUploadList = (prefixCls, locale) => {
         const generateItemArea = (fileItem, index, render, part, defaultArea) => {
             if (render) {
                 const node = render(fileItem, index);
@@ -248,7 +249,9 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                                             index,
                                                             renderErrorArea,
                                                             'error',
-                                                            <span>点击重试</span>,
+                                                            <span>
+                                                                {locale.Uploader.retryUpload}
+                                                            </span>,
                                                         )}
                                                     </div>
                                                 )}
@@ -276,7 +279,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
 
     return (
         <ContextLayout>
-            {({ prefixCls }) => (
+            {({ prefixCls, locale = defaultLocale }) => (
                 <div
                     className={cls(`${prefixCls}-uploader`, className, {
                         [`${prefixCls}-uploader-disabled`]: disabled,
@@ -285,8 +288,8 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                     ref={domRef}
                 >
                     <div className={`${prefixCls}-uploader-container`}>
-                        {uploaderSelect(prefixCls)}
-                        {getUploadList(prefixCls)}
+                        {uploaderSelect(prefixCls, locale)}
+                        {getUploadList(prefixCls, locale)}
                     </div>
                 </div>
             )}
