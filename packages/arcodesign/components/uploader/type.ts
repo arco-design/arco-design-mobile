@@ -25,7 +25,7 @@ export interface AdapterFile {
     name: string;
 }
 export interface SelectCallback {
-    adapterFiles: AdapterFile[];
+    files: AdapterFile[];
 }
 export interface UploaderProps {
     /**

@@ -142,8 +142,8 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
         if (e.target !== fileRef.current) {
             onUploadClick && onUploadClick();
             selectAdapter
-                ? selectAdapter().then(({ adapterFiles }) =>
-                      handleChange({ target: { adapterFiles } }, true),
+                ? selectAdapter().then(value =>
+                      handleChange({ target: { files: value.files } }, true),
                   )
                 : fileRef.current?.click();
         }
@@ -197,11 +197,12 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                         (fileItem, index) => {
                             const { file, status } = fileItem;
                             return (
-                                <div className={`${prefixCls}-uploader-list-item`} key={index}>
-                                    <div
-                                        className={`${prefixCls}-uploader-list-item-container`}
-                                        onClick={e => onClick && onClick(e, fileItem, index)}
-                                    >
+                                <div
+                                    className={`${prefixCls}-uploader-list-item`}
+                                    key={index}
+                                    onClick={onClick && (e => onClick(e, fileItem, index))}
+                                >
+                                    <div className={`${prefixCls}-uploader-list-item-container`}>
                                         <div className={`${prefixCls}-uploader-list-item-wrapper`}>
                                             {generateItemArea(
                                                 fileItem,
