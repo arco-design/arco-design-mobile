@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
@@ -23,16 +23,16 @@ describe('Steps', () => {
         }, {
             title: '完成',
         }]
-        const component = mount(<Steps current={1} items={items} />);
-        const beforeNode = component.find(`.${prefix}-item`).first();
-        expect(beforeNode.hasClass('finish')).toBe(true);
-        expect(beforeNode.find('.finish-bg-color-with-config').length).toBe(1);
-        expect(beforeNode.find('svg').hasClass(`${iconPrefix}-check-bold`)).toBe(true);
-        const currentNode = component.find(`.${prefix}-item`).at(1);
-        expect(currentNode.hasClass('process')).toBe(true);
-        expect(currentNode.find('.process-bg-color-with-config').length).toBe(1);
-        expect(currentNode.find('span').hasClass(`${prefix}-item-icon-num`)).toBe(true);
-        expect(currentNode.text()).toBe('2进行中');
+        const { container } = render(<Steps current={1} items={items} />);
+        const beforeNode = container.querySelector(`.${prefix}-item`);
+        expect(beforeNode.classList.contains('finish')).toBe(true);
+        expect(beforeNode.querySelector('.finish-bg-color-with-config')).toBeTruthy();
+        expect(beforeNode.querySelector('svg').classList.contains(`${iconPrefix}-check-bold`)).toBe(true);
+        const currentNode = container.querySelectorAll(`.${prefix}-item`)[1];
+        expect(currentNode.classList.contains('process')).toBe(true);
+        expect(currentNode.querySelector('.process-bg-color-with-config')).toBeTruthy();
+        expect(currentNode.querySelector('span').classList.contains(`${prefix}-item-icon-num`)).toBe(true);
+        expect(currentNode.textContent).toBe('2进行中');
     });
     it('should render correctly when set description', () => {
         const items = [{
@@ -48,15 +48,15 @@ describe('Steps', () => {
             title: '完成',
             description: 'test'
         }]
-        const component = mount(<Steps current={1} items={items} />);
-        const children = component.find(`.${prefix}-item-description`);
-        const descriptions = children.map(child => child.text());
+        const { container } = render(<Steps current={1} items={items} />);
+        const children = container.querySelectorAll(`.${prefix}-item-description`);
+        const descriptions = Array.from(children).map(child => child.textContent);
         expect(descriptions).toEqual(['test', 'test', 'test', 'test']);
     });
     it('should render correctly when set mini size and no text', () => {
-        const component = mount(<Steps current={1} items={new Array(4).fill({})} iconType="dot" />);
-        expect(component.find(`.${prefix}-item-icon-dot`).length).toBe(4);
-        expect(component.text()).toEqual('');
+        const { container } = render(<Steps current={1} items={new Array(4).fill({})} iconType="dot" />);
+        expect(container.querySelectorAll(`.${prefix}-item-icon-dot`).length).toBe(4);
+        expect(container.textContent).toEqual('');
     });
     it('should render correctly when set error status', () => {
         const items = [{
@@ -69,9 +69,9 @@ describe('Steps', () => {
         }, {
             title: '完成'
         }];
-        const component = mount(<Steps current={1} items={items} />);
-        const currentNode = component.find(`.${prefix}-item`).at(1);
-        expect(currentNode.hasClass('error')).toBe(true);
+        const { container } = render(<Steps current={1} items={items} />);
+        const currentNode = container.querySelectorAll(`.${prefix}-item`)[1];
+        expect(currentNode.classList.contains('error')).toBe(true);
     });
     it('should callback correctly when click step', () => {
         const mockFn = jest.fn();
@@ -85,9 +85,9 @@ describe('Steps', () => {
         }, {
             title: '完成'
         }];
-        const component = mount(<Steps current={1} items={items} onClick={mockFn}/>);
-        const firstChild = component.find(`.${prefix}-item`).first();
-        firstChild.simulate('click');
+        const { container } = render(<Steps current={1} items={items} onClick={mockFn}/>);
+        const firstChild = container.querySelector(`.${prefix}-item`);
+        firstChild.click();
         expect(mockFn).toBeCalled();
     });
 });
