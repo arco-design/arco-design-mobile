@@ -54,10 +54,14 @@ describe('LoadMore action', () => {
 
     it('onClick listener correctly', () => {
         const onClick = jest.fn();
-        render(<LoadMore onClick = {onClick} throttle = {200} trigger = 'click'/>)
+        const { rerender } = render(<LoadMore onClick = {onClick} throttle = {200} trigger = 'click'/>)
         userEvent.click(screen.getAllByRole('generic')[1])
         expect(onClick).toBeCalled();
         expect(onClick).toBeCalledTimes(1);
+        rerender(<LoadMore onClick = {onClick} throttle = {200} trigger = 'scroll' status='prepare' getDataAtFirst={false} getDataWhenNoScrollAtFirst/>)
+        userEvent.click(screen.getAllByRole('generic')[1])
+        expect(onClick).toBeCalled();
+        expect(onClick).toBeCalledTimes(2);
     });
 
     it('onScroll listener correctly',()=>{
