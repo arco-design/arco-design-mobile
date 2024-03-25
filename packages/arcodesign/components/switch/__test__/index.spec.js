@@ -21,37 +21,37 @@ describe('Switch', () => {
     });
     it('should render and callback correctly when did not use checked',  () => {
         const { container } = render(<Switch />);
-        expect(container.querySelector(`.${prefix}`).classList.contains('checked')).toBe(false);
-        fireEvent.touchStart(container, createStartTouchEventObject({ x: 100 }));
-        fireEvent.touchMove(container, createMoveTouchEventObject({ x: 100 }));
-        fireEvent.touchEnd(container,createMoveTouchEventObject({ x: 100 }));
+        const switchElement = container.querySelector(`.${prefix}`);
+        expect(switchElement.classList.contains('checked')).toBe(false);
+        fireEvent.touchStart(switchElement, createStartTouchEventObject({ x: 100 }));
+        fireEvent.touchMove(switchElement, createMoveTouchEventObject({ x: 100 }));
+        fireEvent.touchEnd(switchElement,createMoveTouchEventObject({ x: 100 }));
         waitFor(() => {
-            expect(container.querySelector(`.${prefix}`).classList.contains('checked')).toBe(true);
+            expect(switchElement.classList.contains('checked')).toBe(true);
         });
     });
     it('should render and callback correctly when set disabled', () => {
         const mockFn = jest.fn();
         const { container } = render(<Switch disabled checked onChange={mockFn} />);
-        expect(container.querySelector(`.${prefix}`).classList.contains('disabled')).toBe(true);
-        expect(container.querySelector(`.${prefix}`).classList.contains('checked')).toBe(true);
-        fireEvent.touchStart(container, createStartTouchEventObject({ x: 100 }));
-        fireEvent.touchMove(container, createMoveTouchEventObject({ x: 120 }));
-        fireEvent.touchEnd(container,createMoveTouchEventObject({ x: 130 }));
+        const switchElement = container.querySelector(`.${prefix}`);
+        expect(switchElement.classList.contains('disabled')).toBe(true);
+        expect(switchElement.classList.contains('checked')).toBe(true);
+        fireEvent.touchStart(switchElement, createStartTouchEventObject({ x: 100 }));
+        fireEvent.touchMove(switchElement, createMoveTouchEventObject({ x: 120 }));
+        fireEvent.touchEnd(switchElement,createMoveTouchEventObject({ x: 130 }));
         waitFor(() => {
-            expect(container.querySelector(`.${prefix}`).classList.contains('checked')).toBe(true);
+            expect(switchElement.classList.contains('checked')).toBe(true);
             expect(mockFn).not.toBeCalled();
         })
     });
     it('should render correctly when use text', () => {
-        const { getByText } = render(<Switch text={{ on: '关', off: '开' }} />);
-        expect(getByText('关')).toBeTruthy();
-
-        fireEvent.touchStart(getByText('关'), createStartTouchEventObject({ x: 100 }));
-        fireEvent.touchMove(getByText('关'), createMoveTouchEventObject({ x: 100 }));
-        fireEvent.touchEnd(getByText('关'));
-        waitFor(() => {
-            expect(getByText('开')).toBeTruthy();
-        })
+        const { container } = render(<Switch text={{ on: '关', off: '开' }} />);
+        const switchElement = container.querySelector(`.${prefix}`);
+        expect(container.querySelector(`.${prefix}-text`).textContent).toBe('关');
+        fireEvent.touchStart(switchElement, createStartTouchEventObject({ x: 100 }));
+        fireEvent.touchMove(switchElement, createMoveTouchEventObject({ x: 100 }));
+        fireEvent.touchEnd(switchElement,createMoveTouchEventObject({ x: 100 }));
+        expect(container.querySelector(`.${prefix}-text`).textContent).toBe('开');
     });
     it('should render correctly when use shape', () => {
         const { container,rerender } = render(<Switch shape="semi" />);
