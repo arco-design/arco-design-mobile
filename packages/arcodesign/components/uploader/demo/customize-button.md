@@ -1,4 +1,4 @@
-## 自定义上传图标 @en{Defined Upload Button}
+## 自定义上传图标 @en{Customize Upload Button}
 
 #### 3
 
@@ -35,7 +35,7 @@ export default function UploaderDemo() {
     line-height: 22px;
     align-items: center;
     font-weight: 400;
-    color: rgba(22, 93, 255, 1);
+    .use-var(color, primary-color);
     &-icon {
         margin-left: 4px;
     }

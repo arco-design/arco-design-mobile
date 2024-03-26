@@ -4133,7 +4133,7 @@ function getCompTokens() {
          * 文件上传组件上传列表背景颜色
          * @en Background color of uploader list
          */
-        uploaderItemBackgroundColor: 'rgba(247, 248, 250, 1)',
+        uploaderItemBackgroundColor: useGlobal('cardBackgroundColor'),
         /**
          * 文件上传组件上传列表文件图标大小
          * @en FileIcon size of uploader list
@@ -4148,7 +4148,7 @@ function getCompTokens() {
          * 文件上传组件上传列表文字颜色
          * @en Text color of uploader list
          */
-        uploaderItemTextColor: 'rgba(29, 33, 41, 1)',
+        uploaderItemTextColor: useGlobal('fontColor'),
         /**
          * 文件上传组件上传列表加载成功图标大小
          * @en LoadedIcon size of uploader list
@@ -4168,7 +4168,7 @@ function getCompTokens() {
          * 文件上传组件禁用状态删除图标颜色
          * @en disabled deleteIcon color of uploader list
          */
-        uploaderDisabledDeleteIconColor: 'rgba(201, 205, 212, 1)',
+        uploaderDisabledDeleteIconColor: useGlobal('disabledColor'),
     };
 }
 

@@ -1,4 +1,4 @@
-## 自定义索引/删除图标 @en{Define Index&Delete Icon}
+## 自定义索引/删除图标 @en{Customize Index&Delete Icon}
 
 #### 4
 

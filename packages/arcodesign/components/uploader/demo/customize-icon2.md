@@ -1,4 +1,4 @@
-## 自定义成功/失败/加载中区域 @en{Define Success/Fail/Loading area}
+## 自定义成功/失败/加载中区域 @en{Customize Success/Fail/Loading area}
 
 #### 5
 
@@ -47,10 +47,10 @@ export default function UploaderDemo() {
     font-size: 12px;
     line-height: 20px;
     font-weight: 400;
-    color: rgba(245, 63, 63, 1);
+    .use-var(color, danger-color);
 }
 
 .upload-loaded {
-    color: rgba(78, 89, 105, 1);
+    .use-var(color, sub-font-color);
 }
 ```

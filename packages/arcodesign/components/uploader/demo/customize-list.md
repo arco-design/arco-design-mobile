@@ -1,4 +1,4 @@
-## 自定义上传列表 @en{Defined Upload List}
+## 自定义上传列表 @en{Customize Upload List}
 
 #### 6
 
@@ -20,12 +20,12 @@ export default function UploaderDemo() {
         {
             file,
             status: 'loaded',
-            url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
+            url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
         },
         {
             file,
             status: 'loading',
-            url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
+            url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_5.jpg',
         },
         { file, status: 'error' },
     ]);
@@ -94,7 +94,7 @@ export default function UploaderDemo() {
         display: flex;
         align-items: center;
         margin-top: 16px;
-        border: solid 0.5px rgba(229, 230, 235, 1);
+        .onepx-border-var(all, line-color);
         &-image {
             width: 56px;
             height: 56px;
@@ -102,14 +102,14 @@ export default function UploaderDemo() {
         }
         &-text {
             font-size: 14px;
-            color: rgba(29, 33, 41, 1);
+            .use-var(color, font-color);
             font-weight: 400;
             flex: 1;
             margin-left: 12px;
             display: flex;
             align-items: center;
             &-error {
-                color: rgba(245, 63, 63, 1);
+                .use-var(color, danger-color);
             }
         }
         &-warning {
@@ -119,11 +119,11 @@ export default function UploaderDemo() {
         &-loaded {
             line-height: 0;
             font-size: 16px;
-            color: #00b42a;
+            .use-var(color, success-color);
         }
         &-error {
             font-size: 12px;
-            color: rgba(245, 63, 63, 1);
+            .use-var(color, danger-color);
             font-weight: 400;
         }
         &-delete {
