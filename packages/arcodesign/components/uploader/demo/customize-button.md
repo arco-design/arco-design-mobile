@@ -31,13 +31,13 @@ export default function UploaderDemo() {
 ```less
 .upload-button {
     display: flex;
-    font-size: 14px;
-    line-height: 22px;
+    .rem(font-size, 14);
+    .rem(line-height, 22);
     align-items: center;
     font-weight: 400;
     .use-var(color, primary-color);
     &-icon {
-        margin-left: 4px;
+        .rem(margin-left, 4)
     }
 }
 ```

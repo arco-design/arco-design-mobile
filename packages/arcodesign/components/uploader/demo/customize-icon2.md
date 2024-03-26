@@ -44,8 +44,8 @@ export default function UploaderDemo() {
 ```less
 .upload-error {
     display: flex;
-    font-size: 12px;
-    line-height: 20px;
+    .rem(font-size, 12);
+    .rem(line-height, 20);
     font-weight: 400;
     .use-var(color, danger-color);
 }

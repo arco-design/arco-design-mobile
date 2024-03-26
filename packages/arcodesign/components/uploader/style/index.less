@@ -16,25 +16,22 @@
             height: 100%;
             display: none;
         }
-        &-button {
-            min-width: 110px;
-        }
     }
     &-list {
         width: 100%;
         &-item {
-            height: 36px;
             display: flex;
             align-items: center;
-            margin-top: 16px;
+            .use-var(height, uploader-item-height);
+            .use-var(margin-top, uploader-item-margin-top);
             &-container {
-                border-radius: 2px;
                 flex: 1;
                 display: flex;
                 align-items: center;
-                .use-var(background-color, uploader-item-background-color);
-                padding: 0 12px;
                 height: 100%;
+                .use-var(border-radius, uploader-item-border-radius);
+                .use-var(background-color, uploader-item-background-color);
+                .use-var(padding, uploader-item-padding);
             }
             &-wrapper {
                 display: flex;
@@ -44,12 +41,12 @@
             &-file {
                 line-height: 0;
                 .use-var(font-size, uploader-file-icon-font-size);
-                margin-right: 12px;
+                .use-var(margin-right, uploader-file-icon-margin-right);
             }
             &-text {
+                font-weight: 400;
                 .use-var(font-size, uploader-item-text-font-size);
                 .use-var(color, uploader-item-text-color);
-                font-weight: 400;
                 &-error {
                     .use-var(color, uploader-item-text-error-color);
                 }
@@ -60,13 +57,13 @@
                 .use-var(color, uploader-loaded-icon-color);
             }
             &-error {
+                font-weight: 400;
                 .use-var(font-size, uploader-error-text-font-size);
                 .use-var(color, uploader-error-text-color);
-                font-weight: 400;
             }
             &-delete {
                 line-height: 0;
-                margin: 12px;
+                .use-var(margin, uploader-delete-icon-margin);
                 .use-var(font-size, uploader-delete-icon-font-size);
                 &-disabled {
                     .use-var(color, uploader-disabled-delete-icon-color);

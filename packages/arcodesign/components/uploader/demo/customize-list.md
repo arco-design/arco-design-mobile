@@ -90,22 +90,23 @@ export default function UploaderDemo() {
 .demo-uploader-list {
     width: 100%;
     &-item {
-        height: 56px;
         display: flex;
         align-items: center;
-        margin-top: 16px;
+        .rem(height, 56);
+        .rem(margin-top, 16);
         .onepx-border-var(all, line-color);
         &-image {
-            width: 56px;
-            height: 56px;
-            border-radius: 2px 0 0 2px;
+            .rem(width, 56);
+            .rem(height, 56);
+            .rem(border-top-left-radius, 2);
+            .rem(border-bottom-left-radius, 2);
         }
         &-text {
-            font-size: 14px;
+            .rem(font-size, 14);
             .use-var(color, font-color);
             font-weight: 400;
             flex: 1;
-            margin-left: 12px;
+            .rem(margin-left, 12);
             display: flex;
             align-items: center;
             &-error {
@@ -114,22 +115,22 @@ export default function UploaderDemo() {
         }
         &-warning {
             line-height: 0;
-            margin-left: 12px;
+            .rem(margin-left, 12);
         }
         &-loaded {
             line-height: 0;
-            font-size: 16px;
+            .rem(font-size, 16);
             .use-var(color, success-color);
         }
         &-error {
-            font-size: 12px;
+            .rem(font-size, 12);
             .use-var(color, danger-color);
             font-weight: 400;
         }
         &-delete {
             line-height: 0;
-            margin: 12px;
-            font-size: 16px;
+            .rem(margin, 12);
+            .rem(font-size, 16);
         }
     }
 }
