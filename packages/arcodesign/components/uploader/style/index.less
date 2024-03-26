@@ -5,13 +5,6 @@
         display: flex;
         flex-wrap: wrap;
     }
-    .container() {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        left: 0;
-    }
     &-add {
         position: relative;
         input {
@@ -58,17 +51,17 @@
                 .use-var(color, uploader-item-text-color);
                 font-weight: 400;
                 &-error {
-                    .use-var(color, danger-color);
+                    .use-var(color, uploader-item-text-error-color);
                 }
             }
             &-loaded {
                 line-height: 0;
                 .use-var(font-size, uploader-loaded-icon-font-size);
-                .use-var(color, success-color);
+                .use-var(color, uploader-loaded-icon-color);
             }
             &-error {
                 .use-var(font-size, uploader-error-text-font-size);
-                .use-var(color, primary-color);
+                .use-var(color, uploader-error-text-color);
                 font-weight: 400;
             }
             &-delete {

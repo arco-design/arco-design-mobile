@@ -1075,14 +1075,23 @@ var tokens = {
   "skeleton-grid-text-height": "0.32rem",
   "skeleton-medium-gutter": "0.16rem",
   "skeleton-large-gutter": "0.4rem",
-  "uploader-item-background-color": "rgba(247, 248, 250, 1)",
+  "dark-uploader-item-background-color": "var(--dark-card-background-color)",
+  "uploader-item-background-color": "var(--card-background-color)",
   "uploader-file-icon-font-size": "0.32rem",
   "uploader-item-text-font-size": "0.28rem",
-  "uploader-item-text-color": "rgba(29, 33, 41, 1)",
+  "dark-uploader-item-text-color": "var(--dark-font-color)",
+  "uploader-item-text-color": "var(--font-color)",
   "uploader-loaded-icon-font-size": "0.32rem",
+  "dark-uploader-loaded-icon-color": "var(--dark-success-color)",
+  "uploader-loaded-icon-color": "var(--success-color)",
   "uploader-error-text-font-size": "0.24rem",
+  "dark-uploader-error-text-color": "var(--dark-primary-color)",
+  "uploader-error-text-color": "var(--primary-color)",
   "uploader-delete-icon-font-size": "0.24rem",
-  "uploader-disabled-delete-icon-color": "rgba(201, 205, 212, 1)"
+  "dark-uploader-disabled-delete-icon-color": "var(--dark-disabled-color)",
+  "uploader-disabled-delete-icon-color": "var(--disabled-color)",
+  "dark-uploader-item-text-error-color": "var(--dark-danger-color)",
+  "uploader-item-text-error-color": "var(--danger-color)"
 };
 var _default = tokens;
 exports["default"] = _default;

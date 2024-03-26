@@ -4283,6 +4283,54 @@
         "jsValue": "@global@darkMaskContentColor",
         "staticValue": "rgba(255, 255, 255, 0.9)"
     },
+    "darkUploaderDisabledDeleteIconColor": {
+        "cssKey": "dark-uploader-disabled-delete-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-disabled-color",
+        "jsValue": "@global@darkDisabledColor",
+        "staticValue": "#5f5f60"
+    },
+    "darkUploaderErrorTextColor": {
+        "cssKey": "dark-uploader-error-text-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-primary-color",
+        "jsValue": "@global@darkPrimaryColor",
+        "staticValue": "#3C7EFF"
+    },
+    "darkUploaderItemBackgroundColor": {
+        "cssKey": "dark-uploader-item-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
+    "darkUploaderItemTextColor": {
+        "cssKey": "dark-uploader-item-text-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-font-color",
+        "jsValue": "@global@darkFontColor",
+        "staticValue": "#f6f6f6"
+    },
+    "darkUploaderItemTextErrorColor": {
+        "cssKey": "dark-uploader-item-text-error-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-danger-color",
+        "jsValue": "@global@darkDangerColor",
+        "staticValue": "#F76965"
+    },
+    "darkUploaderLoadedIconColor": {
+        "cssKey": "dark-uploader-loaded-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-success-color",
+        "jsValue": "@global@darkSuccessColor",
+        "staticValue": "#27C346"
+    },
     "darkWarningColor": {
         "cssKey": "dark-warning-color",
         "desc": "",
@@ -11729,12 +11777,23 @@
         "cssKey": "uploader-disabled-delete-icon-color",
         "desc": "文件上传组件禁用状态删除图标颜色",
         "override": "",
-        "value": "rgba(201, 205, 212, 1)",
-        "jsValue": "rgba(201, 205, 212, 1)",
-        "staticValue": "rgba(201, 205, 212, 1)",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
+        "staticValue": "#c9cdd4",
         "localeDesc": {
             "ch": "文件上传组件禁用状态删除图标颜色",
             "en": "disabled deleteIcon color of uploader list"
+        }
+    },
+    "uploaderErrorTextColor": {
+        "cssKey": "uploader-error-text-color",
+        "desc": "文件上传组件上传列表错误文字颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165DFF",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表错误文字颜色"
         }
     },
     "uploaderErrorTextFontSize": {
@@ -11765,9 +11824,9 @@
         "cssKey": "uploader-item-background-color",
         "desc": "文件上传组件上传列表背景颜色",
         "override": "",
-        "value": "rgba(247, 248, 250, 1)",
-        "jsValue": "rgba(247, 248, 250, 1)",
-        "staticValue": "rgba(247, 248, 250, 1)",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "文件上传组件上传列表背景颜色",
             "en": "Background color of uploader list"
@@ -11777,12 +11836,23 @@
         "cssKey": "uploader-item-text-color",
         "desc": "文件上传组件上传列表文字颜色",
         "override": "",
-        "value": "rgba(29, 33, 41, 1)",
-        "jsValue": "rgba(29, 33, 41, 1)",
-        "staticValue": "rgba(29, 33, 41, 1)",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
         "localeDesc": {
             "ch": "文件上传组件上传列表文字颜色",
             "en": "Text color of uploader list"
+        }
+    },
+    "uploaderItemTextErrorColor": {
+        "cssKey": "uploader-item-text-error-color",
+        "desc": "文件上传组件上传列表上传失败文字颜色",
+        "override": "",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#F53F3F",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表上传失败文字颜色"
         }
     },
     "uploaderItemTextFontSize": {
@@ -11795,6 +11865,18 @@
         "localeDesc": {
             "ch": "文件上传组件上传列表文字大小",
             "en": "Text fontSize of uploader list"
+        }
+    },
+    "uploaderLoadedIconColor": {
+        "cssKey": "uploader-loaded-icon-color",
+        "desc": "文件上传组件上传列表加载成功图标颜色",
+        "override": "",
+        "value": "@success-color",
+        "jsValue": "@global@successColor",
+        "staticValue": "#00B42A",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表加载成功图标颜色",
+            "en": "LoadedIcon size of uploader list"
         }
     },
     "uploaderLoadedIconFontSize": {

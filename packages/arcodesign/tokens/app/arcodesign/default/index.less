@@ -1063,12 +1063,21 @@
 @skeleton-grid-text-height: ~`pxtorem(16)`;
 @skeleton-medium-gutter: ~`pxtorem(8)`;
 @skeleton-large-gutter: ~`pxtorem(20)`;
-@uploader-item-background-color: rgba(247, 248, 250, 1);
+@dark-uploader-item-background-color: @dark-card-background-color;
+@uploader-item-background-color: @card-background-color;
 @uploader-file-icon-font-size: ~`pxtorem(16)`;
 @uploader-item-text-font-size: ~`pxtorem(14)`;
-@uploader-item-text-color: rgba(29, 33, 41, 1);
+@dark-uploader-item-text-color: @dark-font-color;
+@uploader-item-text-color: @font-color;
 @uploader-loaded-icon-font-size: ~`pxtorem(16)`;
+@dark-uploader-loaded-icon-color: @dark-success-color;
+@uploader-loaded-icon-color: @success-color;
 @uploader-error-text-font-size: ~`pxtorem(12)`;
+@dark-uploader-error-text-color: @dark-primary-color;
+@uploader-error-text-color: @primary-color;
 @uploader-delete-icon-font-size: ~`pxtorem(12)`;
-@uploader-disabled-delete-icon-color: rgba(201, 205, 212, 1);
+@dark-uploader-disabled-delete-icon-color: @dark-disabled-color;
+@uploader-disabled-delete-icon-color: @disabled-color;
+@dark-uploader-item-text-error-color: @dark-danger-color;
+@uploader-item-text-error-color: @danger-color;
 

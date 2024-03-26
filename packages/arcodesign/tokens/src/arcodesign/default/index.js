@@ -4155,10 +4155,19 @@ function getCompTokens() {
          */
         uploaderLoadedIconFontSize: getRem(16),
         /**
+         * 文件上传组件上传列表加载成功图标颜色
+         * @en LoadedIcon size of uploader list
+         */
+        uploaderLoadedIconColor: useGlobal('successColor'),
+        /**
          * 文件上传组件上传列表错误文字大小
          * @en Error text fontSize of uploader list
          */
         uploaderErrorTextFontSize: getRem(12),
+        /**
+         * 文件上传组件上传列表错误文字颜色
+         */
+        uploaderErrorTextColor: useGlobal('primaryColor'),
         /**
          * 文件上传组件上传列表删除图标大小
          * @en deleteIcon size of uploader list
@@ -4169,6 +4178,11 @@ function getCompTokens() {
          * @en disabled deleteIcon color of uploader list
          */
         uploaderDisabledDeleteIconColor: useGlobal('disabledColor'),
+        /**
+         * 文件上传组件上传列表上传失败文字颜色
+         */
+        uploaderItemTextErrorColor: useGlobal('dangerColor'),
+
     };
 }
 
