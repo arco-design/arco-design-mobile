@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from 'react';
+import { SelectCallback } from '@arco-design/mobile-utils';
 
 export interface FileItem {
     /**
@@ -18,14 +19,6 @@ export interface FileItem {
      * @default_en According to inner status of the image
      */
     status?: 'loaded' | 'loading' | 'error';
-}
-export interface AdapterFile {
-    url?: string;
-    size: number;
-    name: string;
-}
-export interface SelectCallback {
-    files: AdapterFile[];
 }
 export interface UploaderProps {
     /**
