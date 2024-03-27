@@ -106,4 +106,8 @@ export interface ILocale {
     NavBar: {
         backBtnAriaLabel: string;
     };
+    Uploader: {
+        uploadBtn: string;
+        retryUpload: string;
+    };
 }

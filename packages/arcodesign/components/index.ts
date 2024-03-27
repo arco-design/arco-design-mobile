@@ -56,3 +56,4 @@ export { default as Tag } from './tag';
 export { default as Textarea } from './textarea';
 export { default as Toast } from './toast';
 export { default as Transition } from './transition';
+export { default as Uploader } from './uploader';

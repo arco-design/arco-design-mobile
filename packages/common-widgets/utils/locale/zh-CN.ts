@@ -105,6 +105,10 @@ const localeConfig: ILocale = {
     NavBar: {
         backBtnAriaLabel: '返回',
     },
+    Uploader: {
+        uploadBtn: '点击上传',
+        retryUpload: '点击重试',
+    },
 };
 
 export default localeConfig;
