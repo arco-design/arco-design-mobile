@@ -2,25 +2,17 @@ import React, { useCallback, useRef, useState, useContext, useMemo, useEffect } 
 import { AutoComplete, Input, Space, Tag, Spin, Dropdown, Button, Menu, Tooltip } from 'arco';
 import debounce from 'lodash.debounce';
 import { useLocation } from 'react-router-dom';
-import Fuse from 'fuse';
 import { LanguageLocaleMap, LanguageSupport } from '../../../utils/language';
 import { getPathname, getUrlsByLanguage } from '../../../utils/url';
 import { HistoryContext } from '../context';
 import { IMenu } from '../layout';
 import { localeMap } from '../../../utils/locale';
-import searchResource from '../../pages/resource/search.json';
 import LogoPicture from '../../../components/logo-pic';
 import './index.less';
+import { resourceFuse, qaFuse, qaEnFuse, TQaFuseResult, TResourceFuseResult } from './setting';
 
-const options = {
-    threshold: 0.6,
-    includeMatches: true,
-    keys: ['functionName', 'description'],
-};
 const AUTO_COMPLETE_WIDTH = 480;
 const OPTION_HORIZONTAL_PADDING = 20;
-
-const fuse = new Fuse(searchResource, options);
 
 const { OptGroup, Option } = AutoComplete;
 
@@ -70,7 +62,7 @@ export default function Header(props: IHeaderProps) {
     const [value, setValue] = useState('');
     const [list, setList] = useState<List | number[]>([]);
     const [functionList, setFunctionList] = useState<IFunctionList>({});
-    const [functionListCount, setFunctionListCount] = useState(0);
+    const [qaList, setQaList] = useState<TQaFuseResult>([]);
     const [noData, setNoData] = useState(false);
     const [loading, setLoading] = useState(true);
     const contentDom = useRef<HTMLDivElement | null>(null);
@@ -82,19 +74,16 @@ export default function Header(props: IHeaderProps) {
             return;
         }
         setTimeout(() => {
-            try {
-                const anchorTitleArray = document.getElementsByClassName('arco-anchor-link-title');
-                const targetAnchor: HTMLElement = Array.prototype.find.call(
-                    anchorTitleArray,
-                    (item: HTMLElement) => item.innerHTML === currentFunctionName,
-                );
-                targetAnchor.click();
-            } catch (e) {
-                console.error('e: ', e);
-                throw e;
-            }
+            const anchorTitleArray = document.getElementsByClassName('arco-anchor-link-title');
+            const targetAnchor: HTMLElement = Array.prototype.find.call(
+                anchorTitleArray,
+                (item: HTMLElement) => item.innerHTML === currentFunctionName,
+            );
+            targetAnchor.click();
         }, 0);
     }, [currentFunctionName, pathname]);
+
+    const actualQaFuse = language === LanguageSupport.EN ? qaEnFuse : qaFuse;
 
     useEffect(() => {
         const siteContent = getSiteContentRef();
@@ -203,32 +192,39 @@ export default function Header(props: IHeaderProps) {
             }));
     }
 
+    const resourceResultFormat = (resourceResult: TResourceFuseResult) => {
+        const temp: IFunctionList = {};
+        resourceResult.forEach(item => {
+            const contentItem = {
+                ...item.item,
+            };
+            const targetFileNameIndex = Object.keys(temp).findIndex(
+                key => contentItem.filename === key,
+            );
+            if (targetFileNameIndex === -1) {
+                temp[contentItem.filename] = [];
+            }
+            temp[contentItem.filename].push(contentItem);
+        });
+        return temp;
+    };
+
     const debounceSearch = useCallback(
         debounce(query => {
             if (!query) return;
             setNoData(false);
             setList([1]);
             setLoading(true);
-            const resourceResult = fuse.search(query);
+            const resourceResult = resourceFuse.search(query);
+            const qaResult = actualQaFuse.search(query);
             const searchList = getMatchMeta(query);
-            if (!searchList.length && !resourceResult.length) {
+            if (!searchList.length && !resourceResult.length && !qaResult.length) {
                 setNoData(true);
                 setList([1]);
             } else {
                 setList(searchList);
-                const temp: IFunctionList = {};
-                setFunctionListCount(resourceResult.length);
-                resourceResult.forEach(item => {
-                    const contentItem = item.item;
-                    const targetFileNameIndex = Object.keys(temp).findIndex(
-                        key => contentItem.filename === key,
-                    );
-                    if (targetFileNameIndex === -1) {
-                        temp[contentItem.filename] = [];
-                    }
-                    temp[contentItem.filename].push(contentItem);
-                });
-                setFunctionList(temp);
+                setFunctionList(resourceResultFormat(resourceResult));
+                setQaList(qaResult);
             }
             setLoading(false);
         }, 200),
@@ -241,6 +237,7 @@ export default function Header(props: IHeaderProps) {
                 setValue('');
                 setList([]);
                 setFunctionList({});
+                setQaList([]);
                 history.push(option.uri);
             }
             return;
@@ -299,7 +296,31 @@ export default function Header(props: IHeaderProps) {
         </Option>
     ));
 
-    const fuseSearchList = menu.resource
+    const qaResultList = qaList.map((item, index) => (
+        <Option
+            style={{
+                height: 'auto',
+                lineHeight: 1.5715,
+                padding: `12px ${OPTION_HORIZONTAL_PADDING}px`,
+            }}
+            key={index}
+            value={index}
+            uri="/doc/qa"
+        >
+            <Space className="arcodesign-pc-search-title">
+                <Tag size="small" color="arcoblue" style={{ verticalAlign: '-5px' }}>
+                    {headerData.local}
+                </Tag>
+                <div
+                    dangerouslySetInnerHTML={{
+                        __html: highlightStr(getCorrectStr(item.matches[0].value, value, 0), value),
+                    }}
+                />
+            </Space>
+        </Option>
+    ));
+
+    const resourceSearchList = menu.resource
         ? Object.keys(functionList).map((fileName, index) => (
               <OptGroup key={`${fileName}-${index}`} label={fileName}>
                   {functionList[fileName].map((ele, idx) => (
@@ -367,7 +388,7 @@ export default function Header(props: IHeaderProps) {
             <span>
                 <div className="arcodesign-pc-search-summary">
                     {localeMap.SearchResultTip[language](
-                        noData || loading ? 0 : list.length + functionListCount,
+                        noData || loading ? 0 : list.length + Object.keys(functionList).length,
                     )}
                 </div>
                 {loading && (
@@ -433,7 +454,8 @@ export default function Header(props: IHeaderProps) {
                             dropdownRender={renderDropdown}
                         >
                             {searchResultList}
-                            {fuseSearchList}
+                            {qaResultList}
+                            {resourceSearchList}
                         </AutoComplete>
                     </div>
                     <div className="arcodesign-pc-header-nav-bar">

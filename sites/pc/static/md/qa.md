@@ -54,6 +54,10 @@ A: 使用方法调用的组件不是页面根节点下的子组件，因此需�
 
 A: autoFocus 在一些机型上是不支持的，组件底层只能尝试 focus，但是到底能不能聚焦还得看机型
 
+## Q: 将 Tabs 的 autoHeight 属性设置为 true 时，tabPane 的高度不会随着 DOM 高度变化
+
+A: 为保证组件性能，需要用户手动调用 TabPaneRef 中暴露的 setCurrentHeight 方法，手动更新高度
+
 ## Q: 使用或构建时出现 SyntaxError: xxx is undefined 的问题
 
 A: @arco-design/mobile-react 包的版本需要和 @arco-design/mobile-utils 包的版本一一对应，可以查看项目中是否锁定或指定了 @arco-design/mobile-utils 包的版本。
@@ -71,16 +75,19 @@ export const Demo1 = () => {
         <ContextProvider>
             <Cell
                 onClick={() => {
-                    window.modalInstance = Popup.open({
-                        children: <Child />,
-                    },
-                    {
-                        system: 'ios' }
+                    window.modalInstance = Popup.open(
+                        {
+                            children: <Child />,
+                        },
+                        {
+                            system: 'ios',
+                        },
                     );
-                }}/>
+                }}
+            />
         </ContextProvider>
-    )
-}
+    );
+};
 
 // 使用外部 context 时
 const TestModel = createModel(() => {
@@ -89,7 +96,7 @@ const TestModel = createModel(() => {
     return {
         count,
         add,
-    }
+    };
 });
 
 export const Demo2 = () => {
@@ -98,15 +105,13 @@ export const Demo2 = () => {
             <Cell
                 label="test"
                 onClick={() => {
-                    Popup.open(
-                        {
-                            children: (
-                                <TestModel.Provider>
-                                    <Child />
-                                </TestModel.Provider>
-                            ),
-                        }
-                    );
+                    Popup.open({
+                        children: (
+                            <TestModel.Provider>
+                                <Child />
+                            </TestModel.Provider>
+                        ),
+                    });
                 }}
             />
         </TestModel.Provider>

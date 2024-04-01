@@ -58,8 +58,8 @@ export interface BasicInputProps<T = HTMLInputElement> {
      */
     readOnly?: boolean;
     /**
-     * 是否自动获取焦点
-     * @en Whether to automatically get the focus
+     * 是否自动获取焦点，开启后会触发一次onClick事件
+     * @en Whether to automatically get the focus, it will trigger an onClick event once after being enabled
      */
     autoFocus?: boolean;
     /**

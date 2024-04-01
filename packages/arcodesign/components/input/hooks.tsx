@@ -53,11 +53,13 @@ export function useInputLogic(
     const system = useSystem();
     const wrapRef = useRef<HTMLDivElement | null>(null);
     const needComposition = system === 'ios' && blockChangeWhenCompositing;
-
+    const inputMockClick = () => {
+        inputRef.current && inputRef.current.click();
+    };
     useEffect(() => {
         if (autoFocus) {
             setTimeout(() => {
-                inputRef.current && inputRef.current.focus();
+                inputMockClick();
             }, 200);
         }
     }, []);
@@ -158,10 +160,10 @@ export function useInputLogic(
         if (blurBeforeFocus && system === 'android' && !isFocusing) {
             inputRef.current && inputRef.current.blur();
             nextTick(() => {
-                inputRef.current && inputRef.current.focus();
+                inputMockClick();
             });
         } else {
-            inputRef.current && inputRef.current.focus();
+            inputMockClick();
         }
         onClick && onClick(e);
     }
@@ -186,7 +188,7 @@ export function useInputLogic(
                     }, 200);
                 }
                 nextTick(() => {
-                    inputRef.current && inputRef.current.focus();
+                    inputMockClick();
                 });
             }
         });
