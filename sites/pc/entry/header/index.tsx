@@ -80,10 +80,29 @@ export default function Header(props: IHeaderProps) {
                 (item: HTMLElement) => item.innerHTML === currentFunctionName,
             );
             targetAnchor.click();
+            setCurrentFunctionName('');
         }, 0);
-    }, [currentFunctionName, pathname]);
+    }, [pathname, currentFunctionName]);
 
     const actualQaFuse = language === LanguageSupport.EN ? qaEnFuse : qaFuse;
+
+    const [qaSearchResult, setQaSearchResult] = useState('');
+    useEffect(() => {
+        const siteContent = getSiteContentRef();
+        if (siteContent && qaSearchResult) {
+            // qa search内容点击滚动
+            const qaTexts = document.getElementsByClassName('demo-doc-text');
+            for (let i = 0; i < qaTexts.length; i++) {
+                if (qaTexts[i].textContent?.includes(qaSearchResult)) {
+                    const rect = qaTexts[i].getBoundingClientRect();
+                    setTimeout(() => {
+                        siteContent?.scroll({ top: rect.top - 60, behavior: 'smooth' });
+                        setQaSearchResult('');
+                    });
+                }
+            }
+        }
+    }, [pathname, qaSearchResult]);
 
     useEffect(() => {
         const siteContent = getSiteContentRef();
@@ -305,7 +324,12 @@ export default function Header(props: IHeaderProps) {
             }}
             key={index}
             value={index}
-            uri="/doc/qa"
+            uri={`${
+                language === LanguageSupport.EN ? `/${LanguageLocaleMap[language]}` : ''
+            }/doc/qa`}
+            onClick={() => {
+                setQaSearchResult(item.matches[0].value);
+            }}
         >
             <Space className="arcodesign-pc-search-title">
                 <Tag size="small" color="arcoblue" style={{ verticalAlign: '-5px' }}>

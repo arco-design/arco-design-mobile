@@ -18,7 +18,7 @@ function renderSiteMdSource(md, language = 'ch') {
             }</p>
             <h1 class="demo-doc-name">${text}</h1>`;
         }
-        return `<h${level}>${text}</h${level}>`;
+        return `<h${level} class="demo-doc-text">${text}</h${level}>`;
     };
     renderer.code = code => {
         const formatScript = prism.highlight(code, prism.languages.jsx, 'jsx');
@@ -27,7 +27,7 @@ function renderSiteMdSource(md, language = 'ch') {
         </div>`;
     };
     renderer.paragraph = text => {
-        return `<p class="demo-doc-desc">${text}</p>`;
+        return `<p class="demo-doc-desc demo-doc-text">${text}</p>`;
     };
     return {
         source: marked(md, { renderer }),
