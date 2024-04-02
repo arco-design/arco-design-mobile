@@ -160,10 +160,10 @@ export function useInputLogic(
         if (blurBeforeFocus && system === 'android' && !isFocusing) {
             inputRef.current && inputRef.current.blur();
             nextTick(() => {
-                inputMockClick();
+                inputRef.current && inputRef.current.focus();
             });
         } else {
-            inputMockClick();
+            inputRef.current && inputRef.current.focus();
         }
         onClick && onClick(e);
     }

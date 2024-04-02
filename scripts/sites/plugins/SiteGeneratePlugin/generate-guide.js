@@ -148,12 +148,12 @@ function writeQaJson(targetPath, content, language) {
         })
         .filter(item => item);
 
-    // 写公用开发资源routes文件
+    // 写qa json文件
     fs.writeFile(
         path.join(targetPath, `qa${language === 'en' ? '-en' : ''}.json`),
         JSON.stringify(result, null, 4),
         () => {
-            console.log('>>> Write sites resource route file finished');
+            console.log('>>> Write qa json file finished');
         },
     );
 }
