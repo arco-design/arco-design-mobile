@@ -19,6 +19,7 @@ function generateSite({
     docPath = 'sites/pc/docOutput',
     compileComps = [],
     compileGuides = [],
+    compileCSSSource
 } = {}) {
     const srcPath = path.join(rootPath, srcFolder);
     const compSrcPath = path.join(rootPath, srcFolder, 'components');
@@ -59,13 +60,20 @@ function generateSite({
         languages,
     });
     languages.forEach(language => {
-        generateCompositeComponents(compositeSrcPath, compositeCompPath, language, latestVersion);
+        generateCompositeComponents({
+            compSrcPath: compositeSrcPath,
+            compPagePath: compositeCompPath,
+            language,
+            latestVersion,
+            compileCSSSource
+        });
         generateComponents({
             compSrcPath,
             compPagePath,
             language,
             latestVersion,
             compileComps,
+            compileCSSSource
         });
     });
     generateResource(resourcePagePath, outputDocPath);

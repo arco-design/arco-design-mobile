@@ -18,15 +18,22 @@
         bottom: 16px;
         right: 16px;
         transition: opacity 0.2s;
-        display: none;
-        .demo-code-operations-btn:not(.arco-btn-disabled) {
+        display: block;
+
+        &-btn:not(.arco-btn-disabled) {
             .use-var(background-color, container-background-color);
             border: 1px solid;
             .use-var(border-color, line-color);
         }
-        .demo-code-operations-btn {
+
+        &-btn {
             margin-left: 8px;
         }
+
+        &-ide-form {
+            display: none;
+        }
+
     }
     .demo-code-desc-content {
         margin-bottom: 10px;

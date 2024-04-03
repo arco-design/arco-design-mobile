@@ -42,17 +42,21 @@ function renderComponentsDemos({
         return;
     }
     const demoSource = [];
+    const lessSources = {};
     demos.forEach(name => {
         if (name.indexOf('.md') < 0 || name.indexOf('README') >= 0) {
             return;
         }
         const demoName = name.replace('.md', '');
         const { order, source, codeSource, title, style = '', paragraphSlotContent, styleSource = '' } = renderDemoSource(demoSrcPath, demoName, language);
+        if (styleSource) {
+            lessSources[`${comp}-${order}`] = styleSource;
+        }
         demoSource.push({
             order,
             source: `<Code
                 codeSource="${encodeURIComponent(codeSource)}"
-                styleSource="${encodeURIComponent(styleSource)}"
+                styleSource={${styleSource ? `cssSources["${comp}-${order}"]` : '""'}}
                 version="${latestVersion}"
                 compKey="${comp}"
                 demoKey="demo-${comp}"
@@ -61,11 +65,15 @@ function renderComponentsDemos({
                 paragraphSlotContent={<>${paragraphSlotContent}</>}
                 tsxContent={<div dangerouslySetInnerHTML={{__html: ${JSON.stringify(source)}}} />}
                 lessContent={${style ? `<div dangerouslySetInnerHTML={{__html: ${JSON.stringify(style)}}} />` : null}}
-                language={language || LanguageSupport.CH} />`
+                language={language || LanguageSupport.CH}
+            />`
         });
     });
     demoSource.sort((a, b) => a.order - b.order);
-    return demoSource;
+    return {
+        demoSource,
+        lessSources
+    };
 }
 
 /**

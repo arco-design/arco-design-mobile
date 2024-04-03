@@ -437,6 +437,8 @@
     @property-name: @property-map[@@origin-property];
 }
 
+@use-rtl: 1;
+
 /**
  * 设置涉及左右相关的属性名，在rtl模式下自动替换为相反的属性名
  * @desc {en} set the property name related to left and right, and automatically replace it with the opposite attribute name in rtl mode
@@ -459,10 +461,12 @@
     @{property}: initial;
 }) {
     @{property}: @value;
-    [dir="rtl"] & {
-        @rules();
-        @new-property: .prop-with-rtl(@property)[@property-name];
-        @{new-property}: @value;
+    & when (@use-rtl = 1) {
+        [dir="rtl"] & {
+            @rules();
+            @new-property: .prop-with-rtl(@property)[@property-name];
+            @{new-property}: @value;
+        }
     }
 }
 
@@ -484,9 +488,11 @@
  */
 .set-value-with-rtl(@property, @value) {
     @{property}: @value;
-    [dir="rtl"] & {
-        @new-value: .prop-with-rtl(@value)[@property-name];
-        @{property}: @new-value;
+    & when (@use-rtl = 1) {
+        [dir="rtl"] & {
+            @new-value: .prop-with-rtl(@value)[@property-name];
+            @{property}: @new-value;
+        }
     }
 }
 

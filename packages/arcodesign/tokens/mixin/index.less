@@ -56,10 +56,12 @@
  */
 .rem-with-rtl(@property; @values...) {
     .rem(@property; @values...);
-    [dir="rtl"] & {
-        @{property}: initial;
-        @new-property: .prop-with-rtl(@property)[@property-name];
-        .rem(@new-property; @values...);
+    & when (@use-rtl = 1) {
+        [dir="rtl"] & {
+            @{property}: initial;
+            @new-property: .prop-with-rtl(@property)[@property-name];
+            .rem(@new-property; @values...);
+        }
     }
 }
 
@@ -138,10 +140,12 @@
  */
 .use-var-with-rtl(@property, @variables, @preValues: '', @nextValues: '') {
     .use-var(@property, @variables, @preValues, @nextValues);
-    [dir="rtl"] & {
-        @{property}: initial;
-        @new-property: .prop-with-rtl(@property)[@property-name];
-        .use-var(@new-property, @variables, @preValues, @nextValues);
+    & when (@use-rtl = 1) {
+        [dir="rtl"] & {
+            @{property}: initial;
+            @new-property: .prop-with-rtl(@property)[@property-name];
+            .use-var(@new-property, @variables, @preValues, @nextValues);
+        }
     }
 }
 

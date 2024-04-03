@@ -40,6 +40,7 @@ class SiteGeneratePlugin {
                         console.log('>>> Compile started. Generating sites...');
                         this.options.tokenInfo = this.generateTokens();
                         this.options.latestVersion = latestVersion;
+                        this.options.compileCSSSource = true;
                         generateSite(this.options);
                         generateIcon(this.options);
                         callback();
@@ -54,6 +55,7 @@ class SiteGeneratePlugin {
             const pagePath = path.join(rootPath, this.options.siteFolder || 'sites/pc/pages');
             const tokenPath = 'tokens/src/arcodesign';
             const reg = new RegExp(`${tokenPath}.+\\/index.js`);
+            this.options.compileCSSSource = false;
             if (changedFiles && reg.test(changedFiles)) {
                 this.options.tokenInfo = this.generateTokens();
             }

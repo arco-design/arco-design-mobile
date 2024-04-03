@@ -1,6 +1,10 @@
 const fs = require('fs-extra');
 const path = require('path');
 const prettier = require('prettier');
+const through = require('through2');
+const cleanCSS = require('gulp-clean-css');
+const gulpFile = require('gulp-file');
+const { gulpLess: less } = require('../../scripts/arco-less-loader');
 
 const utils = {
     getFolderName(str) {
@@ -59,6 +63,35 @@ const utils = {
         return prettier.format(code, {
             parser: 'less',
             tabWidth: 4
+        });
+    },
+    async transferLessToCSS(code) {
+        return new Promise(resolve => {
+            gulpFile([{
+                name: 'temp.less',
+                source: code
+            }], { src: true })
+            .pipe(
+                less({
+                    outputType: 'css',
+                    customDarkCondition: {
+                        condition: '@{arco-dark-mode-selector}',
+                        removeDefault: true,
+                    },
+                    lessOptions: {
+                        javascriptEnabled: true,
+                        modifyVars: {
+                            '@use-dark-mode': 0,
+                            '@use-rtl': 0
+                        }
+                    }
+                })
+            )
+            .pipe(cleanCSS())
+            .pipe(through.obj(file => {
+                const cssCode = file.contents.toString();
+                resolve(cssCode);
+            }));
         });
     }
 };
