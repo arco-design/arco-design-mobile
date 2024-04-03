@@ -13,7 +13,6 @@ export * from './browser';
 export * from './locale';
 export * from './date';
 export * from './validator';
-export * from './upload';
 
 /**
  * 给值带上 px 的单位，有单位的值直接返回

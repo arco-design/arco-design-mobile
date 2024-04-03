@@ -1,11 +1,12 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
-import { cls, defaultLocale, componentWrapper, Upload } from '@arco-design/mobile-utils';
+import { cls, defaultLocale, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Button from '../button';
 import { UploaderRef, UploaderProps, FileItem } from './type';
 import { useLatestRef } from '../_helpers';
 import { IconUpload, IconDelete, IconCheck, IconFile } from '../icon';
 import Loading from '../loading';
+import { Upload } from './upload';
 
 export * from './type';
 
