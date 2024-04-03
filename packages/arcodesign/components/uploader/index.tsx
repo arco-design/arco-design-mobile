@@ -32,7 +32,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
-    const cacheRef = useLatestRef<FileItem[]>(files);
+    const cacheRef = useLatestRef<FileItem[]>(files as FileItem[]);
 
     const uploadFunc = new Upload(props, fileRef, cacheRef);
 
@@ -88,90 +88,82 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                     deleteFile: uploadFunc.deleteFile,
                 })) || (
                 <div className={`${prefixCls}-uploader-list`}>
-                    {(limit && limit < files.length ? files.slice(0, limit) : files).map(
-                        (fileItem, index) => {
-                            const { file, status } = fileItem;
-                            return (
-                                <div
-                                    className={`${prefixCls}-uploader-list-item`}
-                                    key={index}
-                                    onClick={e => uploadFunc.handleClick(e, fileItem, index)}
-                                >
-                                    <div className={`${prefixCls}-uploader-list-item-container`}>
-                                        <div className={`${prefixCls}-uploader-list-item-wrapper`}>
-                                            {generateItemArea(
-                                                fileItem,
-                                                index,
-                                                renderFileIndexArea,
-                                                'file',
-                                                <IconFile />,
-                                            )}
-                                            <div
-                                                className={cls(
-                                                    `${prefixCls}-uploader-list-item-text`,
-                                                    {
-                                                        [`${prefixCls}-uploader-list-item-text-error`]:
-                                                            status === 'error',
-                                                    },
-                                                )}
-                                            >
-                                                {file.name}
-                                            </div>
-                                        </div>
-                                        {!hideStatus && (
-                                            <div
-                                                className={`${prefixCls}-uploader-list-item-status`}
-                                            >
-                                                {status === 'loaded' &&
-                                                    generateItemArea(
-                                                        fileItem,
-                                                        index,
-                                                        renderLoadedArea,
-                                                        'loaded',
-                                                        <IconCheck />,
-                                                    )}
-                                                {status === 'loading' &&
-                                                    generateItemArea(
-                                                        fileItem,
-                                                        index,
-                                                        renderLoadingArea,
-                                                        'loading',
-                                                        <Loading type="circle" radius={8} />,
-                                                    )}
-                                                {status === 'error' && (
-                                                    <div
-                                                        onClick={() =>
-                                                            uploadFunc.retryUpload(index)
-                                                        }
-                                                    >
-                                                        {generateItemArea(
-                                                            fileItem,
-                                                            index,
-                                                            renderErrorArea,
-                                                            'error',
-                                                            <span>
-                                                                {locale.Uploader.retryUpload}
-                                                            </span>,
-                                                        )}
-                                                    </div>
-                                                )}
-                                            </div>
+                    {(
+                        (limit && limit < files.length
+                            ? files.slice(0, limit)
+                            : files) as FileItem[]
+                    ).map((fileItem, index) => {
+                        const { file, status } = fileItem;
+                        return (
+                            <div
+                                className={`${prefixCls}-uploader-list-item`}
+                                key={index}
+                                onClick={e => uploadFunc.handleClick(e, fileItem, index)}
+                            >
+                                <div className={`${prefixCls}-uploader-list-item-container`}>
+                                    <div className={`${prefixCls}-uploader-list-item-wrapper`}>
+                                        {generateItemArea(
+                                            fileItem,
+                                            index,
+                                            renderFileIndexArea,
+                                            'file',
+                                            <IconFile />,
                                         )}
+                                        <div
+                                            className={cls(`${prefixCls}-uploader-list-item-text`, {
+                                                [`${prefixCls}-uploader-list-item-text-error`]:
+                                                    status === 'error',
+                                            })}
+                                        >
+                                            {file.name}
+                                        </div>
                                     </div>
-                                    <div
-                                        className={cls(`${prefixCls}-uploader-list-item-delete`, {
-                                            [`${prefixCls}-uploader-list-item-delete-disabled`]:
-                                                disabled,
-                                        })}
-                                        onClick={() => uploadFunc.deleteFile(index)}
-                                    >
-                                        {(renderDeleteArea &&
-                                            renderDeleteArea(fileItem, index)) || <IconDelete />}
-                                    </div>
+                                    {!hideStatus && (
+                                        <div className={`${prefixCls}-uploader-list-item-status`}>
+                                            {status === 'loaded' &&
+                                                generateItemArea(
+                                                    fileItem,
+                                                    index,
+                                                    renderLoadedArea,
+                                                    'loaded',
+                                                    <IconCheck />,
+                                                )}
+                                            {status === 'loading' &&
+                                                generateItemArea(
+                                                    fileItem,
+                                                    index,
+                                                    renderLoadingArea,
+                                                    'loading',
+                                                    <Loading type="circle" radius={8} />,
+                                                )}
+                                            {status === 'error' && (
+                                                <div onClick={() => uploadFunc.retryUpload(index)}>
+                                                    {generateItemArea(
+                                                        fileItem,
+                                                        index,
+                                                        renderErrorArea,
+                                                        'error',
+                                                        <span>{locale.Uploader.retryUpload}</span>,
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
                                 </div>
-                            );
-                        },
-                    )}
+                                <div
+                                    className={cls(`${prefixCls}-uploader-list-item-delete`, {
+                                        [`${prefixCls}-uploader-list-item-delete-disabled`]:
+                                            disabled,
+                                    })}
+                                    onClick={() => uploadFunc.deleteFile(index)}
+                                >
+                                    {(renderDeleteArea && renderDeleteArea(fileItem, index)) || (
+                                        <IconDelete />
+                                    )}
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             )
         );

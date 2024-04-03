@@ -1,9 +1,9 @@
 import React from 'react';
 import { Promise } from 'es6-promise';
-import { AdapterFile, FileItem, CommonProps } from './type';
+import { AdapterFile, FileItem, UploadCommonProps } from './type';
 
 export class Upload {
-    props: CommonProps;
+    props: UploadCommonProps;
 
     fileRef: React.MutableRefObject<HTMLInputElement | null>;
 
@@ -12,7 +12,11 @@ export class Upload {
     // click && longPress
     timeOutEvent: NodeJS.Timeout | number;
 
-    constructor(props: CommonProps, fileRef: any, cacheRef: any) {
+    constructor(
+        props: UploadCommonProps,
+        fileRef: React.MutableRefObject<HTMLInputElement | null>,
+        cacheRef: React.MutableRefObject<FileItem[]>,
+    ) {
         this.props = { ...props };
         this.fileRef = fileRef;
         this.cacheRef = cacheRef;

@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
-import { SelectCallback } from '@arco-design/mobile-utils';
 import { ImageProps } from '../image';
+import { UploadCommonProps } from '../uploader/upload/type';
 
 export interface ImagePickItem {
     /**
@@ -21,7 +21,7 @@ export interface ImagePickItem {
      */
     status?: 'loaded' | 'loading' | 'error';
 }
-export interface ImagePickerProps {
+export interface ImagePickerProps extends UploadCommonProps {
     /**
      * 自定义类名
      * @en Custom className
@@ -65,16 +65,6 @@ export interface ImagePickerProps {
      * @default 8
      */
     gutter?: number;
-    /**
-     * 最多选择图片张数，超出数量自动隐藏上传按钮，0表示不做限制
-     * @en max Pictures Can Choose
-     */
-    limit?: number;
-    /**
-     * 文件大小限制，单位为K
-     * @en File size limit, in K
-     */
-    maxSize?: number;
     /**
      * 是否隐藏删除Icon
      * @en Whether to hide delete Icon
@@ -124,54 +114,10 @@ export interface ImagePickerProps {
      */
     renderLoading?: (index?: number) => React.ReactNode | React.ReactNode;
     /**
-     * 上传方法
-     * @en upload function
-     */
-    upload?: (file: ImagePickItem) => Promise<ImagePickItem | null>;
-    /**
-     * 已选图片列表发生变化
-     * @en The list of selected images changes
-     */
-    onChange?: (fileList: ImagePickItem[]) => void;
-    /**
-     * 图片超过限制大小
-     * @en Image exceeds size limit
-     */
-    onMaxSizeExceed?: (file: File) => void;
-    /**
-     * 选择张数超过限制
-     * @en The number of pictures exceeds the limit
-     */
-    onLimitExceed?: (files: File[]) => void;
-    /**
-     * 图片点击
-     * @en click event
-     */
-    onClick?: (
-        e: React.MouseEvent<HTMLElement, MouseEvent>,
-        image: ImagePickItem,
-        index: number,
-    ) => void;
-    /**
-     * 图片长按事件
-     * @en long press event
-     */
-    onLongPress?: (e: React.TouchEvent<HTMLElement>, image: ImagePickItem, index: number) => void;
-    /**
-     * 图片选择适配器
-     * @en Select Adaptor
-     */
-    selectAdapter?: () => Promise<SelectCallback>;
-    /**
      * 选图点击事件
      * @en Select Icon Click Event
      */
     onSelectClick?: () => void;
-    /**
-     * 删除点击事件
-     * @en Delete Icon Click Event
-     */
-    onDeleteClick?: (index: number) => void;
 }
 
 export interface ImagePickerRef {

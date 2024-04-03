@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import { SelectCallback } from '@arco-design/mobile-utils';
+import { UploadCommonProps } from './upload/type';
 
 export interface FileItem {
     /**
@@ -20,7 +20,7 @@ export interface FileItem {
      */
     status?: 'loaded' | 'loading' | 'error';
 }
-export interface UploaderProps {
+export interface UploaderProps extends UploadCommonProps {
     /**
      * 自定义类名
      * @en Custom className
@@ -31,11 +31,6 @@ export interface UploaderProps {
      * @en Custom stylesheet
      */
     style?: React.CSSProperties;
-    /**
-     * 已选择文件列表
-     * @en Selected files list
-     */
-    files: FileItem[];
     /**
      * 可以选择的文件类型
      * @en Available file types
@@ -52,17 +47,6 @@ export interface UploaderProps {
      * @en Whether To Support Multiple Selection [capture MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture)
      */
     capture?: InputHTMLAttributes<unknown>['capture'];
-    /**
-     * 最多选择文件数，超出数量自动隐藏上传按钮，0表示不做限制
-     * @en Max pictures can choose
-     * @default 0
-     */
-    limit?: number;
-    /**
-     * 文件大小限制，单位为K
-     * @en File size limit, in K
-     */
-    maxSize?: number;
     /**
      * 是否隐藏文件上传状态
      * @en Whether to hide file upload status
@@ -115,50 +99,6 @@ export interface UploaderProps {
      * @en Defined file list display
      */
     renderFileList?: (methods: FileListMethods) => React.ReactNode;
-    /**
-     * 上传方法
-     * @en Upload function
-     */
-    upload?: (file: FileItem) => Promise<FileItem | null>;
-    /**
-     * 已选文件列表发生变化
-     * @en The list of selected files changes
-     */
-    onChange?: (fileList: FileItem[]) => void;
-    /**
-     * 文件超过限制大小
-     * @en Image exceeds size limit
-     */
-    onMaxSizeExceed?: (file: File) => void;
-    /**
-     * 选择文件数超过限制
-     * @en The number of pictures exceeds the limit
-     */
-    onLimitExceed?: (files: File[]) => void;
-    /**
-     * 文件点击
-     * @en click event
-     */
-    onClick?: (
-        e: React.MouseEvent<HTMLElement, MouseEvent>,
-        image: FileItem,
-        index: number,
-    ) => void;
-    /**
-     * 文件选择适配器
-     * @en Select Adaptor
-     */
-    selectAdapter?: () => Promise<SelectCallback>;
-    /**
-     * 上传文件点击事件
-     * @en Upload Area Click Event
-     */
-    onUploadClick?: () => void;
-    /**
-     * 删除点击事件
-     * @en Delete area click event
-     */
-    onDeleteClick?: (index: number) => void;
 }
 
 export interface UploaderRef {

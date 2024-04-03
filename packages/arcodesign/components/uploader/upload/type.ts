@@ -28,7 +28,7 @@ export interface FileItem {
     status?: 'loaded' | 'loading' | 'error';
 }
 
-export interface CommonProps {
+export interface UploadCommonProps {
     /**
      * 上传方法
      * @en upload function
