@@ -1,26 +1,15 @@
 import { InputHTMLAttributes } from 'react';
 import { ImageProps } from '../image';
-import { UploadCommonProps } from '../uploader/upload/type';
+import { UploadCommonProps, CommonFileItem } from '../uploader/upload/type';
 
-export interface ImagePickItem {
+export interface ImagePickItem extends CommonFileItem {
     /**
      * 图片地址
      * @en Image Url
      */
     url: string;
-    /**
-     * 图片文件
-     * @en Image File
-     */
-    file?: File;
-    /**
-     * 图片状态
-     * @en Image Status
-     * @default 以图片自身加载状态而定
-     * @default_en According to inner status of the image
-     */
-    status?: 'loaded' | 'loading' | 'error';
 }
+
 export interface ImagePickerProps extends UploadCommonProps {
     /**
      * 自定义类名

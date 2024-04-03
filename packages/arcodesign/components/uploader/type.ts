@@ -1,25 +1,14 @@
 import { InputHTMLAttributes } from 'react';
-import { UploadCommonProps } from './upload/type';
+import { UploadCommonProps, CommonFileItem } from './upload/type';
 
-export interface FileItem {
-    /**
-     * 文件地址
-     * @en file Url
-     */
-    url?: string;
+export interface FileItem extends CommonFileItem {
     /**
      * 文件
      * @en File
      */
     file: File;
-    /**
-     * 文件状态
-     * @en Image Status
-     * @default 以文件自身加载状态而定
-     * @default_en According to inner status of the image
-     */
-    status?: 'loaded' | 'loading' | 'error';
 }
+
 export interface UploaderProps extends UploadCommonProps {
     /**
      * 自定义类名

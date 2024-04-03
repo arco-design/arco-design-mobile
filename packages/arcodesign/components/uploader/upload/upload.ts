@@ -1,13 +1,13 @@
 import React from 'react';
 import { Promise } from 'es6-promise';
-import { AdapterFile, FileItem, UploadCommonProps } from './type';
+import { AdapterFile, CommonFileItem, UploadCommonProps } from './type';
 
 export class Upload {
     props: UploadCommonProps;
 
     fileRef: React.MutableRefObject<HTMLInputElement | null>;
 
-    cacheRef: React.MutableRefObject<FileItem[]>;
+    cacheRef: React.MutableRefObject<CommonFileItem[]>;
 
     // click && longPress
     timeOutEvent: NodeJS.Timeout | number;
@@ -15,7 +15,7 @@ export class Upload {
     constructor(
         props: UploadCommonProps,
         fileRef: React.MutableRefObject<HTMLInputElement | null>,
-        cacheRef: React.MutableRefObject<FileItem[]>,
+        cacheRef: React.MutableRefObject<CommonFileItem[]>,
     ) {
         this.props = { ...props };
         this.fileRef = fileRef;
@@ -36,14 +36,14 @@ export class Upload {
                 url,
                 status: typeof this.props.upload === 'function' ? 'loading' : 'loaded',
                 file: newFiles[index],
-            })) as FileItem[];
+            })) as CommonFileItem[];
             this.cacheRef.current = [...this.cacheRef.current, ...res];
             this.props.onChange!([...this.cacheRef.current]);
             // 执行upload
             if (typeof this.props.upload === 'function') {
                 newFiles.forEach(_file => {
                     this.props.upload!(
-                        this.cacheRef.current.find(({ file }) => file === _file) as FileItem,
+                        this.cacheRef.current.find(({ file }) => file === _file) as CommonFileItem,
                     )
                         .then(data => {
                             const index = this.cacheRef.current.findIndex(
@@ -121,7 +121,7 @@ export class Upload {
 
     handleClick = (
         e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        file: FileItem,
+        file: CommonFileItem,
         index: number,
     ) => {
         clearTimeout(this.timeOutEvent);
@@ -130,7 +130,11 @@ export class Upload {
         }
     };
 
-    handleTouchStart = (e: React.TouchEvent<HTMLDivElement>, image: FileItem, index: number) => {
+    handleTouchStart = (
+        e: React.TouchEvent<HTMLDivElement>,
+        image: CommonFileItem,
+        index: number,
+    ) => {
         this.timeOutEvent = setTimeout(() => {
             this.timeOutEvent = 0;
             this.props.onLongPress?.(e, image, index);

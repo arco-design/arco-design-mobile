@@ -8,7 +8,7 @@ export interface SelectCallback {
     files: AdapterFile[];
 }
 
-export interface FileItem {
+export interface CommonFileItem {
     /**
      * 文件地址
      * @en file Url
@@ -33,12 +33,12 @@ export interface UploadCommonProps {
      * 上传方法
      * @en upload function
      */
-    upload?: (file: FileItem) => Promise<FileItem | null>;
+    upload?: (file: CommonFileItem) => Promise<CommonFileItem | null>;
     /**
      * 已选文件列表发生变化
      * @en The list of selected files changes
      */
-    onChange?: (fileList: FileItem[]) => void;
+    onChange?: (fileList: CommonFileItem[]) => void;
     /**
      * 文件大小限制，单位为K
      * @en File size limit, in K
@@ -64,7 +64,7 @@ export interface UploadCommonProps {
      * 已选择文件列表
      * @en Selected files list
      */
-    files: FileItem[];
+    files: CommonFileItem[];
     /**
      * 删除点击事件
      * @en Delete area click event
@@ -84,10 +84,14 @@ export interface UploadCommonProps {
      * 文件点击
      * @en click event
      */
-    onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>, file: FileItem, index: number) => void;
+    onClick?: (
+        e: React.MouseEvent<HTMLElement, MouseEvent>,
+        file: CommonFileItem,
+        index: number,
+    ) => void;
     /**
      * 文件长按事件
      * @en long press event
      */
-    onLongPress?: (e: React.TouchEvent<HTMLElement>, file: FileItem, index: number) => void;
+    onLongPress?: (e: React.TouchEvent<HTMLElement>, file: CommonFileItem, index: number) => void;
 }
