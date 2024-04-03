@@ -14,22 +14,30 @@ function generateGuide({
     srcPath,
     tokenInfo,
     extraMdPath = path.resolve('sites/pc/static/md'),
-    languages = ['ch']
+    languages = ['ch'],
 } = {}) {
     readmeRoutes = {};
     // 解析其他文件夹下的md文件
-    const siteMdNames = fs.existsSync(extraMdPath) ? fs.readdirSync(extraMdPath).filter(name => {
-        return fs.lstatSync(path.join(extraMdPath, name)).isFile() && /\.md$/.test(name);
-    }) : [];
+    const siteMdNames = fs.existsSync(extraMdPath)
+        ? fs.readdirSync(extraMdPath).filter(name => {
+              return fs.lstatSync(path.join(extraMdPath, name)).isFile() && /\.md$/.test(name);
+          })
+        : [];
     let mdEntryImportStr = '';
     let mdEntryDocsStr = '';
     // 组件库README
     languages.forEach(lang => {
         const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
-        const dashFileSuffix= fileSuffix ? `-${fileSuffix}` : '';
+        const dashFileSuffix = fileSuffix ? `-${fileSuffix}` : '';
         const upperFileSuffix = fileSuffix ? utils.getCompName(fileSuffix) : '';
         const dotFileSuffix = fileSuffix ? `.${fileSuffix}` : '';
-        generateMdPage(path.join(srcPath, `README${dotFileSuffix}.md`), 'README', guidePagePath, lang, dashFileSuffix);
+        generateMdPage(
+            path.join(srcPath, `README${dotFileSuffix}.md`),
+            'README',
+            guidePagePath,
+            lang,
+            dashFileSuffix,
+        );
         mdEntryImportStr += `import ReadMe${upperFileSuffix} from './README${dashFileSuffix}';\n`;
         mdEntryDocsStr += `    'readme${dashFileSuffix}': ReadMe${upperFileSuffix},\n`;
     });
@@ -39,14 +47,17 @@ function generateGuide({
     if (fs.existsSync(changelogPath)) {
         languages.forEach(lang => {
             const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
-            const dashFileSuffix= fileSuffix ? `-${fileSuffix}` : '';
+            const dashFileSuffix = fileSuffix ? `-${fileSuffix}` : '';
             const upperFileSuffix = fileSuffix ? utils.getCompName(fileSuffix) : '';
             const outputPath = path.join(guidePagePath, `Changelog${dashFileSuffix}.tsx`);
             generateChangelog(changelogPath, outputPath, lang);
             mdEntryImportStr += `import Changelog${upperFileSuffix} from './Changelog${dashFileSuffix}';\n`;
             mdEntryDocsStr += `    'changelog${dashFileSuffix}': Changelog${upperFileSuffix},\n`;
             const item = {
-                name: lang === 'en' ? utils.getUpperTitle(localeMap.changelog[lang]) : localeMap.changelog[lang],
+                name:
+                    lang === 'en'
+                        ? utils.getUpperTitle(localeMap.changelog[lang])
+                        : localeMap.changelog[lang],
                 key: `changelog`,
             };
             !readmeRoutes[lang] && (readmeRoutes[lang] = []);
@@ -57,34 +68,46 @@ function generateGuide({
     if (tokenInfo) {
         languages.forEach(lang => {
             const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
-            const dashFileSuffix= fileSuffix ? `-${fileSuffix}` : '';
+            const dashFileSuffix = fileSuffix ? `-${fileSuffix}` : '';
             const upperFileSuffix = fileSuffix ? utils.getCompName(fileSuffix) : '';
             const outputPath = path.join(guidePagePath, `TokenPage${dashFileSuffix}.tsx`);
             generateTokenPage(tokenInfo, outputPath, lang);
             mdEntryImportStr += `import TokenPage${upperFileSuffix} from './TokenPage${dashFileSuffix}';\n`;
             mdEntryDocsStr += `    'tokens${dashFileSuffix}': TokenPage${upperFileSuffix},\n`;
             readmeRoutes[lang].push({
-                name: lang === 'en' ? utils.getUpperTitle(localeMap.variableDescription[lang]) : localeMap.variableDescription[lang],
+                name:
+                    lang === 'en'
+                        ? utils.getUpperTitle(localeMap.variableDescription[lang])
+                        : localeMap.variableDescription[lang],
                 key: `tokens`,
-            })
+            });
         });
     }
 
     // 其他md文档
     siteMdNames.forEach(mdName => {
         const curMdFilename = mdName.replace('.md', '');
-        const lang = languages.find(lang => {
-            const suffix = languageUtils.lang2SuffixMap[lang];
-            return curMdFilename.endsWith(`-${suffix}`) || curMdFilename.endsWith(`.${suffix}`);
-        }) || 'ch';
+        const lang =
+            languages.find(lang => {
+                const suffix = languageUtils.lang2SuffixMap[lang];
+                return curMdFilename.endsWith(`-${suffix}`) || curMdFilename.endsWith(`.${suffix}`);
+            }) || 'ch';
         const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
-        const mdFilename =  fileSuffix ? curMdFilename.slice(0, curMdFilename.length - fileSuffix.length - 1) : curMdFilename;
+        const mdFilename = fileSuffix
+            ? curMdFilename.slice(0, curMdFilename.length - fileSuffix.length - 1)
+            : curMdFilename;
         const dashFileSuffix = fileSuffix ? `-${fileSuffix}` : fileSuffix;
         const dashMdFileName = fileSuffix ? `${mdFilename}-${fileSuffix}` : mdFilename;
         const compName = utils.getCompName(dashMdFileName);
         mdEntryImportStr += `import ${compName} from './${dashMdFileName}';\n`;
         mdEntryDocsStr += `    '${dashMdFileName}': ${compName},\n`;
-        generateMdPage(path.join(extraMdPath, mdName), mdFilename, guidePagePath, lang, dashFileSuffix);
+        generateMdPage(
+            path.join(extraMdPath, mdName),
+            mdFilename,
+            guidePagePath,
+            lang,
+            dashFileSuffix,
+        );
     });
 
     // 写README entry文件
@@ -98,7 +121,7 @@ export default docs;\n`;
     // 写readme routes文件
     languages.forEach(lang => {
         const fileSuffix = languageUtils.lang2SuffixMap[lang] || '';
-        const dashFileSuffix= fileSuffix ? `-${fileSuffix}` : '';
+        const dashFileSuffix = fileSuffix ? `-${fileSuffix}` : '';
         fs.writeFile(
             path.join(guidePagePath, `index${dashFileSuffix}.json`),
             JSON.stringify(readmeRoutes[lang], null, 4),
@@ -108,6 +131,33 @@ export default docs;\n`;
         );
     });
 }
+
+function writeQaJson(targetPath, content, language) {
+    const result = content
+        .split('## Q: ')
+        .map(item => {
+            const qAndA = item.split('A: ');
+            const question = qAndA[0].replace(/\n/g, '');
+            if (!question) {
+                return;
+            }
+            return {
+                question,
+                answer: qAndA[1]?.split('```')[0].replace(/\n/g, ''),
+            };
+        })
+        .filter(item => item);
+
+    // 写qa json文件
+    fs.writeFile(
+        path.join(targetPath, `qa${language === 'en' ? '-en' : ''}.json`),
+        JSON.stringify(result, null, 4),
+        () => {
+            console.log('>>> Write qa json file finished');
+        },
+    );
+}
+
 /**
  * tsx文件生成--「开发指南」部分
  * @param {解析文件位置} filePath
@@ -119,6 +169,9 @@ function generateMdPage(filePath, mdFilename, siteMdPath, language = 'ch', fileS
     const mdSplit = md.split(/=====+/);
     const { source: nav, name } = renderSiteMdSource(mdSplit[0], language);
     const { source: description } = renderSiteMdSource(mdSplit[1] || '', language);
+    if (mdFilename === 'qa') {
+        writeQaJson(siteMdPath, mdSplit[1], language);
+    }
 
     const mdFileStr = `import React from 'react';
 

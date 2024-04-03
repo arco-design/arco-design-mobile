@@ -53,12 +53,11 @@ export function useInputLogic(
     const system = useSystem();
     const wrapRef = useRef<HTMLDivElement | null>(null);
     const needComposition = system === 'ios' && blockChangeWhenCompositing;
-
     useEffect(() => {
         if (autoFocus) {
             setTimeout(() => {
-                inputRef.current && inputRef.current.focus();
-            }, 200);
+                inputRef.current && inputRef.current.click();
+            }, 100);
         }
     }, []);
 

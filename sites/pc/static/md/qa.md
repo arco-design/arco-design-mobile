@@ -71,16 +71,19 @@ export const Demo1 = () => {
         <ContextProvider>
             <Cell
                 onClick={() => {
-                    window.modalInstance = Popup.open({
-                        children: <Child />,
-                    },
-                    {
-                        system: 'ios' }
+                    window.modalInstance = Popup.open(
+                        {
+                            children: <Child />,
+                        },
+                        {
+                            system: 'ios',
+                        },
                     );
-                }}/>
+                }}
+            />
         </ContextProvider>
-    )
-}
+    );
+};
 
 // 使用外部 context 时
 const TestModel = createModel(() => {
@@ -89,7 +92,7 @@ const TestModel = createModel(() => {
     return {
         count,
         add,
-    }
+    };
 });
 
 export const Demo2 = () => {
@@ -98,15 +101,13 @@ export const Demo2 = () => {
             <Cell
                 label="test"
                 onClick={() => {
-                    Popup.open(
-                        {
-                            children: (
-                                <TestModel.Provider>
-                                    <Child />
-                                </TestModel.Provider>
-                            ),
-                        }
-                    );
+                    Popup.open({
+                        children: (
+                            <TestModel.Provider>
+                                <Child />
+                            </TestModel.Provider>
+                        ),
+                    });
                 }}
             />
         </TestModel.Provider>

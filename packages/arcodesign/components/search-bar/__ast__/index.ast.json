@@ -633,12 +633,12 @@
         },
         "autoFocus": {
             "defaultValue": null,
-            "description": "是否自动获取焦点\n@en Whether to automatically get the focus",
+            "description": "是否自动获取焦点，开启后会触发一次onClick事件\n@en Whether to automatically get the focus, it will trigger an onClick event once after being enabled",
             "name": "autoFocus",
             "tags": {
-                "en": "Whether to automatically get the focus"
+                "en": "Whether to automatically get the focus, it will trigger an onClick event once after being enabled"
             },
-            "descWithTags": "是否自动获取焦点",
+            "descWithTags": "是否自动获取焦点，开启后会触发一次onClick事件",
             "parent": {
                 "fileName": "arcom-github/packages/arcodesign/components/input/props.tsx",
                 "name": "BasicInputProps"
