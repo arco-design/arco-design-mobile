@@ -1,4 +1,5 @@
 import React from 'react';
+import { Promise } from 'es6-promise';
 import { AdapterFile, FileItem, CommonProps } from './type';
 
 export class Upload {
