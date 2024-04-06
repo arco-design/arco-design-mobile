@@ -387,9 +387,7 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
               >
                 <span
                   class="arco-form-picker-link-container-placeholder"
-                >
-                  请选择
-                </span>
+                />
               </div>
             </div>
           </div>
@@ -417,9 +415,7 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
               >
                 <span
                   class="arco-form-picker-link-container-placeholder"
-                >
-                  请选择
-                </span>
+                />
               </div>
             </div>
           </div>
