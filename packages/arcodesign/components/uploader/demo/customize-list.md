@@ -41,6 +41,8 @@ export default function UploaderDemo() {
                             <div
                                 className={cls(`demo-uploader-list-item-text`, {
                                     [`demo-uploader-list-item-text-error`]: status === 'error',
+                                    [`demo-uploader-list-item-text-loading`]:
+                                        status === 'loading',
                                 })}
                             >
                                 <span>{file.name}</span>
@@ -56,7 +58,7 @@ export default function UploaderDemo() {
                                 )}
                                 {status === 'loading' && (
                                     <div className={`demo-uploader-list-item-loading`}>
-                                        <Loading type="circle" radius={8} />
+                                        <Loading type="circle" radius={7} />
                                     </div>
                                 )}
                                 {status === 'error' && (
@@ -94,12 +96,13 @@ export default function UploaderDemo() {
         align-items: center;
         .rem(height, 56);
         .rem(margin-top, 16);
-        .onepx-border-var(all, line-color);
+        .onepx-border-var(all, line-color, 0.04rem);
         &-image {
             .rem(width, 56);
             .rem(height, 56);
             .rem(border-top-left-radius, 2);
             .rem(border-bottom-left-radius, 2);
+            overflow: hidden;
         }
         &-text {
             .rem(font-size, 14);
@@ -111,6 +114,9 @@ export default function UploaderDemo() {
             align-items: center;
             &-error {
                 .use-var(color, danger-color);
+            }
+            &-loading {
+                .use-var(color, sub-info-font-color);
             }
         }
         &-warning {
@@ -131,6 +137,7 @@ export default function UploaderDemo() {
             line-height: 0;
             .rem(margin, 12);
             .rem(font-size, 16);
+            .use-var(color, sub-font-color);
         }
     }
 }

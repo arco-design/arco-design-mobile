@@ -4283,6 +4283,14 @@
         "jsValue": "@global@darkMaskContentColor",
         "staticValue": "rgba(255, 255, 255, 0.9)"
     },
+    "darkUploaderDeleteIconColor": {
+        "cssKey": "dark-uploader-delete-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-sub-font-color",
+        "jsValue": "@global@darkSubFontColor",
+        "staticValue": "#c5c5c5"
+    },
     "darkUploaderDisabledDeleteIconColor": {
         "cssKey": "dark-uploader-disabled-delete-icon-color",
         "desc": "",
@@ -4298,6 +4306,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkUploaderFileIconColor": {
+        "cssKey": "dark-uploader-file-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-sub-font-color",
+        "jsValue": "@global@darkSubFontColor",
+        "staticValue": "#c5c5c5"
     },
     "darkUploaderItemBackgroundColor": {
         "cssKey": "dark-uploader-item-background-color",
@@ -11761,6 +11777,18 @@
             "en": "Transition fade duration"
         }
     },
+    "uploaderDeleteIconColor": {
+        "cssKey": "uploader-delete-icon-color",
+        "desc": "文件上传组件上传列表删除图标颜色",
+        "override": "",
+        "value": "@sub-font-color",
+        "jsValue": "@global@subFontColor",
+        "staticValue": "#4e5969",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表删除图标颜色",
+            "en": "deleteIcon color of uploader list"
+        }
+    },
     "uploaderDeleteIconFontSize": {
         "cssKey": "uploader-delete-icon-font-size",
         "desc": "文件上传组件上传列表删除图标大小",
@@ -11773,15 +11801,15 @@
             "en": "deleteIcon size of uploader list"
         }
     },
-    "uploaderDeleteIconMargin": {
-        "cssKey": "uploader-delete-icon-margin",
-        "desc": "文件上传组件上传列表删除图标边距",
+    "uploaderDeleteIconPaddingLeft": {
+        "cssKey": "uploader-delete-icon-padding-left",
+        "desc": "文件上传组件上传列表删除图标左内边距",
         "override": "",
         "value": "~`pxtorem(12)`",
         "jsValue": "@getRem@12",
         "staticValue": "0.24rem",
         "localeDesc": {
-            "ch": "文件上传组件上传列表删除图标边距",
+            "ch": "文件上传组件上传列表删除图标左内边距",
             "en": "deleteIcon margin of uploader list"
         }
     },
@@ -11821,6 +11849,18 @@
             "en": "Error text fontSize of uploader list"
         }
     },
+    "uploaderFileIconColor": {
+        "cssKey": "uploader-file-icon-color",
+        "desc": "文件上传组件上传列表文件图标颜色",
+        "override": "",
+        "value": "@sub-font-color",
+        "jsValue": "@global@subFontColor",
+        "staticValue": "#4e5969",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表文件图标颜色",
+            "en": "FileIcon color of uploader list"
+        }
+    },
     "uploaderFileIconFontSize": {
         "cssKey": "uploader-file-icon-font-size",
         "desc": "文件上传组件上传列表文件图标大小",
@@ -11835,14 +11875,14 @@
     },
     "uploaderFileIconMarginRight": {
         "cssKey": "uploader-file-icon-margin-right",
-        "desc": "文件上传组件上传列表文件图标大小",
+        "desc": "文件上传组件上传列表文件图标右边距",
         "override": "",
         "value": "~`pxtorem(12)`",
         "jsValue": "@getRem@12",
         "staticValue": "0.24rem",
         "localeDesc": {
-            "ch": "文件上传组件上传列表文件图标大小",
-            "en": "FileIcon size of uploader list"
+            "ch": "文件上传组件上传列表文件图标右边距",
+            "en": "FileIcon margin right of uploader list"
         }
     },
     "uploaderItemBackgroundColor": {

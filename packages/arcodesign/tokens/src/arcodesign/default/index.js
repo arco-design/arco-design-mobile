@@ -4155,10 +4155,15 @@ function getCompTokens() {
          */
         uploaderFileIconFontSize: getRem(16),
         /**
-         * 文件上传组件上传列表文件图标大小
-         * @en FileIcon size of uploader list
+         * 文件上传组件上传列表文件图标右边距
+         * @en FileIcon margin right of uploader list
          */
         uploaderFileIconMarginRight: getRem(12),
+        /**
+         * 文件上传组件上传列表文件图标颜色
+         * @en FileIcon color of uploader list
+         */
+        uploaderFileIconColor: useGlobal('subFontColor'),
         /**
          * 文件上传组件上传列表文字大小
          * @en Text fontSize of uploader list
@@ -4200,10 +4205,15 @@ function getCompTokens() {
          */
         uploaderDeleteIconFontSize: getRem(12),
         /**
-         * 文件上传组件上传列表删除图标边距
+         * 文件上传组件上传列表删除图标左内边距
          * @en deleteIcon margin of uploader list
          */
-        uploaderDeleteIconMargin: getRem(12),
+        uploaderDeleteIconPaddingLeft: getRem(12),
+        /**
+         * 文件上传组件上传列表删除图标颜色
+         * @en deleteIcon color of uploader list
+         */
+        uploaderDeleteIconColor: useGlobal('subFontColor'),
         /**
          * 文件上传组件禁用状态删除图标颜色
          * @en disabled deleteIcon color of uploader list

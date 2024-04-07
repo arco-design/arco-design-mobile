@@ -107,7 +107,9 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                             index,
                                             renderFileIndexArea,
                                             'file',
-                                            <IconFile />,
+                                            <IconFile
+                                                className={`${prefixCls}-uploader-list-item-file`}
+                                            />,
                                         )}
                                         <div
                                             className={cls(`${prefixCls}-uploader-list-item-text`, {
@@ -134,7 +136,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                                     index,
                                                     renderLoadingArea,
                                                     'loading',
-                                                    <Loading type="circle" radius={8} />,
+                                                    <Loading type="circle" radius={7} />,
                                                 )}
                                             {status === 'error' && (
                                                 <div onClick={() => uploadFunc.retryUpload(index)}>
@@ -151,14 +153,19 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                     )}
                                 </div>
                                 <div
-                                    className={cls(`${prefixCls}-uploader-list-item-delete`, {
-                                        [`${prefixCls}-uploader-list-item-delete-disabled`]:
-                                            disabled,
-                                    })}
+                                    className={`${prefixCls}-uploader-list-item-delete`}
                                     onClick={() => uploadFunc.deleteFile(index)}
                                 >
                                     {(renderDeleteArea && renderDeleteArea(fileItem, index)) || (
-                                        <IconDelete />
+                                        <IconDelete
+                                            className={cls(
+                                                `${prefixCls}-uploader-list-item-delete-icon`,
+                                                {
+                                                    [`${prefixCls}-uploader-list-item-delete-icon-disabled`]:
+                                                        disabled,
+                                                },
+                                            )}
+                                        />
                                     )}
                                 </div>
                             </div>

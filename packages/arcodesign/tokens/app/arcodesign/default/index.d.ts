@@ -1070,6 +1070,8 @@ export interface ArcodesignToken extends Record<string, string> {
     'uploader-item-background-color': string;
     'uploader-file-icon-font-size': string;
     'uploader-file-icon-margin-right': string;
+    'dark-uploader-file-icon-color': string;
+    'uploader-file-icon-color': string;
     'uploader-item-text-font-size': string;
     'uploader-item-border-radius': string;
     'dark-uploader-item-text-color': string;
@@ -1081,7 +1083,9 @@ export interface ArcodesignToken extends Record<string, string> {
     'dark-uploader-error-text-color': string;
     'uploader-error-text-color': string;
     'uploader-delete-icon-font-size': string;
-    'uploader-delete-icon-margin': string;
+    'uploader-delete-icon-padding-left': string;
+    'dark-uploader-delete-icon-color': string;
+    'uploader-delete-icon-color': string;
     'dark-uploader-disabled-delete-icon-color': string;
     'uploader-disabled-delete-icon-color': string;
     'dark-uploader-item-text-error-color': string;
