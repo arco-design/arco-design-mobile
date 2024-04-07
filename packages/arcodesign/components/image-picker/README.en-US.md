@@ -18,8 +18,6 @@ ImagePicker Component
 |capture|Whether To Support Multiple Selection \[capture MDN\](https://developer\.mozilla\.org/en\-US/docs/Web/HTML/Attributes/capture)|string \| boolean|-|
 |columns|The Number Of Pictures Displayed In A Row|number|3|
 |gutter|spacing between grids|number|8|
-|limit|max Pictures Can Choose|number|-|
-|maxSize|File size limit, in K|number|-|
 |hideDelete|Whether to hide delete Icon|boolean|false|
 |hideSelect|Whether to hide Select Icon|boolean|false|
 |alwaysShowSelect|Whether to always show Select Icon|boolean|false|
@@ -29,15 +27,18 @@ ImagePicker Component
 |imageProps|Attributes passed through to the image|Partial\<ImageProps\>|-|
 |renderError|Defined upload failed display|(index?: number) =\> ReactNode|-|
 |renderLoading|Defined uploading display|(index?: number) =\> ReactNode|-|
-|upload|upload function|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
-|onChange|The list of selected images changes|(fileList: ImagePickItem\[\]) =\> void|-|
+|onSelectClick|Select icon click event|() =\> void|-|
+|upload|Upload function|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
+|onChange|The list of selected files changes|(fileList: ImagePickItem\[\]) =\> void|-|
+|maxSize|File size limit, in K|number|-|
 |onMaxSizeExceed|Image exceeds size limit|(file: File) =\> void|-|
+|limit|Max pictures can choose, 0 means no restriction|number|0|
 |onLimitExceed|The number of pictures exceeds the limit|(files: File\[\]) =\> void|-|
-|onClick|click event|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
-|onLongPress|long press event|(e: TouchEvent\<HTMLElement\>, image: ImagePickItem, index: number) =\> void|-|
-|selectAdapter|Select Adaptor|() =\> Promise\<SelectCallback\>|-|
-|onSelectClick|Select Icon Click Event|() =\> void|-|
-|onDeleteClick|Delete Icon Click Event|(index: number) =\> void|-|
+|onDeleteClick|Delete area click event|(index: number) =\> void|-|
+|onUploadClick|Upload area click event|() =\> void|-|
+|selectAdapter|Select adaptor|() =\> Promise\<SelectCallback\>|-|
+|onClick|click event|(e: MouseEvent\<HTMLElement, MouseEvent\>, file: ImagePickItem, index: number) =\> void|-|
+|onLongPress|long press event|(e: TouchEvent\<HTMLElement\>, file: ImagePickItem, index: number) =\> void|-|
 
 > Refs
 
@@ -50,7 +51,7 @@ ImagePicker Component
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
 |url|Image Url|string|required|
-|file|Image File|File|-|
+|file|File|File|-|
 |status|Image Status|"loaded" \| "loading" \| "error"|According to inner status of the image|
 
 > ImageProps
@@ -104,12 +105,12 @@ string | number | string & {}
 
 |Property|Description|Type|
 |----------|-------------|------|
-|files|-|AdapterFile\[\]|
+|files|File list|AdapterFile\[\]|
 
 > AdapterFile
 
 |Property|Description|Type|
 |----------|-------------|------|
-|url|-|string|
-|size|-|number|
-|name|-|string|
+|url|Url of file|string|
+|size|File size|number|
+|name|File name|string|

@@ -156,40 +156,6 @@
                 "name": "number"
             }
         },
-        "limit": {
-            "defaultValue": null,
-            "description": "最多选择图片张数，超出数量自动隐藏上传按钮，0表示不做限制\n@en max Pictures Can Choose",
-            "name": "limit",
-            "tags": {
-                "en": "max Pictures Can Choose"
-            },
-            "descWithTags": "最多选择图片张数，超出数量自动隐藏上传按钮，0表示不做限制",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "number"
-            }
-        },
-        "maxSize": {
-            "defaultValue": null,
-            "description": "文件大小限制，单位为K\n@en File size limit, in K",
-            "name": "maxSize",
-            "tags": {
-                "en": "File size limit, in K"
-            },
-            "descWithTags": "文件大小限制，单位为K",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "number"
-            }
-        },
         "hideDelete": {
             "defaultValue": {
                 "value": "false"
@@ -352,131 +318,12 @@
                 "name": "(index?: number) => ReactNode"
             }
         },
-        "upload": {
-            "defaultValue": null,
-            "description": "上传方法\n@en upload function",
-            "name": "upload",
-            "tags": {
-                "en": "upload function"
-            },
-            "descWithTags": "上传方法",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(file: ImagePickItem) => Promise<ImagePickItem>"
-            }
-        },
-        "onChange": {
-            "defaultValue": null,
-            "description": "已选图片列表发生变化\n@en The list of selected images changes",
-            "name": "onChange",
-            "tags": {
-                "en": "The list of selected images changes"
-            },
-            "descWithTags": "已选图片列表发生变化",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(fileList: ImagePickItem[]) => void"
-            }
-        },
-        "onMaxSizeExceed": {
-            "defaultValue": null,
-            "description": "图片超过限制大小\n@en Image exceeds size limit",
-            "name": "onMaxSizeExceed",
-            "tags": {
-                "en": "Image exceeds size limit"
-            },
-            "descWithTags": "图片超过限制大小",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(file: File) => void"
-            }
-        },
-        "onLimitExceed": {
-            "defaultValue": null,
-            "description": "选择张数超过限制\n@en The number of pictures exceeds the limit",
-            "name": "onLimitExceed",
-            "tags": {
-                "en": "The number of pictures exceeds the limit"
-            },
-            "descWithTags": "选择张数超过限制",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(files: File[]) => void"
-            }
-        },
-        "onClick": {
-            "defaultValue": null,
-            "description": "图片点击\n@en click event",
-            "name": "onClick",
-            "tags": {
-                "en": "click event"
-            },
-            "descWithTags": "图片点击",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(e: MouseEvent<HTMLElement, MouseEvent>, image: ImagePickItem, index: number) => void"
-            }
-        },
-        "onLongPress": {
-            "defaultValue": null,
-            "description": "图片长按事件\n@en long press event",
-            "name": "onLongPress",
-            "tags": {
-                "en": "long press event"
-            },
-            "descWithTags": "图片长按事件",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "(e: TouchEvent<HTMLElement>, image: ImagePickItem, index: number) => void"
-            }
-        },
-        "selectAdapter": {
-            "defaultValue": null,
-            "description": "图片选择适配器\n@en Select Adaptor",
-            "name": "selectAdapter",
-            "tags": {
-                "en": "Select Adaptor"
-            },
-            "descWithTags": "图片选择适配器",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
-            },
-            "required": false,
-            "type": {
-                "name": "() => Promise<SelectCallback>"
-            }
-        },
         "onSelectClick": {
             "defaultValue": null,
-            "description": "选图点击事件\n@en Select Icon Click Event",
+            "description": "选图点击事件\n@en Select icon click event",
             "name": "onSelectClick",
             "tags": {
-                "en": "Select Icon Click Event"
+                "en": "Select icon click event"
             },
             "descWithTags": "选图点击事件",
             "parent": {
@@ -488,21 +335,194 @@
                 "name": "() => void"
             }
         },
+        "upload": {
+            "defaultValue": null,
+            "description": "上传方法\n@en Upload function",
+            "name": "upload",
+            "tags": {
+                "en": "Upload function"
+            },
+            "descWithTags": "上传方法",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(file: ImagePickItem) => Promise<ImagePickItem>"
+            }
+        },
+        "onChange": {
+            "defaultValue": null,
+            "description": "已选文件列表发生变化\n@en The list of selected files changes",
+            "name": "onChange",
+            "tags": {
+                "en": "The list of selected files changes"
+            },
+            "descWithTags": "已选文件列表发生变化",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(fileList: ImagePickItem[]) => void"
+            }
+        },
+        "maxSize": {
+            "defaultValue": null,
+            "description": "文件大小限制，单位为K\n@en File size limit, in K",
+            "name": "maxSize",
+            "tags": {
+                "en": "File size limit, in K"
+            },
+            "descWithTags": "文件大小限制，单位为K",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "onMaxSizeExceed": {
+            "defaultValue": null,
+            "description": "文件超过限制大小\n@en Image exceeds size limit",
+            "name": "onMaxSizeExceed",
+            "tags": {
+                "en": "Image exceeds size limit"
+            },
+            "descWithTags": "文件超过限制大小",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(file: File) => void"
+            }
+        },
+        "limit": {
+            "defaultValue": {
+                "value": "0"
+            },
+            "description": "最多选择文件数，超出数量自动隐藏上传按钮，0表示不做限制\n@en Max pictures can choose, 0 means no restriction",
+            "name": "limit",
+            "tags": {
+                "en": "Max pictures can choose, 0 means no restriction",
+                "default": "0"
+            },
+            "descWithTags": "最多选择文件数，超出数量自动隐藏上传按钮，0表示不做限制",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "onLimitExceed": {
+            "defaultValue": null,
+            "description": "选择文件数超过限制\n@en The number of pictures exceeds the limit",
+            "name": "onLimitExceed",
+            "tags": {
+                "en": "The number of pictures exceeds the limit"
+            },
+            "descWithTags": "选择文件数超过限制",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(files: File[]) => void"
+            }
+        },
         "onDeleteClick": {
             "defaultValue": null,
-            "description": "删除点击事件\n@en Delete Icon Click Event",
+            "description": "删除点击事件\n@en Delete area click event",
             "name": "onDeleteClick",
             "tags": {
-                "en": "Delete Icon Click Event"
+                "en": "Delete area click event"
             },
             "descWithTags": "删除点击事件",
             "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
-                "name": "ImagePickerProps"
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
             },
             "required": false,
             "type": {
                 "name": "(index: number) => void"
+            }
+        },
+        "onUploadClick": {
+            "defaultValue": null,
+            "description": "上传文件点击事件\n@en Upload area click event",
+            "name": "onUploadClick",
+            "tags": {
+                "en": "Upload area click event"
+            },
+            "descWithTags": "上传文件点击事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "selectAdapter": {
+            "defaultValue": null,
+            "description": "文件选择适配器\n@en Select adaptor",
+            "name": "selectAdapter",
+            "tags": {
+                "en": "Select adaptor"
+            },
+            "descWithTags": "文件选择适配器",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => Promise<SelectCallback>"
+            }
+        },
+        "onClick": {
+            "defaultValue": null,
+            "description": "文件点击\n@en click event",
+            "name": "onClick",
+            "tags": {
+                "en": "click event"
+            },
+            "descWithTags": "文件点击",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: MouseEvent<HTMLElement, MouseEvent>, file: ImagePickItem, index: number) => void"
+            }
+        },
+        "onLongPress": {
+            "defaultValue": null,
+            "description": "文件长按事件\n@en long press event",
+            "name": "onLongPress",
+            "tags": {
+                "en": "long press event"
+            },
+            "descWithTags": "文件长按事件",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
+                "name": "UploadCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: TouchEvent<HTMLElement>, file: ImagePickItem, index: number) => void"
             }
         },
         "ref": {
@@ -539,22 +559,22 @@
             "file": {
                 "name": "file",
                 "required": false,
-                "description": "图片文件\n@en Image File",
+                "description": "文件\n@en File",
                 "defaultValue": null,
                 "type": {
                     "name": "File"
                 },
                 "tags": {
-                    "en": "Image File"
+                    "en": "File"
                 },
-                "descWithTags": "图片文件"
+                "descWithTags": "文件"
             },
             "status": {
                 "name": "status",
                 "required": false,
-                "description": "图片状态\n@en Image Status\n@default_en According to inner status of the image",
+                "description": "文件状态\n@en Image Status\n@default_en According to inner status of the image",
                 "defaultValue": {
-                    "value": "以图片自身加载状态而定"
+                    "value": "以文件自身加载状态而定"
                 },
                 "type": {
                     "name": "enum",
@@ -573,10 +593,10 @@
                 },
                 "tags": {
                     "en": "Image Status",
-                    "default": "以图片自身加载状态而定",
+                    "default": "以文件自身加载状态而定",
                     "default_en": "According to inner status of the image"
                 },
-                "descWithTags": "图片状态"
+                "descWithTags": "文件状态"
             }
         },
         "ImageProps": {
@@ -1050,48 +1070,56 @@
             "files": {
                 "name": "files",
                 "required": true,
-                "description": "",
+                "description": "文件列表\n@en File list",
                 "defaultValue": null,
                 "type": {
                     "name": "AdapterFile[]"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "File list"
+                },
+                "descWithTags": "文件列表"
             }
         },
         "AdapterFile": {
             "url": {
                 "name": "url",
                 "required": false,
-                "description": "",
+                "description": "文件 url\n@en Url of file",
                 "defaultValue": null,
                 "type": {
                     "name": "string"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "Url of file"
+                },
+                "descWithTags": "文件 url"
             },
             "size": {
                 "name": "size",
                 "required": true,
-                "description": "",
+                "description": "文件大小\n@en File size",
                 "defaultValue": null,
                 "type": {
                     "name": "number"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "File size"
+                },
+                "descWithTags": "文件大小"
             },
             "name": {
                 "name": "name",
                 "required": true,
-                "description": "",
+                "description": "文件名\n@en File name",
                 "defaultValue": null,
                 "type": {
                     "name": "string"
                 },
-                "tags": {},
-                "descWithTags": ""
+                "tags": {
+                    "en": "File name"
+                },
+                "descWithTags": "文件名"
             }
         },
         "ImagePickerRef": {

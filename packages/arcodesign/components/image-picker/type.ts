@@ -10,7 +10,7 @@ export interface ImagePickItem extends CommonFileItem {
     url: string;
 }
 
-export interface ImagePickerProps extends UploadCommonProps {
+export interface ImagePickerProps extends Omit<UploadCommonProps<ImagePickItem>, 'files'> {
     /**
      * 自定义类名
      * @en Custom className
@@ -104,7 +104,7 @@ export interface ImagePickerProps extends UploadCommonProps {
     renderLoading?: (index?: number) => React.ReactNode | React.ReactNode;
     /**
      * 选图点击事件
-     * @en Select Icon Click Event
+     * @en Select icon click event
      */
     onSelectClick?: () => void;
 }
