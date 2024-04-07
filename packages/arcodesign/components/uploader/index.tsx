@@ -108,7 +108,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                             renderFileIndexArea,
                                             'file',
                                             <IconFile
-                                                className={`${prefixCls}-uploader-list-item-file`}
+                                                className={`${prefixCls}-uploader-list-item-file-icon`}
                                             />,
                                         )}
                                         <div

@@ -109,7 +109,7 @@ export default function UploaderDemo() {
             .use-var(color, font-color);
             font-weight: 400;
             flex: 1;
-            .rem(margin-left, 12);
+            .set-prop-with-rtl(margin-left, 0.24rem);
             display: flex;
             align-items: center;
             &-error {
@@ -121,7 +121,7 @@ export default function UploaderDemo() {
         }
         &-warning {
             line-height: 0;
-            .rem(margin-left, 12);
+            .set-prop-with-rtl(margin-left, 0.24rem);
         }
         &-loaded {
             line-height: 0;
@@ -135,7 +135,7 @@ export default function UploaderDemo() {
         }
         &-delete {
             line-height: 0;
-            .rem(margin, 12);
+            .rem(padding, 12);
             .rem(font-size, 16);
             .use-var(color, sub-font-color);
         }
