@@ -56,7 +56,7 @@ A: autoFocus is not supported on some models, the bottom layer of the component 
 
 ## Q: SyntaxError: xxx is undefined occurs when using or building
 
-A: The version of the @arco-design/mobile-react package needs to correspond one-to-one with the version of the @arco-design/mobile-utils package. You can check whether the version of the @arco-design/mobile-utils package is locked or specified in the project.
+A: The version of the @arco-design/mobile-react package needs to correspond one-to-one with the version of the @arco-design/mobile-utils package. You can check whether the version of the @arco-design/mobile-utils package is locked or specified in the project
 
 ## Q: When using Provider in Popup.open, an error occurs or context cannot be used.
 
@@ -71,16 +71,19 @@ export const Demo1 = () => {
         <ContextProvider>
             <Cell
                 onClick={() => {
-                    window.modalInstance = Popup.open({
-                        children: <Child />,
-                    },
-                    {
-                        system: 'ios' }
+                    window.modalInstance = Popup.open(
+                        {
+                            children: <Child />,
+                        },
+                        {
+                            system: 'ios',
+                        },
                     );
-                }}/>
+                }}
+            />
         </ContextProvider>
-    )
-}
+    );
+};
 
 // When using external context
 const TestModel = createModel(() => {
@@ -89,7 +92,7 @@ const TestModel = createModel(() => {
     return {
         count,
         add,
-    }
+    };
 });
 
 export const Demo2 = () => {
@@ -98,15 +101,13 @@ export const Demo2 = () => {
             <Cell
                 label="test"
                 onClick={() => {
-                    Popup.open(
-                        {
-                            children: (
-                                <TestModel.Provider>
-                                    <Child />
-                                </TestModel.Provider>
-                            ),
-                        }
-                    );
+                    Popup.open({
+                        children: (
+                            <TestModel.Provider>
+                                <Child />
+                            </TestModel.Provider>
+                        ),
+                    });
                 }}
             />
         </TestModel.Provider>

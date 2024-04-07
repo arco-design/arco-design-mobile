@@ -17,7 +17,9 @@ function generateComponents({
     if (compileComps && compileComps.length) {
         compNames = compileComps;
     } else {
-        compNames = fs.readdirSync(path.join(compSrcPath)).filter(name => fs.lstatSync(path.join(compSrcPath, name)).isDirectory());
+        compNames = fs
+            .readdirSync(path.join(compSrcPath))
+            .filter(name => fs.lstatSync(path.join(compSrcPath, name)).isDirectory());
     }
     const suffix =
         language in languageUtils.lang2SuffixMap ? languageUtils.lang2SuffixMap[language] : '';
@@ -129,28 +131,30 @@ function generateComponents({
 
     // 全量编译，重写入口 index.ts index.json 文件
     if (!compileComps.length) {
-        promises.push([new Promise(resolve => {
-            const docEntryStr = utils.formatTsCode(`
+        promises.push([
+            new Promise(resolve => {
+                const docEntryStr = utils.formatTsCode(`
                 ${compDocsImportStr}
                 const docs = {${compDocsStr}};
                 export default docs;`);
-            fs.writeFile(
-                path.join(compPagePath, `index${tsxFileSuffix}.ts`),
-                docEntryStr,
-                () => {
-                    resolve('>>> Write sites entry file finished.');
-                }
-            );
-        }),
-        new Promise(resolve => {
-            fs.writeFile(
-                path.join(compPagePath, `index${tsxFileSuffix}.json`),
-                JSON.stringify(compRoutes, null, 4),
-                () => {
-                    resolve('>>> Write sites entry json finished.');
-                }
-            );
-        })]);
+                fs.writeFile(
+                    path.join(compPagePath, `index${tsxFileSuffix}.ts`),
+                    docEntryStr,
+                    () => {
+                        resolve('>>> Write sites entry file finished.');
+                    },
+                );
+            }),
+            new Promise(resolve => {
+                fs.writeFile(
+                    path.join(compPagePath, `index${tsxFileSuffix}.json`),
+                    JSON.stringify(compRoutes, null, 4),
+                    () => {
+                        resolve('>>> Write sites entry json finished.');
+                    },
+                );
+            }),
+        ]);
     }
 
     Promise.all(promises).then(() => {

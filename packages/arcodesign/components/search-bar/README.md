@@ -43,7 +43,7 @@
 |placeholder|占位文本|string|-|
 |disabled|输入框是否禁用|boolean|-|
 |readOnly|是否只读|boolean|-|
-|autoFocus|是否自动获取焦点|boolean|-|
+|autoFocus|是否自动获取焦点，开启后会触发一次onClick事件|boolean|-|
 |blockChangeWhenCompositing|当 ios 输入中文时，输拼音的过程不触发onChange，仅确认选择后触发|boolean|false|
 |validator|正则验证，不符合验证的不允许输入|RegExp \| ((value: string) =\> boolean)|-|
 |blurBeforeFocus|在聚焦之前blur掉，即切换不同input时会重新弹起键盘，常用于input type切换时重新加载键盘，安卓上有效|boolean|-|
