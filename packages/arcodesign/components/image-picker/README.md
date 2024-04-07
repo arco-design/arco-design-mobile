@@ -18,8 +18,6 @@
 |capture|图片选取模式 Image selection mode \[capture MDN\](https://developer\.mozilla\.org/en\-US/docs/Web/HTML/Attributes/capture)|string \| boolean|-|
 |columns|一行展示图片张数|number|3|
 |gutter|格子间的间距|number|8|
-|limit|最多选择图片张数，超出数量自动隐藏上传按钮，0表示不做限制|number|-|
-|maxSize|文件大小限制，单位为K|number|-|
 |hideDelete|是否隐藏删除Icon|boolean|false|
 |hideSelect|是否隐藏选择Icon|boolean|false|
 |alwaysShowSelect|是否总是展示选择Icon，默认情况下当图片数量超出limit值时会自动隐藏选择Icon|boolean|false|
@@ -29,15 +27,18 @@
 |imageProps|透传给图片的属性|Partial\<ImageProps\>|-|
 |renderError|自定义上传失败展示|(index?: number) =\> ReactNode|-|
 |renderLoading|自定义上传中展示|(index?: number) =\> ReactNode|-|
-|upload|上传方法|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
-|onChange|已选图片列表发生变化|(fileList: ImagePickItem\[\]) =\> void|-|
-|onMaxSizeExceed|图片超过限制大小|(file: File) =\> void|-|
-|onLimitExceed|选择张数超过限制|(files: File\[\]) =\> void|-|
-|onClick|图片点击|(e: MouseEvent\<HTMLElement, MouseEvent\>, image: ImagePickItem, index: number) =\> void|-|
-|onLongPress|图片长按事件|(e: TouchEvent\<HTMLElement\>, image: ImagePickItem, index: number) =\> void|-|
-|selectAdapter|图片选择适配器|() =\> Promise\<SelectCallback\>|-|
 |onSelectClick|选图点击事件|() =\> void|-|
+|upload|上传方法|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
+|onChange|已选文件列表发生变化|(fileList: ImagePickItem\[\]) =\> void|-|
+|maxSize|文件大小限制，单位为K|number|-|
+|onMaxSizeExceed|文件超过限制大小|(file: File) =\> void|-|
+|limit|最多选择文件数，超出数量自动隐藏上传按钮，0表示不做限制|number|0|
+|onLimitExceed|选择文件数超过限制|(files: File\[\]) =\> void|-|
 |onDeleteClick|删除点击事件|(index: number) =\> void|-|
+|onUploadClick|上传文件点击事件|() =\> void|-|
+|selectAdapter|文件选择适配器|() =\> Promise\<SelectCallback\>|-|
+|onClick|文件点击|(e: MouseEvent\<HTMLElement, MouseEvent\>, file: ImagePickItem, index: number) =\> void|-|
+|onLongPress|文件长按事件|(e: TouchEvent\<HTMLElement\>, file: ImagePickItem, index: number) =\> void|-|
 
 > 引用/Refs
 
@@ -50,8 +51,8 @@
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |url|图片地址|string|必填|
-|file|图片文件|File|-|
-|status|图片状态|"loaded" \| "loading" \| "error"|以图片自身加载状态而定|
+|file|文件|File|-|
+|status|文件状态|"loaded" \| "loading" \| "error"|以文件自身加载状态而定|
 
 > ImageProps
 
@@ -104,12 +105,12 @@ string | number | string & {}
 
 |参数|描述|类型|
 |----------|-------------|------|
-|files|-|AdapterFile\[\]|
+|files|文件列表|AdapterFile\[\]|
 
 > AdapterFile
 
 |参数|描述|类型|
 |----------|-------------|------|
-|url|-|string|
-|size|-|number|
-|name|-|string|
+|url|文件 url|string|
+|size|文件大小|number|
+|name|文件名|string|
