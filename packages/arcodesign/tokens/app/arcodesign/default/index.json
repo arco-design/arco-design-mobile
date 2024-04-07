@@ -11786,7 +11786,7 @@
         "staticValue": "#4e5969",
         "localeDesc": {
             "ch": "文件上传组件上传列表删除图标颜色",
-            "en": "deleteIcon color of uploader list"
+            "en": "Color of the delete icon in the upload list"
         }
     },
     "uploaderDeleteIconFontSize": {
@@ -11798,7 +11798,7 @@
         "staticValue": "0.24rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表删除图标大小",
-            "en": "deleteIcon size of uploader list"
+            "en": "Font size of the delete icon in the upload list"
         }
     },
     "uploaderDeleteIconPaddingLeft": {
@@ -11810,7 +11810,7 @@
         "staticValue": "0.24rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表删除图标左内边距",
-            "en": "deleteIcon margin of uploader list"
+            "en": "Left padding of the delete icon in the upload list"
         }
     },
     "uploaderDisabledDeleteIconColor": {
@@ -11822,7 +11822,7 @@
         "staticValue": "#c9cdd4",
         "localeDesc": {
             "ch": "文件上传组件禁用状态删除图标颜色",
-            "en": "disabled deleteIcon color of uploader list"
+            "en": "Disabled color of the delete icon in the upload list"
         }
     },
     "uploaderErrorTextColor": {
@@ -11834,7 +11834,7 @@
         "staticValue": "#165DFF",
         "localeDesc": {
             "ch": "文件上传组件上传列表错误文字颜色",
-            "en": "Error text Color of uploader list"
+            "en": "Error color of the text in the uploader list"
         }
     },
     "uploaderErrorTextFontSize": {
@@ -11846,7 +11846,7 @@
         "staticValue": "0.24rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表错误文字大小",
-            "en": "Error text fontSize of uploader list"
+            "en": "Error font size of the text in the uploader list"
         }
     },
     "uploaderFileIconColor": {
@@ -11858,7 +11858,7 @@
         "staticValue": "#4e5969",
         "localeDesc": {
             "ch": "文件上传组件上传列表文件图标颜色",
-            "en": "FileIcon color of uploader list"
+            "en": "Color of the file icon in the uploader list"
         }
     },
     "uploaderFileIconFontSize": {
@@ -11870,7 +11870,7 @@
         "staticValue": "0.32rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表文件图标大小",
-            "en": "FileIcon size of uploader list"
+            "en": "Font size of the file icon in the uploader list"
         }
     },
     "uploaderFileIconMarginRight": {
@@ -11882,7 +11882,7 @@
         "staticValue": "0.24rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表文件图标右边距",
-            "en": "FileIcon margin right of uploader list"
+            "en": "Margin right of the file icon in the uploader list"
         }
     },
     "uploaderItemBackgroundColor": {
@@ -11894,7 +11894,7 @@
         "staticValue": "#F7F8FA",
         "localeDesc": {
             "ch": "文件上传组件上传列表背景颜色",
-            "en": "Background color of uploader list"
+            "en": "Background color of the uploader list"
         }
     },
     "uploaderItemBorderRadius": {
@@ -11906,7 +11906,7 @@
         "staticValue": "0.04rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表外边框圆角",
-            "en": "Item border radius of uploader list"
+            "en": "Border radius of the uploader list item"
         }
     },
     "uploaderItemHeight": {
@@ -11918,7 +11918,7 @@
         "staticValue": "0.72rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表高度",
-            "en": "Height of uploader list item"
+            "en": "Height of the uploader list item"
         }
     },
     "uploaderItemMarginTop": {
@@ -11930,7 +11930,7 @@
         "staticValue": "0.32rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表上边距",
-            "en": "Margin top of uploader list item"
+            "en": "Margin top of the uploader list item"
         }
     },
     "uploaderItemPadding": {
@@ -11954,7 +11954,7 @@
         "staticValue": "#1d2129",
         "localeDesc": {
             "ch": "文件上传组件上传列表文字颜色",
-            "en": "Text color of uploader list"
+            "en": "Color of the text in the uploader list"
         }
     },
     "uploaderItemTextErrorColor": {
@@ -11966,7 +11966,7 @@
         "staticValue": "#F53F3F",
         "localeDesc": {
             "ch": "文件上传组件上传列表上传失败文字颜色",
-            "en": "Text error status color of uploader list"
+            "en": "Error status color of the text in the uploader list"
         }
     },
     "uploaderItemTextFontSize": {
@@ -11978,7 +11978,7 @@
         "staticValue": "0.28rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表文字大小",
-            "en": "Text fontSize of uploader list"
+            "en": "Font size of the text in the uploader list"
         }
     },
     "uploaderLoadedIconColor": {
@@ -11990,7 +11990,7 @@
         "staticValue": "#00B42A",
         "localeDesc": {
             "ch": "文件上传组件上传列表加载成功图标颜色",
-            "en": "LoadedIcon color of uploader list"
+            "en": "Color of the loaded icon in the uploader list"
         }
     },
     "uploaderLoadedIconFontSize": {
@@ -12002,7 +12002,7 @@
         "staticValue": "0.32rem",
         "localeDesc": {
             "ch": "文件上传组件上传列表加载成功图标大小",
-            "en": "LoadedIcon size of uploader list"
+            "en": "Font size of the loaded icon in the uploader list"
         }
     },
     "warningColor": {

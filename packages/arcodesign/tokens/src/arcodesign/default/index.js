@@ -4131,12 +4131,12 @@ function getCompTokens() {
         skeletonLargeGutter: getRem(20),
         /**
          * 文件上传组件上传列表高度
-         * @en Height of uploader list item
+         * @en Height of the uploader list item
          */
         uploaderItemHeight: getRem(36),
         /**
          * 文件上传组件上传列表上边距
-         * @en Margin top of uploader list item
+         * @en Margin top of the uploader list item
          */
         uploaderItemMarginTop: getRem(16),
         /**
@@ -4146,82 +4146,82 @@ function getCompTokens() {
         uploaderItemPadding: `0 ${getRem(12)}`,
         /**
          * 文件上传组件上传列表背景颜色
-         * @en Background color of uploader list
+         * @en Background color of the uploader list
          */
         uploaderItemBackgroundColor: useGlobal('cardBackgroundColor'),
         /**
          * 文件上传组件上传列表文件图标大小
-         * @en FileIcon size of uploader list
+         * @en Font size of the file icon in the uploader list
          */
         uploaderFileIconFontSize: getRem(16),
         /**
          * 文件上传组件上传列表文件图标右边距
-         * @en FileIcon margin right of uploader list
+         * @en Margin right of the file icon in the uploader list
          */
         uploaderFileIconMarginRight: getRem(12),
         /**
          * 文件上传组件上传列表文件图标颜色
-         * @en FileIcon color of uploader list
+         * @en Color of the file icon in the uploader list
          */
         uploaderFileIconColor: useGlobal('subFontColor'),
         /**
          * 文件上传组件上传列表文字大小
-         * @en Text fontSize of uploader list
+         * @en Font size of the text in the uploader list
          */
         uploaderItemTextFontSize: getRem(14),
         /**
          * 文件上传组件上传列表外边框圆角
-         * @en Item border radius of uploader list
+         * @en Border radius of the uploader list item
          */
         uploaderItemBorderRadius: getRem(2),
         /**
          * 文件上传组件上传列表文字颜色
-         * @en Text color of uploader list
+         * @en Color of the text in the uploader list
          */
         uploaderItemTextColor: useGlobal('fontColor'),
         /**
          * 文件上传组件上传列表加载成功图标大小
-         * @en LoadedIcon size of uploader list
+         * @en Font size of the loaded icon in the uploader list
          */
         uploaderLoadedIconFontSize: getRem(16),
         /**
          * 文件上传组件上传列表加载成功图标颜色
-         * @en LoadedIcon color of uploader list
+         * @en Color of the loaded icon in the uploader list
          */
         uploaderLoadedIconColor: useGlobal('successColor'),
         /**
          * 文件上传组件上传列表错误文字大小
-         * @en Error text fontSize of uploader list
+         * @en Error font size of the text in the uploader list
          */
         uploaderErrorTextFontSize: getRem(12),
         /**
          * 文件上传组件上传列表错误文字颜色
-         * @en Error text Color of uploader list
+         * @en Error color of the text in the uploader list
          */
         uploaderErrorTextColor: useGlobal('primaryColor'),
         /**
          * 文件上传组件上传列表删除图标大小
-         * @en deleteIcon size of uploader list
+         * @en Font size of the delete icon in the upload list
          */
         uploaderDeleteIconFontSize: getRem(12),
         /**
          * 文件上传组件上传列表删除图标左内边距
-         * @en deleteIcon margin of uploader list
+         * @en Left padding of the delete icon in the upload list
          */
         uploaderDeleteIconPaddingLeft: getRem(12),
         /**
          * 文件上传组件上传列表删除图标颜色
-         * @en deleteIcon color of uploader list
+         * @en Color of the delete icon in the upload list
          */
         uploaderDeleteIconColor: useGlobal('subFontColor'),
         /**
          * 文件上传组件禁用状态删除图标颜色
-         * @en disabled deleteIcon color of uploader list
+         * @en Disabled color of the delete icon in the upload list
          */
         uploaderDisabledDeleteIconColor: useGlobal('disabledColor'),
         /**
          * 文件上传组件上传列表上传失败文字颜色
-         * @en Text error status color of uploader list
+         * @en Error status color of the text in the uploader list
          */
         uploaderItemTextErrorColor: useGlobal('dangerColor'),
 
