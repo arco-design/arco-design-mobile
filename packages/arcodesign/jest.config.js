@@ -19,4 +19,10 @@ module.exports = {
         '.*\\.md$': '<rootDir>/tests/mocks/mdMock.js',
     },
     transformIgnorePatterns: ['/node_modules/'],
+    coverageThreshold: {
+        global: {
+          lines: 80,
+          statements: 80,
+        },
+      },
 };
