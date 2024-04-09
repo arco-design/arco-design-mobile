@@ -4129,6 +4129,102 @@ function getCompTokens() {
          * 骨架屏元素外边距，大尺寸
          */
         skeletonLargeGutter: getRem(20),
+        /**
+         * 文件上传组件上传列表高度
+         * @en Height of the uploader list item
+         */
+        uploaderItemHeight: getRem(36),
+        /**
+         * 文件上传组件上传列表上边距
+         * @en Margin top of the uploader list item
+         */
+        uploaderItemMarginTop: getRem(16),
+        /**
+         * 文件上传组件上传列表内边距
+         * @en Padding of the uploader list item
+         */
+        uploaderItemPadding: `0 ${getRem(12)}`,
+        /**
+         * 文件上传组件上传列表背景颜色
+         * @en Background color of the uploader list
+         */
+        uploaderItemBackgroundColor: useGlobal('cardBackgroundColor'),
+        /**
+         * 文件上传组件上传列表文件图标大小
+         * @en Font size of the file icon in the uploader list
+         */
+        uploaderFileIconFontSize: getRem(16),
+        /**
+         * 文件上传组件上传列表文件图标右边距
+         * @en Margin right of the file icon in the uploader list
+         */
+        uploaderFileIconMarginRight: getRem(12),
+        /**
+         * 文件上传组件上传列表文件图标颜色
+         * @en Color of the file icon in the uploader list
+         */
+        uploaderFileIconColor: useGlobal('subFontColor'),
+        /**
+         * 文件上传组件上传列表文字大小
+         * @en Font size of the text in the uploader list
+         */
+        uploaderItemTextFontSize: getRem(14),
+        /**
+         * 文件上传组件上传列表外边框圆角
+         * @en Border radius of the uploader list item
+         */
+        uploaderItemBorderRadius: getRem(2),
+        /**
+         * 文件上传组件上传列表文字颜色
+         * @en Color of the text in the uploader list
+         */
+        uploaderItemTextColor: useGlobal('fontColor'),
+        /**
+         * 文件上传组件上传列表加载成功图标大小
+         * @en Font size of the loaded icon in the uploader list
+         */
+        uploaderLoadedIconFontSize: getRem(16),
+        /**
+         * 文件上传组件上传列表加载成功图标颜色
+         * @en Color of the loaded icon in the uploader list
+         */
+        uploaderLoadedIconColor: useGlobal('successColor'),
+        /**
+         * 文件上传组件上传列表错误文字大小
+         * @en Error font size of the text in the uploader list
+         */
+        uploaderErrorTextFontSize: getRem(12),
+        /**
+         * 文件上传组件上传列表错误文字颜色
+         * @en Error color of the text in the uploader list
+         */
+        uploaderErrorTextColor: useGlobal('primaryColor'),
+        /**
+         * 文件上传组件上传列表删除图标大小
+         * @en Font size of the delete icon in the upload list
+         */
+        uploaderDeleteIconFontSize: getRem(12),
+        /**
+         * 文件上传组件上传列表删除图标左内边距
+         * @en Left padding of the delete icon in the upload list
+         */
+        uploaderDeleteIconPaddingLeft: getRem(12),
+        /**
+         * 文件上传组件上传列表删除图标颜色
+         * @en Color of the delete icon in the upload list
+         */
+        uploaderDeleteIconColor: useGlobal('subFontColor'),
+        /**
+         * 文件上传组件禁用状态删除图标颜色
+         * @en Disabled color of the delete icon in the upload list
+         */
+        uploaderDisabledDeleteIconColor: useGlobal('disabledColor'),
+        /**
+         * 文件上传组件上传列表上传失败文字颜色
+         * @en Error status color of the text in the uploader list
+         */
+        uploaderItemTextErrorColor: useGlobal('dangerColor'),
+
     };
 }
 

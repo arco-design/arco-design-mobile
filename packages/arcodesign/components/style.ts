@@ -57,3 +57,4 @@ import './tag/style';
 import './textarea/style';
 import './toast/style';
 import './transition/style';
+import './uploader/style';

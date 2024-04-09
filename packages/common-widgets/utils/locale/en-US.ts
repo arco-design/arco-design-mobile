@@ -106,5 +106,9 @@ const localeConfig: ILocale = {
     NavBar: {
         backBtnAriaLabel: 'Back',
     },
+    Uploader: {
+        uploadBtn: 'Upload',
+        retryUpload: 'retry',
+    },
 };
 export default localeConfig;

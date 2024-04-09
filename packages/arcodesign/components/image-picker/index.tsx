@@ -1,13 +1,13 @@
 import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
-import { Promise } from 'es6-promise';
 import { cls, defaultLocale, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { IconClose } from '../icon';
 import Image from '../image';
 import Grid from '../grid';
 import AddIcon from './add-icon';
-import { AdapterFile, ImagePickerProps, ImagePickerRef, ImagePickItem } from './type';
+import { ImagePickerProps, ImagePickerRef, ImagePickItem } from './type';
 import { useLatestRef } from '../_helpers';
+import { Upload } from '../uploader/upload';
 
 export * from './type';
 
@@ -22,7 +22,6 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         gutter = 8,
         limit = 0,
         images = [],
-        maxSize,
         disabled,
         deleteIcon,
         selectIcon,
@@ -32,15 +31,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         imageProps,
         renderLoading,
         renderError,
-        onLongPress,
-        onClick,
-        onChange = () => null,
-        onMaxSizeExceed,
-        onLimitExceed,
-        upload,
         selectAdapter,
-        onSelectClick,
-        onDeleteClick,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
     const fileRef = useRef<HTMLInputElement | null>(null);
@@ -50,118 +41,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         dom: domRef.current,
     }));
 
-    const parseFile = (file: AdapterFile) => {
-        return new Promise((resolve, reject) => {
-            if (file.url) {
-                resolve(file.url);
-            } else {
-                const reader = new FileReader();
-                reader.onload = e => {
-                    const dataURL: string = e.target?.result as string;
-                    if (!dataURL) {
-                        reject(new Error('file parse error'));
-                    }
-                    resolve(dataURL);
-                };
-                reader.onerror = () => {
-                    reject(new Error('file parse error'));
-                };
-                reader.readAsDataURL(file as File);
-            }
-        });
-    };
-
-    const handleChange = (event, fromAdapter?: boolean) => {
-        const files =
-            (Array.prototype.filter.call(event.target.files || [], file => {
-                // 过滤maxSize
-                if (maxSize && file.size > maxSize * 1024) {
-                    onMaxSizeExceed && onMaxSizeExceed(file);
-                    return false;
-                }
-                return true;
-            }) as File[]) || [];
-        if (!fromAdapter) {
-            event.target.value = '';
-        }
-        // 截断limit
-        if (limit !== 0 && files.length + images.length > limit) {
-            onLimitExceed && onLimitExceed(files);
-            files.length = limit - images.length;
-        }
-        // 解析文件生成预览
-        Promise.all(files.map(file => parseFile(file))).then(parseFiles => {
-            const res = parseFiles.map((url, index) => ({
-                url,
-                status: typeof upload === 'function' ? 'loading' : 'loaded',
-                file: files[index],
-            })) as ImagePickItem[];
-            cacheRef.current = [...cacheRef.current, ...res];
-            onChange([...cacheRef.current]);
-            // 执行upload
-            if (typeof upload === 'function') {
-                files.forEach(_file => {
-                    upload(cacheRef.current.find(({ file }) => file === _file) as ImagePickItem)
-                        .then(data => {
-                            const index = cacheRef.current.findIndex(({ file }) => file === _file);
-                            if (index !== -1) {
-                                cacheRef.current[index] = {
-                                    ...cacheRef.current[index],
-                                    ...data,
-                                    status: undefined,
-                                };
-                            }
-                        })
-                        .catch(() => {
-                            const index = cacheRef.current.findIndex(({ file }) => file === _file);
-                            if (index !== -1) {
-                                cacheRef.current[index].status = 'error';
-                            }
-                        })
-                        .finally(() => {
-                            onChange([...cacheRef.current]);
-                        });
-                });
-            }
-        });
-    };
-
-    const handleDelete = (index: number) => {
-        onDeleteClick && onDeleteClick(index);
-        onChange(images.filter((_i, j) => j !== index));
-    };
-
-    // click && longPress
-    let timeOutEvent;
-    const handleTouchStart = (
-        e: React.TouchEvent<HTMLDivElement>,
-        image: ImagePickItem,
-        index: number,
-    ) => {
-        timeOutEvent = setTimeout(() => {
-            timeOutEvent = 0;
-            onLongPress?.(e, image, index);
-        }, 750);
-    };
-    const handleClick = (
-        e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-        image: ImagePickItem,
-        index: number,
-    ) => {
-        clearTimeout(timeOutEvent);
-        if (timeOutEvent !== 0) {
-            onClick?.(e, image, index);
-        }
-    };
-
-    const handleSelect = (e: React.MouseEvent) => {
-        if (e.target !== fileRef.current) {
-            onSelectClick && onSelectClick();
-            selectAdapter
-                ? selectAdapter().then(({ files }) => handleChange({ target: { files } }, true))
-                : fileRef.current?.click();
-        }
-    };
+    const uploadFunc = new Upload({ ...props, files: images }, fileRef, cacheRef);
 
     const getGridData = (prefixCls, locale) => {
         const errorNode = (index: number) => {
@@ -187,8 +67,8 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                     img: (
                         <div key={`${index}-${url}`} className={`${prefixCls}-image-picker-image`}>
                             <div
-                                onTouchStart={e => handleTouchStart(e, image, index)}
-                                onClick={e => handleClick(e, image, index)}
+                                onTouchStart={e => uploadFunc.handleTouchStart(e, image, index)}
+                                onClick={e => uploadFunc.handleClick(e, image, index)}
                                 className={`${prefixCls}-image-picker-image-container`}
                             >
                                 <Image
@@ -205,7 +85,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                             {!hideDelete && (
                                 <div
                                     className={`${prefixCls}-image-picker-close`}
-                                    onClick={() => handleDelete(index)}
+                                    onClick={() => uploadFunc.deleteFile(index)}
                                 >
                                     {deleteIcon || (
                                         <div className={`${prefixCls}-image-picker-close-icon`}>
@@ -229,7 +109,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                         className={cls(`${prefixCls}-image-picker-add`, {
                             [`${prefixCls}-image-picker-add-disabled`]: disableSelect,
                         })}
-                        onClick={handleSelect}
+                        onClick={uploadFunc.handleSelect}
                     >
                         <div className={`${prefixCls}-image-picker-add-container`}>
                             {selectIcon || (
@@ -243,7 +123,7 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
                                     accept={accept}
                                     multiple={multiple}
                                     type="file"
-                                    onChange={e => handleChange(e)}
+                                    onChange={e => uploadFunc.handleChange(e)}
                                     ref={fileRef}
                                 />
                             ) : null}
