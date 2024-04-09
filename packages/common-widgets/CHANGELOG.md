@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.18.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.10...@arco-design/mobile-utils@2.18.0) (2024-04-09)
+
+
+### Bug Fixes
+
+* `Form` support picker components ([#249](https://github.com/arco-design/arco-design-mobile/issues/249)) ([3b1f6f7](https://github.com/arco-design/arco-design-mobile/commit/3b1f6f7460ac2417fd7c099c8f26904be972750e))
+
+
+### Features
+
+* add component `Uploader` & abstract common logic of `ImagePicker` ([#251](https://github.com/arco-design/arco-design-mobile/issues/251)) ([9f6a795](https://github.com/arco-design/arco-design-mobile/commit/9f6a79573cfe5f74589ae244732db8c13ef07f0b))
+
+
+
+
+
 ## [2.17.10](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.17.9...@arco-design/mobile-utils@2.17.10) (2024-03-04)
 
 **Note:** Version bump only for package @arco-design/mobile-utils
