@@ -37,7 +37,7 @@ export default function UploaderDemo() {
     font-weight: 400;
     .use-var(color, primary-color);
     &-icon {
-        .rem(margin-left, 4)
+        .rem-with-rtl(margin-left, 4);
     }
 }
 ```

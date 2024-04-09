@@ -100,8 +100,8 @@ export default function UploaderDemo() {
         &-image {
             .rem(width, 56);
             .rem(height, 56);
-            .rem(border-top-left-radius, 2);
-            .rem(border-bottom-left-radius, 2);
+            .rem-with-rtl(border-top-left-radius, 2);
+            .rem-with-rtl(border-bottom-left-radius, 2);
             overflow: hidden;
         }
         &-text {
@@ -109,7 +109,7 @@ export default function UploaderDemo() {
             .use-var(color, font-color);
             font-weight: 400;
             flex: 1;
-            .set-prop-with-rtl(margin-left, 0.24rem);
+            .rem-with-rtl(margin-left, 12);
             display: flex;
             align-items: center;
             &-error {
@@ -121,7 +121,7 @@ export default function UploaderDemo() {
         }
         &-warning {
             line-height: 0;
-            .set-prop-with-rtl(margin-left, 0.24rem);
+            .rem-with-rtl(margin-left, 12);
         }
         &-loaded {
             line-height: 0;
