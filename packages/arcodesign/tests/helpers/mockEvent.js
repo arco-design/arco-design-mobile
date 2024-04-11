@@ -72,3 +72,19 @@ export function mockDocumentVisibility(visible) {
     Object.defineProperty(document, 'visibilityState', { value: visible, writable: true });
     document.dispatchEvent(new Event('visibilitychange'));
 }
+
+export function mockMatchMedia() {
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation(query => ({
+            matches: true,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+}

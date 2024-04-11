@@ -1,14 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import NoticeBar from '..';
 import IconNotice from '../../icon/IconNotice';
 import { defaultContext } from '../../context-provider';
 import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
-import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { pureDelay } from '../../../tests/helpers/utils';
 
 const { prefixCls } = defaultContext;

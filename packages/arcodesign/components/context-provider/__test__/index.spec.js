@@ -1,7 +1,7 @@
-import './matchMedia.mock';
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import mountTest from '../../../tests/mountTest';
+import { mockMatchMedia } from '../../../tests/helpers/mockEvent';
 import ContextProvider, { defaultContext } from '..';
 import Button from '../../button';
 import Dialog from '../../dialog';
@@ -12,6 +12,9 @@ const dialogPrefix = `${defaultContext.prefixCls}-dialog`;
 mountTest(ContextProvider, 'ContextProvider');
 
 describe('ConfigProvider', () => {
+    beforeAll(() => {
+        mockMatchMedia();
+    });
     it('Global configuration takes effect', () => {
         render(
             <ContextProvider system="android">

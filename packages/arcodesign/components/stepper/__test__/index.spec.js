@@ -1,12 +1,11 @@
 import React, { createRef } from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { act } from 'react-dom/test-utils';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import Stepper from '..';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import '@testing-library/jest-dom';
 
 demoTest('stepper');
@@ -252,16 +251,16 @@ describe('Stepper', () => {
 
     // 用户自定义按钮和输入框
     it('render by myself', () => {
-        const minusButton = <div className="my-minus-button"></div>;
-        const addButton = <div className="my-add-button"></div>;
+        const minusButtonNode = <div className="my-minus-button" />;
+        const addButtonNode = <div className="my-add-button" />;
         const { container: component } = render(
             <Stepper
                 defaultValue={0}
                 min={-1}
                 max={5}
                 step={1}
-                addButton={addButton}
-                minusButton={minusButton}
+                addButton={addButtonNode}
+                minusButton={minusButtonNode}
                 renderContent={currentValue => {
                     const newValue = currentValue + 10;
                     return <input className="my-input" value={newValue} type="number" />;
@@ -330,7 +329,6 @@ describe('Stepper', () => {
             done();
         }, 200);
     });
-
 
     // 输入框 input 事件
     it('stepper input event', async () => {
