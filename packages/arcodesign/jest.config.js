@@ -10,7 +10,6 @@ module.exports = {
     coveragePathIgnorePatterns: ['/node_modules/', '/scripts/', '/icon/', '/components/_helpers/'],
     moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'md'],
     setupFiles: ['./tests/setup.js'],
-    snapshotSerializers: ['enzyme-to-json/serializer'],
     testPathIgnorePatterns: ['/node_modules/', '/scripts/'],
     testRegex: ['.*/components/.*\\.spec\\.jsx?$'],
     transform: {
@@ -19,4 +18,10 @@ module.exports = {
         '.*\\.md$': '<rootDir>/tests/mocks/mdMock.js',
     },
     transformIgnorePatterns: ['/node_modules/'],
+    coverageThreshold: {
+        global: {
+          lines: 80,
+          statements: 80,
+        },
+      },
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
@@ -18,7 +18,7 @@ describe('Skeleton', () => {
         const paragraphRef = React.createRef();
         const avatarRef = React.createRef();
         const nodeRef = React.createRef();
-        mount(
+        render(
             <Skeleton ref={ref}>
                 <Skeleton.Title ref={titleRef} />
                 <Skeleton.Paragraph ref={paragraphRef} />
@@ -35,44 +35,52 @@ describe('Skeleton', () => {
         expect(nodeRef.current.dom).not.toBeUndefined();
     });
     it('should render correctly when set avatar', () => {
-        const comp = mount(<Skeleton avatar />);
-        expect(comp.find(`.${prefix}-avatar`).length).toBe(1);
+        const { container } = render(<Skeleton avatar />);
+        expect(container.querySelectorAll(`.${prefix}-avatar`).length).toBe(1);
     });
     it('should render correctly when set grid', () => {
-        const comp = mount(<Skeleton grid={{ columns: 5 }} />);
-        expect(comp.find(`.${prefix}-grid-item`).length).toBe(5);
+        const { container } = render(<Skeleton grid={{ columns: 5 }} />);
+        expect(container.querySelectorAll(`.${prefix}-grid-item`).length).toBe(5);
     });
     it('should render correctly when set children', () => {
-        const comp = mount(
+        const { container } = render(
             <Skeleton>
                 <Skeleton.Node>
                     <div style={{ width: 20, height: 20 }} />
                 </Skeleton.Node>
             </Skeleton>,
         );
-        expect(comp.find(`.${prefix}-node`).length).toBe(1);
-        expect(comp.find(`.${prefix}-title`).length).toBe(1);
-        expect(comp.find(`.${prefix}-paragraph`).length).toBe(1);
+        expect(container.querySelectorAll(`.${prefix}-node`).length).toBe(1);
+        expect(container.querySelectorAll(`.${prefix}-title`).length).toBe(1);
+        expect(container.querySelectorAll(`.${prefix}-paragraph`).length).toBe(1);
     });
     it('should render correctly when set animation', () => {
-        const comp = mount(
+        const { container, rerender } = render(
             <Skeleton>
                 <Skeleton.Node>
                     <div style={{ width: 20, height: 20 }} />
                 </Skeleton.Node>
             </Skeleton>,
         );
-        expect(comp.find(`.${prefix}-animation-gradient`).length).toBe(5);
-        expect(comp.find(`.${prefix}-animation-breath`).length).toBe(0);
-        comp.setProps({
-            animation: 'breath',
-        });
-        expect(comp.find(`.${prefix}-animation-gradient`).length).toBe(0);
-        expect(comp.find(`.${prefix}-animation-breath`).length).toBe(5);
-        comp.setProps({
-            showAnimation: false,
-        });
-        expect(comp.find(`.${prefix}-animation-gradient`).length).toBe(0);
-        expect(comp.find(`.${prefix}-animation-breath`).length).toBe(0);
+        expect(container.querySelectorAll(`.${prefix}-animation-gradient`).length).toBe(5);
+        expect(container.querySelectorAll(`.${prefix}-animation-breath`).length).toBe(0);
+        rerender(
+            <Skeleton animation="breath">
+                <Skeleton.Node>
+                    <div style={{ width: 20, height: 20 }} />
+                </Skeleton.Node>
+            </Skeleton>,
+        );
+        expect(container.querySelectorAll(`.${prefix}-animation-gradient`).length).toBe(0);
+        expect(container.querySelectorAll(`.${prefix}-animation-breath`).length).toBe(5);
+        rerender(
+            <Skeleton animation="breath" showAnimation={false}>
+                <Skeleton.Node>
+                    <div style={{ width: 20, height: 20 }} />
+                </Skeleton.Node>
+            </Skeleton>,
+        );
+        expect(container.querySelectorAll(`.${prefix}-animation-gradient`).length).toBe(0);
+        expect(container.querySelectorAll(`.${prefix}-animation-breath`).length).toBe(0);
     });
 });

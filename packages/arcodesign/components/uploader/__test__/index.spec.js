@@ -56,9 +56,7 @@ describe('Uploader', () => {
     });
     it('onChange listener correctly', () => {
         const onChange = jest.fn();
-        const { container } = render(
-            <Uploader files={[{ file: mockFile }]} onChange={onChange} />,
-        );
+        const { container } = render(<Uploader files={[{ file: mockFile }]} onChange={onChange} />);
         container.querySelector(`.${prefix}-list-item-delete`);
         userEvent.click(container.querySelector(`.${prefix}-list-item-delete`));
         expect(onChange.mock.calls.length).toBe(1);
@@ -168,7 +166,7 @@ describe('Uploader', () => {
             const [files, setFiles] = React.useState([{ file: mockFile }, { file: mockFile }]);
             const selectAdapter = () => {
                 return new Promise(resolve => {
-                    const files = [
+                    const selectFiles = [
                         {
                             name: '11vnpmryrl4.jpeg',
                             size: 789020,
@@ -188,7 +186,7 @@ describe('Uploader', () => {
                             url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_3.jpg',
                         },
                     ];
-                    resolve({ files });
+                    resolve({ files: selectFiles });
                 });
             };
             return (
