@@ -4283,6 +4283,70 @@
         "jsValue": "@global@darkMaskContentColor",
         "staticValue": "rgba(255, 255, 255, 0.9)"
     },
+    "darkUploaderDeleteIconColor": {
+        "cssKey": "dark-uploader-delete-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-sub-font-color",
+        "jsValue": "@global@darkSubFontColor",
+        "staticValue": "#c5c5c5"
+    },
+    "darkUploaderDisabledDeleteIconColor": {
+        "cssKey": "dark-uploader-disabled-delete-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-disabled-color",
+        "jsValue": "@global@darkDisabledColor",
+        "staticValue": "#5f5f60"
+    },
+    "darkUploaderErrorTextColor": {
+        "cssKey": "dark-uploader-error-text-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-primary-color",
+        "jsValue": "@global@darkPrimaryColor",
+        "staticValue": "#3C7EFF"
+    },
+    "darkUploaderFileIconColor": {
+        "cssKey": "dark-uploader-file-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-sub-font-color",
+        "jsValue": "@global@darkSubFontColor",
+        "staticValue": "#c5c5c5"
+    },
+    "darkUploaderItemBackgroundColor": {
+        "cssKey": "dark-uploader-item-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
+    },
+    "darkUploaderItemTextColor": {
+        "cssKey": "dark-uploader-item-text-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-font-color",
+        "jsValue": "@global@darkFontColor",
+        "staticValue": "#f6f6f6"
+    },
+    "darkUploaderItemTextErrorColor": {
+        "cssKey": "dark-uploader-item-text-error-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-danger-color",
+        "jsValue": "@global@darkDangerColor",
+        "staticValue": "#F76965"
+    },
+    "darkUploaderLoadedIconColor": {
+        "cssKey": "dark-uploader-loaded-icon-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-success-color",
+        "jsValue": "@global@darkSuccessColor",
+        "staticValue": "#27C346"
+    },
     "darkWarningColor": {
         "cssKey": "dark-warning-color",
         "desc": "",
@@ -11711,6 +11775,234 @@
         "localeDesc": {
             "ch": "渐隐过渡效果持续时长",
             "en": "Transition fade duration"
+        }
+    },
+    "uploaderDeleteIconColor": {
+        "cssKey": "uploader-delete-icon-color",
+        "desc": "文件上传组件上传列表删除图标颜色",
+        "override": "",
+        "value": "@sub-font-color",
+        "jsValue": "@global@subFontColor",
+        "staticValue": "#4e5969",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表删除图标颜色",
+            "en": "Color of the delete icon in the upload list"
+        }
+    },
+    "uploaderDeleteIconFontSize": {
+        "cssKey": "uploader-delete-icon-font-size",
+        "desc": "文件上传组件上传列表删除图标大小",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表删除图标大小",
+            "en": "Font size of the delete icon in the upload list"
+        }
+    },
+    "uploaderDeleteIconPaddingLeft": {
+        "cssKey": "uploader-delete-icon-padding-left",
+        "desc": "文件上传组件上传列表删除图标左内边距",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表删除图标左内边距",
+            "en": "Left padding of the delete icon in the upload list"
+        }
+    },
+    "uploaderDisabledDeleteIconColor": {
+        "cssKey": "uploader-disabled-delete-icon-color",
+        "desc": "文件上传组件禁用状态删除图标颜色",
+        "override": "",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
+        "staticValue": "#c9cdd4",
+        "localeDesc": {
+            "ch": "文件上传组件禁用状态删除图标颜色",
+            "en": "Disabled color of the delete icon in the upload list"
+        }
+    },
+    "uploaderErrorTextColor": {
+        "cssKey": "uploader-error-text-color",
+        "desc": "文件上传组件上传列表错误文字颜色",
+        "override": "",
+        "value": "@primary-color",
+        "jsValue": "@global@primaryColor",
+        "staticValue": "#165DFF",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表错误文字颜色",
+            "en": "Error color of the text in the uploader list"
+        }
+    },
+    "uploaderErrorTextFontSize": {
+        "cssKey": "uploader-error-text-font-size",
+        "desc": "文件上传组件上传列表错误文字大小",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表错误文字大小",
+            "en": "Error font size of the text in the uploader list"
+        }
+    },
+    "uploaderFileIconColor": {
+        "cssKey": "uploader-file-icon-color",
+        "desc": "文件上传组件上传列表文件图标颜色",
+        "override": "",
+        "value": "@sub-font-color",
+        "jsValue": "@global@subFontColor",
+        "staticValue": "#4e5969",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表文件图标颜色",
+            "en": "Color of the file icon in the uploader list"
+        }
+    },
+    "uploaderFileIconFontSize": {
+        "cssKey": "uploader-file-icon-font-size",
+        "desc": "文件上传组件上传列表文件图标大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表文件图标大小",
+            "en": "Font size of the file icon in the uploader list"
+        }
+    },
+    "uploaderFileIconMarginRight": {
+        "cssKey": "uploader-file-icon-margin-right",
+        "desc": "文件上传组件上传列表文件图标右边距",
+        "override": "",
+        "value": "~`pxtorem(12)`",
+        "jsValue": "@getRem@12",
+        "staticValue": "0.24rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表文件图标右边距",
+            "en": "Margin right of the file icon in the uploader list"
+        }
+    },
+    "uploaderItemBackgroundColor": {
+        "cssKey": "uploader-item-background-color",
+        "desc": "文件上传组件上传列表背景颜色",
+        "override": "",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表背景颜色",
+            "en": "Background color of the uploader list"
+        }
+    },
+    "uploaderItemBorderRadius": {
+        "cssKey": "uploader-item-border-radius",
+        "desc": "文件上传组件上传列表外边框圆角",
+        "override": "",
+        "value": "~`pxtorem(2)`",
+        "jsValue": "@getRem@2",
+        "staticValue": "0.04rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表外边框圆角",
+            "en": "Border radius of the uploader list item"
+        }
+    },
+    "uploaderItemHeight": {
+        "cssKey": "uploader-item-height",
+        "desc": "文件上传组件上传列表高度",
+        "override": "",
+        "value": "~`pxtorem(36)`",
+        "jsValue": "@getRem@36",
+        "staticValue": "0.72rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表高度",
+            "en": "Height of the uploader list item"
+        }
+    },
+    "uploaderItemMarginTop": {
+        "cssKey": "uploader-item-margin-top",
+        "desc": "文件上传组件上传列表上边距",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表上边距",
+            "en": "Margin top of the uploader list item"
+        }
+    },
+    "uploaderItemPadding": {
+        "cssKey": "uploader-item-padding",
+        "desc": "文件上传组件上传列表内边距",
+        "override": "",
+        "value": "0 ~`pxtorem(12)`",
+        "jsValue": "0 @getRem@12",
+        "staticValue": "0 0.24rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表内边距",
+            "en": "Padding of the uploader list item"
+        }
+    },
+    "uploaderItemTextColor": {
+        "cssKey": "uploader-item-text-color",
+        "desc": "文件上传组件上传列表文字颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表文字颜色",
+            "en": "Color of the text in the uploader list"
+        }
+    },
+    "uploaderItemTextErrorColor": {
+        "cssKey": "uploader-item-text-error-color",
+        "desc": "文件上传组件上传列表上传失败文字颜色",
+        "override": "",
+        "value": "@danger-color",
+        "jsValue": "@global@dangerColor",
+        "staticValue": "#F53F3F",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表上传失败文字颜色",
+            "en": "Error status color of the text in the uploader list"
+        }
+    },
+    "uploaderItemTextFontSize": {
+        "cssKey": "uploader-item-text-font-size",
+        "desc": "文件上传组件上传列表文字大小",
+        "override": "",
+        "value": "~`pxtorem(14)`",
+        "jsValue": "@getRem@14",
+        "staticValue": "0.28rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表文字大小",
+            "en": "Font size of the text in the uploader list"
+        }
+    },
+    "uploaderLoadedIconColor": {
+        "cssKey": "uploader-loaded-icon-color",
+        "desc": "文件上传组件上传列表加载成功图标颜色",
+        "override": "",
+        "value": "@success-color",
+        "jsValue": "@global@successColor",
+        "staticValue": "#00B42A",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表加载成功图标颜色",
+            "en": "Color of the loaded icon in the uploader list"
+        }
+    },
+    "uploaderLoadedIconFontSize": {
+        "cssKey": "uploader-loaded-icon-font-size",
+        "desc": "文件上传组件上传列表加载成功图标大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "文件上传组件上传列表加载成功图标大小",
+            "en": "Font size of the loaded icon in the uploader list"
         }
     },
     "warningColor": {

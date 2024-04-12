@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.31.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.10...@arco-design/mobile-react@2.31.0) (2024-04-09)
+
+
+### Bug Fixes
+
+* `Form` support picker components ([#249](https://github.com/arco-design/arco-design-mobile/issues/249)) ([3b1f6f7](https://github.com/arco-design/arco-design-mobile/commit/3b1f6f7460ac2417fd7c099c8f26904be972750e))
+* `Tabs` do not execute forceupdate for the first time ([#248](https://github.com/arco-design/arco-design-mobile/issues/248)) ([e05cc9f](https://github.com/arco-design/arco-design-mobile/commit/e05cc9fd5df64a1b5a5d8054fc58b5e428997711))
+* add icons ([#250](https://github.com/arco-design/arco-design-mobile/issues/250)) ([46ddefc](https://github.com/arco-design/arco-design-mobile/commit/46ddefc48fb39a51f2767ff384c535c19934b16f))
+* optimize "autoFocus" of `SearchBar`, `Input`, `Textarea` & support search QA & optimize `Tabs` document ([#253](https://github.com/arco-design/arco-design-mobile/issues/253)) ([3684d09](https://github.com/arco-design/arco-design-mobile/commit/3684d09cdbde0f1c3f41ae0ca4aa6a03be830364))
+
+
+### Features
+
+* add component `Uploader` & abstract common logic of `ImagePicker` ([#251](https://github.com/arco-design/arco-design-mobile/issues/251)) ([9f6a795](https://github.com/arco-design/arco-design-mobile/commit/9f6a79573cfe5f74589ae244732db8c13ef07f0b))
+
+
+
+
+
 ## [2.30.10](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.9...@arco-design/mobile-react@2.30.10) (2024-03-04)
 
 
