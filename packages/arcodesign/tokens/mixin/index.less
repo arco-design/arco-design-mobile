@@ -150,6 +150,30 @@
 }
 
 /**
+ * 在 rtl 模式下，自定义样式规则
+ * @desc {en} custom style in RTL mode
+ * @param @rules 对应的rtl模式下的规则
+ * @param @rules {en} property with rtl
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .style-with-rtl({
+ *         transform: scale(-1);
+ *     });
+ * }
+ * ```
+ */
+.style-with-rtl(@rules) {
+    & when (@use-rtl = 1) {
+        [dir="rtl"] & {
+            @rules();
+        }
+    }
+}
+
+/**
  * 0.5px 的边框线
  * @desc {en} a border line of 0.5 pixels
  * @param @color 使用 css 变量为线设置颜色

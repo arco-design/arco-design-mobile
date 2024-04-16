@@ -60,10 +60,10 @@ export default function TabsDemo() {
     align-items: center;
     justify-content: flex-end;
     font-weight: bold;
-    [dir="rtl"] & {
+    .style-with-rtl({
         justify-content: flex-start;
         transform: rotate(180deg);
-    }
+    });
     .arco-theme-dark & {
         background: linear-gradient(270deg, #17171A 66.04%, rgba(#17171A, 0) 105%);
     }

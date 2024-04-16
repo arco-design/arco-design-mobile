@@ -96,7 +96,8 @@ export default function UploaderDemo() {
         align-items: center;
         .rem(height, 56);
         .rem(margin-top, 16);
-        .onepx-border-var(all, line-color, 0.04rem);
+        border: 1px solid;
+        .use-var(border-color, line-color);
         &-image {
             .rem(width, 56);
             .rem(height, 56);
