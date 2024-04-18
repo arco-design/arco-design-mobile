@@ -597,6 +597,8 @@
         @border-bottom-left-radius: border-bottom-right-radius;
         @border-top-right-radius: border-top-left-radius;
         @border-bottom-right-radius: border-bottom-left-radius;
+        @border-right-color: border-left-color;
+        @border-left-color: border-right-color;
     }
     @property-name: @property-map[@@origin-property];
 }
@@ -609,86 +611,6 @@
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |@origin-property|css属性名|string|必填|
-
-------
-
-# .set-prop-with-rtl
-
-设置涉及左右相关的属性名，在rtl模式下自动替换为相反的属性名
-
-======
-
-## 示例
-
-```
-@import '@arco-design/mobile-utils/style/mixin.less';
-.demo {
-   .set-prop-with-rtl(right, auto);
-}
-```
-
-## 源码
-
-```
-.set-prop-with-rtl(@property, @value, @rules: {
-    @{property}: initial;
-}) {
-    @{property}: @value;
-    [dir="rtl"] & {
-        @rules();
-        @new-property: .prop-with-rtl(@property)[@property-name];
-        @{new-property}: @value;
-    }
-}
-```
-
-======
-
-> 输入
-
-|参数|描述|类型|默认值|
-|----------|-------------|------|------|
-|@property|css属性名|string|必填|
-|@value|css属性值|string|必填|
-|@rules|自定义的复写规则，默认重置为initial|string|-|
-
-------
-
-# .set-value-with-rtl
-
-设置涉及左右相关的属性值，在rtl模式下自动替换为相反的属性值
-
-======
-
-## 示例
-
-```
-@import '@arco-design/mobile-utils/style/mixin.less';
-.demo {
-   .set-value-with-rtl(text-align, left);
-}
-```
-
-## 源码
-
-```
-.set-value-with-rtl(@property, @value) {
-    @{property}: @value;
-    [dir="rtl"] & {
-        @new-value: .prop-with-rtl(@value)[@property-name];
-        @{property}: @new-value;
-    }
-}
-```
-
-======
-
-> 输入
-
-|参数|描述|类型|默认值|
-|----------|-------------|------|------|
-|@property|css属性名|string|必填|
-|@value|css属性值|string|必填|
 
 ------
 

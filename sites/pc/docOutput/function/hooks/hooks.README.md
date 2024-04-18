@@ -52,7 +52,7 @@ function useListenResize(resizeHandler: () => void, deps: any[] = [], needListen
 
 > 输出
 
-无
+void
 
 ------
 
@@ -305,7 +305,7 @@ function useUpdateEffect(effect: () => void | (() => void), dependencies: any[] 
 
 > 输出
 
-无
+void
 
 ------
 
@@ -351,7 +351,7 @@ function useForceUpdate() {
 
 > 输出
 
-无
+() => void
 
 ------
 
@@ -728,7 +728,7 @@ function usePopupScroll(
 
 > 输出
 
-无
+void
 
 ------
 
@@ -793,7 +793,7 @@ function useSwiperInnerScroll(
 
 > 输出
 
-无
+void
 
 ------
 
@@ -853,7 +853,7 @@ function useAddListener(
 
 > 输出
 
-无
+void
 
 ------
 
@@ -940,7 +940,7 @@ function usePreventBodyScroll(
 
 > 输出
 
-无
+void
 
 ------
 
