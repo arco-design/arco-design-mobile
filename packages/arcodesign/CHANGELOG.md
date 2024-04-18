@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.0...@arco-design/mobile-react@2.31.1) (2024-04-18)
+
+
+### Bug Fixes
+
+* support codeSandBox preview & adjust rtl mixins ([#254](https://github.com/arco-design/arco-design-mobile/issues/254)) ([5a7fb3a](https://github.com/arco-design/arco-design-mobile/commit/5a7fb3a4dd0ca8b1721036e5696b39e212905b5c))
+
+
+
+
+
 # [2.31.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.30.10...@arco-design/mobile-react@2.31.0) (2024-04-09)
 
 
