@@ -64,9 +64,9 @@ export default function PopoverDemo() {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    [dir="rtl"] & {
+    .style-with-rtl({
         flex-direction: row-reverse;
-    }
+    });
     .direction-item {
         margin: 14px 0;
         &:nth-child(2n+1) {

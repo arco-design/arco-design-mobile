@@ -60,9 +60,9 @@
 
             &.animate {
                 animation: marquee linear both;
-                [dir="rtl"] & {
+                .style-with-rtl({
                     animation-name: marquee-reverse;
-                }
+                });
             }
         }
         .@{prefix}-carousel {

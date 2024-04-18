@@ -115,7 +115,7 @@ function preventEleScroll(
 
 > 输出
 
-无
+void
 
 ------
 
@@ -181,7 +181,7 @@ function freeEleScroll(
 
 > 输出
 
-无
+void
 
 ------
 
@@ -388,7 +388,7 @@ function scrollWithAnimation(
 
 > 输出
 
-无
+void
 
 ------
 
@@ -529,7 +529,7 @@ function getOffset(node: HTMLElement | Document | null) {
 
 > 输出
 
-无
+{ width: number; height: number; top: number; left: number; }
 
 ------
 
@@ -613,7 +613,7 @@ function checkOverflowVisible<T extends TCheckVisibleBaseProps>(
 
 > 输出
 
-无
+boolean
 
 ------
 
@@ -741,7 +741,7 @@ function appendElementById(id: string, getContainer?: () => HTMLElement) {
 
 > 输出
 
-无
+{ child: HTMLElement; container: any; }
 
 ------
 
@@ -787,7 +787,7 @@ function removeElement(ele: HTMLElement) {
 
 > 输出
 
-无
+void
 
 ------
 
@@ -832,7 +832,7 @@ function getActualContainer(getContainer?: () => HTMLElement | Window | string |
 
 > 输出
 
-无
+any
 
 ------
 
@@ -879,7 +879,7 @@ function getValidScrollContainer(getContainer?: () => HTMLElement | Window | nul
 
 > 输出
 
-无
+any
 
 ------
 
@@ -944,7 +944,7 @@ function getScrollContainerAttribute(
 
 > 输出
 
-无
+number
 
 ------
 
@@ -1015,7 +1015,7 @@ function getScrollContainerRect(container: HTMLElement | Window | null) {
 
 > 输出
 
-无
+{ isGlobal: boolean; scrollEle: any; containerRect: Pick<any, string | number | symbol>; }
 
 ------
 
@@ -1060,7 +1060,7 @@ function removeCssStyleDom(key: string) {
 
 > 输出
 
-无
+void
 
 ------
 
@@ -1106,7 +1106,7 @@ function addCssStyleDom(key: string, html: string) {
 
 > 输出
 
-无
+void
 
 ------
 
@@ -1162,7 +1162,7 @@ function addCssKeyframes(key: string, rules: string) {
 
 > 输出
 
-无
+void
 
 ------
 
@@ -1212,7 +1212,7 @@ function addCssRules(key: string, rules: Record<string, string>) {
 
 > 输出
 
-无
+void
 
 ------
 
@@ -1317,7 +1317,7 @@ function convertCssDuration(ele: HTMLElement, property: string) {
 
 > 输出
 
-无
+number
 
 ------
 
@@ -1363,4 +1363,4 @@ function safeGetComputedStyle(element: HTMLElement) {
 
 > 输出
 
-无
+any

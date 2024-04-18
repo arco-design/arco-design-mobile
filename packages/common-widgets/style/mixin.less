@@ -438,59 +438,6 @@
 }
 
 /**
- * 设置涉及左右相关的属性名，在rtl模式下自动替换为相反的属性名
- * @desc {en} set the property name related to left and right, and automatically replace it with the opposite attribute name in rtl mode
- * @param @property css属性名
- * @param @property {en} css property
- * @param @value css属性值
- * @param @value {en} css property value
- * @param @rules 自定义的复写规则，默认重置为initial
- * @param @rules {en} customized rewrite rules, default to initial
- * @example
- * ```
- * @import '@arco-design/mobile-utils/style/mixin.less';
- *
- * .demo {
- *   .set-prop-with-rtl(right, auto);
- * }
- * ```
- */
-.set-prop-with-rtl(@property, @value, @rules: {
-    @{property}: initial;
-}) {
-    @{property}: @value;
-    [dir="rtl"] & {
-        @rules();
-        @new-property: .prop-with-rtl(@property)[@property-name];
-        @{new-property}: @value;
-    }
-}
-
-/**
- * 设置涉及左右相关的属性值，在rtl模式下自动替换为相反的属性值
- * @desc {en} set the property value related to left and right, and automatically replace it with the opposite attribute value in rtl mode
- * @param @property css属性名
- * @param @property {en} css property
- * @param @value css属性值
- * @param @value {en} css property value
- * @example
- * ```
- * @import '@arco-design/mobile-utils/style/mixin.less';
- *
- * .demo {
- *   .set-value-with-rtl(text-align, left);
- * }
- * ```
- */
-.set-value-with-rtl(@property, @value) {
-    @{property}: @value;
-    [dir="rtl"] & {
-        @new-value: .prop-with-rtl(@value)[@property-name];
-        @{property}: @new-value;
-    }
-}
-
-/**
  * 设置Loading组件颜色
  * @desc {en} set Loading component color
  * @param @color 颜色

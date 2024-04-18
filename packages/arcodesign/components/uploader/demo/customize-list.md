@@ -96,12 +96,12 @@ export default function UploaderDemo() {
         align-items: center;
         .rem(height, 56);
         .rem(margin-top, 16);
-        .onepx-border-var(all, line-color, 0.04rem);
+        .onepx-border-var(all, line-color, 2PX);
         &-image {
             .rem(width, 56);
             .rem(height, 56);
-            .rem-with-rtl(border-top-left-radius, 2);
-            .rem-with-rtl(border-bottom-left-radius, 2);
+            .set-prop-with-rtl(border-top-left-radius, 2PX);
+            .set-prop-with-rtl(border-bottom-left-radius, 2PX);
             overflow: hidden;
         }
         &-text {

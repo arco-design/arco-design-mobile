@@ -40,9 +40,9 @@ export default function PopoverDemo() {
     display: flex;
     align-items: center;
     justify-content: center;
-    [dir="rtl"] & {
+    .style-with-rtl({
         flex-direction: row-reverse;
-    }
+    });
 }
 .menu-demo-wrapper {
     .center-box();

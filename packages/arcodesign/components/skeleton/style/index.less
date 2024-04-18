@@ -103,9 +103,9 @@
     animation-iteration-count: infinite;
     .use-var(animation-timing-function, skeleton-gradient-animation-timing-function);
     .use-var(animation-duration, skeleton-gradient-animation-duration);
-    [dir="rtl"] & {
+    .style-with-rtl({
         animation-name: skeleton-gradient-reverse;
-    }
+    });
 }
 .@{prefix}-skeleton-animation-breath {
     animation: skeleton-breath linear infinite;

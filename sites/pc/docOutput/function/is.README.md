@@ -401,7 +401,6 @@ function isDeepEqual(obj: any, sub: any): boolean {
     if (isFunction(obj) && isFunction(sub)) {
         return obj === sub || obj.toString() === sub.toString();
     }
-
     if (Object.keys(obj).length !== Object.keys(sub).length) {
         return false;
     }

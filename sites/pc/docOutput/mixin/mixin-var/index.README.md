@@ -67,11 +67,11 @@
 ```
 .rem-with-rtl(@property; @values...) {
     .rem(@property; @values...);
-    [dir="rtl"] & {
+    .style-with-rtl({
         @{property}: initial;
         @new-property: .prop-with-rtl(@property)[@property-name];
         .rem(@new-property; @values...);
-    }
+    });
 }
 ```
 
@@ -186,11 +186,11 @@
 ```
 .use-var-with-rtl(@property, @variables, @preValues: '', @nextValues: '') {
     .use-var(@property, @variables, @preValues, @nextValues);
-    [dir="rtl"] & {
+    .style-with-rtl({
         @{property}: initial;
         @new-property: .prop-with-rtl(@property)[@property-name];
         .use-var(@new-property, @variables, @preValues, @nextValues);
-    }
+    });
 }
 ```
 
@@ -204,6 +204,125 @@
 |@variables|token 变量名|string|必填|
 |@preValues|\-|string|-|
 |@nextValues|\-|string|-|
+
+------
+
+# .set-prop-with-rtl
+
+设置涉及左右相关的属性名，在rtl模式下自动替换为相反的属性名
+
+======
+
+## 示例
+
+```
+@import '@arco-design/mobile-utils/style/mixin.less';
+.demo {
+   .set-prop-with-rtl(right, auto);
+}
+```
+
+## 源码
+
+```
+.set-prop-with-rtl(@property, @value, @rules: {
+    @{property}: initial;
+}) {
+    @{property}: @value;
+    .style-with-rtl({
+        @rules();
+        @new-property: .prop-with-rtl(@property)[@property-name];
+        @{new-property}: @value;
+    });
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|@property|css属性名|string|必填|
+|@value|css属性值|string|必填|
+|@rules|自定义的复写规则，默认重置为initial|string|-|
+
+------
+
+# .set-value-with-rtl
+
+设置涉及左右相关的属性值，在rtl模式下自动替换为相反的属性值
+
+======
+
+## 示例
+
+```
+@import '@arco-design/mobile-utils/style/mixin.less';
+.demo {
+   .set-value-with-rtl(text-align, left);
+}
+```
+
+## 源码
+
+```
+.set-value-with-rtl(@property, @value) {
+    @{property}: @value;
+    .style-with-rtl({
+        @new-value: .prop-with-rtl(@value)[@property-name];
+        @{property}: @new-value;
+    });
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|@property|css属性名|string|必填|
+|@value|css属性值|string|必填|
+
+------
+
+# .style-with-rtl
+
+在 rtl 模式下，自定义样式规则
+
+======
+
+## 示例
+
+```
+@import '@arco-design/mobile-react/style/mixin.less';
+.demo {
+     .style-with-rtl({
+         transform: scale(-1);
+     });
+}
+```
+
+## 源码
+
+```
+.style-with-rtl(@rules) {
+    & when (@use-rtl = 1) {
+        [dir="rtl"] & {
+            @rules();
+        }
+    }
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|@rules|对应的rtl模式下的规则|string|必填|
 
 ------
 

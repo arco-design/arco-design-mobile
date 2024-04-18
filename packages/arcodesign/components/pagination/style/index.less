@@ -41,14 +41,14 @@
         .btn-icon {
             display: inline-flex;
             align-items: center;
-            [dir="rtl"] & {
+            .style-with-rtl({
                 transform: scaleX(-1);
-            }
+            });
             &.next {
                 transform: rotateY(180deg);
-                [dir="rtl"] & {
+                .style-with-rtl({
                     transform: none;
-                }
+                });
             }
         }
     }

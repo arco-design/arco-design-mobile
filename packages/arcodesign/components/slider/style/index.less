@@ -126,17 +126,17 @@
                 &.is-end {
                     .set-prop-with-rtl(right, 0);
                     transform: translateX(50%);
-                    [dir="rtl"] & {
+                    .style-with-rtl({
                         transform: translateX(-50%);
-                    }
+                    });
                 }
 
                 &.is-start {
                     .set-prop-with-rtl(left, 0);
                     transform: translateX(-50%);
-                    [dir="rtl"] & {
+                    .style-with-rtl({
                         transform: translateX(50%);
-                    }
+                    });
                 }
             }
         }
@@ -242,9 +242,9 @@
             .use-var(border-radius, slider-mark-border-radius);
             .use-var(background, slider-line-color);
             transform: translateX(-50%);
-            [dir="rtl"] & {
+            .style-with-rtl({
                 transform: translateX(50%);
-            }
+            });
 
             &.is-activated {
                 .use-var(background, slider-line-activated-color);

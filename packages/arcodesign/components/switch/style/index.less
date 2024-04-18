@@ -38,18 +38,18 @@
             }
             .@{prefix}-switch-inner {
                 .use-var(transform, switch-android-checked-inner-transform);
-                [dir="rtl"] & {
+                .style-with-rtl({
                     .use-var(transform, switch-android-checked-inner-transform, "rotate(180deg)");
-                }
+                });
             }
         }
         .@{prefix}-switch-inner {
             .use-var(width, switch-android-inner-diameter-size);
             .use-var(height, switch-android-inner-diameter-size);
             .use-var(box-shadow, switch-android-inner-box-shadow);
-            [dir="rtl"] & {
+            .style-with-rtl({
                 transform: rotate(180deg);
-            }
+            });
         }
 
         &.disabled {
@@ -92,9 +92,9 @@
             .@{prefix}-switch-inner {
                 .use-var(transform, switch-ios-checked-inner-transform);
                 .use-var(box-shadow, switch-ios-inner-box-shadow);
-                [dir="rtl"] & {
+                .style-with-rtl({
                     .use-var(transform, switch-ios-checked-inner-transform, "rotate(180deg)");
-                }
+                });
             }
         }
 
@@ -109,9 +109,9 @@
             .use-var(width, switch-ios-inner-diameter-size);
             .use-var(height, switch-ios-inner-diameter-size);
             .onepx-border-var(all, switch-ios-inner-border-color, 50%);
-            [dir="rtl"] & {
+            .style-with-rtl({
                 transform: rotate(180deg);
-            }
+            });
         }
 
         &.disabled {

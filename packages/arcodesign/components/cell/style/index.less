@@ -71,9 +71,9 @@
     }
 
     .cell-arrow-icon {
-        [dir="rtl"] & {
+        .style-with-rtl({
             transform: scale(-1);
-        }
+        });
         .use-var-with-rtl(margin-left, cell-arrow-gutter);
         font-size: 0;
         .@{prefix}-icon {

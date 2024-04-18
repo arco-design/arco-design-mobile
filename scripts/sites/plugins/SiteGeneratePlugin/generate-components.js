@@ -3,7 +3,7 @@ const path = require('path');
 const utils = require('../../../utils');
 const languageUtils = require('../../../utils/language');
 const localeMap = require('../../../utils/language.json');
-const { renderNavIntro, renderReadmeTable } = require('./helpers');
+const { renderNavIntro, renderReadmeTable, transferLessToCSS } = require('./helpers');
 const { renderComponentsDemos, renderComponentsFAQ } = require('./utils');
 
 function generateComponents({
@@ -12,6 +12,7 @@ function generateComponents({
     language,
     latestVersion,
     compileComps,
+    compileCSSSource
 } = {}) {
     let compNames = [];
     if (compileComps && compileComps.length) {
@@ -77,7 +78,7 @@ function generateComponents({
 
             // 渲染文档站 demo 内容部分
             const demoPath = path.join(compSrcPath, comp, 'demo');
-            const demoSource =
+            const { demoSource = [], lessSources = {} } =
                 renderComponentsDemos({
                     demoSrcPath: demoPath,
                     comp,
@@ -91,9 +92,21 @@ function generateComponents({
                 language,
             });
 
+            // demo less过一遍less-loader，转为css
+            transferLessToCSS(lessSources, !compileCSSSource)
+                .then(cssSources => {
+                    const cssSourceEntries = Object.entries(cssSources);
+                    fs.writeFileSync(path.join(docPath, `css-source.js`), utils.formatTsCode(`
+                        export default {
+                            ${cssSourceEntries.map(source => `'${source[0]}': '${source[1]}'`).join(',')}
+                        };
+                    `));
+                });
+
             // 创建 demo 目录写入 index 文件
             const entry = utils.formatTsCode(`
                 import React from 'react';
+                ${Object.keys(lessSources).length ? `import cssSources from './css-source';` : ''}
                 import Code from '../../../entry/code';
                 import { LanguageSupport } from '../../../../utils/language';
                 interface IProps {

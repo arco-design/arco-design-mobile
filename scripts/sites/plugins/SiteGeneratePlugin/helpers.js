@@ -206,9 +206,11 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
             code = utils.replaceStyleLessVars(code);
             styleSource += code;
             const formatStyle = prism.highlight(code, prism.languages.css, 'css');
-            return `<div class='demo-code-content'>
-                <pre><code class='demo-code'>${formatStyle}</code></pre>
-            </div>`;
+            return `
+                <div class='demo-code-content'>
+                    <pre><code class='demo-code'>${formatStyle}</code></pre>
+                </div>
+            `;
         }
         return '';
     };
@@ -229,10 +231,36 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
     };
 }
 
+const cssSourceCompileCache = {};
+async function transferLessToCSS(lessSources, useCache) {
+    const cssSources = {};
+    if (Object.keys(lessSources).length) {
+        await Promise.all(Object.keys(lessSources).map(key =>
+            new Promise(resolve => {
+                const cssSource = lessSources[key];
+                if (useCache && cssSourceCompileCache[key]) {
+                    resolve(cssSourceCompileCache[key]);
+                } else {
+                    utils
+                        .transferLessToCSS(`@import "./packages/arcodesign/style/mixin.less";\n${cssSource}`)
+                        .then(css => {
+                            cssSources[key] = css;
+                            cssSourceCompileCache[key] = css;
+                            resolve(css);
+                        });
+                }
+
+            })
+        ));
+    }
+    return cssSources;
+}
+
 module.exports = {
     renderSiteMdSource,
     renderNavIntro,
     renderDemoSource,
     renderReadmeTable,
     renderSiteFAQSource,
+    transferLessToCSS
 };

@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
 const path = require('path');
-const childProcess = require('child_process');
 const { renderNavIntro, renderReadmeTable } = require('./helpers');
 const { marked } = require('marked');
 const prism = require('../../../../sites/pc/static/js/prism');
@@ -172,13 +171,23 @@ function renderFuncSource(md, type) {
             type === 'mixin'
                 ? prism.highlight(code, prism.languages.less, 'less')
                 : prism.highlight(code, prism.languages.jsx, 'jsx');
-        return `<Code showCodePen={false} codeSource="${encodeURIComponent(
-            codeSource,
-        )}" code={<div className="demo-code-wrapper
-            no-padding-top
-        " dangerouslySetInnerHTML={{ __html: ${JSON.stringify(`<div class="demo-code-content">
-        <pre><code class="demo-code">${formatScript}</code></pre>
-    </div>`)} }} />} />`;
+        return `
+            <Code
+                showWebIDE={false}
+                codeSource="${encodeURIComponent(codeSource)}"
+                code={
+                    <div
+                        className="demo-code-wrapper no-padding-top"
+                        dangerouslySetInnerHTML={{ __html: ${JSON.stringify(`
+                            <div class="demo-code-content">
+                                <pre>
+                                    <code class="demo-code">${formatScript}</code>
+                                </pre>
+                            </div>`
+                        )} }}
+                    />
+                }
+            />`;
     };
     renderer.heading = (text, level) => {
         if (level === 2 || level === 3) {
