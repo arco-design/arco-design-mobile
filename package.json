@@ -127,6 +127,7 @@
     },
     "dependencies": {
         "@arco-design/transformable": "1.0.2",
+        "@babel/runtime": "^7.24.4",
         "axios": "^0.27.2",
         "es6-promise": "^4.2.8",
         "lodash.debounce": "^4.0.8",

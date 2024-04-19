@@ -94,9 +94,10 @@ export default function UploaderDemo() {
     &-item {
         display: flex;
         align-items: center;
+        border-radius: 2PX;
         .rem(height, 56);
         .rem(margin-top, 16);
-        .onepx-border-var(all, line-color, 2PX);
+        .hairline-var(line-color);
         &-image {
             .rem(width, 56);
             .rem(height, 56);
