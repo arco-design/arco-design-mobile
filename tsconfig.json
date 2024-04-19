@@ -16,6 +16,9 @@
     "include": [
         "packages/arcodesign/components/**/*.ts",
         "packages/arcodesign/components/**/*.tsx",
+        "packages/arcodesign-vue/components/**/*.ts",
+        "packages/arcodesign-vue/components/**/*.tsx",
+        "packages/arcodesign-vue/components/**/*.vue",
         "packages/common-widgets/**/*.ts",
         "sites/**/*.d.ts"
     ],

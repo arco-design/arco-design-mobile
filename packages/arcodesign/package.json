@@ -13,7 +13,7 @@
         "test": "jest"
     },
     "author": "taoyiyue@bytedance.com",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
         "@arco-design/mobile-utils": "2.18.1",
         "@arco-design/transformable": "^1.0.0",
