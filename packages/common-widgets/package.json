@@ -1,6 +1,6 @@
 {
     "name": "@arco-design/mobile-utils",
-    "version": "2.18.1",
+    "version": "2.18.2",
     "description": "",
     "main": "cjs/index.js",
     "module": "esm/index.js",
