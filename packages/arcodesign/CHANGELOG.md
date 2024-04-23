@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.1...@arco-design/mobile-react@2.31.2) (2024-04-19)
+
+
+### Bug Fixes
+
+* add "@babel/runtime" to dependencies ([#257](https://github.com/arco-design/arco-design-mobile/issues/257)) ([c3f0f6c](https://github.com/arco-design/arco-design-mobile/commit/c3f0f6cf281b146c75f14622f1e454f165af4c01))
+
+
+
+
+
 ## [2.31.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.0...@arco-design/mobile-react@2.31.1) (2024-04-18)
 
 

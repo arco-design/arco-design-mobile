@@ -30,6 +30,20 @@ lessOptions: {
 }
 ```
 
+## Q: When compiling with vite, an error is reported after importing the component library package: '~@arco-design/mobile-utils/style/mixin.less' wasn't found.
+
+A: You can refer to the solution [here](https://github.com/vitejs/vite/issues/2185) to modify the vite configuration:
+
+```js
+export default defineConfig({
+    resolve: {
+        alias: [
+            { find: /^~/, replacement: '' }
+        ],
+    }
+});
+```
+
 ## Q: Popup, Masking, Dialog and other pop-up window components cannot scroll the inner elements, even if the overflow is scroll?
 
 A: When the pop-up window is activated on the mobile side, there will be a problem of scroll penetration, so by default, the preventDefault operation will be performed for the touchmove event of the pop-up window to avoid this problem. This operation will also prevent the scrolling of the content of the pop-up window, so you need to manually specify the scroll container through the `getScrollContainer` attribute for exemption, that is, to determine whether the element passed in from this attribute scrolls to the boundary position, if so, execute the preventDefault operation, otherwise default events are no longer blocked.

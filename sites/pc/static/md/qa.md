@@ -30,6 +30,20 @@ lessOptions: {
 }
 ```
 
+## Q: 使用 vite 编译时，引入组件库包后报错：'~@arco-design/mobile-utils/style/mixin.less' wasn't found.
+
+A: 可参考[这里](https://github.com/vitejs/vite/issues/2185)的解决方案，修改 vite 配置：
+
+```js
+export default defineConfig({
+    resolve: {
+        alias: [
+            { find: /^~/, replacement: '' }
+        ],
+    }
+});
+```
+
 ## Q: Popup Masking Dialog 等弹窗类组件，overflow 为 scroll 的元素内部不能滚动？
 
 A: 在移动端调起弹窗时，会出现滚动穿透的问题，所以默认会为弹窗的 touchmove 事件做 preventDefault 操作来规避该问题。该操作也会阻止掉弹窗内容的滚动，因此需通过`getScrollContainer`属性手动指定下滚动容器做豁免，即判断从该属性传入的元素是否滚动到了边界位置，如果是则 preventDefault，否则不再阻止默认事件。
