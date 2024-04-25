@@ -1,17 +1,12 @@
-import { App } from 'vue';
-import ConfigProvider from './ContextProvider.vue';
-import type { ContextInstallOptions } from './type';
-import { getComponentPrefix } from './utils';
+import ContextProvider from './ContextProvider.vue';
+import { installFactory } from '../_helpers/install';
 
 export type * from './type';
 export * from './utils';
 
-const install = (app: App, options?: ContextInstallOptions) => {
-    const componentPrefix = getComponentPrefix(options);
-    app.component(componentPrefix + ConfigProvider.__name, ConfigProvider);
-};
+const install = installFactory(ContextProvider);
 
-export { ConfigProvider };
+export { ContextProvider };
 
 export default {
     install,

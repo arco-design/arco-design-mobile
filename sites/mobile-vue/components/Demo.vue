@@ -1,9 +1,26 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-const route = useRoute();
+import { onMounted } from 'vue';
+import Arrow from './Arrow.vue';
+import { useRouter } from 'vue-router';
 
-const name = route.params.name;
+const props = defineProps(['name', 'doc']);
+const router = useRouter();
+const Component = props.doc;
+
+onMounted(() => {
+    window.scrollTo(0, 0);
+});
 </script>
 <template>
-    <span>{{ name }}</span>
+    <div class="arcodesign-mobile-demo-wrapper">
+        <div className="demo-content" :id="`demo-${name}`">
+            <div
+                class="arrow-back"
+                @click="router.back()"
+            >
+                <Arrow class="arrow-back-icon" />
+            </div>
+            <Component />
+        </div>
+    </div>
 </template>

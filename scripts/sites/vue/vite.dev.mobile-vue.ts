@@ -2,6 +2,8 @@ import { Plugin, defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import commonjs from '@rollup/plugin-commonjs';
 import path from 'path';
+import entryGeneratePlugin from './plugins/EntryGeneratePlugin';
+import demoGeneratePlugin from './plugins/DemoGeneratePlugin';
 
 export default defineConfig({
     mode: 'development',
@@ -31,5 +33,5 @@ export default defineConfig({
             }
         }
     },
-    plugins: [commonjs() as Plugin, vue()],
+    plugins: [commonjs() as Plugin, vue(), entryGeneratePlugin(), demoGeneratePlugin()],
 })

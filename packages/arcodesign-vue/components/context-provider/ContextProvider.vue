@@ -6,6 +6,7 @@ import { configProviderInjectionKey, defaultContext } from './utils';
 const props = withDefaults(defineProps<GlobalContextParams>(), defaultContext);
 provide(configProviderInjectionKey, props);
 </script>
+
 <template>
-    <slot />
+    <slot></slot>
 </template>

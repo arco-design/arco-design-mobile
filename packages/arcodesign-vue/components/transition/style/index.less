@@ -1,0 +1,16 @@
+@import "../../../style/mixin.less";
+
+.@{prefix}-transition {
+    &-fade {
+        &-enter-from,
+        &-leave-to {
+            opacity: 0;
+        }
+
+        &-enter-active,
+        &-leave-active {
+            transition-property: opacity;
+            .use-var(transition-duration, transition-fade-duration);
+        }
+    }
+}

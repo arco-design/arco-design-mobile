@@ -1,21 +1,31 @@
 <script setup lang="ts">
+import { computed, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
-import { isFromDesignLab } from '../../utils/designlab';
 import { getMenuOrder } from '../../utils/menu';
 import routes from '../pages/components/route';
+import enRoutes from '../pages/components/route-en-US';
+import { LanguageSupport } from '../../utils/language';
 import Arrow from './Arrow.vue';
 
-const hideHeader = isFromDesignLab();
-const actualRoutes = getMenuOrder(routes);
+const props = defineProps(['language']);
+const actualRoutes = computed(() => getMenuOrder(props.language === LanguageSupport.EN ? enRoutes : routes));
 const router = useRouter();
 
+onMounted(() => {
+    document.body.classList.add('white-body');
+});
+
+onUnmounted(() => {
+    document.body.classList.remove('white-body');
+});
+
 function handleSubItemClick(route) {
-    router.push(`/components/${route}`);
+    router.push(`${props.language === LanguageSupport.EN ? '/en-US' : ''}/components/${route}`);
 }
 </script>
 
 <template>
-    <div class="arcodesign-mobile-home-wrapper" :class="{ 'hide-header': hideHeader }">
+    <div class="arcodesign-mobile-home-wrapper">
         <div class="arcodesign-demo-logo">
             <img src="../assets/arco-logo.svg" class="logo" alt="Arco logo" />
         </div>

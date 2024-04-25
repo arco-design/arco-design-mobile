@@ -1,9 +1,7 @@
 import { Badge } from './badge';
-import { ConfigProvider } from './context-provider';
+import { ContextProvider } from './context-provider';
+import { Transition } from './transition';
 
-export { Badge, ConfigProvider };
+export { Badge, ContextProvider, Transition };
 
-export const components = {
-    Badge,
-    ConfigProvider,
-};
+export const components = { Badge, ContextProvider, Transition };
