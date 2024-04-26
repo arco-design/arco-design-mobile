@@ -1,5 +1,5 @@
 {
-    "name": "@arco-design/mobile-react",
+    "name": "@arco-design/mobile-vue",
     "version": "0.0.0",
     "description": "",
     "main": "cjs/index.js",

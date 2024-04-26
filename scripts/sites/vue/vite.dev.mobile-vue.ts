@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import commonjs from '@rollup/plugin-commonjs';
 import path from 'path';
 import entryGeneratePlugin from './plugins/EntryGeneratePlugin';
+import tokenGeneratePlugin from './plugins/TokenGeneratePlugin';
 import demoGeneratePlugin from './plugins/DemoGeneratePlugin';
 
 export default defineConfig({
@@ -33,5 +34,5 @@ export default defineConfig({
             }
         }
     },
-    plugins: [commonjs() as Plugin, vue(), entryGeneratePlugin(), demoGeneratePlugin()],
+    plugins: [commonjs() as Plugin, vue(), entryGeneratePlugin(), tokenGeneratePlugin(), demoGeneratePlugin()],
 })

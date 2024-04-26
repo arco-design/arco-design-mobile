@@ -281,9 +281,11 @@ export interface ConfirmOptions extends AlertOptions {
     cancelText?: ReactNode;
 }
 
-export function methodsGenerator<P extends OpenBaseProps, A = AlertOptions, C = ConfirmOptions>(
-    Comp: React.FunctionComponent<P>,
-) {
+export function methodsGenerator<
+    P extends OpenBaseProps,
+    A extends { key?: string } = AlertOptions,
+    C extends { key?: string } = ConfirmOptions,
+>(Comp: React.FunctionComponent<P>) {
     return {
         /**
          * 打开确认框(含一个确认按钮)
