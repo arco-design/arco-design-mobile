@@ -10,17 +10,33 @@ import Arrow from './Arrow.vue';
 const props = defineProps(['language']);
 const actualRoutes = computed(() => getMenuOrder(props.language === LanguageSupport.EN ? enRoutes : routes));
 const router = useRouter();
+const storageItemKey = 'vue_home_scroll';
 
 onMounted(() => {
     document.body.classList.add('white-body');
+    const scrollInfo = window.localStorage.getItem(storageItemKey) || '';
+    const scrollTop = Number(scrollInfo.split('__')[1]) || 0;
+    if (scrollTop) {
+        window.scrollTo(0, scrollTop);
+        window.localStorage.removeItem(storageItemKey);
+    }
 });
 
 onUnmounted(() => {
     document.body.classList.remove('white-body');
 });
 
-function handleSubItemClick(route) {
-    router.push(`${props.language === LanguageSupport.EN ? '/en-US' : ''}/components/${route}`);
+function handleSubItemClick(route, type = 'components') {
+    window.localStorage.setItem(storageItemKey, `${route}__${window.pageYOffset}`);
+    window.parent.postMessage(
+        {
+            type,
+            data: route,
+            language: props.language,
+        },
+        '*',
+    );
+    router.push(`${props.language === LanguageSupport.EN ? '/en-US' : ''}/${type}/${route}`);
 }
 </script>
 

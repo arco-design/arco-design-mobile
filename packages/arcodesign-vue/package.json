@@ -17,6 +17,7 @@
         "lodash.throttle": "^4.1.1"
     },
     "peerDependencies": {
+        "vue": "^3.4.0"
     },
     "publishConfig": {
         "access": "public"

@@ -168,9 +168,11 @@ function renderDemoSource(demoPath, demoName, language = 'ch') {
     let paragraphSlotContent = '';
     let styleSource = '';
     renderer.code = (code, info) => {
-        if (info === 'js') {
+        if (info === 'js' || info === 'vue') {
             codeSource = code;
-            const formatScript = prism.highlight(code, prism.languages.jsx, 'jsx');
+            const formatScript = info === 'vue'
+                ? prism.highlight(code, prism.languages.html)
+                : prism.highlight(code, prism.languages.jsx, 'jsx');
             return `<div class="demo-code-content">
                 <pre><code class="demo-code">${formatScript}</code></pre>
             </div>`;

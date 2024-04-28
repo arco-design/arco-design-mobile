@@ -1,6 +1,5 @@
 const axios = require('axios');
 const generateToken = require('../../../../../packages/arcodesign-vue/tokens/scripts/generate/generate');
-const { generateSite } = require('../SiteGeneratePlugin/generate-site');
 const generateSite = require('./generate-site');
 
 module.exports = function siteGeneratePlugin() {

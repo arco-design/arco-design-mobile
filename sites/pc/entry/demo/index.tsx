@@ -5,7 +5,7 @@ import { getUrlsByLanguage } from '../../../utils/url';
 import { LanguageSupport } from '../../../utils/language';
 import getUrlParam from '../../../utils/getUrlParam';
 import CodePopover from '../../../components/code-popover';
-import Layout from '../layout';
+import Layout, { IMenuItemMap } from '../layout';
 import { HistoryContext } from '../context';
 import { localeMap } from '../../../utils/locale';
 import toQuery, { parseUrlQuery } from '../../../utils/toQuery';
@@ -20,9 +20,12 @@ export interface IDemoProps {
     name: string;
     doc: any;
     type: 'readme' | 'doc';
+    menuItemsMap: IMenuItemMap;
+    Header: any;
     showQRCode?: boolean;
     language?: LanguageSupport;
     route?: string;
+    isVue?: boolean;
 }
 
 export default function Demo(props: IDemoProps) {
@@ -30,12 +33,15 @@ export default function Demo(props: IDemoProps) {
         name,
         doc,
         type,
+        menuItemsMap,
+        Header,
         showQRCode = true,
         language = LanguageSupport.CH,
         route = 'components',
+        isVue,
     } = props;
     const [update, setUpdate] = useState(0);
-    const previewUrl = `${getUrlsByLanguage(language).MOBILE_DOC_PREFIX}${
+    const previewUrl = `${getUrlsByLanguage(language, isVue).MOBILE_DOC_PREFIX}${
         name === 'readme' ? '' : `${route}/${name}`
     }`;
     // 是否为 demo icon 页
@@ -183,7 +189,15 @@ export default function Demo(props: IDemoProps) {
     }, []);
 
     return (
-        <Layout name={name} type={type} language={language} mode={mode} setMode={setMode}>
+        <Layout
+            menuItemsMap={menuItemsMap}
+            Header={Header}
+            name={name}
+            type={type}
+            language={language}
+            mode={mode}
+            setMode={setMode}
+        >
             <div className="demo-content-wrapper">
                 {doc}
                 <Footer />

@@ -12,25 +12,24 @@ function generateComponents({
     language,
     latestVersion,
     compileComps,
-    compileCSSSource
+    compileCSSSource,
+    demoDir = 'demo',
+    isVue,
 } = {}) {
-    let compNames = [];
-    if (compileComps && compileComps.length) {
-        compNames = compileComps;
-    } else {
-        compNames = fs
-            .readdirSync(path.join(compSrcPath))
-            .filter(name => fs.lstatSync(path.join(compSrcPath, name)).isDirectory());
-    }
+    const compNames = utils.getAllComps(compSrcPath, compileComps);
     const suffix =
         language in languageUtils.lang2SuffixMap ? languageUtils.lang2SuffixMap[language] : '';
     const mdSuffix = suffix ? `.${suffix}` : suffix;
     const tsxFileSuffix = suffix ? `-${suffix}` : suffix;
-    const importName = utils.getCompName(`icon${tsxFileSuffix}`);
-    let compDocsImportStr = `import ${importName} from './icon${
-        tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
-    }';`;
-    let compDocsStr = `'icon': ${importName},`;
+    let compDocsImportStr = '';
+    let compDocsStr = '';
+    if (fs.existsSync(path.join(compSrcPath, 'icon'))) {
+        const importName = utils.getCompName(`icon${tsxFileSuffix}`);
+        compDocsImportStr = `import ${importName} from './icon${
+            tsxFileSuffix ? `/index${tsxFileSuffix}` : ''
+        }';`;
+        compDocsStr = `'icon': ${importName},`;
+    }
     const compRoutes = {};
     const promises = compNames.map(comp => {
         return new Promise(resolve => {
@@ -77,13 +76,14 @@ function generateComponents({
             }
 
             // 渲染文档站 demo 内容部分
-            const demoPath = path.join(compSrcPath, comp, 'demo');
+            const demoPath = path.join(compSrcPath, comp, demoDir);
             const { demoSource = [], lessSources = {} } =
                 renderComponentsDemos({
                     demoSrcPath: demoPath,
                     comp,
                     language,
                     latestVersion,
+                    isVue,
                 }) || [];
 
             // 渲染文档站 faq 内容部分
@@ -93,20 +93,23 @@ function generateComponents({
             });
 
             // demo less过一遍less-loader，转为css
-            transferLessToCSS(lessSources, !compileCSSSource)
-                .then(cssSources => {
-                    const cssSourceEntries = Object.entries(cssSources);
-                    fs.writeFileSync(path.join(docPath, `css-source.js`), utils.formatTsCode(`
-                        export default {
-                            ${cssSourceEntries.map(source => `'${source[0]}': '${source[1]}'`).join(',')}
-                        };
-                    `));
-                });
+            const hasLessSource = Object.keys(lessSources).length;
+            if (hasLessSource) {
+                transferLessToCSS(lessSources, !compileCSSSource)
+                    .then(cssSources => {
+                        const cssSourceEntries = Object.entries(cssSources);
+                        fs.writeFileSync(path.join(docPath, `css-source.js`), utils.formatTsCode(`
+                            export default {
+                                ${cssSourceEntries.map(source => `'${source[0]}': '${source[1]}'`).join(',')}
+                            };
+                        `));
+                    });
+            }
 
             // 创建 demo 目录写入 index 文件
             const entry = utils.formatTsCode(`
                 import React from 'react';
-                ${Object.keys(lessSources).length ? `import cssSources from './css-source';` : ''}
+                ${hasLessSource ? `import cssSources from './css-source';` : ''}
                 import Code from '../../../entry/code';
                 import { LanguageSupport } from '../../../../utils/language';
                 interface IProps {

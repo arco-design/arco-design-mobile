@@ -5,7 +5,7 @@ import path from 'path';
 import commonjs from '@rollup/plugin-commonjs';
 import tokenGeneratePlugin from './plugins/TokenGeneratePlugin';
 import siteGeneratePlugin from './plugins/SiteGeneratePlugin';
-// import transformSourceInjectPlugin from './plugins/rollup/rollup-plugin-transform-source-inject';
+import transformSourceInjectPlugin from '../plugins/rollup/rollup-plugin-transform-source-inject';
 
 export default defineConfig({
     mode: 'development',
@@ -16,13 +16,13 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                index: path.resolve(__dirname, '../../vite/pc/index.html')
+                index: path.resolve(__dirname, '../../vite/pc-vue/index.html')
             }
         }
     },
     resolve: {
         alias: [{
-            find: '@arco-design/mobile-utils',
+            find: '~@arco-design/mobile-utils',
             replacement: '/packages/common-widgets'
         }]
     },
@@ -47,5 +47,9 @@ export default defineConfig({
             'react-dom': 'ReactDOM',
             'fuse': 'Fuse',
         }),
+        {
+            ...transformSourceInjectPlugin('pc', true),
+            enforce: 'pre'
+        }
     ]
 });

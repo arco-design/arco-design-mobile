@@ -5,20 +5,20 @@ function replaceAll(origin, target, source) {
     return source.replace(new RegExp(origin.replace(/\$/g,"\\$"),"g"), target);
 }
 
-function genOptions (type) {
+function genOptions(type, isVue) {
     return process.env.ARCO_BUILD_TYPE === 'inner' ? {
         rootPath: path.resolve(__dirname, '../../../../..'),
-        workDir: `arcom-github/sites/${type}/entry`,
+        workDir: `arcom-github/sites/${type}/${isVue ? 'entry-vue' : 'entry'}`,
         injectDir: `sites/${type}/inject`
     } : {
         rootPath: path.resolve(__dirname, '../../../..'),
-        workDir: `sites/${type}/entry`,
+        workDir: `sites/${type}/${isVue ? 'entry-vue' : 'entry'}`,
         injectDir: `sites/${type}/inject`
     };
 }
 
-module.exports = function transformSourceInjectPlugin(type) {
-    const { injectDir, workDir, rootPath } = genOptions(type);
+module.exports = function transformSourceInjectPlugin(type, isVue = false) {
+    const { injectDir, workDir, rootPath } = genOptions(type, isVue);
     return {
         name: 'inject-loader',
         transform(src, id) {

@@ -34,6 +34,7 @@ function renderComponentsDemos({
     comp, // 组件名
     language = 'ch', // 语言
     latestVersion, // 最后的版本号
+    isVue,
 }) {
     let demos = null;
     try {
@@ -55,6 +56,7 @@ function renderComponentsDemos({
         demoSource.push({
             order,
             source: `<Code
+                showWebIDE={${isVue ? 'false' : 'true'}}
                 codeSource="${encodeURIComponent(codeSource)}"
                 styleSource={${styleSource ? `cssSources["${comp}-${order}"]` : '""'}}
                 version="${latestVersion}"
@@ -63,6 +65,7 @@ function renderComponentsDemos({
                 name="${title}"
                 key="${comp}-${order}"
                 paragraphSlotContent={<>${paragraphSlotContent}</>}
+                tsxTitle="${isVue ? 'index.vue' : 'index.tsx'}"
                 tsxContent={<div dangerouslySetInnerHTML={{__html: ${JSON.stringify(source)}}} />}
                 lessContent={${style ? `<div dangerouslySetInnerHTML={{__html: ${JSON.stringify(style)}}} />` : null}}
                 language={language || LanguageSupport.CH}

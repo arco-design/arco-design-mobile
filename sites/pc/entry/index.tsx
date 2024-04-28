@@ -4,20 +4,25 @@ import demoDocs from '../pages/components';
 import enDemoDocs from '../pages/components/index-en-US';
 import compositeDemoDocs from '../pages/composite-comp';
 import enCompositeDemoDocs from '../pages/composite-comp/index-en-US';
+import ReadMePage from '../pages/guide/README';
+import EnReadMePage from '../pages/guide/README-en-US';
 import Demo from './demo';
 import Home from './home';
+import Header from './header';
 import readmeDocs from '../pages/guide';
 import { LanguageSupport } from '../../utils/language';
 import { render } from '../../../packages/arcodesign/components/_helpers';
 import resourceDoc from '../pages/resource';
 import { showGA } from '../../utils/ga';
 import { HistoryContext } from './context';
+import { menuItemsMap } from './menu';
 import './index.less';
 
 function CompGenerator(children, history) {
     return <HistoryContext.Provider value={history}>{children}</HistoryContext.Provider>;
 }
 function App() {
+    const commonProps = { menuItemsMap, Header };
     useEffect(() => {
         const getURLChange = () => {
             showGA();
@@ -38,7 +43,12 @@ function App() {
                             const Comp = readmeDocs[name];
                             return Comp
                                 ? CompGenerator(
-                                      <Demo type="readme" name={name} doc={<Comp />} />,
+                                      <Demo
+                                          {...commonProps}
+                                          type="readme"
+                                          name={name}
+                                          doc={<Comp />}
+                                      />,
                                       history,
                                   )
                                 : null;
@@ -52,6 +62,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="readme"
                                           name={name}
                                           doc={<Comp />}
@@ -70,6 +81,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="doc"
                                           name={name}
                                           doc={<Comp language={LanguageSupport.CH} />}
@@ -88,6 +100,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="doc"
                                           name={name}
                                           doc={<Comp language={LanguageSupport.EN} />}
@@ -107,6 +120,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="doc"
                                           name={name}
                                           route="composite-components"
@@ -126,6 +140,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="doc"
                                           name={name}
                                           route="composite-components"
@@ -147,6 +162,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="readme"
                                           name={name}
                                           doc={<Comp />}
@@ -166,6 +182,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="readme"
                                           name={name}
                                           doc={<Comp />}
@@ -186,6 +203,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="readme"
                                           name={resourceFirstKey}
                                           doc={<Comp />}
@@ -204,6 +222,7 @@ function App() {
                             return Comp
                                 ? CompGenerator(
                                       <Demo
+                                          {...commonProps}
                                           type="readme"
                                           name={resourceFirstKey}
                                           doc={<Comp />}
@@ -218,10 +237,25 @@ function App() {
                     <Route
                         path="/en-US"
                         render={({ history }) =>
-                            CompGenerator(<Home language={LanguageSupport.EN} />, history)
+                            CompGenerator(
+                                <Home
+                                    {...commonProps}
+                                    language={LanguageSupport.EN}
+                                    readmePage={<EnReadMePage />}
+                                />,
+                                history,
+                            )
                         }
                     />
-                    <Route path="*" render={({ history }) => CompGenerator(<Home />, history)} />
+                    <Route
+                        path="*"
+                        render={({ history }) =>
+                            CompGenerator(
+                                <Home {...commonProps} readmePage={<ReadMePage />} />,
+                                history,
+                            )
+                        }
+                    />
                 </Switch>
             </HashRouter>
         </div>

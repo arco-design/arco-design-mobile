@@ -18,6 +18,7 @@ export interface IDocProps {
     compKey?: string;
     showWebIDE?: boolean;
     paragraphSlotContent?: JSX.Element;
+    tsxTitle?: string;
     tsxContent?: JSX.Element;
     lessContent?: JSX.Element | null;
 }
@@ -31,6 +32,7 @@ export default function Code(props: IDocProps) {
         showWebIDE = true,
         name,
         paragraphSlotContent,
+        tsxTitle,
         tsxContent,
         lessContent,
         codeSource = '',
@@ -67,7 +69,7 @@ export default function Code(props: IDocProps) {
                     <h2 className="demo-code-title">{name}</h2>
                     {paragraphSlotContent}
                     <Tabs onChange={handleTabsChange}>
-                        <Tabs.TabPane key="tsx" title="index.tsx">
+                        <Tabs.TabPane key="tsx" title={tsxTitle || 'index.tsx'}>
                             {tsxContent}
                         </Tabs.TabPane>
                         {lessContent ? (
