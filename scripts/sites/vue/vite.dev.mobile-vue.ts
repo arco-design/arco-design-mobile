@@ -25,6 +25,10 @@ export default defineConfig({
                 find: '@arco-design/mobile-utils',
                 replacement: '/packages/common-widgets',
             },
+            {
+                find: '~@arco-design/mobile-utils',
+                replacement: '/packages/common-widgets',
+            },
         ],
     },
     css: {
