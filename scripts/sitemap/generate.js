@@ -17,9 +17,11 @@ function createSitemap(dir, reg, outputFile) {
         if (filePath.match(reg)) {
             // 将文件路径转换为链接
             const link = `https://raw.githubusercontent.com/arco-design/arco-design-mobile/main/${filePath}`;
-            sitemap.push(`- [${filePath}](${link})`);
+            sitemap.push(`<a href="${link}">${filePath}</a>`);
         }
     });
+    sitemap.unshift('<ul>');
+    sitemap.push('</ul>');
 
     // 将链接写入Markdown文件
     fs.writeFileSync(outputFile, sitemap.join('\n'));
@@ -29,6 +31,6 @@ function createSitemap(dir, reg, outputFile) {
 const targetDir = './packages/arcodesign/components/';
 
 // 执行函数
-createSitemap(targetDir, /.(tsx)$/, `sites/sitemap/react-source.md`);
-createSitemap(targetDir, /.(less)$/, `sites/sitemap/react-style.md`);
-createSitemap(targetDir, /demo\/\w+\.md$/, `sites/sitemap/react-demo.md`);
+createSitemap(targetDir, /.(tsx)$/, `sites/sitemap/react-source.html`);
+createSitemap(targetDir, /.(less)$/, `sites/sitemap/react-style.html`);
+createSitemap(targetDir, /demo\/\w+\.md$/, `sites/sitemap/react-demo.html`);
