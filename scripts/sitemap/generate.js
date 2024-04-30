@@ -17,11 +17,11 @@ function createSitemap(dir, reg, outputFile) {
         if (filePath.match(reg)) {
             // 将文件路径转换为链接
             const link = `https://raw.githubusercontent.com/arco-design/arco-design-mobile/main/${filePath}`;
-            sitemap.push(`<a href="${link}">${filePath}</a>`);
+            sitemap.push(`<div><a href="${link}">${filePath}</a></div>`);
         }
     });
-    sitemap.unshift('<ul>');
-    sitemap.push('</ul>');
+    sitemap.unshift('<html><body><ul>');
+    sitemap.push('</ul></body></html>');
 
     // 将链接写入Markdown文件
     fs.writeFileSync(outputFile, sitemap.join('\n'));
