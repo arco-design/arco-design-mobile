@@ -245,7 +245,7 @@ lessOptions: {
 
 ## 在 PC 端使用组件
 
-组件中仅监听及处理 touch 相关事件，如需在 PC 端使用组件，可引入本组件库提供的 touch2mouse.js 以兼容 mouse 事件处理(注意：引入该文件后将阻止如下鼠标事件：mousedown、mouseenter、mouseleave、mousemove、mouse out、mouseover和mouseup，页面内容无法被选中。)：
+组件中仅监听及处理 touch 相关事件，如需在 PC 端使用组件，可引入本组件库提供的 touch2mouse.js 以兼容 mouse 事件处理（注意：引入该文件后将阻止如下鼠标事件：mousedown、mouseenter、mouseleave、mousemove、mouseout、mouseover和mouseup，页面内容无法被选中）：
 
 ```js
 import '@arco-design/mobile-react/tools/touch2mouse';
