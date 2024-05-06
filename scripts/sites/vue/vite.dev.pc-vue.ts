@@ -32,7 +32,10 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             less: {
-                javascriptEnabled: true
+                javascriptEnabled: true,
+                modifyVars: {
+                    '@use-css-vars': 1
+                }
             }
         }
     },

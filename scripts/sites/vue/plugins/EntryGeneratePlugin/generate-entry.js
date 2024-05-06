@@ -11,12 +11,12 @@ function generateEntry() {
     fs.removeSync(compStyleEntryPath);
 
     const compNames = utils.getAllComps(compPath).filter(comp => !['icon'].includes(comp));
-    const compsStr = compNames.map(comp => utils.getCompName(comp)).join(',\n');
-    let compEntryStr = `${compNames.map(comp => `import { ${utils.getCompName(comp)} } from './${comp}';`).join('\n')}
+    const compsInstallStr = compNames.map(comp => `${utils.getCompName(comp, true)}Default.install`).join(',\n');
+    let compEntryStr = `${compNames.map(comp => `import ${utils.getCompName(comp, true)}Default from './${comp}';`).join('\n')}
 
-    export {${compsStr}};
+    ${compNames.map(comp => `export * from './${comp}';`).join('\n')}
 
-    export const components = {${compsStr}};
+    export const allCompInstall = [${compsInstallStr}];
     `;
     let styleEntryStr = `import '../style/public.less';`;
     compNames.forEach(comp => {

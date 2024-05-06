@@ -1,7 +1,16 @@
-import { Badge } from './badge';
-import { ContextProvider } from './context-provider';
-import { Transition } from './transition';
+import badgeDefault from './badge';
+import cellDefault from './cell';
+import contextProviderDefault from './context-provider';
+import transitionDefault from './transition';
 
-export { Badge, ContextProvider, Transition };
+export * from './badge';
+export * from './cell';
+export * from './context-provider';
+export * from './transition';
 
-export const components = { Badge, ContextProvider, Transition };
+export const allCompInstall = [
+    badgeDefault.install,
+    cellDefault.install,
+    contextProviderDefault.install,
+    transitionDefault.install,
+];

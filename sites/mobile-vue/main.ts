@@ -9,6 +9,7 @@ import docs from './pages/components';
 import enDocs from './pages/components/index-en-US';
 import { LanguageSupport } from '../utils/language';
 import '../../packages/arcodesign-vue/components/style';
+import '../../packages/arcodesign-vue/tools/touch2mouse';
 
 setRootPixel();
 
