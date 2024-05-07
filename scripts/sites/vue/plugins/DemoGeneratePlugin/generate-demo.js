@@ -4,7 +4,7 @@ const { marked } = require('marked');
 const utils = require('../../../../utils');
 const languageUtils = require('../../../../utils/language');
 const localeMap = require('../../../../utils/language.json');
-const { compFolder, compPath, sitePath, utilsPackageName, utilsFolder } = require('../utils/path');
+const { compFolder, compPath, sitePath, compPackageName, utilsPackageName, utilsFolder } = require('../utils/path');
 
 function renderSource({
     comp,
@@ -18,6 +18,7 @@ function renderSource({
     // 是当前组件且不是当前开发 demo 不用设置渲染内容
     const demo = fs.readFileSync(path.join(demoPath, `${demoName}.md`), 'utf8');
     const renderer = new marked.Renderer();
+    const compNpmReg = new RegExp(compPackageName, 'g');
     const utilsNpmReg = new RegExp(utilsPackageName, 'g');
 
     let order = 0;
@@ -27,6 +28,7 @@ function renderSource({
             const filename = `_${utils.getCompName(demoName)}`;
             const content = code
                 .replace(/(<style.*?>)/g, `$1\n@import '../../../../../packages/arcodesign-vue/style/mixin.less';`)
+                .replace(compNpmReg, `../../../../../${compFolder}`)
                 .replace(utilsNpmReg, `../../../../../${utilsFolder}`)
                 .replace(/\/esm\//g, '/');
             fs.mkdirpSync(docPath);

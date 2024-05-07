@@ -9,7 +9,11 @@ const show = ref(false);
 </script>
 <template>
     <div>
-        <span @click="show = true" class="demo-open-text">Open custom mask</span>
+        <arco-cell-group :bordered="false">
+            <arco-cell show-arrow @click="show = true">
+                <template #label>Open custom mask</template>
+            </arco-cell>
+        </arco-cell-group>
         <arco-transition>
             <div v-if="show" class="demo-transition-mask" @click="show = false"></div>
         </arco-transition>

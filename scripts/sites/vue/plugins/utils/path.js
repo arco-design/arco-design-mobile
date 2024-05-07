@@ -6,6 +6,7 @@ const srcPath = path.join(rootPath, srcFolder);
 const compFolder = path.join(srcFolder, 'components');
 const compPath = path.join(rootPath, compFolder);
 const sitePath = path.join(rootPath, 'sites/mobile-vue/pages/components');
+const compPackageName = '@arco-design/mobile-vue';
 const utilsPackageName = '@arco-design/mobile-utils';
 const utilsFolder = 'packages/common-widgets';
 
@@ -15,6 +16,7 @@ module.exports = {
     compFolder,
     compPath,
     sitePath,
+    compPackageName,
     utilsPackageName,
     utilsFolder,
 };
