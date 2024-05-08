@@ -1,6 +1,7 @@
 const axios = require('axios');
 const generateToken = require('../../../../../packages/arcodesign-vue/tokens/scripts/generate/generate');
 const generateSite = require('./generate-site');
+const generateIcon = require('../../../plugins/SiteGeneratePlugin/generate-icon');
 
 module.exports = function siteGeneratePlugin() {
     let latestVersion = '0.0.0';
@@ -20,6 +21,9 @@ module.exports = function siteGeneratePlugin() {
                     originOptions.tokenInfo = generateToken().tokenInfo;
                     originOptions.latestVersion = latestVersion;
                     generateSite(originOptions);
+                    generateIcon({
+                        isVue: true,
+                    }); // icon 展示复用 react 资源
                 });
         },
         handleHotUpdate(ctx) {

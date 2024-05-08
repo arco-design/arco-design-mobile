@@ -8,7 +8,7 @@ const { renderNavIntro, renderReadmeTable } = require('./helpers');
 
 const avoidCurrentColorSvgs = ['IconCircleDisabled', 'IconSquareDisabled'];
 
-function generateIconDemoByLang(language) {
+function generateIconDemoByLang(language, isVue) {
     const compFolder = path.join('packages/arcodesign', 'components');
     const compPath = path.join(rootPath, compFolder);
     let readmeStr = [];
@@ -16,7 +16,8 @@ function generateIconDemoByLang(language) {
     const mdSuffix = suffix ? `.${suffix}`: suffix;
     const tsxFileSuffix = suffix ? `-${suffix}`: suffix;
     try {
-        const readme = fs.readFileSync(path.join(compPath, 'icon', `README${mdSuffix}.md`), 'utf-8');
+        const readmePath = path.join(isVue ? 'packages/arcodesign-vue/components' : compFolder, 'icon', `README${mdSuffix}.md`);
+        const readme = fs.readFileSync(readmePath, 'utf-8');
         const readmeSplit = readme.split(/=====+/);
         const { source: introSource } = renderNavIntro(readmeSplit[0], localeMap.components[language]);
         const { source: propsSource } = renderReadmeTable(readmeSplit[1]);
@@ -91,11 +92,11 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
                 <div className="demo-doc-description" style={{ padding: 0 }}>
                     <p>${localeMap.manualIntroduction[language]}</p>
                     <pre className="demo-code-content">
-                        <code>import IconAsk from '@arco-design/mobile-react/esm/icon/IconAsk';</code>
+                        <code>import IconAsk from '${isVue ? '@arco-design/mobile-vue/esm/icon/IconAsk/index.vue' : '@arco-design/mobile-react/esm/icon/IconAsk'}';</code>
                     </pre>
                     <p>${localeMap.demandIntroduction[language]}</p>
                     <pre className="demo-code-content">
-                        <code>import &#123; IconAsk &#125; from '@arco-design/mobile-react/esm/icon';</code>
+                        <code>import &#123; IconAsk &#125; from '@arco-design/mobile-${isVue ? 'vue' : 'react'}/esm/icon';</code>
                     </pre>
                 </div>
                 <IconContainer language={language}>
@@ -107,7 +108,8 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
     )
 }`;
 
-    const docPath = path.join(rootPath, 'sites/pc/pages/components', 'icon');
+    const docFolder = `sites/pc/${isVue ? 'pages-vue' : 'pages'}/components/icon`;
+    const docPath = path.join(rootPath, docFolder);
 
     fs.mkdirpSync(docPath);
     fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), demoCode, () => {
@@ -118,8 +120,9 @@ export default function Demo({ language = LanguageSupport.CH}: IProps) {
     });
 }
 function generateIconDemo({
-    languages = ['ch', 'en']
+    languages = ['ch', 'en'],
+    isVue = false,
 }) {
-    languages.map(lang => generateIconDemoByLang(lang));
+    languages.map(lang => generateIconDemoByLang(lang, isVue));
 }
 module.exports = generateIconDemo;
