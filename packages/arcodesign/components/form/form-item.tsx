@@ -10,6 +10,7 @@ import React, {
     useState,
 } from 'react';
 import { cls, Validator, ValidatorType, ValidatorError } from '@arco-design/mobile-utils';
+import { Promise } from 'es6-promise';
 import { FormItemContext } from './form-item-context';
 import { GlobalContext } from '../context-provider';
 import {
