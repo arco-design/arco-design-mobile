@@ -1,5 +1,6 @@
 import { IRules } from '@arco-design/mobile-utils';
 import { ReactNode } from 'react';
+import { Promise } from 'es6-promise';
 
 export type FieldValue = any;
 export type FieldItem = Record<string, any>;
@@ -236,7 +237,7 @@ export interface IFormItemContext {
     validateMessages?: Record<string, unknown>;
 }
 
-export type IShouldUpdateFunc = (data: { preStore: FieldItem; curStore: FieldItem }) => boolean;
+export type IShouldUpdateFunc = (data: { preValue: any; curValue: any }) => boolean;
 export interface FormItemProps {
     /**
      * 表单项名
@@ -283,7 +284,7 @@ export interface FormItemProps {
      * 表单项是否刷新
      * @en Form item is updated
      */
-    shouldUpdate?: boolean | IShouldUpdateFunc;
+    shouldUpdate?: IShouldUpdateFunc;
     /**
      * 表单项规则
      * @en Form item rules
@@ -340,7 +341,7 @@ export interface IFormItemInnerProps {
      * 表单项是否刷新
      * @en Form item is updated
      */
-    shouldUpdate?: boolean | IShouldUpdateFunc;
+    shouldUpdate?: IShouldUpdateFunc;
     /**
      * 表单项下方节点
      * @en Form item extra node

@@ -559,7 +559,7 @@
                     },
                     "required": false,
                     "type": {
-                        "name": "boolean | IShouldUpdateFunc"
+                        "name": "IShouldUpdateFunc"
                     }
                 },
                 "rules": {

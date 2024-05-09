@@ -92,7 +92,7 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
         nextTick(() => {
             setLinkArgs(getCurrentValueData());
         });
-    }, []);
+    }, [value]);
 
     function hidePicker(scene?: string | undefined) {
         setLinkVisible(false);

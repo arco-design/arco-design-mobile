@@ -15,7 +15,6 @@ import { FormItemContext } from './form-item-context';
 import { GlobalContext } from '../context-provider';
 import {
     IFieldError,
-    FieldItem,
     FieldValue,
     IFormItemContext,
     IFormItemInnerProps,
@@ -74,11 +73,11 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
         this.destroyField();
     }
 
-    onValueChange = (preStore: FieldItem, curStore: FieldItem) => {
+    onValueChange = (curValue: any, preValue: any) => {
         this._touched = true;
         const { shouldUpdate } = this.props;
         if (typeof shouldUpdate === 'function') {
-            shouldUpdate({ preStore, curStore }) && this.forceUpdate();
+            shouldUpdate({ preValue, curValue }) && this.forceUpdate();
             return;
         }
         this.forceUpdate();

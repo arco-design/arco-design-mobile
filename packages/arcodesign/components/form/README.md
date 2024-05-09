@@ -39,7 +39,7 @@
 |disabled|表单项是否禁用|boolean|-|
 |layout|表单项布局|"horizontal" \| "vertical" \| "inline"|"horizontal"|
 |children|表单项子节点|Element|必填|
-|shouldUpdate|表单项是否刷新|boolean \| IShouldUpdateFunc|-|
+|shouldUpdate|表单项是否刷新|IShouldUpdateFunc|-|
 |rules|表单项规则|IRules\[\]|-|
 |extra|表单项下方节点|Element|-|
 |trigger|触发事件更新事件名称|string|"onChange"|

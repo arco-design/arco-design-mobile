@@ -1,6 +1,6 @@
 ### Data Entry
 
-# Form 
+# Form
 
 Form, Form for collecting data input
 
@@ -39,7 +39,7 @@ Form, Form for collecting data input
 |disabled|Whether Form item is disabled|boolean|-|
 |layout|Form item layout|"horizontal" \| "vertical" \| "inline"|"horizontal"|
 |children|Form item children|Element|required|
-|shouldUpdate|Form item is updated|boolean \| IShouldUpdateFunc|-|
+|shouldUpdate|Form item is updated|IShouldUpdateFunc|-|
 |rules|Form item rules|IRules\[\]|-|
 |extra|Form item extra node|Element|-|
 |trigger|The function name when updating data|string|"onChange"|
