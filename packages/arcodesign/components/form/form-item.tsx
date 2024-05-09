@@ -24,28 +24,15 @@ import {
     FormInternalComponentType,
 } from './type';
 import { getErrorAndWarnings, isFieldRequired } from './utils';
+import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
 
-interface IFromItemInnerState {
+interface IFormItemInnerState {
     validateStatus: ValidateStatus;
     errors?: ReactNode[];
     _touched: boolean;
 }
 
-export function DefaultPickerLinkedContainer({ value }: { value: (string | number)[] }) {
-    const { prefixCls, locale } = useContext(GlobalContext);
-    const className = `${prefixCls}-form-picker-link-container`;
-    return (
-        <div className={className}>
-            {value && value.length ? (
-                value.join('-')
-            ) : (
-                <span className={`${className}-placeholder`}>{locale?.Form.pickerDefaultHint}</span>
-            )}
-        </div>
-    );
-}
-
-class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerState> {
+class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerState> {
     // eslint-disable-next-line react/static-property-placement
     context!: React.ContextType<typeof FormItemContext>;
 
@@ -199,7 +186,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
                     disabled: this.props.disabled,
                     renderLinkedContainer:
                         children.props?.renderLinkedContainer ||
-                        (val => <DefaultPickerLinkedContainer value={val} />),
+                        ((ts, types) => <DefaultDatePickerLinkedContainer ts={ts} types={types} />),
                 };
                 break;
             case FormInternalComponentType.Picker:
