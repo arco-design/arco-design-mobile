@@ -57,7 +57,7 @@
 |resetFields|重置表单项|() =\> void|
 |setFieldValue|设置单个表单项值|(name: string, value: any) =\> boolean|
 |setFieldsValue|设置多个表单项值|(value: Record\<string, any\>) =\> void|
-|validateFields|校验所有表单项|() =\> Promise\<Record\<string, any\>\>|
+|validateFields|校验所有表单项|() =\> Promise\<IFieldError\[\]\>|
 |submit|提交表单|() =\> void|
 
 > IFieldError

@@ -57,7 +57,7 @@ Form, Form for collecting data input
 |resetFields|Reset fields|() =\> void|
 |setFieldValue|Set field value|(name: string, value: any) =\> boolean|
 |setFieldsValue|Set multiple field value|(value: Record\<string, any\>) =\> void|
-|validateFields|Validate all fields|() =\> Promise\<Record\<string, any\>\>|
+|validateFields|Validate all fields|() =\> Promise\<IFieldError\[\]\>|
 |submit|Submit all fields|() =\> void|
 
 > IFieldError

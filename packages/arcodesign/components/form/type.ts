@@ -180,7 +180,7 @@ export interface IFormInstance {
      * 校验所有表单项
      * @en Validate all fields
      */
-    validateFields: () => Promise<FieldItem>;
+    validateFields: () => Promise<IFieldError[]>;
     /**
      * 提交表单
      * @en Submit all fields
@@ -188,12 +188,7 @@ export interface IFormInstance {
     submit: () => void;
 }
 
-export type InternalFormInstance = Omit<IFormInstance, 'validateFields'> & {
-    /**
-     * 校验所有表单项
-     * @en Validate all fields
-     */
-    validateFields: () => Promise<FieldItem>;
+export type InternalFormInstance = IFormInstance & {
     /**
      * 获取内部方法
      * @en Get internal methods
