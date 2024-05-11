@@ -282,7 +282,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
     function _handlePickerChange(values: ValueType[], index: number) {
         const type = keyOptions[index];
-        const nowDateObj = {} as IDateObj;
+        const nowDateObj = currentDateObjRef.current as IDateObj;
         values.forEach((i, keyIndex) => {
             nowDateObj[keyOptions[keyIndex]] = i as number;
         });
@@ -369,31 +369,27 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     function _chooseTimeActive(index: number) {
         setIsLeftActive(index === 0);
         setIsRightActive(index === 1);
+        let nowMaxTs, nowMinTs;
         if (index === 0) {
-            setMaxTs(typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs);
-            setMinTs(
-                Math.min(
-                    maxTs,
-                    typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.startTs,
-                ),
+            nowMaxTs = typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
+            nowMinTs = Math.min(
+                nowMaxTs,
+                typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.startTs,
             );
-            setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0])));
         }
         if (index === 1) {
-            setMinTs(
-                Math.max(
-                    userSetCurrentTs[0],
-                    typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.endTs,
-                ),
+            nowMinTs = Math.max(
+                userSetCurrentTs[0],
+                typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.endTs,
             );
-            setMaxTs(
-                Math.max(
-                    minTs,
-                    typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.endTs,
-                ),
+            nowMaxTs = Math.max(
+                nowMinTs,
+                typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.endTs,
             );
-            setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs[1])));
         }
+        setMaxTs(nowMaxTs);
+        setMinTs(nowMinTs);
+        setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, userSetCurrentTs[index])));
     }
 
     useEffect(() => {
