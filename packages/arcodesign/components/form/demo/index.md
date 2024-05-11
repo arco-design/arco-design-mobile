@@ -88,6 +88,7 @@ export default function FormDemo() {
                 onSubmit={onSubmit}
                 onSubmitFailed={onSubmitFailed}
                 layout={layout}
+                initialValues={{ birthday: 1449730183515 }}
             >
                 <Form.Item field="name" label="UserName" trigger="onBlur" rules={rules.name} required>
                     <Input  placeholder="Please input username" clearable border="none" />

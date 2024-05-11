@@ -261,10 +261,6 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         return options;
     }
 
-    function _renderLinkedContainer() {
-        return renderLinkedContainer?.(currentTs, keyOptions);
-    }
-
     useEffect(() => {
         minDateObjRef.current = _convertTsToDateObj(minTs);
         currentDateObjRef.current = _convertTsToDateObj(currentTs);
@@ -294,7 +290,11 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                     onPickerChange={_handlePickerChange}
                     onOk={_handlePickerConfirm}
                     touchToStop={touchToStop}
-                    renderLinkedContainer={_renderLinkedContainer}
+                    renderLinkedContainer={
+                        renderLinkedContainer
+                            ? () => renderLinkedContainer(currentTs, keyOptions)
+                            : undefined
+                    }
                 />
             )}
         </ContextLayout>

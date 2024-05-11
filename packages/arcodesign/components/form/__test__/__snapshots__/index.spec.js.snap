@@ -385,11 +385,7 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
               <div
                 class="arco-form-picker-link-container"
               >
-                <span
-                  class="arco-form-picker-link-container-placeholder"
-                >
-                  请选择
-                </span>
+                2015-12-10 
               </div>
             </div>
           </div>
