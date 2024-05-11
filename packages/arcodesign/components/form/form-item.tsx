@@ -45,22 +45,6 @@ export function DefaultPickerLinkedContainer({ value }: { value: (string | numbe
     );
 }
 
-export function DefaultDatePickerLinkedContainer({ value }: { value: (string | number)[] }) {
-    const { prefixCls, locale } = useContext(GlobalContext);
-    const className = `${prefixCls}-form-date-picker-link-container`;
-    const isRange = Array.isArray(value);
-
-    if (!value) {
-        console.log(123, value, !value, locale?.Form.pickerDefaultHint);
-        return (
-            <div className={className}>
-                <span className={`${className}-placeholder`}>{locale?.Form.pickerDefaultHint}</span>
-            </div>
-        );
-    }
-    return <div className={className}>{isRange ? value.join('~') : value}</div>;
-}
-
 class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerState> {
     // eslint-disable-next-line react/static-property-placement
     context!: React.ContextType<typeof FormItemContext>;
@@ -215,7 +199,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
                     disabled: this.props.disabled,
                     renderLinkedContainer:
                         children.props?.renderLinkedContainer ||
-                        (() => <DefaultDatePickerLinkedContainer value={getFieldValue(field)} />),
+                        (val => <DefaultPickerLinkedContainer value={val} />),
                 };
                 break;
             case FormInternalComponentType.Picker:
