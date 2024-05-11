@@ -116,52 +116,41 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
     function _getShowTimeValue(index: number) {
         const timeValue = _convertTsToDateObj(userSetCurrentTs[index]);
-        const year = timeValue.year;
-        const month = timeValue.month;
-        const date = timeValue.date;
-        const hour = timeValue.hour;
-        const minute = timeValue.minute;
-        const second = timeValue.second;
 
         if (showFormatter) {
             return showFormatter
-                .replace('YYYY', `${year}`)
-                .replace('MM', `${month}`)
-                .replace('DD', `${date}`)
-                .replace('HH', `${hour < 10 ? `0${hour}` : hour}`)
-                .replace('mm', `${minute < 10 ? `0${minute}` : minute}`)
-                .replace('ss', `${second < 10 ? `0${second}` : second}`);
+                .replace('YYYY', `${timeValue.year}`)
+                .replace('MM', `${timeValue.month}`)
+                .replace('DD', `${timeValue.date}`)
+                .replace('HH', `${timeValue.hour < 10 ? `0${timeValue.hour}` : timeValue.hour}`)
+                .replace(
+                    'mm',
+                    `${timeValue.minute < 10 ? `0${timeValue.minute}` : timeValue.minute}`,
+                )
+                .replace(
+                    'ss',
+                    `${timeValue.second < 10 ? `0${timeValue.second}` : timeValue.second}`,
+                );
         }
 
-        let datePart = '';
-        let timePart = '';
+        const datePart = (['year', 'month', 'date'] as ItemType[])
+            .filter(option => {
+                return keyOptions.includes(option);
+            })
+            .map(option => {
+                return timeValue[option] < 10 ? `0${timeValue[option]}` : `${timeValue[option]}`;
+            })
+            .join('/');
+        const timePart = (['hour', 'minute', 'second'] as ItemType[])
+            .filter(option => {
+                return keyOptions.includes(option);
+            })
+            .map(option => {
+                return timeValue[option] < 10 ? `0${timeValue[option]}` : `${timeValue[option]}`;
+            })
+            .join(':');
 
-        keyOptions.forEach((option: string) => {
-            switch (option) {
-                case 'year':
-                    datePart += `${year}/`;
-                    break;
-                case 'month':
-                    datePart += `${month}/`;
-                    break;
-                case 'date':
-                    datePart += `${date}/`;
-                    break;
-                case 'hour':
-                    timePart += `${hour < 10 ? `0${hour}` : hour}:`;
-                    break;
-                case 'minute':
-                    timePart += `${minute < 10 ? `0${minute}` : minute}:`;
-                    break;
-                case 'second':
-                    timePart += `${second < 10 ? `0${second}` : second}:`;
-                    break;
-                default:
-            }
-        });
-        return `${datePart ? `${datePart.slice(0, -1)} ` : ''} ${
-            timePart ? `${timePart.slice(0, -1)} ` : ''
-        }`;
+        return datePart + (datePart && timePart && ' ') + timePart;
     }
 
     function _getSelectValue(columns: PickerData[][]) {
