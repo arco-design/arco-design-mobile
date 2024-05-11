@@ -7,7 +7,7 @@ import React, {
     Ref,
     useImperativeHandle,
 } from 'react';
-import { cls, componentWrapper } from '@arco-design/mobile-utils';
+import { cls, componentWrapper, formatDateNumber } from '@arco-design/mobile-utils';
 import Picker, { PickerRef } from '../picker';
 import { PickerData, ValueType } from '../picker-view';
 import { ContextLayout } from '../context-provider';
@@ -18,7 +18,7 @@ export * from './type';
 
 const allTypes = ['year', 'month', 'date', 'hour', 'minute', 'second'] as ItemType[];
 
-const defaultFormatter = (value: number) => (value < 10 ? `0${value}` : String(value));
+const defaultFormatter = formatDateNumber;
 
 export const YEAR = 12 * 30 * 24 * 60 * 60 * 1000;
 
@@ -53,6 +53,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         touchToStop,
         useUTC = false,
         renderSeparate,
+        renderLinkedContainer,
         ...otherProps
     } = props;
 
@@ -471,6 +472,11 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                                       </span>
                                   </div>
                               )
+                            : undefined
+                    }
+                    renderLinkedContainer={
+                        renderLinkedContainer
+                            ? () => renderLinkedContainer(currentTs, keyOptions)
                             : undefined
                     }
                 />

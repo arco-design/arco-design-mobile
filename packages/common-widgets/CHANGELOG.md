@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.18.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.2...@arco-design/mobile-utils@2.18.3) (2024-05-11)
+
+
+### Bug Fixes
+
+* `Form` optimize "initialValues" and picker form item logic & add `DatePicker` default linked container ([#261](https://github.com/arco-design/arco-design-mobile/issues/261)) ([790ba3a](https://github.com/arco-design/arco-design-mobile/commit/790ba3a9dc4b289a20ddd18b5c11e2855bc6a8bd))
+
+
+
+
+
 ## [2.18.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.1...@arco-design/mobile-utils@2.18.2) (2024-04-19)
 
 **Note:** Version bump only for package @arco-design/mobile-utils

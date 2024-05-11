@@ -280,7 +280,7 @@
                 "description": "校验所有表单项\n@en Validate all fields",
                 "defaultValue": null,
                 "type": {
-                    "name": "() => Promise<Record<string, any>>"
+                    "name": "() => Promise<IFieldError[]>"
                 },
                 "tags": {
                     "en": "Validate all fields"
@@ -559,7 +559,7 @@
                     },
                     "required": false,
                     "type": {
-                        "name": "boolean | IShouldUpdateFunc"
+                        "name": "IShouldUpdateFunc"
                     }
                 },
                 "rules": {

@@ -1,5 +1,5 @@
 import { componentWrapper, defaultLocale } from '@arco-design/mobile-utils';
-import React, { useRef, forwardRef, Ref, useImperativeHandle, useEffect } from 'react';
+import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
 import { ContextLayout } from '../context-provider';
 import Item from './form-item';
 import { FormItemContext } from './form-item-context';
@@ -23,6 +23,7 @@ const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
         disabled,
     } = props;
     const domRef = useRef<HTMLFormElement | null>(null);
+    const initRef = useRef(false);
     const [form] = useForm(formInstance);
     const { setCallbacks, setInitialValues } = (form as InternalFormInstance).getInternalHooks();
     setCallbacks({
@@ -31,9 +32,10 @@ const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
         onSubmitFailed,
     });
 
-    useEffect(() => {
+    if (!initRef.current) {
         setInitialValues(initialValues || {});
-    }, []);
+        initRef.current = true;
+    }
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,

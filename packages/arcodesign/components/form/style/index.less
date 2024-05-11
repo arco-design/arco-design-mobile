@@ -39,14 +39,14 @@
     }
     &-item-control {
         padding: 16px 0;
-        .arco-input-wrap, .arco-input {
+        .@{prefix}-input-wrap, .@{prefix}-input {
             padding: 0;
         }
         &-wrapper {
             width: 100%;
             flex: 1;
             position: relative;
-            .arco-input-wrap {
+            .@{prefix}-input-wrap {
                 .use-var(height, input-text-line-height);
             }
         }
@@ -75,7 +75,7 @@
 
     &-item.@{prefix}-form-item-vertical {
         display: block;
-        .arco-input-wrap {
+        .@{prefix}-input-wrap {
             .set-prop-with-rtl(padding-left, 0);
         }
         .@{prefix}-form-label-item {
