@@ -319,8 +319,8 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
             const rightTimeObj = _convertTsToDateObj(userSetCurrentTs[1]);
             nowDateObj = keyOptions.reduce(
                 (arr, key) => {
-                    arr[0] = leftTimeObj[keyOptions[key]];
-                    arr[1] = rightTimeObj[keyOptions[key]];
+                    arr[0][key] = leftTimeObj[key];
+                    arr[1][key] = rightTimeObj[key];
                     return arr;
                 },
                 [{} as IDateObj, {} as IDateObj],
@@ -476,7 +476,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                     }
                     renderLinkedContainer={
                         renderLinkedContainer
-                            ? () => renderLinkedContainer(currentTs, keyOptions)
+                            ? () => renderLinkedContainer(userSetCurrentTs, keyOptions)
                             : undefined
                     }
                 />
