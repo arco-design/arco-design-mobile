@@ -95,7 +95,7 @@ export default function IndexBarDemo() {
 .custom-index-bar-height {
     height: 480px;
 }
-.arco-tab-cell.vertical.line {
+.@{prefix}-tab-cell.vertical.line {
     .rem(font-size, 16);
     &:not(.last) {
         .rem(margin-right, 139);

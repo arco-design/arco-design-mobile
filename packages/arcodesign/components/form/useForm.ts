@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { ReactNode, useRef } from 'react';
+import { Promise } from 'es6-promise';
 import { Callbacks, IFieldError, FieldItem, IFormInstance } from './type';
 
 const defaultFunc: any = () => {};
@@ -43,17 +44,22 @@ class FormData {
     private _callbacks: Callbacks = {};
 
     setFieldsValue = (values: FieldItem): boolean => {
+        const oldValues: FieldItem = Object.keys(values).reduce(
+            (acc, key) => ({
+                ...acc,
+                [key]: this.getFieldValue(key),
+            }),
+            {},
+        );
         this._formData = { ...this._formData, ...values };
-        this.notifyField(values);
-        Object.keys(values).forEach(key => {
-            if (key in this._fieldsList) {
-                this._fieldsList[key]?.onValueChange();
-            }
-        });
+        const { onValuesChange } = this._callbacks;
+        onValuesChange && onValuesChange(values, this._formData);
+        this.notifyField(values, oldValues);
         return true;
     };
 
     setFieldValue = (name: string, value: unknown): boolean => {
+        const oldValues = { [name]: this.getFieldValue(name) };
         this._formData = { ...this._formData, [name]: value };
         const { onValuesChange } = this._callbacks;
         onValuesChange &&
@@ -63,15 +69,15 @@ class FormData {
                 },
                 this._formData,
             );
-        this.notifyField({ [name]: value });
+        this.notifyField({ [name]: value }, oldValues);
         return true;
     };
 
-    notifyField = (values: FieldItem): void => {
+    notifyField = (values: FieldItem, oldValues: FieldItem): void => {
         Object.keys(values).map((fieldName: string) => {
             const fieldObj = this._fieldsList?.[fieldName] || null;
             if (fieldObj) {
-                fieldObj.onValueChange(values[fieldName]);
+                fieldObj.onValueChange(values[fieldName], oldValues[fieldName]);
             }
         });
     };
@@ -165,7 +171,7 @@ class FormData {
         return summaryPromise;
     };
 
-    submit = async () => {
+    submit = () => {
         this.validateFields()
             .then(result => {
                 const { onSubmit } = this._callbacks;

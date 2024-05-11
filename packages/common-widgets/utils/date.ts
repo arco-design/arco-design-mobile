@@ -60,3 +60,7 @@ export class DateWithUTC {
         return this.date.getTime();
     }
 }
+
+export function formatDateNumber(value: number) {
+    return value < 10 ? `0${value}` : String(value);
+}
