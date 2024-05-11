@@ -247,7 +247,7 @@ lessOptions: {
 
 ## Using components on PC
 
-Only touch-related events are monitored and processed in the component. If you need to use the component on the PC side, you can import `touch2mouse.js` provided by this component library to be compatible with mouse event processing:
+Only touch-related events are monitored and processed in the component. If you need to use the component on the PC side, you can import `touch2mouse.js` provided by this component library to be compatible with mouse event processing (Note: After importing this file, the following mouse events will be blocked: mousedown, mouseenter, mouseleave, mousemove, mouseout, mouseover and mouseup, and the page content cannot be selected):
 
 ```js
 import '@arco-design/mobile-react/tools/touch2mouse';
