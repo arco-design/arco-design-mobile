@@ -1,5 +1,27 @@
 @import '../../../style/mixin.less';
 
 .@{prefix}-date-picker {
-
+    &-show {
+        display: flex;
+        .use-var(font-size, date-picker-range-font-size);
+        .use-var(padding, date-picker-range-show-padding);
+        .use-var(color, date-picker-range-disabled-font-color);
+        .use-var(min-height, date-picker-range-show-min-height);
+        .use-var(background-color, date-picker-range-background-color);
+        & > span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &-part {
+            flex: 1 0 auto;
+        }
+        &-separate {
+            flex: 0 1 auto;
+            .use-var(min-width, date-picker-range-separate-min-width);
+        }
+        &-choice {
+            .use-var(color, date-picker-range-font-color);
+        }
+    }
 }

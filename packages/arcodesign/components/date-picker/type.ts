@@ -47,18 +47,18 @@ export interface DatePickerProps
      * 点击选中时执行的回调
      * @en Callback when clicking OK
      */
-    onOk?: (timestamp: number, obj: IDateObj) => void;
+    onOk?: (timestamp: number | [number, number], obj: IDateObj | [IDateObj, IDateObj]) => void;
     /**
      * 当前选中的时间，timestamp
      * @en The currently selected time, timestamp
      * @default Date.now()
      */
-    currentTs?: number;
+    currentTs?: number | [number, number];
     /**
      * 选中后的回调
      * @en Callback when value is changed
      */
-    onChange?: (timestamp: number, obj: IDateObj) => void;
+    onChange?: (timestamp: number | [number, number], obj: IDateObj | [IDateObj, IDateObj]) => void;
     /**
      * 每列数据选择变化后的回调函数
      * @en The callback function after each column data selection changes
@@ -82,20 +82,25 @@ export interface DatePickerProps
      * @default 当前时间的前十年
      * @default_en 10 years ago from the current time
      */
-    minTs?: number;
+    minTs?: number | { startTs: number; endTs: number };
     /**
      * 最大可选日期，timestamp
      * @en Maximum selectable date, timestamp
      * @default 当前时间的后十年
      * @default_en Next decade from current time
      */
-    maxTs?: number;
+    maxTs?: number | { startTs: number; endTs: number };
     /**
      * 是否使用 UTC 时间
      * @en Whether to use UTC
      * @default false
      */
     useUTC?: boolean;
+    /**
+     * 日期时间范围选择展示格式
+     * @en Time range picker display format
+     */
+    showFormatter?: string;
     /**
      * 各可选项展示的格式化方法，参数type为ItemTypes，参数value为当前行的值，返回展示的文字
      * @en The formatting method of each optional item, the parameter type is ItemTypes, the parameter value is the value of the current row, and the displayed text is returned.
@@ -113,4 +118,9 @@ export interface DatePickerProps
      * @en Selector list item intervention to insert custom options.
      */
     columnsProcessor?: (columns: PickerData[][], currentDateObj: IDateObj) => PickerData[][];
+    /**
+     * 自定义分隔符
+     * @en Defined upload button area
+     */
+    renderSeparate?: () => React.ReactNode;
 }
