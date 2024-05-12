@@ -79,20 +79,22 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     const minDateObjRef = useRef(_convertTsToDateObj(minTs));
     const maxDateObjRef = useRef(_convertTsToDateObj(maxTs));
     const keyOptions = useMemo(() => _getKeyOptions(), [mode, typeArr]);
-    const leftTimeValue = useMemo(() => _getShowTimeValue(0), [userSetCurrentTs[0]]);
-    const rightTimeValue = useMemo(() => _getShowTimeValue(1), [userSetCurrentTs[1]]);
+    const [leftTimeValue, setLeftTimeValue] = useState(userSetCurrentTs[0]);
+    const [rightTimeValue, setRightTimeValue] = useState(userSetCurrentTs[1]);
+    const leftTimeString = useMemo(() => _getShowTimeValue(leftTimeValue), [leftTimeValue]);
+    const rightTimeString = useMemo(() => _getShowTimeValue(rightTimeValue), [rightTimeValue]);
 
     const pickerRef = useRef<PickerRef | null>(null);
 
     useEffect(() => {
         if (typeof userSetCurrentTs !== 'number') {
             if (isLeftActive) {
-                userSetCurrentTs[0] = currentTs;
-                userSetCurrentTs[1] = Math.max(userSetCurrentTs[0], userSetCurrentTs[1]);
+                setLeftTimeValue(currentTs);
+                setRightTimeValue(Math.max(currentTs, rightTimeValue));
             }
             if (isRightActive) {
-                userSetCurrentTs[1] = currentTs;
-                userSetCurrentTs[0] = Math.min(userSetCurrentTs[0], userSetCurrentTs[1]);
+                setRightTimeValue(currentTs);
+                setLeftTimeValue(Math.min(leftTimeValue, currentTs));
             }
         }
     }, [currentTs]);
@@ -114,8 +116,8 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         };
     }
 
-    function _getShowTimeValue(index: number) {
-        const timeValue = _convertTsToDateObj(userSetCurrentTs[index]);
+    function _getShowTimeValue(time: number) {
+        const timeValue = _convertTsToDateObj(time);
 
         if (showFormatter) {
             return showFormatter
@@ -304,8 +306,8 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         let nowDateObj;
         let newTs;
         if (isRange) {
-            const leftTimeObj = _convertTsToDateObj(userSetCurrentTs[0]);
-            const rightTimeObj = _convertTsToDateObj(userSetCurrentTs[1]);
+            const leftTimeObj = _convertTsToDateObj(leftTimeValue);
+            const rightTimeObj = _convertTsToDateObj(rightTimeValue);
             nowDateObj = keyOptions.reduce(
                 (arr, key) => {
                     arr[0][key] = leftTimeObj[key];
@@ -368,7 +370,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         }
         if (index === 1) {
             nowMinTs = Math.max(
-                userSetCurrentTs[0],
+                leftTimeValue,
                 typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.endTs,
             );
             nowMaxTs = Math.max(
@@ -378,7 +380,9 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         }
         setMaxTs(nowMaxTs);
         setMinTs(nowMinTs);
-        setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, userSetCurrentTs[index])));
+        setCurrentTs(
+            Math.min(nowMaxTs, Math.max(nowMinTs, index === 0 ? leftTimeValue : rightTimeValue)),
+        );
     }
 
     useEffect(() => {
@@ -401,7 +405,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                     typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
                 setMinTs(nowMinTs);
                 setMaxTs(nowMaxTs);
-                setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, userSetCurrentTs[0])));
+                setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, leftTimeValue)));
             }
             _initData();
         }
@@ -433,7 +437,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                                           } ${prefixCls}-date-picker-show-part`}
                                           onClick={() => _chooseTimeActive(0)}
                                       >
-                                          {leftTimeValue}
+                                          {leftTimeString}
                                       </span>
                                       {renderSeparate ? (
                                           renderSeparate()
@@ -453,7 +457,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                                           } ${prefixCls}-date-picker-show-part`}
                                           onClick={() => _chooseTimeActive(1)}
                                       >
-                                          {rightTimeValue}
+                                          {rightTimeString}
                                       </span>
                                   </div>
                               )
