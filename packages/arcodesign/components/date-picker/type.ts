@@ -128,7 +128,7 @@ export interface DatePickerProps
     columnsProcessor?: (columns: PickerData[][], currentDateObj: IDateObj) => PickerData[][];
     /**
      * 自定义分隔符
-     * @en Defined upload button area
+     * @en Defined separate area
      */
     renderSeparate?: () => React.ReactNode;
     /**

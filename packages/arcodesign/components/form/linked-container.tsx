@@ -30,7 +30,6 @@ export function DefaultDatePickerLinkedContainer({
         if (typeof ts === 'number') {
             return formatDateTimeStr(ts, types);
         }
-
         return `${formatDateTimeStr(ts[0], types)} ~ ${formatDateTimeStr(ts[1], types)}`;
     }, [ts, types]);
 

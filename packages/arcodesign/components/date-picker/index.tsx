@@ -56,16 +56,13 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         renderLinkedContainer,
         ...otherProps
     } = props;
-
     const isRange = typeof userSetCurrentTs !== 'number';
-
     const [minTs, setMinTs] = useState(
         typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.startTs,
     );
     const [maxTs, setMaxTs] = useState(
         typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs,
     );
-
     const [currentTs, setCurrentTs] = useState(
         isRange
             ? Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0]))
@@ -83,11 +80,10 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     const [rightTimeValue, setRightTimeValue] = useState(userSetCurrentTs[1]);
     const leftTimeString = useMemo(() => _getShowTimeValue(leftTimeValue), [leftTimeValue]);
     const rightTimeString = useMemo(() => _getShowTimeValue(rightTimeValue), [rightTimeValue]);
-
     const pickerRef = useRef<PickerRef | null>(null);
 
     useEffect(() => {
-        if (typeof userSetCurrentTs !== 'number') {
+        if (isRange) {
             if (isLeftActive) {
                 setLeftTimeValue(currentTs);
                 setRightTimeValue(Math.max(currentTs, rightTimeValue));
