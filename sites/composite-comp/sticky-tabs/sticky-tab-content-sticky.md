@@ -1,4 +1,4 @@
-## 在 tab content 中使用 sticky 元素
+## 在 tab content 中使用 sticky 元素 @en{Use sticky elements in tab content}
 
 ```js
 import { Tabs, Sticky, Portal } from '@arco-design/mobile-react';
