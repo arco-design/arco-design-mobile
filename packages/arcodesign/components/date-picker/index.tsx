@@ -95,6 +95,10 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         }
     }, [currentTs]);
 
+    useEffect(() => {
+        _updateTimeBounds(isLeftActive);
+    }, [userSetMinTs, userSetMaxTs]);
+
     useImperativeHandle(ref, () => ({
         dom: pickerRef.current ? pickerRef.current.dom : null,
     }));
@@ -353,18 +357,15 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         return options;
     }
 
-    function _chooseTimeActive(index: number) {
-        setIsLeftActive(index === 0);
-        setIsRightActive(index === 1);
-        let nowMaxTs, nowMinTs;
-        if (index === 0) {
+    function _updateTimeBounds(isLeft: Boolean): [number, number] {
+        let nowMaxTs: number, nowMinTs: number;
+        if (isLeft) {
             nowMaxTs = typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
             nowMinTs = Math.min(
                 nowMaxTs,
                 typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.startTs,
             );
-        }
-        if (index === 1) {
+        } else {
             nowMinTs = Math.max(
                 leftTimeValue,
                 typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.endTs,
@@ -376,6 +377,13 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         }
         setMaxTs(nowMaxTs);
         setMinTs(nowMinTs);
+        return [nowMinTs, nowMaxTs];
+    }
+
+    function _chooseTimeActive(index: number) {
+        setIsLeftActive(index === 0);
+        setIsRightActive(index === 1);
+        const [nowMinTs, nowMaxTs] = _updateTimeBounds(index === 0);
         setCurrentTs(
             Math.min(nowMaxTs, Math.max(nowMinTs, index === 0 ? leftTimeValue : rightTimeValue)),
         );
