@@ -31,6 +31,7 @@
         "site:mobile": "cross-env NODE_ENV=production webpack --progress --config scripts/sites/webpack.prod.mobile.js",
         "site:pc": "cross-env NODE_ENV=production webpack --progress --config scripts/sites/webpack.prod.pc.js",
         "sitemap:code": "node scripts/sitemap/generate-code.js",
+        "llm:gen": "node scripts/llm/gen.mjs",
         "dev:demo": "node scripts/dev/dev-demo.js $@"
     },
     "author": "taoyiyue@bytedance.com",
