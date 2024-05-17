@@ -52,7 +52,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         columnsProcessor,
         touchToStop,
         useUTC = false,
-        renderSeparate,
+        renderSeparator,
         renderLinkedContainer,
         ...otherProps
     } = props;
@@ -421,7 +421,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                     onPickerChange={_handlePickerChange}
                     onOk={_handlePickerConfirm}
                     touchToStop={touchToStop}
-                    renderPickerDataShow={
+                    renderExtraHeader={
                         isRange
                             ? () => (
                                   <div className={`${prefixCls}-date-picker-show`}>
@@ -435,8 +435,8 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                                       >
                                           {leftTimeString}
                                       </span>
-                                      {renderSeparate ? (
-                                          renderSeparate()
+                                      {renderSeparator ? (
+                                          renderSeparator()
                                       ) : (
                                           <span
                                               className={`${prefixCls}-date-picker-show-separate`}

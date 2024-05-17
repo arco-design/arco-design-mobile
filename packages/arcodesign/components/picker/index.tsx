@@ -68,7 +68,7 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
         touchToStop,
         gestureOutOfControl = true,
         renderLinkedContainer,
-        renderPickerDataShow,
+        renderExtraHeader,
         ...otherProps
     } = props;
 
@@ -182,7 +182,7 @@ const Picker = forwardRef((props: PickerProps, ref: Ref<PickerRef>) => {
                                     {okText || locale?.Picker.okText}
                                 </div>
                             </div>
-                            {renderPickerDataShow && renderPickerDataShow()}
+                            {renderExtraHeader && renderExtraHeader()}
                             <PickerView
                                 ref={pickerViewRef}
                                 data={data}

@@ -141,8 +141,8 @@ export interface PickerProps
      */
     renderLinkedContainer?: (value: ValueType[], data: PickerData[]) => ReactNode;
     /**
-     * 自定义展示选择器数据的区域
-     * @en Define the area of picker data
+     * 自定义头部扩展区域
+     * @en Define the area of extra header
      */
-    renderPickerDataShow?: () => ReactNode;
+    renderExtraHeader?: () => ReactNode;
 }
