@@ -56,7 +56,8 @@ const utils = {
     formatTsCode(code) {
         return prettier.format(code, {
             parser: 'babel',
-            tabWidth: 4
+            tabWidth: 4,
+            singleQuote: true,
         });
     },
     formatLessCode(code) {

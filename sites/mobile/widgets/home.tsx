@@ -10,6 +10,8 @@ import { getMenuOrder } from '../../utils/menu';
 import { isFromDesignLab, sendDesignLabMessage } from '../../utils/designlab';
 import LogoPicture from '../../components/logo-pic';
 
+const storageItemKey = 'home_scroll';
+
 export function Arrow() {
     return (
         <svg className="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -39,11 +41,11 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
 
     useEffect(() => {
         document.body.classList.add('white-body');
-        const scrollInfo = window.localStorage.getItem('home_scroll') || '';
+        const scrollInfo = window.localStorage.getItem(storageItemKey) || '';
         const scrollTop = Number(scrollInfo.split('__')[1]) || 0;
         if (scrollTop) {
             window.scrollTo(0, scrollTop);
-            window.localStorage.removeItem('home_scroll');
+            window.localStorage.removeItem(storageItemKey);
         }
         sendDesignLabMessage({
             event: 'page_change',
@@ -55,7 +57,7 @@ export default function Home({ language = LanguageSupport.CH }: IHomeProps) {
     }, []);
 
     function handleSubItemClick(type, route) {
-        window.localStorage.setItem('home_scroll', `${route}__${window.pageYOffset}`);
+        window.localStorage.setItem(storageItemKey, `${route}__${window.pageYOffset}`);
         window.parent.postMessage(
             {
                 type,

@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button } from 'arco';
 import { useLocation } from 'react-router-dom';
-import Header from '../header';
 import Nav from '../nav';
-import chCompRoutes from '../../pages/components/index.json';
-import enCompRoutes from '../../pages/components/index-en-US.json';
-import chReadmeRoutes from '../../pages/guide/index.json';
-import enReadmeRoutes from '../../pages/guide/index-en-US.json';
-import enCompositeCompRoutes from '../../pages/composite-comp/index.json';
-import chResRoutes from '../../pages/resource/index.json';
 import { LanguageSupport } from '../../../utils/language';
 import { getMenuOrder } from '../../../utils/menu';
 import { localeMap } from '../../../utils/locale';
@@ -31,6 +24,19 @@ export type ResChildren = {
         [key: string]: Items;
     };
 };
+
+export type IMenuItemMap = Record<
+    LanguageSupport,
+    {
+        compRoutes?: Record<string, Items>;
+        readmeRoutes?: Items;
+        resRoutes?: {
+            function?: Record<string, Items>;
+            mixin?: Record<string, Items>;
+        };
+        compositeCompRoutes?: Items;
+    }
+>;
 
 export interface IMenu {
     doc?: {
@@ -62,55 +68,51 @@ export interface ILayoutProps {
     language?: LanguageSupport;
     mode: 'light' | 'dark';
     setMode: (mode: 'light' | 'dark') => void;
+    menuItemsMap: IMenuItemMap;
+    Header: any;
 }
-const menuItemsMap = {
-    [LanguageSupport.CH]: {
-        compRoutes: chCompRoutes,
-        readmeRoutes: chReadmeRoutes,
-        resRoutes: chResRoutes,
-        compositeCompRoutes: enCompositeCompRoutes,
-    },
-    [LanguageSupport.EN]: {
-        compRoutes: enCompRoutes,
-        readmeRoutes: enReadmeRoutes,
-        resRoutes: chResRoutes,
-        compositeCompRoutes: enCompositeCompRoutes,
-    },
-};
 
-const getPcMenu = (language: LanguageSupport) => {
+const getPcMenu = (language: LanguageSupport, menuItemsMap: IMenuItemMap) => {
     const { compRoutes, readmeRoutes, compositeCompRoutes } =
         menuItemsMap[language === LanguageSupport.EN ? LanguageSupport.EN : LanguageSupport.CH];
-    const newCompRoutes = getMenuOrder(compRoutes, language);
     const menu: IMenu = {
-        doc: {
-            name: localeMap.DevelopmentGuide[language],
-            key: 'doc',
-            items: readmeRoutes as Items,
-        },
-        components: {
-            name: localeMap.Components[language],
-            key: 'components',
-            children: newCompRoutes as CompChildren,
-        },
-        compositeComp: {
-            name: localeMap.CompositeComp[language],
-            key: 'compositeComp',
-            items: compositeCompRoutes as Items,
-        },
+        ...(readmeRoutes
+            ? {
+                  doc: {
+                      name: localeMap.DevelopmentGuide[language],
+                      key: 'doc',
+                      items: readmeRoutes as Items,
+                  },
+              }
+            : {}),
+        ...(compRoutes
+            ? {
+                  components: {
+                      name: localeMap.Components[language],
+                      key: 'components',
+                      children: getMenuOrder(compRoutes, language) as CompChildren,
+                  },
+              }
+            : {}),
+        ...(compositeCompRoutes
+            ? {
+                  compositeComp: {
+                      name: localeMap.CompositeComp[language],
+                      key: 'compositeComp',
+                      items: compositeCompRoutes as Items,
+                  },
+              }
+            : {}),
     };
 
     return menu;
 };
 
-const getResourceMenu = (language: LanguageSupport) => {
+const getResourceMenu = (language: LanguageSupport, menuItemsMap: IMenuItemMap) => {
     const { resRoutes } =
         menuItemsMap[language === LanguageSupport.EN ? LanguageSupport.EN : LanguageSupport.CH];
-    if (language !== LanguageSupport.CH) {
-        // 公共hooks转换为英文
-        resRoutes.hooks.map(
-            (_, index) => (resRoutes.hooks[index].name = localeMap.GeneralHooks[language]),
-        );
+    if (!resRoutes) {
+        return {};
     }
     const menu: IMenu = {
         resource: {
@@ -122,12 +124,12 @@ const getResourceMenu = (language: LanguageSupport) => {
     return menu;
 };
 
-function initMenu(language: LanguageSupport, pathname: string) {
+function initMenu(language: LanguageSupport, pathname: string, menuItemsMap: IMenuItemMap) {
     switch (getPathname(pathname)) {
         case 'resource':
-            return getResourceMenu(language);
+            return getResourceMenu(language, menuItemsMap);
         default:
-            return getPcMenu(language);
+            return getPcMenu(language, menuItemsMap);
     }
 }
 
@@ -139,20 +141,22 @@ export default function Layout(props: ILayoutProps) {
         language: defaultLanguage = LanguageSupport.CH,
         mode,
         setMode,
+        menuItemsMap,
+        Header,
     } = props;
     const [menuCollapse, setMenuCollapse] = useState(false);
     const [navHeight, setNavHeight] = useState(241);
     const [language, setLanguage] = useState(defaultLanguage);
     const { pathname } = useLocation();
-    const [menu, setMenu] = useState(() => initMenu(defaultLanguage, pathname));
+    const [menu, setMenu] = useState(() => initMenu(defaultLanguage, pathname, menuItemsMap));
     const siteContentRef = useRef<HTMLDivElement | null>(null);
     const getSiteContentRef = () => {
         return siteContentRef.current;
     };
 
     useEffect(() => {
-        setMenu(initMenu(language, pathname));
-    }, [language, pathname]);
+        setMenu(initMenu(language, pathname, menuItemsMap));
+    }, [language, pathname, menuItemsMap]);
     useEffect(() => {
         if (language === defaultLanguage) {
             return;

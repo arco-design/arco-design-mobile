@@ -1,0 +1,118 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-cell {
+    .use-var(color, cell-text-color);
+    .use-var(font-size, cell-font-size);
+    .use-var(margin-left, cell-horizontal-padding);
+    .use-var(padding-right, cell-horizontal-padding);
+
+    &:not(:first-of-type).bordered {
+        .onepx-border-var(top, line-color);
+    }
+
+    &.without-group {
+        .use-var(background-color, cell-background-color);
+        .use-var(padding-left, cell-horizontal-padding);
+        margin-left: 0;
+
+        &.bordered {
+            .onepx-border-var(top, line-color);
+            .onepx-border-var(bottom, line-color);
+        }
+    }
+
+    &-inner {
+        display: flex;
+        align-items: center;
+        .use-var(height, cell-item-height);
+
+        &.has-desc {
+            .use-var(height, cell-item-has-desc-height);
+        }
+    }
+
+    &-label {
+        .use-var(color, cell-label-color);
+        .use-var-with-rtl(margin-right, cell-label-gutter);
+    }
+
+    &-desc {
+        .use-var(color, cell-desc-color);
+        .use-var(font-size, cell-desc-font-size);
+        .use-var(margin-top, cell-desc-margin-top);
+    }
+
+    &-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        &.has-label {
+            justify-content: flex-end;
+        }
+    }
+
+    &-text {
+        width: 100%;
+        .set-value-with-rtl(text-align, right);
+        .use-var(font-size, cell-content-font-size);
+        .text-overflow(2);
+    }
+
+    &-label-icon {
+        .use-var-with-rtl(margin-right, cell-label-icon-gutter);
+        font-size: 0;
+        .@{prefix}-icon {
+            line-height: initial;
+            .use-var(font-size, cell-label-icon-font-size);
+            .use-var(color, cell-label-icon-color);
+        }
+    }
+
+    &-arrow-icon {
+        .style-with-rtl({
+            transform: scale(-1);
+        });
+        .use-var-with-rtl(margin-left, cell-arrow-gutter);
+        font-size: 0;
+        .@{prefix}-icon {
+            .use-var(font-size, cell-arrow-font-size);
+            .use-var(color, cell-arrow-color);
+        }
+
+        .arrow-icon-svg {
+            .rem(width, 8);
+
+            path {
+                .use-var(fill, cell-arrow-color);
+            }
+        }
+    }
+
+    .@{prefix}-input-wrap {
+        .set-prop-with-rtl(padding-left, 0, {
+            .use-var(padding-left, input-horizontal-padding);
+        });
+    }
+}
+
+.@{prefix}-cell-group {
+
+    &-header,
+    &-footer {
+        .use-var(color, cell-text-color);
+        .use-var(font-size, cell-extra-font-size);
+        .use-var(line-height, cell-extra-line-height);
+        .use-var(padding, cell-extra-padding);
+    }
+
+    &-body {
+        .use-var(background-color, cell-background-color);
+
+        &.bordered {
+            .onepx-border-var(top, line-color);
+            .onepx-border-var(bottom, line-color);
+        }
+    }
+}

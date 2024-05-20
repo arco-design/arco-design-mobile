@@ -15,3 +15,4 @@ sites/pc/static/js/
 sites/pc/pages/
 sites/pages/
 packages/arcodesign/tools/*.js
+packages/arcodesign-vue/tools/*.js
