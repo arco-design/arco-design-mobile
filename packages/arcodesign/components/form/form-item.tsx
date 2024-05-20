@@ -10,11 +10,11 @@ import React, {
     useState,
 } from 'react';
 import { cls, Validator, ValidatorType, ValidatorError } from '@arco-design/mobile-utils';
+import { Promise } from 'es6-promise';
 import { FormItemContext } from './form-item-context';
 import { GlobalContext } from '../context-provider';
 import {
     IFieldError,
-    FieldItem,
     FieldValue,
     IFormItemContext,
     IFormItemInnerProps,
@@ -24,28 +24,15 @@ import {
     FormInternalComponentType,
 } from './type';
 import { getErrorAndWarnings, isFieldRequired } from './utils';
+import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
 
-interface IFromItemInnerState {
+interface IFormItemInnerState {
     validateStatus: ValidateStatus;
     errors?: ReactNode[];
     _touched: boolean;
 }
 
-export function DefaultPickerLinkedContainer({ value }: { value: (string | number)[] }) {
-    const { prefixCls, locale } = useContext(GlobalContext);
-    const className = `${prefixCls}-form-picker-link-container`;
-    return (
-        <div className={className}>
-            {value && value.length ? (
-                value.join('-')
-            ) : (
-                <span className={`${className}-placeholder`}>{locale?.Form.pickerDefaultHint}</span>
-            )}
-        </div>
-    );
-}
-
-class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerState> {
+class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerState> {
     // eslint-disable-next-line react/static-property-placement
     context!: React.ContextType<typeof FormItemContext>;
 
@@ -73,11 +60,11 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
         this.destroyField();
     }
 
-    onValueChange = (preStore: FieldItem, curStore: FieldItem) => {
+    onValueChange = (curValue: any, preValue: any) => {
         this._touched = true;
         const { shouldUpdate } = this.props;
         if (typeof shouldUpdate === 'function') {
-            shouldUpdate({ preStore, curStore }) && this.forceUpdate();
+            shouldUpdate({ preValue, curValue }) && this.forceUpdate();
             return;
         }
         this.forceUpdate();
@@ -199,7 +186,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFromItemInnerSta
                     disabled: this.props.disabled,
                     renderLinkedContainer:
                         children.props?.renderLinkedContainer ||
-                        (val => <DefaultPickerLinkedContainer value={val} />),
+                        ((ts, types) => <DefaultDatePickerLinkedContainer ts={ts} types={types} />),
                 };
                 break;
             case FormInternalComponentType.Picker:

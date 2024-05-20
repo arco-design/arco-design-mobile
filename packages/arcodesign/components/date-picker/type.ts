@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { PickerProps } from '../picker';
 import { PickerData } from '../picker-view';
 
@@ -41,7 +42,14 @@ export type mode = 'date' | 'time' | 'datetime';
 export interface DatePickerProps
     extends Omit<
         PickerProps,
-        'data' | 'cascade' | 'cols' | 'value' | 'onChange' | 'onPickerChange' | 'onOk'
+        | 'data'
+        | 'cascade'
+        | 'cols'
+        | 'value'
+        | 'onChange'
+        | 'onPickerChange'
+        | 'onOk'
+        | 'renderLinkedContainer'
     > {
     /**
      * 点击选中时执行的回调
@@ -113,4 +121,9 @@ export interface DatePickerProps
      * @en Selector list item intervention to insert custom options.
      */
     columnsProcessor?: (columns: PickerData[][], currentDateObj: IDateObj) => PickerData[][];
+    /**
+     * 将选择器的展现隐藏状态及选中值的展示与某个容器关联，传入后将同时渲染该容器和选择器组件，此时选择器组件的 visible 和 onHide 属性可不传，点击该容器会唤起选择器
+     * @en Associate the hidden state of the picker and the display of the selected value with a container. After passing it in, the container and the picker component will be rendered at the same time. At this time, the visible and onHide attributes of the picker component are optional values. Clicking the container will evoke the picker
+     */
+    renderLinkedContainer?: (currentTs: number, itemTypes: ItemType[]) => ReactNode;
 }

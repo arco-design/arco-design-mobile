@@ -76,6 +76,7 @@ export function arrayTreeFilter<T>(
         children = (foundItem as any)[options.childrenKeyName] || [];
         level += 1;
     } while (children.length > 0);
+
     return result;
 }
 

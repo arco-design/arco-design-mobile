@@ -39,7 +39,7 @@
 |disabled|表单项是否禁用|boolean|-|
 |layout|表单项布局|"horizontal" \| "vertical" \| "inline"|"horizontal"|
 |children|表单项子节点|Element|必填|
-|shouldUpdate|表单项是否刷新|boolean \| IShouldUpdateFunc|-|
+|shouldUpdate|表单项是否刷新|IShouldUpdateFunc|-|
 |rules|表单项规则|IRules\[\]|-|
 |extra|表单项下方节点|Element|-|
 |trigger|触发事件更新事件名称|string|"onChange"|
@@ -57,7 +57,7 @@
 |resetFields|重置表单项|() =\> void|
 |setFieldValue|设置单个表单项值|(name: string, value: any) =\> boolean|
 |setFieldsValue|设置多个表单项值|(value: Record\<string, any\>) =\> void|
-|validateFields|校验所有表单项|() =\> Promise\<Record\<string, any\>\>|
+|validateFields|校验所有表单项|() =\> Promise\<IFieldError\[\]\>|
 |submit|提交表单|() =\> void|
 
 > IFieldError
