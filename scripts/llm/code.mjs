@@ -1,6 +1,8 @@
+import _ from 'lodash';
 import { statSync, readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 
+///// 辅助函数 /////
 // 递归函数来遍历文件夹
 function walkDir(dir, callback) {
     readdirSync(dir).forEach(f => {
@@ -10,27 +12,44 @@ function walkDir(dir, callback) {
     });
 }
 
-export class SourceCode {
-    // 获取全部文件列表
-    getFileList(dir, reg) {
-        const list = [];
-        walkDir(dir, function (filePath) {
-            if (filePath.match(reg)) {
-                list.push(filePath);
+// 源代码相关处理类，获取文件列表
+class Code {
+    constructor(dir, fileReg) {
+        this._dir = dir;
+        this._fileReg = fileReg;
+    }
+    // 获取文件列表
+    fileList() {
+        const fileList = [];
+        walkDir(this._dir, filePath => {
+            if (filePath.match(this._fileReg)) {
+                fileList.push(filePath);
             }
         });
-        return list;
+        return fileList;
     }
 
-    getDirectoryContent(dir, reg) {}
-
-    // 获取某个目录下所有的源代码
-    getCodeContent(dir, reg) {
-        const fileList = this.getFileList(dir, reg);
+    // 获取目录内容
+    directory() {
+        const fileList = this.fileList();
 
         // 生成目录结构
         const contents = [
-            `The source code directory is ${dir}, which contains the following files:`,
+            `The source code directory is ${this._dir}, which contains the following files:`,
+            ...fileList.map(i => '- ' + i),
+            '\n',
+        ];
+
+        return contents.join(',');
+    }
+
+    // 获取目录内容和文件内容
+    directoryAndContent() {
+        const fileList = this.fileList();
+
+        // 生成目录结构
+        const contents = [
+            `The source code directory is ${this.fileList}, which contains the following files:`,
             ...fileList.map(i => '- ' + i),
             '\n',
         ];
@@ -41,5 +60,23 @@ export class SourceCode {
             contents.push(`Code for ${filePath}: `, fileContent, '\n');
         }
         return contents.join('\n');
+    }
+}
+
+// React 源代码
+export class ReactCode extends Code {
+    constructor(comp) {
+        const dir = `packages/arcodesign/components/${_.snakeCase(comp)}/`;
+        const fileReg = /.(ts|tsx|js|jsx|less)$/;
+        super(dir, fileReg);
+    }
+}
+
+// Vue 源代码
+export class VueCode extends Code {
+    constructor(comp) {
+        const dir = `packages/arcodesign-vue/components/${_.snakeCase(comp)}/`;
+        const fileReg = /.(vue|ts|js|less)$/;
+        super(dir, fileReg);
     }
 }
