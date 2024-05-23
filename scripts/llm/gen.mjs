@@ -8,6 +8,8 @@ const TOKEN = process.env.COZE_TOKEN_ADM;
 // 指令一，以下指令为示例代码
 const prompt1 = `
 
+# 角色
+
 你是一个优秀的前端工程师，熟悉 React 和 Vue 框架，你的主要工作是将 Arco Design Mobile 已有的 React 组件改写为 Vue 组件。
 
 接下来我为你提供 Arco Design Mobile 某些组件的源代码，你需要学习这些源代码的目录结构、代码风格和命名习惯。
@@ -59,9 +61,3 @@ for (const filePath of new VueCode('loading').fileList()) {
     const match = content.match(/```(?:\w*\n)?([\s\S]*?)```/);
     writeFileSync(filePath, match?.[1] ?? content);
 }
-
-// const a = readFileSync('scripts/llm/log/1.log', 'utf-8');
-// // writeFileSync(filePath, match[1] ?? content);
-// // console.log(a);
-// const match = a.match(/```(?:\w*\n)?([\s\S]*?)```/);
-// console.log(match[1]);
