@@ -83,20 +83,33 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     const pickerRef = useRef<PickerRef | null>(null);
 
     useEffect(() => {
+        const leftMinTs = typeof userSetMinTs !== 'number' ? userSetMinTs.startTs : userSetMinTs;
+        const rightMinTs = typeof userSetMinTs !== 'number' ? userSetMinTs.endTs : userSetMinTs;
+        const leftMaxTs = typeof userSetMaxTs !== 'number' ? userSetMaxTs.startTs : userSetMaxTs;
+        const rightMaxTs = typeof userSetMaxTs !== 'number' ? userSetMaxTs.endTs : userSetMaxTs;
+
         if (isRange) {
+            let leftTime: number, rightTime: number;
             if (isLeftActive) {
-                setLeftTimeValue(currentTs);
-                setRightTimeValue(Math.max(currentTs, rightTimeValue));
+                leftTime = currentTs;
+                rightTime = Math.min(
+                    rightMaxTs,
+                    Math.max(Math.max(leftTime, rightMinTs), rightTimeValue),
+                );
+            } else {
+                rightTime = currentTs;
+                leftTime = Math.min(leftMaxTs, Math.max(leftMinTs, leftTimeValue));
             }
-            if (isRightActive) {
-                setRightTimeValue(currentTs);
-                setLeftTimeValue(Math.min(leftTimeValue, currentTs));
-            }
+            setLeftTimeValue(leftTime);
+            setRightTimeValue(rightTime);
         }
     }, [currentTs]);
 
     useEffect(() => {
-        _updateTimeBounds(isLeftActive);
+        const [nowMinTs, nowMaxTs] = _updateTimeScope(isLeftActive);
+        setCurrentTs(
+            Math.min(nowMaxTs, Math.max(nowMinTs, isLeftActive ? leftTimeValue : rightTimeValue)),
+        );
     }, [userSetMinTs, userSetMaxTs]);
 
     useImperativeHandle(ref, () => ({
@@ -357,7 +370,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         return options;
     }
 
-    function _updateTimeBounds(isLeft: Boolean): [number, number] {
+    function _updateTimeScope(isLeft: Boolean): [number, number] {
         let nowMaxTs: number, nowMinTs: number;
         if (isLeft) {
             nowMaxTs = typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
@@ -367,7 +380,10 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
             );
         } else {
             nowMinTs = Math.max(
-                leftTimeValue,
+                Math.min(
+                    typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs,
+                    leftTimeValue,
+                ),
                 typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.endTs,
             );
             nowMaxTs = Math.max(
@@ -383,7 +399,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     function _chooseTimeActive(index: number) {
         setIsLeftActive(index === 0);
         setIsRightActive(index === 1);
-        const [nowMinTs, nowMaxTs] = _updateTimeBounds(index === 0);
+        const [nowMinTs, nowMaxTs] = _updateTimeScope(index === 0);
         setCurrentTs(
             Math.min(nowMaxTs, Math.max(nowMinTs, index === 0 ? leftTimeValue : rightTimeValue)),
         );
