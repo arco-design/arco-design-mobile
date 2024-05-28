@@ -2,7 +2,10 @@ import { writeFileSync } from 'fs';
 import { ReactCode, VueCode } from './code.mjs';
 import { AiBot } from './coze.mjs';
 
-const BOT_ID = '7369473402367361041'; // GPT-4 模型
+// const BOT_ID = '7372403809576009729'; // Claude 3 Opus 模型
+// const BOT_ID = '7369473402367361041'; // GPT-4 Turbo 模型
+const BOT_ID = '7373886057160753169'; // GPT-4o 模型
+
 const TOKEN = process.env.COZE_TOKEN_ADM;
 
 // 指令一，以下指令为示例代码
