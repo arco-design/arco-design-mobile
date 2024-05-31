@@ -148,7 +148,11 @@ class FormData {
     };
 
     resetFields = () => {
-        this.setFieldsValue(this._initialValues);
+        const curValues = { ...this.getFieldsValue() } || {};
+        Object.entries(curValues).forEach(([key]) => {
+            curValues[key] = undefined;
+        });
+        this.setFieldsValue({ ...curValues, ...this._initialValues });
     };
 
     validateFields = () => {
