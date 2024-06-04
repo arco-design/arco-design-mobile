@@ -2699,6 +2699,30 @@
         "jsValue": "#F76965",
         "staticValue": "#F76965"
     },
+    "darkDatePickerRangeBackgroundColor": {
+        "cssKey": "dark-date-picker-range-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-picker-show-background-color",
+        "jsValue": "@global@darkPickerShowBackgroundColor",
+        "staticValue": "#1E1E1E"
+    },
+    "darkDatePickerRangeDisabledFontColor": {
+        "cssKey": "dark-date-picker-range-disabled-font-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-disabled-color",
+        "jsValue": "@global@darkDisabledColor",
+        "staticValue": "#5f5f60"
+    },
+    "darkDatePickerRangeFontColor": {
+        "cssKey": "dark-date-picker-range-font-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-font-color",
+        "jsValue": "@global@darkFontColor",
+        "staticValue": "#f6f6f6"
+    },
     "darkDialogBodyAndroidColor": {
         "cssKey": "dark-dialog-body-android-color",
         "desc": "",
@@ -3426,6 +3450,14 @@
         "value": "@dark-primary-color",
         "jsValue": "@global@darkPrimaryColor",
         "staticValue": "#3C7EFF"
+    },
+    "darkPickerShowBackgroundColor": {
+        "cssKey": "dark-picker-show-background-color",
+        "desc": "",
+        "override": "",
+        "value": "#1E1E1E",
+        "jsValue": "#1E1E1E",
+        "staticValue": "#1E1E1E"
     },
     "darkPickerViewMaskBottomBackground": {
         "cssKey": "dark-picker-view-mask-bottom-background",
@@ -4354,6 +4386,90 @@
         "value": "#FF9626",
         "jsValue": "#FF9626",
         "staticValue": "#FF9626"
+    },
+    "datePickerRangeBackgroundColor": {
+        "cssKey": "date-picker-range-background-color",
+        "desc": "日期时间范围选择器背景颜色",
+        "override": "",
+        "value": "@picker-show-background-color",
+        "jsValue": "@global@pickerShowBackgroundColor",
+        "staticValue": "#FBFCFC",
+        "localeDesc": {
+            "ch": "日期时间范围选择器背景颜色",
+            "en": "Background color of the date picker range when checked"
+        }
+    },
+    "datePickerRangeDisabledFontColor": {
+        "cssKey": "date-picker-range-disabled-font-color",
+        "desc": "日期时间范围选择器未选中时文字颜色",
+        "override": "",
+        "value": "@disabled-color",
+        "jsValue": "@global@disabledColor",
+        "staticValue": "#c9cdd4",
+        "localeDesc": {
+            "ch": "日期时间范围选择器未选中时文字颜色",
+            "en": "Font color of the date picker range when disabled"
+        }
+    },
+    "datePickerRangeFontColor": {
+        "cssKey": "date-picker-range-font-color",
+        "desc": "日期时间范围选择器选中时文字颜色",
+        "override": "",
+        "value": "@font-color",
+        "jsValue": "@global@fontColor",
+        "staticValue": "#1d2129",
+        "localeDesc": {
+            "ch": "日期时间范围选择器选中时文字颜色",
+            "en": "Font color of the date picker range when checked"
+        }
+    },
+    "datePickerRangeFontSize": {
+        "cssKey": "date-picker-range-font-size",
+        "desc": "日期时间范围选择器文字大小",
+        "override": "",
+        "value": "~`pxtorem(16)`",
+        "jsValue": "@getRem@16",
+        "staticValue": "0.32rem",
+        "localeDesc": {
+            "ch": "日期时间范围选择器文字大小",
+            "en": "Font size of the date picker range"
+        }
+    },
+    "datePickerRangeSeparateMinWidth": {
+        "cssKey": "date-picker-range-separate-min-width",
+        "desc": "日期时间范围选择器展示区域分隔符最小宽度",
+        "override": "",
+        "value": "~`pxtorem(48)`",
+        "jsValue": "@getRem@48",
+        "staticValue": "0.96rem",
+        "localeDesc": {
+            "ch": "日期时间范围选择器展示区域分隔符最小宽度",
+            "en": "Min width of the date picker range separate"
+        }
+    },
+    "datePickerRangeShowMinHeight": {
+        "cssKey": "date-picker-range-show-min-height",
+        "desc": "日期时间范围选择器展示区域最小高度",
+        "override": "",
+        "value": "~`pxtorem(48)`",
+        "jsValue": "@getRem@48",
+        "staticValue": "0.96rem",
+        "localeDesc": {
+            "ch": "日期时间范围选择器展示区域最小高度",
+            "en": "Min height of the date picker range area"
+        }
+    },
+    "datePickerRangeShowPadding": {
+        "cssKey": "date-picker-range-show-padding",
+        "desc": "日期时间范围选择器展示区域外边距大小",
+        "override": "",
+        "value": "0 ~`pxtorem(16)`",
+        "jsValue": "0 @getRem@16",
+        "staticValue": "0 0.32rem",
+        "localeDesc": {
+            "ch": "日期时间范围选择器展示区域外边距大小",
+            "en": "Margin of the date picker range area"
+        }
     },
     "dialogAndroidBodyFooterGutter": {
         "cssKey": "dialog-android-body-footer-gutter",
@@ -7443,6 +7559,18 @@
         "localeDesc": {
             "ch": "选择器右侧按钮字体颜色",
             "en": "Right button font color of Picker"
+        }
+    },
+    "pickerShowBackgroundColor": {
+        "cssKey": "picker-show-background-color",
+        "desc": "选择器展示部分背景色",
+        "override": "",
+        "value": "#FBFCFC",
+        "jsValue": "#FBFCFC",
+        "staticValue": "#FBFCFC",
+        "localeDesc": {
+            "ch": "选择器展示部分背景色",
+            "en": "Background color of picker show area"
         }
     },
     "pickerTitleFontSize": {
