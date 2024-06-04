@@ -107,9 +107,16 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
     useEffect(() => {
         const [nowMinTs, nowMaxTs] = _updateTimeScope(isLeftActive);
-        setCurrentTs(
-            Math.min(nowMaxTs, Math.max(nowMinTs, isLeftActive ? leftTimeValue : rightTimeValue)),
-        );
+        if (isRange) {
+            setCurrentTs(
+                Math.min(
+                    nowMaxTs,
+                    Math.max(nowMinTs, isLeftActive ? leftTimeValue : rightTimeValue),
+                ),
+            );
+        } else {
+            setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, currentTs)));
+        }
     }, [userSetMinTs, userSetMaxTs]);
 
     useImperativeHandle(ref, () => ({
