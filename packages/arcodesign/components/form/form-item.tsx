@@ -16,7 +16,6 @@ import { GlobalContext } from '../context-provider';
 import {
     IFieldError,
     FieldValue,
-    IFormItemContext,
     IFormItemInnerProps,
     FormItemProps,
     ValidateStatus,
@@ -43,11 +42,11 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
 
     private _touched = false;
 
-    constructor(props: IFormItemInnerProps, context: IFormItemContext) {
+    constructor(props: IFormItemInnerProps) {
         super(props);
         this.destroyField = () => {};
         if (props?.initialValue && props.field) {
-            const { setInitialValue } = context.form.getInternalHooks();
+            const { setInitialValue } = this.context.form.getInternalHooks();
             setInitialValue(props.field, props.initialValue);
         }
     }
