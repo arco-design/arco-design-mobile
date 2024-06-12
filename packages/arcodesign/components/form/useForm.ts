@@ -1,7 +1,14 @@
 /* eslint-disable no-console */
 import { ReactNode, useRef } from 'react';
 import { Promise } from 'es6-promise';
-import { Callbacks, IFieldError, FieldItem, IFormInstance } from './type';
+import {
+    Callbacks,
+    IFieldError,
+    FieldItem,
+    IFormInstance,
+    ValueChangeType,
+    FieldValue,
+} from './type';
 
 const defaultFunc: any = () => {};
 
@@ -29,6 +36,7 @@ export const defaultFormDataMethods = {
             registerField: defaultFunc,
             setInitialValues: defaultFunc,
             setCallbacks: defaultFunc,
+            setInitialValue: defaultFunc,
         };
     },
 };
@@ -43,7 +51,7 @@ class FormData {
 
     private _callbacks: Callbacks = {};
 
-    setFieldsValue = (values: FieldItem): boolean => {
+    setFieldsValue = (values: FieldItem, changeType?: ValueChangeType): boolean => {
         const oldValues: FieldItem = Object.keys(values).reduce(
             (acc, key) => ({
                 ...acc,
@@ -54,7 +62,7 @@ class FormData {
         this._formData = { ...this._formData, ...values };
         const { onValuesChange } = this._callbacks;
         onValuesChange && onValuesChange(values, this._formData);
-        this.notifyField(values, oldValues);
+        this.notifyField(values, oldValues, changeType);
         return true;
     };
 
@@ -73,11 +81,17 @@ class FormData {
         return true;
     };
 
-    notifyField = (values: FieldItem, oldValues: FieldItem): void => {
+    notifyField = (
+        values: FieldItem,
+        oldValues: FieldItem,
+        changeType: ValueChangeType = ValueChangeType.Update,
+    ): void => {
         Object.keys(values).map((fieldName: string) => {
             const fieldObj = this._fieldsList?.[fieldName] || null;
             if (fieldObj) {
-                fieldObj.onValueChange(values[fieldName], oldValues[fieldName]);
+                fieldObj.onValueChange(values[fieldName], oldValues[fieldName], {
+                    changeType,
+                });
             }
         });
     };
@@ -147,8 +161,20 @@ class FormData {
         this.setFieldsValue(initVal);
     };
 
+    setInitialValue = (name: string, value: FieldValue) => {
+        if (!name) {
+            return;
+        }
+        this._initialValues[name] = value;
+        this.setFieldValue(name, value);
+    };
+
     resetFields = () => {
-        this.setFieldsValue(this._initialValues);
+        const newData = { ...this._initialValues };
+        Object.keys(this._fieldsList).forEach(fieldName => {
+            newData[fieldName] = this._initialValues[fieldName];
+        });
+        this.setFieldsValue(newData, ValueChangeType.Reset);
     };
 
     validateFields = () => {
@@ -212,6 +238,7 @@ class FormData {
             registerField: this.registerField,
             setInitialValues: this.setInitialValues,
             setCallbacks: this.setCallbacks,
+            setInitialValue: this.setInitialValue,
         };
     };
 }

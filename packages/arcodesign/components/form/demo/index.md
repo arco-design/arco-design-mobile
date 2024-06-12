@@ -56,6 +56,9 @@ export default function FormDemo() {
     const toSubmit = val => {
         formRef.current.form.submit();
     };
+    const onReset = () => {
+        formRef.current.form.resetFields();
+    }
     const onSubmit = (values, result) => {
         console.log('----submit Successfully', values, result);
     };
@@ -74,11 +77,11 @@ export default function FormDemo() {
         e.preventDefault();
     };
     const handleInput = (e, value) => {
-        if(/^[0-9]*$/.test(value)) {
-            formRef.current.form.setFieldValue('age', value);
-        } else {
-            formRef.current.form.setFieldValue('age', 0);
-        }
+        // if(/^[0-9]*$/.test(value)) {
+        //     formRef.current.form.setFieldValue('age', value);
+        // } else {
+        //     formRef.current.form.setFieldValue('age', 0);
+        // }
     }
     return (
         <div>
@@ -88,13 +91,13 @@ export default function FormDemo() {
                 onSubmit={onSubmit}
                 onSubmitFailed={onSubmitFailed}
                 layout={layout}
-                initialValues={{ birthday: 1449730183515 }}
+                initialValues={{ birthday: 1449730183515, age: 12 }}
             >
                 <Form.Item field="name" label="UserName" trigger="onBlur" rules={rules.name} required>
                     <Input  placeholder="Please input username" clearable border="none" />
                 </Form.Item>
-                <Form.Item field="age" label="Age" trigger="onInput" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]}>
-                    <Input placeholder="Please input age"  clearable border="none" onInput={handleInput}/>
+                <Form.Item field="age" label="Age" trigger="onInput" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]} initialValue={11}>
+                    <Input placeholder="Please input age"  clearable border="none"/>
                 </Form.Item>
                 <Form.Item field="gender" label="Gender">
                     <Radio.Group options={genderOptions} />
@@ -133,9 +136,14 @@ export default function FormDemo() {
                 <Form.Item field="progress" label="Progress">
                     <Slider />
                 </Form.Item>
-                <Button needActive onClick={toSubmit}>
+                <div>
+                  <Button needActive onClick={toSubmit}>
                     Submit
                 </Button>
+                   <Button type="default" onClick={onReset}>
+                    Reset
+                </Button>
+                </div>
             </Form>
         </div>
     );
