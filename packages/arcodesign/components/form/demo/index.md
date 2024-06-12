@@ -61,6 +61,8 @@ export default function FormDemo() {
     }
     const onSubmit = (values, result) => {
         console.log('----submit Successfully', values, result);
+        values.pictures.push({ url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' });
+        console.log(formRef.current.form.getFieldsValue());
     };
 
     const onSubmitFailed = (values, errors = [], definedError = {}) => {

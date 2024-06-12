@@ -9,6 +9,7 @@ import {
     ValueChangeType,
     FieldValue,
 } from './type';
+import { deepClone } from './utils';
 
 const defaultFunc: any = () => {};
 
@@ -61,7 +62,7 @@ class FormData {
         );
         this._formData = { ...this._formData, ...values };
         const { onValuesChange } = this._callbacks;
-        onValuesChange && onValuesChange(values, this._formData);
+        onValuesChange && onValuesChange(values, this.getFieldsValue());
         this.notifyField(values, oldValues, changeType);
         return true;
     };
@@ -75,7 +76,7 @@ class FormData {
                 {
                     [name]: value,
                 },
-                this._formData,
+                this.getFieldsValue(),
             );
         this.notifyField({ [name]: value }, oldValues);
         return true;
@@ -100,11 +101,11 @@ class FormData {
         if (names) {
             return names.map(name => this.getFieldValue(name));
         }
-        return this._formData;
+        return deepClone(this._formData);
     };
 
     getFieldValue = (name: string) => {
-        return this._formData?.[name];
+        return deepClone(this._formData?.[name]);
     };
 
     getFieldError = (name: string): ReactNode[] => {
@@ -156,8 +157,8 @@ class FormData {
         };
     };
 
-    setInitialValues = (initVal: Record<string, unknown>) => {
-        this._initialValues = { ...(initVal || {}) };
+    setInitialValues = (initVal: FieldItem) => {
+        this._initialValues = deepClone(initVal || {});
         this.setFieldsValue(initVal);
     };
 
@@ -201,14 +202,14 @@ class FormData {
         this.validateFields()
             .then(result => {
                 const { onSubmit } = this._callbacks;
-                onSubmit?.(this._formData, result);
+                onSubmit?.(this.getFieldsValue(), result);
             })
             .catch(e => {
                 const { onSubmitFailed } = this._callbacks;
                 if (!onSubmitFailed) {
                     return;
                 }
-                onSubmitFailed(this._formData, e);
+                onSubmitFailed(this.getFieldsValue(), e);
             });
     };
 

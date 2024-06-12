@@ -22,6 +22,7 @@ import {
     FormItemRef,
     FormInternalComponentType,
     ValueChangeType,
+    IFormItemContext
 } from './type';
 import { getErrorAndWarnings, isFieldRequired } from './utils';
 import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
@@ -42,11 +43,11 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
 
     private _touched = false;
 
-    constructor(props: IFormItemInnerProps) {
+    constructor(props: IFormItemInnerProps,  context: IFormItemContext) {
         super(props);
         this.destroyField = () => {};
         if (props?.initialValue && props.field) {
-            const { setInitialValue } = this.context.form.getInternalHooks();
+            const { setInitialValue } = context.form.getInternalHooks();
             setInitialValue(props.field, props.initialValue);
         }
     }
