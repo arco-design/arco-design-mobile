@@ -37,5 +37,6 @@ export default function useValue(
         updateValue,
         actualInputValue,
         showValue,
+        innerValue,
     };
 }

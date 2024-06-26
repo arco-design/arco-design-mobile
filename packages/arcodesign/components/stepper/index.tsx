@@ -41,7 +41,7 @@ const Stepper = forwardRef((props: StepperProps, ref: Ref<StepperRef>) => {
 
     // 值的相关逻辑
     // @en The logic is that handle value
-    const { updateValue, actualInputValue, showValue } = useValue({
+    const { updateValue, actualInputValue, showValue, innerValue } = useValue({
         defaultValue,
         formatter,
         min,
@@ -75,6 +75,7 @@ const Stepper = forwardRef((props: StepperProps, ref: Ref<StepperRef>) => {
         digits,
         actualInputValue,
         allowEmpty,
+        innerValue,
         updateValue,
         onBlur,
         onChange,
