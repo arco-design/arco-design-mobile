@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.3...@arco-design/mobile-react@2.31.4) (2024-06-26)
+
+
+### Bug Fixes
+
+* stepper controlled value ([4f8d060](https://github.com/arco-design/arco-design-mobile/commit/4f8d0603c3e292a337b0be09266a360d7e91e943))
+
+
+
+
+
 ## [2.31.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.2...@arco-design/mobile-react@2.31.3) (2024-05-11)
 
 
