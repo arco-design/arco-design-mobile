@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.4...@arco-design/mobile-react@2.31.5) (2024-07-01)
+
+
+### Bug Fixes
+
+* add `Stepper` width ([#274](https://github.com/arco-design/arco-design-mobile/issues/274)) ([b76f2ca](https://github.com/arco-design/arco-design-mobile/commit/b76f2cae577402979708bba07e864b9d2dca4f93))
+
+
+
+
+
 ## [2.31.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.3...@arco-design/mobile-react@2.31.4) (2024-06-26)
 
 
