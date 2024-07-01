@@ -3781,7 +3781,7 @@ function getCompTokens() {
          */
         stepperRoundInputBackgroundColor: 'transparent',
         /**
-         * 步进器按钮尺寸
+         * 步进器整体尺寸
          * @en Button size of Stepper
          */
         stepperWidth: getRem(98),
