@@ -3751,6 +3751,11 @@ function getCompTokens() {
          */
         indexBarSidebarToastFontSize: getRem(24),
         /**
+         * 步进器整体宽度
+         * @en Width of Stepper
+         */
+        stepperWidth: getRem(98),
+        /**
          * 步进器字体大小
          * @en Font size of Stepper
          */
@@ -3780,11 +3785,6 @@ function getCompTokens() {
          * @en Rount input background color of Stepper
          */
         stepperRoundInputBackgroundColor: 'transparent',
-        /**
-         * 步进器整体宽度
-         * @en Width of Stepper
-         */
-        stepperWidth: getRem(98),
         /**
          * 步进器按钮尺寸
          * @en Button size of Stepper

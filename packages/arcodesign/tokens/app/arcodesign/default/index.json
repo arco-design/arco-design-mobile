@@ -9420,7 +9420,7 @@
         "staticValue": "1.96rem",
         "localeDesc": {
             "ch": "步进器整体宽度",
-            "en": "Button size of Stepper"
+            "en": "Width of Stepper"
         }
     },
     "stepsDescriptionColor": {
