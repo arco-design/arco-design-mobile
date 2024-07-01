@@ -974,6 +974,7 @@ var tokens = {
   "index-bar-sidebar-toast-radius": "0.08rem",
   "index-bar-sidebar-toast-padding": "0 0.16rem",
   "index-bar-sidebar-toast-font-size": "0.48rem",
+  "stepper-width": "1.96rem",
   "stepper-font-size": "0.28rem",
   "dark-stepper-square-border-color": "var(--dark-lighter-line-color)",
   "stepper-square-border-color": "var(--lighter-line-color)",
