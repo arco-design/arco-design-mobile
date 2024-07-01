@@ -9413,13 +9413,13 @@
     },
     "stepperWidth": {
         "cssKey": "stepper-width",
-        "desc": "步进器按钮尺寸",
+        "desc": "步进器整体尺寸",
         "override": "",
         "value": "~`pxtorem(98)`",
         "jsValue": "@getRem@98",
         "staticValue": "1.96rem",
         "localeDesc": {
-            "ch": "步进器按钮尺寸",
+            "ch": "步进器整体尺寸",
             "en": "Button size of Stepper"
         }
     },
