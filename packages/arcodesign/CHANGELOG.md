@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.31.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.5...@arco-design/mobile-react@2.31.6) (2024-07-09)
+
+
+### Bug Fixes
+
+* change `Stepper` flex to inline-flex ([e191b93](https://github.com/arco-design/arco-design-mobile/commit/e191b9319c918c249ebba24f4f6b336e6220da88))
+
+
+
+
+
 ## [2.31.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.4...@arco-design/mobile-react@2.31.5) (2024-07-01)
 
 
