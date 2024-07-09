@@ -82,7 +82,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     const rightTimeString = useMemo(() => _getShowTimeValue(rightTimeValue), [rightTimeValue]);
     const pickerRef = useRef<PickerRef | null>(null);
 
-    useEffect(() => {
+    function _updateTimeValue(nowCurrentTs: number) {
         const leftMinTs = typeof userSetMinTs !== 'number' ? userSetMinTs.startTs : userSetMinTs;
         const rightMinTs = typeof userSetMinTs !== 'number' ? userSetMinTs.endTs : userSetMinTs;
         const leftMaxTs = typeof userSetMaxTs !== 'number' ? userSetMaxTs.startTs : userSetMaxTs;
@@ -91,32 +91,40 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         if (isRange) {
             let leftTime: number, rightTime: number;
             if (isLeftActive) {
-                leftTime = currentTs;
+                leftTime = nowCurrentTs;
                 rightTime = Math.min(
                     rightMaxTs,
                     Math.max(Math.max(leftTime, rightMinTs), rightTimeValue),
                 );
             } else {
-                rightTime = currentTs;
+                rightTime = nowCurrentTs;
                 leftTime = Math.min(leftMaxTs, Math.max(leftMinTs, leftTimeValue));
             }
             setLeftTimeValue(leftTime);
             setRightTimeValue(rightTime);
         }
+    }
+
+    useEffect(() => {
+        _updateTimeValue(currentTs);
     }, [currentTs]);
 
     useEffect(() => {
         const [nowMinTs, nowMaxTs] = _updateTimeScope(isLeftActive);
+        let nowCurrentTs;
         if (isRange) {
-            setCurrentTs(
-                Math.min(
-                    nowMaxTs,
-                    Math.max(nowMinTs, isLeftActive ? leftTimeValue : rightTimeValue),
-                ),
+            nowCurrentTs = Math.min(
+                nowMaxTs,
+                Math.max(nowMinTs, isLeftActive ? leftTimeValue : rightTimeValue),
             );
+            if (currentTs === nowCurrentTs) {
+                _updateTimeValue(currentTs);
+            }
         } else {
-            setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, currentTs)));
+            nowCurrentTs = Math.min(nowMaxTs, Math.max(nowMinTs, currentTs));
         }
+
+        setCurrentTs(nowCurrentTs);
     }, [userSetMinTs, userSetMaxTs]);
 
     useImperativeHandle(ref, () => ({

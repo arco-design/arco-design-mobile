@@ -13,6 +13,12 @@ export default function DatePickerDemo() {
     const [picker3Value, setPicker3Value] = React.useState(new Date('2020-02-29 18:23:15'.replace(/-/g, "/")).getTime());
     const [picker4Value, setPicker4Value] = React.useState(new Date('2020-02-29 20:20:10'.replace(/-/g, "/")).getTime());
 
+    const [minTs, setMinTs] = React.useState(new Date('2020-02-28 20:20:10'.replace(/-/g, "/")).getTime());
+
+    setTimeout(() => {
+        setMinTs(new Date('2020-02-29 22:30:10'.replace(/-/g, "/")).getTime())
+    }, 3000)
+
     return (<>
         <Cell.Group bordered={false}>
             <Cell
@@ -28,6 +34,7 @@ export default function DatePickerDemo() {
             <DatePicker
                 visible={pickerVisible1}
                 mode={"time"}
+                minTs={minTs}
                 maskClosable
                 currentTs={[picker1Value, picker2Value]}
                 onHide={() => {
