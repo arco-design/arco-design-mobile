@@ -9539,6 +9539,18 @@
             "en": "Square border radius of Stepper"
         }
     },
+    "stepperWidth": {
+        "cssKey": "stepper-width",
+        "desc": "步进器整体宽度",
+        "override": "",
+        "value": "~`pxtorem(98)`",
+        "jsValue": "@getRem@98",
+        "staticValue": "1.96rem",
+        "localeDesc": {
+            "ch": "步进器整体宽度",
+            "en": "Width of Stepper"
+        }
+    },
     "stepsDescriptionColor": {
         "cssKey": "steps-description-color",
         "desc": "steps 步骤默认描述文字颜色",

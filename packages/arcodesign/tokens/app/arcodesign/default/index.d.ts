@@ -964,6 +964,7 @@ export interface ArcodesignToken extends Record<string, string> {
     'index-bar-sidebar-toast-radius': string;
     'index-bar-sidebar-toast-padding': string;
     'index-bar-sidebar-toast-font-size': string;
+    'stepper-width': string;
     'stepper-font-size': string;
     'dark-stepper-square-border-color': string;
     'stepper-square-border-color': string;

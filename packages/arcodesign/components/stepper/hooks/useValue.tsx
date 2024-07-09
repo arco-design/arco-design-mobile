@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Promise } from 'es6-promise';
 import { StepperProps } from '..';
 
 export default function useValue(
@@ -37,5 +38,6 @@ export default function useValue(
         updateValue,
         actualInputValue,
         showValue,
+        innerValue,
     };
 }
