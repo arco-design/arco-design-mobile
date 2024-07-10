@@ -15,13 +15,6 @@ export default function DatePickerDemo() {
     const [picker2Value, setPicker2Value] =  React.useState(new Date('2020-08-31 10:10:08'.replace(/-/g, "/")).getTime());
     const [picker3Value, setPicker3Value] =  React.useState(new Date('2020-02-29 10:10:08'.replace(/-/g, "/")).getTime());
 
-    const [minTs, setMinTs] = React.useState(new Date('2020-02-28 20:20:10'.replace(/-/g, "/")).getTime());
-
-    setTimeout(() => {
-        console.log(123);
-        setMinTs(new Date('2020-03-10 20:30:05'.replace(/-/g, "/")).getTime())
-    }, 3000)
-
     return (<>
         <Cell.Group bordered={false}>
             <Cell
@@ -84,10 +77,9 @@ export default function DatePickerDemo() {
             <DatePicker
                 visible={picker3Visible}
                 maskClosable
-                minTs={minTs}
                 disabled={false}
                 currentTs={picker3Value}
-                mode="time"
+                typeArr={['month', 'date']}
                 onHide={() => {
                     setPicker3Visible(false);
                 }}
@@ -98,6 +90,7 @@ export default function DatePickerDemo() {
                 onOk={(timestamp, obj) => {
                     console.info('----- time onok demo date', obj, timestamp);
                 }}
+                formatter={(value, type) => type === 'month' ? `${value}月` : `${value}日`}
             />
         </Cell.Group>
         </>
