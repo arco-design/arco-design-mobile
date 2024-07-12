@@ -198,6 +198,8 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
             const needTop = position === 'top' || position === 'both';
             const needBottom = position === 'bottom' || position === 'both';
 
+            const offsetParent = contentRef.current.offsetParent;
+            const offsetParentRect = offsetParent?.getBoundingClientRect();
             const placeholderClientRect = placeholderRef.current!.getBoundingClientRect();
             const contentClientRect = contentRef.current.getBoundingClientRect();
             const calculatedHeight = contentClientRect.height;
@@ -251,7 +253,10 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
                                       : cssBottom + bottomFollowDifference,
                           }
                         : {}),
-                    left: placeholderClientRect.left,
+                    left:
+                        stickyStyle === 'absolute'
+                            ? placeholderClientRect.left - (offsetParentRect?.left || 0)
+                            : placeholderClientRect.left,
                     width: placeholderClientRect.width,
                     ...(userSetStickyCssStyle || {}),
                 };
