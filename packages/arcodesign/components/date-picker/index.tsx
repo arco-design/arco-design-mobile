@@ -430,7 +430,6 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
     useEffect(() => {
         if (visible) {
-            currentDateObjRef.current = _convertTsToDateObj(currentTs);
             if (isRange) {
                 setIsLeftActive(true);
                 setIsRightActive(false);
@@ -441,6 +440,8 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                 setMinTs(nowMinTs);
                 setMaxTs(nowMaxTs);
                 setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, leftTimeValue)));
+            } else {
+                setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs as number)));
             }
             _initData();
         }
