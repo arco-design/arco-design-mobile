@@ -57,12 +57,13 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         ...otherProps
     } = props;
     const isRange = typeof userSetCurrentTs !== 'number';
-    const [minTs, setMinTs] = useState(
-        typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.startTs,
-    );
-    const [maxTs, setMaxTs] = useState(
-        typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs,
-    );
+    const [leftTimeValue, setLeftTimeValue] = useState(userSetCurrentTs[0]);
+    const [rightTimeValue, setRightTimeValue] = useState(userSetCurrentTs[1]);
+    const [isLeftActive, setIsLeftActive] = useState<Boolean>(true);
+    const [isRightActive, setIsRightActive] = useState<Boolean>(false);
+    const [minTs, maxTs] = useMemo(() => {
+        return _updateTimeScope();
+    }, [userSetMinTs, userSetMaxTs, isLeftActive]);
     const [currentTs, setCurrentTs] = useState(
         isRange
             ? Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0]))
@@ -70,14 +71,10 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     );
     const [data, setData] = useState<PickerData[][]>([[]]);
     const [value, setValue] = useState<ValueType[]>([]);
-    const [isLeftActive, setIsLeftActive] = useState<Boolean>(true);
-    const [isRightActive, setIsRightActive] = useState<Boolean>(false);
     const currentDateObjRef = useRef(_convertTsToDateObj(currentTs));
     const minDateObjRef = useRef(_convertTsToDateObj(minTs));
     const maxDateObjRef = useRef(_convertTsToDateObj(maxTs));
     const keyOptions = useMemo(() => _getKeyOptions(), [mode, typeArr]);
-    const [leftTimeValue, setLeftTimeValue] = useState(userSetCurrentTs[0]);
-    const [rightTimeValue, setRightTimeValue] = useState(userSetCurrentTs[1]);
     const leftTimeString = useMemo(() => _getShowTimeValue(leftTimeValue), [leftTimeValue]);
     const rightTimeString = useMemo(() => _getShowTimeValue(rightTimeValue), [rightTimeValue]);
     const pickerRef = useRef<PickerRef | null>(null);
@@ -363,9 +360,9 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         return options;
     }
 
-    function _updateTimeScope(isLeft: Boolean) {
+    function _updateTimeScope(): [number, number] {
         let nowMaxTs: number, nowMinTs: number;
-        if (isLeft) {
+        if (isLeftActive) {
             nowMaxTs = typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
             nowMinTs = Math.min(
                 nowMaxTs,
@@ -384,14 +381,12 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                 typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.endTs,
             );
         }
-        setMaxTs(nowMaxTs);
-        setMinTs(nowMinTs);
+        return [nowMinTs, nowMaxTs];
     }
 
     function _chooseTimeActive(index: number) {
         setIsLeftActive(index === 0);
         setIsRightActive(index === 1);
-        _updateTimeScope(index === 0);
     }
 
     useEffect(() => {
@@ -401,10 +396,6 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
         _initData();
     }, [currentTs, minTs, maxTs, useUTC]);
-
-    useEffect(() => {
-        _updateTimeScope(isLeftActive);
-    }, [userSetMinTs, userSetMaxTs]);
 
     useEffect(() => {
         let nowCurrentTs;
@@ -431,15 +422,9 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
             if (isRange) {
                 setIsLeftActive(true);
                 setIsRightActive(false);
-                const nowMinTs =
-                    typeof userSetMinTs === 'number' ? userSetMinTs : userSetMinTs.startTs;
-                const nowMaxTs =
-                    typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
-                setMinTs(nowMinTs);
-                setMaxTs(nowMaxTs);
                 setLeftTimeValue(userSetCurrentTs[0]);
                 setRightTimeValue(userSetCurrentTs[1]);
-                setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, userSetCurrentTs[0])));
+                setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0])));
             } else {
                 setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs as number)));
             }
