@@ -360,9 +360,9 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         return options;
     }
 
-    function _updateTimeScope(): [number, number] {
+    function _updateTimeScope(isLeft?: boolean): [number, number] {
         let nowMaxTs: number, nowMinTs: number;
-        if (isLeftActive) {
+        if (isLeft || isLeftActive) {
             nowMaxTs = typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
             nowMinTs = Math.min(
                 nowMaxTs,
@@ -422,7 +422,14 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
             if (isRange) {
                 setIsLeftActive(true);
                 setIsRightActive(false);
-                setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0])));
+                setLeftTimeValue(userSetCurrentTs[0]);
+                setRightTimeValue(userSetCurrentTs[1]);
+                const [nowMinTs, nowMaxTs] = _updateTimeScope(true);
+                const nowCurrentTs = Math.min(nowMaxTs, Math.max(nowMinTs, userSetCurrentTs[0]));
+                setCurrentTs(nowCurrentTs);
+                if (currentTs === nowCurrentTs) {
+                    _updateTimeValue(currentTs);
+                }
             } else {
                 setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs as number)));
             }
