@@ -105,28 +105,6 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         }
     }
 
-    useEffect(() => {
-        _updateTimeValue(currentTs);
-    }, [currentTs]);
-
-    useEffect(() => {
-        const [nowMinTs, nowMaxTs] = _updateTimeScope(isLeftActive);
-        let nowCurrentTs;
-        if (isRange) {
-            nowCurrentTs = Math.min(
-                nowMaxTs,
-                Math.max(nowMinTs, isLeftActive ? leftTimeValue : rightTimeValue),
-            );
-            if (currentTs === nowCurrentTs) {
-                _updateTimeValue(currentTs);
-            }
-        } else {
-            nowCurrentTs = Math.min(nowMaxTs, Math.max(nowMinTs, currentTs));
-        }
-
-        setCurrentTs(nowCurrentTs);
-    }, [userSetMinTs, userSetMaxTs]);
-
     useImperativeHandle(ref, () => ({
         dom: pickerRef.current ? pickerRef.current.dom : null,
     }));
@@ -385,7 +363,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         return options;
     }
 
-    function _updateTimeScope(isLeft: Boolean): [number, number] {
+    function _updateTimeScope(isLeft: Boolean) {
         let nowMaxTs: number, nowMinTs: number;
         if (isLeft) {
             nowMaxTs = typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
@@ -408,16 +386,12 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         }
         setMaxTs(nowMaxTs);
         setMinTs(nowMinTs);
-        return [nowMinTs, nowMaxTs];
     }
 
     function _chooseTimeActive(index: number) {
         setIsLeftActive(index === 0);
         setIsRightActive(index === 1);
-        const [nowMinTs, nowMaxTs] = _updateTimeScope(index === 0);
-        setCurrentTs(
-            Math.min(nowMaxTs, Math.max(nowMinTs, index === 0 ? leftTimeValue : rightTimeValue)),
-        );
+        _updateTimeScope(index === 0);
     }
 
     useEffect(() => {
@@ -427,6 +401,30 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
         _initData();
     }, [currentTs, minTs, maxTs, useUTC]);
+
+    useEffect(() => {
+        _updateTimeScope(isLeftActive);
+    }, [userSetMinTs, userSetMaxTs]);
+
+    useEffect(() => {
+        let nowCurrentTs;
+        if (isRange) {
+            nowCurrentTs = Math.min(
+                maxTs,
+                Math.max(minTs, isLeftActive ? leftTimeValue : rightTimeValue),
+            );
+            if (currentTs === nowCurrentTs) {
+                _updateTimeValue(currentTs);
+            }
+        } else {
+            nowCurrentTs = Math.min(maxTs, Math.max(minTs, currentTs));
+        }
+        setCurrentTs(nowCurrentTs);
+    }, [minTs, maxTs]);
+
+    useEffect(() => {
+        _updateTimeValue(currentTs);
+    }, [currentTs]);
 
     useEffect(() => {
         if (visible) {
@@ -439,7 +437,9 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                     typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
                 setMinTs(nowMinTs);
                 setMaxTs(nowMaxTs);
-                setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, leftTimeValue)));
+                setLeftTimeValue(userSetCurrentTs[0]);
+                setRightTimeValue(userSetCurrentTs[1]);
+                setCurrentTs(Math.min(nowMaxTs, Math.max(nowMinTs, userSetCurrentTs[0])));
             } else {
                 setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs as number)));
             }
