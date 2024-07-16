@@ -422,8 +422,6 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
             if (isRange) {
                 setIsLeftActive(true);
                 setIsRightActive(false);
-                setLeftTimeValue(userSetCurrentTs[0]);
-                setRightTimeValue(userSetCurrentTs[1]);
                 setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0])));
             } else {
                 setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs as number)));
