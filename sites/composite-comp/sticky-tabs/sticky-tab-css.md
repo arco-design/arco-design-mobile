@@ -76,7 +76,7 @@ export default function StickyTabsCss() {
     .sticky-tabs-wrapper-css-nav-bar {
         position: sticky;
         background: #fff;
-        top: 44px;
+        top: 64px;
     }
 }
 ```

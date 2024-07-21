@@ -105,8 +105,8 @@ export default function StickyTabsPosition() {
         .rem(font-size, 20);
         .use-var(color, sub-info-font-color);
     }
-    .arcodesign-mobile-demo-content {
-        position: relative;
-    }
+}
+&.arcodesign-mobile-demo-content {
+    position: relative;
 }
 ```
