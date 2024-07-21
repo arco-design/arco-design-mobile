@@ -213,7 +213,11 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
 
             const disFromTop = Math.round(placeholderClientRect.top - containerTop);
             const disFromBottom = Math.round(
-                placeholderClientRect.top + calculatedHeight - containerBottom,
+                placeholderClientRect.top +
+                    calculatedHeight -
+                    (stickyStyle === 'absolute'
+                        ? offsetParentRect?.bottom || containerBottom
+                        : containerBottom),
             );
             const topFollowDifference =
                 followBottom - followOffset - calculatedHeight - topOffset - containerTop;
@@ -228,11 +232,22 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
                 ? disFromBottom >= -bottomOffset && followTop < containerBottom - followOffset
                 : false;
             const newStickyState = isTopSticky || isBottomSticky;
-
-            const cssTop = (stickyStyle === 'absolute' ? 0 : containerTop) + topOffset;
+            const cssTop =
+                (stickyStyle === 'absolute'
+                    ? Math.max(
+                          0,
+                          placeholderClientRect.top -
+                              (offsetParentRect?.top || placeholderClientRect.top), // offsetParentRect.top不存在时，用placeholderClientRect.top兜底使计算值为0
+                      )
+                    : containerTop) + topOffset;
             const cssBottom =
                 (stickyStyle === 'absolute' ? 0 : window.innerHeight - containerBottom) +
                 bottomOffset;
+            const cssLeft =
+                stickyStyle === 'absolute'
+                    ? placeholderClientRect.left - (offsetParentRect?.left || 0)
+                    : placeholderClientRect.left;
+
             let stickyCssStyle: CSSProperties = {};
             if (newStickyState) {
                 stickyCssStyle = {
@@ -253,10 +268,7 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
                                       : cssBottom + bottomFollowDifference,
                           }
                         : {}),
-                    left:
-                        stickyStyle === 'absolute'
-                            ? placeholderClientRect.left - (offsetParentRect?.left || 0)
-                            : placeholderClientRect.left,
+                    left: cssLeft,
                     width: placeholderClientRect.width,
                     ...(userSetStickyCssStyle || {}),
                 };
