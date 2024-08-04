@@ -12,6 +12,10 @@ exports.theme = {
         "light": "#FFFFFF",
         "dark": "#2A2A2B"
     },
+    "arcom-color-bg-4": {
+        "light": "#FBFCFC",
+        "dark": "#1E1E1E"
+    },
     "arcom-color-fill-2": {
         "light": "#F7F8FA",
         "dark": "hsla(0, 0%, 100%, 0.08)"
