@@ -13,14 +13,14 @@
             align-items: center;
             justify-content: center;
         }
-        &-part {
-            flex: 1 0 auto;
-        }
         &-separate {
             flex: 0 1 auto;
             .use-var(min-width, date-picker-range-separate-min-width);
         }
-        &-choice {
+    }
+    &-range-item {
+        flex: 1 0 auto;
+        &-active {
             .use-var(color, date-picker-range-font-color);
         }
     }

@@ -46,7 +46,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         typeArr = [],
         minTs: userSetMinTs = initMinDate,
         maxTs: userSetMaxTs = initMaxDate,
-        showFormatter,
+        rangeItemFormat,
         formatter = defaultFormatter,
         valueFilter = () => true,
         columnsProcessor,
@@ -59,11 +59,10 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     const isRange = typeof userSetCurrentTs !== 'number';
     const [leftTimeValue, setLeftTimeValue] = useState(userSetCurrentTs[0]);
     const [rightTimeValue, setRightTimeValue] = useState(userSetCurrentTs[1]);
-    const [isLeftActive, setIsLeftActive] = useState<Boolean>(true);
-    const [isRightActive, setIsRightActive] = useState<Boolean>(false);
+    const [activeTabIndex, setActiveTabIndex] = useState<0 | 1>(0);
     const [minTs, maxTs] = useMemo(() => {
         return _updateTimeScope();
-    }, [userSetMinTs, userSetMaxTs, isLeftActive]);
+    }, [userSetMinTs, userSetMaxTs, activeTabIndex]);
     const [currentTs, setCurrentTs] = useState(
         isRange
             ? Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0]))
@@ -75,11 +74,11 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     const minDateObjRef = useRef(_convertTsToDateObj(minTs));
     const maxDateObjRef = useRef(_convertTsToDateObj(maxTs));
     const keyOptions = useMemo(() => _getKeyOptions(), [mode, typeArr]);
-    const leftTimeString = useMemo(() => _getShowTimeValue(leftTimeValue), [leftTimeValue]);
-    const rightTimeString = useMemo(() => _getShowTimeValue(rightTimeValue), [rightTimeValue]);
+    const leftTimeString = useMemo(() => _getRangeItemValue(leftTimeValue), [leftTimeValue]);
+    const rightTimeString = useMemo(() => _getRangeItemValue(rightTimeValue), [rightTimeValue]);
     const pickerRef = useRef<PickerRef | null>(null);
 
-    function _updateTimeValue(nowCurrentTs: number) {
+    function _updateRangeValue(nowCurrentTs: number) {
         const leftMinTs = typeof userSetMinTs !== 'number' ? userSetMinTs.startTs : userSetMinTs;
         const rightMinTs = typeof userSetMinTs !== 'number' ? userSetMinTs.endTs : userSetMinTs;
         const leftMaxTs = typeof userSetMaxTs !== 'number' ? userSetMaxTs.startTs : userSetMaxTs;
@@ -87,7 +86,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
         if (isRange) {
             let leftTime: number, rightTime: number;
-            if (isLeftActive) {
+            if (activeTabIndex === 0) {
                 leftTime = nowCurrentTs;
                 rightTime = Math.min(
                     rightMaxTs,
@@ -119,41 +118,67 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         };
     }
 
-    function _getShowTimeValue(time: number) {
+    function _parseFormat(format: string, timeValue: IDateObj): string {
+        const { year, month, date, hour, minute, second } = timeValue;
+
+        const padZero = (num: number | string, targetLength = 2): string => {
+            let str = `${num}`;
+            while (str.length < targetLength) {
+                str = `0${str}`;
+            }
+            return str;
+        };
+
+        const replace = (formatArg: string, str: string, num: number) => {
+            if (formatArg.includes(str)) {
+                return str !== 'Y'
+                    ? formatArg.replace(str.repeat(2), padZero(num)).replace(str, padZero(num))
+                    : formatArg
+                          .replace(str.repeat(4), padZero(num))
+                          .replace(str.repeat(2), padZero(num))
+                          .replace(str, padZero(num));
+            }
+            return formatArg;
+        };
+
+        return [
+            ['Y', year],
+            ['M', month],
+            ['D', date],
+            ['H', hour],
+            ['m', minute],
+            ['s', second],
+        ].reduce((current, item) => {
+            return replace(current, item[0] as string, item[1] as number);
+        }, format) as string;
+    }
+
+    function _getRangeItemValue(time: number) {
         const timeValue = _convertTsToDateObj(time);
 
-        if (showFormatter) {
-            return showFormatter
-                .replace('YYYY', `${timeValue.year}`)
-                .replace('MM', `${timeValue.month}`)
-                .replace('DD', `${timeValue.date}`)
-                .replace('HH', `${timeValue.hour < 10 ? `0${timeValue.hour}` : timeValue.hour}`)
-                .replace(
-                    'mm',
-                    `${timeValue.minute < 10 ? `0${timeValue.minute}` : timeValue.minute}`,
-                )
-                .replace(
-                    'ss',
-                    `${timeValue.second < 10 ? `0${timeValue.second}` : timeValue.second}`,
-                );
+        if (!isRange) {
+            return;
         }
 
-        const datePart = (['year', 'month', 'date'] as ItemType[])
-            .filter(option => {
-                return keyOptions.includes(option);
-            })
-            .map(option => {
-                return timeValue[option] < 10 ? `0${timeValue[option]}` : `${timeValue[option]}`;
-            })
-            .join('/');
-        const timePart = (['hour', 'minute', 'second'] as ItemType[])
-            .filter(option => {
-                return keyOptions.includes(option);
-            })
-            .map(option => {
-                return timeValue[option] < 10 ? `0${timeValue[option]}` : `${timeValue[option]}`;
-            })
-            .join(':');
+        if (rangeItemFormat) {
+            return _parseFormat(rangeItemFormat, timeValue);
+        }
+
+        const format = (options: ItemType[], joinString: string) => {
+            return options
+                .filter(option => {
+                    return keyOptions.includes(option);
+                })
+                .map(option => {
+                    return timeValue[option] < 10
+                        ? `0${timeValue[option]}`
+                        : `${timeValue[option]}`;
+                })
+                .join(joinString);
+        };
+
+        const datePart = format(['year', 'month', 'date'] as ItemType[], '/');
+        const timePart = format(['hour', 'minute', 'second'] as ItemType[], ':');
 
         return datePart + (datePart && timePart && ' ') + timePart;
     }
@@ -362,7 +387,7 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
 
     function _updateTimeScope(): [number, number] {
         let nowMaxTs: number, nowMinTs: number;
-        if (isLeftActive) {
+        if (activeTabIndex === 0) {
             nowMaxTs = typeof userSetMaxTs === 'number' ? userSetMaxTs : userSetMaxTs.startTs;
             nowMinTs = Math.min(
                 nowMaxTs,
@@ -384,9 +409,8 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         return [nowMinTs, nowMaxTs];
     }
 
-    function _chooseTimeActive(index: number) {
-        setIsLeftActive(index === 0);
-        setIsRightActive(index === 1);
+    function _chooseTimeActive(index: 0 | 1) {
+        setActiveTabIndex(index);
     }
 
     useEffect(() => {
@@ -402,10 +426,10 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
         if (isRange) {
             nowCurrentTs = Math.min(
                 maxTs,
-                Math.max(minTs, isLeftActive ? leftTimeValue : rightTimeValue),
+                Math.max(minTs, activeTabIndex === 0 ? leftTimeValue : rightTimeValue),
             );
             if (currentTs === nowCurrentTs) {
-                _updateTimeValue(currentTs);
+                _updateRangeValue(currentTs);
             }
         } else {
             nowCurrentTs = Math.min(maxTs, Math.max(minTs, currentTs));
@@ -414,16 +438,14 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     }, [minTs, maxTs]);
 
     useEffect(() => {
-        _updateTimeValue(currentTs);
+        _updateRangeValue(currentTs);
     }, [currentTs]);
 
     useEffect(() => {
         if (visible) {
+            // 初始化当前时间
             if (isRange) {
-                setIsLeftActive(true);
-                setIsRightActive(false);
-                setLeftTimeValue(userSetCurrentTs[0]);
-                setRightTimeValue(userSetCurrentTs[1]);
+                setActiveTabIndex(0);
                 setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0])));
             } else {
                 setCurrentTs(Math.min(maxTs, Math.max(minTs, userSetCurrentTs as number)));
@@ -451,11 +473,14 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                             ? () => (
                                   <div className={`${prefixCls}-date-picker-show`}>
                                       <span
-                                          className={`${
-                                              isLeftActive
-                                                  ? `${prefixCls}-date-picker-show-choice`
-                                                  : ''
-                                          } ${prefixCls}-date-picker-show-part`}
+                                          className={cls(
+                                              `${
+                                                  activeTabIndex === 0
+                                                      ? `${prefixCls}-date-picker-range-item-active`
+                                                      : ''
+                                              }`,
+                                              `${prefixCls}-date-picker-range-item`,
+                                          )}
                                           onClick={() => _chooseTimeActive(0)}
                                       >
                                           {leftTimeString}
@@ -471,11 +496,14 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                                       )}
 
                                       <span
-                                          className={`${
-                                              isRightActive
-                                                  ? `${prefixCls}-date-picker-show-choice`
-                                                  : ''
-                                          } ${prefixCls}-date-picker-show-part`}
+                                          className={cls(
+                                              `${
+                                                  activeTabIndex === 1
+                                                      ? `${prefixCls}-date-picker-range-item-active`
+                                                      : ''
+                                              }`,
+                                              `${prefixCls}-date-picker-range-item`,
+                                          )}
                                           onClick={() => _chooseTimeActive(1)}
                                       >
                                           {rightTimeString}

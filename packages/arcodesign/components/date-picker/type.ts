@@ -108,7 +108,7 @@ export interface DatePickerProps
      * 日期时间范围选择展示格式
      * @en Time range picker display format
      */
-    showFormatter?: string;
+    rangeItemFormat?: string;
     /**
      * 各可选项展示的格式化方法，参数type为ItemTypes，参数value为当前行的值，返回展示的文字
      * @en The formatting method of each optional item, the parameter type is ItemTypes, the parameter value is the value of the current row, and the displayed text is returned.
