@@ -30,6 +30,13 @@ function esmBuild() {
         .pipe(gulp.dest('esm'));
 }
 
+function esnextBuild() {
+    return gulp
+        .src('components/**/*.{ts,tsx}')
+        .pipe(ts.createProject('./esnext-tsconfig.json', { emitDeclarationOnly: false })())
+        .pipe(gulp.dest('esnext'));
+}
+
 function umdBuild() {
     return gulp
         .src('components/**/*.{ts,tsx}')
@@ -58,7 +65,8 @@ function copyLess() {
         )
         .pipe(gulp.dest('esm'))
         .pipe(gulp.dest('umd'))
-        .pipe(gulp.dest('cjs'));
+        .pipe(gulp.dest('cjs'))
+        .pipe(gulp.dest('esnext'));
 }
 
 function buildStyle(src) {
@@ -98,7 +106,7 @@ function entryLessBuild() {
 function moveCss() {
     try {
         allCss.forEach(file => {
-            ['esm', 'umd', 'cjs'].forEach(type => {
+            ['esm', 'umd', 'cjs', 'esnext'].forEach(type => {
                 const filePath = path.join('_temp_style_', file);
                 const newPath = path.join(type, path.dirname(file), 'css');
                 fs.mkdirpSync(newPath);
@@ -131,7 +139,7 @@ function buildCssEntry(type) {
 function moveCssEntry() {
     try {
         allCssEntry.forEach(file => {
-            ['esm', 'umd', 'cjs'].forEach(type => {
+            ['esm', 'umd', 'cjs', 'esnext'].forEach(type => {
                 const filePath = path.join('_temp_style_entry_', type, file);
                 const newPath = path.join(type, path.dirname(file), 'css');
                 fs.mkdirpSync(newPath);
@@ -149,11 +157,11 @@ function moveCssEntry() {
 gulp.task(
     'build',
     gulp.series(
-        gulp.parallel(dtsBuild, esmBuild, umdBuild, cjsBuild), // js 部分编译打包
+        gulp.parallel(dtsBuild, esmBuild, umdBuild, cjsBuild, esnextBuild), // js 部分编译打包
         copyLess, // 复制less文件到产物中
         gulp.parallel(lessBuild, entryLessBuild), // 编译less文件为css
         moveCss, // css产物放到css文件夹中
-        ...['esm', 'umd', 'cjs'].map(type => buildCssEntry(type)), // css中的js入口生成
+        ...['esm', 'umd', 'cjs', 'esnext'].map(type => buildCssEntry(type)), // css中的js入口生成
         moveCssEntry, // css入口js放到css文件夹中
     ),
 );

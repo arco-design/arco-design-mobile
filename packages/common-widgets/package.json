@@ -16,5 +16,6 @@
     "gitHead": "8b2b5c2694e65be7a57a4f8d8d1af5db4601fda2",
     "dependencies": {
         "es6-promise": "^4.2.8"
-    }
+    },
+    "sideEffects": false
 }
