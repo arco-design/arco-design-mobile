@@ -563,6 +563,11 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             if (posAdjustingRef.current) {
                 return;
             }
+            // touchMove触发时，阻止handleTouchStart多次执行（如点击事件）
+            // @en When touchMove is triggered, prevent handleTouchStart from executing multiple times (such as click events)
+            if (touchStartedRef.current && touchMovedRef.current) {
+                return;
+            }
             touchStartedRef.current = true;
             touchMovedRef.current = false;
             clear();
@@ -1034,16 +1039,18 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             jumpTo(index, false);
             return;
         }
-        if (
-            !touchStartedRef.current ||
-            !touchMovedRef.current ||
-            posAdjustingRef.current ||
-            touchStoppedRef.current
-        ) {
+        if (!touchStartedRef.current) {
             return;
         }
         touchStartedRef.current = false;
+        if (!touchMovedRef.current) {
+            setPlayIntervalRef.current();
+            return;
+        }
         touchMovedRef.current = false;
+        if (posAdjustingRef.current || touchStoppedRef.current) {
+            return;
+        }
         const touchEndTime = new Date().getTime();
         const dis = Math.abs(distance);
         const speed = (dis / (touchEndTime - touchStartTimeRef.current)) * 1000;
