@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.19.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.6...@arco-design/mobile-utils@2.19.0) (2024-08-16)
+
+
+### Features
+
+* build output support esnext ([0308755](https://github.com/arco-design/arco-design-mobile/commit/030875530d1068e801962c6fc57b9b3e1916772e))
+
+
+
+
+
 ## [2.18.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.5...@arco-design/mobile-utils@2.18.6) (2024-07-09)
 
 **Note:** Version bump only for package @arco-design/mobile-utils

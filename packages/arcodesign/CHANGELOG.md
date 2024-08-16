@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.32.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.6...@arco-design/mobile-react@2.32.0) (2024-08-16)
+
+
+### Features
+
+* build output support esnext ([0308755](https://github.com/arco-design/arco-design-mobile/commit/030875530d1068e801962c6fc57b9b3e1916772e))
+* export helpers render func ([9c0213b](https://github.com/arco-design/arco-design-mobile/commit/9c0213bc3a548b379491ada5fc747657a4a20a85))
+
+
+
+
+
 ## [2.31.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.5...@arco-design/mobile-react@2.31.6) (2024-07-09)
 
 
