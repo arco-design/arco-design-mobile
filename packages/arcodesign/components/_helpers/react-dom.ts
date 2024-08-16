@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 
 function isObject(obj: any): obj is { [key: string]: any } {
     return Object.prototype.toString.call(obj) === '[object Object]';
@@ -14,12 +14,12 @@ export interface RootTypeReact extends RootType {
 }
 export type CreateRootFnType = (container: Element | DocumentFragment) => RootTypeReact;
 
-const __SECRET_INTERNALS__ = '__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED';
-
-const CopyReactDOM = ReactDOM as typeof ReactDOM & {
+const CopyReactDOM = {
+    ...ReactDOM,
+} as typeof ReactDOM & {
     createRoot: CreateRootFnType;
     // https://github.com/facebook/react/blob/4ff5f5719b348d9d8db14aaa49a48532defb4ab7/packages/react-dom/src/client/ReactDOM.js#L181
-    [__SECRET_INTERNALS__]: {
+    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED?: {
         usingClientEntryPoint?: boolean;
     };
 };
@@ -32,19 +32,22 @@ let copyRender: (
     _unmount: () => void;
 };
 
-const isReact18 = Number(CopyReactDOM.version?.split('.')[0]) > 17;
+const { version, render: reactRender, unmountComponentAtNode } = CopyReactDOM;
+
+const isReact18 = Number((version || '').split('.')[0]) > 17;
 
 const updateUsingClientEntryPoint = (skipWarning?: boolean) => {
     // https://github.com/facebook/react/blob/17806594cc28284fe195f918e8d77de3516848ec/packages/react-dom/npm/client.js#L10
     // Avoid console warning
-    if (isObject(CopyReactDOM[__SECRET_INTERNALS__])) {
-        CopyReactDOM[__SECRET_INTERNALS__].usingClientEntryPoint = skipWarning;
+    const { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } = CopyReactDOM;
+    if (isObject(__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED)) {
+        __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.usingClientEntryPoint = skipWarning;
     }
 };
 
 let createRoot: CreateRootFnType | undefined;
 try {
-    createRoot = CopyReactDOM.createRoot;
+    ({ createRoot } = CopyReactDOM);
 } catch (_) {}
 
 if (isReact18 && createRoot) {
@@ -64,14 +67,14 @@ if (isReact18 && createRoot) {
     };
 } else {
     copyRender = function (app: ReactElement, container: Element | DocumentFragment) {
-        CopyReactDOM.render(app, container);
+        reactRender(app, container);
 
         return {
             render: (comment: ReactElement) => {
-                CopyReactDOM.render(comment, container);
+                reactRender(comment, container);
             },
             _unmount() {
-                CopyReactDOM.unmountComponentAtNode(container);
+                unmountComponentAtNode(container);
             },
         };
     };
