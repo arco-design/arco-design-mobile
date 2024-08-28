@@ -1,6 +1,6 @@
-## 自定义样式 @en{Custom Avatar}
+## 自定义样式 @en{Custom Style}
 
-#### 7
+#### 8
 
 ```js
 import { Avatar } from '@arco-design/mobile-react';
