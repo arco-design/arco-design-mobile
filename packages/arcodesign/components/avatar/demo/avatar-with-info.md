@@ -1,6 +1,6 @@
 ## 加文字(单行文字时，文字与头像水平居中) @en{Add text (for single-line text, the text and the avatar are centered horizontally)}
 
-#### 8
+#### 9
 
 ```js
 import { Avatar } from '@arco-design/mobile-react';
