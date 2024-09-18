@@ -134,7 +134,7 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
                   class="arco-input"
                   placeholder="Please input age"
                   type="text"
-                  value=""
+                  value="11"
                 />
               </div>
             </div>
@@ -783,7 +783,7 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
             <div
               aria-valuemax="100"
               aria-valuemin="0"
-              aria-valuenow="0"
+              aria-valuenow=""
               class="arco-slider  is-horizontal show-tooltip"
               role="slider"
             >
@@ -799,7 +799,7 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
                 >
                   <div
                     class="arco-slider-line is-activated is-transferable"
-                    style="height: 2px; left: 0px; width: 0px;"
+                    style="height: 2px;"
                   >
                     <div
                       class="arco-slider-thumb-wrapper is-end"
@@ -819,16 +819,59 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
           </div>
         </div>
       </div>
-      <button
-        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
-        type="button"
+      <div
+        class="arco-form-item arco-form-item-horizontal arco-form-item-warning"
       >
         <div
-          class="arco-button-text arco-button-text-pc btn-text"
+          class="arco-form-label-item"
         >
-          Submit
+          comment
         </div>
-      </button>
+        <div
+          class="arco-form-item-control-wrapper"
+        >
+          <div
+            class="arco-form-item-control"
+          >
+            <div
+              class="arco-input-container all-border-box "
+              role="search"
+            >
+              <div
+                class="arco-input-wrap textarea  border-none pc"
+              >
+                <textarea
+                  class="arco-textarea"
+                  placeholder="Please enter the description of no less than 10 characters"
+                  style="height: 0px;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button
+          class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Submit
+          </div>
+        </button>
+        <button
+          class="arco-button arco-button-type-default type-default arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          type="button"
+        >
+          <div
+            class="arco-button-text arco-button-text-pc btn-text"
+          >
+            Reset
+          </div>
+        </button>
+      </div>
     </form>
   </div>
 </DocumentFragment>
