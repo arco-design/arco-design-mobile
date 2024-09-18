@@ -138,6 +138,17 @@ export default function FormDemo() {
                 <Form.Item field="progress" label="Progress">
                     <Slider />
                 </Form.Item>
+                  <Form.Item field="comment" label="comment">
+
+                    <Textarea
+                        showStatistics={false}
+                        placeholder="Please enter the description of no less than 10 characters"
+                        border="none"
+                        textareaStyle={{ height: 55 }}
+                        autosize
+                        autoHeight
+                    />
+                </Form.Item>
                 <div>
                   <Button needActive onClick={toSubmit}>
                     Submit

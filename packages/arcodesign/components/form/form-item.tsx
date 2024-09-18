@@ -43,7 +43,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
 
     private _touched = false;
 
-    constructor(props: IFormItemInnerProps,  context: IFormItemContext) {
+    constructor(props: IFormItemInnerProps, context: IFormItemContext) {
         super(props);
         this.destroyField = () => {};
         if (props?.initialValue && props.field) {
