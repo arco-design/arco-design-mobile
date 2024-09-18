@@ -6,6 +6,7 @@ export default function useInputEvent(
     params: Required<Pick<StepperProps, 'defaultValue' | 'min' | 'max' | 'digits' | 'allowEmpty'>> &
         Pick<StepperProps, 'onBlur' | 'onChange' | 'onInput'> & {
             actualInputValue: number;
+            innerValue: number;
             updateValue: (updater: number | ((oldValue: number) => number)) => void;
         },
 ) {
@@ -15,6 +16,7 @@ export default function useInputEvent(
         max,
         digits,
         actualInputValue,
+        innerValue,
         allowEmpty,
         updateValue,
         onBlur,
@@ -53,8 +55,8 @@ export default function useInputEvent(
     };
 
     useUpdateEffect(() => {
-        onChange && onChange(actualInputValue);
-    }, [actualInputValue]);
+        onChange && onChange(innerValue);
+    }, [innerValue]);
 
     return {
         handleInput,

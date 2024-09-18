@@ -3751,6 +3751,11 @@ function getCompTokens() {
          */
         indexBarSidebarToastFontSize: getRem(24),
         /**
+         * 步进器整体宽度
+         * @en Width of Stepper
+         */
+        stepperWidth: getRem(98),
+        /**
          * 步进器字体大小
          * @en Font size of Stepper
          */
@@ -4224,7 +4229,6 @@ function getCompTokens() {
          * @en Error status color of the text in the uploader list
          */
         uploaderItemTextErrorColor: useGlobal('dangerColor'),
-
     };
 }
 

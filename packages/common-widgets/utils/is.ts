@@ -191,7 +191,9 @@ export function isDeepEqual(obj: any, sub: any): boolean {
         return false;
     }
     for (const key in obj) {
-        if (!isDeepEqual(obj[key], sub[key])) return false;
+        if (!isDeepEqual(obj[key], sub[key])) {
+            return false;
+        }
     }
     return true;
 }
