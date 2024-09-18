@@ -79,11 +79,11 @@ export default function FormDemo() {
         e.preventDefault();
     };
     const handleInput = (e, value) => {
-        // if(/^[0-9]*$/.test(value)) {
-        //     formRef.current.form.setFieldValue('age', value);
-        // } else {
-        //     formRef.current.form.setFieldValue('age', 0);
-        // }
+        if(/^[0-9]*$/.test(value)) {
+            formRef.current.form.setFieldValue('age', value);
+        } else {
+            formRef.current.form.setFieldValue('age', 0);
+        }
     }
     return (
         <div>
