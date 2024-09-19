@@ -22,7 +22,7 @@ import {
     FormItemRef,
     FormInternalComponentType,
     ValueChangeType,
-    IFormItemContext
+    IFormItemContext,
 } from './type';
 import { getErrorAndWarnings, isFieldRequired } from './utils';
 import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
