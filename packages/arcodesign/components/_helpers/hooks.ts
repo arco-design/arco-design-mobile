@@ -63,12 +63,12 @@ export function useMountedState<S>(initialState: S | (() => S)) {
         }
         setState(value);
     }, []);
-    useEffect(
-        () => () => {
+    useEffect(() => {
+        leavingRef.current = false;
+        return () => {
             leavingRef.current = true;
-        },
-        [],
-    );
+        };
+    }, []);
     const result: [S, typeof setState] = [state, setValidState];
     return result;
 }
