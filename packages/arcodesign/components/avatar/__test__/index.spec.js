@@ -54,4 +54,27 @@ describe('Avatar', () => {
         const groupElements = container.querySelectorAll(`.${prefix}-wrapper`);
         expect(groupElements).toHaveLength(7);
     });
+
+    // 测试 avatarStyle 和 avatarClass 属性
+    // Test avatarStyle and avatarClass properties
+    it('avatarStyle and avatarClass render correctly', () => {
+        const { container } = render(
+            <div>
+                <Avatar avatarClass="avatar-1" />
+                <Avatar shape="square" avatarClass="avatar-2" className="avatar-left-margin" />
+            </div>,
+        );
+
+        // 通过查询选择器找到带有 'avatar-1' 类的元素，并确保它存在
+        // Find the element with the 'avatar-1' class using a query selector and ensure it exists
+        const avatar1Element = container.querySelectorAll('.avatar-1');
+        expect(avatar1Element).toHaveLength(1);
+        expect(avatar1Element[0].classList.contains('arco-avatar')).toBe(true);
+
+        // 通过查询选择器找到带有 'avatar-2' 类的元素，并确保它存在
+        // Find the element with the 'avatar-2' class using a query selector and ensure it exists
+        const avatar2Element = container.querySelectorAll('.avatar-2');
+        expect(avatar2Element).toHaveLength(1);
+        expect(avatar2Element[0].classList.contains('arco-avatar')).toBe(true);
+    });
 });
