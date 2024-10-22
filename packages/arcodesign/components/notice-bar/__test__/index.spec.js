@@ -90,6 +90,7 @@ describe('NoticeBar actions', () => {
         const closeIcon = container.querySelectorAll(`.${prefixCls}-icon-close`)[0];
         userEvent.click(closeIcon);
         expect(onClickRight.mock.calls.length).toBe(1);
+        expect(container.querySelectorAll(`.${prefix}`).length).toBe(0);
     });
 
     it('Should support using ref to update', () => {
