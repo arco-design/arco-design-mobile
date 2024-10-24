@@ -1,8 +1,12 @@
-@import "../../../style/mixin.less";
+@import '../../../style/mixin.less';
 
 .@{prefix}-steps {
     display: flex;
     .use-var(padding, steps-padding);
+
+    &.reverse-order {
+        flex-direction: row-reverse;
+    }
 
     &-item {
         position: relative;
@@ -30,6 +34,20 @@
             visibility: hidden;
         }
 
+        &:first-child &-tail::after,
+        &:last-child &-tail::before {
+            .reverse-order & {
+                visibility: hidden;
+            }
+        }
+
+        &:first-child &-tail::before,
+        &:last-child &-tail::after {
+            .reverse-order & {
+                visibility: visible;
+            }
+        }
+
         &-tail {
             position: absolute;
             display: flex;
@@ -50,7 +68,7 @@
                     .use-var(padding, steps-tail-horizontal-padding);
 
                     &::after {
-                        content: "";
+                        content: '';
                         width: 100%;
                         .use-var(border-radius, steps-tail-border-radius);
                     }
@@ -59,7 +77,7 @@
                 &-align-center {
                     &::before,
                     &::after {
-                        content: "";
+                        content: '';
                         width: 50%;
                     }
                     &::before {
@@ -90,7 +108,7 @@
                     .use-var(padding, steps-tail-vertical-padding);
 
                     &::after {
-                        content: "";
+                        content: '';
                         height: 100%;
                         .use-var(border-radius, steps-tail-border-radius);
                     }
@@ -99,7 +117,7 @@
                 &-align-center {
                     &::before,
                     &::after {
-                        content: "";
+                        content: '';
                         height: 50%;
                     }
                     &::before {
@@ -126,6 +144,20 @@
             &-align-center&-status-process::before,
             &-align-center&-status-error::before {
                 .use-var(background, steps-tail-finish-background);
+            }
+
+            &-status-finish::before,
+            &-status-process::after,
+            &-align-center&-status-error::after {
+                .reverse-order & {
+                    .use-var(background, steps-tail-finish-background);
+                }
+            }
+            &-status-process::before,
+            &-align-center&-status-error::before {
+                .reverse-order & {
+                    .use-var(background, steps-tail-standard-background);
+                }
             }
         }
 
@@ -206,7 +238,6 @@
         }
 
         &-content {
-
             .horizontal & {
                 .use-var(margin-top, steps-horizontal-content-margin-top);
                 &-align-center {
@@ -262,6 +293,10 @@
     }
 
     &.vertical {
+        &.reverse-order {
+            flex-direction: column-reverse;
+        }
+
         flex-direction: column;
         .use-var(padding-bottom, steps-vertical-padding-bottom);
         .use-var-with-rtl(padding-left, steps-vertical-padding-left);

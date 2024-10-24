@@ -11,6 +11,7 @@
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |className|自定义类名|string|-|
+|reverseOrder|顺序反转，设置为true后，顺序将从右到左，从下到上|boolean|-|
 |style|自定义样式，如果想用 css 控制 icon 颜色，可使用公共 mixin '\.set\-steps\-color(@color)'|CSSProperties|-|
 |direction|步骤条方向|"vertical" \| "horizontal"|horizontal|
 |align|步骤条对齐方式|"center" \| "start"|direction="horizontal" 时默认为 "center"，direction="vertical" 时默认为 "start"|
