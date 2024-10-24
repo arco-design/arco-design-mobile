@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.33.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.32.0...@arco-design/mobile-react@2.33.0) (2024-10-24)
+
+
+### Bug Fixes
+
+* fix carousel scrolling bug when trigger click ([8b62ee3](https://github.com/arco-design/arco-design-mobile/commit/8b62ee3dfe489fc1890f099cc26c527d94f4ddbd))
+
+
+### Features
+
+* `Steps` support reverse order ([#287](https://github.com/arco-design/arco-design-mobile/issues/287)) ([8ed5614](https://github.com/arco-design/arco-design-mobile/commit/8ed5614d385d20bfb5fa1ada83d7f56e9f1c5150))
+* add custom class support to `Avatar` component ([#285](https://github.com/arco-design/arco-design-mobile/issues/285)) ([8a37b7c](https://github.com/arco-design/arco-design-mobile/commit/8a37b7cbd05bacb457a3c2692a66a6a02cd7646f))
+
+
+
+
+
 # [2.32.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.6...@arco-design/mobile-react@2.32.0) (2024-08-16)
 
 

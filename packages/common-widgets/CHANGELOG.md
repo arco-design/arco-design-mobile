@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.20.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.19.0...@arco-design/mobile-utils@2.20.0) (2024-10-24)
+
+
+### Features
+
+* `Steps` support reverse order ([#287](https://github.com/arco-design/arco-design-mobile/issues/287)) ([8ed5614](https://github.com/arco-design/arco-design-mobile/commit/8ed5614d385d20bfb5fa1ada83d7f56e9f1c5150))
+
+
+
+
+
 # [2.19.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.6...@arco-design/mobile-utils@2.19.0) (2024-08-16)
 
 
