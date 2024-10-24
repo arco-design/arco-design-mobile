@@ -11,6 +11,7 @@ Display the progress of a task, or guide users to complete a complex task.
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
 |className|Custom classname|string|-|
+|reverseOrder|reverse the order from right to left and from bottom to top|boolean|-|
 |style|Custom stylesheet\. If want to use CSS to control icon color, use public mixin '\.set\-steps\-color(|CSSProperties|-|
 |direction|Step bar direction|"vertical" \| "horizontal"|horizontal|
 |align|Step alignment|"center" \| "start"|"center" when direction="horizontal" and "start" when direction="vertical"|

@@ -9,7 +9,7 @@ import React, {
     useState,
     useEffect,
 } from 'react';
-import { componentWrapper } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Step from './step';
 import { useSystem, useRefState } from '../_helpers';
@@ -18,7 +18,7 @@ import { StepsProps, StepsRef } from './type';
 export * from './type';
 
 export const StepsContext = createContext<
-    Pick<StepsProps, 'iconType' | 'current' | 'direction' | 'status' | 'align'> & {
+    Pick<StepsProps, 'iconType' | 'current' | 'direction' | 'status' | 'align' | 'reverseOrder'> & {
         index?: number;
         changeIndex: (newIndex: number) => void;
     }
@@ -36,6 +36,7 @@ const Steps = forwardRef((props: StepsProps, ref: Ref<StepsRef>) => {
         defaultIndex = 0,
         status = 'process',
         items,
+        reverseOrder = false,
         onClick,
         onChange,
     } = props;
@@ -72,6 +73,7 @@ const Steps = forwardRef((props: StepsProps, ref: Ref<StepsRef>) => {
                     index,
                     status: activeIndex === index ? status : void 0,
                     align,
+                    reverseOrder,
                     changeIndex,
                 }}
                 key={index}
@@ -86,7 +88,12 @@ const Steps = forwardRef((props: StepsProps, ref: Ref<StepsRef>) => {
         <ContextLayout>
             {({ prefixCls }) => (
                 <div
-                    className={`${prefixCls}-steps all-border-box ${className} ${direction} ${system}`}
+                    className={cls(
+                        `${prefixCls}-steps all-border-box ${className} ${direction} ${system}`,
+                        {
+                            'reverse-order': reverseOrder,
+                        },
+                    )}
                     style={style}
                     ref={domRef}
                 >

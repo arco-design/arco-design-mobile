@@ -530,7 +530,7 @@
  * }
  * ```
  */
-.set-steps-color(@color, @finish-color: fade(@color, 10%)) {
+.set-steps-color(@color, @finish-color: fade(@color, 10%), @reverse: false) {
     .process-bg-color-with-config,
     .process-custom-icon-bg-color-with-config {
         background: @color;
@@ -553,8 +553,20 @@
     }
     .finish-tail-color-with-config::before,
     .finish-tail-color-with-config::after,
-    .process-tail-color-with-config::before,
     .error-tail-color-with-config::before {
         background: @color;
     }
+
+    & when (@reverse = true) {
+        .process-tail-color-with-config::after {
+            background: @color;
+        }
+    }
+
+    & when (@reverse = false) {
+        .process-tail-color-with-config::before {
+            background: @color;
+        }
+    }
+
 }
