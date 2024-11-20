@@ -1,0 +1,62 @@
+name: PR Preview
+
+on:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '16'
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build site:home
+              run: npm run site:home
+
+            - name: Build site:pc
+              run: npm run site:pc
+
+            - name: Build site:mobile
+              run: npm run site:mobile
+
+            - name: Merge output directories
+              run: |
+                  mkdir merged_output
+                  cp -R output/* merged_output/
+                  cp -R output_resource/* merged_output/
+
+            - name: Install Surge
+              run: npm install --global surge
+
+            - name: Deploy to Surge
+              env:
+                  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+              run: |
+                  surge ./merged_output adm-pr-${{ github.event.number }}.surge.sh --token $SURGE_TOKEN
+
+            - name: Comment PR with Preview Link
+              uses: actions/github-script@v6
+              with:
+                  script: |
+                      const url = `https://adm-pr-${{ github.event.number }}.surge.sh`
+                      const message = `
+✨ **PR Preview Link**: ${url}
+✨ **PR 预览链接**: ${url}
+                      `
+                      github.rest.issues.createComment({
+                          issue_number: context.issue.number,
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          body: message.trim()
+                      })
