@@ -64,6 +64,7 @@ export function useMountedState<S>(initialState: S | (() => S)) {
         setState(value);
     }, []);
     useEffect(() => {
+        // see: https://github.com/arco-design/arco-design-mobile/pull/292
         leavingRef.current = false;
         return () => {
             leavingRef.current = true;
