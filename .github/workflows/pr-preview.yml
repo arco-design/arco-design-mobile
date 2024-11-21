@@ -10,8 +10,58 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '16'
+
+            - name: Install dependencies
+              run: npm install
+
             - name: Set ARCO_SITE_DOMAIN
               run: echo "ARCO_SITE_DOMAIN=preview-${{ github.event.number }}-arco-design-mobile.surge.sh" >> $GITHUB_ENV
+
+            - name: Build site:home
+              run: npm run site:home
+              env:
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
+
+            - name: Build site:pc
+              run: npm run site:pc
+              env:
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
+
+            - name: Build site:mobile
+              run: npm run site:mobile
+              env:
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
+
+            - name: Merge output directories
+              run: |
+                  # 合并文件
+                  cp -R output_resource/* output/page/
+                  # 创建目标目录
+                  mkdir -p merged_output/mobile/react/arco-design/pc
+                  mkdir -p merged_output/mobile/react/arco-design/mobile
+                  # 移动目录内容
+                  mv output/page/home/* merged_output/mobile/react/
+                  mv output/page/pc/* merged_output/mobile/react/arco-design/pc/
+                  mv output/page/mobile/* merged_output/mobile/react/arco-design/mobile/
+                  # 创建重定向 HTML 文件
+                  echo '<html><head><meta http-equiv="refresh" content="0; url=/mobile/react/" /></head><body></body></html>' > merged_output/index.html
+
+            - name: Install Surge
+              run: npm install --global surge
+
+            - name: Deploy to Surge
+              env:
+                  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
+              run: |
+                  surge ./merged_output ${{ env.ARCO_SITE_DOMAIN }} --token $SURGE_TOKEN
 
             - name: Find Comment
               uses: peter-evans/find-comment@v2
@@ -21,18 +71,13 @@ jobs:
                   comment-author: 'github-actions[bot]'
                   body-includes: PR Preview Link
 
-            - name: Get Current Time
-              run: echo "CURRENT_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
-
             - name: Comment PR with Preview Link
               uses: peter-evans/create-or-update-comment@v2
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-                  CURRENT_TIME: ${{ env.CURRENT_TIME }}
               with:
                   issue-number: ${{ github.event.pull_request.number }}
                   comment-id: ${{ steps.fc.outputs.comment-id }}
                   edit-mode: replace
                   body: |
-                      ✨ **PR Preview Link**: [https://${{ env.ARCO_SITE_DOMAIN }}](https://${{ env.ARCO_SITE_DOMAIN }})  
-                      🕒 **Current Time**: ${{ env.CURRENT_TIME }}
+                      ✨ **PR Preview Link**: [https://${{ env.ARCO_SITE_DOMAIN }}](https://${{ env.ARCO_SITE_DOMAIN }})
