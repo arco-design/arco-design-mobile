@@ -50,10 +50,7 @@ jobs:
               with:
                   script: |
                       const url = `https://adm-pr-${{ github.event.number }}.surge.sh`
-                      const message = `
-✨ **PR Preview Link**: ${url}
-✨ **PR 预览链接**: ${url}
-                      `
+                      const message = `✨ **PR Preview Link**: ${url} \n **PR 预览链接**: ${url}`
                       github.rest.issues.createComment({
                           issue_number: context.issue.number,
                           owner: context.repo.owner,
