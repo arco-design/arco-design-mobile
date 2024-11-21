@@ -32,6 +32,7 @@ jobs:
               with:
                   issue-number: ${{ github.event.pull_request.number }}
                   comment-id: ${{ steps.fc.outputs.comment-id }}
+                  edit-mode: replace
                   body: |
-                      ## ✨ **PR Preview Link**: [https://${{ env.ARCO_SITE_DOMAIN }}](https://${{ env.ARCO_SITE_DOMAIN }})  
+                      ✨ **PR Preview Link**: [https://${{ env.ARCO_SITE_DOMAIN }}](https://${{ env.ARCO_SITE_DOMAIN }})  
                       🕒 **Current Time**: ${{ env.CURRENT_TIME }}
