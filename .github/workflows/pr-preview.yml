@@ -108,8 +108,8 @@ jobs:
                       const deployMinutes = Math.floor(process.env.DEPLOY_DURATION / 60);
                       const deploySeconds = process.env.DEPLOY_DURATION % 60;
 
-                      const message = `## ✨ **PR Preview Link**: [${url}](${url})\n` +
-                                      `⏱ **Build Time**: ${buildMinutes}m ${buildSeconds}s\n` +
+                      const message = `## ✨ **PR Preview Link**: [${url}](${url})  \n` +
+                                      `⏱ **Build Time**: ${buildMinutes}m ${buildSeconds}s  \n` +
                                       `🚀 **Deploy Time**: ${deployMinutes}m ${deploySeconds}s`;
 
                       // 获取所有评论
