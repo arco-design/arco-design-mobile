@@ -17,6 +17,7 @@ yarn.lock
 # package-lock.json
 output/
 output_resource/
+merged_output/
 .history
 *.func-info.json
 *.mixin-info.json

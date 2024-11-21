@@ -33,7 +33,7 @@ jobs:
             - name: Merge output directories
               run: |
                   mkdir merged_output
-                  cp -R output/* merged_output/
+                  cp -R output/page/* merged_output/
                   cp -R output_resource/* merged_output/
 
             - name: Install Surge
