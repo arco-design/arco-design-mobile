@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.34.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.33.0...@arco-design/mobile-react@2.34.0) (2024-11-21)
+
+
+### Bug Fixes
+
+* `Popover` custom show transition animation ([#297](https://github.com/arco-design/arco-design-mobile/issues/297)) ([c3ceaf2](https://github.com/arco-design/arco-design-mobile/commit/c3ceaf2a7571626c298132b2c486d7128a748007))
+* fix `useMountedState` in `hooks.ts` not correct init leavingRef in StrictMode. ([#292](https://github.com/arco-design/arco-design-mobile/issues/292)) ([af2bf5d](https://github.com/arco-design/arco-design-mobile/commit/af2bf5d5428eec252cac565ef708b2af6e0106a2))
+
+
+### Features
+
+* add a FAQ in the `Dialog`. ([#302](https://github.com/arco-design/arco-design-mobile/issues/302)) ([55f6940](https://github.com/arco-design/arco-design-mobile/commit/55f69406a3411faf5e67b2ef05a552121a9d3c04))
+* optimize `Divider` hairline style ([99b1604](https://github.com/arco-design/arco-design-mobile/commit/99b16041aa8e4b71a82ffb5744f180ee9273ef3b))
+* optimize `NoticeBar` close ([#294](https://github.com/arco-design/arco-design-mobile/issues/294)) ([a717540](https://github.com/arco-design/arco-design-mobile/commit/a7175403158c43c209b58c27cd994643f822aeeb))
+
+
+
+
+
 # [2.33.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.32.0...@arco-design/mobile-react@2.33.0) (2024-10-24)
 
 
