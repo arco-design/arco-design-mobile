@@ -21,13 +21,17 @@ jobs:
                   comment-author: 'github-actions[bot]'
                   body-includes: PR Preview Link
 
+            - name: Get Current Time
+              run: echo "CURRENT_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
+
             - name: Comment PR with Preview Link
               uses: peter-evans/create-or-update-comment@v2
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
+                  CURRENT_TIME: ${{ env.CURRENT_TIME }}
               with:
                   issue-number: ${{ github.event.pull_request.number }}
                   comment-id: ${{ steps.fc.outputs.comment-id }}
                   body: |
                       ## ✨ **PR Preview Link**: [https://${{ env.ARCO_SITE_DOMAIN }}](https://${{ env.ARCO_SITE_DOMAIN }})  
-                      🕒 **Current Time**: ${{ github.run_started_at }}
+                      🕒 **Current Time**: ${{ env.CURRENT_TIME }}
