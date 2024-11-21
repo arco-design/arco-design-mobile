@@ -13,6 +13,9 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v2
 
+            - name: Set ARCO_SITE_DOMAIN
+              run: echo "ARCO_SITE_DOMAIN=preview-${{ github.event.number }}-arco-design-mobile.surge.sh" >> $GITHUB_ENV
+
             - name: Set up Node.js
               uses: actions/setup-node@v2
               with:
@@ -20,21 +23,33 @@ jobs:
 
             - name: Install dependencies
               run: npm install
+              env:
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
 
             - name: Build site:home
               run: npm run site:home
+              env:
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
 
             - name: Build site:pc
               run: npm run site:pc
+              env:
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
 
             - name: Build site:mobile
               run: npm run site:mobile
+              env:
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
 
             - name: Merge output directories
               run: |
                   mkdir merged_output
                   cp -R output/page/* merged_output/
                   cp -R output_resource/* merged_output/
+                  // 移动目录
+                  mv merged_output/home mobile/react/
+                  mv merged_output/pc mobile/react/arco-design/pc
+                  mv merged_output/mobile mobile/react/arco-design/mobile
 
             - name: Install Surge
               run: npm install --global surge
@@ -42,14 +57,17 @@ jobs:
             - name: Deploy to Surge
               env:
                   SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
               run: |
-                  surge ./merged_output adm-pr-${{ github.event.number }}.surge.sh --token $SURGE_TOKEN
+                  surge ./merged_output ${{ env.ARCO_SITE_DOMAIN }} --token $SURGE_TOKEN
 
             - name: Comment PR with Preview Link
               uses: actions/github-script@v6
+              env:
+                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
               with:
                   script: |
-                      const url = `https://adm-pr-${{ github.event.number }}.surge.sh`
+                      const url = `https://${process.env.ARCO_SITE_DOMAIN}`
                       const message = `✨ **PR Preview Link**: ${url} \n **PR 预览链接**: ${url}`
                       github.rest.issues.createComment({
                           issue_number: context.issue.number,
