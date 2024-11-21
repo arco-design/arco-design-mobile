@@ -51,7 +51,7 @@ jobs:
                   mv output/page/pc/* merged_output/mobile/react/arco-design/pc/
                   mv output/page/mobile/* merged_output/mobile/react/arco-design/mobile/
                   # 创建重定向 HTML 文件
-                  echo '<html><head><meta http-equiv="refresh" content="0; url=/mobile/react/" /></head><body></body></html>' > merged_output/index.html
+                  echo '<html><head><meta http-equiv="refresh" content="0; url=/mobile/react/arco-design/pc/" /></head><body></body></html>' > merged_output/index.html
 
             - name: Install Surge
               run: npm install --global surge
