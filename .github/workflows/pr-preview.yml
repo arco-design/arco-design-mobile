@@ -10,131 +10,24 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v2
-
             - name: Set ARCO_SITE_DOMAIN
               run: echo "ARCO_SITE_DOMAIN=preview-${{ github.event.number }}-arco-design-mobile.surge.sh" >> $GITHUB_ENV
 
-            - name: Set up Node.js
-              uses: actions/setup-node@v2
+            - name: Find Comment
+              uses: peter-evans/find-comment@v2
+              id: fc
               with:
-                  node-version: '16'
-
-            - name: Start Build Timer
-              id: build_start
-              run: echo "BUILD_START=$(date +%s)" >> $GITHUB_ENV
-
-            - name: Install dependencies
-              run: npm install
-              env:
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-
-            - name: Build site:home
-              run: npm run site:home
-              env:
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-
-            - name: Build site:pc
-              run: npm run site:pc
-              env:
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-
-            - name: Build site:mobile
-              run: npm run site:mobile
-              env:
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-
-            - name: End Build Timer
-              id: build_end
-              run: echo "BUILD_END=$(date +%s)" >> $GITHUB_ENV
-
-            - name: Calculate Build Time
-              id: build_time
-              run: |
-                  BUILD_DURATION=$((BUILD_END - BUILD_START))
-                  echo "BUILD_DURATION=${BUILD_DURATION}" >> $GITHUB_ENV
-
-            - name: Merge output directories
-              run: |
-                  # 合并文件
-                  cp -R output_resource/* output/page/
-                  # 创建目标目录
-                  mkdir -p merged_output/mobile/react/arco-design/pc
-                  mkdir -p merged_output/mobile/react/arco-design/mobile
-                  # 移动目录内容
-                  mv output/page/home/* merged_output/mobile/react/
-                  mv output/page/pc/* merged_output/mobile/react/arco-design/pc/
-                  mv output/page/mobile/* merged_output/mobile/react/arco-design/mobile/
-                  # 创建重定向 HTML 文件
-                  echo '<html><head><meta http-equiv="refresh" content="0; url=/mobile/react/" /></head><body></body></html>' > merged_output/index.html
-
-            - name: Install Surge
-              run: npm install --global surge
-
-            - name: Start Deploy Timer
-              id: deploy_start
-              run: echo "DEPLOY_START=$(date +%s)" >> $GITHUB_ENV
-
-            - name: Deploy to Surge
-              env:
-                  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-              run: |
-                  surge ./merged_output ${{ env.ARCO_SITE_DOMAIN }} --token $SURGE_TOKEN
-
-            - name: End Deploy Timer
-              id: deploy_end
-              run: echo "DEPLOY_END=$(date +%s)" >> $GITHUB_ENV
-
-            - name: Calculate Deploy Time
-              id: deploy_time
-              run: |
-                  DEPLOY_DURATION=$((DEPLOY_END - DEPLOY_START))
-                  echo "DEPLOY_DURATION=${DEPLOY_DURATION}" >> $GITHUB_ENV
+                  issue-number: ${{ github.event.pull_request.number }}
+                  comment-author: 'github-actions[bot]'
+                  body-includes: PR Preview Link
 
             - name: Comment PR with Preview Link
-              uses: actions/github-script@v6
+              uses: peter-evans/create-or-update-comment@v2
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-                  BUILD_DURATION: ${{ env.BUILD_DURATION }}
-                  DEPLOY_DURATION: ${{ env.DEPLOY_DURATION }}
               with:
-                  script: |
-                      const url = `https://${process.env.ARCO_SITE_DOMAIN}`;
-
-                      const buildMinutes = Math.floor(process.env.BUILD_DURATION / 60);
-                      const buildSeconds = process.env.BUILD_DURATION % 60;
-                      const deployMinutes = Math.floor(process.env.DEPLOY_DURATION / 60);
-                      const deploySeconds = process.env.DEPLOY_DURATION % 60;
-
-                      const message = `## ✨ **PR Preview Link**: [${url}](${url})  \n` +
-                                      `⏱ **Build Time**: ${buildMinutes}m ${buildSeconds}s  \n` +
-                                      `🚀 **Deploy Time**: ${deployMinutes}m ${deploySeconds}s`;
-
-                      // 获取所有评论
-                      const { data: comments } = await github.rest.issues.listComments({
-                          issue_number: context.issue.number,
-                          owner: context.repo.owner,
-                          repo: context.repo.repo,
-                      });
-
-                      // 查找现有的预览链接评论
-                      const existingComment = comments.find(comment => comment.body.startsWith('## ✨ **PR Preview Link**'));
-
-                      if (existingComment) {
-                          // 更新现有评论
-                          await github.rest.issues.updateComment({
-                              owner: context.repo.owner,
-                              repo: context.repo.repo,
-                              comment_id: existingComment.id,
-                              body: message.trim(),
-                          });
-                      } else {
-                          // 创建新评论
-                          await github.rest.issues.createComment({
-                              issue_number: context.issue.number,
-                              owner: context.repo.owner,
-                              repo: context.repo.repo,
-                              body: message.trim(),
-                          });
+                  issue-number: ${{ github.event.pull_request.number }}
+                  comment-id: ${{ steps.fc.outputs.comment-id }}
+                  body: |
+                      ## ✨ **PR Preview Link**: [https://${{ env.ARCO_SITE_DOMAIN }}](https://${{ env.ARCO_SITE_DOMAIN }})  
+                      🕒 **Current Time**: ${{ github.run_started_at }}
