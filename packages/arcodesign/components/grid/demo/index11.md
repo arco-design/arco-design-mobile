@@ -8,7 +8,7 @@ import { Grid } from '@arco-design/mobile-react';
 const renderGrid = (item) => {
     return (
         <div className="grid-demo-rows-item">
-            <img src={item.img} className="grid-demo-rows-item-icon"/>
+            <div className="grid-demo-rows-item-icon">{item.img}</div>
             <div className="grid-demo-rows-item-text">
                 <span className="grid-demo-rows-item-title">{item.title}</span>
             </div>
