@@ -10,7 +10,7 @@ import { ImagePicker, Toast } from '@arco-design/mobile-react';
 
 export default function ImagePickerDemo() {
     const [images, setImages] = React.useState([
-        { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
+        { url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
     ]);
     const selectAdapter = () => {
         Toast.toast('Trigger custom select image');
@@ -20,19 +20,19 @@ export default function ImagePickerDemo() {
                     name: '11vnpmryrl4.jpeg',
                     size: 789020,
                     type: 'image/jpeg',
-                    url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg',
+                    url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg',
                 },
                 {
                     name: '11vnpmryrl2.jpeg',
                     size: 7820,
                     type: 'image/jpeg',
-                    url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg',
+                    url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_2.jpg',
                 },
                 {
                     name: '11vnpmryrl1.jpeg',
                     size: 7820,
                     type: 'image/jpeg',
-                    url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_3.jpg',
+                    url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_3.jpg',
                 },
             ];
             setTimeout(() => {
