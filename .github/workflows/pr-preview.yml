@@ -6,7 +6,7 @@ on:
             - main
 
 jobs:
-    checkout-install:
+    build-and-deploy:
         runs-on: ubuntu-latest
 
         steps:
@@ -24,37 +24,15 @@ jobs:
             - name: Set ARCO_SITE_DOMAIN
               run: echo "ARCO_SITE_DOMAIN=preview-${{ github.event.number }}-arco-design-mobile.surge.sh" >> $GITHUB_ENV
 
-    build-home:
-        runs-on: ubuntu-latest
-        needs: checkout-install
-        steps:
-            - name: Build site:home
-              run: npm run site:home
+            - name: Build sites concurrently
+              run: |
+                  npm run site:home &
+                  npm run site:pc &
+                  npm run site:mobile &
+                  wait
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
 
-    build-pc:
-        runs-on: ubuntu-latest
-        needs: checkout-install
-        steps:
-            - name: Build site:pc
-              run: npm run site:pc
-              env:
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-
-    build-mobile:
-        runs-on: ubuntu-latest
-        needs: checkout-install
-        steps:
-            - name: Build site:mobile
-              run: npm run site:mobile
-              env:
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-
-    merge-and-deploy:
-        runs-on: ubuntu-latest
-        needs: [build-home, build-pc, build-mobile]
-        steps:
             - name: Merge output directories
               run: |
                   # 合并文件
