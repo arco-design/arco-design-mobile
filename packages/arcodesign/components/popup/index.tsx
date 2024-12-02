@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
+import React, { useRef, forwardRef, Ref, useImperativeHandle, useState } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import Masking, { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
@@ -62,11 +62,14 @@ const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
         translateZ = false,
         maskTransitionTimeout = { enter: 450, exit: 240 },
         contentTransitionTimeout = { enter: 450, exit: 240 },
+        onOpen,
+        onClose,
         ...restProps
     } = props;
     const maskingRef = useRef<MaskingRef>(null);
+    const [trueVisible, setTrueVisible] = useState(props.visible);
 
-    useImperativeHandle(ref, () => maskingRef.current!);
+    useImperativeHandle(ref, () => maskingRef.current!, [props, trueVisible]);
 
     function renderPopup({ prefixCls }) {
         const prefix = `${prefixCls}-popup`;
@@ -87,6 +90,14 @@ const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
                 )}
                 maskTransitionTimeout={maskTransitionTimeout}
                 contentTransitionTimeout={contentTransitionTimeout}
+                onOpen={() => {
+                    setTrueVisible(true);
+                    onOpen?.();
+                }}
+                onClose={() => {
+                    setTrueVisible(false);
+                    onClose?.();
+                }}
                 {...restProps}
             >
                 {children}
