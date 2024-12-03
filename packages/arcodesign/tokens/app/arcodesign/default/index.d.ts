@@ -428,7 +428,6 @@ export interface ArcodesignToken extends Record<string, string> {
     'popover-arrow-border-radius': string;
     'popover-inner-border-radius': string;
     'popover-inner-opacity': string;
-    'popover-inner-transition': string;
     'popover-inner-white-theme-opacity': string;
     'popover-inner-background-shadow': string;
     'popover-inner-top-arrow-shadow': string;

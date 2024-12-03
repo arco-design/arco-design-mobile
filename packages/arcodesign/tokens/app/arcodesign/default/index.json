@@ -7877,18 +7877,6 @@
             "en": "Arrow shadow at the top of Popover content"
         }
     },
-    "popoverInnerTransition": {
-        "cssKey": "popover-inner-transition",
-        "desc": "气泡内容动画曲线",
-        "override": "",
-        "value": "opacity .3s ease-in-out",
-        "jsValue": "opacity .3s ease-in-out",
-        "staticValue": "opacity .3s ease-in-out",
-        "localeDesc": {
-            "ch": "气泡内容动画曲线",
-            "en": "Popover content animation curve"
-        }
-    },
     "popoverInnerWhiteThemeOpacity": {
         "cssKey": "popover-inner-white-theme-opacity",
         "desc": "白色主题气泡内容透明度",

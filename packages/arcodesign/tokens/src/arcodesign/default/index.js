@@ -1739,11 +1739,6 @@ function getCompTokens() {
          */
         popoverInnerOpacity: '0.8',
         /**
-         * 气泡内容动画曲线
-         * @en Popover content animation curve
-         */
-        popoverInnerTransition: 'opacity .3s ease-in-out',
-        /**
          * 白色主题气泡内容透明度
          * @en Content opacity of Popover in white theme
          * @override popoverInnerOpacityWhiteTheme
