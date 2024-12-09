@@ -1,5 +1,6 @@
 export declare function getRem(px: number, baseFontSize: number): string;
 export interface ArcodesignToken extends Record<string, string> {
+    'prefix-mobile': string;
     'prefix': string;
     'base-font-size': string;
     'arco-dark-mode-selector': string;

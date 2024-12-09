@@ -8049,6 +8049,18 @@
         "cssKey": "prefix",
         "desc": "类前缀，需配合 context-provider 中的 prefixCls 使用",
         "override": "",
+        "value": "@prefix-mobile",
+        "jsValue": "@global@prefixMobile",
+        "staticValue": "arco",
+        "localeDesc": {
+            "ch": "类前缀，需配合 context-provider 中的 prefixCls 使用",
+            "en": "Classname prefix, it needs to be used with prefixCls in context-provider"
+        }
+    },
+    "prefixMobile": {
+        "cssKey": "prefix-mobile",
+        "desc": "类前缀，需配合 context-provider 中的 prefixCls 使用",
+        "override": "",
         "value": "arco",
         "jsValue": "arco",
         "staticValue": "arco",
