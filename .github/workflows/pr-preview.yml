@@ -2,8 +2,6 @@ name: PR Preview
 
 on:
     pull_request:
-        branches:
-            - main
 
 jobs:
     build-and-deploy:
@@ -24,18 +22,12 @@ jobs:
             - name: Set ARCO_SITE_DOMAIN
               run: echo "ARCO_SITE_DOMAIN=preview-${{ github.event.number }}-arco-design-mobile.surge.sh" >> $GITHUB_ENV
 
-            - name: Build site:home
-              run: npm run site:home
-              env:
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-
-            - name: Build site:pc
-              run: npm run site:pc
-              env:
-                  ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
-
-            - name: Build site:mobile
-              run: npm run site:mobile
+            - name: Build sites concurrently
+              run: |
+                  npm run site:home &
+                  npm run site:pc &
+                  npm run site:mobile &
+                  wait
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
 
