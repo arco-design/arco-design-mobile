@@ -7,7 +7,7 @@ import React, {
     Ref,
     useImperativeHandle,
 } from 'react';
-import { cls, componentWrapper, formatDateNumber } from '@arco-design/mobile-utils';
+import { cls, componentWrapper, formatDateNumber, isEmptyValue } from '@arco-design/mobile-utils';
 import Picker, { PickerRef } from '../picker';
 import { PickerData, ValueType } from '../picker-view';
 import { ContextLayout } from '../context-provider';
@@ -292,7 +292,11 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
                     touchToStop={touchToStop}
                     renderLinkedContainer={
                         renderLinkedContainer
-                            ? () => renderLinkedContainer(currentTs, keyOptions)
+                            ? () =>
+                                  renderLinkedContainer(
+                                      isEmptyValue(props.currentTs) ? undefined : currentTs,
+                                      keyOptions,
+                                  )
                             : undefined
                     }
                 />
