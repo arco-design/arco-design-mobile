@@ -1,7 +1,15 @@
 /* eslint-disable no-console */
 import { ReactNode, useRef } from 'react';
 import { Promise } from 'es6-promise';
-import { Callbacks, IFieldError, FieldItem, IFormInstance } from './type';
+import {
+    Callbacks,
+    IFieldError,
+    FieldItem,
+    IFormInstance,
+    ValueChangeType,
+    FieldValue,
+} from './type';
+import { deepClone } from './utils';
 
 const defaultFunc: any = () => {};
 
@@ -29,6 +37,7 @@ export const defaultFormDataMethods = {
             registerField: defaultFunc,
             setInitialValues: defaultFunc,
             setCallbacks: defaultFunc,
+            setInitialValue: defaultFunc,
         };
     },
 };
@@ -43,7 +52,7 @@ class FormData {
 
     private _callbacks: Callbacks = {};
 
-    setFieldsValue = (values: FieldItem): boolean => {
+    setFieldsValue = (values: FieldItem, changeType?: ValueChangeType): boolean => {
         const oldValues: FieldItem = Object.keys(values).reduce(
             (acc, key) => ({
                 ...acc,
@@ -53,8 +62,8 @@ class FormData {
         );
         this._formData = { ...this._formData, ...values };
         const { onValuesChange } = this._callbacks;
-        onValuesChange && onValuesChange(values, this._formData);
-        this.notifyField(values, oldValues);
+        onValuesChange && onValuesChange(values, this.getFieldsValue());
+        this.notifyField(values, oldValues, changeType);
         return true;
     };
 
@@ -67,17 +76,23 @@ class FormData {
                 {
                     [name]: value,
                 },
-                this._formData,
+                this.getFieldsValue(),
             );
         this.notifyField({ [name]: value }, oldValues);
         return true;
     };
 
-    notifyField = (values: FieldItem, oldValues: FieldItem): void => {
+    notifyField = (
+        values: FieldItem,
+        oldValues: FieldItem,
+        changeType: ValueChangeType = ValueChangeType.Update,
+    ): void => {
         Object.keys(values).map((fieldName: string) => {
             const fieldObj = this._fieldsList?.[fieldName] || null;
             if (fieldObj) {
-                fieldObj.onValueChange(values[fieldName], oldValues[fieldName]);
+                fieldObj.onValueChange(values[fieldName], oldValues[fieldName], {
+                    changeType,
+                });
             }
         });
     };
@@ -86,11 +101,11 @@ class FormData {
         if (names) {
             return names.map(name => this.getFieldValue(name));
         }
-        return this._formData;
+        return deepClone(this._formData);
     };
 
     getFieldValue = (name: string) => {
-        return this._formData?.[name];
+        return deepClone(this._formData?.[name]);
     };
 
     getFieldError = (name: string): ReactNode[] => {
@@ -142,13 +157,25 @@ class FormData {
         };
     };
 
-    setInitialValues = (initVal: Record<string, unknown>) => {
-        this._initialValues = { ...(initVal || {}) };
+    setInitialValues = (initVal: FieldItem) => {
+        this._initialValues = deepClone(initVal || {});
         this.setFieldsValue(initVal);
     };
 
+    setInitialValue = (name: string, value: FieldValue) => {
+        if (!name) {
+            return;
+        }
+        this._initialValues[name] = value;
+        this.setFieldValue(name, value);
+    };
+
     resetFields = () => {
-        this.setFieldsValue(this._initialValues);
+        const newData = { ...this._initialValues };
+        Object.keys(this._fieldsList).forEach(fieldName => {
+            newData[fieldName] = this._initialValues[fieldName];
+        });
+        this.setFieldsValue(newData, ValueChangeType.Reset);
     };
 
     validateFields = () => {
@@ -175,14 +202,14 @@ class FormData {
         this.validateFields()
             .then(result => {
                 const { onSubmit } = this._callbacks;
-                onSubmit?.(this._formData, result);
+                onSubmit?.(this.getFieldsValue(), result);
             })
             .catch(e => {
                 const { onSubmitFailed } = this._callbacks;
                 if (!onSubmitFailed) {
                     return;
                 }
-                onSubmitFailed(this._formData, e);
+                onSubmitFailed(this.getFieldsValue(), e);
             });
     };
 
@@ -212,6 +239,7 @@ class FormData {
             registerField: this.registerField,
             setInitialValues: this.setInitialValues,
             setCallbacks: this.setCallbacks,
+            setInitialValue: this.setInitialValue,
         };
     };
 }
