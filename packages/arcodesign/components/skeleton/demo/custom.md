@@ -11,7 +11,7 @@ export default function SkeletonDemo() {
         <div>
             <Cell.Group>
                 <Cell label="loading">
-                    <Switch checked={loading} onChange={setLoading} />
+                    <Switch platform='ios' checked={loading} onChange={setLoading} />
                 </Cell>
             </Cell.Group>
             {loading ? (

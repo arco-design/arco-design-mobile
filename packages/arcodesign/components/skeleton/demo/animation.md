@@ -19,7 +19,7 @@ export default function SkeletonDemo() {
         <div>
             <Cell.Group>
                 <Cell label="show animation">
-                    <Switch checked={checked} onChange={setChecked} />
+                    <Switch platform='ios' checked={checked} onChange={setChecked} />
                 </Cell>
                 {checked && (
                     <Cell label="type">
