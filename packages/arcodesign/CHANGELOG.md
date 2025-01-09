@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.35.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.34.0...@arco-design/mobile-react@2.35.0) (2025-01-09)
+
+
+### Bug Fixes
+
+* add new less variable `[@prefix-mobile](https://github.com/prefix-mobile)` ([#310](https://github.com/arco-design/arco-design-mobile/issues/310)) ([c8b539c](https://github.com/arco-design/arco-design-mobile/commit/c8b539cf7c5a064f1334de6d87a7c00d22c8f453))
+* change protocol from http to https ([#304](https://github.com/arco-design/arco-design-mobile/issues/304)) ([0c42f9b](https://github.com/arco-design/arco-design-mobile/commit/0c42f9becf74e2dcbd02d774b426e113ea2b260c))
+* fix `Context-Provider` demo url ([#306](https://github.com/arco-design/arco-design-mobile/issues/306)) ([4a5c0f8](https://github.com/arco-design/arco-design-mobile/commit/4a5c0f86de85f5eddb2b0b6816db2a9ea38cde40))
+* keep empty value in renderLinkedContainer of `DatePicker` ([#309](https://github.com/arco-design/arco-design-mobile/issues/309)) ([0f07a93](https://github.com/arco-design/arco-design-mobile/commit/0f07a931de93b22dfe17aa5eda878b51cc943913))
+
+
+### Features
+
+* add dynamic theme demo ([#305](https://github.com/arco-design/arco-design-mobile/issues/305)) ([f27ccc6](https://github.com/arco-design/arco-design-mobile/commit/f27ccc6910a700a064be22926c2321b3afac4694))
+
+
+
+
+
 # [2.34.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.33.0...@arco-design/mobile-react@2.34.0) (2024-11-21)
 
 
