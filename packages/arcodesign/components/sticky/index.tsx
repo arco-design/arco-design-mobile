@@ -15,6 +15,8 @@ import {
     execRAF,
     getActualContainer,
     getScrollContainerRect,
+    safeGetComputedStyle,
+    convertCssPropertyToNumber,
 } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { useRefState } from '../_helpers';
@@ -203,11 +205,16 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
             const calculatedHeight = contentClientRect.height;
             contentCalculateHeightRef.current = contentClientRect.height;
             const { containerRect } = getScrollContainerRect(scrollContainerRef.current);
-            const {
-                top: containerTop,
-                bottom: containerBottom,
-                height: containerHeight,
-            } = containerRect;
+            const { top: rectTop, bottom: rectBottom, height: containerHeight } = containerRect;
+            const scrollStyle = safeGetComputedStyle(scrollContainerRef.current as HTMLElement);
+            const borderTop = needTop
+                ? convertCssPropertyToNumber(scrollStyle, 'borderTopWidth')
+                : 0;
+            const borderBottom = needBottom
+                ? convertCssPropertyToNumber(scrollStyle, 'borderBottomWidth')
+                : 0;
+            const containerTop = rectTop + borderTop;
+            const containerBottom = rectBottom - borderBottom;
 
             const disFromTop = Math.round(placeholderClientRect.top - containerTop);
             const disFromBottom = Math.round(
@@ -227,10 +234,36 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
                 : false;
             const newStickyState = isTopSticky || isBottomSticky;
 
-            const cssTop = (stickyStyle === 'absolute' ? 0 : containerTop) + topOffset;
-            const cssBottom =
-                (stickyStyle === 'absolute' ? 0 : window.innerHeight - containerBottom) +
-                bottomOffset;
+            let stickyTop = containerTop;
+            let stickyBottom = window.innerHeight - containerBottom;
+            let stickyLeft = placeholderClientRect.left;
+
+            if (stickyStyle === 'absolute') {
+                const offsetParent = contentRef.current.offsetParent as HTMLElement;
+                if (offsetParent) {
+                    const { containerRect: parentRect } = getScrollContainerRect(offsetParent);
+                    const parentStyle = safeGetComputedStyle(offsetParent);
+                    const parentBorderTop = needTop
+                        ? convertCssPropertyToNumber(parentStyle, 'borderTopWidth')
+                        : 0;
+                    const parentBorderBottom = needBottom
+                        ? convertCssPropertyToNumber(parentStyle, 'borderBottomWidth')
+                        : 0;
+                    const parentBorderLeft = convertCssPropertyToNumber(
+                        parentStyle,
+                        'borderLeftWidth',
+                    );
+                    stickyTop = containerTop - parentRect.top - parentBorderTop;
+                    stickyBottom = parentRect.bottom - containerBottom - parentBorderBottom;
+                    stickyLeft = placeholderClientRect.left - parentRect.left - parentBorderLeft;
+                } else {
+                    stickyTop = 0;
+                    stickyBottom = 0;
+                }
+            }
+
+            const cssTop = stickyTop + topOffset;
+            const cssBottom = stickyBottom + bottomOffset;
             let stickyCssStyle: CSSProperties = {};
             if (newStickyState) {
                 stickyCssStyle = {
@@ -251,7 +284,7 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
                                       : cssBottom + bottomFollowDifference,
                           }
                         : {}),
-                    left: placeholderClientRect.left,
+                    left: stickyLeft,
                     width: placeholderClientRect.width,
                     ...(userSetStickyCssStyle || {}),
                 };

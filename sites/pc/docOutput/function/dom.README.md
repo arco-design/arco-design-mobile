@@ -1288,14 +1288,14 @@ const transTimeout = convertCssDuration(contentRef.current, 'transitionDuration'
 ## 类型
 
 ```
-(ele: HTMLElement, property: string) => number
+(ele: HTMLElement | null, property: string) => number
 ```
 
 ## 源码
 
 ```
-function convertCssDuration(ele: HTMLElement, property: string) {
-    const timeout: string = window.getComputedStyle(ele)[property];
+function convertCssDuration(ele: HTMLElement | null, property: string) {
+    const timeout: string = safeGetComputedStyle(ele)[property];
     if (/ms$/.test(timeout)) {
         return Number(timeout.replace('ms', '')) || 0;
     }
@@ -1312,7 +1312,7 @@ function convertCssDuration(ele: HTMLElement, property: string) {
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|ele|要获取样式的元素|HTMLElement|必填|
+|ele|要获取样式的元素|HTMLElement \| null|必填|
 |property|与时间相关属性|string|必填|
 
 > 输出
@@ -1332,23 +1332,24 @@ number
 ```
 import { safeGetComputedStyle } from '@arco-design/mobile-utils';
 const element = document.querySelector("p");
-const compStyle =safeGetComputedStyle(element);
+const compStyle = safeGetComputedStyle(element);
 ```
 
 ## 类型
 
 ```
-(element: HTMLElement) => any
+(element: HTMLElement | null) => any
 ```
 
 ## 源码
 
 ```
-function safeGetComputedStyle(element: HTMLElement) {
+function safeGetComputedStyle(element: HTMLElement | null) {
+    const defaultValue = {} as CSSStyleDeclaration;
     try {
-        return window.getComputedStyle(element);
+        return element ? window.getComputedStyle(element) : defaultValue;
     } catch (e) {
-        return {} as CSSStyleDeclaration;
+        return defaultValue;
     }
 }
 ```
@@ -1359,8 +1360,55 @@ function safeGetComputedStyle(element: HTMLElement) {
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|element|要获取样式的元素|HTMLElement|必填|
+|element|要获取样式的元素|HTMLElement \| null|必填|
 
 > 输出
 
 any
+
+------
+
+# convertCssPropertyToNumber
+
+获取指定元素的样式属性数字值
+
+======
+
+## 示例
+
+```
+import { safeGetComputedStyle, convertCssPropertyToNumber } from '@arco-design/mobile-utils';
+const computedStyle = safeGetComputedStyle(element);
+const compStyle = convertCssPropertyToNumber(computedStyle, 'fontSize');
+```
+
+## 类型
+
+```
+(computedStyle: any, property: string) => number
+```
+
+## 源码
+
+```
+function convertCssPropertyToNumber(computedStyle: CSSStyleDeclaration, property: string) {
+    const value: string = computedStyle[property];
+    if (/px$/.test(value)) {
+        return Number(value.replace('px', '')) || 0;
+    }
+    return 0;
+}
+```
+
+======
+
+> 输入
+
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|computedStyle|要获取的样式属性对象|any|必填|
+|property|\-|string|必填|
+
+> 输出
+
+number
