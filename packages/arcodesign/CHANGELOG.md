@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.0...@arco-design/mobile-react@2.35.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* `Sticky` caculate with border style & offsetParent in absolute mode ([#314](https://github.com/arco-design/arco-design-mobile/issues/314)) ([1eff5fe](https://github.com/arco-design/arco-design-mobile/commit/1eff5fee0a010bbf236094a7d361f54f0e0bcb2a))
+
+
+
+
+
 # [2.35.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.34.0...@arco-design/mobile-react@2.35.0) (2025-01-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.20.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.2...@arco-design/mobile-utils@2.20.3) (2025-02-26)
+
+
+### Bug Fixes
+
+* `Sticky` caculate with border style & offsetParent in absolute mode ([#314](https://github.com/arco-design/arco-design-mobile/issues/314)) ([1eff5fe](https://github.com/arco-design/arco-design-mobile/commit/1eff5fee0a010bbf236094a7d361f54f0e0bcb2a))
+
+
+
+
+
 ## [2.20.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.1...@arco-design/mobile-utils@2.20.2) (2025-01-09)
 
 **Note:** Version bump only for package @arco-design/mobile-utils
