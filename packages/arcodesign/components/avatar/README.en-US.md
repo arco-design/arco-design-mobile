@@ -17,6 +17,7 @@ Avatar component supports two shapes of circle and square, supports pictures or 
 |decoration|the decoration for image avatar|ReactNode|null|
 |textAvatar|Text Avatar, two characters in Chinese, and three characters or less in English are recommended\.|string|""|
 |avatarStyle|Custom style for avatar element|CSSProperties|{}|
+|avatarClass|Custom classname for avatar element|string|""|
 |autoFixFontSize|Whether to automatically adjust the font size according to the avatar size|boolean|true|
 |autoFixFontOffset|When automatically adjusting the size of the text head image, the safe distance between the text and the left and right of the avatar container|number|2|
 |avatarName|Username information next to the avatar|string|""|
