@@ -40,7 +40,7 @@ export interface PopupSwiperProps extends PopupProps {
      * @default direction 属性指定的方向性
      * @default_en The value of direction property
      */
-    allowSwipeDirections: DirectionType[];
+    allowSwipeDirections?: DirectionType[];
     /**
      * 固定弹窗退出方向，默认跟随手势滑动方向
      * @en Fixed the exit direction of the pop-up window, and the default sliding direction follows the gesture

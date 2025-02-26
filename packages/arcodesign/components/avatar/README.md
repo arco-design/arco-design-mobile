@@ -17,6 +17,7 @@
 |decoration|图片头像上的装饰|ReactNode|null|
 |textAvatar|文字头像，中文建议取两个字，英文建议在三个字以下|string|""|
 |avatarStyle|头像元素的自定义样式|CSSProperties|{}|
+|avatarClass|头像元素的自定义类名|string|""|
 |autoFixFontSize|是否自动根据头像尺寸调整字体大小|boolean|true|
 |autoFixFontOffset|自动调整文字头像大小时，文字距离头像容器左右的安全距离|number|2|
 |avatarName|头像旁的用户名信息|string|""|

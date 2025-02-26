@@ -129,7 +129,7 @@
                 "fileName": "arcom-github/packages/arcodesign/components/popup-swiper/index.tsx",
                 "name": "PopupSwiperProps"
             },
-            "required": true,
+            "required": false,
             "type": {
                 "name": "DirectionType[]"
             }
@@ -1187,6 +1187,17 @@
                 "defaultValue": null,
                 "type": {
                     "name": "{ backBtnAriaLabel: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
+            },
+            "Uploader": {
+                "name": "Uploader",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ uploadBtn: string; retryUpload: string; }"
                 },
                 "tags": {},
                 "descWithTags": ""
