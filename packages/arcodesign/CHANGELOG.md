@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.35.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.1...@arco-design/mobile-react@2.35.2) (2025-03-17)
+
+
+### Bug Fixes
+
+* `PullRefresh` fix severe lagging in Android device ([#316](https://github.com/arco-design/arco-design-mobile/issues/316)) ([2b14461](https://github.com/arco-design/arco-design-mobile/commit/2b14461f787c42035e06c7a76b50955f22cadde2))
+
+
+
+
+
 ## [2.35.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.0...@arco-design/mobile-react@2.35.1) (2025-02-26)
 
 
