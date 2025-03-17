@@ -9,6 +9,7 @@ import React, {
     useImperativeHandle,
 } from 'react';
 import { cls, nextTick, defaultLocale } from '@arco-design/mobile-utils';
+import { Promise } from 'es6-promise';
 import Loading from '../loading';
 import { GlobalContext } from '../context-provider';
 import { PullRefreshRef, PullRefreshStatus, PullRefreshBasicProps } from './model';
@@ -105,9 +106,10 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
                 transform: translateY ? `translateY(${translateY}px) translateZ(0)` : '',
                 ...(ms ? { transition: `all ${ms / 1000}s` } : {}),
             });
-        setTimeout(() => {
-            callback?.();
-        }, ms);
+        callback &&
+            setTimeout(() => {
+                callback();
+            }, ms);
     };
 
     const reset = (callback = () => {}) => {
@@ -127,9 +129,6 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
             if (disabled || touchRef.current || loadingRef.current || !domRef.current) return;
             if (!ifShouldHandle()) return;
             setTouching(true);
-            if (domRef.current.scrollTop === 0) {
-                domRef.current.scrollTop = 1;
-            }
             const { pageX, pageY } = e.touches[0];
             if (pageX && pageY) {
                 touchRef.current = { start: domRef.current?.scrollTop, x: pageX, y: pageY };
