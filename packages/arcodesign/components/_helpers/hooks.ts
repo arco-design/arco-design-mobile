@@ -5,6 +5,7 @@
  */
 import React, { useState, useRef, useEffect, useCallback, useContext } from 'react';
 import { getSystem, scrollWithAnimation, safeGetComputedStyle } from '@arco-design/mobile-utils';
+import type { SystemOptions } from '@arco-design/mobile-utils/utils';
 import { GlobalContext } from '../context-provider';
 import { BezierType } from '../progress';
 
@@ -217,24 +218,30 @@ export function useLatestRef<T>(variable: T) {
     }, [variable]);
     return variableRef;
 }
-
 /**
  * 从navigator.userAgent中获取当前操作系统，如果无法获取ua，则从ContextProvider传入的system中获取值
  * @desc {en} Get the current operating system from navigator.userAgent, if ua cannot be obtained, get the value from the system passed in by ContextProvider
- * @returns system 操作系统，"" | "pc" | "android" | "ios"
+ * @param options 配置选项
+ * @param {en} options  Configuration options
+ * @param options.detectHarmony 是否识别鸿蒙系统，默认为 false，鸿蒙系统会被识别为 android
+ * @param {en} options.detectHarmony Whether to detect HarmonyOS separately, default is false, HarmonyOS will be recognized as android
+ * @returns 返回当前设备的操作系统，可能的值包括 'android'、'ios'、'harmony' 或 'pc'，如果无法获取，则返回空字符串
+ * @returns {en} Returns the operating system of the current device, possible values are 'android', 'ios', 'harmony', or 'pc'. Returns an empty string if it cannot be obtained
  * @example
  * ```
  * import { useSystem } from '@arco-design/mobile-react/esm/_helpers/hooks';
  *
  * const system = useSystem();
+ * // Or with options
+ * const systemWithHarmony = useSystem({ detectHarmony: true });
  * ```
  */
-export function useSystem() {
+export function useSystem(options: SystemOptions = { detectHarmony: false }) {
     const { system: currentSystem } = useContext(GlobalContext);
-    const [system, setSystem] = useState(() => currentSystem || getSystem());
+    const [system, setSystem] = useState(() => currentSystem || getSystem(options));
     useEffect(() => {
-        setSystem(currentSystem || getSystem());
-    }, [currentSystem]);
+        setSystem(currentSystem || getSystem(options));
+    }, [currentSystem, options]);
     return system;
 }
 
