@@ -46,7 +46,7 @@ export function getSystem(options?: SystemOptions) {
         if (/OpenHarmony/i.test(u)) {
             return options?.detectHarmony ? 'harmony' : 'android';
         }
-        // Please do not ignore the case of the first letter
+        // Do not ignore the case of the first letter
         if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
             return 'android';
         }

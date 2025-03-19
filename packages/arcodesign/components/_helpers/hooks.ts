@@ -5,7 +5,7 @@
  */
 import React, { useState, useRef, useEffect, useCallback, useContext } from 'react';
 import { getSystem, scrollWithAnimation, safeGetComputedStyle } from '@arco-design/mobile-utils';
-import type { SystemOptions } from '@arco-design/mobile-utils/utils';
+import type { SystemOptions } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
 import { BezierType } from '../progress';
 
