@@ -42,13 +42,13 @@ export interface SystemOptions {
 export function getSystem(options: SystemOptions = { detectHarmony: false }) {
     try {
         const u = navigator.userAgent;
-        if (/android|linux/i.test(u)) {
-            return 'android';
-        }
         if (/harmonyos|openharmony/i.test(u)) {
             return options.detectHarmony ? 'harmony' : 'android';
         }
-        // ios 这个正则理论上可以优化，但是历史原因不太敢改，不确定会不会有副作用
+        if (/android|linux/i.test(u)) {
+            return 'android';
+        }
+        // iOS 的正则理论上可以优化，但历史原因一直这样用，贸然修改可能会有不可预知的副作用
         if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(u)) {
             return 'ios';
         }
