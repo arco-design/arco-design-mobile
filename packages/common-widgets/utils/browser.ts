@@ -39,12 +39,12 @@ export interface SystemOptions {
  * ```
  */
 
-export function getSystem(options: SystemOptions = { detectHarmony: false }) {
+export function getSystem(options: SystemOptions = {}) {
     try {
         const u = navigator.userAgent;
         // Do not modify the Harmony OS ua judgment rule, please refer to the official documentation: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent
         if (/OpenHarmony/i.test(u)) {
-            return options.detectHarmony ? 'harmony' : 'android';
+            return options?.detectHarmony ? 'harmony' : 'android';
         }
         // Please do not ignore the case of the first letter
         if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
