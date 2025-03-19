@@ -41,14 +41,17 @@ export interface SystemOptions {
 
 export function getSystem(options: SystemOptions = { detectHarmony: false }) {
     try {
+        // eslint-disable-next-line no-console
+        console.log('=====navigator.userAgent======', navigator.userAgent);
         const u = navigator.userAgent;
         if (/harmonyos|openharmony/i.test(u)) {
             return options.detectHarmony ? 'harmony' : 'android';
         }
-        if (/android|linux/i.test(u)) {
+        if (/Android|Linux/.test(u)) {
             return 'android';
         }
-        // iOS 的正则理论上可以优化，但历史原因一直这样用，贸然修改可能会有不可预知的副作用
+        // iOS 的正则理论上可以优化，但历史一直这样用，修改可能会导致不可预知的问题
+        // The regular expression for iOS can theoretically be optimized, but it has been used like this in history, and modifying it may cause unpredictable problems
         if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(u)) {
             return 'ios';
         }
