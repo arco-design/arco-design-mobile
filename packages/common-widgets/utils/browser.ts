@@ -3,7 +3,7 @@ export interface SystemOptions {
      * 是否识别鸿蒙系统，默认为 false，鸿蒙系统会被识别为 Android
      * @en Whether to detect HarmonyOS separately, default is false, HarmonyOS will be recognized as Android
      */
-    detectHarmony: boolean;
+    detectHarmony?: boolean;
 }
 
 /**
