@@ -47,7 +47,7 @@ export function getSystem(options?: SystemOptions) {
             return options?.detectHarmony ? 'harmony' : 'android';
         }
         // Do not ignore the case of the first letter
-        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+        if (/Android|Linux/.test(u)) {
             return 'android';
         }
         if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(u)) {
