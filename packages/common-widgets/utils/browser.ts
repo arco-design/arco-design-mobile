@@ -41,17 +41,15 @@ export interface SystemOptions {
 
 export function getSystem(options: SystemOptions = { detectHarmony: false }) {
     try {
-        // eslint-disable-next-line no-console
-        console.log('=====navigator.userAgent======', navigator.userAgent);
         const u = navigator.userAgent;
-        if (/harmonyos|openharmony/i.test(u)) {
+        // Do not modify the Harmony OS ua judgment rule, please refer to the official documentation: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent
+        if (/OpenHarmony/i.test(u)) {
             return options.detectHarmony ? 'harmony' : 'android';
         }
-        if (/Android|Linux/.test(u)) {
+        // Please do not ignore the case of the first letter
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
             return 'android';
         }
-        // iOS 的正则理论上可以优化，但历史一直这样用，修改可能会导致不可预知的问题
-        // The regular expression for iOS can theoretically be optimized, but it has been used like this in history, and modifying it may cause unpredictable problems
         if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(u)) {
             return 'ios';
         }
