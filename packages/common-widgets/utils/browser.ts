@@ -39,7 +39,7 @@ export interface SystemOptions {
  * ```
  */
 
-export function getSystem(options: SystemOptions = {}) {
+export function getSystem(options?: SystemOptions) {
     try {
         const u = navigator.userAgent;
         // Do not modify the Harmony OS ua judgment rule, please refer to the official documentation: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent

@@ -236,7 +236,7 @@ export function useLatestRef<T>(variable: T) {
  * const systemWithHarmony = useSystem({ detectHarmony: true });
  * ```
  */
-export function useSystem(options: SystemOptions = {}) {
+export function useSystem(options?: SystemOptions) {
     const { system: currentSystem } = useContext(GlobalContext);
     const [system, setSystem] = useState(() => currentSystem || getSystem(options));
     useEffect(() => {
