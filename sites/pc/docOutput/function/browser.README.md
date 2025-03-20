@@ -12,6 +12,7 @@
 
 ```
 import { getSystem } from '@arco-design/mobile-utils';
+// Default behavior
 const systemInfo = getSystem();
 if (systemInfo === 'android') {
      console.log('You are using the Android operating system');
@@ -22,25 +23,37 @@ if (systemInfo === 'android') {
 } else {
      console.log('Unable to detect your operating system');
 }
+// With HarmonyOS detection enabled
+const systemInfoWithHarmony = getSystem({ detectHarmony: true });
+if (systemInfoWithHarmony === 'harmony') {
+     console.log('You are using HarmonyOS');
+}
 ```
 
 ## 类型
 
 ```
-() => string
+(options?: SystemOptions | undefined) => "harmony" | "android" | "ios" | "pc" | ""
 ```
 
 ## 源码
 
 ```
-function getSystem() {
+function getSystem(options?: SystemOptions) {
     try {
         const u = navigator.userAgent;
-        const android = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
-        const ios = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        const pc = !android && !ios;
-        const system = android ? 'android' : 'ios';
-        return pc ? 'pc' : system;
+        // Do not modify the Harmony OS ua judgment rule, please refer to the official documentation: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent
+        if (/OpenHarmony/i.test(u)) {
+            return options?.detectHarmony ? 'harmony' : 'android';
+        }
+        // Do not ignore the case of the first letter
+        if (/Android|Linux/.test(u)) {
+            return 'android';
+        }
+        if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(u)) {
+            return 'ios';
+        }
+        return 'pc';
     } catch (e) {
         return '';
     }
@@ -51,11 +64,19 @@ function getSystem() {
 
 > 输入
 
-无
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|options|配置选项|SystemOptions \| undefined|-|
 
 > 输出
 
-{string} 返回当前设备的操作系统，可能的值包括 'android'、'ios' 或 'pc'，如果无法获取，则返回空字符串
+返回当前设备的操作系统，可能的值包括 'android'、'ios'、'harmony' 或 'pc'，如果无法获取，则返回空字符串
+
+> SystemOptions
+
+|参数|描述|类型|
+|----------|-------------|------|
+|detectHarmony|是否识别鸿蒙系统，默认为 false，鸿蒙系统会被识别为 Android @en Whether to detect HarmonyOS separately, default is false, HarmonyOS will be recognized as Android|boolean|
 
 ------
 
