@@ -68,7 +68,11 @@ export interface SearchBarAssociationProps<Data = Record<string, any>> {
      * 每行搜索结果的点击回调
      * @en Click callback for each row of search results
      */
-    onAssociationItemClick?: (item: SearchAssociationItem<Data>, index: number) => void;
+    onAssociationItemClick?: (
+        item: SearchAssociationItem<Data>,
+        index: number,
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    ) => void;
     /**
      * 搜索联想框整体被点击的回调
      * @en The callback for the overall click of the search association box

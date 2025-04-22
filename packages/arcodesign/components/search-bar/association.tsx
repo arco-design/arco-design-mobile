@@ -61,7 +61,7 @@ export function SearchBarAssociation<Data>(props: SearchBarAssociationProps<Data
             <div
                 key={index}
                 className={`${searchBarAssociationPrefixCls}-item`}
-                onClick={() => onAssociationItemClick?.(item, index)}
+                onClick={e => onAssociationItemClick?.(item, index, e)}
             >
                 {node}
             </div>
