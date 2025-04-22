@@ -173,7 +173,7 @@ string | { [x: string]: any; title: ReactNode; }
 |scrollTo|滚动 bar 到指定位置，tabs 上下布局时是以 x 轴滚动，左右布局时以 y 轴滚动|(position: number, rightNow?: boolean) =\> void|
 |scrollToCenter|滚动 bar 使当前选中item到屏幕中间|(rightNow?: boolean) =\> void|
 |setCaterpillarAnimate|触发毛毛虫动画|(ratio?: number) =\> void|
-|resetUnderlineStyle|重新计算下划线样式|() =\> void|
+|resetUnderlineStyle|重新计算下划线样式（仅重算位置，如果 tab cell DOM 被人为改变，请调用 updateLayout）|() =\> void|
 |updateLayout|强制更新 tab\-cell|() =\> void|
 
 > TabPaneRef

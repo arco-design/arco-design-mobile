@@ -380,7 +380,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
 
     function updateLayout() {
         const { width, height } = getOffset(domRef.current);
-        cellRef.current && cellRef.current.resetUnderlineStyle();
+        cellRef.current && cellRef.current.updateLayout();
         setWrapWidth(width || domRef.current?.offsetWidth || 0);
         setWrapHeight(height || domRef.current?.offsetHeight || 0);
         paneRef.current && paneRef.current.setCurrentHeight();
