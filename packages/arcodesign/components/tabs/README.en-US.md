@@ -1,6 +1,6 @@
 ### Navigation
 
-# Tabs 
+# Tabs
 
 Used to let the user switch between different views. In order to optimize the rendering performance of the mobile terminal, if you need to replace the DOM, send a request to update data, etc., please do it in the `onAfterChange` instead of the `onChange` callback.
 
@@ -173,7 +173,7 @@ string | { [x: string]: any; title: ReactNode; }
 |scrollTo|Scroll the bar to the specified position, the tabs are scrolled on the x\-axis when the tabs are laid out up and down, and the y\-axis is scrolled when the tabs are laid out left and right|(position: number, rightNow?: boolean) =\> void|
 |scrollToCenter|Scroll the bar to bring the currently selected item to the middle of the screen|(rightNow?: boolean) =\> void|
 |setCaterpillarAnimate|Trigger caterpillar animation|(ratio?: number) =\> void|
-|resetUnderlineStyle|Recalculate underline style|() =\> void|
+|resetUnderlineStyle|Recalculate underline style (only recalculate position, if the tab cell DOM is changed manually, please call updateLayout)|() =\> void|
 |updateLayout|Force update tab\-cell|() =\> void|
 
 > TabPaneRef
