@@ -302,7 +302,7 @@
             },
             "required": false,
             "type": {
-                "name": "(item: SearchAssociationBaseItem, index: number) => void"
+                "name": "(item: SearchAssociationBaseItem, index: number, event: MouseEvent<HTMLDivElement, MouseEvent>) => void"
             }
         },
         "onAssociationClick": {
