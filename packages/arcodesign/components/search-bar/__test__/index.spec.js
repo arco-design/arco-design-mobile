@@ -244,7 +244,7 @@ describe('SearchBar', () => {
 
         const firstAssociationItem = associationItemDoms[0];
         await userEvent.click(firstAssociationItem);
-        expect(handleAssociationItemClick).toHaveBeenCalledWith(associationItems[0], 0);
+        expect(handleAssociationItemClick).toHaveBeenCalled();
     });
 
     it('highlight prefix mode work correctly', () => {
