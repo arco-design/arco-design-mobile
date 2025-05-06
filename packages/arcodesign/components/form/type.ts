@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { Promise } from 'es6-promise';
 
 export type FieldValue = any;
-export type FieldItem = Record<string, any>;
+export type FieldItem = Record<string, FieldValue>;
 export type ILayout = 'horizontal' | 'vertical' | 'inline';
 
 // 注意：自动识别form关联组件的依据，请勿轻易改变代码结构
@@ -57,6 +57,11 @@ export interface FormProps {
      * @en Callback when the form item value changes
      */
     onValuesChange?: Callbacks['onValuesChange'];
+    /**
+     * 表单项数据变化时的回调（仅用户操作表单时触发）
+     * @en Callback when the form item value changes (Only trigger when user operate form)
+     */
+    onChange?: Callbacks['onChange'];
     /**
      * 表单项数据变化时的回调
      * @en Callback when the form is submitted
@@ -124,6 +129,11 @@ export interface Callbacks {
      */
     onValuesChange?: (changedValues: FieldValue, values: FieldValue) => void;
     /**
+     * 表单项数据变化时的回调（仅用户操作表单时触发）
+     * @en Callback when the form item value changes (Only trigger when user operate form)
+     */
+    onChange?: (changedValues: FieldValue, values: FieldValue) => void;
+    /**
      * 表单项数据变化时的回调
      * @en Callback when the form is submitted
      */
@@ -143,6 +153,10 @@ export interface InternalHooks {
     registerField: (name: string, self: any) => () => void;
     setInitialValues: (values: FieldItem) => void;
     setCallbacks: (callbacks: Callbacks) => void;
+    getInitialValue: (fieldName: string) => FieldValue;
+    setInitialValue: (fieldName: string, values: FieldItem) => void;
+    innerSetFieldsValue: (values: FieldItem) => boolean;
+    innerSetFieldValue: (name: string, value: FieldValue) => boolean;
 }
 
 export interface IFormInstance {
@@ -194,6 +208,11 @@ export type InternalFormInstance = IFormInstance & {
      * @en Get internal methods
      */
     getInternalHooks: () => InternalHooks;
+    /**
+     * 注册表单组件
+     * @en Register Form Item component
+     */
+    registerField: (name: string, self: any) => () => void;
 };
 
 export interface FormRef {
