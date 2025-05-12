@@ -68,7 +68,7 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
             }
         }
         // Remove the last character if it has a emoji character.
-        currentText = currentText.replace(/[\uD800-\uDBFF]+$/g, '');
+        currentText = currentText.replace(/[\uD800-\uDBFF]+$/, '');
         // Remove the exclude char at the end of the content.
         while (endExcludes && endExcludes.includes(currentText[currentText.length - 1])) {
             currentText = currentText.slice(0, -1);
