@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`sticky demo test sticky demo: absolute.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    style="position: relative; border: 12px solid #e5e6eb; padding: 12px;"
+  >
+    <div
+      style="height: 300px; overflow: scroll; border: 4px solid #e5e6eb;"
+    >
+      <div
+        class="demo-sticky-container"
+        style="height: 200px;"
+      >
+        My normal content
+      </div>
+      <div>
+        <div
+          style="height: 0px;"
+        />
+        <div
+          class="arco-sticky"
+        >
+          <button
+            class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+            type="button"
+          >
+            <div
+              class="arco-button-text arco-button-text-pc btn-text"
+            >
+              Absolute scroll content
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="demo-sticky-container"
+        style="height: 500px;"
+      >
+        My normal content
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`sticky demo test sticky demo: bottom.md renders correctly 1`] = `
 <DocumentFragment>
   <div>

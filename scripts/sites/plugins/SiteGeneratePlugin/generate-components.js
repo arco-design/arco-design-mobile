@@ -78,6 +78,7 @@ function generateComponents({
 
             // 渲染文档站 demo 内容部分
             const demoPath = path.join(compSrcPath, comp, 'demo');
+            const docPath = path.join(compPagePath, comp);
             const { demoSource = [], lessSources = {} } =
                 renderComponentsDemos({
                     demoSrcPath: demoPath,
@@ -124,7 +125,6 @@ function generateComponents({
                         </div>
                     );
                 }`);
-            const docPath = path.join(compPagePath, comp);
             fs.mkdirpSync(docPath);
             fs.writeFile(path.join(docPath, `index${tsxFileSuffix}.tsx`), entry, () => {
                 resolve(`>>> Write sites file finished: ${comp}`);

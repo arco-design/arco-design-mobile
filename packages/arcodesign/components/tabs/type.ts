@@ -613,8 +613,8 @@ export interface TabCellRef {
      */
     setCaterpillarAnimate: (ratio?: number) => void;
     /**
-     * 重新计算下划线样式
-     * @en Recalculate underline style
+     * 重新计算下划线样式（仅重算位置，如果 tab cell DOM 被人为改变，请调用 updateLayout）
+     * @en Recalculate underline style (only recalculate position, if the tab cell DOM is changed manually, please call updateLayout)
      */
     resetUnderlineStyle: () => void;
     /**

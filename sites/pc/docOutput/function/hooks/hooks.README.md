@@ -88,12 +88,13 @@ function useMountedState<S>(initialState: S | (() => S)) {
         }
         setState(value);
     }, []);
-    useEffect(
-        () => () => {
+    useEffect(() => {
+        // see: https://github.com/arco-design/arco-design-mobile/pull/292
+        leavingRef.current = false;
+        return () => {
             leavingRef.current = true;
-        },
-        [],
-    );
+        };
+    }, []);
     const result: [S, typeof setState] = [state, setValidState];
     return result;
 }
@@ -412,23 +413,25 @@ variableRef，变量的最新ref值
 ```
 import { useSystem } from '@arco-design/mobile-react/esm/_helpers/hooks';
 const system = useSystem();
+// Or with options
+const systemWithHarmony = useSystem({ detectHarmony: true });
 ```
 
 ## 类型
 
 ```
-() => "" | "pc" | "android" | "ios"
+(options?: SystemOptions | undefined) => "" | "pc" | "android" | "ios" | "harmony"
 ```
 
 ## 源码
 
 ```
-function useSystem() {
+function useSystem(options?: SystemOptions) {
     const { system: currentSystem } = useContext(GlobalContext);
-    const [system, setSystem] = useState(() => currentSystem || getSystem());
+    const [system, setSystem] = useState(() => currentSystem || getSystem(options));
     useEffect(() => {
-        setSystem(currentSystem || getSystem());
-    }, [currentSystem]);
+        setSystem(currentSystem || getSystem(options));
+    }, [currentSystem, options]);
     return system;
 }
 ```
@@ -437,11 +440,19 @@ function useSystem() {
 
 > 输入
 
-无
+|参数|描述|类型|默认值|
+|----------|-------------|------|------|
+|options|配置选项|SystemOptions \| undefined|-|
 
 > 输出
 
-system 操作系统，"" | "pc" | "android" | "ios"
+返回当前设备的操作系统，可能的值包括 'android'、'ios'、'harmony' 或 'pc'，如果无法获取，则返回空字符串
+
+> SystemOptions
+
+|参数|描述|类型|
+|----------|-------------|------|
+|detectHarmony|是否识别鸿蒙系统，默认为 false，鸿蒙系统会被识别为 Android @en Whether to detect HarmonyOS separately, default is false, HarmonyOS will be recognized as Android|boolean|
 
 ------
 

@@ -1,7 +1,8 @@
 @import '../../../mixin/index.less';
 
 :root when (@use-css-vars = 1) {
-    --prefix: arco;
+    --prefix: var(--prefix-mobile);
+    --prefix-mobile: arco;
     --base-font-size: 50;
     --arco-dark-mode-selector: .arco-theme-dark;
     --background-color: #FFFFFF;

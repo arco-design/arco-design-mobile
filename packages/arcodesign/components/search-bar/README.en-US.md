@@ -23,7 +23,7 @@ SearchBar component
 |highlightStyle|The style to be added to the highlighted result, only available in non\-custom highlight mode|CSSProperties|-|
 |highlightClassName|The class to be added to the highlighting result, only valid in non\-custom highlighting mode|string|-|
 |onCancel|Right cancel button click callback|() =\> void|-|
-|onAssociationItemClick|Click callback for each row of search results|(item: SearchAssociationBaseItem, index: number) =\> void|-|
+|onAssociationItemClick|Click callback for each row of search results|(item: SearchAssociationBaseItem, index: number, event: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
 |onAssociationClick|The callback for the overall click of the search association box|(event: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
 |renderAssociationItem|Custom rendering of each row of search results|(item: SearchAssociationBaseItem, index: number, node: ReactNode) =\> ReactNode|-|
 |renderAssociation|Customize the rendering of the overall content of the search association box|(Content: ReactNode) =\> ReactNode|-|

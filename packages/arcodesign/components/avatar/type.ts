@@ -44,6 +44,12 @@ export interface AvatarProps<T extends ImageProps = ImageProps> extends BaseProp
      */
     avatarStyle?: React.CSSProperties;
     /**
+     * 头像元素的自定义类名
+     * @en Custom classname for avatar element
+     * @default ""
+     */
+    avatarClass?: string;
+    /**
      * 是否自动根据头像尺寸调整字体大小
      * @en Whether to automatically adjust the font size according to the avatar size
      * @default true

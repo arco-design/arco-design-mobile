@@ -1043,6 +1043,17 @@
                 },
                 "tags": {},
                 "descWithTags": ""
+            },
+            "Uploader": {
+                "name": "Uploader",
+                "required": true,
+                "description": "",
+                "defaultValue": null,
+                "type": {
+                    "name": "{ uploadBtn: string; retryUpload: string; }"
+                },
+                "tags": {},
+                "descWithTags": ""
             }
         }
     },

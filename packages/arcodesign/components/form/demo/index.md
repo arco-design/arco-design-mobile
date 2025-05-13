@@ -126,7 +126,7 @@ export default function FormDemo() {
                     <Rate />
                 </Form.Item>
                 <Form.Item field="pictures" label="Pictures" initialValue={[
-                    { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' }
+                    { url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' }
                 ]}>
                     <ImagePicker />
                 </Form.Item>

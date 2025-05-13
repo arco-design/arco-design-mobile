@@ -1,5 +1,5 @@
 module.exports = {
-    $siteDomain$: 'arco.design',
+    $siteDomain$: process.env.ARCO_SITE_DOMAIN ?? 'arco.design',
     $githubLink$: `{
         text: (
             <Tooltip content="Github" position="br">

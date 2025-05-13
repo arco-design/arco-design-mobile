@@ -1728,10 +1728,13 @@ exports[`grid demo test grid demo: index11.md renders correctly 1`] = `
       <div
         class="grid-demo-rows-item"
       >
-        <img
+        <div
           class="grid-demo-rows-item-icon"
-          src="[object Object]"
-        />
+        >
+          <div
+            class="grid-demo-block"
+          />
+        </div>
         <div
           class="grid-demo-rows-item-text"
         >
@@ -1745,10 +1748,13 @@ exports[`grid demo test grid demo: index11.md renders correctly 1`] = `
       <div
         class="grid-demo-rows-item"
       >
-        <img
+        <div
           class="grid-demo-rows-item-icon"
-          src="[object Object]"
-        />
+        >
+          <div
+            class="grid-demo-block"
+          />
+        </div>
         <div
           class="grid-demo-rows-item-text"
         >
@@ -1762,10 +1768,13 @@ exports[`grid demo test grid demo: index11.md renders correctly 1`] = `
       <div
         class="grid-demo-rows-item"
       >
-        <img
+        <div
           class="grid-demo-rows-item-icon"
-          src="[object Object]"
-        />
+        >
+          <div
+            class="grid-demo-block"
+          />
+        </div>
         <div
           class="grid-demo-rows-item-text"
         >

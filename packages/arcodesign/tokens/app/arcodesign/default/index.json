@@ -8177,12 +8177,25 @@
         "cssKey": "prefix",
         "desc": "类前缀，需配合 context-provider 中的 prefixCls 使用",
         "override": "",
+        "value": "@prefix-mobile",
+        "jsValue": "@global@prefixMobile",
+        "staticValue": "arco",
+        "localeDesc": {
+            "ch": "类前缀，需配合 context-provider 中的 prefixCls 使用",
+            "default": "'arco'",
+            "en": "Classname prefix, it needs to be used with prefixCls in context-provider"
+        }
+    },
+    "prefixMobile": {
+        "cssKey": "prefix-mobile",
+        "desc": "功能同 prefix，与 PC 版同用时可使用该变量修改类前缀解决冲突",
+        "override": "",
         "value": "arco",
         "jsValue": "arco",
         "staticValue": "arco",
         "localeDesc": {
-            "ch": "类前缀，需配合 context-provider 中的 prefixCls 使用",
-            "en": "Classname prefix, it needs to be used with prefixCls in context-provider"
+            "ch": "功能同 prefix，与 PC 版同用时可使用该变量修改类前缀解决冲突",
+            "en": "Same as `prefix`, it can avoid conflicts when used with arco pc"
         }
     },
     "primaryColor": {

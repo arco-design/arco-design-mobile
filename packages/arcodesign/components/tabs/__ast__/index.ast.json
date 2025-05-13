@@ -2459,15 +2459,15 @@
             "resetUnderlineStyle": {
                 "name": "resetUnderlineStyle",
                 "required": true,
-                "description": "重新计算下划线样式\n@en Recalculate underline style",
+                "description": "重新计算下划线样式（仅重算位置，如果 tab cell DOM 被人为改变，请调用 updateLayout）\n@en Recalculate underline style (only recalculate position, if the tab cell DOM is changed manually, please call updateLayout)",
                 "defaultValue": null,
                 "type": {
                     "name": "() => void"
                 },
                 "tags": {
-                    "en": "Recalculate underline style"
+                    "en": "Recalculate underline style (only recalculate position, if the tab cell DOM is changed manually, please call updateLayout)"
                 },
-                "descWithTags": "重新计算下划线样式"
+                "descWithTags": "重新计算下划线样式（仅重算位置，如果 tab cell DOM 被人为改变，请调用 updateLayout）"
             },
             "updateLayout": {
                 "name": "updateLayout",

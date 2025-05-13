@@ -30,6 +30,7 @@ export function componentGenerator<
             decoration = null,
             textAvatar = '',
             avatarStyle = {},
+            avatarClass = '',
             autoFixFontSize = true,
             autoFixFontOffset = 2,
             avatarName = '',
@@ -103,6 +104,7 @@ export function componentGenerator<
                 <div
                     className={cls(
                         `${prefixCls}-avatar`,
+                        avatarClass,
                         `${prefixCls}-avatar-size-${size}`,
                         size,
                         `${prefixCls}-avatar-shape-${shape}`,

@@ -136,7 +136,7 @@ export interface DatePickerProps
      * @en Associate the hidden state of the picker and the display of the selected value with a container. After passing it in, the container and the picker component will be rendered at the same time. At this time, the visible and onHide attributes of the picker component are optional values. Clicking the container will evoke the picker
      */
     renderLinkedContainer?: (
-        currentTs: number | [number, number],
+        currentTs: number | [number, number] | undefined,
         itemTypes: ItemType[],
     ) => ReactNode;
 }
