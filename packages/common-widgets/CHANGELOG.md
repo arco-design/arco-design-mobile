@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.21.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.4...@arco-design/mobile-utils@2.21.0) (2025-05-13)
+
+
+### Bug Fixes
+
+* add harmony system detection support ([#317](https://github.com/arco-design/arco-design-mobile/issues/317)) ([105f459](https://github.com/arco-design/arco-design-mobile/commit/105f45941317c6044aaf0f2f284ca48e630dfc08))
+
+
+### Features
+
+* `DatePicker` add date range picker ([#323](https://github.com/arco-design/arco-design-mobile/issues/323)) ([d02357c](https://github.com/arco-design/arco-design-mobile/commit/d02357cdf6ed43e102c0827937f8ea8396bfb8ae))
+
+
+
+
+
 ## [2.20.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.3...@arco-design/mobile-utils@2.20.4) (2025-03-17)
 
 **Note:** Version bump only for package @arco-design/mobile-utils
