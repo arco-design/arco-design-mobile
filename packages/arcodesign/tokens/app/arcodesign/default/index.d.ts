@@ -8,8 +8,6 @@ export interface ArcodesignToken extends Record<string, string> {
     'dark-background-color': string;
     'container-background-color': string;
     'dark-container-background-color': string;
-    'picker-show-background-color': string;
-    'dark-picker-show-background-color': string;
     'card-background-color': string;
     'dark-card-background-color': string;
     'font-color': string;
@@ -1095,8 +1093,8 @@ export interface ArcodesignToken extends Record<string, string> {
     'dark-uploader-item-text-error-color': string;
     'uploader-item-text-error-color': string;
     'date-picker-range-font-size': string;
-    'dark-date-picker-range-background-color': string;
     'date-picker-range-background-color': string;
+    'dark-date-picker-range-background-color': string;
     'dark-date-picker-range-font-color': string;
     'date-picker-range-font-color': string;
     'dark-date-picker-range-disabled-font-color': string;

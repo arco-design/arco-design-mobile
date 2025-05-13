@@ -40,11 +40,6 @@ function getGlobalTokens() {
          */
         containerBackgroundColor: theme['arcom-color-bg-2'],
         /**
-         * 选择器展示部分背景色
-         * @en Background color of picker show area
-         */
-        pickerShowBackgroundColor: theme['arcom-color-bg-4'],
-        /**
          * 卡片类元素背景色
          * @en Background color of card elements
          */
@@ -4245,7 +4240,7 @@ function getCompTokens() {
          * 日期时间范围选择器背景颜色
          * @en Background color of the date picker range when checked
          */
-        datePickerRangeBackgroundColor: useGlobal('pickerShowBackgroundColor'),
+        datePickerRangeBackgroundColor: theme['arcom-color-bg-4'],
         /**
          * 日期时间范围选择器选中时文字颜色
          * @en Font color of the date picker range when checked
