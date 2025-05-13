@@ -132,7 +132,7 @@ export function isNull(obj: unknown): boolean {
  * 检查一个值是否为 undefined
  * @desc {en} Check if a value is undefined
  * @param {unknown} obj 入参
- * @param {unknown} obj {en} Entering
+ * @param {unknown} obj {en} Parameters
  * @returns {boolean} 返回该值是否为 undefined
  * @returns {boolean} {en} Returns whether the value is undefined
  * @example

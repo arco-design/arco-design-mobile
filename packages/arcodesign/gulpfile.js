@@ -1,5 +1,3 @@
-import { Promise } from 'es6-promise';
-
 const gulp = require('gulp');
 const path = require('path');
 const ts = require('gulp-typescript');
