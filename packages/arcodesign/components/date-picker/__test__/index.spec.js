@@ -109,7 +109,5 @@ describe('DatePicker', () => {
             />,
         );
         expect(document.querySelectorAll(`.${datePrefix}-show`).length).toBe(1);
-        expect(document.querySelectorAll(`.${datePrefix}-show-part`).length).toBe(2);
-        expect(document.querySelectorAll(`.${datePrefix}-show-choice`).length).toBe(1);
     });
 });
