@@ -10,19 +10,21 @@
 
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
-|onOk|点击选中时执行的回调|(timestamp: number, obj: IDateObj) =\> void|-|
-|currentTs|当前选中的时间，timestamp|number|Date.now()|
-|onChange|选中后的回调|(timestamp: number, obj: IDateObj) =\> void|-|
+|onOk|点击选中时执行的回调|(timestamp: number \| \[number, number\], obj: IDateObj \| \[IDateObj, IDateObj\]) =\> void|-|
+|currentTs|当前选中的时间，timestamp|number \| \[number, number\]|Date.now()|
+|onChange|选中后的回调|(timestamp: number \| \[number, number\], obj: IDateObj \| \[IDateObj, IDateObj\]) =\> void|-|
 |onValueChange|每列数据选择变化后的回调函数|(timestamp: number, obj: IDateObj, index: number) =\> void|-|
 |mode|可选列类型，date \- 年月日，time \- 时分秒，datetime \- 年月日时分秒|"date" \| "time" \| "datetime"|"datetime"|
 |typeArr|可选列数组|ItemType\[\]|[]|
-|minTs|最小可选日期，timestamp|number|当前时间的前十年|
-|maxTs|最大可选日期，timestamp|number|当前时间的后十年|
+|minTs|最小可选日期，timestamp|number \| \{ startTs: number; endTs: number; \}|当前时间的前十年|
+|maxTs|最大可选日期，timestamp|number \| \{ startTs: number; endTs: number; \}|当前时间的后十年|
 |useUTC|是否使用 UTC 时间|boolean|false|
+|rangeItemFormat|日期时间范围选择展示格式|string|-|
 |formatter|各可选项展示的格式化方法，参数type为ItemTypes，参数value为当前行的值，返回展示的文字|(value: number, type: ItemType) =\> string|(value: number) => (value < 10 ? \`0${value}\` : String(value))|
 |valueFilter|可选择行过滤方法，参数type为ItemType，参数value为当前行的值，返回true表示该行可选择|(type: ItemType, value: number) =\> boolean|() => true|
 |columnsProcessor|选择器列表项干预，可插入自定义选项|(columns: PickerData\[\]\[\], currentDateObj: IDateObj) =\> PickerData\[\]\[\]|-|
-|renderLinkedContainer|将选择器的展现隐藏状态及选中值的展示与某个容器关联，传入后将同时渲染该容器和选择器组件，此时选择器组件的 visible 和 onHide 属性可不传，点击该容器会唤起选择器|(currentTs: number, itemTypes: ItemType\[\]) =\> ReactNode|-|
+|renderSeparator|自定义分隔符|() =\> ReactNode|-|
+|renderLinkedContainer|将选择器的展现隐藏状态及选中值的展示与某个容器关联，传入后将同时渲染该容器和选择器组件，此时选择器组件的 visible 和 onHide 属性可不传，点击该容器会唤起选择器|(currentTs: number \| \[number, number\], itemTypes: ItemType\[\]) =\> ReactNode|-|
 |visible|是否展示选择器|boolean|false|
 |maskClosable|点击蒙层是否关闭菜单|boolean|false|
 |needBottomOffset|从底部滑出的菜单内容是否适配ipx底部|boolean|false|
@@ -59,6 +61,7 @@
 |hideEmptyCols|是否隐藏无数据的空列，常用于级联选择|boolean|false|
 |title|选择器标题|string|""|
 |touchToStop|是否通过长按停止滑动，传入数字 x 表示触摸超过 x 毫秒算长按，传 true 表示 x=100，长按事件与 click 事件互斥|number \| boolean|false|
+|renderExtraHeader|自定义头部扩展区域|() =\> ReactNode|-|
 
 > 引用/Refs
 
