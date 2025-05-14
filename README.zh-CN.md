@@ -20,6 +20,7 @@
 ![](https://img.shields.io/npm/v/@arco-design/mobile-react.svg?style=flat-square)
 ![](https://img.shields.io/npm/dm/@arco-design/mobile-react.svg?style=flat-square)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design-mobile/blob/main/LICENSE)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/arco-design/arco-design-mobile)
 
 </div>
 

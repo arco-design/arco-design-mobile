@@ -140,4 +140,9 @@ export interface PickerProps
      * @en Associate the hidden state of the picker and the display of the selected value with a container. After passing it in, the container and the picker component will be rendered at the same time. At this time, the visible and onHide attributes of the picker component are optional values. Clicking the container will evoke the picker
      */
     renderLinkedContainer?: (value: ValueType[], data: PickerData[]) => ReactNode;
+    /**
+     * 自定义头部扩展区域
+     * @en Define the area of extra header
+     */
+    renderExtraHeader?: () => ReactNode;
 }
