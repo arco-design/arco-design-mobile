@@ -18,6 +18,7 @@ const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
         form: formInstance,
         children,
         onValuesChange,
+        onChange,
         onSubmit,
         onSubmitFailed,
         disabled,
@@ -30,6 +31,7 @@ const Form = forwardRef((props: FormProps, ref: Ref<FormRef>) => {
         onValuesChange,
         onSubmit,
         onSubmitFailed,
+        onChange,
     });
 
     if (!initRef.current) {
