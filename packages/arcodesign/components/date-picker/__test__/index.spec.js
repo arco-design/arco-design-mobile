@@ -8,6 +8,7 @@ import { defaultContext } from '../../context-provider';
 import '@testing-library/jest-dom';
 
 const prefix = `${defaultContext.prefixCls}-picker`;
+const datePrefix = `${defaultContext.prefixCls}-date-picker`;
 
 demoTest('date-picker');
 
@@ -26,7 +27,7 @@ describe('DatePicker', () => {
         const mockFn = jest.fn();
         const { rerender } = render(
             <DatePicker
-                visible={true}
+                visible
                 maskClosable
                 disabled={false}
                 currentTs={new Date('2020-02-29 00:00:00'.replace(/-/g, '/')).getTime()}
@@ -36,7 +37,7 @@ describe('DatePicker', () => {
         );
         rerender(
             <DatePicker
-                visible={true}
+                visible
                 maskClosable
                 disabled={false}
                 currentTs={new Date('2020-03-29 00:00:00'.replace(/-/g, '/')).getTime()}
@@ -55,7 +56,7 @@ describe('DatePicker', () => {
     it('Time constraints render correctly', () => {
         const { rerender } = render(
             <DatePicker
-                visible={true}
+                visible
                 maskClosable
                 disabled={false}
                 minTs={new Date('2022-02-29 00:00:00'.replace(/-/g, '/')).getTime()}
@@ -66,7 +67,7 @@ describe('DatePicker', () => {
 
         rerender(
             <DatePicker
-                visible={true}
+                visible
                 maskClosable
                 disabled={false}
                 maxTs={new Date('2022-02-29 00:00:00'.replace(/-/g, '/')).getTime()}
@@ -78,7 +79,7 @@ describe('DatePicker', () => {
     it('Option filtering renders correctly', () => {
         render(
             <DatePicker
-                visible={true}
+                visible
                 maskClosable
                 disabled={false}
                 typeArr={['hour', 'minute', 'second']}
@@ -94,5 +95,19 @@ describe('DatePicker', () => {
         expect(document.querySelector(`.${prefix}-multi`)).toHaveTextContent(
             '000102030405060708091011121314151617181920212223000102030405060708091011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859000510152025303540455055',
         );
+    });
+    it('Date range render correctly', () => {
+        render(
+            <DatePicker
+                visible
+                maskClosable
+                disabled={false}
+                currentTs={[
+                    new Date('2020-02-29 00:00:00'.replace(/-/g, '/')).getTime(),
+                    new Date('2020-02-29 00:00:00'.replace(/-/g, '/')).getTime(),
+                ]}
+            />,
+        );
+        expect(document.querySelectorAll(`.${datePrefix}-show`).length).toBe(1);
     });
 });

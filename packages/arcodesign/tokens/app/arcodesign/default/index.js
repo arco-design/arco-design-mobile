@@ -1103,7 +1103,17 @@ var tokens = {
   "dark-uploader-disabled-delete-icon-color": "var(--dark-disabled-color)",
   "uploader-disabled-delete-icon-color": "var(--disabled-color)",
   "dark-uploader-item-text-error-color": "var(--dark-danger-color)",
-  "uploader-item-text-error-color": "var(--danger-color)"
+  "uploader-item-text-error-color": "var(--danger-color)",
+  "date-picker-range-font-size": "0.32rem",
+  "date-picker-range-background-color": "#FBFCFC",
+  "dark-date-picker-range-background-color": "#1E1E1E",
+  "dark-date-picker-range-font-color": "var(--dark-font-color)",
+  "date-picker-range-font-color": "var(--font-color)",
+  "dark-date-picker-range-disabled-font-color": "var(--dark-disabled-color)",
+  "date-picker-range-disabled-font-color": "var(--disabled-color)",
+  "date-picker-range-show-padding": "0 0.32rem",
+  "date-picker-range-show-min-height": "0.96rem",
+  "date-picker-range-separate-min-width": "0.96rem"
 };
 var _default = tokens;
 exports["default"] = _default;

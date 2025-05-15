@@ -16,16 +16,16 @@ import { GlobalContext } from '../context-provider';
 import {
     IFieldError,
     FieldValue,
-    IFormItemContext,
     IFormItemInnerProps,
     FormItemProps,
     ValidateStatus,
     FormItemRef,
     FormInternalComponentType,
+    ValueChangeType,
+    IFormItemContext,
 } from './type';
-import { getErrorAndWarnings, isFieldRequired } from './utils';
+import { getDefaultValueForInterComponent, getErrorAndWarnings, isFieldRequired } from './utils';
 import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
-
 interface IFormItemInnerState {
     validateStatus: ValidateStatus;
     errors?: ReactNode[];
@@ -46,8 +46,8 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
         super(props);
         this.destroyField = () => {};
         if (props?.initialValue && props.field) {
-            const { setInitialValues } = context.form.getInternalHooks();
-            setInitialValues({ [props.field]: props.initialValue });
+            const { setInitialValue } = context.form.getInternalHooks();
+            setInitialValue(props.field, props.initialValue);
         }
     }
 
@@ -60,14 +60,35 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
         this.destroyField();
     }
 
-    onValueChange = (curValue: any, preValue: any) => {
+    onValueChange = (
+        curValue: FieldValue,
+        preValue: any,
+        info?: { changeType: ValueChangeType },
+    ) => {
         this._touched = true;
         const { shouldUpdate } = this.props;
         if (typeof shouldUpdate === 'function') {
             shouldUpdate({ preValue, curValue }) && this.forceUpdate();
             return;
         }
+
+        if (info?.changeType === ValueChangeType.Reset) {
+            this.props.onValidateStatusChange({
+                errors: [],
+                warnings: [],
+                errorTypes: [],
+            });
+            this._errors = [];
+        }
         this.forceUpdate();
+    };
+
+    getInitialValue = () => {
+        const { children, displayType } = this.props;
+        const { getInitialValue } = this.context.form.getInternalHooks();
+        const childrenType = displayType || children.type?.displayName;
+        // get user-defined initialValue or if not defined
+        return getInitialValue(this.props.field) ?? getDefaultValueForInterComponent(childrenType);
     };
 
     getFieldError = () => {
@@ -78,14 +99,30 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
         return this._touched;
     };
 
-    validateField = (): Promise<IFieldError> => {
+    getAllRuleValidateTriggers = (): string[] => {
+        return (
+            (this.props.rules
+                ?.map(rule => rule.validateTrigger)
+                .flat()
+                .filter(v => !!v) as string[]) || []
+        );
+    };
+
+    validateField = (validateTrigger?: string): Promise<IFieldError> => {
         const { validateMessages } = this.context;
         const { getFieldValue } = this.context.form;
         const { field, rules, onValidateStatusChange } = this.props;
         const value = getFieldValue(field);
-        if (rules?.length && field) {
+
+        const curRules = validateTrigger
+            ? rules?.filter(rule => {
+                  const triggerList: string[] = ([] as string[]).concat(rule.validateTrigger || '');
+                  return triggerList.includes(validateTrigger);
+              })
+            : rules;
+        if (curRules?.length && field) {
             const fieldDom = this.props.getFormItemRef();
-            const fieldValidator = new Validator({ [field]: rules }, { validateMessages });
+            const fieldValidator = new Validator({ [field]: curRules }, { validateMessages });
             return new Promise(resolve => {
                 fieldValidator.validate(
                     { [field]: value },
@@ -115,8 +152,8 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
 
     setFieldData = (value: FieldValue) => {
         const { field } = this.props;
-        const { setFieldValue } = this.context.form;
-        setFieldValue(field, value);
+        const { innerSetFieldValue } = this.context.form.getInternalHooks();
+        innerSetFieldValue(field, value);
         this.validateField();
     };
 
@@ -136,6 +173,12 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
         }
     };
 
+    innerOnInputFunction = (_, value, ...args) => {
+        this.setFieldData(value);
+        const { children } = this.props;
+        children.props?.onInput?.(_, value, ...args);
+    };
+
     innerClearFunction = (...args) => {
         const { children } = this.props;
         this.setFieldData('');
@@ -151,80 +194,83 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
             trigger = 'onChange',
             triggerPropsField = 'value',
             displayType,
+            disabled,
         } = this.props;
         const { getFieldValue } = this.context.form;
-        let props = {
-            [triggerPropsField]: getFieldValue(field),
-            disabled: this.props.disabled,
+        const childrenProps: {
+            disabled?: boolean;
+            value?: FieldValue;
+            onInput?: (...args: any) => void;
+            onClear?: () => void;
+            currentTs?: number;
+            onChange?: (value: FieldValue, ...args: any) => void;
+            renderLinkedContainer?: (value: FieldValue) => ReactNode;
+            images?: FieldValue;
+            checked?: boolean;
+            error?: ReactNode[];
+        } = {
+            disabled,
         };
+        // inject validate trigger events of rules
+        // this.getAllRuleValidateTriggers().forEach(triggerName => {
+        //     childrenProps[triggerName] = e => {
+        //         this.validateField(triggerName);
+        //         children?.props?.[triggerName]?.(e);
+        //     };
+        // });
         const childrenType = displayType || children.type?.displayName;
         switch (childrenType) {
             case FormInternalComponentType.Input:
             case FormInternalComponentType.Textarea:
-                props = {
-                    value: getFieldValue(field) || '',
-                    onInput: this.innerTriggerFunction,
-                    onClear: this.innerClearFunction,
-                    disabled: this.props.disabled,
-                };
+                childrenProps.value = getFieldValue(field) || '';
+                childrenProps.onInput = this.innerOnInputFunction;
+                childrenProps.onClear = this.innerClearFunction;
                 break;
             case FormInternalComponentType.Checkbox:
             case FormInternalComponentType.Radio:
             case FormInternalComponentType.Slider:
             case FormInternalComponentType.RadioGroup:
             case FormInternalComponentType.CheckboxGroup:
-                props = {
-                    value: getFieldValue(field),
-                    onChange: this.innerTriggerFunctionWithValueFirst,
-                    disabled: this.props.disabled,
-                };
+                childrenProps.value = getFieldValue(field);
+                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
                 break;
             case FormInternalComponentType.DatePicker:
-                props = {
-                    currentTs: getFieldValue(field),
-                    onChange: this.innerTriggerFunctionWithValueFirst,
-                    disabled: this.props.disabled,
-                    renderLinkedContainer:
-                        children.props?.renderLinkedContainer ||
-                        ((ts, types) => <DefaultDatePickerLinkedContainer ts={ts} types={types} />),
-                };
+                childrenProps.currentTs = getFieldValue(field);
+                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
+                childrenProps.renderLinkedContainer =
+                    children.props?.renderLinkedContainer ||
+                    ((ts, types) => <DefaultDatePickerLinkedContainer ts={ts} types={types} />);
                 break;
             case FormInternalComponentType.Picker:
-                props = {
-                    value: getFieldValue(field),
-                    onChange: this.innerTriggerFunctionWithValueFirst,
-                    disabled: this.props.disabled,
-                    renderLinkedContainer:
-                        children.props?.renderLinkedContainer ||
-                        (val => <DefaultPickerLinkedContainer value={val} />),
-                };
+                childrenProps.value = getFieldValue(field) || '';
+                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
+                childrenProps.renderLinkedContainer =
+                    children.props?.renderLinkedContainer ||
+                    (val => <DefaultPickerLinkedContainer value={val} />);
                 break;
 
             case FormInternalComponentType.Switch:
-                props = {
-                    checked: Boolean(getFieldValue(field)),
-                    onChange: this.innerTriggerFunctionWithValueFirst,
-                    disabled: this.props.disabled,
-                };
+                childrenProps.checked = Boolean(getFieldValue(field));
+                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
                 break;
             case FormInternalComponentType.ImagePicker:
-                props = {
-                    images: getFieldValue(field),
-                    onChange: this.innerTriggerFunctionWithValueFirst,
-                    disabled: this.props.disabled,
-                };
+                childrenProps.images = getFieldValue(field);
+                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
                 break;
             default:
                 const originTrigger = children.props[trigger];
+                if (triggerPropsField) {
+                    childrenProps[triggerPropsField] = getFieldValue(field);
+                }
                 // inject the validated result
-                props.error = this._errors;
-                props[trigger] = (newValue, ...args: any) => {
+                childrenProps.error = this._errors;
+                childrenProps[trigger] = (newValue, ...args: any) => {
                     this.setFieldData(newValue);
                     originTrigger && originTrigger(newValue, ...args);
                 };
         }
 
-        return React.cloneElement(children, props);
+        return React.cloneElement(children, childrenProps);
     }
 
     render() {
@@ -232,6 +278,8 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
     }
 }
 FormItemInner.contextType = FormItemContext;
+
+export { FormItemInner };
 
 export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
     const {
@@ -276,7 +324,6 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
     useImperativeHandle(ref, () => ({
         dom: formItemRef.current,
     }));
-
     return (
         <div
             className={cls(

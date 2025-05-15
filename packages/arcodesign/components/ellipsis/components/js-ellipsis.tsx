@@ -67,6 +67,8 @@ const JsEllipsis = forwardRef((props: JsEllipsisProps, ref: Ref<JsEllipsisRef>) 
                 l = m;
             }
         }
+        // Remove the last character if it is orphaned high-surrogate characters (indicative of incomplete emoji).
+        currentText = currentText.replace(/[\uD800-\uDBFF]+$/, '');
         // Remove the exclude char at the end of the content.
         while (endExcludes && endExcludes.includes(currentText[currentText.length - 1])) {
             currentText = currentText.slice(0, -1);

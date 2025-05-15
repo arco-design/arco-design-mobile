@@ -10,19 +10,21 @@ Date picker, based on the `Picker` component, supports the specified range, the 
 
 |Property|Description|Type|DefaultValue|
 |----------|-------------|------|------|
-|onOk|Callback when clicking OK|(timestamp: number, obj: IDateObj) =\> void|-|
-|currentTs|The currently selected time, timestamp|number|Date.now()|
-|onChange|Callback when value is changed|(timestamp: number, obj: IDateObj) =\> void|-|
+|onOk|Callback when clicking OK|(timestamp: number \| \[number, number\], obj: IDateObj \| \[IDateObj, IDateObj\]) =\> void|-|
+|currentTs|The currently selected time, timestamp|number \| \[number, number\]|Date.now()|
+|onChange|Callback when value is changed|(timestamp: number \| \[number, number\], obj: IDateObj \| \[IDateObj, IDateObj\]) =\> void|-|
 |onValueChange|The callback function after each column data selection changes|(timestamp: number, obj: IDateObj, index: number) =\> void|-|
 |mode|Optional column type, date means year, month and day, time means hour, minute and second, datetime means year, month, day, hour, minute and second|"date" \| "time" \| "datetime"|"datetime"|
 |typeArr|optional column list|ItemType\[\]|[]|
-|minTs|Minimum selectable date, timestamp|number|10 years ago from the current time|
-|maxTs|Maximum selectable date, timestamp|number|Next decade from current time|
+|minTs|Minimum selectable date, timestamp|number \| \{ startTs: number; endTs: number; \}|10 years ago from the current time|
+|maxTs|Maximum selectable date, timestamp|number \| \{ startTs: number; endTs: number; \}|Next decade from current time|
 |useUTC|Whether to use UTC|boolean|false|
+|rangeItemFormat|Time range picker display format|string|-|
 |formatter|The formatting method of each optional item, the parameter type is ItemTypes, the parameter value is the value of the current row, and the displayed text is returned\.|(value: number, type: ItemType) =\> string|(value: number) => (value < 10 ? \`0${value}\` : String(value))|
 |valueFilter|Row filtering method, the parameter type is ItemType, the parameter value is the value of the current row, and returns true to indicate that the row can be selected|(type: ItemType, value: number) =\> boolean|() => true|
 |columnsProcessor|Selector list item intervention to insert custom options\.|(columns: PickerData\[\]\[\], currentDateObj: IDateObj) =\> PickerData\[\]\[\]|-|
-|renderLinkedContainer|Associate the hidden state of the picker and the display of the selected value with a container\. After passing it in, the container and the picker component will be rendered at the same time\. At this time, the visible and onHide attributes of the picker component are optional values\. Clicking the container will evoke the picker|(currentTs: number, itemTypes: ItemType\[\]) =\> ReactNode|-|
+|renderSeparator|Defined separator area|() =\> ReactNode|-|
+|renderLinkedContainer|Associate the hidden state of the picker and the display of the selected value with a container\. After passing it in, the container and the picker component will be rendered at the same time\. At this time, the visible and onHide attributes of the picker component are optional values\. Clicking the container will evoke the picker|(currentTs: number \| \[number, number\], itemTypes: ItemType\[\]) =\> ReactNode|-|
 |visible|whether to show the picker|boolean|false|
 |maskClosable|Whether to click the mask to close the menu|boolean|false|
 |needBottomOffset|Whether the content of the menu that slides out from the bottom fits the bottom of ipx|boolean|false|
@@ -59,6 +61,7 @@ Date picker, based on the `Picker` component, supports the specified range, the 
 |hideEmptyCols|Whether to hide empty columns without data, often used for cascading selection|boolean|false|
 |title|Picker title|string|""|
 |touchToStop|Whether to stop sliding by long\-pressing, inputing in the number x means that the touch exceeds x milliseconds to count as long\-pressing, inputing true means that x=100, the long\-press event and the click event are mutually exclusive|number \| boolean|false|
+|renderExtraHeader|Define the area of extra header|() =\> ReactNode|-|
 
 > Refs
 

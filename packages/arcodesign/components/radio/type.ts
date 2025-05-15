@@ -1,5 +1,6 @@
 import { CheckboxCommonProps, CheckboxProps, CheckboxRef, ValueType } from '../checkbox';
 import { BaseRef } from '../_helpers';
+
 export type { ValueType } from '../checkbox';
 
 export interface RadioGroupProps<
@@ -12,10 +13,10 @@ export interface RadioGroupProps<
      */
     options?: P[];
     /**
-     * 受控模式，选中的选项
+     * 受控模式，选中的选项，传null表示取消选中
      * @en Checked option, controlled mode
      */
-    value?: T;
+    value?: T | null;
     /**
      * 默认选中项
      * @en Default checked value

@@ -213,28 +213,47 @@ export const usePosition = (
         // 垂直方向安全距离调整
         // @en Vertical safety distance adjustment
         if (verticalAuto) {
-            const popoverTop =
-                childRect.bottom -
-                (newConfig.bottom && newConfig.height ? newConfig.bottom + newConfig.height : 0);
-            const popoverBottom =
-                childRect.top +
-                (newConfig.top && newConfig.height ? newConfig.top + newConfig.height : 0);
-
-            // 顶部安全距离不够，调整到底部
-            // @en The top safety distance is not enough, adjust to the bottom
-            if (directionState.indexOf('top') !== -1 && popoverTop < topOffset) {
+            const setToBottom = () => {
                 newConfig.top = verticalOffset + childRect.height;
                 newConfig.bottom = null;
                 onAdjustDirection('bottom');
-            } else if (
-                directionState.indexOf('bottom') !== -1 &&
-                popoverBottom + bottomOffset > window.innerHeight
-            ) {
-                // 底部安全距离不够，调整到顶部
-                // @en The bottom safety distance is not enough, adjust to the top
+            };
+            const setToTop = () => {
                 newConfig.top = null;
                 newConfig.bottom = verticalOffset + childRect.height;
                 onAdjustDirection('top');
+            };
+
+            // 判断上下空间是否都不足以展示气泡内容
+            // @en Determine whether there is insufficient space both above and below to display content
+            const isPopoverTooTall =
+                window.innerHeight - topOffset - bottomOffset <
+                2 * (newConfig.height || 0) + 2 * verticalOffset + childRect.height;
+            if (isPopoverTooTall) {
+                const spaceAbove = childRect.top;
+                const spaceBelow = window.innerHeight - childRect.bottom;
+                spaceAbove > spaceBelow ? setToTop() : setToBottom();
+            } else {
+                const popoverTop =
+                    childRect.bottom -
+                    (newConfig.bottom && newConfig.height
+                        ? newConfig.bottom + newConfig.height
+                        : 0);
+                const popoverBottom =
+                    childRect.top +
+                    (newConfig.top && newConfig.height ? newConfig.top + newConfig.height : 0);
+                // 顶部安全距离不够，调整到底部
+                // @en The top safety distance is not enough, adjust to the bottom
+                if (directionState.indexOf('top') !== -1 && popoverTop < topOffset) {
+                    setToBottom();
+                } else if (
+                    // 底部安全距离不够，调整到顶部
+                    // @en The bottom safety distance is not enough, adjust to the top
+                    directionState.indexOf('bottom') !== -1 &&
+                    popoverBottom + bottomOffset > window.innerHeight
+                ) {
+                    setToTop();
+                }
             }
         }
 

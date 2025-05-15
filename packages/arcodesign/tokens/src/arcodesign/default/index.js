@@ -4231,6 +4231,41 @@ function getCompTokens() {
          * @en Error status color of the text in the uploader list
          */
         uploaderItemTextErrorColor: useGlobal('dangerColor'),
+        /**
+         * 日期时间范围选择器文字大小
+         * @en Font size of the date picker range
+         */
+        datePickerRangeFontSize: getRem(16),
+        /**
+         * 日期时间范围选择器背景颜色
+         * @en Background color of the date picker range when checked
+         */
+        datePickerRangeBackgroundColor: theme['arcom-color-bg-4'],
+        /**
+         * 日期时间范围选择器选中时文字颜色
+         * @en Font color of the date picker range when checked
+         */
+        datePickerRangeFontColor: useGlobal('fontColor'),
+        /**
+         * 日期时间范围选择器未选中时文字颜色
+         * @en Font color of the date picker range when disabled
+         */
+        datePickerRangeDisabledFontColor: useGlobal('disabledColor'),
+        /**
+         * 日期时间范围选择器展示区域外边距大小
+         * @en Margin of the date picker range area
+         */
+        datePickerRangeShowPadding: `0 ${getRem(16)}`,
+        /**
+         * 日期时间范围选择器展示区域最小高度
+         * @en Min height of the date picker range area
+         */
+        datePickerRangeShowMinHeight: getRem(48),
+        /**
+         * 日期时间范围选择器展示区域分隔符最小宽度
+         * @en Min width of the date picker range separate
+         */
+        datePickerRangeSeparateMinWidth: getRem(48),
     };
 }
 
