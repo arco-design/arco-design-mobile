@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { Promise } from 'es6-promise';
 
 export type FieldValue = any;
-export type FieldItem = Record<string, any>;
+export type FieldItem = Record<string, FieldValue>;
 export type ILayout = 'horizontal' | 'vertical' | 'inline';
 
 // 注意：自动识别form关联组件的依据，请勿轻易改变代码结构
@@ -143,6 +143,7 @@ export interface InternalHooks {
     registerField: (name: string, self: any) => () => void;
     setInitialValues: (values: FieldItem) => void;
     setCallbacks: (callbacks: Callbacks) => void;
+    setInitialValue: (name: string, value: FieldValue) => void;
 }
 
 export interface IFormInstance {
@@ -383,4 +384,11 @@ export interface IFormItemInnerProps {
      * @en Manually specified as the type of internal component
      */
     displayType?: FormInternalComponentType;
+}
+
+export enum ValueChangeType {
+    /* form update */
+    Update,
+    /* form clear */
+    Reset,
 }
