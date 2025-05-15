@@ -23,7 +23,7 @@ import {
     FormItemRef,
     FormInternalComponentType,
 } from './type';
-import { getErrorAndWarnings, isFieldRequired } from './utils';
+import { getDefaultValueForInterComponent, getErrorAndWarnings, isFieldRequired } from './utils';
 import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
 
 interface IFormItemInnerState {
@@ -46,8 +46,8 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
         super(props);
         this.destroyField = () => {};
         if (props?.initialValue && props.field) {
-            const { setInitialValues } = context.form.getInternalHooks();
-            setInitialValues({ [props.field]: props.initialValue });
+            const { setInitialValue } = context.form.getInternalHooks();
+            setInitialValue(props.field, props.initialValue);
         }
     }
 
@@ -68,6 +68,14 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
             return;
         }
         this.forceUpdate();
+    };
+
+    getInitialValue = () => {
+        const { children, displayType } = this.props;
+        const { getInitialValue } = this.context.form.getInternalHooks();
+        const childrenType = displayType || children.type?.displayName;
+        // get user-defined initialValue or if not defined
+        return getInitialValue(this.props.field) ?? getDefaultValueForInterComponent(childrenType);
     };
 
     getFieldError = () => {
@@ -115,8 +123,8 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
 
     setFieldData = (value: FieldValue) => {
         const { field } = this.props;
-        const { setFieldValue } = this.context.form;
-        setFieldValue(field, value);
+        const { innerSetFieldValue } = this.context.form.getInternalHooks();
+        innerSetFieldValue(field, value);
         this.validateField();
     };
 
@@ -232,6 +240,8 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
     }
 }
 FormItemInner.contextType = FormItemContext;
+
+export { FormItemInner };
 
 export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
     const {
