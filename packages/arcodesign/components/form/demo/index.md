@@ -157,12 +157,12 @@ export default function FormDemo() {
                     />
                 </Form.Item>
                 <div>
-                  <Button needActive onClick={toSubmit}>
-                    Submit
-                </Button>
-                <Button type="ghost" onClick={toReset} style={{marginTop: '12px'}}>
-                    Reset
-                </Button>
+                    <Button needActive onClick={toSubmit}>
+                        Submit
+                    </Button>
+                    <Button type="ghost" onClick={toReset} style={{marginTop: '12px'}}>
+                        Reset
+                    </Button>
                 </div>
             </Form>
         </div>
