@@ -8,7 +8,9 @@ import {
     IFormInstance,
     FieldValue,
     InternalFormInstance,
+    ValueChangeType,
 } from './type';
+import { deepClone } from './utils';
 
 const defaultFunc: any = () => {};
 
@@ -37,7 +39,7 @@ export const defaultFormDataMethods: InternalFormInstance = {
             setInitialValues: defaultFunc,
             setCallbacks: defaultFunc,
             getInitialValue: defaultFunc,
-            setInitialValue: (_name, _value) => {},
+            setInitialValue: defaultFunc,
             innerSetFieldsValue: defaultFunc,
             innerSetFieldValue: defaultFunc,
         };
@@ -54,7 +56,7 @@ class FormData {
 
     private _callbacks: Callbacks = {};
 
-    private commonSetFieldsValue = (values: FieldItem) => {
+    private commonSetFieldsValue = (values: FieldItem, changeType?: ValueChangeType) => {
         const oldValues: FieldItem = Object.keys(values).reduce(
             (acc, key) => ({
                 ...acc,
@@ -63,7 +65,7 @@ class FormData {
             {},
         );
         this._formData = { ...this._formData, ...values };
-        this.notifyField(values, oldValues);
+        this.notifyField(values, oldValues, changeType);
     };
 
     setFieldsValue = (values: FieldItem): boolean => {
@@ -73,18 +75,18 @@ class FormData {
         return true;
     };
 
-    innerSetFieldsValue = (values: FieldItem): boolean => {
-        this.commonSetFieldsValue(values);
+    innerSetFieldsValue = (values: FieldItem, changeType?: ValueChangeType): boolean => {
+        this.commonSetFieldsValue(values, changeType);
         const { onValuesChange, onChange } = this._callbacks;
         onValuesChange?.(values, this._formData);
         onChange?.(values, this._formData);
         return true;
     };
 
-    commonSetFieldValue = (name: string, value: unknown) => {
+    commonSetFieldValue = (name: string, value: unknown, changeType?: ValueChangeType) => {
         const oldValues = { [name]: this.getFieldValue(name) };
         this._formData = { ...this._formData, [name]: value };
-        this.notifyField({ [name]: value }, oldValues);
+        this.notifyField({ [name]: value }, oldValues, changeType);
     };
 
     setFieldValue = (name: string, value: FieldValue): boolean => {
@@ -95,13 +97,17 @@ class FormData {
                 {
                     [name]: value,
                 },
-                this._formData,
+                this.getFieldsValue(),
             );
         return true;
     };
 
-    innerSetFieldValue = (name: string, value: FieldValue): boolean => {
-        this.commonSetFieldValue(name, value);
+    innerSetFieldValue = (
+        name: string,
+        value: FieldValue,
+        changeType?: ValueChangeType,
+    ): boolean => {
+        this.commonSetFieldValue(name, value, changeType);
         const { onValuesChange, onChange } = this._callbacks;
         onValuesChange &&
             onValuesChange(
@@ -120,11 +126,17 @@ class FormData {
         return true;
     };
 
-    notifyField = (values: FieldItem, oldValues: FieldItem): void => {
+    notifyField = (
+        values: FieldItem,
+        oldValues: FieldItem,
+        changeType: ValueChangeType = ValueChangeType.Update,
+    ): void => {
         Object.keys(values).map((fieldName: string) => {
             const fieldObj = this._fieldsList?.[fieldName] || null;
             if (fieldObj) {
-                fieldObj.onValueChange(values[fieldName], oldValues[fieldName]);
+                fieldObj.onValueChange(values[fieldName], oldValues[fieldName], {
+                    changeType,
+                });
             }
         });
     };
@@ -133,11 +145,11 @@ class FormData {
         if (names) {
             return names.map(name => this.getFieldValue(name));
         }
-        return this._formData;
+        return deepClone(this._formData);
     };
 
     getFieldValue = (name: string) => {
-        return this._formData?.[name];
+        return deepClone(this._formData?.[name]);
     };
 
     getFieldError = (name: string): ReactNode[] => {
@@ -189,12 +201,15 @@ class FormData {
         };
     };
 
-    setInitialValues = (initVal: Record<string, unknown>) => {
-        this._initialValues = { ...(initVal || {}) };
+    setInitialValues = (initVal: FieldItem) => {
+        this._initialValues = deepClone(initVal || {});
         this.setFieldsValue(initVal);
     };
 
     setInitialValue = (fieldName: string, value: unknown) => {
+        if (!fieldName) {
+            return;
+        }
         this._initialValues[fieldName] = value;
         this.setFieldValue(fieldName, value);
     };
@@ -215,7 +230,7 @@ class FormData {
         const { onValuesChange } = this._callbacks;
         onValuesChange && onValuesChange(initialValues, this._formData);
         this._formData = initialValues;
-        this.notifyField(initialValues, oldValues);
+        this.notifyField(initialValues, oldValues, ValueChangeType.Reset);
     };
 
     validateFields = () => {
@@ -242,14 +257,14 @@ class FormData {
         this.validateFields()
             .then(result => {
                 const { onSubmit } = this._callbacks;
-                onSubmit?.(this._formData, result);
+                onSubmit?.(this.getFieldsValue(), result);
             })
             .catch(e => {
                 const { onSubmitFailed } = this._callbacks;
                 if (!onSubmitFailed) {
                     return;
                 }
-                onSubmitFailed(this._formData, e);
+                onSubmitFailed(this.getFieldsValue(), e);
             });
     };
 

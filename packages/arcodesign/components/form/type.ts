@@ -403,3 +403,10 @@ export interface IFormItemInnerProps {
      */
     displayType?: FormInternalComponentType;
 }
+
+export enum ValueChangeType {
+    /* form update */
+    Update,
+    /* form clear */
+    Reset,
+}

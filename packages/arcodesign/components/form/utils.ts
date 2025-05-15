@@ -1,4 +1,5 @@
-import { IRules, ValidatorError } from '@arco-design/mobile-utils';
+import { IRules, ValidatorError, isObject, isArray } from '@arco-design/mobile-utils';
+import cloneDeepWith from 'lodash/cloneDeepWith';
 import { FormInternalComponentType } from './type';
 
 export const isFieldRequired = (rules: IRules[] = []) => {
@@ -39,3 +40,10 @@ export const getDefaultValueForInterComponent = (componentType: string) => {
             return undefined;
     }
 };
+export function deepClone(value) {
+    return cloneDeepWith(value, val => {
+        if (!isObject(val) && !isArray(val)) {
+            return val;
+        }
+    });
+}

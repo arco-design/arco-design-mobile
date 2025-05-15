@@ -90,7 +90,7 @@ const Input = forwardRef((props: InputProps, ref: Ref<InputRef>) => {
         const prefix = `${prefixCls}-input`;
         return renderWrapper(
             prefix,
-            type,
+            `${type} single-line`,
             <input
                 {...nativeProps}
                 id={id}
