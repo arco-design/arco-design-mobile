@@ -26,7 +26,6 @@ import {
 } from './type';
 import { getDefaultValueForInterComponent, getErrorAndWarnings, isFieldRequired } from './utils';
 import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
-
 interface IFormItemInnerState {
     validateStatus: ValidateStatus;
     errors?: ReactNode[];
@@ -232,7 +231,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
             case FormInternalComponentType.Slider:
             case FormInternalComponentType.RadioGroup:
             case FormInternalComponentType.CheckboxGroup:
-                childrenProps.value = getFieldValue(field) || '';
+                childrenProps.value = getFieldValue(field);
                 childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
                 break;
             case FormInternalComponentType.DatePicker:
