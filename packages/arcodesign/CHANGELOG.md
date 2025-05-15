@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.36.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.36.0...@arco-design/mobile-react@2.36.1) (2025-05-15)
+
+
+### Bug Fixes
+
+* `Popover` adjust edge when popover is too tall ([#321](https://github.com/arco-design/arco-design-mobile/issues/321)) ([b105897](https://github.com/arco-design/arco-design-mobile/commit/b105897d0a6b8c521cb37364fee8263af4e8a8e0))
+* fix emoji truncation issue about `Ellipsis` ([#324](https://github.com/arco-design/arco-design-mobile/issues/324)) ([3c157f1](https://github.com/arco-design/arco-design-mobile/commit/3c157f1ee9ae45552647533533864f1c5781c418))
+
+
+
+
+
 # [2.36.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.2...@arco-design/mobile-react@2.36.0) (2025-05-13)
 
 

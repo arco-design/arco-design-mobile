@@ -1,6 +1,6 @@
 {
     "name": "@arco-design/mobile-react",
-    "version": "2.36.0",
+    "version": "2.36.1",
     "description": "",
     "main": "cjs/index.js",
     "module": "esm/index.js",
@@ -15,7 +15,7 @@
     "author": "taoyiyue@bytedance.com",
     "license": "ISC",
     "dependencies": {
-        "@arco-design/mobile-utils": "2.21.0",
+        "@arco-design/mobile-utils": "2.21.1",
         "@arco-design/transformable": "^1.0.0",
         "@babel/runtime": "^7",
         "lodash.throttle": "^4.1.1",
