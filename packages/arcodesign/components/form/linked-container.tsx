@@ -17,10 +17,21 @@ export function DefaultPickerLinkedContainer({ value }: { value: (string | numbe
     );
 }
 
-export function DefaultDatePickerLinkedContainer({ ts, types }: { ts: number; types: string[] }) {
+export function DefaultDatePickerLinkedContainer({
+    ts,
+    types,
+}: {
+    ts: number | [number, number];
+    types: string[];
+}) {
     const { prefixCls, locale } = useContext(GlobalContext);
     const className = `${prefixCls}-form-picker-link-container`;
-    const dateTimeStr = useMemo(() => formatDateTimeStr(ts, types), [ts, types]);
+    const dateTimeStr = useMemo(() => {
+        if (typeof ts === 'number') {
+            return formatDateTimeStr(ts, types);
+        }
+        return `${formatDateTimeStr(ts[0], types)} ~ ${formatDateTimeStr(ts[1], types)}`;
+    }, [ts, types]);
 
     function formatDateTimeStr(timestamp: number, itemTypes: string[]) {
         const dateObj = convertTsToDateObj(timestamp);

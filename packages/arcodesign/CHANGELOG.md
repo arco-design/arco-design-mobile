@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.36.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.36.0...@arco-design/mobile-react@2.36.1) (2025-05-15)
+
+
+### Bug Fixes
+
+* `Popover` adjust edge when popover is too tall ([#321](https://github.com/arco-design/arco-design-mobile/issues/321)) ([b105897](https://github.com/arco-design/arco-design-mobile/commit/b105897d0a6b8c521cb37364fee8263af4e8a8e0))
+* fix emoji truncation issue about `Ellipsis` ([#324](https://github.com/arco-design/arco-design-mobile/issues/324)) ([3c157f1](https://github.com/arco-design/arco-design-mobile/commit/3c157f1ee9ae45552647533533864f1c5781c418))
+
+
+
+
+
+# [2.36.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.2...@arco-design/mobile-react@2.36.0) (2025-05-13)
+
+
+### Bug Fixes
+
+* `SearchBar` add mouse event param to "onAssociationItemClick" ([#319](https://github.com/arco-design/arco-design-mobile/issues/319)) ([c31c0a5](https://github.com/arco-design/arco-design-mobile/commit/c31c0a5edc0a5fdb172aa81c0216071648dea3a8))
+* `Tabs` optimize updateLayout ([#320](https://github.com/arco-design/arco-design-mobile/issues/320)) ([7b59074](https://github.com/arco-design/arco-design-mobile/commit/7b59074949e62c1552beec4702f911a720e966e3))
+* add harmony system detection support ([#317](https://github.com/arco-design/arco-design-mobile/issues/317)) ([105f459](https://github.com/arco-design/arco-design-mobile/commit/105f45941317c6044aaf0f2f284ca48e630dfc08))
+
+
+### Features
+
+* `DatePicker` add date range picker ([#323](https://github.com/arco-design/arco-design-mobile/issues/323)) ([d02357c](https://github.com/arco-design/arco-design-mobile/commit/d02357cdf6ed43e102c0827937f8ea8396bfb8ae))
+
+
+
+
+
 ## [2.35.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.1...@arco-design/mobile-react@2.35.2) (2025-03-17)
 
 
