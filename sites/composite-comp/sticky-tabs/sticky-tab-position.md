@@ -1,6 +1,9 @@
 ## 独立面板效果 @en{Independent panel effect}
 
-当某个 tab 内容较少时隐藏滚动条
+#### 1
+
+切换 Tab 时记住各自面板的滚动位置
+@en{Record the scroll position of each panel when switching tabs}
 
 ```js
 import { Tabs, Sticky } from '@arco-design/mobile-react';
@@ -28,9 +31,25 @@ function setWindowScrollTop(top, node) {
 
 export default function StickyTabsPosition() {
 
+    const stickyEleRef = React.useRef(null);
     const fixedLimitRef = React.useRef(0);
     const positionRef = React.useRef({});
     const activeRef = React.useRef(0);
+
+    React.useEffect(() => {
+        const scrollingWrapper = window;
+        const update = () => {
+            if (stickyEleRef.current) {
+                stickyEleRef.current.recalculatePosition();
+            }
+        }
+
+        scrollingWrapper.addEventListener('scroll', update);
+
+        return () => {
+            scrollingWrapper.removeEventListener('scroll', update);
+        }
+    }, [stickyEleRef]);
 
     const renderList = (num) => {
         const list = new Array(100).fill(num);
@@ -68,9 +87,8 @@ export default function StickyTabsPosition() {
                 tabs={tabData}
                 renderTabBar={(TabBar) => (
                     <Sticky
-                        getContainer={() => document.getElementById('sticky-tabs-wrapper-position')}
                         getScrollContainer={() => document.getElementById('sticky-tabs-wrapper-position')}
-                        topOffset={0}
+                        ref={stickyEleRef}
                     >
                         {TabBar}
                     </Sticky>
