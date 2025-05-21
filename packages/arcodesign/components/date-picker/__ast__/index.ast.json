@@ -25,7 +25,7 @@
             },
             "required": false,
             "type": {
-                "name": "(timestamp: number, obj: IDateObj) => void"
+                "name": "(timestamp: number | [number, number], obj: IDateObj | [IDateObj, IDateObj]) => void"
             }
         },
         "currentTs": {
@@ -45,7 +45,7 @@
             },
             "required": false,
             "type": {
-                "name": "number"
+                "name": "number | [number, number]"
             }
         },
         "onChange": {
@@ -62,7 +62,7 @@
             },
             "required": false,
             "type": {
-                "name": "(timestamp: number, obj: IDateObj) => void"
+                "name": "(timestamp: number | [number, number], obj: IDateObj | [IDateObj, IDateObj]) => void"
             }
         },
         "onValueChange": {
@@ -152,7 +152,7 @@
             },
             "required": false,
             "type": {
-                "name": "number"
+                "name": "number | { startTs: number; endTs: number; }"
             }
         },
         "maxTs": {
@@ -173,7 +173,7 @@
             },
             "required": false,
             "type": {
-                "name": "number"
+                "name": "number | { startTs: number; endTs: number; }"
             }
         },
         "useUTC": {
@@ -194,6 +194,23 @@
             "required": false,
             "type": {
                 "name": "boolean"
+            }
+        },
+        "rangeItemFormat": {
+            "defaultValue": null,
+            "description": "日期时间范围选择展示格式\n@en Time range picker display format",
+            "name": "rangeItemFormat",
+            "tags": {
+                "en": "Time range picker display format"
+            },
+            "descWithTags": "日期时间范围选择展示格式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/date-picker/type.ts",
+                "name": "DatePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
             }
         },
         "formatter": {
@@ -253,6 +270,23 @@
                 "name": "(columns: PickerData[][], currentDateObj: IDateObj) => PickerData[][]"
             }
         },
+        "renderSeparator": {
+            "defaultValue": null,
+            "description": "自定义分隔符\n@en Defined separator area",
+            "name": "renderSeparator",
+            "tags": {
+                "en": "Defined separator area"
+            },
+            "descWithTags": "自定义分隔符",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/date-picker/type.ts",
+                "name": "DatePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => ReactNode"
+            }
+        },
         "renderLinkedContainer": {
             "defaultValue": null,
             "description": "将选择器的展现隐藏状态及选中值的展示与某个容器关联，传入后将同时渲染该容器和选择器组件，此时选择器组件的 visible 和 onHide 属性可不传，点击该容器会唤起选择器\n@en Associate the hidden state of the picker and the display of the selected value with a container. After passing it in, the container and the picker component will be rendered at the same time. At this time, the visible and onHide attributes of the picker component are optional values. Clicking the container will evoke the picker",
@@ -267,7 +301,7 @@
             },
             "required": false,
             "type": {
-                "name": "(currentTs: number, itemTypes: ItemType[]) => ReactNode"
+                "name": "(currentTs: number | [number, number], itemTypes: ItemType[]) => ReactNode"
             }
         },
         "visible": {
@@ -950,6 +984,23 @@
             "required": false,
             "type": {
                 "name": "number | boolean"
+            }
+        },
+        "renderExtraHeader": {
+            "defaultValue": null,
+            "description": "自定义头部扩展区域\n@en Define the area of extra header",
+            "name": "renderExtraHeader",
+            "tags": {
+                "en": "Define the area of extra header"
+            },
+            "descWithTags": "自定义头部扩展区域",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker/type.ts",
+                "name": "PickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => ReactNode"
             }
         },
         "ref": {

@@ -1,12 +1,25 @@
+export interface SystemOptions {
+    /**
+     * 是否识别鸿蒙系统，默认为 false，鸿蒙系统会被识别为 Android
+     * @en Whether to detect HarmonyOS separately, default is false, HarmonyOS will be recognized as Android
+     */
+    detectHarmony?: boolean;
+}
+
 /**
  * 获取当前设备的操作系统
  * @desc {en} Get the operating system of the current device
- * @returns {string} 返回当前设备的操作系统，可能的值包括 'android'、'ios' 或 'pc'，如果无法获取，则返回空字符串
- * @returns {string} {en} Returns the operating system of the current device, possible values are 'android', 'ios', or 'pc'. Returns an empty string if it cannot be obtained
+ * @param options 配置选项
+ * @param {en} options Configuration options
+ * @param options.detectHarmony 是否识别鸿蒙系统，默认为 false，鸿蒙系统会被识别为 android
+ * @param {en} options.detectHarmony Whether to detect HarmonyOS separately, default is false, HarmonyOS will be recognized as android
+ * @returns 返回当前设备的操作系统，可能的值包括 'android'、'ios'、'harmony' 或 'pc'，如果无法获取，则返回空字符串
+ * @returns {en} Returns the operating system of the current device, possible values are 'android', 'ios', 'harmony', or 'pc'. Returns an empty string if it cannot be obtained
  * @example
  * ```
  * import { getSystem } from '@arco-design/mobile-utils';
  *
+ * // Default behavior
  * const systemInfo = getSystem();
  * if (systemInfo === 'android') {
  *     console.log('You are using the Android operating system');
@@ -17,16 +30,30 @@
  * } else {
  *     console.log('Unable to detect your operating system');
  * }
+ *
+ * // With HarmonyOS detection enabled
+ * const systemInfoWithHarmony = getSystem({ detectHarmony: true });
+ * if (systemInfoWithHarmony === 'harmony') {
+ *     console.log('You are using HarmonyOS');
+ * }
  * ```
  */
-export function getSystem() {
+
+export function getSystem(options?: SystemOptions) {
     try {
         const u = navigator.userAgent;
-        const android = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1;
-        const ios = u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        const pc = !android && !ios;
-        const system = android ? 'android' : 'ios';
-        return pc ? 'pc' : system;
+        // Do not modify the Harmony OS ua judgment rule, please refer to the official documentation: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent
+        if (/OpenHarmony/i.test(u)) {
+            return options?.detectHarmony ? 'harmony' : 'android';
+        }
+        // Do not ignore the case of the first letter
+        if (/Android|Linux/.test(u)) {
+            return 'android';
+        }
+        if (/\(i[^;]+;( U;)? CPU.+Mac OS X/.test(u)) {
+            return 'ios';
+        }
+        return 'pc';
     } catch (e) {
         return '';
     }

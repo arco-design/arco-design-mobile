@@ -13,7 +13,7 @@ The popup with gesture closing function based on the popup encapsulation, has ot
 |percentToClose|Close the popup when sliding more than the percentage of the content, the range is \[0, 1\]\. If both this property and the \`distanceToClose\` property are set, the larger the actual calculation result takes effect|number|0.3|
 |distanceToClose|Close the popup when sliding more than px, if this property and the \`percentToClose\` property are both set, the larger the actual calculation result takes effect\.|number|10|
 |speedToClose|Close the popup when the finger slides between pressing and lifting (unit: px/s)\. When it is set at the same time as the sliding closing distance threshold, it will take effect if one of them is satisfied\.|number|200|
-|allowSwipeDirections|Custom direction of the gesture swipe exit, you can specify multiple directions|DirectionType\[\]|required|
+|allowSwipeDirections|Custom direction of the gesture swipe exit, you can specify multiple directions|DirectionType\[\]|The value of direction property|
 |exitDirection|Fixed the exit direction of the pop\-up window, and the default sliding direction follows the gesture|"left" \| "right" \| "top" \| "bottom"|-|
 |onTouchStart|The touchstart callback of content panel\. When it returns true, it means that the event is prevented from being processed inside the component|(e: TouchEvent) =\> boolean \| void|-|
 |onTouchMove|The touchmove callback of content panel\. When it returns true, it means that the event is prevented from being processed inside the component|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> boolean \| void|-|
@@ -103,3 +103,4 @@ The popup with gesture closing function based on the popup encapsulation, has ot
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; \.\.\. 4 more \.\.\.; pickerDefaultHint: string; \}|
 |NavBar|-|\{ backBtnAriaLabel: string; \}|
+|Uploader|-|\{ uploadBtn: string; retryUpload: string; \}|

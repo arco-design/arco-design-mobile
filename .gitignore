@@ -10,12 +10,14 @@ umd/
 cjs/
 esm/
 dist/
+esnext/
 packages/arcodesign/tests/coverage
 packages/arcodesign/style/css
 yarn.lock
 # package-lock.json
 output/
 output_resource/
+merged_output/
 .history
 *.func-info.json
 *.mixin-info.json

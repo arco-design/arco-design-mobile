@@ -171,6 +171,26 @@
                 "name": "CSSProperties"
             }
         },
+        "avatarClass": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "头像元素的自定义类名\n@en Custom classname for avatar element",
+            "name": "avatarClass",
+            "tags": {
+                "en": "Custom classname for avatar element",
+                "default": "\"\""
+            },
+            "descWithTags": "头像元素的自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/avatar/type.ts",
+                "name": "AvatarProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
         "autoFixFontSize": {
             "defaultValue": {
                 "value": "true"

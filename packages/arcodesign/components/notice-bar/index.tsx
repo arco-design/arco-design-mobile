@@ -1,4 +1,4 @@
-import { cls, removeElement, fadeColor, nextTick } from '@arco-design/mobile-utils';
+import { cls, fadeColor, nextTick } from '@arco-design/mobile-utils';
 import React, {
     useRef,
     forwardRef,
@@ -142,6 +142,7 @@ const NoticeBar = forwardRef((props: NoticeBarProps, ref: Ref<NoticeBarRef>) => 
     const wrapRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const timerRef = useRef<number | null>(null);
+    const [visible, setVisible] = useState(true);
     const [needMarquee, setNeedMarquee] = useState(false);
     const extraClass = useMemo(() => {
         const classList: string[] = [];
@@ -185,9 +186,8 @@ const NoticeBar = forwardRef((props: NoticeBarProps, ref: Ref<NoticeBarRef>) => 
     }, [useRtl]);
 
     function close() {
-        if (domRef.current) {
-            removeElement(domRef.current);
-        }
+        setVisible(false);
+        clear();
     }
 
     function handleClose(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -252,7 +252,7 @@ const NoticeBar = forwardRef((props: NoticeBarProps, ref: Ref<NoticeBarRef>) => 
     }
 
     function renderNoticeBar(prefix: string) {
-        return (
+        return visible ? (
             <div
                 className={cls(prefix, className, extraClass)}
                 style={style}
@@ -281,7 +281,7 @@ const NoticeBar = forwardRef((props: NoticeBarProps, ref: Ref<NoticeBarRef>) => 
                     </div>
                 ) : null}
             </div>
-        );
+        ) : null;
     }
 
     return (

@@ -3,6 +3,158 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.36.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.36.0...@arco-design/mobile-react@2.36.1) (2025-05-15)
+
+
+### Bug Fixes
+
+* `Popover` adjust edge when popover is too tall ([#321](https://github.com/arco-design/arco-design-mobile/issues/321)) ([b105897](https://github.com/arco-design/arco-design-mobile/commit/b105897d0a6b8c521cb37364fee8263af4e8a8e0))
+* fix emoji truncation issue about `Ellipsis` ([#324](https://github.com/arco-design/arco-design-mobile/issues/324)) ([3c157f1](https://github.com/arco-design/arco-design-mobile/commit/3c157f1ee9ae45552647533533864f1c5781c418))
+
+
+
+
+
+# [2.36.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.2...@arco-design/mobile-react@2.36.0) (2025-05-13)
+
+
+### Bug Fixes
+
+* `SearchBar` add mouse event param to "onAssociationItemClick" ([#319](https://github.com/arco-design/arco-design-mobile/issues/319)) ([c31c0a5](https://github.com/arco-design/arco-design-mobile/commit/c31c0a5edc0a5fdb172aa81c0216071648dea3a8))
+* `Tabs` optimize updateLayout ([#320](https://github.com/arco-design/arco-design-mobile/issues/320)) ([7b59074](https://github.com/arco-design/arco-design-mobile/commit/7b59074949e62c1552beec4702f911a720e966e3))
+* add harmony system detection support ([#317](https://github.com/arco-design/arco-design-mobile/issues/317)) ([105f459](https://github.com/arco-design/arco-design-mobile/commit/105f45941317c6044aaf0f2f284ca48e630dfc08))
+
+
+### Features
+
+* `DatePicker` add date range picker ([#323](https://github.com/arco-design/arco-design-mobile/issues/323)) ([d02357c](https://github.com/arco-design/arco-design-mobile/commit/d02357cdf6ed43e102c0827937f8ea8396bfb8ae))
+
+
+
+
+
+## [2.35.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.1...@arco-design/mobile-react@2.35.2) (2025-03-17)
+
+
+### Bug Fixes
+
+* `PullRefresh` fix severe lagging in Android device ([#316](https://github.com/arco-design/arco-design-mobile/issues/316)) ([2b14461](https://github.com/arco-design/arco-design-mobile/commit/2b14461f787c42035e06c7a76b50955f22cadde2))
+
+
+
+
+
+## [2.35.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.35.0...@arco-design/mobile-react@2.35.1) (2025-02-26)
+
+
+### Bug Fixes
+
+* `Sticky` caculate with border style & offsetParent in absolute mode ([#314](https://github.com/arco-design/arco-design-mobile/issues/314)) ([1eff5fe](https://github.com/arco-design/arco-design-mobile/commit/1eff5fee0a010bbf236094a7d361f54f0e0bcb2a))
+
+
+
+
+
+# [2.35.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.34.0...@arco-design/mobile-react@2.35.0) (2025-01-09)
+
+
+### Bug Fixes
+
+* add new less variable `[@prefix-mobile](https://github.com/prefix-mobile)` ([#310](https://github.com/arco-design/arco-design-mobile/issues/310)) ([c8b539c](https://github.com/arco-design/arco-design-mobile/commit/c8b539cf7c5a064f1334de6d87a7c00d22c8f453))
+* change protocol from http to https ([#304](https://github.com/arco-design/arco-design-mobile/issues/304)) ([0c42f9b](https://github.com/arco-design/arco-design-mobile/commit/0c42f9becf74e2dcbd02d774b426e113ea2b260c))
+* fix `Context-Provider` demo url ([#306](https://github.com/arco-design/arco-design-mobile/issues/306)) ([4a5c0f8](https://github.com/arco-design/arco-design-mobile/commit/4a5c0f86de85f5eddb2b0b6816db2a9ea38cde40))
+* keep empty value in renderLinkedContainer of `DatePicker` ([#309](https://github.com/arco-design/arco-design-mobile/issues/309)) ([0f07a93](https://github.com/arco-design/arco-design-mobile/commit/0f07a931de93b22dfe17aa5eda878b51cc943913))
+
+
+### Features
+
+* add dynamic theme demo ([#305](https://github.com/arco-design/arco-design-mobile/issues/305)) ([f27ccc6](https://github.com/arco-design/arco-design-mobile/commit/f27ccc6910a700a064be22926c2321b3afac4694))
+
+
+
+
+
+# [2.34.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.33.0...@arco-design/mobile-react@2.34.0) (2024-11-21)
+
+
+### Bug Fixes
+
+* `Popover` custom show transition animation ([#297](https://github.com/arco-design/arco-design-mobile/issues/297)) ([c3ceaf2](https://github.com/arco-design/arco-design-mobile/commit/c3ceaf2a7571626c298132b2c486d7128a748007))
+* fix `useMountedState` in `hooks.ts` not correct init leavingRef in StrictMode. ([#292](https://github.com/arco-design/arco-design-mobile/issues/292)) ([af2bf5d](https://github.com/arco-design/arco-design-mobile/commit/af2bf5d5428eec252cac565ef708b2af6e0106a2))
+
+
+### Features
+
+* add a FAQ in the `Dialog`. ([#302](https://github.com/arco-design/arco-design-mobile/issues/302)) ([55f6940](https://github.com/arco-design/arco-design-mobile/commit/55f69406a3411faf5e67b2ef05a552121a9d3c04))
+* optimize `Divider` hairline style ([99b1604](https://github.com/arco-design/arco-design-mobile/commit/99b16041aa8e4b71a82ffb5744f180ee9273ef3b))
+* optimize `NoticeBar` close ([#294](https://github.com/arco-design/arco-design-mobile/issues/294)) ([a717540](https://github.com/arco-design/arco-design-mobile/commit/a7175403158c43c209b58c27cd994643f822aeeb))
+
+
+
+
+
+# [2.33.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.32.0...@arco-design/mobile-react@2.33.0) (2024-10-24)
+
+
+### Bug Fixes
+
+* fix carousel scrolling bug when trigger click ([8b62ee3](https://github.com/arco-design/arco-design-mobile/commit/8b62ee3dfe489fc1890f099cc26c527d94f4ddbd))
+
+
+### Features
+
+* `Steps` support reverse order ([#287](https://github.com/arco-design/arco-design-mobile/issues/287)) ([8ed5614](https://github.com/arco-design/arco-design-mobile/commit/8ed5614d385d20bfb5fa1ada83d7f56e9f1c5150))
+* add custom class support to `Avatar` component ([#285](https://github.com/arco-design/arco-design-mobile/issues/285)) ([8a37b7c](https://github.com/arco-design/arco-design-mobile/commit/8a37b7cbd05bacb457a3c2692a66a6a02cd7646f))
+
+
+
+
+
+# [2.32.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.6...@arco-design/mobile-react@2.32.0) (2024-08-16)
+
+
+### Features
+
+* build output support esnext ([0308755](https://github.com/arco-design/arco-design-mobile/commit/030875530d1068e801962c6fc57b9b3e1916772e))
+* export helpers render func ([9c0213b](https://github.com/arco-design/arco-design-mobile/commit/9c0213bc3a548b379491ada5fc747657a4a20a85))
+
+
+
+
+
+## [2.31.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.5...@arco-design/mobile-react@2.31.6) (2024-07-09)
+
+
+### Bug Fixes
+
+* change `Stepper` flex to inline-flex ([e191b93](https://github.com/arco-design/arco-design-mobile/commit/e191b9319c918c249ebba24f4f6b336e6220da88))
+
+
+
+
+
+## [2.31.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.4...@arco-design/mobile-react@2.31.5) (2024-07-01)
+
+
+### Bug Fixes
+
+* add `Stepper` width ([#274](https://github.com/arco-design/arco-design-mobile/issues/274)) ([b76f2ca](https://github.com/arco-design/arco-design-mobile/commit/b76f2cae577402979708bba07e864b9d2dca4f93))
+
+
+
+
+
+## [2.31.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.3...@arco-design/mobile-react@2.31.4) (2024-06-26)
+
+
+### Bug Fixes
+
+* stepper controlled value ([4f8d060](https://github.com/arco-design/arco-design-mobile/commit/4f8d0603c3e292a337b0be09266a360d7e91e943))
+
+
+
+
+
 ## [2.31.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.31.2...@arco-design/mobile-react@2.31.3) (2024-05-11)
 
 

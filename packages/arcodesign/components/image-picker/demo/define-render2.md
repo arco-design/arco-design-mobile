@@ -28,8 +28,8 @@ const SadEmoji = () => (
 
 export default function ImagePickerDemo1() {
     const [images, setImages] = React.useState([
-        { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
-        { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg', status: 'error' },
+        { url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' },
+        { url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg', status: 'error' },
     ]);
     const renderLoading1 = () => <div className="loading1">Loading...</div>;
     const renderError1 = () => (

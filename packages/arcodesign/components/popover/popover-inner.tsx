@@ -38,7 +38,13 @@ export const PopoverInner = forwardRef((props: PopoverInnerProps, ref: Ref<Popov
         if (left || width || top || height || bottom) {
             if (!show) {
                 setTimeout(() => {
-                    setShow(true);
+                    setShow(() => {
+                        // bugfix:
+                        // 外层CSSTransition使用dom API而非通过react className属性修改class
+                        // 如果内部通过react className属性动态修改class会覆盖CSSTransition的设置，导致CSSTransition enter相关的class无法应用到组件
+                        domRef.current?.classList.add('show');
+                        return true;
+                    });
                 }, 0);
             }
         }
@@ -93,7 +99,6 @@ export const PopoverInner = forwardRef((props: PopoverInnerProps, ref: Ref<Popov
                 `${mode}-mode`,
                 className,
                 {
-                    show,
                     'with-shadow': needShadow,
                     'with-suffix': showCloseIcon || textSuffix,
                     'custom-content': typeof content !== 'string',

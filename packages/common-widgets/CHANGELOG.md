@@ -3,6 +3,111 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.21.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.21.0...@arco-design/mobile-utils@2.21.1) (2025-05-15)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+# [2.21.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.4...@arco-design/mobile-utils@2.21.0) (2025-05-13)
+
+
+### Bug Fixes
+
+* add harmony system detection support ([#317](https://github.com/arco-design/arco-design-mobile/issues/317)) ([105f459](https://github.com/arco-design/arco-design-mobile/commit/105f45941317c6044aaf0f2f284ca48e630dfc08))
+
+
+### Features
+
+* `DatePicker` add date range picker ([#323](https://github.com/arco-design/arco-design-mobile/issues/323)) ([d02357c](https://github.com/arco-design/arco-design-mobile/commit/d02357cdf6ed43e102c0827937f8ea8396bfb8ae))
+
+
+
+
+
+## [2.20.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.3...@arco-design/mobile-utils@2.20.4) (2025-03-17)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+## [2.20.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.2...@arco-design/mobile-utils@2.20.3) (2025-02-26)
+
+
+### Bug Fixes
+
+* `Sticky` caculate with border style & offsetParent in absolute mode ([#314](https://github.com/arco-design/arco-design-mobile/issues/314)) ([1eff5fe](https://github.com/arco-design/arco-design-mobile/commit/1eff5fee0a010bbf236094a7d361f54f0e0bcb2a))
+
+
+
+
+
+## [2.20.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.1...@arco-design/mobile-utils@2.20.2) (2025-01-09)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+## [2.20.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.20.0...@arco-design/mobile-utils@2.20.1) (2024-11-21)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+# [2.20.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.19.0...@arco-design/mobile-utils@2.20.0) (2024-10-24)
+
+
+### Features
+
+* `Steps` support reverse order ([#287](https://github.com/arco-design/arco-design-mobile/issues/287)) ([8ed5614](https://github.com/arco-design/arco-design-mobile/commit/8ed5614d385d20bfb5fa1ada83d7f56e9f1c5150))
+
+
+
+
+
+# [2.19.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.6...@arco-design/mobile-utils@2.19.0) (2024-08-16)
+
+
+### Features
+
+* build output support esnext ([0308755](https://github.com/arco-design/arco-design-mobile/commit/030875530d1068e801962c6fc57b9b3e1916772e))
+
+
+
+
+
+## [2.18.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.5...@arco-design/mobile-utils@2.18.6) (2024-07-09)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+## [2.18.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.4...@arco-design/mobile-utils@2.18.5) (2024-07-01)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+## [2.18.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.3...@arco-design/mobile-utils@2.18.4) (2024-06-26)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
 ## [2.18.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.18.2...@arco-design/mobile-utils@2.18.3) (2024-05-11)
 
 

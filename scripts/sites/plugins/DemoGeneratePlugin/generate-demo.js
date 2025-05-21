@@ -249,12 +249,13 @@ function generateSiteDemo({
                     devDemos,
                 });
                 importStr += `import ${importDemoName} from './_${importDemoName}';`;
+                const orderId = String(order).replace('.', '-'); // 用于类名时去掉特殊小数点
                 demoSource.push({
                     order,
                     source: source.replace(
                         /__CODE_RENDERER__/,
                         `
-                <div className="arcodesign-mobile-demo-content" id="demo-order-${order}">
+                <div className="arcodesign-mobile-demo-content" id="demo-order-${orderId}">
                     <${importDemoName} />
                 </div>`,
                     ),
@@ -262,7 +263,7 @@ function generateSiteDemo({
 
                 // 处理 demo 局部样式，在 less 外加上 #demo-order-{num} 选择器
                 if (styleSource) {
-                    demoShowStyle += `#demo-order-${order} {${styleSource}}`;
+                    demoShowStyle += `#demo-order-${orderId} {${styleSource}}`;
                 }
 
                 // 处理 demo 全局样式

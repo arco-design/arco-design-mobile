@@ -86,3 +86,4 @@ The toast component, supports calling methods in various scenarios.
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; \.\.\. 4 more \.\.\.; pickerDefaultHint: string; \}|
 |NavBar|-|\{ backBtnAriaLabel: string; \}|
+|Uploader|-|\{ uploadBtn: string; retryUpload: string; \}|

@@ -12,7 +12,8 @@ function getRem(px, baseFontSize) {
 }
 
 var tokens = {
-  "prefix": "arco",
+  "prefix": "var(--prefix-mobile)",
+  "prefix-mobile": "arco",
   "base-font-size": "50",
   "arco-dark-mode-selector": ".arco-theme-dark",
   "background-color": "#FFFFFF",
@@ -974,6 +975,7 @@ var tokens = {
   "index-bar-sidebar-toast-radius": "0.08rem",
   "index-bar-sidebar-toast-padding": "0 0.16rem",
   "index-bar-sidebar-toast-font-size": "0.48rem",
+  "stepper-width": "1.96rem",
   "stepper-font-size": "0.28rem",
   "dark-stepper-square-border-color": "var(--dark-lighter-line-color)",
   "stepper-square-border-color": "var(--lighter-line-color)",
@@ -1101,7 +1103,17 @@ var tokens = {
   "dark-uploader-disabled-delete-icon-color": "var(--dark-disabled-color)",
   "uploader-disabled-delete-icon-color": "var(--disabled-color)",
   "dark-uploader-item-text-error-color": "var(--dark-danger-color)",
-  "uploader-item-text-error-color": "var(--danger-color)"
+  "uploader-item-text-error-color": "var(--danger-color)",
+  "date-picker-range-font-size": "0.32rem",
+  "date-picker-range-background-color": "#FBFCFC",
+  "dark-date-picker-range-background-color": "#1E1E1E",
+  "dark-date-picker-range-font-color": "var(--dark-font-color)",
+  "date-picker-range-font-color": "var(--font-color)",
+  "dark-date-picker-range-disabled-font-color": "var(--dark-disabled-color)",
+  "date-picker-range-disabled-font-color": "var(--disabled-color)",
+  "date-picker-range-show-padding": "0 0.32rem",
+  "date-picker-range-show-min-height": "0.96rem",
+  "date-picker-range-separate-min-width": "0.96rem"
 };
 var _default = tokens;
 exports["default"] = _default;

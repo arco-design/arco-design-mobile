@@ -55,18 +55,18 @@ export interface DatePickerProps
      * 点击选中时执行的回调
      * @en Callback when clicking OK
      */
-    onOk?: (timestamp: number, obj: IDateObj) => void;
+    onOk?: (timestamp: number | [number, number], obj: IDateObj | [IDateObj, IDateObj]) => void;
     /**
      * 当前选中的时间，timestamp
      * @en The currently selected time, timestamp
      * @default Date.now()
      */
-    currentTs?: number;
+    currentTs?: number | [number, number];
     /**
      * 选中后的回调
      * @en Callback when value is changed
      */
-    onChange?: (timestamp: number, obj: IDateObj) => void;
+    onChange?: (timestamp: number | [number, number], obj: IDateObj | [IDateObj, IDateObj]) => void;
     /**
      * 每列数据选择变化后的回调函数
      * @en The callback function after each column data selection changes
@@ -90,20 +90,25 @@ export interface DatePickerProps
      * @default 当前时间的前十年
      * @default_en 10 years ago from the current time
      */
-    minTs?: number;
+    minTs?: number | { startTs: number; endTs: number };
     /**
      * 最大可选日期，timestamp
      * @en Maximum selectable date, timestamp
      * @default 当前时间的后十年
      * @default_en Next decade from current time
      */
-    maxTs?: number;
+    maxTs?: number | { startTs: number; endTs: number };
     /**
      * 是否使用 UTC 时间
      * @en Whether to use UTC
      * @default false
      */
     useUTC?: boolean;
+    /**
+     * 日期时间范围选择展示格式
+     * @en Time range picker display format
+     */
+    rangeItemFormat?: string;
     /**
      * 各可选项展示的格式化方法，参数type为ItemTypes，参数value为当前行的值，返回展示的文字
      * @en The formatting method of each optional item, the parameter type is ItemTypes, the parameter value is the value of the current row, and the displayed text is returned.
@@ -122,8 +127,16 @@ export interface DatePickerProps
      */
     columnsProcessor?: (columns: PickerData[][], currentDateObj: IDateObj) => PickerData[][];
     /**
+     * 自定义分隔符
+     * @en Defined separator area
+     */
+    renderSeparator?: () => React.ReactNode;
+    /**
      * 将选择器的展现隐藏状态及选中值的展示与某个容器关联，传入后将同时渲染该容器和选择器组件，此时选择器组件的 visible 和 onHide 属性可不传，点击该容器会唤起选择器
      * @en Associate the hidden state of the picker and the display of the selected value with a container. After passing it in, the container and the picker component will be rendered at the same time. At this time, the visible and onHide attributes of the picker component are optional values. Clicking the container will evoke the picker
      */
-    renderLinkedContainer?: (currentTs: number, itemTypes: ItemType[]) => ReactNode;
+    renderLinkedContainer?: (
+        currentTs: number | [number, number] | undefined,
+        itemTypes: ItemType[],
+    ) => ReactNode;
 }

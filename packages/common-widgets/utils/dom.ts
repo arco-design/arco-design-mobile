@@ -741,7 +741,7 @@ export function addCssStyleDom(key: string, html: string) {
  * @example
  * ```
  * import { addCssKeyframes } from '@arco-design/mobile-utils';
- * 
+ *
  * const maxScaleWithDefault = 2;
     addCssKeyframes(
         'animationKey',
@@ -837,8 +837,8 @@ export function getActualPixel(px: number, baseFontSize = 50) {
  * const transTimeout = convertCssDuration(contentRef.current, 'transitionDuration');
  * ```
  */
-export function convertCssDuration(ele: HTMLElement, property: string) {
-    const timeout: string = window.getComputedStyle(ele)[property];
+export function convertCssDuration(ele: HTMLElement | null, property: string) {
+    const timeout: string = safeGetComputedStyle(ele)[property];
     if (/ms$/.test(timeout)) {
         return Number(timeout.replace('ms', '')) || 0;
     }
@@ -858,13 +858,35 @@ export function convertCssDuration(ele: HTMLElement, property: string) {
  * import { safeGetComputedStyle } from '@arco-design/mobile-utils';
  *
  * const element = document.querySelector("p");
- * const compStyle =safeGetComputedStyle(element);
+ * const compStyle = safeGetComputedStyle(element);
  * ```
  */
-export function safeGetComputedStyle(element: HTMLElement) {
+export function safeGetComputedStyle(element: HTMLElement | null) {
+    const defaultValue = {} as CSSStyleDeclaration;
     try {
-        return window.getComputedStyle(element);
+        return element ? window.getComputedStyle(element) : defaultValue;
     } catch (e) {
-        return {} as CSSStyleDeclaration;
+        return defaultValue;
     }
+}
+
+/**
+ * 获取指定元素的样式属性数字值
+ * @desc {en} Get the CSS style of the specified element and format it to number
+ * @param computedStyle 要获取的样式属性对象
+ * @param element {en} the computed style
+ * @example
+ * ```
+ * import { safeGetComputedStyle, convertCssPropertyToNumber } from '@arco-design/mobile-utils';
+ *
+ * const computedStyle = safeGetComputedStyle(element);
+ * const compStyle = convertCssPropertyToNumber(computedStyle, 'fontSize');
+ * ```
+ */
+export function convertCssPropertyToNumber(computedStyle: CSSStyleDeclaration, property: string) {
+    const value: string = computedStyle[property];
+    if (/px$/.test(value)) {
+        return Number(value.replace('px', '')) || 0;
+    }
+    return 0;
 }

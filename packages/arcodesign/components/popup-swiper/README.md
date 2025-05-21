@@ -13,7 +13,7 @@
 |percentToClose|滑动超过内容的百分之多少时关闭弹窗，范围为\[0, 1\]，如果该属性和\`distanceToClose\`属性均设置，则实际计算结果更大的生效|number|0.3|
 |distanceToClose|滑动超过多少px时关闭弹窗，如果该属性和\`percentToClose\`属性均设置，则实际计算结果更大的生效|number|10|
 |speedToClose|手指从按下到抬起之间的滑动速度超过多少时关闭弹窗(单位为px/s)，与滑动关闭距离阈值同时设置时，满足其中一个即生效|number|200|
-|allowSwipeDirections|自定义可手势滑动退出的方向，可指定多个方向|DirectionType\[\]|必填|
+|allowSwipeDirections|自定义可手势滑动退出的方向，可指定多个方向|DirectionType\[\]|direction 属性指定的方向性|
 |exitDirection|固定弹窗退出方向，默认跟随手势滑动方向|"left" \| "right" \| "top" \| "bottom"|-|
 |onTouchStart|内容面板 touchstart 事件，返回true时表示阻止本组件内部处理事件|(e: TouchEvent) =\> boolean \| void|-|
 |onTouchMove|内容面板 touchmove 事件，返回true时表示阻止本组件内部处理事件|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> boolean \| void|-|
@@ -103,3 +103,4 @@
 |Keyboard|-|\{ confirm: string; \}|
 |Form|-|\{ required: string; type: \{ email: string; url: string; string: string; number: string; array: string; object: string; boolean: string; \}; number: \{ min: string; max: string; equal: string; range: string; positive: string; negative: string; \}; \.\.\. 4 more \.\.\.; pickerDefaultHint: string; \}|
 |NavBar|-|\{ backBtnAriaLabel: string; \}|
+|Uploader|-|\{ uploadBtn: string; retryUpload: string; \}|

@@ -24,3 +24,10 @@ export default function ContextProviderDemo() {
     </ContextProvider>);
 }
 ```
+
+```less
+.arco-cell-group {
+    .rem(border-radius, 8);
+    overflow: hidden;
+}
+```

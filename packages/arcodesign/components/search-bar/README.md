@@ -23,7 +23,7 @@
 |highlightStyle|要为高亮结果添加的样式，仅非自定高亮模式下生效|CSSProperties|-|
 |highlightClassName|要为高亮结果添加的class，仅非自定义高亮模式下生效|string|-|
 |onCancel|右侧取消按钮的点击回调|() =\> void|-|
-|onAssociationItemClick|每行搜索结果的点击回调|(item: SearchAssociationBaseItem, index: number) =\> void|-|
+|onAssociationItemClick|每行搜索结果的点击回调|(item: SearchAssociationBaseItem, index: number, event: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
 |onAssociationClick|搜索联想框整体被点击的回调|(event: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
 |renderAssociationItem|自定义渲染每行搜索结果|(item: SearchAssociationBaseItem, index: number, node: ReactNode) =\> ReactNode|-|
 |renderAssociation|自定义渲染搜索联想框整体内容|(Content: ReactNode) =\> ReactNode|-|

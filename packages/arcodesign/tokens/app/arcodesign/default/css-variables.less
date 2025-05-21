@@ -1,7 +1,8 @@
 @import '../../../mixin/index.less';
 
 :root when (@use-css-vars = 1) {
-    --prefix: arco;
+    --prefix: var(--prefix-mobile);
+    --prefix-mobile: arco;
     --base-font-size: 50;
     --arco-dark-mode-selector: .arco-theme-dark;
     --background-color: #FFFFFF;
@@ -963,6 +964,7 @@
     --index-bar-sidebar-toast-radius: ~`pxtorem(4)`;
     --index-bar-sidebar-toast-padding: 0 ~`pxtorem(8)`;
     --index-bar-sidebar-toast-font-size: ~`pxtorem(24)`;
+    --stepper-width: ~`pxtorem(98)`;
     --stepper-font-size: ~`pxtorem(14)`;
     --dark-stepper-square-border-color: var(--dark-lighter-line-color);
     --stepper-square-border-color: var(--lighter-line-color);
@@ -1091,4 +1093,14 @@
     --uploader-disabled-delete-icon-color: var(--disabled-color);
     --dark-uploader-item-text-error-color: var(--dark-danger-color);
     --uploader-item-text-error-color: var(--danger-color);
+    --date-picker-range-font-size: ~`pxtorem(16)`;
+    --date-picker-range-background-color: #FBFCFC;
+    --dark-date-picker-range-background-color: #1E1E1E;
+    --dark-date-picker-range-font-color: var(--dark-font-color);
+    --date-picker-range-font-color: var(--font-color);
+    --dark-date-picker-range-disabled-font-color: var(--dark-disabled-color);
+    --date-picker-range-disabled-font-color: var(--disabled-color);
+    --date-picker-range-show-padding: 0 ~`pxtorem(16)`;
+    --date-picker-range-show-min-height: ~`pxtorem(48)`;
+    --date-picker-range-separate-min-width: ~`pxtorem(48)`;
 }

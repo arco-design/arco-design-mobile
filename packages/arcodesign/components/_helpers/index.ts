@@ -6,6 +6,7 @@ import { CSSProperties } from 'react';
 
 export * from './hooks';
 export * from './react-dom';
+export * from './render';
 export * from './type';
 
 /**

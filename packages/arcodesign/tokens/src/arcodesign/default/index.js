@@ -2,13 +2,23 @@
 const extend = require('./extend');
 const { theme } = require('./theme');
 
+const getRem = px => `@getRem@${px}`;
+const useGlobal = token => `@global@${token}`;
+const globalTokens = getGlobalTokens();
+
 function getGlobalTokens() {
     return {
         /**
          * 类前缀，需配合 context-provider 中的 prefixCls 使用
+         * @default 'arco'
          * @en Classname prefix, it needs to be used with prefixCls in context-provider
          */
-        prefix: 'arco',
+        prefix: useGlobal('prefixMobile'),
+        /**
+         * 功能同 prefix，与 PC 版同用时可使用该变量修改类前缀解决冲突
+         * @en Same as `prefix`, it can avoid conflicts when used with arco pc
+         */
+        prefixMobile: 'arco',
         /**
          * rem 转换使用的基础字号
          * @en Base font size used for rem conversion
@@ -126,10 +136,6 @@ function getGlobalTokens() {
         fixedZIndex: '100',
     };
 }
-
-const globalTokens = getGlobalTokens();
-const getRem = px => `@getRem@${px}`;
-const useGlobal = token => `@global@${token}`;
 
 function getCompTokens() {
     return {
@@ -422,8 +428,7 @@ function getCompTokens() {
          * 轮播图滑块文字背景色
          * @en Background color of the carousel sliders
          */
-        carouselItemTextBackground:
-            'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
+        carouselItemTextBackground: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 5.18%, rgba(0, 0, 0, 0.15) 100%)',
         /**
          * 轮播图滑块文字高度
          * @en Font height of the carousel sliders
@@ -1017,10 +1022,8 @@ function getCompTokens() {
          * 文字缩略组件浮动模式下的缩略符背景色
          * @en Background of floating ellipsis node
          */
-        ellipsisFloatEllipsisNodeBackground:
-            'linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)',
-        darkEllipsisFloatEllipsisNodeBackground:
-            'linear-gradient(90deg, rgba(35, 35, 36, 0), #232324 20PX, #232324)',
+        ellipsisFloatEllipsisNodeBackground: 'linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 20PX, #ffffff)',
+        darkEllipsisFloatEllipsisNodeBackground: 'linear-gradient(90deg, rgba(35, 35, 36, 0), #232324 20PX, #232324)',
         /**
          * 文字缩略组件浮动模式下的缩略符左边距
          * @en Padding left of floating ellipsis node
@@ -2166,8 +2169,7 @@ function getCompTokens() {
          * 图片预览指示器背景色
          *  @en ImagePreview indicator background color
          */
-        imagePreviewIndicatorBackground:
-            'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
+        imagePreviewIndicatorBackground: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3))',
         /**
          * 图片预览小图放大时的动画曲线
          * @en Animation curve when ImagePreview thumbnail is enlarged
@@ -3751,6 +3753,11 @@ function getCompTokens() {
          */
         indexBarSidebarToastFontSize: getRem(24),
         /**
+         * 步进器整体宽度
+         * @en Width of Stepper
+         */
+        stepperWidth: getRem(98),
+        /**
          * 步进器字体大小
          * @en Font size of Stepper
          */
@@ -4224,7 +4231,41 @@ function getCompTokens() {
          * @en Error status color of the text in the uploader list
          */
         uploaderItemTextErrorColor: useGlobal('dangerColor'),
-
+        /**
+         * 日期时间范围选择器文字大小
+         * @en Font size of the date picker range
+         */
+        datePickerRangeFontSize: getRem(16),
+        /**
+         * 日期时间范围选择器背景颜色
+         * @en Background color of the date picker range when checked
+         */
+        datePickerRangeBackgroundColor: theme['arcom-color-bg-4'],
+        /**
+         * 日期时间范围选择器选中时文字颜色
+         * @en Font color of the date picker range when checked
+         */
+        datePickerRangeFontColor: useGlobal('fontColor'),
+        /**
+         * 日期时间范围选择器未选中时文字颜色
+         * @en Font color of the date picker range when disabled
+         */
+        datePickerRangeDisabledFontColor: useGlobal('disabledColor'),
+        /**
+         * 日期时间范围选择器展示区域外边距大小
+         * @en Margin of the date picker range area
+         */
+        datePickerRangeShowPadding: `0 ${getRem(16)}`,
+        /**
+         * 日期时间范围选择器展示区域最小高度
+         * @en Min height of the date picker range area
+         */
+        datePickerRangeShowMinHeight: getRem(48),
+        /**
+         * 日期时间范围选择器展示区域分隔符最小宽度
+         * @en Min width of the date picker range separate
+         */
+        datePickerRangeSeparateMinWidth: getRem(48),
     };
 }
 
