@@ -1034,11 +1034,6 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             return;
         }
         stopPropagation && e.stopPropagation();
-        if (bouncingRef.current) {
-            bouncingRef.current = false;
-            jumpTo(index, false);
-            return;
-        }
         if (!touchStartedRef.current) {
             return;
         }
@@ -1048,6 +1043,13 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
             return;
         }
         touchMovedRef.current = false;
+        // bugfix: 回弹判断逻辑需在touchMovedRef标识重置逻辑之后，否则会在触发回弹后导致标识无法重置引起滑动判断问题
+        // @en bugfix: The logic for the bounce judgment needs to be after the touchMovedRef reset logic, otherwise it will cause the problem of slide judgment after the bounce is triggered.
+        if (bouncingRef.current) {
+            bouncingRef.current = false;
+            jumpTo(index, false);
+            return;
+        }
         if (posAdjustingRef.current || touchStoppedRef.current) {
             return;
         }
