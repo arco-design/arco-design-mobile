@@ -1,6 +1,9 @@
 ## 无内容时隐藏滚动条效果 @en{Hide scrollbar effect when there is no content}
 
+#### 2
+
 当某个 tab 内容较少时隐藏滚动条
+@en{Hide the scrollbar when some tab pane content is not tall enough}
 
 ```js
 import { Tabs, Sticky } from '@arco-design/mobile-react';
@@ -15,6 +18,22 @@ const tabData = [
 export default function StickyTabsHide() {
 
     const tabRef = React.useRef();
+    const stickyEleRef = React.useRef(null);
+
+    React.useEffect(() => {
+        const scrollingWrapper = window;
+        const update = () => {
+            if (stickyEleRef.current) {
+                stickyEleRef.current.recalculatePosition();
+            }
+        }
+
+        scrollingWrapper.addEventListener('scroll', update);
+
+        return () => {
+            scrollingWrapper.removeEventListener('scroll', update);
+        }
+    }, [stickyEleRef]);
 
     const renderList = (num) => {
         const list = new Array(100).fill(num);
@@ -58,11 +77,8 @@ export default function StickyTabsHide() {
                 tabs={tabData}
                 renderTabBar={(TabBar) => (
                     <Sticky
-                        // 下面属性为局部滚动时使用，根据不同滚动场景添加
-                        portalWhenSticky
-                        getPortalContainer={() => document.querySelectorAll('.arcodesign-mobile-demo-content')[1]}
-                        stickyStyle='absolute'
                         getScrollContainer={() => document.getElementById('sticky-tabs-wrapper-hide')}
+                        ref={stickyEleRef}
                     >
                         {TabBar}
                     </Sticky>
