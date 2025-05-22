@@ -1,11 +1,20 @@
 /* eslint-disable no-console */
 import { ReactNode, useRef } from 'react';
 import { Promise } from 'es6-promise';
-import { Callbacks, IFieldError, FieldItem, IFormInstance } from './type';
+import {
+    Callbacks,
+    IFieldError,
+    FieldItem,
+    IFormInstance,
+    FieldValue,
+    InternalFormInstance,
+    ValueChangeType,
+} from './type';
+import { deepClone } from './utils';
 
 const defaultFunc: any = () => {};
 
-export const defaultFormDataMethods = {
+export const defaultFormDataMethods: InternalFormInstance = {
     getFieldValue: name => name,
     getFieldsValue: _names => {
         return {};
@@ -29,6 +38,10 @@ export const defaultFormDataMethods = {
             registerField: defaultFunc,
             setInitialValues: defaultFunc,
             setCallbacks: defaultFunc,
+            getInitialValue: defaultFunc,
+            setInitialValue: defaultFunc,
+            innerSetFieldsValue: defaultFunc,
+            innerSetFieldValue: defaultFunc,
         };
     },
 };
@@ -43,7 +56,7 @@ class FormData {
 
     private _callbacks: Callbacks = {};
 
-    setFieldsValue = (values: FieldItem): boolean => {
+    private commonSetFieldsValue = (values: FieldItem, changeType?: ValueChangeType) => {
         const oldValues: FieldItem = Object.keys(values).reduce(
             (acc, key) => ({
                 ...acc,
@@ -52,16 +65,50 @@ class FormData {
             {},
         );
         this._formData = { ...this._formData, ...values };
+        this.notifyField(values, oldValues, changeType);
+    };
+
+    setFieldsValue = (values: FieldItem): boolean => {
+        this.commonSetFieldsValue(values);
         const { onValuesChange } = this._callbacks;
-        onValuesChange && onValuesChange(values, this._formData);
-        this.notifyField(values, oldValues);
+        onValuesChange?.(values, this._formData);
         return true;
     };
 
-    setFieldValue = (name: string, value: unknown): boolean => {
+    innerSetFieldsValue = (values: FieldItem, changeType?: ValueChangeType): boolean => {
+        this.commonSetFieldsValue(values, changeType);
+        const { onValuesChange, onChange } = this._callbacks;
+        onValuesChange?.(values, this._formData);
+        onChange?.(values, this._formData);
+        return true;
+    };
+
+    commonSetFieldValue = (name: string, value: unknown, changeType?: ValueChangeType) => {
         const oldValues = { [name]: this.getFieldValue(name) };
         this._formData = { ...this._formData, [name]: value };
+        this.notifyField({ [name]: value }, oldValues, changeType);
+    };
+
+    setFieldValue = (name: string, value: FieldValue): boolean => {
+        this.commonSetFieldValue(name, value);
         const { onValuesChange } = this._callbacks;
+        onValuesChange &&
+            onValuesChange(
+                {
+                    [name]: value,
+                },
+                this.getFieldsValue(),
+            );
+        return true;
+    };
+
+    innerSetFieldValue = (
+        name: string,
+        value: FieldValue,
+        changeType?: ValueChangeType,
+    ): boolean => {
+        this.commonSetFieldValue(name, value, changeType);
+        const { onValuesChange, onChange } = this._callbacks;
         onValuesChange &&
             onValuesChange(
                 {
@@ -69,15 +116,27 @@ class FormData {
                 },
                 this._formData,
             );
-        this.notifyField({ [name]: value }, oldValues);
+        onChange &&
+            onChange(
+                {
+                    [name]: value,
+                },
+                this._formData,
+            );
         return true;
     };
 
-    notifyField = (values: FieldItem, oldValues: FieldItem): void => {
+    notifyField = (
+        values: FieldItem,
+        oldValues: FieldItem,
+        changeType: ValueChangeType = ValueChangeType.Update,
+    ): void => {
         Object.keys(values).map((fieldName: string) => {
             const fieldObj = this._fieldsList?.[fieldName] || null;
             if (fieldObj) {
-                fieldObj.onValueChange(values[fieldName], oldValues[fieldName]);
+                fieldObj.onValueChange(values[fieldName], oldValues[fieldName], {
+                    changeType,
+                });
             }
         });
     };
@@ -86,11 +145,11 @@ class FormData {
         if (names) {
             return names.map(name => this.getFieldValue(name));
         }
-        return this._formData;
+        return deepClone(this._formData);
     };
 
     getFieldValue = (name: string) => {
-        return this._formData?.[name];
+        return deepClone(this._formData?.[name]);
     };
 
     getFieldError = (name: string): ReactNode[] => {
@@ -122,7 +181,7 @@ class FormData {
 
     registerField = (name: string, self: any) => {
         this._fieldsList[name] = self;
-        const { initialValue } = (self as any).props;
+        const { initialValue } = self.props;
         if (initialValue !== undefined && name) {
             this._initialValues = {
                 ...this._initialValues,
@@ -142,13 +201,36 @@ class FormData {
         };
     };
 
-    setInitialValues = (initVal: Record<string, unknown>) => {
-        this._initialValues = { ...(initVal || {}) };
+    setInitialValues = (initVal: FieldItem) => {
+        this._initialValues = deepClone(initVal || {});
         this.setFieldsValue(initVal);
     };
 
+    setInitialValue = (fieldName: string, value: unknown) => {
+        if (!fieldName) {
+            return;
+        }
+        this._initialValues[fieldName] = value;
+        this.setFieldValue(fieldName, value);
+    };
+
+    getInitialValue = (fieldName: string) => {
+        return this._initialValues[fieldName];
+    };
+
     resetFields = () => {
-        this.setFieldsValue(this._initialValues);
+        const oldValues = { ...this._formData };
+        const initialValues = {};
+        Object.keys(this._formData).forEach((fieldName: string) => {
+            const fieldObj = this._fieldsList?.[fieldName] || null;
+            if (fieldObj) {
+                initialValues[fieldName] = fieldObj.getInitialValue();
+            }
+        });
+        const { onValuesChange } = this._callbacks;
+        onValuesChange && onValuesChange(initialValues, this._formData);
+        this._formData = initialValues;
+        this.notifyField(initialValues, oldValues, ValueChangeType.Reset);
     };
 
     validateFields = () => {
@@ -175,14 +257,14 @@ class FormData {
         this.validateFields()
             .then(result => {
                 const { onSubmit } = this._callbacks;
-                onSubmit?.(this._formData, result);
+                onSubmit?.(this.getFieldsValue(), result);
             })
             .catch(e => {
                 const { onSubmitFailed } = this._callbacks;
                 if (!onSubmitFailed) {
                     return;
                 }
-                onSubmitFailed(this._formData, e);
+                onSubmitFailed(this.getFieldsValue(), e);
             });
     };
 
@@ -212,6 +294,10 @@ class FormData {
             registerField: this.registerField,
             setInitialValues: this.setInitialValues,
             setCallbacks: this.setCallbacks,
+            getInitialValue: this.getInitialValue,
+            setInitialValue: this.setInitialValue,
+            innerSetFieldsValue: this.innerSetFieldsValue,
+            innerSetFieldValue: this.innerSetFieldValue,
         };
     };
 }

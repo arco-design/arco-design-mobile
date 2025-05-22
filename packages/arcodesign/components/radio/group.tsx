@@ -33,7 +33,7 @@ export function componentGenerator<
             layout = 'inline',
         } = props;
 
-        const [groupValue, setGroupValue] = useState(value || defaultValue);
+        const [groupValue, setGroupValue] = useState<T | null | undefined>(value || defaultValue);
         const domRef = useRef<HTMLDivElement | null>(null);
         useImperativeHandle(ref, () => ({
             dom: domRef.current,
@@ -70,7 +70,10 @@ export function componentGenerator<
                                 layout,
                                 disabled,
                                 icons,
-                                value: groupValue === void 0 ? [] : [groupValue],
+                                value:
+                                    groupValue === void 0 || groupValue === null
+                                        ? []
+                                        : [groupValue],
                                 onChange: handleChange,
                             }}
                         >
