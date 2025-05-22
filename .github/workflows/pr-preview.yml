@@ -3,6 +3,10 @@ name: PR Preview
 on:
     pull_request:
 
+permissions:
+    contents: read
+    pull-requests: write # 允许写入PR评论的权限
+
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
