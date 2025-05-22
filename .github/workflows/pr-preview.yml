@@ -55,21 +55,43 @@ jobs:
               run: |
                   surge ./merged_output ${{ env.ARCO_SITE_DOMAIN }} --token $SURGE_TOKEN
 
-            - name: Find Comment
-              uses: peter-evans/find-comment@v2
-              id: fc
-              with:
-                  issue-number: ${{ github.event.pull_request.number }}
-                  comment-author: 'github-actions[bot]'
-                  body-includes: PR Preview Link
-
-            - name: Comment PR with Preview Link
-              uses: peter-evans/create-or-update-comment@v2
+            - name: Create PR Comment
+              uses: actions/github-script@v6
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
               with:
-                  issue-number: ${{ github.event.pull_request.number }}
-                  comment-id: ${{ steps.fc.outputs.comment-id }}
-                  edit-mode: replace
-                  body: |
-                      ✨ **PR Preview Link**: [https://${{ env.ARCO_SITE_DOMAIN }}](https://${{ env.ARCO_SITE_DOMAIN }})
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  script: |
+                      const previewUrl = `https://${process.env.ARCO_SITE_DOMAIN}`;
+                      const commentBody = `✨ **PR Preview Link**: [${previewUrl}](${previewUrl})`;
+
+                      // 获取已有的评论
+                      const { data: comments } = await github.rest.issues.listComments({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: context.issue.number
+                      });
+
+                      // 查找是否有我们之前创建的评论
+                      const botComment = comments.find(comment => {
+                        return comment.user.type === 'Bot' && 
+                               comment.body.includes('PR Preview Link');
+                      });
+
+                      if (botComment) {
+                        // 更新已有评论
+                        await github.rest.issues.updateComment({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          comment_id: botComment.id,
+                          body: commentBody
+                        });
+                      } else {
+                        // 创建新评论
+                        await github.rest.issues.createComment({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          issue_number: context.issue.number,
+                          body: commentBody
+                        });
+                      }
