@@ -949,6 +949,39 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
         <div
           class="arco-form-label-item"
         >
+          Place
+        </div>
+        <div
+          class="arco-form-item-control-wrapper"
+        >
+          <div
+            class="arco-form-item-control"
+          >
+            <div
+              class="arco-input-container all-border-box "
+              role="search"
+            >
+              <div
+                class="arco-input-wrap text single-line border-none pc"
+              >
+                <input
+                  aria-label=""
+                  class="arco-input"
+                  placeholder="Please input your birthplace"
+                  type="text"
+                  value="Beijing"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="arco-form-item arco-form-item-horizontal arco-form-item-warning"
+      >
+        <div
+          class="arco-form-label-item"
+        >
           Gender
         </div>
         <div
@@ -1585,7 +1618,7 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
             <div
               aria-valuemax="100"
               aria-valuemin="0"
-              aria-valuenow=""
+              aria-valuenow="0"
               class="arco-slider  is-horizontal show-tooltip"
               role="slider"
             >
@@ -1601,7 +1634,7 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
                 >
                   <div
                     class="arco-slider-line is-activated is-transferable"
-                    style="height: 2px;"
+                    style="height: 2px; left: 0px; width: 0px;"
                   >
                     <div
                       class="arco-slider-thumb-wrapper is-end"
@@ -1664,7 +1697,8 @@ exports[`form demo test form demo: index.md renders correctly 1`] = `
           </div>
         </button>
         <button
-          class="arco-button arco-button-type-default type-default arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+          style="margin-top: 12px;"
           type="button"
         >
           <div
@@ -1936,6 +1970,17 @@ exports[`form demo test form demo: use-form.md renders correctly 1`] = `
           class="arco-button-text arco-button-text-pc btn-text"
         >
           Submit
+        </div>
+      </button>
+      <button
+        class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+        style="margin-top: 12px;"
+        type="button"
+      >
+        <div
+          class="arco-button-text arco-button-text-pc btn-text"
+        >
+          Reset
         </div>
       </button>
     </form>
