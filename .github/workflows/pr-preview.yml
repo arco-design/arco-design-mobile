@@ -60,7 +60,7 @@ jobs:
               run: |
                   surge ./merged_output ${{ env.ARCO_SITE_DOMAIN }} --token $SURGE_TOKEN
 
-            - name: Create PR Comment
+            - name: Create/Update PR Comment
               uses: actions/github-script@v6
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
