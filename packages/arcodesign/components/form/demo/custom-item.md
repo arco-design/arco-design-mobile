@@ -168,3 +168,13 @@ export default function FormDemo() {
     );
 }
 ```
+```less
+#demo-form {
+    .form-custom-item-name-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+```

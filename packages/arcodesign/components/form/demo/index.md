@@ -103,10 +103,13 @@ export default function FormDemo() {
                 }}
             >
                 <Form.Item field="name" label="UserName" trigger="onBlur" rules={rules.name} required>
-                    <Input  placeholder="Please input username" clearable border="none" onInput={handleInput}/>
+                    <Input  placeholder="Please input username" clearable border="none"/>
                 </Form.Item>
-                <Form.Item field="age" label="Age" trigger="onInput" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]} initialValue={11}>
-                    <Input placeholder="Please input age"  clearable border="none"/>
+                <Form.Item field="age" label="Age" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]} initialValue={11}>
+                    <Input placeholder="Please input age" clearable border="none"  onInput={handleInput}/>
+                </Form.Item>
+                <Form.Item field="birthplace" label="Place" rules={[{type: 'string',  min: 3, validateLevel: 'warning', validateTrigger: 'onBlur'}]} initialValue={"Beijing"}>
+                    <Input placeholder="Please input your birthplace"  clearable border="none"/>
                 </Form.Item>
                 <Form.Item field="gender" label="Gender">
                     <Radio.Group options={genderOptions} />
@@ -168,4 +171,15 @@ export default function FormDemo() {
         </div>
     );
 }
+```
+
+```less
+#demo-form {
+    .form-custom-item-name-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
 ```

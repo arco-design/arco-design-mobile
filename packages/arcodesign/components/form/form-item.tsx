@@ -26,6 +26,12 @@ import {
 } from './type';
 import { getDefaultValueForInterComponent, getErrorAndWarnings, isFieldRequired } from './utils';
 import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
+import { BasicInputProps } from '../input/props';
+import { DatePickerProps } from '../date-picker/type';
+import { PickerProps } from '../picker/type';
+import { SwitchProps } from '../switch';
+import { ImagePickerProps } from '../image-picker/type';
+
 interface IFormItemInnerState {
     validateStatus: ValidateStatus;
     errors?: ReactNode[];
@@ -113,13 +119,17 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
         const { getFieldValue } = this.context.form;
         const { field, rules, onValidateStatusChange } = this.props;
         const value = getFieldValue(field);
-
+        // rules: if validateTrigger is not defined, all rules will be validated
+        // if validateTrigger is defined, only rules  with validateTrigger  or  without rule.validateTrigger  will be validated
         const curRules = validateTrigger
             ? rules?.filter(rule => {
-                  const triggerList: string[] = ([] as string[]).concat(rule.validateTrigger || '');
+                  const triggerList: string[] = ([] as string[]).concat(
+                      rule.validateTrigger || validateTrigger,
+                  );
                   return triggerList.includes(validateTrigger);
               })
             : rules;
+
         if (curRules?.length && field) {
             const fieldDom = this.props.getFormItemRef();
             const fieldValidator = new Validator({ [field]: curRules }, { validateMessages });
@@ -151,18 +161,10 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
     };
 
     setFieldData = (value: FieldValue) => {
-        const { field } = this.props;
+        const { field, trigger = 'onChange' } = this.props;
         const { innerSetFieldValue } = this.context.form.getInternalHooks();
         innerSetFieldValue(field, value);
-        this.validateField();
-    };
-
-    innerTriggerFunction = (_, value, ...args) => {
-        this.setFieldData(value);
-        const { children, trigger = 'onChange' } = this.props;
-        if (trigger && children.props?.[trigger]) {
-            children.props?.[trigger](_, value, ...args);
-        }
+        this.validateField(trigger);
     };
 
     innerTriggerFunctionWithValueFirst = (value, ...args) => {
@@ -199,75 +201,60 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
         const { getFieldValue } = this.context.form;
         const childrenProps: {
             disabled?: boolean;
-            value?: FieldValue;
-            onInput?: (...args: any) => void;
-            onClear?: () => void;
-            currentTs?: number;
-            onChange?: (value: FieldValue, ...args: any) => void;
-            renderLinkedContainer?: (value: FieldValue) => ReactNode;
-            images?: FieldValue;
-            checked?: boolean;
             error?: ReactNode[];
         } = {
             disabled,
         };
-        // inject validate trigger events of rules
-        // this.getAllRuleValidateTriggers().forEach(triggerName => {
-        //     childrenProps[triggerName] = e => {
-        //         this.validateField(triggerName);
-        //         children?.props?.[triggerName]?.(e);
-        //     };
-        // });
+        // inject validateTriggers of rules
+        this.getAllRuleValidateTriggers().forEach(triggerName => {
+            childrenProps[triggerName] = e => {
+                this.validateField(triggerName);
+                children?.props?.[triggerName]?.(e);
+            };
+        });
         const childrenType = displayType || children.type?.displayName;
         switch (childrenType) {
             case FormInternalComponentType.Input:
             case FormInternalComponentType.Textarea:
-                childrenProps.value = getFieldValue(field) || '';
-                childrenProps.onInput = this.innerOnInputFunction;
-                childrenProps.onClear = this.innerClearFunction;
-                break;
-            case FormInternalComponentType.Checkbox:
-            case FormInternalComponentType.Radio:
-            case FormInternalComponentType.Slider:
-            case FormInternalComponentType.RadioGroup:
-            case FormInternalComponentType.CheckboxGroup:
-                childrenProps.value = getFieldValue(field);
-                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
+                (childrenProps as BasicInputProps<HTMLInputElement>).value =
+                    getFieldValue(field) || '';
+                (childrenProps as BasicInputProps<HTMLInputElement>).onInput =
+                    this.innerOnInputFunction;
+                (childrenProps as BasicInputProps<HTMLInputElement>).onClear =
+                    this.innerClearFunction;
                 break;
             case FormInternalComponentType.DatePicker:
-                childrenProps.currentTs = getFieldValue(field);
-                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
-                childrenProps.renderLinkedContainer =
+                (childrenProps as DatePickerProps).currentTs = getFieldValue(field);
+                (childrenProps as DatePickerProps).onChange =
+                    this.innerTriggerFunctionWithValueFirst;
+                (childrenProps as DatePickerProps).renderLinkedContainer =
                     children.props?.renderLinkedContainer ||
                     ((ts, types) => <DefaultDatePickerLinkedContainer ts={ts} types={types} />);
                 break;
             case FormInternalComponentType.Picker:
-                childrenProps.value = getFieldValue(field) || '';
-                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
-                childrenProps.renderLinkedContainer =
+                (childrenProps as PickerProps).value = getFieldValue(field) || '';
+                (childrenProps as PickerProps).onChange = this.innerTriggerFunctionWithValueFirst;
+                (childrenProps as PickerProps).renderLinkedContainer =
                     children.props?.renderLinkedContainer ||
                     (val => <DefaultPickerLinkedContainer value={val} />);
                 break;
 
             case FormInternalComponentType.Switch:
-                childrenProps.checked = Boolean(getFieldValue(field));
-                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
+                (childrenProps as SwitchProps).checked = Boolean(getFieldValue(field));
+                (childrenProps as SwitchProps).onChange = this.innerTriggerFunctionWithValueFirst;
                 break;
             case FormInternalComponentType.ImagePicker:
-                childrenProps.images = getFieldValue(field);
-                childrenProps.onChange = this.innerTriggerFunctionWithValueFirst;
+                (childrenProps as ImagePickerProps).images = getFieldValue(field);
+                (childrenProps as ImagePickerProps).onChange =
+                    this.innerTriggerFunctionWithValueFirst;
                 break;
             default:
-                const originTrigger = children.props[trigger];
                 if (triggerPropsField) {
                     childrenProps[triggerPropsField] = getFieldValue(field);
                 }
                 // inject the validated result
                 childrenProps.error = this._errors;
-                childrenProps[trigger] = (newValue, ...args: any) => {
-                    this.setFieldData(newValue);
-                    originTrigger && originTrigger(newValue, ...args);
-                };
+                childrenProps[trigger] = this.innerTriggerFunctionWithValueFirst;
         }
 
         return React.cloneElement(children, childrenProps);
