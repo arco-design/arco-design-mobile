@@ -4,3 +4,4 @@ import './cell/style';
 import './context-provider/style';
 import './notify/style';
 import './transition/style';
+import './loading/style';
