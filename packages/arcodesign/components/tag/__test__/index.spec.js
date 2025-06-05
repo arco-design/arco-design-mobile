@@ -240,7 +240,7 @@ describe('Tag.List', () => {
         expect(tags[0].style.color).toBe('blue');
         expect(tags[0].style.marginRight).toBe('15px');
         expect(tags[0].style.marginBottom).toBe('10px');
+        expect(tags[1].style.marginRight).toBe('15px');
         expect(tags[1].style.marginBottom).toBe('10px');
-        // Last tag should not have marginRight when showAddButton is true
     });
 });
