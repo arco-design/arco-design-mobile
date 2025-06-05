@@ -111,6 +111,14 @@ describe('Form input', () => {
                         >
                             getValue
                         </button>
+                        <button
+                            onClick={() => {
+                                form.resetFields();
+                                Object.assign(result, form.getFieldsValue());
+                            }}
+                        >
+                            reset
+                        </button>
                     </Form>
                 </div>
             );
@@ -148,6 +156,11 @@ describe('Form input', () => {
                 bar: 'bar',
                 all: { foo: 'foo', bar: 'bar' },
             });
+        });
+        const btn4 = screen.getByRole('button', { name: 'reset' });
+        await userEvent.click(btn4);
+        await waitFor(() => {
+            expect(result).toMatchObject({ baz: 'baz' });
         });
     });
 });
