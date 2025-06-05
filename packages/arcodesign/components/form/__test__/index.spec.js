@@ -8,6 +8,10 @@ import Input from '../../input';
 import Switch from '../../switch';
 import Picker from '../../picker';
 import Textarea from '../../textarea';
+import Checkbox from '../../checkbox';
+import Radio from '../../radio';
+import Slider from '../../slider';
+import Rate from '../../rate';
 import '@testing-library/jest-dom';
 
 demoTest('form');
@@ -88,6 +92,7 @@ describe('Form input', () => {
                         </Form.Item>
                         <Form.Item
                             field="baz"
+                            validateTrigger="onBlur"
                             rules={[
                                 {
                                     validateLevel: 'warning',
@@ -101,14 +106,7 @@ describe('Form input', () => {
                         <Form.Item field="isOpen">
                             <Switch />
                         </Form.Item>
-                        <Form.Item field="location" label="Location">
-                            <Picker
-                                cascade={false}
-                                data={[['Beijing', 'Shanghai', 'Shenzhen']]}
-                                maskClosable
-                            />
-                        </Form.Item>
-                        <Form.Item field="comment" label="comment">
+                        <Form.Item field="comment" label="comment" initialValue="1">
                             <Textarea
                                 showStatistics={false}
                                 placeholder="Please enter the description of no less than 10 characters"
@@ -116,6 +114,35 @@ describe('Form input', () => {
                                 textareaStyle={{ height: 55 }}
                                 autosize
                                 autoHeight
+                            />
+                        </Form.Item>
+                        <Form.Item field="gender" label="Gender">
+                            <Radio.Group
+                                options={[
+                                    { label: 'male', value: '1' },
+                                    { label: 'female', value: '2' },
+                                    { label: 'others', value: '3' },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item field="checkbox" label="Checkbox">
+                            <Checkbox.Group layout="block">
+                                <Checkbox value={1}>Option content 1</Checkbox>
+                                <Checkbox value={2}>Option content 2</Checkbox>
+                                <Checkbox value={3}>Option content 3</Checkbox>
+                            </Checkbox.Group>
+                        </Form.Item>
+                        <Form.Item field="progress" label="Progress">
+                            <Slider />
+                        </Form.Item>
+                        <Form.Item field="score" label="Score">
+                            <Rate />
+                        </Form.Item>
+                        <Form.Item field="location" label="Location">
+                            <Picker
+                                cascade={false}
+                                data={[['Beijing', 'Shanghai', 'Shenzhen']]}
+                                maskClosable
                             />
                         </Form.Item>
                         <button
@@ -138,7 +165,15 @@ describe('Form input', () => {
                         </button>
                         <button
                             onClick={() => {
-                                form.setFieldsValue({ foo: 'foo', bar: 'bar' });
+                                form.setFieldsValue({
+                                    foo: 'foo',
+                                    bar: 'bar',
+                                    score: 3,
+                                    progress: 50,
+                                    gender: '1',
+                                    checkbox: [1],
+                                    location: ['Beijing'],
+                                });
                             }}
                         >
                             setValue
@@ -166,7 +201,9 @@ describe('Form input', () => {
                 </div>
             );
         }
-        const { container } = render(<App onSubmit={onSubmit} onSubmitFailed={onSubmitFailed} result={result} />);
+        const { container } = render(
+            <App onSubmit={onSubmit} onSubmitFailed={onSubmitFailed} result={result} />,
+        );
         const submitBtn = screen.getByRole('button', { name: 'submit' });
         await userEvent.click(submitBtn);
         const error = await screen.findByText('required');
@@ -217,7 +254,7 @@ describe('Form input', () => {
         userEvent.type(textArea, '1');
         await waitFor(() => {
             expect(innerChangeValues).toMatchObject({
-                comment: '1',
+                comment: '11',
             });
         });
         const btn4 = screen.getByRole('button', { name: 'reset' });

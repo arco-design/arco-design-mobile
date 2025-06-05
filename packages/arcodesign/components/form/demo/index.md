@@ -137,6 +137,19 @@ export default function FormDemo() {
                         maskClosable={true}
                     />
                 </Form.Item>
+                <Form.Item field="detail_time" label="Time">
+                    <DatePicker
+                        mode={"time"}
+                        typeArr={['hour', 'minute', 'second']}
+                        valueFilter={(type, value) => {
+                            if (type === 'second') {
+                                return value % 5 === 0;
+                            }
+                            return true;
+                        }}
+                        maskClosable
+                    />
+                </Form.Item>
                 <Form.Item field="score" label="Score">
                     <Rate />
                 </Form.Item>
@@ -149,7 +162,6 @@ export default function FormDemo() {
                     <Slider />
                 </Form.Item>
                   <Form.Item field="comment" label="comment">
-
                     <Textarea
                         showStatistics={false}
                         placeholder="Please enter the description of no less than 10 characters"
