@@ -5,6 +5,9 @@ import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import Form, { useForm } from '..';
 import Input from '../../input';
+import Switch from '../../switch';
+import Picker from '../../picker';
+import Textarea from '../../textarea';
 import '@testing-library/jest-dom';
 
 demoTest('form');
@@ -51,6 +54,8 @@ describe('Form input', () => {
         const onSubmit = jest.fn();
         const onSubmitFailed = jest.fn();
         const result = {};
+        const changeValues = {};
+        const innerChangeValues = {};
         // eslint-disable-next-line @typescript-eslint/no-shadow
         function App({ onSubmit, onSubmitFailed }) {
             const [form] = useForm();
@@ -61,6 +66,15 @@ describe('Form input', () => {
                         initialValues={{ baz: 'baz' }}
                         onSubmit={onSubmit}
                         onSubmitFailed={onSubmitFailed}
+                        onValuesChange={(changeVal, values) => {
+                            Object.assign(changeValues, {
+                                change: changeVal,
+                                all: values,
+                            });
+                        }}
+                        onChange={val => {
+                            Object.assign(innerChangeValues, val);
+                        }}
                     >
                         <Form.Item
                             field="foo"
@@ -72,8 +86,37 @@ describe('Form input', () => {
                         <Form.Item field="bar" label="bar" required>
                             <Input type="text" />
                         </Form.Item>
-                        <Form.Item field="baz" rules={[{ validateLevel: 'warning', match: /\d+/ }]}>
+                        <Form.Item
+                            field="baz"
+                            rules={[
+                                {
+                                    validateLevel: 'warning',
+                                    match: /\d+/,
+                                    validateTrigger: 'onBlur',
+                                },
+                            ]}
+                        >
                             <Input type="text" />
+                        </Form.Item>
+                        <Form.Item field="isOpen">
+                            <Switch />
+                        </Form.Item>
+                        <Form.Item field="location" label="Location">
+                            <Picker
+                                cascade={false}
+                                data={[['Beijing', 'Shanghai', 'Shenzhen']]}
+                                maskClosable
+                            />
+                        </Form.Item>
+                        <Form.Item field="comment" label="comment">
+                            <Textarea
+                                showStatistics={false}
+                                placeholder="Please enter the description of no less than 10 characters"
+                                border="none"
+                                textareaStyle={{ height: 55 }}
+                                autosize
+                                autoHeight
+                            />
                         </Form.Item>
                         <button
                             onClick={() => {
@@ -123,7 +166,7 @@ describe('Form input', () => {
                 </div>
             );
         }
-        render(<App onSubmit={onSubmit} onSubmitFailed={onSubmitFailed} result={result} />);
+        const { container } = render(<App onSubmit={onSubmit} onSubmitFailed={onSubmitFailed} result={result} />);
         const submitBtn = screen.getByRole('button', { name: 'submit' });
         await userEvent.click(submitBtn);
         const error = await screen.findByText('required');
@@ -148,6 +191,18 @@ describe('Form input', () => {
         await waitFor(() => {
             expect(onSubmit).toBeCalled();
         });
+        await waitFor(() => {
+            expect(changeValues).toMatchObject({
+                change: {
+                    foo: 'foo',
+                    bar: 'bar',
+                },
+                all: {
+                    foo: 'foo',
+                    bar: 'bar',
+                },
+            });
+        });
         const btn3 = screen.getByRole('button', { name: 'getValue' });
         await userEvent.click(btn3);
         await waitFor(() => {
@@ -155,6 +210,14 @@ describe('Form input', () => {
                 foo: 'foo',
                 bar: 'bar',
                 all: { foo: 'foo', bar: 'bar' },
+            });
+        });
+
+        const textArea = container.querySelector('textarea');
+        userEvent.type(textArea, '1');
+        await waitFor(() => {
+            expect(innerChangeValues).toMatchObject({
+                comment: '1',
             });
         });
         const btn4 = screen.getByRole('button', { name: 'reset' });
