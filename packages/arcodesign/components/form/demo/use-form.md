@@ -48,6 +48,10 @@ export default function FormDemo() {
     const toSubmit = val => {
         form.submit();
     };
+
+    const toReset = () => {
+        form.resetFields();
+    };
     const onSubmit = (values, result) => {
         console.log('----submit Successfully', values, result);
     };
@@ -93,8 +97,21 @@ export default function FormDemo() {
                 <Button needActive onClick={toSubmit}>
                     Submit
                 </Button>
+                <Button type="ghost" onClick={toReset} style={{marginTop: '12px'}}>
+                    Reset
+                </Button>
             </Form>
         </div>
     );
 }
+```
+```less
+#demo-form {
+    .form-custom-item-name-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
 ```

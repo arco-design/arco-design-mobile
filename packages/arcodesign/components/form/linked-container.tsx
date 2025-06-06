@@ -21,12 +21,15 @@ export function DefaultDatePickerLinkedContainer({
     ts,
     types,
 }: {
-    ts: number | [number, number];
+    ts?: number | [number, number];
     types: string[];
 }) {
     const { prefixCls, locale } = useContext(GlobalContext);
     const className = `${prefixCls}-form-picker-link-container`;
     const dateTimeStr = useMemo(() => {
+        if (ts === undefined) {
+            return '';
+        }
         if (typeof ts === 'number') {
             return formatDateTimeStr(ts, types);
         }

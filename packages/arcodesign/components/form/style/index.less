@@ -42,11 +42,16 @@
         .@{prefix}-input-wrap, .@{prefix}-input {
             padding: 0;
         }
+
+        .@{prefix}-input-wrap.textarea {
+            padding: 0;
+        }
+
         &-wrapper {
             width: 100%;
             flex: 1;
             position: relative;
-            .@{prefix}-input-wrap {
+            .@{prefix}-input-wrap.single-line {
                 .use-var(height, input-text-line-height);
             }
         }

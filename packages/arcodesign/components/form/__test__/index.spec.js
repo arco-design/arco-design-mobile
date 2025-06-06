@@ -5,6 +5,13 @@ import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import Form, { useForm } from '..';
 import Input from '../../input';
+import Switch from '../../switch';
+import Picker from '../../picker';
+import Textarea from '../../textarea';
+import Checkbox from '../../checkbox';
+import Radio from '../../radio';
+import Slider from '../../slider';
+import Rate from '../../rate';
 import '@testing-library/jest-dom';
 
 demoTest('form');
@@ -51,6 +58,8 @@ describe('Form input', () => {
         const onSubmit = jest.fn();
         const onSubmitFailed = jest.fn();
         const result = {};
+        const changeValues = {};
+        const innerChangeValues = {};
         // eslint-disable-next-line @typescript-eslint/no-shadow
         function App({ onSubmit, onSubmitFailed }) {
             const [form] = useForm();
@@ -61,6 +70,15 @@ describe('Form input', () => {
                         initialValues={{ baz: 'baz' }}
                         onSubmit={onSubmit}
                         onSubmitFailed={onSubmitFailed}
+                        onValuesChange={(changeVal, values) => {
+                            Object.assign(changeValues, {
+                                change: changeVal,
+                                all: values,
+                            });
+                        }}
+                        onChange={val => {
+                            Object.assign(innerChangeValues, val);
+                        }}
                     >
                         <Form.Item
                             field="foo"
@@ -72,8 +90,60 @@ describe('Form input', () => {
                         <Form.Item field="bar" label="bar" required>
                             <Input type="text" />
                         </Form.Item>
-                        <Form.Item field="baz" rules={[{ validateLevel: 'warning', match: /\d+/ }]}>
+                        <Form.Item
+                            field="baz"
+                            validateTrigger="onBlur"
+                            rules={[
+                                {
+                                    validateLevel: 'warning',
+                                    match: /\d+/,
+                                    validateTrigger: 'onBlur',
+                                },
+                            ]}
+                        >
                             <Input type="text" />
+                        </Form.Item>
+                        <Form.Item field="isOpen">
+                            <Switch />
+                        </Form.Item>
+                        <Form.Item field="comment" label="comment" initialValue="1">
+                            <Textarea
+                                showStatistics={false}
+                                placeholder="Please enter the description of no less than 10 characters"
+                                border="none"
+                                textareaStyle={{ height: 55 }}
+                                autosize
+                                autoHeight
+                            />
+                        </Form.Item>
+                        <Form.Item field="gender" label="Gender">
+                            <Radio.Group
+                                options={[
+                                    { label: 'male', value: '1' },
+                                    { label: 'female', value: '2' },
+                                    { label: 'others', value: '3' },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item field="checkbox" label="Checkbox">
+                            <Checkbox.Group layout="block">
+                                <Checkbox value={1}>Option content 1</Checkbox>
+                                <Checkbox value={2}>Option content 2</Checkbox>
+                                <Checkbox value={3}>Option content 3</Checkbox>
+                            </Checkbox.Group>
+                        </Form.Item>
+                        <Form.Item field="progress" label="Progress">
+                            <Slider />
+                        </Form.Item>
+                        <Form.Item field="score" label="Score">
+                            <Rate />
+                        </Form.Item>
+                        <Form.Item field="location" label="Location">
+                            <Picker
+                                cascade={false}
+                                data={[['Beijing', 'Shanghai', 'Shenzhen']]}
+                                maskClosable
+                            />
                         </Form.Item>
                         <button
                             onClick={() => {
@@ -95,7 +165,15 @@ describe('Form input', () => {
                         </button>
                         <button
                             onClick={() => {
-                                form.setFieldsValue({ foo: 'foo', bar: 'bar' });
+                                form.setFieldsValue({
+                                    foo: 'foo',
+                                    bar: 'bar',
+                                    score: 3,
+                                    progress: 50,
+                                    gender: '1',
+                                    checkbox: [1],
+                                    location: ['Beijing'],
+                                });
                             }}
                         >
                             setValue
@@ -111,11 +189,21 @@ describe('Form input', () => {
                         >
                             getValue
                         </button>
+                        <button
+                            onClick={() => {
+                                form.resetFields();
+                                Object.assign(result, form.getFieldsValue());
+                            }}
+                        >
+                            reset
+                        </button>
                     </Form>
                 </div>
             );
         }
-        render(<App onSubmit={onSubmit} onSubmitFailed={onSubmitFailed} result={result} />);
+        const { container } = render(
+            <App onSubmit={onSubmit} onSubmitFailed={onSubmitFailed} result={result} />,
+        );
         const submitBtn = screen.getByRole('button', { name: 'submit' });
         await userEvent.click(submitBtn);
         const error = await screen.findByText('required');
@@ -140,6 +228,18 @@ describe('Form input', () => {
         await waitFor(() => {
             expect(onSubmit).toBeCalled();
         });
+        await waitFor(() => {
+            expect(changeValues).toMatchObject({
+                change: {
+                    foo: 'foo',
+                    bar: 'bar',
+                },
+                all: {
+                    foo: 'foo',
+                    bar: 'bar',
+                },
+            });
+        });
         const btn3 = screen.getByRole('button', { name: 'getValue' });
         await userEvent.click(btn3);
         await waitFor(() => {
@@ -148,6 +248,19 @@ describe('Form input', () => {
                 bar: 'bar',
                 all: { foo: 'foo', bar: 'bar' },
             });
+        });
+
+        const textArea = container.querySelector('textarea');
+        userEvent.type(textArea, '1');
+        await waitFor(() => {
+            expect(innerChangeValues).toMatchObject({
+                comment: '11',
+            });
+        });
+        const btn4 = screen.getByRole('button', { name: 'reset' });
+        await userEvent.click(btn4);
+        await waitFor(() => {
+            expect(result).toMatchObject({ baz: 'baz' });
         });
     });
 });

@@ -1,6 +1,6 @@
-## 基础用法 @en{Basic Usage}
+## 自定义表单项 @en{Custom Form Item}
 
-#### 1
+#### 3
 
 ```js
 import {
@@ -34,36 +34,59 @@ const genderOptions = [
 
 
 const rules = {
-    name: [
-        {
-            type: ValidatorType.Custom,
+    names: [{
+       type: ValidatorType.Custom,
             validator: (val, callback) => {
-                if (!val) {
-                    callback('Please input name');
-                } else if (val.length > 20) {
-                    callback('The maximum number of characters is 20');
+                if (!val?.firstName) {
+                    callback('Please input your first name');
+                } else if (!val?.familyName) {
+                    callback('Please input your family name');
                 } else {
                     callback();
                 }
             },
-        },
-    ],
+    }]
 }
 
+
+function CustomInput(props) {
+  const value = props.value || {};
+
+  const handleChange = (newValue) => {
+    props.onChange && props.onChange(newValue);
+  };
+
+  console.log(value);
+
+  return (
+   <div className='form-custom-item-name-group'><Input
+            placeholder="First Name"
+            clearable
+            border="none"
+            value={value.firstName}
+            onChange={(_, v) => {
+                handleChange({ ...value, firstName: v });
+            }}
+            style={{marginRight: '12px'}}
+        /><Input
+            placeholder="Family Name"
+            clearable
+            border="none"
+            value={value.familyName}
+            onChange={(_, v) => {
+                handleChange({ ...value, familyName: v });
+            }}
+        /></div>
+  );
+}
 export default function FormDemo() {
     const formRef = React.useRef();
     const [layout, setLayout] = React.useState('horizontal');
     const toSubmit = val => {
         formRef.current.form.submit();
     };
-
-    const toReset = () => {
-         formRef.current.form.resetFields();
-    };
     const onSubmit = (values, result) => {
         console.log('----submit Successfully', values, result);
-        values.pictures.push({ url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' });
-        console.log(formRef.current.form.getFieldsValue());
     };
 
     const onSubmitFailed = (values, errors = [], definedError = {}) => {
@@ -94,22 +117,13 @@ export default function FormDemo() {
                 onSubmit={onSubmit}
                 onSubmitFailed={onSubmitFailed}
                 layout={layout}
-                initialValues={{ birthday: 1449730183515, age: 12 }}
-                onChange={values => {
-                    console.log('----onChange', values);
-                }}
-                onValuesChange={values => {
-                    console.log('----onValuesChange', values);
-                }}
+                initialValues={{ birthday: 1449730183515 }}
             >
-                <Form.Item field="name" label="UserName" trigger="onBlur" rules={rules.name} required>
-                    <Input  placeholder="Please input username" clearable border="none"/>
+                <Form.Item field="names" label="Names" rules={rules.names} required>
+                    <CustomInput />
                 </Form.Item>
-                <Form.Item field="age" label="Age" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]} initialValue={11}>
-                    <Input placeholder="Please input age" clearable border="none"  onInput={handleInput}/>
-                </Form.Item>
-                <Form.Item field="birthplace" label="Place" rules={[{type: 'string',  min: 3, validateLevel: 'warning', validateTrigger: 'onBlur'}]} initialValue={"Beijing"}>
-                    <Input placeholder="Please input your birthplace"  clearable border="none"/>
+                <Form.Item field="age" label="Age" trigger="onInput" rules={[{type: 'number', min: 12, validateLevel: 'warning'}]}>
+                    <Input placeholder="Please input age"  clearable border="none" onInput={handleInput}/>
                 </Form.Item>
                 <Form.Item field="gender" label="Gender">
                     <Radio.Group options={genderOptions} />
@@ -137,54 +151,23 @@ export default function FormDemo() {
                         maskClosable={true}
                     />
                 </Form.Item>
-                <Form.Item field="detail_time" label="Time">
-                    <DatePicker
-                        mode={"time"}
-                        typeArr={['hour', 'minute', 'second']}
-                        valueFilter={(type, value) => {
-                            if (type === 'second') {
-                                return value % 5 === 0;
-                            }
-                            return true;
-                        }}
-                        maskClosable
-                    />
-                </Form.Item>
                 <Form.Item field="score" label="Score">
                     <Rate />
                 </Form.Item>
                 <Form.Item field="pictures" label="Pictures" initialValue={[
-                    { url: 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' }
+                    { url: 'http://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/large_image_1.jpg' }
                 ]}>
                     <ImagePicker />
                 </Form.Item>
-                <Form.Item field="progress" label="Progress">
-                    <Slider />
-                </Form.Item>
-                  <Form.Item field="comment" label="comment">
-                    <Textarea
-                        showStatistics={false}
-                        placeholder="Please enter the description of no less than 10 characters"
-                        border="none"
-                        textareaStyle={{ height: 55 }}
-                        autosize
-                        autoHeight
-                    />
-                </Form.Item>
-                <div>
-                    <Button needActive onClick={toSubmit}>
-                        Submit
-                    </Button>
-                    <Button type="ghost" onClick={toReset} style={{marginTop: '12px'}}>
-                        Reset
-                    </Button>
-                </div>
+
+                <Button needActive onClick={toSubmit}>
+                    Submit
+                </Button>
             </Form>
         </div>
     );
 }
 ```
-
 ```less
 #demo-form {
     .form-custom-item-name-group {
