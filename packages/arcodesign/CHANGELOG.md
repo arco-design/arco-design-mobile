@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.36.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.36.1...@arco-design/mobile-react@2.36.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* `Carousel` swipping problem after setting "bounceWhenNoLoop" ([#326](https://github.com/arco-design/arco-design-mobile/issues/326)) ([8e5a788](https://github.com/arco-design/arco-design-mobile/commit/8e5a78858ba5398936ed5d6923753adfae46e1e7))
+* `Form` add change & reset callback ([#325](https://github.com/arco-design/arco-design-mobile/issues/325)) ([16c2ffd](https://github.com/arco-design/arco-design-mobile/commit/16c2ffd9190cb38b1b8df9ca4087b1b0a90e67ff))
+
+
+
+
+
 ## [2.36.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.36.0...@arco-design/mobile-react@2.36.1) (2025-05-15)
 
 
