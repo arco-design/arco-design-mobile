@@ -6,12 +6,18 @@ import Avatar from '..';
 import { defaultContext } from '../../context-provider';
 import IconUserFill from '../../icon/IconUserFill';
 
+// 测试用头像图片源
+// Demo avatar image source for testing
 const demoAvatarSrc =
     'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/small_image_5.jpg';
 const prefix = `${defaultContext.prefixCls}-avatar`;
 
+// 运行基础演示测试
+// Run basic demo tests
 demoTest('avatar');
 
+// 运行基础挂载测试
+// Run basic mount tests
 mountTest(Avatar, 'Avatar', {
     src: demoAvatarSrc,
     size: 'large',
@@ -36,19 +42,25 @@ describe('Avatar', () => {
             </div>,
         );
 
-        // 测试图片渲染
+        // 验证图片头像渲染
+        // Verify image avatar rendering
         const imageElement = container.querySelectorAll('.image-content');
         expect(imageElement).toHaveLength(1);
 
-        // 测试形状和尺寸
+        // 验证头像元素数量
+        // Verify avatar element count
         const avatars = container.querySelectorAll('.arco-avatar');
         expect(avatars).toHaveLength(3);
 
+        // 验证方形头像的样式类
+        // Verify square avatar style classes
         const squareAvatar = avatars[1];
         expect(squareAvatar.classList.contains('arco-avatar-shape-square')).toBe(true);
         expect(squareAvatar.classList.contains('arco-avatar-size-large')).toBe(true);
         expect(squareAvatar.classList.contains('custom-avatar')).toBe(true);
 
+        // 验证圆形文字头像的样式类
+        // Verify circle text avatar style classes
         const circleAvatar = avatars[2];
         expect(circleAvatar.classList.contains('arco-avatar-shape-circle')).toBe(true);
         expect(circleAvatar.classList.contains('arco-text-avatar')).toBe(true);
@@ -69,17 +81,21 @@ describe('Avatar', () => {
         const avatars = container.querySelectorAll('.arco-avatar');
         expect(avatars).toHaveLength(4);
 
-        // 测试文字头像
+        // 验证大尺寸文字头像
+        // Verify large size text avatar
         const textAvatar = avatars[0];
         expect(textAvatar.classList.contains('arco-avatar-size-large')).toBe(true);
         expect(textAvatar.classList.contains('arco-text-avatar')).toBe(true);
         expect(textAvatar.classList.contains('arco-avatar-mode-text')).toBe(true);
 
+        // 验证文字内容显示
+        // Verify text content display
         const textElement = container.querySelector('.arco-avatar-text');
         expect(textElement).toBeTruthy();
         expect(textElement.textContent).toBe('Test');
 
-        // 测试默认头像
+        // 验证默认头像显示
+        // Verify default avatar display
         const defaultAvatar = avatars[1];
         expect(defaultAvatar.classList.contains('arco-avatar-default-overlap')).toBe(true);
         expect(defaultAvatar.classList.contains('default-overlap')).toBe(true);
@@ -87,11 +103,13 @@ describe('Avatar', () => {
         const defaultIcon = container.querySelector('.arco-avatar-default');
         expect(defaultIcon).toBeTruthy();
 
-        // 测试空字符串回退到默认头像
+        // 验证空字符串回退到默认头像
+        // Verify empty string fallback to default avatar
         const emptyTextAvatar = avatars[2];
         expect(emptyTextAvatar.classList.contains('arco-avatar-default-overlap')).toBe(true);
 
-        // 测试只有空格的文本头像
+        // 验证只有空格的文本头像处理
+        // Verify whitespace-only text avatar handling
         const whitespaceAvatar = avatars[3];
         expect(whitespaceAvatar.classList.contains('arco-text-avatar')).toBe(true);
     });
@@ -116,23 +134,28 @@ describe('Avatar', () => {
             />,
         );
 
-        // 测试装饰功能
+        // 验证装饰元素渲染
+        // Verify decoration element rendering
         const decorationElement = container.querySelector('.arco-avatar-decoration');
         expect(decorationElement).toBeTruthy();
         const decorationContent = container.querySelector('.decoration-element');
         expect(decorationContent).toBeTruthy();
         expect(decorationContent.textContent).toBe('Dec');
 
-        // 测试点击事件
+        // 测试头像点击事件
+        // Test avatar click event
         const avatarWrapper = container.querySelector('.arco-avatar-wrapper');
         fireEvent.click(avatarWrapper);
         expect(onClickMock).toHaveBeenCalledTimes(1);
 
+        // 测试装饰点击事件（包含事件冒泡）
+        // Test decoration click event (including event bubbling)
         fireEvent.click(decorationElement);
         expect(onClickDecorationMock).toHaveBeenCalledTimes(1);
-        expect(onClickMock).toHaveBeenCalledTimes(2); // 事件冒泡
+        expect(onClickMock).toHaveBeenCalledTimes(2);
 
-        // 测试名称和描述
+        // 验证用户名和描述信息显示
+        // Verify username and description display
         const nameElement = container.querySelector('.arco-avatar-name');
         const descElement = container.querySelector('.arco-avatar-desc');
         expect(nameElement).toBeTruthy();
@@ -140,6 +163,8 @@ describe('Avatar', () => {
         expect(descElement).toBeTruthy();
         expect(descElement.textContent).toBe('描述信息');
 
+        // 验证带信息的包装器样式类
+        // Verify wrapper style classes with info
         const wrapperElement = container.querySelector('.arco-avatar-wrapper');
         expect(wrapperElement.classList.contains('arco-avatar-wrapper-with-info')).toBe(true);
         expect(wrapperElement.classList.contains('with-info')).toBe(true);
@@ -160,23 +185,27 @@ describe('Avatar', () => {
             />,
         );
 
-        // 测试自定义渲染信息
+        // 验证自定义信息渲染
+        // Verify custom info rendering
         const customInfoElement = container.querySelector('.custom-info');
         expect(customInfoElement).toBeTruthy();
         expect(customInfoElement.textContent).toBe('自定义信息');
 
-        // 当有 renderInfo 时，默认的名称和描述不应该渲染
+        // 验证自定义渲染时默认信息不显示
+        // Verify default info not displayed when custom rendering
         const nameElement = container.querySelector('.arco-avatar-name');
         const descElement = container.querySelector('.arco-avatar-desc');
         expect(nameElement).toBeFalsy();
         expect(descElement).toBeFalsy();
 
         // 测试子组件功能
+        // Test children functionality
         rerender(<Avatar>{children}</Avatar>);
         const customIcon = container.querySelector('.custom-icon');
         expect(customIcon).toBeTruthy();
 
-        // 测试只有名称没有描述的情况
+        // 测试只有名称的情况
+        // Test name-only scenario
         rerender(<Avatar src={demoAvatarSrc} avatarName="用户名" />);
         const nameOnly = container.querySelector('.arco-avatar-name');
         const noDesc = container.querySelector('.arco-avatar-desc');
@@ -185,6 +214,7 @@ describe('Avatar', () => {
         expect(noDesc).toBeFalsy();
 
         // 测试只有描述没有名称的情况（不应该渲染信息）
+        // Test description-only scenario (should not render info)
         rerender(<Avatar src={demoAvatarSrc} avatarDesc="描述信息" />);
         const wrapper = container.querySelector('.arco-avatar-wrapper');
         expect(wrapper.classList.contains('with-info')).toBe(false);
@@ -201,27 +231,33 @@ describe('Avatar', () => {
             </Avatar.Group>,
         );
 
+        // 验证组元素存在
+        // Verify group element exists
         const groupElement = container.querySelector('.arco-avatar-group');
         expect(groupElement).toBeTruthy();
 
         const avatars = container.querySelectorAll('.arco-avatar');
         expect(avatars.length).toBe(3);
 
-        // 第一个头像应该继承组的 size 和 shape
+        // 验证第一个头像继承组的设置
+        // Verify first avatar inherits group settings
         expect(avatars[0].classList.contains('arco-avatar-size-large')).toBe(true);
         expect(avatars[0].classList.contains('arco-avatar-shape-square')).toBe(true);
 
-        // 第二个头像有自己的 size，应该覆盖组的设置
+        // 验证第二个头像覆盖组的尺寸设置
+        // Verify second avatar overrides group size setting
         expect(avatars[1].classList.contains('arco-avatar-size-small')).toBe(true);
         expect(avatars[1].classList.contains('arco-avatar-shape-square')).toBe(true);
 
-        // 第三个头像有自己的 shape，应该覆盖组的设置
+        // 验证第三个头像覆盖组的形状设置
+        // Verify third avatar overrides group shape setting
         expect(avatars[2].classList.contains('arco-avatar-size-large')).toBe(true);
         expect(avatars[2].classList.contains('arco-avatar-shape-circle')).toBe(true);
 
-        // 测试 z-index 排序
+        // 验证 z-index 升序排列
+        // Verify z-index ascending order
         const wrappers = container.querySelectorAll('.arco-avatar-wrapper');
-        expect(wrappers[0].style.zIndex).toBe('1'); // asc order
+        expect(wrappers[0].style.zIndex).toBe('1');
         expect(wrappers[1].style.zIndex).toBe('2');
         expect(wrappers[2].style.zIndex).toBe('3');
     });
@@ -240,17 +276,20 @@ describe('Avatar', () => {
         expect(textElement).toBeTruthy();
 
         // 测试禁用字体自动调整
+        // Test disabled font auto-adjustment
         rerender(<Avatar textAvatar="长文本测试" autoFixFontSize={false} />);
         textElement = container.querySelector('.arco-avatar-text');
         expect(textElement).toBeTruthy();
         expect(textElement.style.transform).toBe('scale(1)');
 
-        // 测试 autoFixFontOffset 为 0
+        // 测试字体偏移量为 0 的情况
+        // Test font offset of 0
         rerender(<Avatar textAvatar="测试" autoFixFontSize autoFixFontOffset={0} />);
         textElement = container.querySelector('.arco-avatar-text');
         expect(textElement).toBeTruthy();
 
-        // 测试空值情况
+        // 测试 null 值回退到默认头像
+        // Test null value fallback to default avatar
         rerender(<Avatar textAvatar={null} />);
         const defaultIcon = container.querySelector('.arco-avatar-default');
         expect(defaultIcon).toBeTruthy();
@@ -265,11 +304,13 @@ describe('Avatar', () => {
     it('mode priority and state changes work correctly', () => {
         const { container, rerender } = render(<Avatar src={demoAvatarSrc} />);
 
-        // 初始状态应该是图片模式
+        // 验证初始图片模式
+        // Verify initial image mode
         let avatarElement = container.querySelector('.arco-avatar');
         expect(avatarElement.classList.contains('arco-avatar-mode-image')).toBe(true);
 
-        // 测试图片与文字同时存在时的优先级
+        // 测试图片优先于文字的模式优先级
+        // Test image priority over text mode priority
         rerender(<Avatar src={demoAvatarSrc} textAvatar="Text" />);
         avatarElement = container.querySelector('.arco-avatar');
         expect(avatarElement.classList.contains('arco-avatar-mode-image')).toBe(true);
@@ -280,7 +321,8 @@ describe('Avatar', () => {
         expect(imgElement).toBeTruthy();
         expect(textElement).toBeFalsy();
 
-        // 测试 children 优先级最高
+        // 测试 children 具有最高优先级
+        // Test children has highest priority
         rerender(
             <Avatar src={demoAvatarSrc} textAvatar="Text">
                 <IconUserFill className="custom-child" />
@@ -295,12 +337,14 @@ describe('Avatar', () => {
         expect(container.querySelector('.arco-avatar-img')).toBeFalsy();
         expect(container.querySelector('.arco-avatar-text')).toBeFalsy();
 
-        // 重新渲染为文字头像
+        // 测试文字头像模式
+        // Test text avatar mode
         rerender(<Avatar textAvatar="T" />);
         avatarElement = container.querySelector('.arco-avatar');
         expect(avatarElement.classList.contains('arco-avatar-mode-text')).toBe(true);
 
-        // 重新渲染为默认模式
+        // 测试默认模式
+        // Test default mode
         rerender(<Avatar />);
         avatarElement = container.querySelector('.arco-avatar');
         expect(avatarElement.classList.contains('arco-avatar-default-overlap')).toBe(true);
@@ -322,17 +366,20 @@ describe('Avatar', () => {
             </div>,
         );
 
-        // 测试 Avatar ref
+        // 验证 Avatar ref 引用
+        // Verify Avatar ref reference
         expect(ref.current).toBeTruthy();
         expect(ref.current.dom).toBeTruthy();
         expect(ref.current.dom).toBe(container.querySelector('.arco-avatar-wrapper'));
 
-        // 测试 Avatar.Group ref
+        // 验证 Avatar.Group ref 引用
+        // Verify Avatar.Group ref reference
         expect(groupRef.current).toBeTruthy();
         expect(groupRef.current.dom).toBeTruthy();
         expect(groupRef.current.dom).toBe(container.querySelector('.arco-avatar-group'));
 
-        // 测试图片属性传递
+        // 验证图片头像渲染和属性传递
+        // Verify image avatar rendering and props passing
         const imageAvatar = container.querySelector('.arco-image-avatar');
         expect(imageAvatar).toBeTruthy();
         expect(imageAvatar.classList.contains('arco-avatar-mode-image')).toBe(true);
@@ -349,7 +396,8 @@ describe('Avatar', () => {
     it('complex configuration and font scaling work correctly', () => {
         const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
 
-        // Mock getBoundingClientRect to simulate text being wider than avatar
+        // 模拟 getBoundingClientRect 以测试文字超出头像宽度的情况
+        // Mock getBoundingClientRect to simulate text exceeding avatar width
         Element.prototype.getBoundingClientRect = jest.fn().mockImplementation(function () {
             if (this.classList.contains('arco-avatar')) {
                 return { width: 100, height: 100 };
@@ -378,28 +426,38 @@ describe('Avatar', () => {
             />,
         );
 
+        // 验证复杂配置的样式类应用
+        // Verify style class application for complex configuration
         const avatarElement = container.querySelector('.arco-avatar');
         expect(avatarElement.classList.contains('arco-avatar-shape-square')).toBe(true);
         expect(avatarElement.classList.contains('arco-avatar-size-large')).toBe(true);
         expect(avatarElement.classList.contains('arco-text-avatar')).toBe(true);
         expect(avatarElement.classList.contains('complex-avatar')).toBe(true);
 
+        // 验证装饰元素
+        // Verify decoration element
         const decorationElement = container.querySelector('.complex-decoration');
         expect(decorationElement).toBeTruthy();
 
+        // 验证用户名显示
+        // Verify username display
         const nameElement = container.querySelector('.arco-avatar-name');
         expect(nameElement.textContent).toBe('复杂测试');
 
+        // 验证字体缩放效果
+        // Verify font scaling effect
         const textElement = container.querySelector('.arco-avatar-text');
         expect(textElement).toBeTruthy();
         const transformStyle = textElement.style.transform;
         expect(transformStyle).toContain('scale');
 
         // 测试点击事件
+        // Test click event
         const wrapperElement = container.querySelector('.arco-avatar-wrapper');
         fireEvent.click(wrapperElement);
         expect(onClickMock).toHaveBeenCalled();
 
+        // 强制重新渲染以触发字体缩放计算
         // Force re-render to trigger font scaling calculation
         rerender(
             <Avatar
@@ -412,6 +470,7 @@ describe('Avatar', () => {
         expect(container.querySelector('.arco-avatar')).toBeTruthy();
         expect(container.querySelector('.arco-avatar-text')).toBeTruthy();
 
+        // 恢复原始方法
         // Restore original method
         Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
     });
@@ -430,6 +489,8 @@ describe('Avatar', () => {
             </Avatar.Group>,
         );
 
+        // 验证组元素和自定义类名
+        // Verify group element and custom class name
         const groupElement = container.querySelector('.arco-avatar-group');
         expect(groupElement).toBeTruthy();
         expect(groupElement.classList.contains('custom-group')).toBe(true);
@@ -437,11 +498,13 @@ describe('Avatar', () => {
         let avatars = container.querySelectorAll('.arco-avatar-wrapper');
         expect(avatars).toHaveLength(4);
 
-        // 验证 desc order z-index
+        // 验证降序 z-index 排列
+        // Verify descending z-index order
         expect(avatars[0].style.zIndex).toBe('4');
         expect(avatars[1].style.zIndex).toBe('3');
 
-        // 验证属性继承和覆盖
+        // 验证属性继承和个别覆盖
+        // Verify property inheritance and individual overrides
         const firstAvatar = avatars[0].querySelector('.arco-avatar');
         expect(firstAvatar.classList.contains('arco-avatar-size-medium')).toBe(true);
         expect(firstAvatar.classList.contains('arco-avatar-shape-circle')).toBe(true);
@@ -450,14 +513,16 @@ describe('Avatar', () => {
         expect(secondAvatar.classList.contains('arco-avatar-size-large')).toBe(true);
         expect(secondAvatar.classList.contains('arco-avatar-shape-circle')).toBe(true);
 
-        // 测试空的 Avatar.Group
+        // 测试空的 Avatar.Group 渲染
+        // Test empty Avatar.Group rendering
         rerender(<Avatar.Group />);
         const emptyGroup = container.querySelector('.arco-avatar-group');
         expect(emptyGroup).toBeTruthy();
         const emptyAvatars = container.querySelectorAll('.arco-avatar-wrapper');
         expect(emptyAvatars).toHaveLength(0);
 
-        // 测试单个子元素
+        // 测试单个子元素的情况
+        // Test single child element scenario
         rerender(
             <Avatar.Group>
                 <Avatar textAvatar="Single" />
@@ -466,7 +531,8 @@ describe('Avatar', () => {
         const singleChild = container.querySelectorAll(`.${prefix}-wrapper`);
         expect(singleChild).toHaveLength(1);
 
-        // 测试默认 shape 和 size 行为
+        // 测试默认 shape 和 size 的继承行为
+        // Test default shape and size inheritance behavior
         rerender(
             <Avatar.Group>
                 <Avatar textAvatar="Default" />
@@ -476,7 +542,8 @@ describe('Avatar', () => {
         expect(defaultAvatar.classList.contains('arco-avatar-shape-circle')).toBe(true);
         expect(defaultAvatar.classList.contains('arco-avatar-size-medium')).toBe(true);
 
-        // 测试 ascending order
+        // 测试升序 z-index 排列
+        // Test ascending z-index order
         rerender(
             <Avatar.Group zIndexOrder="asc">
                 <Avatar src="avatar1.jpg" />
