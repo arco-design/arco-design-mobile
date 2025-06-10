@@ -1,9 +1,9 @@
-import '@testing-library/jest-dom';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import React, { createRef } from 'react';
-import ActionSheet from '..';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
+import ActionSheet from '..';
 import Button from '../../button';
 import { defaultContext } from '../../context-provider';
 
