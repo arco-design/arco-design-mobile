@@ -6,14 +6,22 @@ import { defaultContext } from '../../context-provider';
 import mountTest from '../../../tests/mountTest';
 import Notify from '..';
 
+jest.useFakeTimers();
+
 mountTest(Notify, 'Notify');
 
 describe('notify snapshot test', () => {
     const { container } = render(<Notify visible content="Hello, world!" />);
     expect(container).toMatchSnapshot();
+
+    act(() => jest.runAllTimers());
 });
 
 describe('Notify work correctly', () => {
+    afterEach(() => {
+        act(() => jest.runAllTimers());
+    });
+
     it('should render notification correctly', () => {
         render(<Notify visible content="Hello, world!" />);
         const contentElement = screen.getByText('Hello, world!');
