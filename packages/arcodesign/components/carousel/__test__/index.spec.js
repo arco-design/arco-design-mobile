@@ -1,15 +1,15 @@
-import { act, fireEvent, render } from '@testing-library/react';
 import React from 'react';
-import Carousel from '..';
+import { act, fireEvent, render } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
-import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
+import mountTest from '../../../tests/mountTest';
+import Carousel from '..';
+import ContextProvider, { defaultContext } from '../../context-provider';
 import {
     createMoveTouchEventObject,
     mockAddListener,
     mockDocumentVisibility,
 } from '../../../tests/helpers/mockEvent';
-import mountTest from '../../../tests/mountTest';
-import ContextProvider, { defaultContext } from '../../context-provider';
+import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
 import { mockSwipe } from './utils';
 
 // 运行demo测试和挂载测试
