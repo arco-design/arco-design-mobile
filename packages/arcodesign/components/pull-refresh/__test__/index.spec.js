@@ -10,7 +10,7 @@ import {
 } from '../../../tests/helpers/mockEvent';
 import { defaultContext } from '../../context-provider';
 
-demoTest('pull-refresh', { useFakeTimers: true, waitTimers: true });
+demoTest('pull-refresh', { useFakeTimers: true });
 
 mountTest(PullRefresh, 'PullRefresh');
 

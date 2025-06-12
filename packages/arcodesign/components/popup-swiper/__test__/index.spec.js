@@ -11,7 +11,7 @@ import {
 } from '../../../tests/helpers/mockEvent';
 import PopupSwiper from '..';
 
-demoTest('popup-swiper', { useFakeTimers: true, waitTimers: true });
+demoTest('popup-swiper', { useFakeTimers: true });
 
 const popupPrefix = `${defaultContext.prefixCls}-popup`;
 const prefix = `${popupPrefix}-swiper`;

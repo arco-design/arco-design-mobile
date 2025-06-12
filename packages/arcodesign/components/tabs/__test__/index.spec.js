@@ -12,7 +12,7 @@ import {
 } from '../../../tests/helpers/mockEvent';
 import '@testing-library/jest-dom';
 
-demoTest('tabs', { useFakeTimers: true, waitTimers: true });
+demoTest('tabs', { useFakeTimers: true });
 
 const prefixTab = `${defaultContext.prefixCls}-tab`;
 
