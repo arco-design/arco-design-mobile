@@ -99,7 +99,9 @@ describe('IndexBar', () => {
             ref.current.scrollToIndex('C', false);
         });
         expect(onChange).toBeCalledTimes(1);
-        jest.advanceTimersByTime(1000);
+        act(() => {
+            jest.advanceTimersByTime(1000);
+        });
         const scrollCtn = container.querySelector(`.${prefix}-container`);
         const groups = container.querySelectorAll(`.${prefix}-group`);
         // mock
