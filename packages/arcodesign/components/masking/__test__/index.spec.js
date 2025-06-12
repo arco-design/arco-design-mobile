@@ -3,7 +3,7 @@ import { defaultContext } from '../../context-provider';
 import Masking from '..';
 import { testMaskingCase } from './utils';
 
-demoTest('masking', { useFakeTimers: true });
+demoTest('masking', { useFakeTimers: true, waitTimers: true });
 
 const prefix = `${defaultContext.prefixCls}-masking`;
 
