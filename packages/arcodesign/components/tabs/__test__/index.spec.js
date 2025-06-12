@@ -79,7 +79,10 @@ describe('Tabs', () => {
         );
         expect(indexIsActive(container, 1)).toBe(true);
         expect(container.querySelectorAll(`.${prefixTab}-cell`).length).toBe(2);
-        userEvent.click(container.querySelector(`.${prefixTab}-cell`));
+
+        act(() => {
+            userEvent.click(container.querySelector(`.${prefixTab}-cell`));
+        });
         expect(onTabClick.mock.calls).toHaveLength(0);
         expect(onChange.mock.calls).toHaveLength(0);
         rerender(
@@ -98,6 +101,7 @@ describe('Tabs', () => {
             </Tabs>,
         );
         userEvent.click(container.querySelector(`.${prefixTab}-cell`));
+
         expect(onTabClick.mock.calls).toHaveLength(1);
         expect(onChange.mock.calls).toHaveLength(1);
         expect(onChange.mock.calls[0]).toEqual([{ title: 'Title 1' }, 0, 'click']);
@@ -172,7 +176,9 @@ describe('Tabs', () => {
         expect(typeof updateLayout).toBe('function');
         // wrapper.setProps({ onScroll });
         scrollToIndex(0);
-        updateLayout();
+        act(() => {
+            updateLayout();
+        });
         // wrapper.update();
         // expect(onScroll.mock.calls).toHaveLength(1);
     });
