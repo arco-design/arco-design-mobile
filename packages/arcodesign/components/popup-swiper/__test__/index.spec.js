@@ -11,7 +11,7 @@ import {
 } from '../../../tests/helpers/mockEvent';
 import PopupSwiper from '..';
 
-demoTest('popup-swiper', { useFakeTimers: true });
+demoTest('popup-swiper', { useFakeTimers: true, waitTimers: true });
 
 const popupPrefix = `${defaultContext.prefixCls}-popup`;
 const prefix = `${popupPrefix}-swiper`;
@@ -41,6 +41,7 @@ describe('PopupSwiper', () => {
     });
 
     afterEach(() => {
+        act(() => jest.runAllTimers());
         jest.useRealTimers();
     });
 
@@ -81,14 +82,14 @@ describe('PopupSwiper', () => {
 
         // swipe left to close when direction=left
         openMasking();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         // should not close when distance is too short
         mockSwipe(map, touchMoveMap, 'x', {
             touchstart: 300,
             touchmove: 250,
             touchend: 250,
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         // rtl 不支持检查组件props值，只能通过masking的className来判断是否visible
         expect(mask.classList.contains('arco-fade-exit-done')).toBe(false);
         mockSwipe(map, touchMoveMap, 'x', {
@@ -96,7 +97,7 @@ describe('PopupSwiper', () => {
             touchmove: 100,
             touchend: 100,
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(mask.classList.contains('arco-fade-exit-done')).toBe(true);
 
         // swipe right to close when direction=right
@@ -110,13 +111,13 @@ describe('PopupSwiper', () => {
             />,
         );
         openMasking();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         mockSwipe(map, touchMoveMap, 'x', {
             touchstart: 100,
             touchmove: 300,
             touchend: 300,
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(mask.classList.contains('arco-fade-exit-done')).toBe(true);
 
         // swipe top to close when direction=top
@@ -130,13 +131,13 @@ describe('PopupSwiper', () => {
             />,
         );
         openMasking();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         mockSwipe(map, touchMoveMap, 'y', {
             touchstart: 300,
             touchmove: 100,
             touchend: 100,
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(mask.classList.contains('arco-fade-exit-done')).toBe(true);
 
         // swipe bottom to close when direction=bottom
@@ -152,22 +153,22 @@ describe('PopupSwiper', () => {
             />,
         );
         openMasking();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         mockSwipe(map, touchMoveMap, 'y', {
             touchstart: 300,
             touchmove: 600,
             touchend: 600,
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(mask.classList.contains('arco-fade-exit-done')).toBe(true);
         openMasking();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         mockSwipe(map, touchMoveMap, 'x', {
             touchstart: 100,
             touchmove: 300,
             touchend: 300,
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(mask.classList.contains('arco-fade-exit-done')).toBe(true);
 
         // should support using `onTouchStart` to stop touch event
@@ -184,13 +185,13 @@ describe('PopupSwiper', () => {
             />,
         );
         openMasking();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         mockSwipe(map, touchMoveMap, 'x', {
             touchstart: 300,
             touchmove: 600,
             touchend: 600,
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(mask.classList.contains('arco-fade-exit-done')).toBe(false);
 
         // should not close by swipe when `allowSwipeDirections` is an empty array
@@ -210,7 +211,7 @@ describe('PopupSwiper', () => {
             touchmove: 600,
             touchend: 600,
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(mask.classList.contains('arco-fade-exit-done')).toBe(false);
     });
 });
