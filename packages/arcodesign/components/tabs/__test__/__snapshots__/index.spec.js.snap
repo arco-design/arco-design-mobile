@@ -35,7 +35,7 @@ exports[`tabs demo test tabs demo: adaptive.md renders correctly 1`] = `
             Exaaample
           </div>
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px) translateZ(0); width: auto;"
           >
             <div
@@ -61,31 +61,13 @@ exports[`tabs demo test tabs demo: adaptive.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -121,7 +103,7 @@ exports[`tabs demo test tabs demo: basic.md renders correctly 1`] = `
             Example
           </div>
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px);"
           >
             <div
@@ -146,22 +128,10 @@ exports[`tabs demo test tabs demo: basic.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -214,22 +184,10 @@ exports[`tabs demo test tabs demo: card.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -247,7 +205,7 @@ exports[`tabs demo test tabs demo: caterpillar.md renders correctly 1`] = `
         class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
-          class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
         >
           <div
             class="arco-tab-cell vertical line pc active no-shrink"
@@ -285,7 +243,7 @@ exports[`tabs demo test tabs demo: caterpillar.md renders correctly 1`] = `
             style="width: 22px; height: 100%;"
           />
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px) translateZ(0); width: 6px; height: 6px;"
           >
             <div
@@ -311,49 +269,19 @@ exports[`tabs demo test tabs demo: caterpillar.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -389,7 +317,7 @@ exports[`tabs demo test tabs demo: click.md renders correctly 1`] = `
             Example 3
           </div>
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
           >
             <div
@@ -414,22 +342,10 @@ exports[`tabs demo test tabs demo: click.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -527,22 +443,10 @@ exports[`tabs demo test tabs demo: custom-bar.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -583,7 +487,7 @@ exports[`tabs demo test tabs demo: duration.md renders correctly 1`] = `
             Example 4
           </div>
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
           >
             <div
@@ -609,31 +513,13 @@ exports[`tabs demo test tabs demo: duration.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -669,7 +555,7 @@ exports[`tabs demo test tabs demo: energy-saving.md renders correctly 1`] = `
             Example 3
           </div>
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
           >
             <div
@@ -697,23 +583,11 @@ exports[`tabs demo test tabs demo: energy-saving.md renders correctly 1`] = `
       <div
         class="arco-tab-pane mode-swipe"
         style="position: absolute; left: -100%; top: -100%;"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
         style="position: absolute; left: -100%; top: -100%;"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -731,7 +605,7 @@ exports[`tabs demo test tabs demo: extra.md renders correctly 1`] = `
         class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
-          class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
         >
           <div
             class="arco-tab-cell vertical line pc active no-shrink"
@@ -773,7 +647,7 @@ exports[`tabs demo test tabs demo: extra.md renders correctly 1`] = `
             style="width: 64px; height: 100%;"
           />
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
           >
             <div
@@ -825,53 +699,19 @@ exports[`tabs demo test tabs demo: extra.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-          style="height: 150px;"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-          style="height: 200px;"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-          style="height: 170px;"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-          style="height: 110px;"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -899,7 +739,7 @@ exports[`tabs demo test tabs demo: resize.md renders correctly 1`] = `
         class="arco-tab-cell-container-inner vertical pos-top type-line pc"
       >
         <div
-          class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-line"
         >
           <div
             class="arco-tab-cell vertical line pc no-shrink"
@@ -947,7 +787,7 @@ exports[`tabs demo test tabs demo: resize.md renders correctly 1`] = `
             style="width: 64px; height: 100%;"
           />
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px);"
           >
             <div
@@ -963,13 +803,13 @@ exports[`tabs demo test tabs demo: resize.md renders correctly 1`] = `
     >
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
+      <div
+        class="arco-tab-pane mode-swipe"
+      />
       <div
         class="arco-tab-pane mode-swipe"
       >
@@ -981,49 +821,13 @@ exports[`tabs demo test tabs demo: resize.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
-      <div
-        class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
-      <div
-        class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -1041,7 +845,7 @@ exports[`tabs demo test tabs demo: scroll.md renders correctly 1`] = `
         class="arco-tab-cell-container-inner vertical pos-top type-line has-divider pc"
       >
         <div
-          class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
         >
           <div
             class="arco-tab-cell vertical line pc active no-shrink"
@@ -1074,7 +878,7 @@ exports[`tabs demo test tabs demo: scroll.md renders correctly 1`] = `
             style="width: 22px; height: 100%;"
           />
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
           >
             <div
@@ -1168,7 +972,7 @@ exports[`tabs demo test tabs demo: sticky.md renders correctly 1`] = `
             class="arco-tab-cell-container-inner vertical pos-top type-line pc"
           >
             <div
-              class="arco-tab-cell-container vertical pos-top arrange-center type-line shown"
+              class="arco-tab-cell-container vertical pos-top arrange-start type-line shown"
             >
               <div
                 class="arco-tab-cell vertical line pc active no-shrink"
@@ -1206,7 +1010,7 @@ exports[`tabs demo test tabs demo: sticky.md renders correctly 1`] = `
                 style="width: 22px; height: 100%;"
               />
               <div
-                class="arco-tab-cell-underline show"
+                class="arco-tab-cell-underline"
                 style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
               >
                 <div
@@ -1233,13 +1037,7 @@ exports[`tabs demo test tabs demo: sticky.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
       />
@@ -1269,7 +1067,7 @@ exports[`tabs demo test tabs demo: tag.md renders correctly 1`] = `
         class="arco-tab-cell-container-inner vertical pos-top type-tag pc"
       >
         <div
-          class="arco-tab-cell-container vertical pos-top arrange-center type-tag shown"
+          class="arco-tab-cell-container vertical pos-top arrange-start type-tag shown"
         >
           <div
             class="arco-tab-cell vertical tag pc active no-shrink"
@@ -1339,76 +1137,28 @@ exports[`tabs demo test tabs demo: tag.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -1466,22 +1216,10 @@ exports[`tabs demo test tabs demo: tag-divide.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="demo-tab-content"
-        >
-          Content area
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
@@ -1530,7 +1268,7 @@ exports[`tabs demo test tabs demo: vertical.md renders correctly 1`] = `
             </span>
           </div>
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateY(0px) translateZ(0);"
           >
             <div
@@ -1551,19 +1289,13 @@ exports[`tabs demo test tabs demo: vertical.md renders correctly 1`] = `
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div />
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div />
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div />
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>

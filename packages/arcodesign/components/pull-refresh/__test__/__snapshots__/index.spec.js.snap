@@ -35,7 +35,7 @@ exports[`pull-refresh demo test pull-refresh demo: index.md renders correctly 1`
             Customize
           </div>
           <div
-            class="arco-tab-cell-underline show"
+            class="arco-tab-cell-underline"
             style="transition-duration: 0ms; transform: translateX(0px) translateZ(0);"
           >
             <div
@@ -79,88 +79,13 @@ exports[`pull-refresh demo test pull-refresh demo: index.md renders correctly 1`
       </div>
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="arco-pull-refresh all-border-box is-android is-disabled"
-        >
-          <div
-            class="arco-pull-refresh-place"
-          >
-            <div
-              class="arco-pull-refresh-label"
-            >
-              <div
-                class="arco-pull-refresh-label-text"
-              >
-                <span>
-                  下拉即可刷新
-                </span>
-              </div>
-            </div>
-            <div
-              class="arco-pull-refresh-content"
-            >
-              Disabled modal, unable to pull down (Android) or pull down to trigger system bounce (iOS)
-            </div>
-          </div>
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="arco-pull-refresh all-border-box is-android is-disabled"
-        >
-          <div
-            class="arco-pull-refresh-place"
-          >
-            <div
-              class="arco-pull-refresh-label"
-            >
-              <div
-                class="arco-pull-refresh-label-text"
-              >
-                <span>
-                  下拉即可刷新
-                </span>
-              </div>
-            </div>
-            <div
-              class="arco-pull-refresh-content"
-            >
-              Try to pull down (using implementation after performance optimization on iOS and traditional transform implementation on Android)
-            </div>
-          </div>
-        </div>
-      </div>
+      />
       <div
         class="arco-tab-pane mode-swipe"
-      >
-        <div
-          class="arco-pull-refresh all-border-box is-android is-disabled"
-        >
-          <div
-            class="arco-pull-refresh-place"
-          >
-            <div
-              class="arco-pull-refresh-label"
-            >
-              <div
-                class="arco-pull-refresh-label-text"
-              >
-                <span>
-                  下拉即可刷新
-                </span>
-              </div>
-            </div>
-            <div
-              class="arco-pull-refresh-content"
-            >
-              Try to pull down
-            </div>
-          </div>
-        </div>
-      </div>
+      />
     </div>
   </div>
 </DocumentFragment>
