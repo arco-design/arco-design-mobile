@@ -71,7 +71,7 @@
 |参数|描述|类型|
 |----------|-------------|------|
 |locale|语言类型|string|
-|LoadMore|-|\{ loadMoreText: string; loadingText: string; prepareText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; \}|
+|LoadMore|-|\{ loadMoreText: string; loadingText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; \}|
 |Picker|-|\{ okText: string; cancelText: string; \}|
 |Tag|-|\{ addTag: string; \}|
 |Dialog|-|\{ okText: string; cancelText: string; \}|

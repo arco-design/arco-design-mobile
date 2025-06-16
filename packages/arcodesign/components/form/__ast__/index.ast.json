@@ -127,6 +127,23 @@
                 "name": "(changedValues: any, values: any) => void"
             }
         },
+        "onChange": {
+            "defaultValue": null,
+            "description": "表单项数据变化时的回调（仅用户操作表单时触发）\n@en Callback when the form item value changes (Only trigger when user operate form)",
+            "name": "onChange",
+            "tags": {
+                "en": "Callback when the form item value changes (Only trigger when user operate form)"
+            },
+            "descWithTags": "表单项数据变化时的回调（仅用户操作表单时触发）",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/form/type.ts",
+                "name": "FormProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(changedValues: any, values: any) => void"
+            }
+        },
         "onSubmit": {
             "defaultValue": null,
             "description": "表单项数据变化时的回调\n@en Callback when the form is submitted",

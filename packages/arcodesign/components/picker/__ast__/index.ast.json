@@ -426,6 +426,23 @@
                 "name": "(value: ValueType[], data: PickerData[]) => ReactNode"
             }
         },
+        "renderExtraHeader": {
+            "defaultValue": null,
+            "description": "自定义头部扩展区域\n@en Define the area of extra header",
+            "name": "renderExtraHeader",
+            "tags": {
+                "en": "Define the area of extra header"
+            },
+            "descWithTags": "自定义头部扩展区域",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/picker/type.ts",
+                "name": "PickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => ReactNode"
+            }
+        },
         "needBottomOffset": {
             "defaultValue": {
                 "value": "false"
