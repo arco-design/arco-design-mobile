@@ -1,5 +1,5 @@
 import { IRules } from '@arco-design/mobile-utils';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { Promise } from 'es6-promise';
 
 export type FieldValue = any;
@@ -51,7 +51,7 @@ export interface FormProps {
      * @en Form initial value
      */
     initialValues?: FieldItem;
-    children: React.ReactNodeArray | ReactNode;
+    children: ReactNode[] | ReactNode;
     /**
      * 表单项数据变化时的回调
      * @en Callback when the form item value changes
@@ -293,7 +293,7 @@ export interface FormItemProps {
      * 表单项子节点
      * @en Form item children
      */
-    children: JSX.Element;
+    children: ReactElement;
     /**
      * 表单项是否刷新
      * @en Form item is updated
@@ -308,7 +308,7 @@ export interface FormItemProps {
      * 表单项下方节点
      * @en Form item extra node
      */
-    extra?: JSX.Element;
+    extra?: ReactElement;
     /**
      * 触发事件更新事件名称
      * @en The function name when updating data
@@ -350,7 +350,7 @@ export interface IFormItemInnerProps {
      * 表单项子节点
      * @en Form item children
      */
-    children: JSX.Element;
+    children: ReactElement<any, any>;
     /**
      * 表单项是否刷新
      * @en Form item is updated

@@ -24,7 +24,7 @@ export const useSliderEvents = ({
     setCommonIsTouching,
 }: {
     getLinePosition: () => LinePosition;
-    lineRef: RefObject<HTMLDivElement>;
+    lineRef: RefObject<HTMLDivElement | null>;
     valueGroup: number | number[];
     setValueGroup: React.Dispatch<React.SetStateAction<number | [number, number]>>;
     setCommonIsTouching: React.Dispatch<React.SetStateAction<number>>;

@@ -32,6 +32,7 @@ The selector component, in the form of a popup layer.
 |touchToStop|Whether to stop sliding by long\-pressing, inputing in the number x means that the touch exceeds x milliseconds to count as long\-pressing, inputing true means that x=100, the long\-press event and the click event are mutually exclusive|number \| boolean|false|
 |gestureOutOfControl|Whether to disable the scrolling container gesture judgment, leave it to users to judge|boolean|true|
 |renderLinkedContainer|Associate the hidden state of the picker and the display of the selected value with a container\. After passing it in, the container and the picker component will be rendered at the same time\. At this time, the visible and onHide attributes of the picker component are optional values\. Clicking the container will evoke the picker|(value: ValueType\[\], data: PickerData\[\]) =\> ReactNode|-|
+|renderExtraHeader|Define the area of extra header|() =\> ReactNode|-|
 |needBottomOffset|Whether the content of the menu that slides out from the bottom fits the bottom of ipx|boolean|false|
 |translateZ|\[To be deprecated\] Enable translateZ forced promotion|boolean|false|
 |maskTransitionTimeout|Menu mask animation duration|number \| \{ appear?: number; enter?: number; exit?: number; \}|{ enter: 450, exit: 240 }|

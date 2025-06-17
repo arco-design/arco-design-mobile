@@ -16,6 +16,7 @@
 |form|表单实例|IFormInstance|-|
 |initialValues|表单初始数据|Record\<string, any\>|-|
 |onValuesChange|表单项数据变化时的回调|(changedValues: any, values: any) =\> void|-|
+|onChange|表单项数据变化时的回调（仅用户操作表单时触发）|(changedValues: any, values: any) =\> void|-|
 |onSubmit|表单项数据变化时的回调|(values: any, otherInfo?: IFieldError\[\]) =\> void|-|
 |onSubmitFailed|表单项数据变化时的回调|(values: any, errorInfo: IFieldError\[\] \| Error) =\> void|-|
 |disabled|表单禁止输入|boolean|-|

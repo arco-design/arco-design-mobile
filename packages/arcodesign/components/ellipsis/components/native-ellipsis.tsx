@@ -45,4 +45,4 @@ function NativeEllipsis({
         </div>
     );
 }
-export default React.memo(NativeEllipsis);
+export default NativeEllipsis;

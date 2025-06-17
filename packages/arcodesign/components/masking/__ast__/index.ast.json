@@ -828,7 +828,7 @@
                 "description": "",
                 "defaultValue": null,
                 "type": {
-                    "name": "{ loadMoreText: string; loadingText: string; prepareText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; }"
+                    "name": "{ loadMoreText: string; loadingText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; }"
                 },
                 "tags": {},
                 "descWithTags": ""

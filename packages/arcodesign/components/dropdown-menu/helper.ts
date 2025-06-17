@@ -79,7 +79,7 @@ export const getFormattedOptions = (
  * 判断是否为指定ref内的元素
  * @en Determine whether it is an element within the specified ref
  */
-export const isRefDom = (dom, ref: React.RefObject<HTMLDivElement>) => {
+export const isRefDom = (dom, ref: React.RefObject<HTMLDivElement | null>) => {
     const refDom = ref.current;
     if (!refDom || !dom) return false;
     return refDom.contains(dom);

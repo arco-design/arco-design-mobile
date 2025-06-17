@@ -1,6 +1,6 @@
 ### Navigation
 
-# Tabs
+# Tabs 
 
 Used to let the user switch between different views. In order to optimize the rendering performance of the mobile terminal, if you need to replace the DOM, send a request to update data, etc., please do it in the `onAfterChange` instead of the `onChange` callback.
 

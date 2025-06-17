@@ -16,6 +16,7 @@ Form, Form for collecting data input
 |form|Form instance|IFormInstance|-|
 |initialValues|Form initial value|Record\<string, any\>|-|
 |onValuesChange|Callback when the form item value changes|(changedValues: any, values: any) =\> void|-|
+|onChange|Callback when the form item value changes (Only trigger when user operate form)|(changedValues: any, values: any) =\> void|-|
 |onSubmit|Callback when the form is submitted|(values: any, otherInfo?: IFieldError\[\]) =\> void|-|
 |onSubmitFailed|Callback when the form is submitted failed|(values: any, errorInfo: IFieldError\[\] \| Error) =\> void|-|
 |disabled|disable all form items|boolean|-|

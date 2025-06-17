@@ -7,7 +7,6 @@ export interface ILocale {
     LoadMore: {
         loadMoreText: string;
         loadingText: string;
-        prepareText: string;
         noDataText: string;
         failLoadText: string;
         prepareScrollText: string;

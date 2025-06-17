@@ -155,7 +155,7 @@ exports[`uploader demo test uploader demo: customize-icon1.md renders correctly 
           <div
             class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
           >
-            点击上传
+            上传
           </div>
         </button>
       </div>
@@ -262,7 +262,7 @@ exports[`uploader demo test uploader demo: customize-icon2.md renders correctly 
           <div
             class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
           >
-            点击上传
+            上传
           </div>
         </button>
       </div>
@@ -548,7 +548,7 @@ exports[`uploader demo test uploader demo: customize-list.md renders correctly 1
           <div
             class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
           >
-            点击上传
+            上传
           </div>
         </button>
       </div>
@@ -850,7 +850,7 @@ exports[`uploader demo test uploader demo: disabled.md renders correctly 1`] = `
           <div
             class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
           >
-            点击上传
+            上传
           </div>
         </button>
       </div>
@@ -975,7 +975,7 @@ exports[`uploader demo test uploader demo: index.md renders correctly 1`] = `
           <div
             class="arco-button-text arco-button-text-pc btn-text arco-button-text-has-icon has-icon"
           >
-            点击上传
+            上传
           </div>
         </button>
       </div>
@@ -1223,7 +1223,7 @@ exports[`uploader demo test uploader demo: index.md renders correctly 1`] = `
                   class="arco-uploader-list-item-error"
                 >
                   <span>
-                    点击重试
+                    重试
                   </span>
                 </div>
               </div>

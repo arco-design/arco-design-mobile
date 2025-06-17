@@ -55,7 +55,7 @@ export function componentGenerator<
 
         const popoverRef = useRef<R | null>(null);
 
-        useImperativeHandle(ref, () => popoverRef.current);
+        useImperativeHandle(ref, () => popoverRef.current!);
 
         const onVisibleChange = newVisible => {
             const handleVisibleChange = () => {

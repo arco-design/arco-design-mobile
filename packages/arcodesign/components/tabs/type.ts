@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode, ReactNodeArray } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 export type TabData =
     | string
@@ -648,7 +648,7 @@ export interface TabPaneProps
         | 'swipeEnergySaving'
     > {
     prefixCls?: string;
-    panes: ReactNodeArray;
+    panes: ReactNode[];
     activeIndex: number;
     activeIndexRef: React.MutableRefObject<number>;
     tabDirection: 'horizontal' | 'vertical';

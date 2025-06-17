@@ -1,5 +1,6 @@
 import React, { forwardRef, Ref, useImperativeHandle, useRef, ReactNode } from 'react';
 import { cls, componentWrapper, ILocale } from '@arco-design/mobile-utils';
+import { Promise } from 'es6-promise';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import Masking, { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
 import { alert, confirm, open } from './methods';
@@ -281,9 +282,11 @@ export interface ConfirmOptions extends AlertOptions {
     cancelText?: ReactNode;
 }
 
-export function methodsGenerator<P extends OpenBaseProps, A = AlertOptions, C = ConfirmOptions>(
-    Comp: React.FunctionComponent<P>,
-) {
+export function methodsGenerator<
+    P extends OpenBaseProps,
+    A extends { key?: string } = AlertOptions,
+    C extends { key?: string } = ConfirmOptions,
+>(Comp: React.FunctionComponent<P>) {
     return {
         /**
          * 打开确认框(含一个确认按钮)

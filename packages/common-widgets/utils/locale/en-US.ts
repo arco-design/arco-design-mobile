@@ -5,13 +5,12 @@ const defaultMessageTemplate = '%s is not a %s type';
 const localeConfig: ILocale = {
     locale: 'en-US',
     LoadMore: {
-        loadMoreText: 'Load more',
+        loadMoreText: ' to load more',
         loadingText: 'Loading...',
-        prepareText: 'load more',
         noDataText: 'No more data',
         failLoadText: 'Failed to load, click to retry',
-        prepareScrollText: 'Pull up to ',
-        prepareClickText: 'Click to ',
+        prepareScrollText: 'Pull up',
+        prepareClickText: 'Click',
     },
     Picker: {
         okText: 'OK',
@@ -70,18 +69,18 @@ const localeConfig: ILocale = {
             boolean: defaultMessageTemplate,
         },
         number: {
-            min: '`%s` is not greater than `%s`',
-            max: '`%s` is not less than `%s`',
-            equal: '`%s` is not equal to `%s`',
-            range: '`%s` is not in range `%s ~ %s` ',
-            positive: '`%s` is not a positive number',
-            negative: '`%s` is not a negative number',
+            min: '`%s` must be at least `%s`',
+            max: '`%s` must not exceed `%s`',
+            equal: '`%s` must be equal to `%s`',
+            range: '`%s` must be in range `%s ~ %s` ',
+            positive: '`%s` cannot be less than 0',
+            negative: '`%s` cannot be greater than 0',
         },
         string: {
             max: '%s cannot be longer than %s characters',
             min: '%s must be at least %s characters',
             len: '%s must be exactly %s characters',
-            equal: '%s is not equal to `%s`',
+            equal: '%s must be equal to `%s`',
             match: '`%s` does not match the pattern %s',
             uppercase: '%s must be all uppercased',
             lowercase: '%s must be all lowercased',
@@ -99,7 +98,7 @@ const localeConfig: ILocale = {
             hasKeys: '%s does not contain required fields %s',
         },
         boolean: {
-            equal: '%s is not equal to `%s`',
+            equal: '%s must be equal to `%s`',
         },
         pickerDefaultHint: 'Please select',
     },
@@ -108,7 +107,7 @@ const localeConfig: ILocale = {
     },
     Uploader: {
         uploadBtn: 'Upload',
-        retryUpload: 'retry',
+        retryUpload: 'Retry',
     },
 };
 export default localeConfig;

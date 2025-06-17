@@ -88,7 +88,7 @@ The popup with gesture closing function based on the popup encapsulation, has ot
 |Property|Description|Type|
 |----------|-------------|------|
 |locale|Language Type|string|
-|LoadMore|-|\{ loadMoreText: string; loadingText: string; prepareText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; \}|
+|LoadMore|-|\{ loadMoreText: string; loadingText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; \}|
 |Picker|-|\{ okText: string; cancelText: string; \}|
 |Tag|-|\{ addTag: string; \}|
 |Dialog|-|\{ okText: string; cancelText: string; \}|

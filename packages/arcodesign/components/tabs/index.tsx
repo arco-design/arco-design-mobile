@@ -3,7 +3,7 @@ import React, {
     forwardRef,
     Ref,
     useImperativeHandle,
-    ReactNodeArray,
+    ReactNode,
     useState,
     useEffect,
     useCallback,
@@ -386,10 +386,10 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         paneRef.current && paneRef.current.setCurrentHeight();
     }
 
-    function getAllPanes(): ReactNodeArray {
-        let panes: ReactNodeArray = children ? [children] : [];
+    function getAllPanes(): ReactNode[] {
+        let panes: ReactNode[] = children ? [children] : [];
         if (children && Object.prototype.toString.call(children) === '[object Array]') {
-            panes = children as ReactNodeArray;
+            panes = children as ReactNode[];
         }
         // panes不可超过tabs.length
         return panes.slice(0, tabs.length);

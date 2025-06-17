@@ -403,12 +403,12 @@
                 },
                 "value": {
                     "defaultValue": null,
-                    "description": "受控模式，选中的选项\n@en Checked option, controlled mode",
+                    "description": "受控模式，选中的选项，传null表示取消选中\n@en Checked option, controlled mode",
                     "name": "value",
                     "tags": {
                         "en": "Checked option, controlled mode"
                     },
-                    "descWithTags": "受控模式，选中的选项",
+                    "descWithTags": "受控模式，选中的选项，传null表示取消选中",
                     "parent": {
                         "fileName": "arcom-github/packages/arcodesign/components/radio/type.ts",
                         "name": "RadioGroupProps"

@@ -126,7 +126,11 @@ const Cascader = forwardRef((props: CascaderProps, ref: Ref<CascaderRef>) => {
                     disabled={disabled}
                     rows={rows}
                     hideEmptyCols={hideEmptyCols}
-                    ref={cellRef => cellRef && (pickerCellsRef.current[index] = cellRef)}
+                    ref={cellRef => {
+                        if (cellRef) {
+                            pickerCellsRef.current[index] = cellRef;
+                        }
+                    }}
                     touchToStop={touchToStop}
                 />
             ))}

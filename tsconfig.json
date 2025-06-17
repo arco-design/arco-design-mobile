@@ -8,6 +8,7 @@
         "jsx": "react",
         "noUnusedParameters": true,
         "noUnusedLocals": true,
+        "skipLibCheck": true,
         "module": "es6",
         "target": "es5",
         "declaration": true,

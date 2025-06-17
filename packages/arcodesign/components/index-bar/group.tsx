@@ -65,7 +65,11 @@ export const IndexBarGroup = forwardRef(
                     getContainer={() => groupDom as HTMLDivElement}
                     stickyStyle="absolute"
                     getScrollContainer={getScrollContainer as () => HTMLDivElement}
-                    ref={stickyRef => stickyRef && updateRef(groupIndex, stickyRef)}
+                    ref={stickyRef => {
+                        if (stickyRef) {
+                            updateRef(groupIndex, stickyRef);
+                        }
+                    }}
                 >
                     {titleDom}
                 </Sticky>

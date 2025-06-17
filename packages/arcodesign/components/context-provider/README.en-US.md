@@ -25,7 +25,7 @@ Global data control component, used to replace global data.
 |Property|Description|Type|
 |----------|-------------|------|
 |locale|Language Type|string|
-|LoadMore|-|\{ loadMoreText: string; loadingText: string; prepareText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; \}|
+|LoadMore|-|\{ loadMoreText: string; loadingText: string; noDataText: string; failLoadText: string; prepareScrollText: string; prepareClickText: string; \}|
 |Picker|-|\{ okText: string; cancelText: string; \}|
 |Tag|-|\{ addTag: string; \}|
 |Dialog|-|\{ okText: string; cancelText: string; \}|

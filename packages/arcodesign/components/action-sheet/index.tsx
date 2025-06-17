@@ -7,6 +7,7 @@ import React, {
     CSSProperties,
 } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
+import { Promise } from 'es6-promise';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import Popup, { PopupProps, PopupRef } from '../popup';
 import { OpenBaseProps } from '../masking';
@@ -139,20 +140,22 @@ const ActionSheet = forwardRef((props: ActionSheetProps, ref: Ref<ActionSheetRef
                         </div>
                     ) : null}
                     <div className={`${prefixCls}-action-sheet-list`}>
-                        {(items || []).map((item, index) => (
-                            <div
-                                className={cls(
-                                    `${prefixCls}-action-sheet-item`,
-                                    item.className,
-                                    item.status || 'normal',
-                                )}
-                                key={index}
-                                style={item.style}
-                                onClick={e => handleItemClick(e, item)}
-                            >
-                                {item.content}
-                            </div>
-                        ))}
+                        {(items || []).map((item, index) =>
+                            item.content ? (
+                                <div
+                                    className={cls(
+                                        `${prefixCls}-action-sheet-item`,
+                                        item.className,
+                                        item.status || 'normal',
+                                    )}
+                                    key={index}
+                                    style={item.style}
+                                    onClick={e => handleItemClick(e, item)}
+                                >
+                                    {item.content}
+                                </div>
+                            ) : null,
+                        )}
                     </div>
                     {cancelText ? (
                         <div

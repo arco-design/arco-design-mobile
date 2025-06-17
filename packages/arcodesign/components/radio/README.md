@@ -37,7 +37,7 @@
 |参数|描述|类型|默认值|
 |----------|-------------|------|------|
 |options|可选项, 传入children后此值无效|(RadioProps\<ValueType\> & RefAttributes\<RadioRef\>)\[\]|-|
-|value|受控模式，选中的选项|ValueType|-|
+|value|受控模式，选中的选项，传null表示取消选中|ValueType|-|
 |defaultValue|默认选中项|ValueType|-|
 |onChange|单选项组选中状态变化回调函数|(value: ValueType) =\> void|-|
 |shape|图标的形状|"circle" \| "square"|'circle'|
