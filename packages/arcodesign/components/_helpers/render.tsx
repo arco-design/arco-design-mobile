@@ -35,7 +35,10 @@ export class ReactDOMRender {
         if (this.root) {
             this.root.render(<CustomApp {...propsWithContext} />);
         } else {
-            this.root = copyRender(<CustomApp {...propsWithContext} />, this.container);
+            copyRender(this.container, root => {
+                this.root = root;
+                root.render(<CustomApp {...propsWithContext} />);
+            });
         }
     };
 

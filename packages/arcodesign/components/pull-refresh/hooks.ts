@@ -64,7 +64,7 @@ export const useAddScrollEvents = ({
     handleTouchMove,
     handleTouchEnd,
 }: {
-    domRef: RefObject<HTMLDivElement>;
+    domRef: RefObject<HTMLDivElement | null>;
     handleTouchStart: (evt: HTMLElementEventMap['touchstart']) => void;
     handleTouchMove: (evt: HTMLElementEventMap['touchmove']) => void;
     handleTouchEnd: (evt: HTMLElementEventMap['touchend']) => void;
@@ -98,7 +98,7 @@ export const useCheckAsStart = ({
     domRef,
 }: {
     allowPullWhenNotTop: boolean;
-    domRef: RefObject<HTMLDivElement>;
+    domRef: RefObject<HTMLDivElement | null>;
 }) => {
     const ifShouldHandle = useCallback(() => {
         const domRefHeight = domRef.current?.offsetHeight ?? 0;

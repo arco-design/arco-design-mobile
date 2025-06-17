@@ -21,6 +21,7 @@ import type {
     IndexBarRef,
     IndexBarContext as IndexBarContentType,
     IndexBarScrollParams,
+    IndexBarGroupProps,
 } from './type';
 import {
     filterValidIndexBarChild,
@@ -75,7 +76,7 @@ const IndexBar = forwardRef(
             if (groups.length) {
                 return groups.map(group => group.index);
             }
-            return formatChildren.map(child => child.props.index);
+            return formatChildren.map(child => (child.props as IndexBarGroupProps).index);
         }, [children, groups]);
         const groupRefs = useRef<Record<IndexBarIndexType, StickyRef>>({});
         // 当前激活的Index

@@ -168,7 +168,11 @@ export const SkeletonParagraph = forwardRef(
                             width: getWidth(idx),
                             backgroundColor,
                         }}
-                        ref={el => el && (lineDomRefs.current[idx] = el)}
+                        ref={el => {
+                            if (el) {
+                                lineDomRefs.current[idx] = el;
+                            }
+                        }}
                     >
                         {isGradientAnimation && offsets !== undefined && (
                             <div
@@ -242,7 +246,11 @@ export const SkeletonGrid = forwardRef((props: SkeletonGridProps, ref: Ref<Skele
                             showAnimation && `${prefixCls}-skeleton-animation-${animation}`,
                         )}
                         style={{ backgroundColor }}
-                        ref={el => el && (iconDomRefs.current[idx] = el)}
+                        ref={el => {
+                            if (el) {
+                                iconDomRefs.current[idx] = el;
+                            }
+                        }}
                     >
                         {isGradientAnimation && iconOffsets !== undefined && (
                             <div
@@ -260,7 +268,11 @@ export const SkeletonGrid = forwardRef((props: SkeletonGridProps, ref: Ref<Skele
                             showAnimation && `${prefixCls}-skeleton-animation-${animation}`,
                         )}
                         style={{ backgroundColor }}
-                        ref={el => el && (textDomRefs.current[idx] = el)}
+                        ref={el => {
+                            if (el) {
+                                textDomRefs.current[idx] = el;
+                            }
+                        }}
                     >
                         {isGradientAnimation && textOffsets !== undefined && (
                             <div

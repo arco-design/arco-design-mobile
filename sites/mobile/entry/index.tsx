@@ -114,4 +114,6 @@ function App() {
     );
 }
 
-render(<App />, document.querySelector('#app')!);
+render(document.querySelector('#app')!, root => {
+    root.render(<App />);
+});

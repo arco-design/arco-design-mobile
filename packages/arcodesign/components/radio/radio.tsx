@@ -13,7 +13,7 @@ export function componentGenerator<
         const mergedProps = useMergeProps<T, P>(props as P, RadioGroupContext);
         const radioRef = useRef<R | null>(null);
 
-        useImperativeHandle(ref, () => radioRef.current);
+        useImperativeHandle(ref, () => radioRef.current!);
 
         return <Comp ref={radioRef} {...mergedProps} isRadio />;
     });

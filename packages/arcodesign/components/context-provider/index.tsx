@@ -1,4 +1,12 @@
-import React, { createContext, useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, {
+    createContext,
+    useState,
+    useEffect,
+    useCallback,
+    useMemo,
+    useRef,
+    Attributes,
+} from 'react';
 import { addCssRules, removeCssStyleDom, defaultLocale, ILocale } from '@arco-design/mobile-utils';
 
 export interface GlobalContextParams {
@@ -178,9 +186,7 @@ export default function ContextProvider(props: ContextProviderProps) {
 
 export const ContextLayout = GlobalContext.Consumer;
 
-export function CompWithGlobalContext<P extends JSX.IntrinsicAttributes>(
-    Component: React.FunctionComponent<P>,
-) {
+export function CompWithGlobalContext<P extends Attributes>(Component: React.FunctionComponent<P>) {
     return function (props: WithGlobalContext<P>) {
         const { context: propsContext, ...others } = props;
         return (
