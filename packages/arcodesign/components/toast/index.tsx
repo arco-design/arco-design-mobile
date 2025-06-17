@@ -145,7 +145,7 @@ const Toast = forwardRef((props: ToastProps, ref: Ref<ToastRef>) => {
         typeIconMap,
         initialBodyOverflow,
     } = props;
-    const closeTimerRef = useRef<number>();
+    const closeTimerRef = useRef<number | undefined>(undefined);
     const domRef = useRef<HTMLDivElement | null>(null);
     const wrapDomRef = useRef<HTMLDivElement | null>(null);
     const isInitialMount = useRef(false);
