@@ -8,6 +8,7 @@ import React, {
     Attributes,
 } from 'react';
 import { addCssRules, removeCssStyleDom, defaultLocale, ILocale } from '@arco-design/mobile-utils';
+import { CreateRootFnType } from '../_helpers';
 
 export interface GlobalContextParams {
     /**
@@ -61,6 +62,11 @@ export interface GlobalContextParams {
      * @en Triggered when the system's native dark mode changes, valid when useDarkMode=true
      */
     onDarkModeChange?: (isDark: boolean) => void;
+    /**
+     * React19 修改了 createRoot 的引入路径，导致组件内部无法直接引入（低react版本会找不到模块）。因此使用 react 19 的用户需从外部传入 createRoot 方法
+     * @en Users using react 19 need to pass in the createRoot method from outside
+     */
+    createRoot?: CreateRootFnType;
 }
 
 const DEFAULT_DARK_MODE_SELECTOR = 'arco-theme-dark';

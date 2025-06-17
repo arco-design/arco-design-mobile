@@ -31,14 +31,12 @@ export class ReactDOMRender {
 
     render = props => {
         const CustomApp = this.app;
-        const propsWithContext = { ...props, context: this.context };
+        const propsWithContext = { context: this.context, ...props };
         if (this.root) {
             this.root.render(<CustomApp {...propsWithContext} />);
         } else {
-            copyRender(this.container, root => {
-                this.root = root;
-                root.render(<CustomApp {...propsWithContext} />);
-            });
+            const { createRoot } = this.context || {};
+            this.root = copyRender(<CustomApp {...propsWithContext} />, this.container, createRoot);
         }
     };
 

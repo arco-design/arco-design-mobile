@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
+import { createRoot } from 'react-dom/client'; // React 19
 import setRootPixel from '../../../packages/arcodesign/tools/flexible';
 import ContextProvider from '../../../packages/arcodesign/components/context-provider';
 import { LanguageSupport } from '../../utils/language';
@@ -114,6 +115,5 @@ function App() {
     );
 }
 
-render(document.querySelector('#app')!, root => {
-    root.render(<App />);
-});
+// render(<App />, document.querySelector('#app')!);
+render(<App />, document.querySelector('#app')!, createRoot);

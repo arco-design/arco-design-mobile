@@ -12,7 +12,10 @@ export interface RootType {
 export interface RootTypeReact extends RootType {
     unmount?: () => void;
 }
-export type CreateRootFnType = (container: Element | DocumentFragment) => RootTypeReact;
+export type CreateRootFnType = (container: Element | DocumentFragment) => {
+    render: (element: ReactElement) => void;
+    unmount?: () => void;
+};
 
 // Cast ReactDOM to a version that might have createRoot and other properties
 const typedReactDOM = ReactDOM as typeof ReactDOM & {
@@ -28,7 +31,11 @@ const typedReactDOM = ReactDOM as typeof ReactDOM & {
     };
 };
 
-let copyRender: (container: Element | DocumentFragment, cb: (root: RootType) => void) => void;
+let copyRender: (
+    app: ReactElement,
+    container: Element | DocumentFragment,
+    createRootFunction?: CreateRootFnType,
+) => RootType;
 
 const updateUsingClientEntryPoint = (skipWarning?: boolean) => {
     // https://github.com/facebook/react/blob/17806594cc28284fe195f918e8d77de3516848ec/packages/react-dom/npm/client.js#L10
@@ -43,12 +50,14 @@ const createRootFn = typedReactDOM.createRoot;
 
 const getRender =
     (createRootFunction: CreateRootFnType) =>
-    (container: Element | DocumentFragment, cb: (root: RootType) => void) => {
+    (app: ReactElement, container: Element | DocumentFragment) => {
         updateUsingClientEntryPoint(true);
         const root = createRootFunction!(container);
         updateUsingClientEntryPoint(false);
 
-        cb({
+        root.render(app);
+
+        return {
             render: (elementToRender: ReactElement) => {
                 root.render(elementToRender);
             },
@@ -59,7 +68,7 @@ const getRender =
                     }
                 });
             },
-        });
+        };
     };
 
 if (createRootFn) {
@@ -70,18 +79,23 @@ if (createRootFn) {
     typeof typedReactDOM.unmountComponentAtNode === 'function'
 ) {
     // React 16/17
-    copyRender = function (container: Element | DocumentFragment, cb: (root: RootType) => void) {
-        cb({
+    copyRender = function (app: ReactElement, container: Element | DocumentFragment) {
+        typedReactDOM.render!(app, container); // Use non-null assertion
+        return {
             render: (elementToRender: ReactElement) => {
                 typedReactDOM.render!(elementToRender, container); // Use non-null assertion
             },
             _unmount() {
                 typedReactDOM.unmountComponentAtNode!(container); // Use non-null assertion
             },
-        });
+        };
     };
 } else {
-    copyRender = (container: Element | DocumentFragment, cb: (root: RootType) => void) => {
+    copyRender = (
+        app: ReactElement,
+        container: Element | DocumentFragment,
+        createRootFunction?: CreateRootFnType,
+    ) => {
         const defaultCb = () => {
             // Fallback if no rendering method is found
             console.error(
@@ -90,21 +104,12 @@ if (createRootFn) {
                     'or ReactDOM is not properly initialized. ' +
                     'ArcoDesign Mobile React requires React 16, 17, 18, or 19.',
             );
-            cb({ render: (_element: ReactElement) => {}, _unmount: () => {} });
+            return { render: (_element: ReactElement) => {}, _unmount: () => {} };
         };
-        try {
-            // @ts-ignore
-            import('react-dom/client')
-                .then(res => {
-                    getRender(res.createRoot as CreateRootFnType)(container, cb);
-                })
-                .catch(e => {
-                    console.error('e', e);
-                    defaultCb();
-                });
-        } catch (e) {
-            defaultCb();
+        if (createRootFunction) {
+            return getRender(createRootFunction)(app, container);
         }
+        return defaultCb();
     };
 }
 
