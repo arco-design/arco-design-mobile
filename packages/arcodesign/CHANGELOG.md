@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.36.2...@arco-design/mobile-react@2.37.0) (2025-06-17)
+
+
+### Features
+
+* add new locale "es" and "de" & react 19 compatibility ([#334](https://github.com/arco-design/arco-design-mobile/issues/334)) ([95559a5](https://github.com/arco-design/arco-design-mobile/commit/95559a5f592fdf85c4e79176ddbfe3c93910330f))
+
+
+
+
+
 ## [2.36.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.36.1...@arco-design/mobile-react@2.36.2) (2025-06-06)
 
 
