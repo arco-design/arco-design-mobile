@@ -10,8 +10,8 @@ export type UseCountDownOptions = {
 
 export const useCountDown = (options: UseCountDownOptions) => {
     const taskIdRef = useRef<number>(0);
-    const endTimeRef = useRef<number>();
-    const countingRef = useRef<boolean>();
+    const endTimeRef = useRef<number | undefined>(undefined);
+    const countingRef = useRef<boolean | undefined>(undefined);
     const [remain, remainRef, setRemain] = useRefState(options.time);
     const [current, setCurrent] = useState<TimeDataType>(parseTime(options.time));
     const taskType = options.millisecond ? 'micro' : 'macro';

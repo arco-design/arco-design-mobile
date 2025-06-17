@@ -37,14 +37,14 @@ export function normalizeConfirm<ConfirmOptions, P>(config: ConfirmOptions): P {
 
 const dialogId = 'ARCO_DIALOG';
 
-export function alert<AlertOptions, P extends OpenBaseProps>(
+export function alert<AlertOptions extends { key?: string }, P extends OpenBaseProps>(
     Component: React.FunctionComponent<P>,
     normalize?: <T, Props>(config: T) => Props,
 ) {
     return getOpenMethod<AlertOptions, P>(Component, dialogId, normalize || normalizeAlert);
 }
 
-export function confirm<ConfirmOptions, P extends OpenBaseProps>(
+export function confirm<ConfirmOptions extends { key?: string }, P extends OpenBaseProps>(
     Component: React.FunctionComponent<P>,
     normalize?: <T, Props>(config: T) => Props,
 ) {

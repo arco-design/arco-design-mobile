@@ -78,7 +78,7 @@ export default function BusinessBar() {
     );
     const curActiveRef = useRef<number>(-1);
     const curAnimationPosRef = useRef<[number, number]>([0, MIN_WINDOW_SHOW_NUM]);
-    const timerRef = useRef<any>();
+    const timerRef = useRef<any>(undefined);
 
     function renderItem({ pre, cur }) {
         const curPos = productListRef.current[cur];

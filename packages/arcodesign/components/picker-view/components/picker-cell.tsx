@@ -72,7 +72,7 @@ const PickerCell = forwardRef((props: PickerCellProps, ref: Ref<PickerCellRef>) 
     const rowCount = Math.max(rows % 2 === 0 ? rows + 1 : rows, 3);
     const isTouchMoveRef = useRef(false);
     const isTouchStopped = useRef(false);
-    const unmountCallbackRef = useRef<() => void>();
+    const unmountCallbackRef = useRef<(() => void) | undefined>(undefined);
     const timeRef = useRef<number | null>(null);
 
     const colStyle = useMemo(

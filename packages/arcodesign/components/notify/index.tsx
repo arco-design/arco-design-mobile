@@ -23,8 +23,8 @@ const Notify = forwardRef((props: NotifyProps, ref: Ref<NotifyRef>) => {
     } = props;
     const domRef = useRef<HTMLDivElement>(null);
     const innerRef = useRef<HTMLDivElement>(null);
-    const closeTimerRef = useRef<number>();
-    const onCloseTimeRef = useRef<number>();
+    const closeTimerRef = useRef<number | undefined>(undefined);
+    const onCloseTimeRef = useRef<number | undefined>(undefined);
     const [hasTrans, setHasTrans] = useState(!visible);
     const [innerHeight, setInnerHeight] = useState(0);
 

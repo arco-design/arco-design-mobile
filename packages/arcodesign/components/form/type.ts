@@ -51,7 +51,7 @@ export interface FormProps {
      * @en Form initial value
      */
     initialValues?: FieldItem;
-    children: React.ReactNodeArray | ReactNode;
+    children: ReactNode[] | ReactNode;
     /**
      * 表单项数据变化时的回调
      * @en Callback when the form item value changes

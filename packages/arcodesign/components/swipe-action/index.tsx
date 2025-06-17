@@ -139,7 +139,7 @@ const SwipeAction = forwardRef((props: SwipeActionProps, ref: Ref<SwipeActionRef
         }
     }
 
-    function getWidthByRef(widthRef: RefObject<HTMLDivElement>) {
+    function getWidthByRef(widthRef: RefObject<HTMLDivElement | null>) {
         if (!widthRef.current) {
             return { totalWidth: 0, widthArr: [] };
         }

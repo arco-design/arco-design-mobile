@@ -720,7 +720,7 @@ export function useSingleAndDoubleClick(
     delay = 200,
 ) {
     const [clickTimes, setClickTimes] = useState(0);
-    const eventRef = useRef<React.MouseEvent>();
+    const eventRef = useRef<React.MouseEvent | undefined>(undefined);
 
     useEffect(() => {
         const timer = setTimeout(() => {

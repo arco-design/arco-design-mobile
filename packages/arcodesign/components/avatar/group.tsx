@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { cls } from '@arco-design/mobile-utils';
 import { GlobalContext } from '../context-provider';
-import { AvatarProps, AvatarGroupContextParams, AvatarGroupProps, AvatarGroupRef } from './type';
+import { AvatarGroupContextParams, AvatarGroupProps, AvatarGroupRef } from './type';
 
 export const AvatarGroupContext = React.createContext<AvatarGroupContextParams>({
     isGroup: false,
@@ -51,7 +51,7 @@ export const Group = forwardRef((props: AvatarGroupProps, ref: Ref<AvatarGroupRe
         >
             <AvatarGroupContext.Provider value={{ isGroup: true, shape, size }}>
                 {childrenArr.map((child, i) => {
-                    const childProps: AvatarProps = ((child as ReactElement) || {}).props;
+                    const childProps = ((child as ReactElement) || {}).props as any;
                     const avatarStyle = {
                         zIndex: zIndexOrder === 'asc' ? i + 1 : length - i,
                         ...childProps.style,
