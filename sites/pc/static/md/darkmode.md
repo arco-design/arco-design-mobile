@@ -61,10 +61,19 @@ lessOptions: {
 import React from 'react';
 import { ContextProvider } from '@arco-design/mobile-react';
 
-ReactDOM.render(
-  <ContextProvider isDarkMode={true} darkModeSelector="tt-darkmode-general">
-    <YourApp />
-  </ContextProvider>,
-  CONTAINER
+// 适用于 React 18+
+const root = ReactDOM.createRoot(CONTAINER);
+root.render(
+    <ContextProvider isDarkMode={true} darkModeSelector="tt-darkmode-general">
+        <YourApp />
+    </ContextProvider>,
 );
+
+// 适用于 React 16/17
+// ReactDOM.render(
+//   <ContextProvider isDarkMode={true} darkModeSelector="tt-darkmode-general">
+//     <YourApp />
+//   </ContextProvider>,
+//   CONTAINER
+// );
 ```

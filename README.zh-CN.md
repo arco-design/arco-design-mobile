@@ -11,11 +11,9 @@
 
 基于 [Arco Design](https://arco.design/mobile/react) 的 React UI 组件库。
 
-
 ![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=less&logoColor=ffffff)
 ![](https://img.shields.io/badge/-Typescript-blue?logo=typescript&logoColor=white)
 ![](https://img.shields.io/badge/-React.js-blue?logo=react&logoColor=white)
-
 
 ![](https://img.shields.io/npm/v/@arco-design/mobile-react.svg?style=flat-square)
 ![](https://img.shields.io/npm/dm/@arco-design/mobile-react.svg?style=flat-square)
@@ -32,15 +30,15 @@
 
 # 特性
 
-- 基于 TypeScript 提供 50+ 开箱即用的组件
-- 简洁克制的 UI 设计 & 精确到像素的还原
-- 追求极致的手指交互效果
-- 重要组件线上大流量验证
-- 细粒度且灵活的属性配置
-- 支持服务端渲染
-- 支持国际化
-- 支持按需引入
-- 支持主题配置
+-   基于 TypeScript 提供 50+ 开箱即用的组件
+-   简洁克制的 UI 设计 & 精确到像素的还原
+-   追求极致的手指交互效果
+-   重要组件线上大流量验证
+-   细粒度且灵活的属性配置
+-   支持服务端渲染
+-   支持国际化
+-   支持按需引入
+-   支持主题配置
 
 # 安装
 
@@ -63,28 +61,29 @@ import Button from '@arco-design/mobile-react/esm/button';
 import '@arco-design/mobile-react/esm/button/style';
 
 function App() {
-  return (
-    <Button>
-      Hello World
-    </Button>
-  );
+    return <Button>Hello World</Button>;
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+// 适用于 React 18+
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(<App />);
+
+// 适用于 React 16/17
+// ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
 # 相关链接
 
-* [官方文档](https://arco.design/mobile/react)
-* [组件文档](https://arco.design/mobile/react/arco-design/pc/)
-* [Figma 设计资源](https://www.figma.com/community/file/1143750379727993941)
-* [Awesome Arco](https://github.com/arco-design/awesome-arco)
+-   [官方文档](https://arco.design/mobile/react)
+-   [组件文档](https://arco.design/mobile/react/arco-design/pc/)
+-   [Figma 设计资源](https://www.figma.com/community/file/1143750379727993941)
+-   [Awesome Arco](https://github.com/arco-design/awesome-arco)
 
 # 浏览器兼容性
 
 | <img src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/browser-ios.png" alt="Safari" width="24px" height="24px" /><br/>Safari on iOS | <img src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/browser-android.png" alt="Opera" width="20px" height="24px" /><br/>Android Webview |
-| --------- | --------- |
-| 9 | 4.4 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 9                                                                                                                                                      | 4.4                                                                                                                                                         |
 
 # 参与贡献
 

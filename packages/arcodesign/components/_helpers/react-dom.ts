@@ -34,7 +34,7 @@ let copyRender: (
 
 const { version, render: reactRender, unmountComponentAtNode } = CopyReactDOM;
 
-const isReact18 = Number((version || '').split('.')[0]) > 17;
+const supportsCreateRoot = Number((version || '').split('.')[0]) > 17;
 
 const updateUsingClientEntryPoint = (skipWarning?: boolean) => {
     // https://github.com/facebook/react/blob/17806594cc28284fe195f918e8d77de3516848ec/packages/react-dom/npm/client.js#L10
@@ -50,7 +50,7 @@ try {
     ({ createRoot } = CopyReactDOM);
 } catch (_) {}
 
-if (isReact18 && createRoot) {
+if (supportsCreateRoot && createRoot) {
     copyRender = (app: ReactElement, container: Element | DocumentFragment) => {
         updateUsingClientEntryPoint(true);
         const root = (createRoot as CreateRootFnType)(container);

@@ -846,7 +846,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
     }
 
     function getAllChildren() {
-        let allChild: React.ReactNodeArray = [];
+        let allChild: React.ReactNode[] = [];
         let fakeTwo = false;
         if (list && list.length) {
             let actualList = list;
@@ -867,7 +867,7 @@ const Carousel = forwardRef((props: CarouselProps, ref: Ref<CarouselRef>) => {
                 </>
             ));
         } else if (children && Object.prototype.toString.call(children) === '[object Array]') {
-            allChild = children as React.ReactNodeArray;
+            allChild = children as React.ReactNode[];
             if (allChild.length === 2 && fakeItem) {
                 fakeTwo = true;
                 allChild = [...allChild, ...allChild];

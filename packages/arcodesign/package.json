@@ -29,8 +29,8 @@
         "@types/react": ">=16.9.0",
         "@types/react-dom": ">=16.9.0",
         "@types/react-transition-group": ">=4.3.0",
-        "react": ">=16.9.0",
-        "react-dom": ">=16.9.0",
+        "react": ">=16.9.0 <21",
+        "react-dom": ">=16.9.0 <21",
         "react-transition-group": ">=4.3.0"
     },
     "peerDependenciesMeta": {

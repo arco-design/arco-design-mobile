@@ -61,10 +61,19 @@ Pass in the `isDarkMode` attribute. When this attribute is `true`, the class nam
 import React from 'react';
 import { ContextProvider } from '@arco-design/mobile-react';
 
-ReactDOM.render(
-  <ContextProvider isDarkMode={true} darkModeSelector="tt-darkmode-general">
-    <YourApp />
-  </ContextProvider>,
-  CONTAINER
+// For React 18+
+const root = ReactDOM.createRoot(CONTAINER);
+root.render(
+    <ContextProvider isDarkMode={true} darkModeSelector="tt-darkmode-general">
+        <YourApp />
+    </ContextProvider>,
 );
+
+// For React 16/17
+// ReactDOM.render(
+//   <ContextProvider isDarkMode={true} darkModeSelector="tt-darkmode-general">
+//     <YourApp />
+//   </ContextProvider>,
+//   CONTAINER
+// );
 ```

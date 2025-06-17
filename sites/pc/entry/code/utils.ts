@@ -51,7 +51,7 @@ export const getCodePenData = (data: CodeInfo) => {
     return {
         title: `Arco Design Mobile - ${name}`,
         html: `${htmlArr.join('\n')}\n`,
-        js: `const { React, Arco, ArcoIcon } = window;\n${lastJsx}\nReactDOM.render(<${funcName}/>, mountNode);`,
+        js: `const { React, Arco, ArcoIcon } = window;\n${lastJsx}\n// Use React 18+ createRoot API for better compatibility\nif (ReactDOM.createRoot) { const root = ReactDOM.createRoot(mountNode); root.render(<${funcName}/>); } else { ReactDOM.render(<${funcName}/>, mountNode); }`,
         css_pre_processor: 'less',
         css: `body{padding:20px!important;}\n #${
             key || 'root'
@@ -90,10 +90,13 @@ export const getCodeSandboxData = (codeSource: string, styleSource: string) => {
 
                     setRootPixel();
 
-                    ReactDOM.render(
-                        <App />,
-                        document.getElementById('root'),
-                    );
+                    // Use React 18+ createRoot API for better compatibility
+                    if (ReactDOM.createRoot) {
+                        const root = ReactDOM.createRoot(document.getElementById('root'));
+                        root.render(<App />);
+                    } else {
+                        ReactDOM.render(<App />, document.getElementById('root'));
+                    }
                 `,
                     'babel',
                 ),

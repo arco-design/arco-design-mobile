@@ -15,7 +15,6 @@ A comprehensive React UI components library based on the [Arco Design](https://a
 ![](https://img.shields.io/badge/-Typescript-blue?logo=typescript&logoColor=white)
 ![](https://img.shields.io/badge/-React.js-blue?logo=react&logoColor=white)
 
-
 ![](https://img.shields.io/npm/v/@arco-design/mobile-react.svg?style=flat-square)
 ![](https://img.shields.io/npm/dm/@arco-design/mobile-react.svg?style=flat-square)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/arco-design/arco-design-mobile/blob/main/LICENSE)
@@ -31,16 +30,15 @@ English | [简体中文](./README.zh-CN.md)
 
 # Features
 
-- Provides 50+ easy-to-use components based on TypeScript
-- Simple and restrained UI design & pixel-accurate restoration
-- Pursue the ultimate finger interaction effect
-- Online high-traffic verification of important components
-- Fine-grained and flexible property configuration
-- Support server-side rendering
-- Support internationalization
-- Support on-demand introduction
-- Support theme configuration
-
+-   Provides 50+ easy-to-use components based on TypeScript
+-   Simple and restrained UI design & pixel-accurate restoration
+-   Pursue the ultimate finger interaction effect
+-   Online high-traffic verification of important components
+-   Fine-grained and flexible property configuration
+-   Support server-side rendering
+-   Support internationalization
+-   Support on-demand introduction
+-   Support theme configuration
 
 # Installation
 
@@ -63,28 +61,29 @@ import Button from '@arco-design/mobile-react/esm/button';
 import '@arco-design/mobile-react/esm/button/style';
 
 function App() {
-  return (
-    <Button>
-      Hello World
-    </Button>
-  );
+    return <Button>Hello World</Button>;
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+// For React 18+
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(<App />);
+
+// For React 16/17
+// ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
 # Useful Links
 
-* [Documentation website](https://arco.design/mobile/react)
-* [Components documentation](https://arco.design/mobile/react/arco-design/pc/)
-* [Figma component library](https://www.figma.com/community/file/1143750379727993941)
-* [Awesome Arco](https://github.com/arco-design/awesome-arco)
+-   [Documentation website](https://arco.design/mobile/react)
+-   [Components documentation](https://arco.design/mobile/react/arco-design/pc/)
+-   [Figma component library](https://www.figma.com/community/file/1143750379727993941)
+-   [Awesome Arco](https://github.com/arco-design/awesome-arco)
 
 # Browser Support
 
 | <img src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/browser-ios.png" alt="Safari" width="24px" height="24px" /><br/>Safari on iOS | <img src="https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/browser-android.png" alt="Opera" width="20px" height="24px" /><br/>Android Webview |
-| --------- | --------- |
-| 9 | 4.4 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 9                                                                                                                                                      | 4.4                                                                                                                                                         |
 
 # Contributing
 
