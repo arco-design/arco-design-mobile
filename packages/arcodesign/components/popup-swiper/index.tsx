@@ -100,6 +100,7 @@ const PopupSwiper = forwardRef((props: PopupSwiperProps, ref: Ref<PopupSwiperRef
     const touchStartYRef = useRef(0);
     const touchStartTimeRef = useRef(0);
     const hasTouchStartRef = useRef(false);
+    const hasTouchMoveRef = useRef(false);
     const getContentSize = useCallback((direc: 'X' | 'Y') => {
         const contentDom = popupRef.current?.content;
         const contentWidth = contentDom?.offsetWidth || 0;
@@ -147,6 +148,7 @@ const PopupSwiper = forwardRef((props: PopupSwiperProps, ref: Ref<PopupSwiperRef
             if (onTouchMove && onTouchMove(e, prevented, direc)) {
                 return;
             }
+            hasTouchMoveRef.current = true;
             // 如果prevented=false说明正在滚动，则专心处理滚动事件而不处理跟手退出
             if (!prevented) {
                 hasTouchStartRef.current = false;
@@ -197,10 +199,12 @@ const PopupSwiper = forwardRef((props: PopupSwiperProps, ref: Ref<PopupSwiperRef
             if (onTouchEnd && onTouchEnd(e)) {
                 return;
             }
-            if (!hasTouchStartRef.current) {
+            // hasTouchMove=false说明是点击事件，不需要处理
+            if (!hasTouchStartRef.current || !hasTouchMoveRef.current) {
                 return;
             }
             hasTouchStartRef.current = false;
+            hasTouchMoveRef.current = false;
             const touchEndTime = new Date().getTime();
             const { direction: direc, value } = distanceRef.current;
             const per = getPercent(distanceRef.current);
