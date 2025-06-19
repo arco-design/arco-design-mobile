@@ -60,27 +60,27 @@ export function testMaskingCase(
         expect(document.querySelectorAll(`.${prefix}`)).toHaveLength(0);
         openMasking();
         expect(document.querySelectorAll(`.${prefix}`)).toHaveLength(1);
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(onOpen.mock.calls).toHaveLength(1);
         expect(document.querySelectorAll(`.${maskClass}`)).toHaveLength(1);
         // simulate close masking
         userEvent.click(document.querySelector(`.${maskClass}`));
         expect(onMaskClick.mock.calls).toHaveLength(1);
         expect(document.querySelectorAll(`.${prefix}`)).toHaveLength(1);
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(document.querySelector(`.${maskingPrefix}`)).toBeInTheDocument();
         rerender(
             <TestDemo onOpen={onOpen} onClose={onClose} onMaskClick={onMaskClick} maskClosable />,
         );
         userEvent.click(document.querySelector(`.${maskClass}`));
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(document.querySelectorAll(`.${prefix}`)).not.toHaveLength(1);
         expect(onClose.mock.calls).toHaveLength(1);
         expect(onClose.mock.calls[0]).toEqual(['mask']);
         expect(document.querySelectorAll(`.${prefix}`)).toHaveLength(0);
     });
 
-    it('should keep dom when invisible and `mountOnEnter=false` and `unmountOnExit=false`', () => {
+    it('should keep dom whe n invisible and `mountOnEnter=false` and `unmountOnExit=false`', () => {
         const TestDemo = getTestDemo(Comp);
         render(<TestDemo mountOnEnter={false} unmountOnExit={false} />);
         expect(document.querySelectorAll(`.${prefix}`)).toHaveLength(1);
@@ -91,16 +91,14 @@ export function testMaskingCase(
             true,
         );
         openMasking();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(document.querySelectorAll(`.${prefix}`)).toHaveLength(1);
         expect(document.querySelector(`.${maskClass}`).classList.contains('pre-mount')).toBe(false);
     });
 
     it('should support `open`', () => {
         const onClose = jest.fn();
-        const ref = React.createRef();
         const props = {
-            ref,
             onClose,
             maskTransitionTimeout: 1000,
             className: 'demo-global',
