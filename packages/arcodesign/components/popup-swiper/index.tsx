@@ -84,6 +84,8 @@ const PopupSwiper = forwardRef((props: PopupSwiperProps, ref: Ref<PopupSwiperRef
         onOpen,
         onClose,
         close,
+        maskTransitionTimeout = { enter: 450, exit: 240 },
+        contentTransitionTimeout = { enter: 450, exit: 240 },
         ...otherProps
     } = props;
     const [opened, setOpened] = useState(visible);
@@ -223,6 +225,11 @@ const PopupSwiper = forwardRef((props: PopupSwiperProps, ref: Ref<PopupSwiperRef
                     direction: 'X',
                     value: 0,
                 });
+                // 动画完成后需重置
+                // @en Reset after animation is complete
+                setTimeout(() => {
+                    setHasTrans(false);
+                }, Math.max(typeof maskTransitionTimeout === 'number' ? maskTransitionTimeout : maskTransitionTimeout?.exit || 0, typeof contentTransitionTimeout === 'number' ? contentTransitionTimeout : contentTransitionTimeout?.exit || 0, 240));
             }
             touchStartTimeRef.current = 0;
         },
@@ -289,6 +296,8 @@ const PopupSwiper = forwardRef((props: PopupSwiperProps, ref: Ref<PopupSwiperRef
                         opacity: percent ? 1 - percent : void 0,
                     }}
                     contentStyle={getContentStyle()}
+                    maskTransitionTimeout={maskTransitionTimeout}
+                    contentTransitionTimeout={contentTransitionTimeout}
                     {...otherProps}
                 >
                     {children}

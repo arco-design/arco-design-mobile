@@ -48,6 +48,10 @@ export default defineConfig({
 
 A: 在移动端调起弹窗时，会出现滚动穿透的问题，所以默认会为弹窗的 touchmove 事件做 preventDefault 操作来规避该问题。该操作也会阻止掉弹窗内容的滚动，因此需通过`getScrollContainer`属性手动指定下滚动容器做豁免，即判断从该属性传入的元素是否滚动到了边界位置，如果是则 preventDefault，否则不再阻止默认事件。
 
+## Q: Popup ActionSheet 等弹窗类组件，`needBottomOffset`不生效？
+
+A: `needBottomOffset`属性使用了`env(safe-area-inset-bottom)`作为底部边距值，请确认 html meta 中是否设置了`viewport-fit=cover`，如果没有设置，该属性将不起作用。
+
 ## Q: SSR 环境下使用部分组件报出 Warning: Prop \`className\` did not match 警告？
 
 A: 部分组件在不同系统环境下会有不同表现，因此类名中可能会含有`android / ios`这类表示系统环境的值。这个值是通过 userAgent 来获取的，在 SSR 首屏渲染的时候拿不到 userAgent，所以此时该值为空字符串，与 CSR 阶段的值不一致。可以在 SSR 阶段以其他方式获取到当前系统环境值，并通过`ContextProvider`的`system`属性传入，如此可保证 SSR 与 CSR 阶段值一致。

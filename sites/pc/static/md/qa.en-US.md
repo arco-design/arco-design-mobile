@@ -48,6 +48,10 @@ export default defineConfig({
 
 A: When the pop-up window is activated on the mobile side, there will be a problem of scroll penetration, so by default, the preventDefault operation will be performed for the touchmove event of the pop-up window to avoid this problem. This operation will also prevent the scrolling of the content of the pop-up window, so you need to manually specify the scroll container through the `getScrollContainer` attribute for exemption, that is, to determine whether the element passed in from this attribute scrolls to the boundary position, if so, execute the preventDefault operation, otherwise default events are no longer blocked.
 
+## Q: Popup ActionSheet and other pop-up window components, `needBottomOffset` does not work?
+
+A: `needBottomOffset` uses `env(safe-area-inset-bottom)` as the bottom padding value, please confirm whether `viewport-fit=cover` is set in the html meta, if not, this property will not take effect.
+
 ## Q: "Warning: Prop \`className\` did not match" when some components are used in SSR environment?
 
 A: Some components will behave differently in different system environments, so the class name may contain values such as `android / ios` that represent the system environment. This value is obtained through userAgent. UserAgent cannot be obtained when the first screen of SSR is rendered, so the value is an empty string at this time, which is inconsistent with the value in the CSR stage. The current system environment value can be obtained in other ways in the SSR phase, and passed in through the `system` property of `ContextProvider`, so as to ensure that the SSR and CSR phase values are consistent.
