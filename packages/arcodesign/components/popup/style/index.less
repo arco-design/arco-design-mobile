@@ -40,12 +40,12 @@
             }
 
             transform: translate(0, 0);
-            .use-var(transition, popup-enter-transition);
+            transition: var(--popup-enter-transition);
         }
     }
 
     [class*="-exit-active"] {
-        .use-var(transition, popup-exit-transition);
+        transition: var(--popup-exit-transition);
     }
 
     &-content {
