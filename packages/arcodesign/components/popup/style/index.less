@@ -31,12 +31,12 @@
             }
             transform: translate(0, 0);
             .use-var(transition, popup-enter-transition);
-            transition-duration: var(--popup-enter-transition-duration);
+            transition-duration: var(--enter-transition-duration);
         }
     }
     [class*="-exit-active"] {
         .use-var(transition, popup-exit-transition);
-        transition-duration: var(--popup-exit-transition-duration);
+        transition-duration: var(--exit-transition-duration);
     }
     &-content {
         &.need-bottom-offset {

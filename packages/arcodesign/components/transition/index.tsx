@@ -56,6 +56,25 @@ export default function Transition(props: TransitionProps) {
         ...restProps
     } = props;
 
+    const getDuration = (durationType: 'enter' | 'exit' | 'appear') => {
+        if (typeof timeout === 'number') {
+            return timeout;
+        }
+        return timeout?.[durationType] || 0;
+    };
+
+    const getCssVariables = () => {
+        const maskEnterDuration = getDuration('enter');
+        const contentEnterDuration = getDuration('enter');
+        const maskExitDuration = getDuration('exit');
+        const contentExitDuration = getDuration('exit');
+        return {
+            '--enter-transition-duration': `${Math.max(maskEnterDuration, contentEnterDuration)}ms`,
+            '--exit-transition-duration': `${Math.max(maskExitDuration, contentExitDuration)}ms`,
+        };
+    };
+    const cssVariables = getCssVariables();
+
     return (
         <ContextLayout>
             {({ prefixCls }) => (
@@ -65,6 +84,7 @@ export default function Transition(props: TransitionProps) {
                     classNames={`${prefixCls}-${type}`}
                     mountOnEnter={mountOnEnter}
                     unmountOnExit={unmountOnExit}
+                    style={cssVariables}
                     {...restProps}
                 >
                     {children}
