@@ -63,16 +63,11 @@ export default function Transition(props: TransitionProps) {
         return timeout?.[durationType] || 0;
     };
 
-    const getCssVariables = () => {
-        const maskEnterDuration = getDuration('enter');
-        const contentEnterDuration = getDuration('enter');
-        const maskExitDuration = getDuration('exit');
-        const contentExitDuration = getDuration('exit');
-        return {
-            '--enter-transition-duration': `${Math.max(maskEnterDuration, contentEnterDuration)}ms`,
-            '--exit-transition-duration': `${Math.max(maskExitDuration, contentExitDuration)}ms`,
-        };
-    };
+    const getCssVariables = () => ({
+        '--enter-transition-duration': `${getDuration('enter')}ms`,
+        '--exit-transition-duration': `${getDuration('exit')}ms`,
+    });
+
     const cssVariables = getCssVariables();
 
     return (
