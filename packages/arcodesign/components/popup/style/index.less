@@ -30,11 +30,13 @@
                 transform: translateZ(2PX);
             }
             transform: translate(0, 0);
-            transition: var(--popup-enter-transition);
+            .use-var(transition, popup-enter-transition);
+            transition-duration: var(--popup-enter-transition-duration);
         }
     }
     [class*="-exit-active"] {
-        transition: var(--popup-exit-transition);
+        .use-var(transition, popup-enter-transition);
+        transition-duration: var(--popup-exit-transition-duration);
     }
     &-content {
         &.need-bottom-offset {

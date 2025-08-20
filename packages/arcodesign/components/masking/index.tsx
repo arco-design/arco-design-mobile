@@ -333,6 +333,35 @@ const Masking = forwardRef((props: MaskingProps, ref: Ref<MaskingRef>) => {
         close?.(e);
     }
 
+    const getDuration = (
+        timeout: MaskingCommonProps['maskTransitionTimeout'],
+        type: 'enter' | 'exit' | 'appear',
+    ) => {
+        if (typeof timeout === 'number') {
+            return timeout;
+        }
+        return timeout?.[type] || 0;
+    };
+
+    const getCssVariables = () => {
+        const maskEnterDuration = getDuration(maskTransitionTimeout, 'enter');
+        const contentEnterDuration = getDuration(contentTransitionTimeout, 'enter');
+        const maskExitDuration = getDuration(maskTransitionTimeout, 'exit');
+        const contentExitDuration = getDuration(contentTransitionTimeout, 'exit');
+        return {
+            '--popup-enter-transition-duration': `${Math.max(
+                maskEnterDuration,
+                contentEnterDuration,
+            )}ms`,
+            '--popup-exit-transition-duration': `${Math.max(
+                maskExitDuration,
+                contentExitDuration,
+            )}ms`,
+        };
+    };
+
+    const cssVariables = getCssVariables();
+
     function renderMasking({ prefixCls }) {
         return !mountOnEnter || outerVisible || !unmountOnExit ? (
             <Portal getContainer={getContainer}>
@@ -352,7 +381,7 @@ const Masking = forwardRef((props: MaskingProps, ref: Ref<MaskingRef>) => {
                             ref={maskRef}
                             className={cls(`${prefixCls}-masking-mask`, extraClass, maskClass)}
                             onClick={handleMaskAction}
-                            style={maskStyle}
+                            style={{ ...cssVariables, ...maskStyle }}
                         />
                     </Transition>
                     <Transition
@@ -371,7 +400,7 @@ const Masking = forwardRef((props: MaskingProps, ref: Ref<MaskingRef>) => {
                                 extraClass,
                                 contentClass,
                             )}
-                            style={contentStyle}
+                            style={{ ...cssVariables, ...contentStyle }}
                         >
                             {children}
                         </div>

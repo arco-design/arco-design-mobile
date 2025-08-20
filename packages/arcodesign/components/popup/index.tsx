@@ -50,8 +50,6 @@ export interface PopupProps extends MaskingCommonProps {
 
 export interface PopupRef extends MaskingRef {}
 
-const defaultTransitionTimeout = { enter: 450, exit: 240 };
-
 const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
     const {
         children,
@@ -62,8 +60,8 @@ const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
         direction = 'bottom',
         needBottomOffset = false,
         translateZ = false,
-        maskTransitionTimeout = defaultTransitionTimeout,
-        contentTransitionTimeout = defaultTransitionTimeout,
+        maskTransitionTimeout = { enter: 450, exit: 240 },
+        contentTransitionTimeout = { enter: 450, exit: 240 },
         maskStyle = {},
         contentStyle = {},
         ...restProps
@@ -72,49 +70,14 @@ const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
 
     useImperativeHandle(ref, () => maskingRef.current!);
 
-    const getDuration = (
-        timeout: MaskingCommonProps['maskTransitionTimeout'],
-        type: 'enter' | 'exit' | 'appear',
-    ) => {
-        if (typeof timeout === 'number') {
-            return timeout;
-        }
-        return timeout?.[type] || 0;
-    };
-
-    const getCssVariables = () => {
-        const maskEnterDuration = getDuration(maskTransitionTimeout, 'enter');
-        const contentEnterDuration = getDuration(contentTransitionTimeout, 'enter');
-        const maskExitDuration = getDuration(maskTransitionTimeout, 'exit');
-        const contentExitDuration = getDuration(contentTransitionTimeout, 'exit');
-        return {
-            '--popup-enter-transition': `all ${Math.max(
-                maskEnterDuration,
-                contentEnterDuration,
-            )}ms cubic-bezier(0.34, 0.69, 0.1, 1)`,
-            '--popup-exit-transition': `${Math.max(
-                maskExitDuration,
-                contentExitDuration,
-            )}ms cubic-bezier(0.34, 0.69, 0.1, 1)`,
-        };
-    };
-
-    const cssVariables = getCssVariables();
-
     function renderPopup({ prefixCls }) {
         const prefix = `${prefixCls}-popup`;
         return (
             <Masking
                 className={cls(prefix, className)}
                 ref={maskingRef}
-                maskStyle={{
-                    ...cssVariables,
-                    ...maskStyle,
-                }}
-                contentStyle={{
-                    ...cssVariables,
-                    ...contentStyle,
-                }}
+                maskStyle={maskStyle}
+                contentStyle={contentStyle}
                 maskClass={cls(`${prefix}-mask`, { translateZ }, maskClass)}
                 contentTransitionType={contentTransitionType || `slide-from-${direction}`}
                 contentClass={cls(
