@@ -62,8 +62,6 @@ const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
         translateZ = false,
         maskTransitionTimeout = { enter: 450, exit: 240 },
         contentTransitionTimeout = { enter: 450, exit: 240 },
-        maskStyle = {},
-        contentStyle = {},
         ...restProps
     } = props;
     const maskingRef = useRef<MaskingRef>(null);
@@ -76,8 +74,6 @@ const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
             <Masking
                 className={cls(prefix, className)}
                 ref={maskingRef}
-                maskStyle={maskStyle}
-                contentStyle={contentStyle}
                 maskClass={cls(`${prefix}-mask`, { translateZ }, maskClass)}
                 contentTransitionType={contentTransitionType || `slide-from-${direction}`}
                 contentClass={cls(
