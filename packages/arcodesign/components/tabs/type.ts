@@ -584,6 +584,11 @@ export interface TabCellProps
      * @en Does the touch event of the current TabBar require stopPropagation
      */
     tabBarStopPropagation: boolean;
+    /**
+     * underline 首次展示时的回调
+     * @en Callback when underline is first shown
+     */
+    onUnderlineFirstShow?: () => void;
 }
 
 export interface TabCellRef {

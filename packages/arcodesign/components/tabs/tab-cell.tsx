@@ -62,6 +62,7 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
         tabBarClass,
         translateZ,
         tabBarStopPropagation,
+        onUnderlineFirstShow,
     } = props;
     const prefix = `${prefixCls}-tab-cell`;
     const { useRtl } = useContext(GlobalContext);
@@ -136,6 +137,14 @@ const TabCell = forwardRef((props: TabCellProps, ref: Ref<TabCellRef>) => {
     useEffect(() => {
         updateScrollPosition();
     }, [activeIndex, wrapSize]);
+
+    useEffect(() => {
+        // underline 首次展示时，通知父组件启用 cellTrans
+        // @en When underline is first shown, notify parent component to enable cellTrans
+        if (showLine && onUnderlineFirstShow) {
+            onUnderlineFirstShow();
+        }
+    }, [showLine]);
 
     useUpdateEffect(() => {
         setCellOverflow();

@@ -334,6 +334,8 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
         if (scrollingRef.current && tabBarResetWhenScroll === 'touchend') {
             cellRef.current && cellRef.current.scrollToCenter();
         }
+        setCellTrans(true);
+        setPaneTrans(true);
         if (
             !touchStartedRef.current ||
             posAdjustingRef.current ||
@@ -343,8 +345,6 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
             return;
         }
         touchStartedRef.current = false;
-        setCellTrans(true);
-        setPaneTrans(true);
         const touchEndTime = new Date().getTime();
         const dis = distanceRef.current;
         const speed = (dis / (touchEndTime - touchStartTimeRef.current)) * 1000;
@@ -466,6 +466,7 @@ const Tabs = forwardRef((props: TabsProps, ref: Ref<TabsRef>) => {
                     tabBarStyle,
                     tabBarClass,
                     tabBarStopPropagation,
+                    onUnderlineFirstShow: () => setCellTrans(true),
                     ...commonProps,
                 };
                 const CellComp = <TabCell {...cellProps} />;
