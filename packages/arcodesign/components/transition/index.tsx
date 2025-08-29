@@ -1,5 +1,7 @@
-import React from 'react';
-import CSSTransition, { CSSTransitionProps } from 'react-transition-group/CSSTransition';
+import type { CSSProperties, ReactElement, ReactNode } from 'react';
+import React, { cloneElement, useMemo } from 'react';
+import type { CSSTransitionProps } from 'react-transition-group/CSSTransition';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import { ContextLayout } from '../context-provider';
 
 export type TransitionProps = Omit<CSSTransitionProps, 'timeout'> & {
@@ -7,7 +9,7 @@ export type TransitionProps = Omit<CSSTransitionProps, 'timeout'> & {
      * 待执行动画内容
      * @en Animation content to be executed
      */
-    children?: React.ReactNode;
+    children?: ReactNode;
     /**
      * 待执行动画css类名
      * @en Css classname of the animation to be executed
@@ -35,7 +37,15 @@ export type TransitionProps = Omit<CSSTransitionProps, 'timeout'> & {
      * @default true
      */
     unmountOnExit?: boolean;
+    /**
+     * 动画时长变量标识
+     * @en Animation duration variable identifier
+     * @default type 属性值
+     */
+    transitionVarType?: string;
 };
+
+const DEFAULT_TIMEOUT = 300;
 
 /**
  * react-transition-group/CSSTransition 的简单封装。
@@ -50,25 +60,34 @@ export default function Transition(props: TransitionProps) {
         children = <div />,
         type,
         in: transIn,
-        timeout = 300,
+        timeout = DEFAULT_TIMEOUT,
         mountOnEnter = true,
         unmountOnExit = true,
+        transitionVarType,
         ...restProps
     } = props;
+    const varPrefix = `builtin-transition-${transitionVarType || type}`;
 
-    const getDuration = (durationType: 'enter' | 'exit' | 'appear') => {
+    // 计算动画时长，支持对象形式的 timeout
+    const getDuration = (phase: 'appear' | 'enter' | 'exit') => {
         if (typeof timeout === 'number') {
             return timeout;
         }
-        return timeout?.[durationType] || 0;
+        return timeout[phase] || DEFAULT_TIMEOUT;
     };
 
-    const getCssVariables = () => ({
-        '--enter-transition-duration': `${getDuration('enter')}ms`,
-        '--exit-transition-duration': `${getDuration('exit')}ms`,
-    });
+    // 生成 CSS 变量样式
+    const cssVariables = useMemo(() => {
+        const enterDuration = getDuration('enter');
+        const exitDuration = getDuration('exit');
+        const appearDuration = getDuration('appear');
 
-    const cssVariables = getCssVariables();
+        return {
+            [`--${varPrefix}-enter-duration`]: `${enterDuration}ms`,
+            [`--${varPrefix}-exit-duration`]: `${exitDuration}ms`,
+            [`--${varPrefix}-appear-duration`]: `${appearDuration}ms`,
+        } as CSSProperties;
+    }, [timeout, varPrefix]);
 
     return (
         <ContextLayout>
@@ -82,7 +101,12 @@ export default function Transition(props: TransitionProps) {
                     style={cssVariables}
                     {...restProps}
                 >
-                    {children}
+                    {cloneElement(children as ReactElement, {
+                        style: {
+                            ...cssVariables,
+                            ...(children as ReactElement)?.props?.style,
+                        },
+                    })}
                 </CSSTransition>
             )}
         </ContextLayout>

@@ -1,7 +1,9 @@
-import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
+import type { Ref } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
-import Masking, { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
+import type { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
+import Masking from '../masking';
 import { open } from './methods';
 
 export * from './methods';
@@ -76,6 +78,7 @@ const Popup = forwardRef((props: PopupProps, ref: Ref<PopupRef>) => {
                 ref={maskingRef}
                 maskClass={cls(`${prefix}-mask`, { translateZ }, maskClass)}
                 contentTransitionType={contentTransitionType || `slide-from-${direction}`}
+                contentTransitionVarType="popup-slide"
                 contentClass={cls(
                     `${prefix}-content`,
                     direction,

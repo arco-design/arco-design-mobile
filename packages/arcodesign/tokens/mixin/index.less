@@ -110,9 +110,20 @@
  * ```
  */
 .use-var(@property, @variables, @preValues: '', @nextValues: '') {
-    @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
+    & when (@use-css-vars = 0) {
+        @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
+    }
     & when (@use-css-vars = 1) {
-        @{property}: ~"@{preValues}" ~"var(--@{variables})" ~"@{nextValues}";
+        @{property}: ~"@{preValues}" ~"var(--@{variables}, "@@variables~")" ~"@{nextValues}";
+    }
+}
+
+.use-transition-var(@transitionVariable, @backupVariable, @property: transition-duration) {
+    & when (@use-css-vars = 0) {
+        @{property}: ~"var(--@{transitionVariable}, "@@backupVariable~")";
+    }
+    & when (@use-css-vars = 1) {
+        @{property}: ~"var(--@{transitionVariable}, var(--@{backupVariable}, "@@backupVariable~"))";
     }
 }
 

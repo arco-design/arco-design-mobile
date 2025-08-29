@@ -9,7 +9,7 @@
     &-enter-active {
         opacity: 1;
         transition-property: opacity;
-        .use-var(transition-duration, transition-fade-duration);
+        .use-transition-var(builtin-transition-fade-enter-duration, transition-fade-duration);
     }
 
     &-exit {
@@ -19,7 +19,7 @@
     &-exit-active {
         opacity: 0;
         transition-property: opacity;
-        .use-var(transition-duration, transition-fade-duration);
+        .use-transition-var(builtin-transition-fade-exit-duration, transition-fade-duration);
     }
 
     &-exit-done {

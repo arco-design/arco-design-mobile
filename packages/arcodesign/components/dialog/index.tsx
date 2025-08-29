@@ -1,8 +1,11 @@
-import React, { forwardRef, Ref, useImperativeHandle, useRef, ReactNode } from 'react';
-import { cls, componentWrapper, ILocale } from '@arco-design/mobile-utils';
-import { Promise } from 'es6-promise';
+import type { Ref, ReactNode } from 'react';
+import React, { forwardRef, useImperativeHandle, useRef } from 'react';
+import type { ILocale } from '@arco-design/mobile-utils';
+import { cls, componentWrapper } from '@arco-design/mobile-utils';
+import type { Promise } from 'es6-promise';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
-import Masking, { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
+import type { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
+import Masking from '../masking';
 import { alert, confirm, open } from './methods';
 import { useSystem } from '../_helpers';
 
@@ -130,7 +133,7 @@ const Dialog = forwardRef((props: DialogProps, ref: Ref<DialogRef>) => {
         contentStyle,
         contentTransitionType = nowSystem === 'android' ? 'fade' : 'fade-scale',
         maskTransitionTimeout = 300,
-        contentTransitionTimeout = 450,
+        contentTransitionTimeout = nowSystem === 'android' ? 300 : { enter: 450, exit: 150 },
         extra,
         ...restProps
     } = props;
