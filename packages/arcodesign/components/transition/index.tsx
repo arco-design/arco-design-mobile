@@ -98,7 +98,6 @@ export default function Transition(props: TransitionProps) {
                     classNames={`${prefixCls}-${type}`}
                     mountOnEnter={mountOnEnter}
                     unmountOnExit={unmountOnExit}
-                    style={cssVariables}
                     {...restProps}
                 >
                     {cloneElement(children as ReactElement, {
