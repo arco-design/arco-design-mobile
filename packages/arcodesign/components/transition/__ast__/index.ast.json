@@ -93,6 +93,22 @@
             "type": {
                 "name": "boolean"
             }
+        },
+        "transitionVarType": {
+            "defaultValue": {
+                "value": "type 属性值"
+            },
+            "description": "动画时长变量标识\n@en Animation duration variable identifier",
+            "name": "transitionVarType",
+            "tags": {
+                "en": "Animation duration variable identifier",
+                "default": "type 属性值"
+            },
+            "descWithTags": "动画时长变量标识",
+            "required": false,
+            "type": {
+                "name": "string"
+            }
         }
     },
     "deps": {},
