@@ -1,19 +1,13 @@
-import React, {
-    useRef,
-    forwardRef,
-    Ref,
-    useImperativeHandle,
-    ReactNode,
-    CSSProperties,
-    useEffect,
-    useState,
-} from 'react';
+import type { Ref, ReactNode, CSSProperties } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle, useEffect, useState } from 'react';
 import { cls, nextTick, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import Portal from '../portal';
-import Transition, { TransitionProps } from '../transition';
+import type { TransitionProps } from '../transition';
+import Transition from '../transition';
 import { usePopupScroll, usePreventBodyScroll } from '../_helpers';
-import { open, OpenBaseProps } from './methods';
+import type { OpenBaseProps } from './methods';
+import { open } from './methods';
 
 export * from './methods';
 
@@ -65,6 +59,11 @@ export interface MaskingCommonProps {
      * @default "fade"
      */
     contentTransitionType?: string;
+    /**
+     * 内容过渡动画类名变量标识
+     * @en Content transition animation classname variable identifier
+     */
+    contentTransitionVarType?: string;
     /**
      * 菜单内部内容
      * @en Contents of menu
@@ -215,6 +214,7 @@ const Masking = forwardRef((props: MaskingProps, ref: Ref<MaskingRef>) => {
         children,
         maskTransitionType = 'fade',
         contentTransitionType = 'fade',
+        contentTransitionVarType,
         maskTransitionTimeout = 300,
         contentTransitionTimeout = 300,
         maskClosable = true,
@@ -359,6 +359,7 @@ const Masking = forwardRef((props: MaskingProps, ref: Ref<MaskingRef>) => {
                         in={innerVisible}
                         timeout={contentTransitionTimeout}
                         type={contentTransitionType}
+                        transitionVarType={contentTransitionVarType}
                         mountOnEnter={mountOnEnter}
                         unmountOnExit={unmountOnExit}
                         nodeRef={contentRef}

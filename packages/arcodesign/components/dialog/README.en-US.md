@@ -1,6 +1,6 @@
 ### FeedBack
 
-# Dialog 
+# Dialog
 
 A modal dialog, displayed in a floating layer, guides the user to perform related operations. By default, anti-scroll penetration processing is performed. If scrolling is required in the content of the bullet layer, you need to pass the scroll container to `getScrollContainer` to release scrolling when it is not scrolled to the top or bottom.
 
@@ -30,6 +30,7 @@ A modal dialog, displayed in a floating layer, guides the user to perform relate
 |visible|Whether to display the menu (controlled)|boolean|required|
 |close|Close menu method|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> void|required|
 |maskTransitionType|Mask transition animation classname|string|"fade"|
+|contentTransitionVarType|Content transition animation classname variable identifier|string|-|
 |children|Contents of menu|ReactNode|-|
 |maskClosable|Whether to click the mask to close the menu|boolean|true|
 |animatingClosable|Whether the menu can be closed by clicking on the mask when performing the entry animation|boolean|false|
@@ -116,6 +117,7 @@ A modal dialog, displayed in a floating layer, guides the user to perform relate
 |locale|Internationalized language configuration|ILocale|-|
 |useRtl|Whether to use rtl|boolean|false|
 |onDarkModeChange|Triggered when the system's native dark mode changes, valid when useDarkMode=true|(isDark: boolean) =\> void|-|
+|createRoot|Users using react 19 need to pass in the createRoot method from outside|CreateRootFnType|-|
 
 > ConfirmOptions
 

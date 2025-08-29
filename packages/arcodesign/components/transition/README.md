@@ -16,3 +16,4 @@ react-transition-group/CSSTransition 的简单封装。
 |timeout|执行动画时间|number \| \{ appear?: number; enter?: number; exit?: number; \}|必填|
 |mountOnEnter|是否在打开时再加载内容|boolean|true|
 |unmountOnExit|是否在退出时卸载内容|boolean|true|
+|transitionVarType|动画时长变量标识|string|type 属性值|

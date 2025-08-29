@@ -110,9 +110,38 @@
  * ```
  */
 .use-var(@property, @variables, @preValues: '', @nextValues: '') {
-    @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
+    & when (@use-css-vars = 0) {
+        @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
+    }
     & when (@use-css-vars = 1) {
-        @{property}: ~"@{preValues}" ~"var(--@{variables})" ~"@{nextValues}";
+        @{property}: ~"@{preValues}" ~"var(--@{variables}, "@@variables~")" ~"@{nextValues}";
+    }
+}
+
+/**
+ * 为属性设置 transition 变量
+ * @desc {en} set the transition variable for the attribute
+ * @param @transitionVariable transition 变量名
+ * @param @transitionVariable {en} transition variable name
+ * @param @backupVariable 备份变量名
+ * @param @backupVariable {en} backup variable name
+ * @param @property css属性名
+ * @param @property {en} css property
+ * @example
+ * ```
+ * @import '@arco-design/mobile-react/style/mixin.less';
+ *
+ * .demo {
+ *     .use-transition-var(builtin-transition-fade-enter-duration, transition-fade-duration);
+ * }
+ * ```
+ */
+.use-transition-var(@transitionVariable, @backupVariable, @property: transition-duration) {
+    & when (@use-css-vars = 0) {
+        @{property}: ~"var(--@{transitionVariable}, "@@backupVariable~")";
+    }
+    & when (@use-css-vars = 1) {
+        @{property}: ~"var(--@{transitionVariable}, var(--@{backupVariable}, "@@backupVariable~"))";
     }
 }
 

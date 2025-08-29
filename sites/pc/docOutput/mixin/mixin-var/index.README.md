@@ -146,9 +146,11 @@
 
 ```
 .use-var(@property, @variables, @preValues: '', @nextValues: '') {
-    @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
+    & when (@use-css-vars = 0) {
+        @{property}: ~"@{preValues}" @@variables ~"@{nextValues}";
+    }
     & when (@use-css-vars = 1) {
-        @{property}: ~"@{preValues}" ~"var(--@{variables})" ~"@{nextValues}";
+        @{property}: ~"@{preValues}" ~"var(--@{variables}, "@@variables~")" ~"@{nextValues}";
     }
 }
 ```

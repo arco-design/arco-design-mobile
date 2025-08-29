@@ -33,7 +33,7 @@ exports[`badge demo test badge demo: avatar.md renders correctly 1`] = `
       </div>
       <div
         class="arco-badge arco-badge-dot dot arco-badge-bordered bordered arco-badge-absolute absolute"
-        style="margin-left: -8px; margin-top: 4px;"
+        style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms; margin-left: -8px; margin-top: 4px;"
       />
     </div>
   </div>
@@ -53,7 +53,7 @@ exports[`badge demo test badge demo: define.md renders correctly 1`] = `
       >
         <div
           class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
-          style="background: rgb(255, 87, 34);"
+          style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms; background: rgb(255, 87, 34);"
         />
       </div>
       <div
@@ -70,7 +70,7 @@ exports[`badge demo test badge demo: define.md renders correctly 1`] = `
       >
         <div
           class="arco-badge arco-badge-absolute absolute"
-          style="border-radius: 8px 8px 8px 0;"
+          style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms; border-radius: 8px 8px 8px 0;"
         >
           <span
             class="arco-badge-text badge-text"
@@ -93,6 +93,7 @@ exports[`badge demo test badge demo: define.md renders correctly 1`] = `
       >
         <div
           class="arco-badge arco-badge-absolute absolute"
+          style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
         >
           <span
             class="arco-badge-text badge-text"
@@ -115,7 +116,7 @@ exports[`badge demo test badge demo: define.md renders correctly 1`] = `
       >
         <div
           class="arco-badge arco-badge-absolute absolute"
-          style="background: rgb(255, 87, 34);"
+          style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms; background: rgb(255, 87, 34);"
         >
           <span
             class="arco-badge-text badge-text"
@@ -151,6 +152,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             />
           </div>
           <div
@@ -167,6 +169,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-absolute absolute"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             >
               <span
                 class="arco-badge-text badge-text"
@@ -189,6 +192,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-absolute absolute"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             >
               <span
                 class="arco-badge-text badge-text"
@@ -211,6 +215,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-absolute absolute"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             >
               <span
                 class="arco-badge-text badge-text"
@@ -241,6 +246,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-absolute absolute"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             >
               <span
                 class="arco-badge-text badge-text"
@@ -263,6 +269,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-absolute absolute"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             >
               <span
                 class="arco-badge-text badge-text"
@@ -285,7 +292,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-absolute absolute"
-              style="padding: 0px; width: 16px; height: 16px;"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms; padding: 0px; width: 16px; height: 16px;"
             >
               <svg
                 class="arco-icon arco-icon-star-fill demo-icon"
@@ -316,6 +323,7 @@ exports[`badge demo test badge demo: index.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-absolute absolute"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             >
               <span
                 class="arco-badge-text badge-text"
@@ -364,6 +372,7 @@ exports[`badge demo test badge demo: list.md renders correctly 1`] = `
           >
             <div
               class="arco-badge arco-badge-dot dot"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             />
           </div>
           <div
@@ -403,6 +412,7 @@ exports[`badge demo test badge demo: list.md renders correctly 1`] = `
           >
             <div
               class="arco-badge"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             >
               <span
                 class="arco-badge-text badge-text"
@@ -448,6 +458,7 @@ exports[`badge demo test badge demo: list.md renders correctly 1`] = `
           >
             <div
               class="arco-badge"
+              style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
             >
               <span
                 class="arco-badge-text badge-text"
@@ -508,7 +519,7 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
                     List content
                     <div
                       class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
-                      style="margin-left: 0px;"
+                      style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms; margin-left: 0px;"
                     />
                   </span>
                 </div>
@@ -555,7 +566,7 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
                     List content
                     <div
                       class="arco-badge arco-badge-absolute absolute"
-                      style="margin-left: 2px;"
+                      style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms; margin-left: 2px;"
                     >
                       <span
                         class="arco-badge-text badge-text"
@@ -608,7 +619,7 @@ exports[`badge demo test badge demo: toggle.md renders correctly 1`] = `
                     List content
                     <div
                       class="arco-badge arco-badge-absolute absolute"
-                      style="margin-left: 2px;"
+                      style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms; margin-left: 2px;"
                     >
                       <span
                         class="arco-badge-text badge-text"
