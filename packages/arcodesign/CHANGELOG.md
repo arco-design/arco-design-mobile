@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.38.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.37.0...@arco-design/mobile-react@2.38.0) (2025-09-01)
+
+
+### Bug Fixes
+
+* `PopupSwiper` animation loss issue & add faq ([#338](https://github.com/arco-design/arco-design-mobile/issues/338)) ([12f1f0c](https://github.com/arco-design/arco-design-mobile/commit/12f1f0cc4b93bc698d365ba64c2c0e0413a2e0f3))
+* `Tabs` underline initial transition ([#344](https://github.com/arco-design/arco-design-mobile/issues/344)) ([62ea305](https://github.com/arco-design/arco-design-mobile/commit/62ea305e83b15244755436253e6b053f07d10443))
+
+
+### Features
+
+* `Transition` support changing timeout by component props ([#341](https://github.com/arco-design/arco-design-mobile/issues/341)) ([0337ba1](https://github.com/arco-design/arco-design-mobile/commit/0337ba1685ed3cc0f3268ab56207d466deb62754))
+
+
+
+
+
 # [2.37.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.36.2...@arco-design/mobile-react@2.37.0) (2025-06-17)
 
 

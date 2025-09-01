@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.23.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.22.0...@arco-design/mobile-utils@2.23.0) (2025-09-01)
+
+
+### Features
+
+* add new locales "zh-TW", "zh-HK" and "zh-YUE" ([#346](https://github.com/arco-design/arco-design-mobile/issues/346)) ([62bd07f](https://github.com/arco-design/arco-design-mobile/commit/62bd07fb798c2f1b7f99089abcaec9ff01dc172b))
+
+
+
+
+
 # [2.22.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.21.2...@arco-design/mobile-utils@2.22.0) (2025-06-17)
 
 
