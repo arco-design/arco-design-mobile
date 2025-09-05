@@ -1,4 +1,4 @@
-import { ILocale } from './type';
+import type { ILocale } from './type';
 
 const defaultMessageTemplate = '%s 唔係 %s 類型';
 const localeConfig: ILocale = {
