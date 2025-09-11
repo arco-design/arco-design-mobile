@@ -30,7 +30,7 @@ exports[`skeleton demo test skeleton demo: animation.md renders correctly 1`] = 
               <div
                 aria-checked="true"
                 aria-disabled="false"
-                class="arco-switch all-border-box type-pc system-pc fully checked"
+                class="arco-switch all-border-box type-ios system-pc fully checked"
                 role="switch"
                 tabindex="0"
               >
@@ -223,7 +223,7 @@ exports[`skeleton demo test skeleton demo: custom.md renders correctly 1`] = `
               <div
                 aria-checked="true"
                 aria-disabled="false"
-                class="arco-switch all-border-box type-pc system-pc fully checked"
+                class="arco-switch all-border-box type-ios system-pc fully checked"
                 role="switch"
                 tabindex="0"
               >
