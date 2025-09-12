@@ -19,6 +19,7 @@
 |locale|国际化语言包配置|ILocale|-|
 |useRtl|是否使用Rtl模式|boolean|false|
 |onDarkModeChange|当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效|(isDark: boolean) =\> void|-|
+|createRoot|React19 修改了 createRoot 的引入路径，导致组件内部无法直接引入（低react版本会找不到模块）。因此使用 react 19 的用户需从外部传入 createRoot 方法|CreateRootFnType|-|
 
 > ILocale
 

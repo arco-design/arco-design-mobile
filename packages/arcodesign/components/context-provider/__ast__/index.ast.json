@@ -196,6 +196,23 @@
             "type": {
                 "name": "(isDark: boolean) => void"
             }
+        },
+        "createRoot": {
+            "defaultValue": null,
+            "description": "React19 修改了 createRoot 的引入路径，导致组件内部无法直接引入（低react版本会找不到模块）。因此使用 react 19 的用户需从外部传入 createRoot 方法\n@en Users using react 19 need to pass in the createRoot method from outside",
+            "name": "createRoot",
+            "tags": {
+                "en": "Users using react 19 need to pass in the createRoot method from outside"
+            },
+            "descWithTags": "React19 修改了 createRoot 的引入路径，导致组件内部无法直接引入（低react版本会找不到模块）。因此使用 react 19 的用户需从外部传入 createRoot 方法",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/context-provider/index.tsx",
+                "name": "GlobalContextParams"
+            },
+            "required": false,
+            "type": {
+                "name": "CreateRootFnType"
+            }
         }
     },
     "deps": {

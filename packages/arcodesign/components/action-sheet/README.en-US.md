@@ -30,6 +30,7 @@ ActionSheet Component
 |contentClass|Custom content classname|string|-|
 |contentStyle|Custom content stylesheet|CSSProperties|-|
 |maskTransitionType|Mask transition animation classname|string|"fade"|
+|contentTransitionVarType|Content transition animation classname variable identifier|string|-|
 |maskClosable|Whether to click the mask to close the menu|boolean|true|
 |animatingClosable|Whether the menu can be closed by clicking on the mask when performing the entry animation|boolean|false|
 |mountOnEnter|Whether to reload content when the menu is opened|boolean|true|
@@ -76,6 +77,7 @@ ActionSheet Component
 |locale|Internationalized language configuration|ILocale|-|
 |useRtl|Whether to use rtl|boolean|false|
 |onDarkModeChange|Triggered when the system's native dark mode changes, valid when useDarkMode=true|(isDark: boolean) =\> void|-|
+|createRoot|Users using react 19 need to pass in the createRoot method from outside|CreateRootFnType|-|
 
 > ILocale
 

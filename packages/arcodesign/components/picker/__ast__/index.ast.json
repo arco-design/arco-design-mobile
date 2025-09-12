@@ -649,6 +649,23 @@
                 "name": "string"
             }
         },
+        "contentTransitionVarType": {
+            "defaultValue": null,
+            "description": "内容过渡动画类名变量标识\n@en Content transition animation classname variable identifier",
+            "name": "contentTransitionVarType",
+            "tags": {
+                "en": "Content transition animation classname variable identifier"
+            },
+            "descWithTags": "内容过渡动画类名变量标识",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
         "animatingClosable": {
             "defaultValue": {
                 "value": "false"
