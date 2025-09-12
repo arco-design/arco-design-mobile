@@ -1,6 +1,6 @@
-import { InputHTMLAttributes } from 'react';
-import { ImageProps } from '../image';
-import { UploadCommonProps, CommonFileItem } from '../uploader/upload/type';
+import type { InputHTMLAttributes } from 'react';
+import type { ImageProps } from '../image';
+import type { UploadCommonProps, CommonFileItem } from '../uploader/upload/type';
 
 export interface ImagePickItem extends CommonFileItem {
     /**
@@ -10,7 +10,8 @@ export interface ImagePickItem extends CommonFileItem {
     url: string;
 }
 
-export interface ImagePickerProps extends Omit<UploadCommonProps<ImagePickItem>, 'files'> {
+export interface ImagePickerProps
+    extends Omit<UploadCommonProps<ImagePickItem>, 'files' | 'onUploadClick'> {
     /**
      * 自定义类名
      * @en Custom className
@@ -103,10 +104,16 @@ export interface ImagePickerProps extends Omit<UploadCommonProps<ImagePickItem>,
      */
     renderLoading?: (index?: number) => React.ReactNode | React.ReactNode;
     /**
+     * 选图点击事件(同onUploadClick)
+     * @en Select icon click event(same as onUploadClick)
+     * @deprecated Please use onUploadClick instead
+     */
+    onSelectClick?: () => void;
+    /**
      * 选图点击事件
      * @en Select icon click event
      */
-    onSelectClick?: () => void;
+    onUploadClick?: () => void;
 }
 
 export interface ImagePickerRef {
