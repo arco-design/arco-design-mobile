@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.38.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.38.0...@arco-design/mobile-react@2.38.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* `ImagePicker` rename `onUploadClick` ([#350](https://github.com/arco-design/arco-design-mobile/issues/350)) ([5b7f427](https://github.com/arco-design/arco-design-mobile/commit/5b7f42761af545663ba448b3a4efd927c7954ebb))
+
+
+
+
+
 # [2.38.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.37.0...@arco-design/mobile-react@2.38.0) (2025-09-01)
 
 
