@@ -127,6 +127,7 @@ string | { [x: string]: any; title: ReactNode; }
 |distance|Finger sliding distance|number|required|
 |jumpingDis|The distance the underline has been swiped|number|required|
 |tabBarStopPropagation|Does the touch event of the current TabBar require stopPropagation|boolean|required|
+|onUnderlineFirstShow|Callback when underline is first shown|() =\> void|-|
 |tabs|Array of TabBar content, additional data can be appended in addition to the required fields|TabData\[\]|required|
 |disabled|Whether to disable switching, including clicking TabBar switching and sliding switching|boolean|-|
 |tabBarPosition|Tabbar position|"top" \| "bottom" \| "left" \| "right"|"top"|

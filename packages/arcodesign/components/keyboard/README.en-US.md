@@ -38,6 +38,7 @@ Keyboard component
 |contentStyle|Custom content stylesheet|CSSProperties|-|
 |visible|Whether to display the menu (controlled)|boolean|required|
 |maskTransitionType|Mask transition animation classname|string|"fade"|
+|contentTransitionVarType|Content transition animation classname variable identifier|string|-|
 |children|Contents of menu|ReactNode|-|
 |maskClosable|Whether to click the mask to close the menu|boolean|true|
 |animatingClosable|Whether the menu can be closed by clicking on the mask when performing the entry animation|boolean|false|

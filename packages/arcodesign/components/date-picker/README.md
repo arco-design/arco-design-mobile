@@ -38,6 +38,7 @@
 |contentClass|自定义内容类名|string|-|
 |contentStyle|自定义内容样式|CSSProperties|-|
 |maskTransitionType|蒙层过渡动画类名|string|"fade"|
+|contentTransitionVarType|内容过渡动画类名变量标识|string|-|
 |animatingClosable|执行进场动画时点击蒙层是否可关闭菜单|boolean|false|
 |mountOnEnter|是否在打开菜单时再加载内容|boolean|true|
 |unmountOnExit|是否在退出时卸载内容|boolean|true|

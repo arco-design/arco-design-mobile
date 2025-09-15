@@ -1,6 +1,6 @@
 ### Data Entry
 
-# Form
+# Form 
 
 Form, Form for collecting data input
 
@@ -39,10 +39,10 @@ Form, Form for collecting data input
 |required|Whether Form item is required|boolean|-|
 |disabled|Whether Form item is disabled|boolean|-|
 |layout|Form item layout|"horizontal" \| "vertical" \| "inline"|"horizontal"|
-|children|Form item children|Element|required|
+|children|Form item children|ReactElement\<any, string \| ((props: any) =\> ReactElement\<any, any\>) \| (new (props: any) =\> Component\<any, any, any\>)\>|required|
 |shouldUpdate|Form item is updated|IShouldUpdateFunc|-|
 |rules|Form item rules|IRules\[\]|-|
-|extra|Form item extra node|Element|-|
+|extra|Form item extra node|ReactElement\<any, string \| ((props: any) =\> ReactElement\<any, any\>) \| (new (props: any) =\> Component\<any, any, any\>)\>|-|
 |trigger|The function name when updating data|string|"onChange"|
 |requiredIcon|The required icon node|ReactNode|-|
 |initialValue|The initial value of form item|any|-|
@@ -70,14 +70,6 @@ Form, Form for collecting data input
 |warnings|-|ReactNode\[\]|
 |field|-|string|
 |dom|-|HTMLDivElement|
-
-> Element
-
-|Property|Description|Type|
-|----------|-------------|------|
-|type|-|any|
-|props|-|any|
-|key|-|ReactText|
 
 > IRules
 

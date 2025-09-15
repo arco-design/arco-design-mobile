@@ -32,6 +32,7 @@
 |visible|是否展示菜单（受控）|boolean|必填|
 |close|关闭菜单方法|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> void|必填|
 |maskTransitionType|蒙层过渡动画类名|string|"fade"|
+|contentTransitionVarType|内容过渡动画类名变量标识|string|-|
 |children|菜单内部内容|ReactNode|-|
 |maskClosable|点击蒙层是否关闭菜单|boolean|true|
 |animatingClosable|执行进场动画时点击蒙层是否可关闭菜单|boolean|false|
@@ -82,6 +83,7 @@
 |locale|国际化语言包配置|ILocale|-|
 |useRtl|是否使用Rtl模式|boolean|false|
 |onDarkModeChange|当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效|(isDark: boolean) =\> void|-|
+|createRoot|React19 修改了 createRoot 的引入路径，导致组件内部无法直接引入（低react版本会找不到模块）。因此使用 react 19 的用户需从外部传入 createRoot 方法|CreateRootFnType|-|
 
 > ILocale
 
