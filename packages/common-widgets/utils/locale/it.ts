@@ -81,7 +81,7 @@ const localeConfig: ILocale = {
             min: '%s deve essere almeno %s caratteri',
             len: '%s deve essere esattamente %s caratteri',
             equal: '%s deve essere uguale a `%s`',
-            match: '`%s` non corrisponde al pattern %s',
+            match: '`%s` non corrisponde al formato %s',
             uppercase: '%s deve essere tutto maiuscolo',
             lowercase: '%s deve essere tutto minuscolo',
             whitespace: '%s non può essere una stringa di spazi vuoti',
