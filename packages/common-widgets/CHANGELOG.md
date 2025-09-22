@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.23.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.1...@arco-design/mobile-utils@2.23.2) (2025-09-22)
+
+
+### Bug Fixes
+
+* add new locale "it" ([#352](https://github.com/arco-design/arco-design-mobile/issues/352)) ([d36d773](https://github.com/arco-design/arco-design-mobile/commit/d36d77397aae0225d471f010205cf13ea1c96e5e))
+
+
+
+
+
 ## [2.23.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.0...@arco-design/mobile-utils@2.23.1) (2025-09-15)
 
 
