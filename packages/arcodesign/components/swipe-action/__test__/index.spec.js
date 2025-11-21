@@ -90,12 +90,17 @@ describe('SwipeAction', () => {
             </SwipeAction>,
         );
         const wrapper = ref.current;
-        wrapper.open('left');
+        act(() => {
+            wrapper.open('left');
+        });
         await act(async () => {
             await jest.advanceTimersByTime(500);
         });
         expect(mockOpenFn).toBeCalled();
-        wrapper.close();
+
+        act(() => {
+            wrapper.close();
+        });
         await act(async () => {
             await jest.advanceTimersByTime(500);
         });

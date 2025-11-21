@@ -10,58 +10,56 @@ import '@testing-library/jest-dom';
 const prefix = `${defaultContext.prefixCls}-dropdown`;
 const buttonPrefix = `${defaultContext.prefixCls}-button`;
 
-
 demoTest('dropdown');
 
 mountTest(Dropdown, 'Dropdown');
 
 const options = [
-  {
-    label: 'title1',
-    value: 0,
-    disabled: false,
-  },
-  {
-    label: 'title2',
-    value: 1,
-  },
-  {
-    label: 'title3',
-    value: 2,
-    disabled: true,
-  }
+    {
+        label: 'title1',
+        value: 0,
+        disabled: false,
+    },
+    {
+        label: 'title2',
+        value: 1,
+    },
+    {
+        label: 'title3',
+        value: 2,
+        disabled: true,
+    },
 ];
 
-
-function TestDemo () {
+function TestDemo() {
     const [value, setValue] = React.useState(false);
-        return (
-            <div>
-                <Button onClick={() => setValue(!value)}>Click Me</Button>
-                <Dropdown
-                    touchToClose={false}
-                    useColumn={3}
-                    multiple={true}
-                    defaultSelectedValue={[0]}
-                    options={options}
-                    height={300}
-                    showDropdown={value}
-                    onOptionClick={() => { console.info('click'); }}
-                    onOptionChange={(value, item) => {
-                        console.info(value, item);
-                        setValue(false);
-                    }}
-                    onCancel={() => setValue(false)}
-                />
-            </div>
-        );
+    return (
+        <div>
+            <Button onClick={() => setValue(!value)}>Click Me</Button>
+            <Dropdown
+                touchToClose={false}
+                useColumn={3}
+                multiple={true}
+                defaultSelectedValue={[0]}
+                options={options}
+                height={300}
+                showDropdown={value}
+                onOptionClick={() => {
+                    console.info('click');
+                }}
+                onOptionChange={(value, item) => {
+                    console.info(value, item);
+                    setValue(false);
+                }}
+                onCancel={() => setValue(false)}
+            />
+        </div>
+    );
 }
 
 describe('Dropdown', () => {
     it('should open correctly', async () => {
-        const { container } = render(
-            <TestDemo />
-        );
+        const { container } = render(<TestDemo />);
         expect(document.querySelector(`.${prefix}`)).toBeNull();
         fireEvent.click(container.querySelector(`.${buttonPrefix}`));
         await waitFor(
@@ -73,9 +71,7 @@ describe('Dropdown', () => {
     });
 
     it('can be properly closed', async () => {
-        const { container } = render(
-            <TestDemo />
-        );
+        const { container } = render(<TestDemo />);
         expect(document.querySelector(`.${prefix}`)).toBeNull();
         fireEvent.click(container.querySelector(`.${buttonPrefix}`));
         await waitFor(
@@ -92,5 +88,4 @@ describe('Dropdown', () => {
             { timeout: 1000 },
         );
     });
-
-})
+});

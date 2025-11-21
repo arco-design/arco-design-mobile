@@ -94,6 +94,10 @@ describe('ImagePreview', () => {
     });
 
     afterEach(() => {
+        act(() => {
+            jest.runAllTimers();
+        });
+
         jest.useRealTimers();
     });
 
@@ -159,7 +163,9 @@ describe('ImagePreview', () => {
             height: 700,
         });
         expect(document.querySelector(`.${prefix}`)).not.toBeNull();
-        fireEvent.click(document.querySelector('.image-container img'));
+        act(() => {
+            fireEvent.click(document.querySelector('.image-container img'));
+        });
         pureDelay(300);
         expect(document.querySelector('.closing-animation')).not.toBeNull();
         await waitFor(

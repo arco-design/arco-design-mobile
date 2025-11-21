@@ -10,7 +10,7 @@ import {
 } from '../../../tests/helpers/mockEvent';
 import { defaultContext } from '../../context-provider';
 
-demoTest('pull-refresh');
+demoTest('pull-refresh', { useFakeTimers: true });
 
 mountTest(PullRefresh, 'PullRefresh');
 
@@ -22,6 +22,7 @@ describe('PullRefresh', () => {
     });
 
     afterEach(() => {
+        act(() => jest.runAllTimers());
         jest.useRealTimers();
     });
 

@@ -247,7 +247,7 @@ describe('Popover', () => {
             height: 90,
         }));
         updatePopoverPosition(ref);
-        expect(document.querySelector('.popover-content')).toHaveClass('bottomLeft')
+        expect(document.querySelector('.popover-content')).toHaveClass('bottomLeft');
         unsetProperties();
     });
 

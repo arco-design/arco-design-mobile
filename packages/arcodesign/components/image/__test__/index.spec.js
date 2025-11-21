@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
@@ -150,7 +150,7 @@ describe('Image', () => {
         const img = screen.getByRole('img');
         fireEvent.error(img);
         expect(onAutoRetry).toBeCalled();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(onLoadError).not.toBeCalled();
         const imgNew = screen.getByRole('img');
 
@@ -173,7 +173,7 @@ describe('Image', () => {
             <Image boxWidth={100} boxHeight={200} fit="preview-x" src={imgUrl} onLoad={onLoad} />,
         );
         onloadRef();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(onLoad).toBeCalled();
         const imgWrapper = container.querySelector('.image-container');
         expect(imgWrapper).toHaveClass('loaded');
@@ -193,7 +193,7 @@ describe('Image', () => {
         );
         ref.current.retry();
         onloadRef();
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(screen.getByRole('img')).toHaveClass('preview-overflow-y');
     });
 });
