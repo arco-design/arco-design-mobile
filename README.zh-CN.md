@@ -85,7 +85,8 @@ ReactDOM.render(<App />, document.getElementById('app'));
 {
   "mcpServers": {
     "context7": {
-      "url": "https://mcp.context7.com/mcp"
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
     }
   }
 }
