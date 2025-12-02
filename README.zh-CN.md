@@ -73,6 +73,30 @@ function App() {
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
+# 在 LLM 中使用
+
+- 推荐：[Context7](https://context7.com/arco-design/arco-design-mobile)，获取最新文档与代码示例
+- 备选：[GitMCP](https://gitmcp.io) 等同类 MCP 服务
+- 完整指南：<https://arco.design/mobile/react/arco-design/pc/#/doc/llm>
+
+快速配置（Cursor）：
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
+```
+
+提示词示例：
+
+```text
+使用 Arco Design Mobile 创建一个带按钮和弹窗的页面，使用 context7
+```
+
 # 相关链接
 
 * [官方文档](https://arco.design/mobile/react)
