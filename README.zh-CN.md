@@ -77,7 +77,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 - 推荐：[Context7](https://context7.com/arco-design/arco-design-mobile)，获取最新文档与代码示例
 - 备选：[GitMCP](https://gitmcp.io) 等同类 MCP 服务
-- 完整指南：<https://arco.design/mobile/react/arco-design/pc/#/doc/llm>
+- 完整指南：<https://arco.design/mobile/react/arco-design/pc/#/doc/use-llm>
 
 快速配置（Cursor）：
 
