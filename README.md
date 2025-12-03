@@ -77,7 +77,7 @@ ReactDOM.render(<App />, document.getElementById('app'));
 
 - Recommended: [Context7](https://context7.com/arco-design/arco-design-mobile) for up-to-date docs and code examples
 - Alternative: [GitMCP](https://gitmcp.io) or similar MCP services
-- Full guide: https://arco.design/mobile/react/arco-design/pc/#/doc/llm
+- Full guide: <https://arco.design/mobile/react/arco-design/pc/#/doc/llm>
 
 Quick setup (Cursor):
 
