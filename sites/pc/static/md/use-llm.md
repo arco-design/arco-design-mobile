@@ -81,13 +81,13 @@ Arco Design Mobile 已在 Context7 注册：
 安装完成后，在你的提示词中添加 `use context7` 即可自动获取相关文档：
 
 ```
-使用 Arco Design Mobile 实现一个带下拉刷新的列表页面 use context7
+使用 Arco Design Mobile 实现一个带下拉刷新的列表页面，使用 context7
 ```
 
 或者直接指定库 ID：
 
 ```
-实现一个移动端表单页面 use library /arco-design/arco-design-mobile
+实现一个移动端表单页面，使用 library /arco-design/arco-design-mobile
 ```
 
 ### 设置自动规则（推荐）
