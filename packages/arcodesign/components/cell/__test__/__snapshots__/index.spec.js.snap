@@ -392,7 +392,7 @@ exports[`cell demo test cell demo: group.md renders correctly 1`] = `
       class="cell-group-body bordered"
     >
       <div
-        class="arco-cell all-border-box bordered"
+        class="arco-cell all-border-box bordered arco-cell-clickable"
       >
         <div
           class="arco-cell-inner"
@@ -427,7 +427,7 @@ exports[`cell demo test cell demo: group.md renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="arco-cell all-border-box bordered"
+        class="arco-cell all-border-box bordered arco-cell-clickable"
       >
         <div
           class="arco-cell-inner"
@@ -462,7 +462,7 @@ exports[`cell demo test cell demo: group.md renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="arco-cell all-border-box bordered"
+        class="arco-cell all-border-box bordered arco-cell-clickable"
       >
         <div
           class="arco-cell-inner"
@@ -826,7 +826,7 @@ exports[`cell demo test cell demo: icon.md renders correctly 1`] = `
 exports[`cell demo test cell demo: index.md renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="arco-cell all-border-box without-group"
+    class="arco-cell all-border-box without-group arco-cell-without-group"
   >
     <div
       class="arco-cell-inner"
@@ -956,7 +956,7 @@ exports[`cell demo test cell demo: text.md renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="arco-cell all-border-box bordered"
+        class="arco-cell all-border-box bordered arco-cell-clickable"
       >
         <div
           class="arco-cell-inner"

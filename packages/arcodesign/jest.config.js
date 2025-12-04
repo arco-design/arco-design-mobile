@@ -20,8 +20,8 @@ module.exports = {
     transformIgnorePatterns: ['/node_modules/'],
     coverageThreshold: {
         global: {
-          lines: 80,
-          statements: 80,
+            lines: 80,
+            statements: 80,
         },
-      },
+    },
 };

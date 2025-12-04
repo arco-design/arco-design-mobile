@@ -1,16 +1,11 @@
-import React, {
-    useRef,
-    forwardRef,
-    Ref,
-    useImperativeHandle,
-    ReactNode,
-    CSSProperties,
-} from 'react';
+import type { Ref, ReactNode, CSSProperties } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
-import { Promise } from 'es6-promise';
+import type { Promise } from 'es6-promise';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
-import Popup, { PopupProps, PopupRef } from '../popup';
-import { OpenBaseProps } from '../masking';
+import type { PopupProps, PopupRef } from '../popup';
+import Popup from '../popup';
+import type { OpenBaseProps } from '../masking';
 import { open } from './methods';
 
 export interface ActionSheetItemOptions {
@@ -44,10 +39,7 @@ export interface ActionSheetItemOptions {
 }
 
 export interface ActionSheetProps
-    extends Omit<
-        PopupProps,
-        'children' | 'getScrollContainer' | 'orientationDirection' | 'direction'
-    > {
+    extends Omit<PopupProps, 'children' | 'orientationDirection' | 'direction'> {
     /**
      * 选项配置，详情见 ActionSheetItemOptions
      * @en Option setting, see ActionSheetItemOptions for details
@@ -76,12 +68,12 @@ export interface ActionSheetProps
     needBottomOffset?: boolean;
 }
 
-export interface ActionSheetRef {
+export interface ActionSheetRef extends PopupRef {
     /**
-     * 最外层元素 DOM
+     * 菜单列表元素 DOM
      * @en The outermost element DOM
      */
-    dom: HTMLDivElement | null;
+    actionList: HTMLDivElement | null;
 }
 
 const ActionSheet = forwardRef((props: ActionSheetProps, ref: Ref<ActionSheetRef>) => {
@@ -96,8 +88,12 @@ const ActionSheet = forwardRef((props: ActionSheetProps, ref: Ref<ActionSheetRef
         ...otherProps
     } = props;
     const popupRef = useRef<PopupRef>(null);
+    const listRef = useRef<HTMLDivElement>(null);
 
-    useImperativeHandle(ref, () => popupRef.current!);
+    useImperativeHandle(ref, () => ({
+        ...popupRef.current!,
+        actionList: listRef.current,
+    }));
 
     function handleItemClick(
         e: React.MouseEvent<HTMLElement, MouseEvent>,
@@ -139,7 +135,7 @@ const ActionSheet = forwardRef((props: ActionSheetProps, ref: Ref<ActionSheetRef
                             ) : null}
                         </div>
                     ) : null}
-                    <div className={`${prefixCls}-action-sheet-list`}>
+                    <div className={`${prefixCls}-action-sheet-list`} ref={listRef}>
                         {(items || []).map((item, index) =>
                             item.content ? (
                                 <div

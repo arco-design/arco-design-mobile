@@ -41,12 +41,17 @@
 |onMaskClick|点击蒙层回调，maskClosable=false时也会触发|() =\> void|-|
 |onTouchMove|弹窗的touchmove回调|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> void|-|
 |onPreventTouchMove|非滚动区域或滚动到顶部及底部时的触摸事件回调|(e: TouchEvent, direction: "x" \| "y") =\> void|-|
+|getScrollContainer|内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动|() =\> HTMLElement \| HTMLElement\[\]|-|
 
 > 引用/Refs
 
 |参数|描述|类型|
 |----------|-------------|------|
+|actionList|菜单列表元素 DOM|HTMLDivElement|
 |dom|最外层元素 DOM|HTMLDivElement|
+|mask|蒙层 DOM|HTMLDivElement|
+|content|内容 DOM|HTMLDivElement|
+|setCloseScene|在关闭弹窗前修改 onClose 的 scene 参数值|(scene: string) =\> void|
 
 > 方法/Methods
 
