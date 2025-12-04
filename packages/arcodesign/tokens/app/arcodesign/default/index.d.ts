@@ -488,6 +488,8 @@ export interface ArcodesignToken extends Record<string, string> {
     'cell-arrow-font-size': string;
     'dark-cell-background-color': string;
     'cell-background-color': string;
+    'dark-cell-clickable-background-color': string;
+    'cell-clickable-background-color': string;
     'cell-font-size': string;
     'cell-horizontal-padding': string;
     'cell-item-height': string;

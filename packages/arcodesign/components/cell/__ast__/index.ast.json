@@ -217,6 +217,26 @@
                 "name": "boolean"
             }
         },
+        "clickable": {
+            "defaultValue": {
+                "value": "false"
+            },
+            "description": "是否启用点击态效果\n@en Whether to enable click effect",
+            "name": "clickable",
+            "tags": {
+                "en": "Whether to enable click effect",
+                "default": "false"
+            },
+            "descWithTags": "是否启用点击态效果",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/cell/type.ts",
+                "name": "CellProps"
+            },
+            "required": false,
+            "type": {
+                "name": "boolean"
+            }
+        },
         "onClick": {
             "defaultValue": null,
             "description": "点击单元格事件回调\n@en Callback for cell click event",
@@ -589,6 +609,22 @@
                             "default": "true"
                         },
                         "descWithTags": "是否有外边框"
+                    },
+                    "clickable": {
+                        "name": "clickable",
+                        "required": false,
+                        "description": "是否启用点击态效果\n@en Whether to enable click effect",
+                        "defaultValue": {
+                            "value": "false"
+                        },
+                        "type": {
+                            "name": "boolean"
+                        },
+                        "tags": {
+                            "en": "Whether to enable click effect",
+                            "default": "false"
+                        },
+                        "descWithTags": "是否启用点击态效果"
                     },
                     "onClick": {
                         "name": "onClick",

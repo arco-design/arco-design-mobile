@@ -9,7 +9,7 @@ export default function CellDemo() {
     return (<>
         <Cell.Group>
             <Cell label="List Content" text="Description" />
-            <Cell label="List Content" text="Description" showArrow />
+            <Cell label="List Content" text="Description" showArrow clickable />
         </Cell.Group>
     </>);
 }

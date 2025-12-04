@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import type React from 'react';
 
 export interface CellProps {
     /**
@@ -61,6 +62,12 @@ export interface CellProps {
      * @default true
      */
     bordered?: boolean;
+    /**
+     * 是否启用点击态效果
+     * @en Whether to enable click effect
+     * @default false
+     */
+    clickable?: boolean;
     /**
      * 点击单元格事件回调
      * @en Callback for cell click event

@@ -1974,6 +1974,11 @@ function getCompTokens() {
          */
         cellBackgroundColor: useGlobal('containerBackgroundColor'),
         /**
+         * 单元格点击态背景色
+         * @en Cell clickable background color
+         */
+        cellClickableBackgroundColor: useGlobal('cardBackgroundColor'),
+        /**
          * 单元格标签文字大小
          * @en Cell font size
          */
