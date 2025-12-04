@@ -57,7 +57,7 @@ exports[`image-preview demo test image-preview demo: bounds.md renders correctly
 exports[`image-preview demo test image-preview demo: index.md renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="arco-cell all-border-box without-group"
+    class="arco-cell all-border-box without-group arco-cell-without-group"
   >
     <div
       class="arco-cell-inner"

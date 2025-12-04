@@ -68,4 +68,26 @@ describe('Cell', () => {
         userEvent.click(screen.getByText('contentClick'));
         expect(mockFn).toHaveBeenCalled();
     });
+
+    it('Cell clickable property works correctly', () => {
+        // 测试clickable=true时添加正确的类名
+        const { container: clickableWrapper } = render(
+            <Cell label="clickable cell" clickable />
+        );
+        expect(clickableWrapper.querySelector(`.${prefix}-clickable`)).toBeTruthy();
+
+        // 测试clickable=false/默认时不添加类名
+        const { container: nonClickableWrapper } = render(
+            <Cell label="non-clickable cell" />
+        );
+        expect(nonClickableWrapper.querySelector(`.${prefix}-clickable`)).toBeFalsy();
+
+        // 测试clickable属性与onClick事件同时工作
+        const mockFn = jest.fn();
+        render(
+            <Cell label="clickable with onClick" clickable onClick={mockFn} />
+        );
+        userEvent.click(screen.getByText('clickable with onClick'));
+        expect(mockFn).toHaveBeenCalled();
+    });
 });

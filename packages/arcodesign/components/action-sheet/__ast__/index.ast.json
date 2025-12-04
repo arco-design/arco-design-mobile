@@ -621,6 +621,23 @@
                 "name": "(e: TouchEvent, direction: \"x\" | \"y\") => void"
             }
         },
+        "getScrollContainer": {
+            "defaultValue": null,
+            "description": "内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动\n@en Container of inner scroll area in content, scroll is released when not scrolled to the top or bottom in this container",
+            "name": "getScrollContainer",
+            "tags": {
+                "en": "Container of inner scroll area in content, scroll is released when not scrolled to the top or bottom in this container"
+            },
+            "descWithTags": "内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/masking/index.tsx",
+                "name": "MaskingCommonProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => HTMLElement | HTMLElement[]"
+            }
+        },
         "ref": {
             "defaultValue": null,
             "description": "",
@@ -718,6 +735,19 @@
             }
         },
         "ActionSheetRef": {
+            "actionList": {
+                "name": "actionList",
+                "required": true,
+                "description": "菜单列表元素 DOM\n@en The outermost element DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outermost element DOM"
+                },
+                "descWithTags": "菜单列表元素 DOM"
+            },
             "dom": {
                 "name": "dom",
                 "required": true,
@@ -730,6 +760,45 @@
                     "en": "The outermost element DOM"
                 },
                 "descWithTags": "最外层元素 DOM"
+            },
+            "mask": {
+                "name": "mask",
+                "required": true,
+                "description": "蒙层 DOM\n@en Mask DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Mask DOM"
+                },
+                "descWithTags": "蒙层 DOM"
+            },
+            "content": {
+                "name": "content",
+                "required": true,
+                "description": "内容 DOM\n@en Content DOM",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "Content DOM"
+                },
+                "descWithTags": "内容 DOM"
+            },
+            "setCloseScene": {
+                "name": "setCloseScene",
+                "required": true,
+                "description": "在关闭弹窗前修改 onClose 的 scene 参数值\n@en Modify the scene of onClose before closing the popup",
+                "defaultValue": null,
+                "type": {
+                    "name": "(scene: string) => void"
+                },
+                "tags": {
+                    "en": "Modify the scene of onClose before closing the popup"
+                },
+                "descWithTags": "在关闭弹窗前修改 onClose 的 scene 参数值"
             }
         },
         "GlobalContextParams": {
