@@ -9,7 +9,7 @@
 
 <div align="center">
 
-基于 [Arco Design](https://arco.design/mobile/react) 的 React UI 组件库。
+基于 [Arco Design](https://arco.design/mobile/react) 的 React UI 组件库。适用于移动端 H5 / WebView 环境。
 
 
 ![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=less&logoColor=ffffff)

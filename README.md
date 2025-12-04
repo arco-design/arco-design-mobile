@@ -9,7 +9,7 @@
 
 <div align="center">
 
-A comprehensive React UI components library based on the [Arco Design](https://arco.design/mobile/react) system.
+A comprehensive React UI components library based on the [Arco Design](https://arco.design/mobile/react) system. Suitable for mobile H5 / WebView environments.
 
 ![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=less&logoColor=ffffff)
 ![](https://img.shields.io/badge/-Typescript-blue?logo=typescript&logoColor=white)
