@@ -73,6 +73,31 @@ function App() {
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
+# Using with LLMs
+
+- Recommended: [Context7](https://context7.com/arco-design/arco-design-mobile) for up-to-date docs and code examples
+- Alternative: [GitMCP](https://gitmcp.io) or similar MCP services
+- Full guide: <https://arco.design/mobile/react/arco-design/pc/#/doc/use-llm>
+
+Quick setup (Cursor):
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+Prompt example:
+
+```text
+Create a page with a button and dialog using Arco Design Mobile use context7
+```
+
 # Useful Links
 
 * [Documentation website](https://arco.design/mobile/react)
