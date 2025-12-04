@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
@@ -69,20 +69,40 @@ describe('Cell', () => {
         expect(mockFn).toHaveBeenCalled();
     });
 
-    it('Cell clickable property works correctly', () => {
-        // 测试clickable=true时添加正确的类名
+    it('Cell clickable and pressed states work correctly', () => {
+        // 测试clickable状态：验证类名存在和按压状态变化
         const { container: clickableWrapper } = render(
             <Cell label="clickable cell" clickable />
         );
-        expect(clickableWrapper.querySelector(`.${prefix}-clickable`)).toBeTruthy();
+        const cellElement = clickableWrapper.querySelector(`.${prefix}`);
 
-        // 测试clickable=false/默认时不添加类名
+        // 验证clickable类名存在
+        expect(cellElement.classList.contains(`${prefix}-clickable`)).toBe(true);
+
+        // 使用fireEvent触发触摸事件
+        fireEvent.touchStart(cellElement);
+        expect(cellElement.classList.contains(`${prefix}-pressed`)).toBe(true);
+
+        fireEvent.touchEnd(cellElement);
+        expect(cellElement.classList.contains(`${prefix}-pressed`)).toBe(false);
+
+        // 测试touchcancel事件
+        fireEvent.touchStart(cellElement);
+        fireEvent.touchCancel(cellElement);
+        expect(cellElement.classList.contains(`${prefix}-pressed`)).toBe(false);
+
+        // 测试非clickable状态：验证if条件分支覆盖
         const { container: nonClickableWrapper } = render(
             <Cell label="non-clickable cell" />
         );
-        expect(nonClickableWrapper.querySelector(`.${prefix}-clickable`)).toBeFalsy();
+        const nonClickableCell = nonClickableWrapper.querySelector(`.${prefix}`);
 
-        // 测试clickable属性与onClick事件同时工作
+        // 非clickable状态不应有clickable类名，触摸事件不生效
+        expect(nonClickableCell.classList.contains(`${prefix}-clickable`)).toBe(false);
+        fireEvent.touchStart(nonClickableCell);
+        expect(nonClickableCell.classList.contains(`${prefix}-pressed`)).toBe(false);
+
+        // 验证clickable与onClick协同工作
         const mockFn = jest.fn();
         render(
             <Cell label="clickable with onClick" clickable onClick={mockFn} />
