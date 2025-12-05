@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.38.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.38.2...@arco-design/mobile-react@2.38.3) (2025-12-05)
+
+
+### Bug Fixes
+
+* `ActionSheet` support "getScrollContainer" ([8681a94](https://github.com/arco-design/arco-design-mobile/commit/8681a94490dc9fde0992aad15b07c0693e3a4f4b))
+* `Cell` support prop "clickable" for clickable effect ([b4d6f57](https://github.com/arco-design/arco-design-mobile/commit/b4d6f57baa99c01d661feb1d85df958ce1abf023))
+
+
+
+
+
 ## [2.38.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.38.1...@arco-design/mobile-react@2.38.2) (2025-09-22)
 
 **Note:** Version bump only for package @arco-design/mobile-react
