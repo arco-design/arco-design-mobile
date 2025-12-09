@@ -1,7 +1,6 @@
 import type { Ref, ReactNode, CSSProperties } from 'react';
 import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
-import type { Promise } from 'es6-promise';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import type { PopupProps, PopupRef } from '../popup';
 import Popup from '../popup';
