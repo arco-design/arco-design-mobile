@@ -1,18 +1,19 @@
+import type { Ref } from 'react';
 import React, {
     useEffect,
     useRef,
     useState,
     useMemo,
     forwardRef,
-    Ref,
     useImperativeHandle,
 } from 'react';
 import { cls, componentWrapper, formatDateNumber, isEmptyValue } from '@arco-design/mobile-utils';
-import Picker, { PickerRef } from '../picker';
-import { PickerData, ValueType } from '../picker-view';
+import type { PickerRef } from '../picker';
+import Picker from '../picker';
+import type { PickerData, ValueType } from '../picker-view';
 import { ContextLayout } from '../context-provider';
 import { convertTsToDateObj, oneOf, judgeObj, convertObjToTs } from './helper';
-import { ItemType, IDateObj, DatePickerProps } from './type';
+import type { ItemType, IDateObj, DatePickerProps } from './type';
 
 export * from './type';
 
@@ -440,6 +441,14 @@ const DatePicker = forwardRef((props: DatePickerProps, ref: Ref<DatePickerRef>) 
     useEffect(() => {
         _updateRangeValue(currentTs);
     }, [currentTs]);
+
+    useEffect(() => {
+        setCurrentTs(
+            isRange
+                ? Math.min(maxTs, Math.max(minTs, userSetCurrentTs[0]))
+                : Math.min(maxTs, Math.max(minTs, userSetCurrentTs as number)),
+        );
+    }, [userSetCurrentTs, maxTs, minTs, isRange]);
 
     useEffect(() => {
         if (visible) {

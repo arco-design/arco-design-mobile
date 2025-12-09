@@ -1,36 +1,35 @@
 /* eslint-disable react/no-unused-class-component-methods */
+import type { ReactNode, Ref } from 'react';
 import React, {
     forwardRef,
     PureComponent,
-    ReactNode,
-    Ref,
     useContext,
     useImperativeHandle,
     useRef,
     useState,
 } from 'react';
-import { cls, Validator, ValidatorType, ValidatorError } from '@arco-design/mobile-utils';
+import type { ValidatorError } from '@arco-design/mobile-utils';
+import { cls, Validator, ValidatorType } from '@arco-design/mobile-utils';
 import { Promise } from 'es6-promise';
 import { FormItemContext } from './form-item-context';
 import { GlobalContext } from '../context-provider';
-import {
+import type {
     IFieldError,
     FieldValue,
     IFormItemInnerProps,
     FormItemProps,
     ValidateStatus,
     FormItemRef,
-    FormInternalComponentType,
-    ValueChangeType,
     IFormItemContext,
 } from './type';
+import { FormInternalComponentType, ValueChangeType } from './type';
 import { getDefaultValueForInterComponent, getErrorAndWarnings, isFieldRequired } from './utils';
 import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
-import { BasicInputProps } from '../input/props';
-import { DatePickerProps } from '../date-picker/type';
-import { PickerProps } from '../picker/type';
-import { SwitchProps } from '../switch';
-import { ImagePickerProps } from '../image-picker/type';
+import type { BasicInputProps } from '../input/props';
+import type { DatePickerProps } from '../date-picker/type';
+import type { PickerProps } from '../picker/type';
+import type { SwitchProps } from '../switch';
+import type { ImagePickerProps } from '../image-picker/type';
 
 interface IFormItemInnerState {
     validateStatus: ValidateStatus;
