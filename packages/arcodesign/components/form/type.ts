@@ -1,6 +1,5 @@
-import { IRules } from '@arco-design/mobile-utils';
-import { ReactElement, ReactNode } from 'react';
-import { Promise } from 'es6-promise';
+import type { IRules } from '@arco-design/mobile-utils';
+import type { ReactElement, ReactNode } from 'react';
 
 export type FieldValue = any;
 export type FieldItem = Record<string, FieldValue>;

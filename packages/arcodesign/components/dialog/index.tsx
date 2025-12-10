@@ -2,7 +2,6 @@ import type { Ref, ReactNode } from 'react';
 import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import type { ILocale } from '@arco-design/mobile-utils';
 import { cls, componentWrapper } from '@arco-design/mobile-utils';
-import type { Promise } from 'es6-promise';
 import { ContextLayout, CompWithGlobalContext } from '../context-provider';
 import type { MaskingCommonProps, MaskingRef, OpenBaseProps } from '../masking';
 import Masking from '../masking';

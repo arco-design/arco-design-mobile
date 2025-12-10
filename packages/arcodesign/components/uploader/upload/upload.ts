@@ -1,6 +1,6 @@
-import React from 'react';
-import { Promise } from 'es6-promise';
-import { AdapterFile, CommonFileItem, UploadCommonProps } from './type';
+import type React from 'react';
+import { Promise as ES6Promise } from 'es6-promise';
+import type { AdapterFile, CommonFileItem, UploadCommonProps } from './type';
 
 export class Upload<FileItem extends CommonFileItem = CommonFileItem> {
     props: UploadCommonProps<FileItem>;
@@ -31,7 +31,7 @@ export class Upload<FileItem extends CommonFileItem = CommonFileItem> {
 
     // 解析文件生成预览
     handleFile = (newFiles: File[]) => {
-        Promise.all(newFiles.map(file => parseFile(file))).then(parseFiles => {
+        ES6Promise.all(newFiles.map(file => parseFile(file))).then(parseFiles => {
             const res = parseFiles.map((url, index) => ({
                 url,
                 status: typeof this.props.upload === 'function' ? 'loading' : 'loaded',
@@ -139,7 +139,7 @@ export class Upload<FileItem extends CommonFileItem = CommonFileItem> {
 }
 
 export const parseFile = (file: AdapterFile) => {
-    return new Promise((resolve, reject) => {
+    return new ES6Promise((resolve, reject) => {
         if (file.url) {
             resolve(file.url);
         } else {

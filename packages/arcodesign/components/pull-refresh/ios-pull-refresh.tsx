@@ -2,18 +2,19 @@ import React, {
     useState,
     useRef,
     forwardRef,
-    Ref,
     useCallback,
     useContext,
     useEffect,
     useMemo,
     useImperativeHandle,
 } from 'react';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, Ref } from 'react';
 import { cls, defaultLocale } from '@arco-design/mobile-utils';
+import { Promise as ES6Promise } from 'es6-promise';
 import Loading from '../loading';
 import { GlobalContext } from '../context-provider';
-import { PullRefreshRef, PullRefreshStatus, PullRefreshBasicProps } from './model';
+import type { PullRefreshRef, PullRefreshBasicProps } from './model';
+import { PullRefreshStatus } from './model';
 import { useCommonState, useAddScrollEvents, useCheckAsStart } from './hooks';
 import { useListenResize } from '../_helpers';
 
@@ -125,7 +126,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
     }, [disabled, ifShouldHandle]);
 
     const refresh = () =>
-        new Promise<void>(resolve => {
+        new ES6Promise<void>(resolve => {
             if (domRef.current) {
                 domRef.current.style.overflow = 'hidden';
                 const animationKey = new Date().getTime();
@@ -148,7 +149,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
                     }
                 });
             }
-        });
+        }) as Promise<void>;
 
     const handleTouchEnd = useCallback(() => {
         if (disabled || loadingRef.current || !domRef.current) return;
