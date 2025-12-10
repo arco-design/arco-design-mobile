@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.38.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.38.3...@arco-design/mobile-react@2.38.4) (2025-12-10)
+
+
+### Bug Fixes
+
+* `DatePicker` update data when currentTs change ([#360](https://github.com/arco-design/arco-design-mobile/issues/360)) ([fd9f6ed](https://github.com/arco-design/arco-design-mobile/commit/fd9f6eda15d49f9c9d5215f388b87ea45b9612f6))
+* promise type ([#361](https://github.com/arco-design/arco-design-mobile/issues/361)) ([4409667](https://github.com/arco-design/arco-design-mobile/commit/4409667bad7e6dc7d8793bc2250814da55baeb68))
+
+
+
+
+
 ## [2.38.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.38.2...@arco-design/mobile-react@2.38.3) (2025-12-05)
 
 
