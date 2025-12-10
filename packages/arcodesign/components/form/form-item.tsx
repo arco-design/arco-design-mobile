@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unused-class-component-methods */
+import type { ReactNode, Ref } from 'react';
 import React, {
     forwardRef,
     PureComponent,
@@ -7,7 +8,6 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import type { ReactNode, Ref } from 'react';
 import { cls, Validator, ValidatorType } from '@arco-design/mobile-utils';
 import type { ValidatorError } from '@arco-design/mobile-utils';
 import { Promise as ES6Promise } from 'es6-promise';
