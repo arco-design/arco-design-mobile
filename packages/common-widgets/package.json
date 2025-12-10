@@ -13,7 +13,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "gitHead": "57304aa9559040c8af15004e61cc7c331cf33646",
+    "gitHead": "b1773de231edc4e2c39b88d9153479bdd8df84db",
     "dependencies": {
         "es6-promise": "^4.2.8"
     },
