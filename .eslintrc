@@ -35,6 +35,7 @@
         "beforeEach": false
     },
     "rules": {
+        "arco-mobile/promise-with-polyfill": 0,
         "linebreak-style": ["error", "unix"],
         "no-console": ["error", { "allow": ["warn", "error"] }],
         "no-case-declarations": 0,

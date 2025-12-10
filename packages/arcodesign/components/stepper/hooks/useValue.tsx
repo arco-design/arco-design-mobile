@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Promise } from 'es6-promise';
-import { StepperProps } from '..';
+import { Promise as ES6Promise } from 'es6-promise';
+import type { StepperProps } from '..';
 
 export default function useValue(
     params: Required<Pick<StepperProps, 'defaultValue' | 'min' | 'max' | 'digits'>> &
@@ -12,7 +12,7 @@ export default function useValue(
     const updateValue = (updater: number | ((oldValue: number) => number)) => {
         const tempValue = typeof updater === 'function' ? updater(innerValue) : updater;
         if (formatter) {
-            new Promise(resolve => {
+            new ES6Promise(resolve => {
                 resolve(formatter(Number(tempValue)));
             }).then((result: number) => {
                 const res = Math.max(min, Math.min(max, result));

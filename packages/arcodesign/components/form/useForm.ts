@@ -1,15 +1,16 @@
 /* eslint-disable no-console */
-import { ReactNode, useRef } from 'react';
-import { Promise } from 'es6-promise';
-import {
+import type { ReactNode } from 'react';
+import { useRef } from 'react';
+import { Promise as ES6Promise } from 'es6-promise';
+import type {
     Callbacks,
     IFieldError,
     FieldItem,
     IFormInstance,
     FieldValue,
     InternalFormInstance,
-    ValueChangeType,
 } from './type';
+import { ValueChangeType } from './type';
 import { deepClone } from './utils';
 
 const defaultFunc: any = () => {};
@@ -239,8 +240,8 @@ class FormData {
             const promise = entity.validateField();
             promiseList.push(promise.then(errors => errors));
         });
-        const summaryPromise: Promise<IFieldError[]> = new Promise((resolve, reject) => {
-            Promise.all(promiseList).then(res => {
+        const summaryPromise = new ES6Promise<IFieldError[]>((resolve, reject) => {
+            ES6Promise.all<IFieldError>(promiseList).then((res: IFieldError[]) => {
                 const errorResults = res.filter(item => item?.errors?.length);
 
                 if (errorResults.length) {
@@ -249,7 +250,7 @@ class FormData {
                     resolve(res);
                 }
             });
-        });
+        }) as Promise<IFieldError[]>;
         return summaryPromise;
     };
 

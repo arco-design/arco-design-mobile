@@ -2,35 +2,34 @@
 import React, {
     forwardRef,
     PureComponent,
-    ReactNode,
-    Ref,
     useContext,
     useImperativeHandle,
     useRef,
     useState,
 } from 'react';
-import { cls, Validator, ValidatorType, ValidatorError } from '@arco-design/mobile-utils';
-import { Promise } from 'es6-promise';
+import type { ReactNode, Ref } from 'react';
+import { cls, Validator, ValidatorType } from '@arco-design/mobile-utils';
+import type { ValidatorError } from '@arco-design/mobile-utils';
+import { Promise as ES6Promise } from 'es6-promise';
 import { FormItemContext } from './form-item-context';
 import { GlobalContext } from '../context-provider';
-import {
+import type {
     IFieldError,
     FieldValue,
     IFormItemInnerProps,
     FormItemProps,
     ValidateStatus,
     FormItemRef,
-    FormInternalComponentType,
-    ValueChangeType,
     IFormItemContext,
 } from './type';
+import { ValueChangeType, FormInternalComponentType } from './type';
 import { getDefaultValueForInterComponent, getErrorAndWarnings, isFieldRequired } from './utils';
 import { DefaultDatePickerLinkedContainer, DefaultPickerLinkedContainer } from './linked-container';
-import { BasicInputProps } from '../input/props';
-import { DatePickerProps } from '../date-picker/type';
-import { PickerProps } from '../picker/type';
-import { SwitchProps } from '../switch';
-import { ImagePickerProps } from '../image-picker/type';
+import type { BasicInputProps } from '../input/props';
+import type { DatePickerProps } from '../date-picker/type';
+import type { PickerProps } from '../picker/type';
+import type { SwitchProps } from '../switch';
+import type { ImagePickerProps } from '../image-picker/type';
 
 interface IFormItemInnerState {
     validateStatus: ValidateStatus;
@@ -133,7 +132,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
         if (curRules?.length && field) {
             const fieldDom = this.props.getFormItemRef();
             const fieldValidator = new Validator({ [field]: curRules }, { validateMessages });
-            return new Promise(resolve => {
+            return new ES6Promise<IFieldError>(resolve => {
                 fieldValidator.validate(
                     { [field]: value },
                     (errorsMap: Record<string, ValidatorError[]>) => {
@@ -146,7 +145,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
                             warnings,
                             errorTypes,
                         });
-                        return resolve({
+                        resolve({
                             errors: this._errors,
                             warnings,
                             value,
@@ -155,9 +154,15 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
                         });
                     },
                 );
-            });
+            }) as Promise<IFieldError>;
         }
-        return Promise.resolve({ errors: [], warnings: [], value, field, dom: null });
+        return ES6Promise.resolve<IFieldError>({
+            errors: [],
+            warnings: [],
+            value,
+            field,
+            dom: null,
+        }) as Promise<IFieldError>;
     };
 
     setFieldData = (value: FieldValue) => {

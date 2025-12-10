@@ -1,15 +1,15 @@
-import { Promise } from 'es6-promise';
+import { Promise as ES6Promise } from 'es6-promise';
 import { isArray } from '../is';
+import type { BaseValidator } from './rules';
 import {
     ArrayValidator,
     BooleanValidator,
-    BaseValidator,
     CustomValidator,
     NumberValidator,
     ObjectValidator,
     StringValidator,
 } from './rules';
-import {
+import type {
     IFieldValue,
     IRules,
     ITypeRules,
@@ -58,13 +58,13 @@ export class Validator {
     // 一条rule执行
     getSingleValidateGroup(value: IFieldValue, rule: IRules, field: string) {
         const vType = rule?.type || 'string';
-        const validPromises: Promise<any>[] = [];
+        const validPromises: ES6Promise<any>[] = [];
         const validatorGroup = this.createValidatorGroup(value, rule, field);
         const typeValidator: BaseValidator | null =
             vType in validatorGroup ? validatorGroup[vType] : null;
         if (rule.required) {
             validPromises.push(
-                new Promise(resolve => {
+                new ES6Promise(resolve => {
                     validatorGroup.string.isRequired();
                     const curError = validatorGroup.string.getErrors();
                     resolve({
@@ -87,7 +87,7 @@ export class Validator {
                 }
                 if (typeValidator.validateRules.includes(key)) {
                     validPromises.push(
-                        new Promise(resolve => {
+                        new ES6Promise(resolve => {
                             typeValidator.validateRules.includes(key) &&
                                 typeValidator[key](rule[key]);
                             const curError = typeValidator.getErrors();
@@ -103,9 +103,9 @@ export class Validator {
         return validPromises;
     }
 
-    singleValidate(promises: Promise<any>[]) {
+    singleValidate(promises: ES6Promise<any>[]) {
         let cur = 0;
-        return new Promise(resolve => {
+        return new ES6Promise(resolve => {
             const validate = promise => {
                 const next = () => {
                     if (cur < promises.length - 1) {
@@ -126,11 +126,11 @@ export class Validator {
     }
 
     validate(value: Record<string, any>, callback: (err) => void) {
-        const promiseGroup: Promise<any>[] = [];
+        const promiseGroup: ES6Promise<any>[] = [];
         const keys: string[] = [];
         if (this.rules) {
             Object.keys(this.rules).forEach(key => {
-                let spPromiseGroup: Promise<any>[] = [];
+                let spPromiseGroup: ES6Promise<any>[] = [];
                 if (isArray(this.rules[key])) {
                     for (let i = 0; i < this.rules[key].length; i++) {
                         const rule = this.rules[key][i];
@@ -145,7 +145,7 @@ export class Validator {
             });
         }
         if (promiseGroup.length > 0) {
-            Promise.all(promiseGroup).then(data => {
+            ES6Promise.all(promiseGroup).then(data => {
                 const lastErrors = data.reduce((pre, cur, index) => {
                     if (!(keys[index] in pre)) {
                         pre[keys[index]] = [];
