@@ -53,7 +53,7 @@ export class Upload<FileItem extends CommonFileItem = CommonFileItem> {
                                 this.cacheRef.current[index] = {
                                     ...this.cacheRef.current[index],
                                     ...data,
-                                    status: 'loaded',
+                                    status: undefined,
                                 };
                             }
                         })
