@@ -116,7 +116,7 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
     validateField = (validateTrigger?: string): Promise<IFieldError> => {
         const { validateMessages } = this.context;
         const { getFieldValue } = this.context.form;
-        const { field, rules, onValidateStatusChange } = this.props;
+        const { field, rules, onValidateStatusChange, labelName } = this.props;
         const value = getFieldValue(field);
         // rules: if validateTrigger is not defined, all rules will be validated
         // if validateTrigger is defined, only rules  with validateTrigger  or  without rule.validateTrigger  will be validated
@@ -131,13 +131,17 @@ class FormItemInner extends PureComponent<IFormItemInnerProps, IFormItemInnerSta
 
         if (curRules?.length && field) {
             const fieldDom = this.props.getFormItemRef();
-            const fieldValidator = new Validator({ [field]: curRules }, { validateMessages });
+            const validateFieldName = labelName || field;
+            const fieldValidator = new Validator(
+                { [validateFieldName]: curRules },
+                { validateMessages },
+            );
             return new ES6Promise<IFieldError>(resolve => {
                 fieldValidator.validate(
-                    { [field]: value },
+                    { [validateFieldName]: value },
                     (errorsMap: Record<string, ValidatorError[]>) => {
                         const { errors, warnings, errorTypes } = getErrorAndWarnings(
-                            errorsMap?.[field] || [],
+                            errorsMap?.[validateFieldName] || [],
                         );
                         this._errors = errors;
                         onValidateStatusChange({
@@ -284,6 +288,7 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
         requiredIcon,
         rules,
         className = '',
+        labelName,
         ...rest
     } = props;
     const { prefixCls } = useContext(GlobalContext);
@@ -292,6 +297,10 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
     const [errorTypes, setErrorTypes] = useState<string | null>(null);
     const [warnings, setWarnings] = useState<ReactNode[]>([]);
     const formItemRef = useRef<HTMLDivElement | null>(null);
+    // Prioritize user provided label (if exists and valid string).
+    // Only use labelName as substitute when label is invalid (not a string) or not provided.
+    const labelStr = labelName || (typeof label === 'string' ? label : undefined);
+    const renderedLabel = label !== undefined ? label : labelName;
 
     const onValidateStatusChange = (validateResult: {
         errors: ReactNode[];
@@ -340,7 +349,7 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
                           </span>
                       )
                     : null}
-                {label}
+                {renderedLabel}
             </div>
             <div className={cls(`${prefixCls}-form-item-control-wrapper`)}>
                 <div className={cls(`${prefixCls}-form-item-control`)}>
@@ -349,6 +358,7 @@ export default forwardRef((props: FormItemProps, ref: Ref<FormItemRef>) => {
                         rules={fieldRules}
                         disabled={fieldDisabled}
                         field={field}
+                        labelName={labelStr}
                         onValidateStatusChange={onValidateStatusChange}
                         getFormItemRef={getFormItemRef}
                     />
