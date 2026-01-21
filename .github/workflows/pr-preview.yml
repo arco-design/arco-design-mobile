@@ -24,6 +24,9 @@ jobs:
             - name: Install dependencies
               run: npm install
 
+            - name: Build packages
+              run: npm run build
+
             - name: Set ARCO_SITE_DOMAIN
               run: echo "ARCO_SITE_DOMAIN=preview-${{ github.event.number }}-arco-design-mobile.surge.sh" >> $GITHUB_ENV
 
@@ -79,7 +82,7 @@ jobs:
 
                       // Find if there's a comment created by us before 查找是否有我们之前创建的评论
                       const botComment = comments.find(comment => {
-                        return comment.user.type === 'Bot' && 
+                        return comment.user.type === 'Bot' &&
                                comment.body.includes('PR Preview Link');
                       });
 

@@ -23,9 +23,25 @@ function changeBabelModule(moduleType) {
             ];
         }
     });
+
+    const newPlugins = (babelConfig.plugins || []).map(plugin => {
+        const pluginName = Array.isArray(plugin) ? plugin[0] : plugin;
+        if (pluginName === '@babel/plugin-transform-runtime' && moduleType === 'umd') {
+            const pluginOptions = Array.isArray(plugin) ? plugin[1] : undefined;
+            return [
+                '@babel/plugin-transform-runtime',
+                {
+                    ...(pluginOptions || {}),
+                    regenerator: false,
+                },
+            ];
+        }
+        return plugin;
+    });
     return {
         ...babelConfig,
         presets: newPresets,
+        plugins: newPlugins,
     };
 }
 
