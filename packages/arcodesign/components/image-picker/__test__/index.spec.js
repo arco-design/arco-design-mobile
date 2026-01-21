@@ -23,6 +23,45 @@ const IMG_DATA =
 const mockImgFile = new File([IMG_DATA], 'img.png', { type: 'image/png' });
 
 describe('ImagePicker', () => {
+    let onerrorRef;
+    let onloadRef;
+    const originalImageOnload = Object.getOwnPropertyDescriptor(global.Image.prototype, 'onload');
+    const originalImageOnerror = Object.getOwnPropertyDescriptor(global.Image.prototype, 'onerror');
+
+    beforeAll(() => {
+        Object.defineProperty(global.Image.prototype, 'onload', {
+            get() {
+                return this._onload;
+            },
+            set(onload) {
+                onloadRef = onload;
+                this._onload = onload;
+            },
+        });
+        Object.defineProperty(global.Image.prototype, 'onerror', {
+            get() {
+                return this._onerror;
+            },
+            set(onerror) {
+                onerrorRef = onerror;
+                this._onerror = onerror;
+            },
+        });
+    });
+
+    afterAll(() => {
+        if (originalImageOnload) {
+            Object.defineProperty(global.Image.prototype, 'onload', originalImageOnload);
+        } else {
+            delete global.Image.prototype.onload;
+        }
+        if (originalImageOnerror) {
+            Object.defineProperty(global.Image.prototype, 'onerror', originalImageOnerror);
+        } else {
+            delete global.Image.prototype.onerror;
+        }
+    });
+
     beforeEach(() => {
         jest.useFakeTimers();
         jest.spyOn(global, 'FileReader').mockImplementation(function () {
@@ -234,6 +273,46 @@ describe('ImagePicker', () => {
         });
         await waitFor(() => {
             expect(handleLimitExceed).toBeCalledTimes(1);
+        });
+    });
+    it('upload success but load image failed', async () => {
+        const mockUpload = async () => {
+            await new Promise(resolve => setTimeout(resolve, 100));
+            return {
+                url: 'http://error.jpg',
+            };
+        };
+        function App() {
+            const [images, setImages] = React.useState([]);
+            return <ImagePicker images={images} onChange={setImages} upload={mockUpload} />;
+        }
+        const { container } = render(<App />);
+        const selector = container.querySelector(`.${prefix}-add`);
+        await userEvent.click(selector);
+        const input = container.querySelector('input');
+        await userEvent.upload(input, mockImgFile);
+        const reader = FileReader.mock.instances[0];
+        reader.onload({ target: { result: 'foo' } });
+        await waitFor(() => {
+            expect(container.querySelectorAll('.image-loading-container').length).toBeGreaterThan(0);
+        });
+
+        // 等待第一次加载的 Image 实例创建
+        await waitFor(() => {
+             expect(onerrorRef).toBeDefined();
+        });
+        const firstOnerrorRef = onerrorRef;
+
+        // 等待第二次加载（mockUpload 完成后，src 更新）
+        await waitFor(() => {
+             expect(onerrorRef).not.toBe(firstOnerrorRef);
+        });
+
+        act(() => {
+            onerrorRef && onerrorRef();
+        });
+        await waitFor(() => {
+            expect(container.querySelector('.image-error-container')).toBeInTheDocument();
         });
     });
 });

@@ -1,8 +1,9 @@
-import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+import type { Ref } from 'react';
 import { cls, defaultLocale, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Button from '../button';
-import { UploaderRef, UploaderProps, FileItem } from './type';
+import type { UploaderRef, UploaderProps, FileItem } from './type';
 import { useLatestRef } from '../_helpers';
 import { IconUpload, IconDelete, IconCheck, IconFile } from '../icon';
 import Loading from '../loading';
@@ -93,7 +94,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                             ? files.slice(0, limit)
                             : files) as FileItem[]
                     ).map((fileItem, index) => {
-                        const { file, status } = fileItem;
+                        const { file, status = 'loaded' } = fileItem;
                         return (
                             <div
                                 className={`${prefixCls}-uploader-list-item`}
