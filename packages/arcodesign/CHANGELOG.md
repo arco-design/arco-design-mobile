@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.39.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.38.4...@arco-design/mobile-react@2.39.0) (2026-01-21)
+
+
+### Bug Fixes
+
+* `ImagePicker` load error status, add demo of upload status for `Uploader` ([#364](https://github.com/arco-design/arco-design-mobile/issues/364)) ([0acf2ca](https://github.com/arco-design/arco-design-mobile/commit/0acf2cac5cddfdda536374e06a4e71a7446d1a2e))
+
+
+### Features
+
+* support custom label name for validation messages ([#365](https://github.com/arco-design/arco-design-mobile/issues/365)) ([3653ecc](https://github.com/arco-design/arco-design-mobile/commit/3653ecce076c87a95c9f4a02ef7fba4cb9d485ce))
+
+
+
+
+
 ## [2.38.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-react@2.38.3...@arco-design/mobile-react@2.38.4) (2025-12-10)
 
 
