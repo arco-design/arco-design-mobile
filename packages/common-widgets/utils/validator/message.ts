@@ -1,5 +1,5 @@
 import { isObject } from '../is';
-import { IValidateMsgTemplate } from './type';
+import type { IValidateMsgTemplate } from './type';
 
 const defaultMessageTemplate = '%s is not a %s type';
 
