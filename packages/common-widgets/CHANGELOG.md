@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.23.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.5...@arco-design/mobile-utils@2.23.6) (2026-06-03)
+
+
+### Bug Fixes
+
+* add French (fr) locale to mobile-utils ([#367](https://github.com/arco-design/arco-design-mobile/issues/367)) ([42fd8ff](https://github.com/arco-design/arco-design-mobile/commit/42fd8ff02cb58c68c92e8fb15632ea42e4d261d2))
+
+
+
+
+
 ## [2.23.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.4...@arco-design/mobile-utils@2.23.5) (2026-01-21)
 
 **Note:** Version bump only for package @arco-design/mobile-utils
