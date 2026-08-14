@@ -130,9 +130,3 @@ ReactDOM.render(<App />, document.getElementById('app'));
 # License
 
 [MIT 协议](./LICENSE)
-
-<br/><br/>
-
-<div align="center">
-    <a href="https://star-history.com/#arco-design/arco-design-mobile&Date"><img src="https://api.star-history.com/svg?repos=arco-design/arco-design-mobile&type=Date" style="max-width: 100%; width: 550px"/></a>
-</div>
