@@ -21,25 +21,52 @@ function loadStaticImage() {
 describe('Image', () => {
     let onerrorRef;
     let onloadRef;
+    let originalImage;
     beforeAll(() => {
-        Object.defineProperty(global.Image.prototype, 'onload', {
-            get() {
-                return this._onload;
-            },
-            set(onload) {
-                onloadRef = onload;
-                this._onload = onload;
-            },
-        });
-        Object.defineProperty(global.Image.prototype, 'onerror', {
-            get() {
-                return this._onerror;
-            },
-            set(onerror) {
-                onerrorRef = onerror;
-                this._onerror = onerror;
-            },
-        });
+        originalImage = global.Image;
+        function MockImage(...args) {
+            const img = new originalImage(...args);
+            Object.defineProperties(img, {
+                onload: {
+                    get() {
+                        return this._onload;
+                    },
+                    set(onload) {
+                        onloadRef = onload;
+                        this._onload = onload;
+                    },
+                    configurable: true,
+                },
+                onerror: {
+                    get() {
+                        return this._onerror;
+                    },
+                    set(onerror) {
+                        onerrorRef = onerror;
+                        this._onerror = onerror;
+                    },
+                    configurable: true,
+                },
+                width: {
+                    get() {
+                        return 300;
+                    },
+                    configurable: true,
+                },
+                height: {
+                    get() {
+                        return 200;
+                    },
+                    configurable: true,
+                },
+            });
+            return img;
+        }
+        MockImage.prototype = originalImage.prototype;
+        global.Image = MockImage;
+    });
+    afterAll(() => {
+        global.Image = originalImage;
     });
     beforeEach(() => {
         jest.useFakeTimers();
@@ -159,16 +186,6 @@ describe('Image', () => {
     });
     it('Load image correctly', () => {
         const onLoad = jest.fn();
-        Object.defineProperty(global.Image.prototype, 'width', {
-            get() {
-                return 300;
-            },
-        });
-        Object.defineProperty(global.Image.prototype, 'height', {
-            get() {
-                return 200;
-            },
-        });
         const { container, rerender } = render(
             <Image boxWidth={100} boxHeight={200} fit="preview-x" src={imgUrl} onLoad={onLoad} />,
         );
