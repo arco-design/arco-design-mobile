@@ -216,21 +216,25 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
             const containerTop = rectTop + borderTop;
             const containerBottom = rectBottom - borderBottom;
 
-            const disFromTop = Math.round(placeholderClientRect.top - containerTop);
-            const disFromBottom = Math.round(
-                placeholderClientRect.top + calculatedHeight - containerBottom,
-            );
+            // 使用容差阈值避免iOS阻尼动画时的抖动问题
+            // @en Tolerance threshold to avoid jitter problem in iOS damping animation
+            const TOLERANCE = 0.5;
+            const disFromTop = placeholderClientRect.top - containerTop;
+            const disFromBottom = placeholderClientRect.top + calculatedHeight - containerBottom;
+
             const topFollowDifference =
                 followBottom - followOffset - calculatedHeight - topOffset - containerTop;
             const bottomFollowDifference =
                 containerHeight - followTop - followOffset - calculatedHeight - bottomOffset;
-
             setWasSticky(Boolean(isStickyRef.current));
+
             const isTopSticky = needTop
-                ? disFromTop <= topOffset && followBottom > containerTop + followOffset
+                ? disFromTop <= topOffset + TOLERANCE &&
+                  followBottom > containerTop + followOffset - TOLERANCE
                 : false;
             const isBottomSticky = needBottom
-                ? disFromBottom >= -bottomOffset && followTop < containerBottom - followOffset
+                ? disFromBottom >= -bottomOffset - TOLERANCE &&
+                  followTop < containerBottom - followOffset + TOLERANCE
                 : false;
             const newStickyState = isTopSticky || isBottomSticky;
 
