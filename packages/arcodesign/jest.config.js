@@ -10,10 +10,11 @@ module.exports = {
     coveragePathIgnorePatterns: ['/node_modules/', '/scripts/', '/icon/', '/components/_helpers/'],
     moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'md'],
     setupFiles: ['./tests/setup.js'],
+    testEnvironment: 'jsdom',
     testPathIgnorePatterns: ['/node_modules/', '/scripts/'],
     testRegex: ['.*/components/.*\\.spec\\.jsx?$'],
     transform: {
-        '^.+\\.j|tsx?$': 'babel-jest',
+        '^.+\\.[jt]sx?$': 'babel-jest',
         '.*\\.(css|less|scss)$': '<rootDir>/tests/mocks/styleMock.js',
         '.*\\.md$': '<rootDir>/tests/mocks/mdMock.js',
     },
