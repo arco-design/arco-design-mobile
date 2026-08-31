@@ -233,7 +233,7 @@ export class ArrayValidator extends BaseValidator {
 
     deepEqual(sub: Array<any>) {
         return this.dealError(!isDeepEqual(this.value, sub), {
-            errTemplate: 'array.equal',
+            errTemplate: 'array.deepEqual',
             values: [this.field, `${JSON.stringify(sub)}`],
         });
     }
