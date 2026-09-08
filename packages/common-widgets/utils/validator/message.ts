@@ -59,7 +59,7 @@ export const getMsgTemplate = (templates: IValidateMsgTemplate, temName, values:
             temNameArr[1] in templates[temNameArr[0]]
         ) {
             theTemplate = firstTemplate[temNameArr[1]];
-        } else {
+        } else if (typeof firstTemplate === 'string') {
             theTemplate = firstTemplate;
         }
     }
