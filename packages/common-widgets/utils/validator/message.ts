@@ -53,13 +53,12 @@ export const getMsgTemplate = (templates: IValidateMsgTemplate, temName, values:
     let theTemplate: string = defaultMessageTemplate;
     if (temNameArr[0] in templates) {
         const firstTemplate = templates[temNameArr[0]];
-        if (
-            Object.prototype.toString.call(firstTemplate).toLowerCase() === '[object object]' &&
-            temNameArr.length > 1 &&
-            temNameArr[1] in templates[temNameArr[0]]
-        ) {
-            theTemplate = firstTemplate[temNameArr[1]];
-        } else {
+        if (isObject(firstTemplate) && temNameArr.length > 1) {
+            const nestedTemplate = firstTemplate[temNameArr[1]];
+            if (typeof nestedTemplate === 'string') {
+                theTemplate = nestedTemplate;
+            }
+        } else if (typeof firstTemplate === 'string') {
             theTemplate = firstTemplate;
         }
     }
