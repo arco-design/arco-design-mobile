@@ -51,4 +51,24 @@ describe('CircleProgress', () => {
             'transform: rotateY(180deg) rotateZ(-90deg)',
         );
     });
+    test('Should render with only gradient start or end color', () => {
+        const { container: startContainer } = render(
+            <CircleProgress progressColorStart="#14CAFF" percentage={50} />,
+        );
+        expect(window.getComputedStyle(startContainer.querySelector('.color')).stroke).toBe(
+            '#14CAFF',
+        );
+
+        const { container: endContainer } = render(
+            <CircleProgress progressColorEnd="#4776E6" percentage={50} />,
+        );
+        expect(window.getComputedStyle(endContainer.querySelector('.color')).stroke).toBe(
+            '#4776E6',
+        );
+    });
+    test('should expose dom via ref', () => {
+        const ref = React.createRef();
+        const { container } = render(<CircleProgress ref={ref} percentage={50} />);
+        expect(ref.current.dom).toBe(container.querySelector(`.${prefix}`));
+    });
 });

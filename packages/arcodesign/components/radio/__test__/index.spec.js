@@ -192,4 +192,18 @@ describe('Radio.Group', () => {
         userEvent.click(lastRadio);
         expect(onClick).toBeCalled();
     });
+
+    it('should expose dom via ref', () => {
+        const radioRef = React.createRef();
+        const groupRef = React.createRef();
+        const { container: radioContainer } = render(<Radio ref={radioRef}>Radio</Radio>);
+        expect(radioRef.current.dom).toBe(radioContainer.querySelector(`.${prefix}`));
+
+        const { container } = render(
+            <Radio.Group ref={groupRef} options={[{ value: 1 }, { value: 2 }]} />,
+        );
+        expect(groupRef.current.dom).toBe(
+            container.querySelector(`.${defaultContext.prefixCls}-radio-group`),
+        );
+    });
 });
