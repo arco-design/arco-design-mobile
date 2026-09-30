@@ -73,4 +73,33 @@ describe('Keyboard', () => {
         await userEvent.click(container);
         expect(onClose).toBeCalledTimes(2);
     });
+
+    it('random order, default type, closed state and ref', () => {
+        const closeSpy = jest.fn();
+        // 乱序键盘仍然渲染全部按键
+        // @en Random keyboard still renders all keys
+        const first = render(<Keyboard visible randomOrder close={closeSpy} />);
+        const keys = document.querySelectorAll('.arco-keyboard-key');
+        expect(keys.length).toBe(12);
+        const numbers = [...keys]
+            .map(key => key.textContent)
+            .filter(text => text !== '' && !isNaN(Number(text)))
+            .map(Number);
+        expect(numbers.slice().sort((a, b) => a - b)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        first.unmount();
+
+        // 通过ref获取键盘实例
+        // @en Get keyboard instance via ref
+        const ref = React.createRef();
+        const second = render(<Keyboard visible ref={ref} type="confirm" close={closeSpy} />);
+        expect(ref.current).toBeTruthy();
+        second.unmount();
+
+        // 键盘未展示时点击空白处不触发关闭
+        // @en Clicking blank space does not close when keyboard is not shown
+        closeSpy.mockClear();
+        render(<Keyboard close={closeSpy} />);
+        document.body.click();
+        expect(closeSpy).not.toBeCalled();
+    });
 });

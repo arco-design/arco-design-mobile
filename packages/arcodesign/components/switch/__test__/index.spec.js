@@ -66,4 +66,25 @@ describe('Switch', () => {
         rerender(<Switch />);
         expect(container.querySelector(`.${prefix}`).classList.contains('fully')).toBe(true);
     });
+    it('should callback correctly when swiped left/right and expose dom via ref', () => {
+        const mockFn = jest.fn();
+        const ref = React.createRef();
+        const { container } = render(<Switch ref={ref} onChange={mockFn} />);
+        const switchElement = container.querySelector(`.${prefix}`);
+        expect(ref.current.dom).toBe(switchElement);
+
+        // 右滑打开
+        // @en Swipe right to open
+        fireEvent.touchStart(switchElement, createStartTouchEventObject({ x: 100 }));
+        fireEvent.touchEnd(switchElement, createMoveTouchEventObject({ x: 130 }));
+        expect(mockFn).toHaveBeenLastCalledWith(true);
+        expect(switchElement.classList.contains('checked')).toBe(true);
+
+        // 左滑关闭
+        // @en Swipe left to close
+        fireEvent.touchStart(switchElement, createStartTouchEventObject({ x: 100 }));
+        fireEvent.touchEnd(switchElement, createMoveTouchEventObject({ x: 70 }));
+        expect(mockFn).toHaveBeenLastCalledWith(false);
+        expect(switchElement.classList.contains('checked')).toBe(false);
+    });
 });
