@@ -64,4 +64,58 @@ describe('Picker', () => {
         // 取消和确认都会调用onHide，所以应该调用两次
         expect(onHideMock).toBeCalledTimes(2)
     });
+
+    it('should support ref methods', () => {
+        jest.useFakeTimers()
+        const ref = React.createRef();
+        render(<Picker ref={ref} data={mockData.data} value={mockData.value} visible={true}/>)
+        act(() => {
+            jest.runAllTimers()
+        })
+        expect(ref.current.getCellMovingStatus().length).toBe(3)
+        expect(ref.current.getColumnValue(0)).toBe('北京')
+        act(() => {
+            ref.current.updateLayout()
+            ref.current.scrollToCurrentIndex()
+        })
+    });
+
+    it('should update layout when window resized while visible', () => {
+        jest.useFakeTimers()
+        render(<Picker data={mockData.data} value={mockData.value} visible={true}/>)
+        act(() => {
+            jest.runAllTimers()
+        })
+        act(() => {
+            window.dispatchEvent(new Event('resize'))
+        })
+    });
+
+    it('should open picker when clicking linked container and close by mask', () => {
+        jest.useFakeTimers()
+        const onHideMock = jest.fn();
+        const { container } = render(<Picker
+            data={mockData.data}
+            value={mockData.value}
+            maskClosable={true}
+            onHide={onHideMock}
+            renderLinkedContainer={(value) => <div className="linked-btn">{value}</div>}/>)
+        const linkedBtn = container.querySelector('.linked-btn')
+        expect(linkedBtn).toHaveTextContent('北京')
+        act(() => {
+            userEvent.click(linkedBtn)
+        })
+        act(() => {
+            jest.runAllTimers()
+        })
+        const mask = document.querySelector('.arco-masking-mask')
+        expect(mask).toBeInTheDocument()
+        act(() => {
+            userEvent.click(mask)
+        })
+        act(() => {
+            jest.runAllTimers()
+        })
+        expect(onHideMock).toBeCalledWith('mask')
+    });
 });
