@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import NoticeBar from '..';
 import IconNotice from '../../icon/IconNotice';
 import { defaultContext } from '../../context-provider';
-import { defineHtmlRefProperties } from '../../../tests/helpers/mockElement';
+import { defineHtmlRefProperties, mockElementProperty } from '../../../tests/helpers/mockElement';
 import { pureDelay } from '../../../tests/helpers/utils';
 
 const { prefixCls } = defaultContext;
@@ -101,5 +101,34 @@ describe('NoticeBar actions', () => {
         pureDelay(2000);
         const content = container.querySelectorAll(`.${prefix}-content-inner`)[0];
         expect(content.textContent).toBe(longText);
+    });
+
+    it('Should scroll content when marquee is always or content overflows wrapper', async () => {
+        // marquee为always时直接滚动
+        // @en Scroll directly when marquee is always
+        const { container } = render(<NoticeBar marquee="always">{longText}</NoticeBar>);
+        const content = container.querySelectorAll(`.${prefix}-content-inner`)[0];
+        await act(async () => {
+            jest.runAllTimers();
+        });
+        expect(content.style.animationIterationCount).toBe('infinite');
+        expect(content.style.paddingLeft).toBe('375px');
+
+        // marquee为overflow时内容超出容器才滚动
+        // @en Scroll only when content exceeds wrapper if marquee is overflow
+        const { container: overflowContainer } = render(
+            <NoticeBar marquee="overflow">{longText}</NoticeBar>,
+        );
+        const wrap = overflowContainer.querySelectorAll(`.${prefix}-content`)[0];
+        const overflowContent = overflowContainer.querySelectorAll(
+            `.${prefix}-content-inner`,
+        )[0];
+        mockElementProperty(wrap, 'offsetWidth', 100);
+        mockElementProperty(overflowContent, 'offsetWidth', 300);
+        await act(async () => {
+            jest.runAllTimers();
+        });
+        expect(overflowContent.style.animationIterationCount).toBe('infinite');
+        expect(overflowContent.style.paddingLeft).toBe('100px');
     });
 });
