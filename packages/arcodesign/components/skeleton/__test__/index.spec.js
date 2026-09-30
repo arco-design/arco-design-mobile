@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
-import { defaultContext } from '../../context-provider';
+import ContextProvider, { defaultContext } from '../../context-provider';
 import Skeleton from '..';
 
 demoTest('skeleton');
@@ -82,5 +82,56 @@ describe('Skeleton', () => {
         );
         expect(container.querySelectorAll(`.${prefix}-animation-gradient`).length).toBe(0);
         expect(container.querySelectorAll(`.${prefix}-animation-breath`).length).toBe(0);
+    });
+
+    it('should calc offsets for gradient animation and support rtl layout', () => {
+        jest.useFakeTimers();
+        const gridRef = React.createRef();
+        const { container } = render(
+            <ContextProvider useRtl>
+                <Skeleton grid={{ columns: 2, ref: gridRef }} showAnimation animation="gradient">
+                    <Skeleton.Node>
+                        <div style={{ width: 20, height: 20 }} />
+                    </Skeleton.Node>
+                </Skeleton>
+            </ContextProvider>,
+        );
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(gridRef.current.dom).not.toBeUndefined();
+        // 渐变动画的定位元素按各占位元素偏移渲染
+        // @en Gradient animation items are rendered by placeholder offsets
+        expect(container.querySelectorAll(`.${prefix}-animation-item`).length).toBe(5);
+        jest.useRealTimers();
+    });
+
+    it('should calc offsets in ltr layout and skip layout calc without gradient', () => {
+        jest.useFakeTimers();
+        // 非渐变动画时跳过布局计算
+        // @en Skip layout calc when animation is not gradient
+        const { container, unmount } = render(
+            <Skeleton showAnimation animation="breath" title paragraph>
+                <Skeleton.Node>
+                    <div style={{ width: 20, height: 20 }} />
+                </Skeleton.Node>
+            </Skeleton>,
+        );
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(container.querySelectorAll(`.${prefix}-animation-item`).length).toBe(0);
+        unmount();
+
+        // ltr下按left+top计算偏移
+        // @en Calc offset with left+top in ltr layout
+        const { container: gradientContainer } = render(
+            <Skeleton grid={{ columns: 1 }} showAnimation animation="gradient" />,
+        );
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(gradientContainer.querySelectorAll(`.${prefix}-animation-item`).length).toBe(2);
+        jest.useRealTimers();
     });
 });
