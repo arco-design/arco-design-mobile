@@ -1,4 +1,4 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import demoTest from '../../../tests/demoTest';
@@ -12,6 +12,12 @@ import Checkbox from '../../checkbox';
 import Radio from '../../radio';
 import Slider from '../../slider';
 import Rate from '../../rate';
+import { defaultFormDataMethods } from '../useForm';
+import { DefaultDatePickerLinkedContainer } from '../linked-container';
+import {
+    createMoveTouchEventObject,
+    createStartTouchEventObject,
+} from '../../../tests/helpers/mockEvent';
 import '@testing-library/jest-dom';
 
 demoTest('form');
@@ -390,5 +396,166 @@ describe('Form validate label', () => {
         await waitFor(() => {
             expect(screen.getByText('Validation String 为必填项')).toBeInTheDocument();
         });
+    });
+});
+
+describe('Form extra coverage', () => {
+    it('defaultFormDataMethods provides no-op fallbacks', () => {
+        expect(defaultFormDataMethods.getFieldValue('a')).toBe('a');
+        expect(defaultFormDataMethods.getFieldsValue()).toEqual({});
+        expect(defaultFormDataMethods.getFieldError('a')).toEqual([]);
+        expect(defaultFormDataMethods.setFieldValue('a', 1)).toBe(true);
+        expect(defaultFormDataMethods.setFieldsValue({ a: 1 })).toBe(true);
+        expect(typeof defaultFormDataMethods.registerField('a', {})).toBe('function');
+        const internalHooks = defaultFormDataMethods.getInternalHooks();
+        expect(typeof internalHooks.registerField).toBe('function');
+        expect(typeof internalHooks.setInitialValues).toBe('function');
+    });
+
+    it('form instance internal methods work correctly', async () => {
+        const formRef = React.createRef();
+        const onValuesChange = jest.fn();
+        const onChange = jest.fn();
+        render(
+            <Form ref={formRef} onValuesChange={onValuesChange} onChange={onChange}>
+                <Form.Item field="foo" label="foo">
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        const form = formRef.current.form;
+        const internalHooks = form.getInternalHooks();
+        // 空字段名的 initialValue 直接忽略
+        internalHooks.setInitialValue('', 1);
+        // 未注册字段的错误与触碰状态
+        expect(form.getFieldError('not-registered')).toEqual([]);
+        expect(form.isFieldTouched('not-registered')).toBe(false);
+        // 输入后字段被标记为 touched
+        userEvent.type(screen.getByRole('textbox'), 'v');
+        await waitFor(() => {
+            expect(form.isFieldTouched('foo')).toBe(true);
+        });
+        // innerSetFieldsValue 同时触发 onValuesChange 与 onChange
+        internalHooks.innerSetFieldsValue({ foo: 'bar' });
+        expect(onValuesChange).toBeCalled();
+        expect(onChange).toBeCalled();
+        expect(form.getFieldValue('foo')).toBe('bar');
+    });
+
+    it('submit swallows validation failure when no onSubmitFailed provided', async () => {
+        const formRef = React.createRef();
+        render(
+            <Form ref={formRef}>
+                <Form.Item field="req" required>
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        await act(async () => {
+            formRef.current.form.submit();
+            await Promise.resolve();
+            await Promise.resolve();
+        });
+    });
+
+    it('validates rules filtered by trigger on input and blur', async () => {
+        const onBlur = jest.fn();
+        render(
+            <Form>
+                <Form.Item
+                    field="pin"
+                    label="pin"
+                    rules={[
+                        { required: true, message: 'pin required', validateTrigger: 'onBlur' },
+                        { match: /^\d+$/, message: 'digits only' },
+                    ]}
+                >
+                    <Input onBlur={onBlur} />
+                </Form.Item>
+            </Form>,
+        );
+        const input = screen.getByRole('textbox');
+        userEvent.type(input, 'a');
+        await waitFor(() => {
+            expect(screen.getByText('digits only')).toBeInTheDocument();
+        });
+        fireEvent.blur(input);
+        expect(onBlur).toBeCalled();
+    });
+
+    it('supports shouldUpdate as function', async () => {
+        const shouldUpdate = jest.fn(({ preValue, curValue }) => preValue !== curValue);
+        render(
+            <Form>
+                <Form.Item field="su" shouldUpdate={shouldUpdate}>
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        userEvent.type(screen.getByRole('textbox'), 'x');
+        await waitFor(() => {
+            expect(screen.getByRole('textbox').value).toBe('x');
+        });
+        expect(shouldUpdate).toBeCalled();
+    });
+
+    it('Form.Item exposes dom via ref', () => {
+        const itemRef = React.createRef();
+        const { container } = render(
+            <Form>
+                <Form.Item ref={itemRef} field="itemRef" label="itemRef">
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        expect(itemRef.current.dom).toBe(container.querySelector('.arco-form-item'));
+    });
+
+    it('switch change goes through form trigger chain', async () => {
+        const onChange = jest.fn();
+        render(
+            <Form>
+                <Form.Item field="sw" label="sw">
+                    <Switch onChange={onChange} />
+                </Form.Item>
+            </Form>,
+        );
+        const switchEl = screen.getByRole('switch');
+        fireEvent.touchStart(switchEl, createStartTouchEventObject({ x: 100 }));
+        fireEvent.touchMove(switchEl, createMoveTouchEventObject({ x: 100 }));
+        fireEvent.touchEnd(switchEl, createMoveTouchEventObject({ x: 100 }));
+        await waitFor(() => {
+            expect(onChange).toBeCalledWith(true);
+        });
+    });
+
+    it('calls onClear when clearing input inside Form.Item', async () => {
+        const onClear = jest.fn();
+        const { container } = render(
+            <Form>
+                <Form.Item field="clr" label="clr">
+                    <Input clearable clearShowType="always" onClear={onClear} />
+                </Form.Item>
+            </Form>,
+        );
+        const input = screen.getByRole('textbox');
+        userEvent.type(input, 'v');
+        userEvent.click(container.querySelector('.arco-input-clear'));
+        await waitFor(() => {
+            expect(onClear).toBeCalled();
+        });
+    });
+
+    it('renders date range linked container', () => {
+        const start = Date.UTC(2020, 0, 1);
+        const { container } = render(
+            <DefaultDatePickerLinkedContainer
+                ts={[start, start + 86400000]}
+                types={['year', 'month', 'date']}
+            />,
+        );
+        expect(container.querySelector('.arco-form-picker-link-container')).toHaveTextContent(
+            '~',
+        );
     });
 });
