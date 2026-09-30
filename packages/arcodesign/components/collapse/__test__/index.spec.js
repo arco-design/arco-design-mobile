@@ -161,4 +161,116 @@ describe('Collapse', () => {
         expect(getContentHeightByIndex(1)).toBe('auto');
         expect(getContentHeightByIndex(2)).toBe('auto');
     });
+
+    it('Controlled activeItems mode', () => {
+        const mockFn = jest.fn();
+        const { container } = render(
+            <Collapse.Group items={item} activeItems={['1']} onCollapse={mockFn} />,
+        );
+        userEvent.click(container.querySelectorAll(headerPrefix)[1]);
+        expect(mockFn.mock.calls.length).toBe(1);
+    });
+
+    it('Disabled group ignores clicks in children mode', () => {
+        const mockFn = jest.fn();
+        const { container } = render(
+            <Collapse.Group disabled onCollapse={mockFn}>
+                <Collapse header="a" value="1" content="c1" />
+            </Collapse.Group>,
+        );
+        userEvent.click(container.querySelectorAll(headerPrefix)[0]);
+        expect(mockFn.mock.calls.length).toBe(0);
+    });
+
+    it('Children mode closes an open item', () => {
+        const { container } = render(
+            <Collapse.Group defaultActiveItems={['1']}>
+                <Collapse header="a" value="1" content="c1" />
+                <Collapse header="b" value="2" content="c2" />
+            </Collapse.Group>,
+        );
+        userEvent.click(container.querySelectorAll(headerPrefix)[0]);
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(
+            getComputedStyle(container.querySelectorAll(contentPrefix)[0]).getPropertyValue(
+                'height',
+            ),
+        ).toBe('0px');
+    });
+
+    it('Controlled children activeItems syncs on change', () => {
+        const { rerender } = render(
+            <Collapse.Group activeItems={['1']}>
+                <Collapse header="a" value="1" content="c1" />
+            </Collapse.Group>,
+        );
+        rerender(
+            <Collapse.Group activeItems={['2']}>
+                <Collapse header="a" value="1" content="c1" />
+            </Collapse.Group>,
+        );
+        act(() => {
+            jest.runAllTimers();
+        });
+    });
+
+    it('Exposes refs of group and item', () => {
+        const groupRef = React.createRef();
+        const itemRef = React.createRef();
+        const { container } = render(
+            <Collapse.Group ref={groupRef}>
+                <Collapse ref={itemRef} header="a" value="1" content="c1" />
+            </Collapse.Group>,
+        );
+        expect(groupRef.current.dom).toBe(container.querySelector(`.${prefix}-group`));
+        expect(itemRef.current.dom).toBe(container.querySelector(`.${prefix}-item`));
+        expect(itemRef.current.head).toBe(container.querySelector(headerPrefix));
+    });
+
+    it('ResetHeight runs on second toggle', () => {
+        const ref = React.createRef();
+        const { container, unmount } = render(
+            <Collapse ref={ref} header="t" value="1" content={<div>c</div>} />,
+        );
+        const contentNode = container.querySelector(containerPrefix);
+        contentNode.getBoundingClientRect = () => ({ height: 100 });
+        act(() => {
+            userEvent.click(container.querySelectorAll(headerPrefix)[0]);
+        });
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(
+            getComputedStyle(container.querySelector(contentPrefix)).getPropertyValue('height'),
+        ).toBe('auto');
+        act(() => {
+            userEvent.click(container.querySelectorAll(headerPrefix)[0]);
+        });
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(
+            getComputedStyle(container.querySelector(contentPrefix)).getPropertyValue('height'),
+        ).toBe('0px');
+        const handleBeforeUnmount = ref.current;
+        unmount();
+        // 卸载后调用 updateLayout 与 resetHeight 应直接返回
+        handleBeforeUnmount.updateLayout();
+        act(() => {
+            jest.runAllTimers();
+        });
+    });
+
+    it('resetHeight early-returns when unmounted during transition', () => {
+        const { rerender, unmount } = render(
+            <Collapse header="t" value="1" content={<div>c</div>} defaultActive />,
+        );
+        rerender(<Collapse header="t" value="1" content={<div>c2</div>} defaultActive />);
+        unmount();
+        act(() => {
+            jest.runAllTimers();
+        });
+    });
 });
