@@ -1,10 +1,12 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
+import { act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import Uploader from '..';
+import { Upload } from '../upload';
 import '@testing-library/jest-dom';
 
 demoTest('uploader');
@@ -215,6 +217,82 @@ describe('Uploader', () => {
         });
         await waitFor(() => {
             expect(handleLimitExceed).toBeCalledTimes(1);
+        });
+    });
+    it('ref should provide dom', () => {
+        const ref = React.createRef();
+        const { container } = render(<Uploader ref={ref} files={[{ file: mockFile }]} />);
+        expect(ref.current.dom).toBe(container.querySelector(`.${prefix}`));
+    });
+    it('delete file without onChange should not crash', () => {
+        const { container } = render(<Uploader files={[{ file: mockFile }]} />);
+        userEvent.click(container.querySelector(`.${prefix}-list-item-delete`));
+        expect(container.querySelectorAll(`.${prefix}-list-item`).length).toBe(1);
+    });
+    it('should retry upload when upload failed', async () => {
+        const uploadMock = jest.fn(() => Promise.reject(new Error('fail')));
+        function App() {
+            const [files, setFiles] = React.useState([]);
+            return <Uploader files={files} onChange={setFiles} upload={uploadMock} />;
+        }
+        const { container } = render(<App />);
+        await userEvent.click(container.querySelector(`.${prefix}-add`));
+        await userEvent.upload(container.querySelector('input'), mockFile);
+        const reader = FileReader.mock.instances[0];
+        reader.onload({ target: { result: 'foo' } });
+        await waitFor(() => {
+            expect(container.querySelectorAll(`.${prefix}-list-item`).length).toBe(1);
+        });
+        await waitFor(() => {
+            expect(container.querySelector(`.${prefix}-list-item-text-error`)).toBeInTheDocument();
+        });
+        expect(uploadMock).toBeCalledTimes(1);
+        uploadMock.mockResolvedValue({ file: mockFile });
+        userEvent.click(container.querySelector(`.${prefix}-list-item-status > div`));
+        const retryReader = FileReader.mock.instances[FileReader.mock.instances.length - 1];
+        retryReader.onload({ target: { result: 'foo' } });
+        await waitFor(() => {
+            expect(uploadMock).toBeCalledTimes(2);
+        });
+    });
+    it('long press file item correctly', () => {
+        // handleTouchStart 未在组件内绑定，直接测试 Upload 类的长按逻辑
+        const handleLongPress = jest.fn();
+        const handleClick = jest.fn();
+        const item = { file: mockFile };
+        const uploadFunc = new Upload(
+            { onClick: handleClick, onLongPress: handleLongPress, files: [item] },
+            { current: null },
+            { current: [item] },
+        );
+        uploadFunc.handleTouchStart(null, item, 0);
+        uploadFunc.handleClick(null, item, 0);
+        expect(handleClick).toBeCalledTimes(1);
+        act(() => {
+            jest.advanceTimersByTime(1000);
+        });
+        expect(handleLongPress).toBeCalledTimes(0);
+        uploadFunc.handleTouchStart(null, item, 0);
+        act(() => {
+            jest.advanceTimersByTime(750);
+        });
+        expect(handleLongPress).toBeCalledTimes(1);
+        uploadFunc.handleClick(null, item, 0);
+        expect(handleClick).toBeCalledTimes(1);
+    });
+    it('should handle parse file errors', async () => {
+        function App() {
+            const [files, setFiles] = React.useState([]);
+            return <Uploader files={files} onChange={setFiles} multiple />;
+        }
+        const { container } = render(<App />);
+        await userEvent.click(container.querySelector(`.${prefix}-add`));
+        await userEvent.upload(container.querySelector('input'), [mockFile, mockFile]);
+        const [reader1, reader2] = FileReader.mock.instances;
+        reader1.onload({ target: {} });
+        reader2.onerror();
+        await waitFor(() => {
+            expect(container.querySelectorAll(`.${prefix}-list-item`).length).toBe(0);
         });
     });
 });
