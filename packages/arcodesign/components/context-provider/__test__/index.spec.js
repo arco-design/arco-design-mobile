@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import mountTest from '../../../tests/mountTest';
 import { mockMatchMedia } from '../../../tests/helpers/mockEvent';
 import ContextProvider, { defaultContext } from '..';
@@ -54,5 +54,57 @@ describe('ConfigProvider', () => {
             </ContextProvider>,
         );
         expect(document.body).toHaveClass('arco-theme-dark');
+    });
+    it('removes dark class when isDarkMode is false', () => {
+        document.body.classList.add('arco-theme-dark');
+        render(
+            <ContextProvider isDarkMode={false}>
+                <Button>content</Button>
+            </ContextProvider>,
+        );
+        expect(document.body).not.toHaveClass('arco-theme-dark');
+    });
+    it('responds to dark mode change events', () => {
+        const handlers = {};
+        window.matchMedia = jest.fn().mockReturnValue({
+            matches: true,
+            addEventListener: jest.fn((event, cb) => {
+                handlers[event] = cb;
+            }),
+            removeEventListener: jest.fn(),
+        });
+        const onDarkModeChange = jest.fn();
+        render(
+            <ContextProvider useDarkMode onDarkModeChange={onDarkModeChange}>
+                <Button>content</Button>
+            </ContextProvider>,
+        );
+        expect(document.body).toHaveClass('arco-theme-dark');
+        act(() => {
+            handlers.change({ matches: false });
+        });
+        expect(document.body).not.toHaveClass('arco-theme-dark');
+        expect(onDarkModeChange).toBeCalledWith(false);
+        act(() => {
+            handlers.change({ matches: true });
+        });
+        expect(document.body).toHaveClass('arco-theme-dark');
+        expect(onDarkModeChange).toBeCalledWith(true);
+    });
+    it('falls back to legacy matchMedia listener api', () => {
+        const legacyMql = {
+            matches: true,
+            addListener: jest.fn(),
+            removeListener: jest.fn(),
+        };
+        window.matchMedia = jest.fn().mockReturnValue(legacyMql);
+        const { unmount } = render(
+            <ContextProvider useDarkMode>
+                <Button>content</Button>
+            </ContextProvider>,
+        );
+        expect(legacyMql.addListener).toBeCalledWith(expect.any(Function));
+        unmount();
+        expect(legacyMql.removeListener).toBeCalledWith(expect.any(Function));
     });
 });
