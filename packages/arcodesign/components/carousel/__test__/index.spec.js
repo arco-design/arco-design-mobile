@@ -6,6 +6,7 @@ import Carousel from '..';
 import ContextProvider, { defaultContext } from '../../context-provider';
 import {
     createMoveTouchEventObject,
+    createStartTouchEventObject,
     mockAddListener,
     mockDocumentVisibility,
 } from '../../../tests/helpers/mockEvent';
@@ -778,6 +779,385 @@ describe('Carousel', () => {
             });
 
             expect(indexIsActive(container, 1)).toBe(true);
+        });
+    });
+
+    // 覆盖率补充测试组：手势边界、回弹、fake 元素等分支
+    // Coverage supplement test group: gesture boundaries, bounce, fake items, etc.
+    describe('Coverage Supplements', () => {
+        beforeEach(() => {
+            jest.useFakeTimers();
+        });
+
+        afterEach(() => {
+            jest.useRealTimers();
+        });
+
+        function getWrap(container) {
+            return container.querySelector(`.${prefix}`);
+        }
+
+        it('should stop touch move when onTouchMove returns true', () => {
+            const onDistanceChange = jest.fn();
+            const onTouchMove = jest.fn(() => true);
+            const { container } = render(
+                <Carousel
+                    autoPlay={false}
+                    boxWidth={375}
+                    onTouchMove={onTouchMove}
+                    onDistanceChange={onDistanceChange}
+                >
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 150, y: 0 }));
+            fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 150, y: 0 }));
+
+            // onTouchMove 返回 true 时中断手势，不产生位移（mount 时 wrapWidth 初始化会触发一次）
+            // Gesture is interrupted when onTouchMove returns true (mount initializes wrapWidth once)
+            expect(onTouchMove).toHaveBeenCalled();
+            expect(onDistanceChange).toHaveBeenCalledTimes(1);
+            expect(indexIsActive(container, 0)).toBe(true);
+        });
+
+        it('should trigger onTouchStopped when swiping single item beyond threshold', () => {
+            const onTouchStopped = jest.fn();
+            const { container } = render(
+                <Carousel
+                    autoPlay={false}
+                    boxWidth={375}
+                    stopTouchThreshold={10}
+                    onTouchStopped={onTouchStopped}
+                >
+                    <div>Only</div>
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 150, y: 0 }));
+            // 向右滑动超过阈值，方向参数为 -1
+            // Swipe right beyond the threshold, direction argument is -1
+            expect(onTouchStopped).toBeCalledWith(-1);
+
+            // 触摸停止标记后，继续滑动不再重复触发
+            // After the touch-stopped flag is set, further moves do not trigger again
+            onTouchStopped.mockClear();
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
+            expect(onTouchStopped).not.toBeCalled();
+            fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
+        });
+
+        it('should disable gesture when touch moves vertically (page scrolling)', () => {
+            const onDistanceChange = jest.fn();
+            const { container } = render(
+                <Carousel
+                    autoPlay={false}
+                    boxWidth={375}
+                    onDistanceChange={onDistanceChange}
+                >
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            // 纵向位移大于横向位移，判定为页面滚动
+            // Vertical distance is larger, treated as page scrolling
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 105, y: 100 }));
+            fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 105, y: 100 }));
+
+            // 纵向滚动判定后距离保持不变（mount 初始化触发过一次）
+            // Distance stays unchanged after page-scroll detection (one mount call)
+            expect(onDistanceChange).toHaveBeenCalledTimes(1);
+            expect(indexIsActive(container, 0)).toBe(true);
+        });
+
+        it('should bounce back at boundary when no loop and bounceWhenNoLoop is set', () => {
+            const onTouchStopped = jest.fn();
+            const { container } = render(
+                <Carousel
+                    loop={false}
+                    bounceWhenNoLoop
+                    bounceDampRate={2}
+                    stopTouchThreshold={30}
+                    autoPlay={false}
+                    boxWidth={375}
+                    onTouchStopped={onTouchStopped}
+                >
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            // 首个元素向右滑超出阈值，触发触摸停止与回弹
+            // Swipe right beyond threshold on first item, triggering touch-stopped and bounce
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
+            expect(onTouchStopped).toBeCalledWith(-1);
+
+            fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
+            act(() => {
+                jest.advanceTimersByTime(600);
+            });
+            // 回弹后停留在原索引
+            // Stays on the original index after bouncing back
+            expect(indexIsActive(container, 0)).toBe(true);
+        });
+
+        it('should keep position at boundary without bounce', () => {
+            const onTouchStopped = jest.fn();
+            const { container } = render(
+                <Carousel
+                    loop={false}
+                    stopTouchThreshold={30}
+                    autoPlay={false}
+                    boxWidth={375}
+                    onTouchStopped={onTouchStopped}
+                >
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
+            fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
+            act(() => {
+                jest.advanceTimersByTime(600);
+            });
+
+            expect(onTouchStopped).toBeCalledWith(-1);
+            expect(indexIsActive(container, 0)).toBe(true);
+        });
+
+        it('should ignore touch events during position adjusting', () => {
+            const ref = React.createRef();
+            const { container } = render(
+                <Carousel ref={ref} autoPlay={false} boxWidth={375}>
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            act(() => {
+                ref.current.changeIndex(1);
+            });
+            // 过渡进行中的 touchstart 被忽略
+            // touchstart during transition is ignored
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 300, y: 0 }));
+            fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 300, y: 0 }));
+            act(() => {
+                jest.advanceTimersByTime(600);
+            });
+
+            expect(indexIsActive(container, 1)).toBe(true);
+        });
+
+        it('should ignore repeated touchstart after move and jump back when swipe is cancelled', () => {
+            const { container } = render(
+                <Carousel speedToChange={Infinity} autoPlay={false} boxWidth={375}>
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 150, y: 0 }));
+            // move 之后的重复 touchstart（如点击）被忽略
+            // Repeated touchstart after move (like a click) is ignored
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 300, y: 0 }));
+            fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 150, y: 0 }));
+            act(() => {
+                jest.advanceTimersByTime(600);
+            });
+
+            // 距离未达阈值，回弹到当前索引
+            // Distance below threshold, bounces back to current index
+            expect(indexIsActive(container, 0)).toBe(true);
+        });
+
+        it('should duplicate list items when list has two items and fakeItem is set', () => {
+            const { container } = render(
+                <Carousel
+                    list={[
+                        { src: 'a.jpg', text: 'A' },
+                        { src: 'b.jpg', text: 'B' },
+                    ]}
+                    fakeItem
+                    autoPlay={false}
+                    boxWidth={375}
+                />,
+            );
+
+            const items = container.querySelectorAll(`.${prefix}-item.normal-item`);
+            expect(items).toHaveLength(4);
+        });
+
+        it('should ignore changeIndex while position adjusting', () => {
+            const ref = React.createRef();
+            const { container } = render(
+                <Carousel ref={ref} autoPlay={false} boxWidth={375}>
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+
+            act(() => {
+                ref.current.changeIndex(1);
+            });
+            act(() => {
+                // 过渡中的第二次调用被忽略
+                // Second call during transition is ignored
+                ref.current.changeIndex(2);
+                jest.advanceTimersByTime(600);
+            });
+
+            expect(indexIsActive(container, 1)).toBe(true);
+        });
+
+        it('should reset to index 0 when children shrink while index is negative', () => {
+            const ref = React.createRef();
+            const { container, rerender } = render(
+                <Carousel ref={ref} autoPlay={false} boxWidth={375}>
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+
+            // 跳到 -1（fake 位）后停留
+            // Jumps to -1 (fake position) and stays
+            act(() => {
+                ref.current.changeIndex(-1);
+                jest.advanceTimersByTime(610);
+            });
+            expect(container.querySelector(`.${prefix}-item.active`)).toBe(null);
+
+            // children 数量变化时负索引被修正为 0
+            // Negative index is corrected to 0 when children count changes
+            rerender(
+                <Carousel autoPlay={false} boxWidth={375}>
+                    <div>Item 1</div>
+                    <div>Item 2</div>
+                </Carousel>,
+            );
+            act(() => {
+                jest.advanceTimersByTime(610);
+            });
+            expect(indexIsActive(container, 0)).toBe(true);
+        });
+
+        it('should render fake item and moved child when swiping right at first item with fakeItem', () => {
+            const { container } = render(
+                <Carousel fakeItem inactiveScale={0.8} autoPlay={false} boxWidth={375}>
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 150, y: 0 }));
+
+            // index 0 向右滑时，左侧补 total-2 的 fake 元素
+            // When swiping right at index 0, a fake element of total-2 fills the left side
+            const fakeLeft = container.querySelector(
+                `.${prefix}-item.fake-item.fake-left[data-fake-index="1"]`,
+            );
+            expect(fakeLeft).toBeTruthy();
+
+            // 末尾真实元素被移到最前，标记为展示层第 -1 位
+            // The last real item is moved to the front, shown as position -1
+            const itemInners = container.querySelectorAll(`.${prefix}-item-inner`);
+            expect(itemInners[2].style.transform).toContain('scale(0.8');
+        });
+
+        it('should render right fake item when swiping at last item', () => {
+            // 向右滑：末尾索引非左方向时右侧补第 0 个元素
+            // Swipe right: item 0 fills the right side when index is total-1 and direction is not left
+            const { container } = render(
+                <Carousel
+                    fakeItem
+                    inactiveScale={0.8}
+                    initialIndex={2}
+                    autoPlay={false}
+                    boxWidth={375}
+                >
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 150, y: 0 }));
+
+            const fakeRight = container.querySelector(`.${prefix}-item.fake-item.fake-right`);
+            expect(fakeRight).toBeTruthy();
+            expect(fakeRight.getAttribute('data-fake-index')).toBe('0');
+        });
+
+        it('should mark first child as total position when swiping left at last item', () => {
+            const { container } = render(
+                <Carousel
+                    fakeItem
+                    inactiveScale={0.8}
+                    initialIndex={2}
+                    autoPlay={false}
+                    boxWidth={375}
+                >
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            const wrap = getWrap(container);
+
+            fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 200, y: 0 }));
+            fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 150, y: 0 }));
+
+            // 末尾元素向左滑时，第 0 个元素被移到最后，展示层为第 total 位
+            // When swiping left at the last item, item 0 is moved to the end, shown as position total
+            const fakeRight = container.querySelector(
+                `.${prefix}-item.fake-item.fake-right[data-fake-index="1"]`,
+            );
+            expect(fakeRight).toBeTruthy();
+
+            const itemInners = container.querySelectorAll(`.${prefix}-item-inner`);
+            expect(itemInners[0].style.transform).toContain('scale(0.8');
+        });
+
+        it('should remove fake transform when child size is negative', () => {
+            const { container } = render(
+                <Carousel
+                    fakeItem
+                    offsetBetween={{ left: 200, right: 200 }}
+                    autoPlay={false}
+                    boxWidth={375}
+                >
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+
+            const fakeLeft = container.querySelector(`.${prefix}-item.fake-item.fake-left`);
+            expect(fakeLeft).toBeTruthy();
+            expect(fakeLeft.getAttribute('data-fake-index')).toBe('2');
+        });
+
+        it('should stop rendering fake items when fakeItem is turned off', () => {
+            const { container, rerender } = render(
+                <Carousel fakeItem autoPlay={false} boxWidth={375}>
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            expect(container.querySelector(`.${prefix}-item.fake-item`)).toBeTruthy();
+
+            // 关闭 fakeItem 后已有的 fake 索引不再渲染
+            // Existing fake indexes stop rendering after fakeItem is turned off
+            rerender(
+                <Carousel autoPlay={false} boxWidth={375}>
+                    {TEST_ITEMS}
+                </Carousel>,
+            );
+            expect(container.querySelector(`.${prefix}-item.fake-item`)).toBe(null);
         });
     });
 });
