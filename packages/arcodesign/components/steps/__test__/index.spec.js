@@ -90,4 +90,16 @@ describe('Steps', () => {
         firstChild.click();
         expect(mockFn).toBeCalled();
     });
+    it('should expose dom via ref', () => {
+        const stepsRef = React.createRef();
+        const stepRef = React.createRef();
+        const { container } = render(
+            <Steps ref={stepsRef} current={0}>
+                <Steps.Step ref={stepRef} title="First" />
+                <Steps.Step title="Second" />
+            </Steps>,
+        );
+        expect(stepsRef.current.dom).toBe(container.querySelector(`.${prefix}`));
+        expect(stepRef.current.dom).toBe(container.querySelector(`.${prefix}-item`));
+    });
 });
