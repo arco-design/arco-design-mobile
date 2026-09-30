@@ -40,4 +40,13 @@ describe('Badge', () => {
         );
         expect(container5.querySelectorAll('svg').length).toBe(1);
     });
+    it('should expose dom via ref', () => {
+        const ref = React.createRef();
+        const { container } = render(
+            <Badge ref={ref} text="1">
+                <IconStarFill />
+            </Badge>,
+        );
+        expect(ref.current.dom).toBe(container.querySelector(`.${prefix}`));
+    });
 });
