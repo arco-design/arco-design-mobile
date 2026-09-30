@@ -67,4 +67,69 @@ describe('SwipeLoad', () => {
         });
         expect(mockFn).toBeCalled();
     });
+
+    it('should bounce back when bumping left boundary', () => {
+        const onConfirm = jest.fn();
+        const { container } = render(
+            <SwipeLoad bounceWhenBumpBoundary onConfirm={onConfirm}>
+                <div className="item" />
+            </SwipeLoad>,
+        );
+        const item = container.querySelector('.item');
+        act(() => {
+            fireEvent.touchStart(item, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(item, createMoveTouchEventObject({ x: 140, y: 0 }));
+        });
+        act(() => {
+            fireEvent.touchEnd(item, createMoveTouchEventObject({ x: 140, y: 0 }));
+        });
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(onConfirm).not.toBeCalled();
+    });
+
+    it('should hide label when scrolling back left after reaching right edge', () => {
+        const onConfirm = jest.fn();
+        const { container } = render(
+            <SwipeLoad onConfirm={onConfirm}>
+                <div className="item" />
+            </SwipeLoad>,
+        );
+        const item = container.querySelector('.item');
+        Object.defineProperty(item, 'clientWidth', { value: 50, configurable: true });
+        Object.defineProperty(item, 'scrollWidth', { value: 100, configurable: true });
+        // 向右滑动到列表尽头
+        act(() => {
+            fireEvent.touchStart(item, createStartTouchEventObject({ x: 100, y: 0 }));
+            fireEvent.touchMove(item, createMoveTouchEventObject({ x: 60, y: 0 }));
+        });
+        // 向左滑回，标签隐藏
+        act(() => {
+            fireEvent.touchMove(item, createMoveTouchEventObject({ x: 160, y: 0 }));
+            fireEvent.touchEnd(item, createMoveTouchEventObject({ x: 160, y: 0 }));
+        });
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(onConfirm).not.toBeCalled();
+    });
+
+    it('should expose dom via ref', () => {
+        const ref = React.createRef();
+        const { container } = render(
+            <SwipeLoad ref={ref}>
+                <div className="item" />
+            </SwipeLoad>,
+        );
+        expect(ref.current.dom).toBe(container.querySelector('.arco-swipe-load'));
+    });
+
+    it('should not bind listeners when disabled', () => {
+        render(
+            <SwipeLoad disabled>
+                <div className="item" />
+            </SwipeLoad>,
+        );
+    });
 });

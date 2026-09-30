@@ -1,11 +1,16 @@
 import React, { createRef } from 'react';
 import { act, render } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import SwipeAction from '..';
 import { mockSwipe } from './utils';
+import {
+    createStartTouchEventObject,
+    createMoveTouchEventObject,
+} from '../../../tests/helpers/mockEvent';
 
 demoTest('swipe-action');
 
@@ -154,5 +159,109 @@ describe('SwipeAction', () => {
             await jest.advanceTimersByTime(500);
         });
         expect(mockFn).toBeCalledTimes(2);
+    });
+
+    it('should not open menu when scrolling vertically', async () => {
+        const mockOpenFn = jest.fn();
+        const { container } = render(
+            <SwipeAction {...props} onOpen={mockOpenFn}>
+                <ContentDiv />
+            </SwipeAction>,
+        );
+        const comp = container.querySelector(`.${prefix}`);
+        act(() => {
+            fireEvent.touchStart(comp, createStartTouchEventObject({ x: 0, px: 0, y: 0, py: 0 }));
+            fireEvent.touchMove(comp, createMoveTouchEventObject({ x: 5, px: 5, y: 50, py: 50 }));
+        });
+        fireEvent.touchEnd(comp, createMoveTouchEventObject({ x: 5, px: 5, y: 50, py: 50 }));
+        await act(async () => {
+            await jest.advanceTimersByTime(600);
+        });
+        expect(mockOpenFn).not.toBeCalled();
+        expect(comp.className).toContain('action-close');
+    });
+
+    it('should close menu when drag offset below threshold', async () => {
+        const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
+        Element.prototype.getBoundingClientRect = () => ({ width: 64 });
+        const { container } = render(
+            <SwipeAction {...props}>
+                <ContentDiv />
+            </SwipeAction>,
+        );
+        const comp = container.querySelector(`.${prefix}`);
+        mockSwipe(comp, { touchstart: 100, touchmove: 106, touchend: 106 });
+        await act(async () => {
+            await jest.advanceTimersByTime(600);
+        });
+        expect(comp.className).toContain('action-close');
+        Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
+    });
+
+    it('should infer direction from offset when closing without dir', async () => {
+        const mockCloseFn = jest.fn();
+        const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
+        Element.prototype.getBoundingClientRect = () => ({ width: 64 });
+        const ref = createRef();
+        render(
+            <SwipeAction {...props} ref={ref} onClose={mockCloseFn}>
+                <ContentDiv />
+            </SwipeAction>,
+        );
+        act(() => {
+            ref.current.open('right');
+        });
+        act(() => {
+            ref.current.close();
+        });
+        await act(async () => {
+            await jest.advanceTimersByTime(600);
+        });
+        expect(mockCloseFn).toBeCalledWith('right');
+        Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
+    });
+
+    it('should close when clicking content while menu open', async () => {
+        const mockCloseFn = jest.fn();
+        const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
+        Element.prototype.getBoundingClientRect = () => ({ width: 64 });
+        const ref = createRef();
+        const { container } = render(
+            <SwipeAction {...props} ref={ref} onClose={mockCloseFn}>
+                <ContentDiv />
+            </SwipeAction>,
+        );
+        act(() => {
+            ref.current.open('right');
+        });
+        userEvent.click(container.querySelector(`.${prefix}-content`));
+        await act(async () => {
+            await jest.advanceTimersByTime(600);
+        });
+        expect(mockCloseFn).toBeCalledWith('right');
+        Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
+    });
+
+    it('should close menu when async action resolves false', async () => {
+        const mockCloseFn = jest.fn();
+        const ref = createRef();
+        const asyncProps = {
+            rightActions: [{ text: 'async', onClick: () => Promise.resolve(false) }],
+            leftActions: [],
+        };
+        const { container } = render(
+            <SwipeAction {...asyncProps} ref={ref} onClose={mockCloseFn}>
+                <ContentDiv />
+            </SwipeAction>,
+        );
+        act(() => {
+            ref.current.open('right');
+        });
+        userEvent.click(container.querySelector(`.${prefix}-menu-action-right`));
+        await act(async () => {
+            await Promise.resolve();
+            await jest.advanceTimersByTime(600);
+        });
+        expect(mockCloseFn).toBeCalled();
     });
 });
