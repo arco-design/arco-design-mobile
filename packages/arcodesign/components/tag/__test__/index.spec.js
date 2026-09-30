@@ -268,4 +268,18 @@ describe('Tag.List', () => {
         expect(listElement).toBeInTheDocument();
         expect(container.querySelector('.tag-list-add-wrap')).toBeInTheDocument();
     });
+
+    // 测试通过 ref 获取 dom
+    // Test getting dom via ref
+    it('should expose dom via ref', () => {
+        const tagRef = React.createRef();
+        const { container: tagContainer } = render(<Tag ref={tagRef}>Ref Tag</Tag>);
+        expect(tagRef.current.dom).toBe(tagContainer.querySelector(`.${prefix}`));
+
+        const listRef = React.createRef();
+        const { container } = render(<Tag.List ref={listRef} list={[{ children: 'Tag 1' }]} />);
+        expect(listRef.current.dom).toBe(
+            container.querySelector(`.${defaultContext.prefixCls}-tag-list`),
+        );
+    });
 });

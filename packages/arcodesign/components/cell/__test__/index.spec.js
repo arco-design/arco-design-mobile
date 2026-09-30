@@ -110,4 +110,16 @@ describe('Cell', () => {
         userEvent.click(screen.getByText('clickable with onClick'));
         expect(mockFn).toHaveBeenCalled();
     });
+
+    it('should expose dom via ref', () => {
+        const cellRef = React.createRef();
+        const groupRef = React.createRef();
+        const { container } = render(
+            <Cell.Group ref={groupRef}>
+                <Cell ref={cellRef} label="ref cell" />
+            </Cell.Group>,
+        );
+        expect(cellRef.current.dom).toBe(container.querySelector(`.${prefix}`));
+        expect(groupRef.current.dom).toBe(container.querySelector(`.${prefix}-group`));
+    });
 });
