@@ -213,4 +213,83 @@ describe('Image', () => {
         act(() => jest.runAllTimers());
         expect(screen.getByRole('img')).toHaveClass('preview-overflow-y');
     });
+
+    it('Preview-x image fits the box renders correctly', () => {
+        render(<Image boxWidth={300} boxHeight={100} fit="preview-x" src={imgUrl} />);
+        onloadRef();
+        act(() => jest.runAllTimers());
+        expect(screen.getByRole('img')).toHaveClass('preview-fit-contain-x');
+    });
+
+    it('Preview-y image fits the box renders correctly', () => {
+        render(<Image boxWidth={150} boxHeight={100} fit="preview-y" src={imgUrl} />);
+        onloadRef();
+        act(() => jest.runAllTimers());
+        expect(screen.getByRole('img')).toHaveClass('preview-fit-contain-y');
+    });
+
+    it('Native props are applied to the loaded image', () => {
+        render(<Image src={imgUrl} nativeProps={{ referrerPolicy: 'no-referrer' }} />);
+        onloadRef();
+        act(() => jest.runAllTimers());
+        expect(screen.getByRole('img').referrerPolicy).toBe('no-referrer');
+    });
+
+    it('Load callback still works after unmounted', () => {
+        const onLoad = jest.fn();
+        const { unmount } = render(<Image src={imgUrl} onLoad={onLoad} />);
+        unmount();
+        onloadRef();
+        act(() => jest.runAllTimers());
+        expect(onLoad).toBeCalled();
+    });
+
+    it('Static image with completed img element triggers load or error', () => {
+        const completeDesc = Object.getOwnPropertyDescriptor(
+            HTMLImageElement.prototype,
+            'complete',
+        );
+        const naturalWidthDesc = Object.getOwnPropertyDescriptor(
+            HTMLImageElement.prototype,
+            'naturalWidth',
+        );
+        Object.defineProperty(HTMLImageElement.prototype, 'complete', {
+            get: () => true,
+            configurable: true,
+        });
+        Object.defineProperty(HTMLImageElement.prototype, 'naturalWidth', {
+            get: () => 100,
+            configurable: true,
+        });
+        const onLoad = jest.fn();
+        const { unmount: unmount1 } = render(
+            <Image staticLabel src={imgUrl} onLoad={onLoad} />,
+        );
+        // 图片加载完成且有宽度时触发onLoad
+        // @en Trigger onLoad when image is complete and has width
+        expect(onLoad).toBeCalled();
+        unmount1();
+
+        Object.defineProperty(HTMLImageElement.prototype, 'naturalWidth', {
+            get: () => 0,
+            configurable: true,
+        });
+        const onError = jest.fn();
+        const { unmount: unmount2 } = render(
+            <Image staticLabel src={imgUrl} onError={onError} />,
+        );
+        // 图片加载完成但无宽高时触发onError
+        // @en Trigger onError when image is complete but has no width
+        expect(onError).toBeCalled();
+        unmount2();
+
+        completeDesc &&
+            Object.defineProperty(HTMLImageElement.prototype, 'complete', completeDesc);
+        naturalWidthDesc &&
+            Object.defineProperty(
+                HTMLImageElement.prototype,
+                'naturalWidth',
+                naturalWidthDesc,
+            );
+    });
 });
