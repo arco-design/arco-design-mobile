@@ -1,0 +1,99 @@
+name: ADM Issue Assistant
+
+# Publishes issues and issue comments prepared by the ADM issue assistant.
+# Only callers with Contents write access can send repository_dispatch events.
+# 由 ADM Issue 助手通过 repository_dispatch 发起，仅具备仓库写权限的调用方可以触发
+
+on:
+    repository_dispatch:
+        types: [adm-issue-create, adm-issue-comment]
+
+permissions:
+    issues: write # Create issues and issue comments 创建 Issue 和 Issue 评论
+
+concurrency:
+    group: adm-issue-assistant
+    cancel-in-progress: false
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+
+        steps:
+            - name: Publish request
+              uses: actions/github-script@v7
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  script: |
+                      const payload = context.payload.client_payload || {};
+                      const { owner, repo } = context.repo;
+
+                      // Validate the request 校验请求
+                      const requestId = String(payload.request_id || '');
+                      if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(requestId)) {
+                        core.setFailed('request_id must be a UUID');
+                        return;
+                      }
+                      const body = typeof payload.body === 'string' ? payload.body.trim() : '';
+                      if (!body || body.length > 20000) {
+                        core.setFailed('body must be 1-20000 characters');
+                        return;
+                      }
+
+                      // Hidden marker makes retries idempotent 隐藏标记用于重试去重
+                      const marker = `<!-- adm-assistant:${requestId} -->`;
+                      const fullBody = `${body}\n\n${marker}`;
+
+                      if (context.payload.action === 'adm-issue-comment') {
+                        const issueNumber = Number(payload.issue_number);
+                        if (!Number.isInteger(issueNumber) || issueNumber <= 0) {
+                          core.setFailed('issue_number must be a positive integer');
+                          return;
+                        }
+                        const { data: issue } = await github.rest.issues.get({ owner, repo, issue_number: issueNumber });
+                        if (issue.pull_request || issue.locked) {
+                          core.setFailed('target must be an unlocked issue');
+                          return;
+                        }
+                        const comments = await github.paginate(github.rest.issues.listComments, {
+                          owner,
+                          repo,
+                          issue_number: issueNumber,
+                          per_page: 100
+                        });
+                        const existing = comments.find(comment => comment.body?.includes(marker));
+                        if (existing) {
+                          core.info(`Already published: ${existing.html_url}`);
+                          return;
+                        }
+                        const { data: comment } = await github.rest.issues.createComment({
+                          owner,
+                          repo,
+                          issue_number: issueNumber,
+                          body: fullBody
+                        });
+                        core.info(`Published: ${comment.html_url}`);
+                        return;
+                      }
+
+                      const title = typeof payload.title === 'string' ? payload.title.trim() : '';
+                      if (!title || title.length > 200) {
+                        core.setFailed('title must be 1-200 characters');
+                        return;
+                      }
+                      const { data: recent } = await github.rest.issues.listForRepo({
+                        owner,
+                        repo,
+                        state: 'all',
+                        sort: 'created',
+                        direction: 'desc',
+                        per_page: 100
+                      });
+                      const existing = recent.find(issue => issue.body?.includes(marker));
+                      if (existing) {
+                        core.info(`Already published: ${existing.html_url}`);
+                        return;
+                      }
+                      const { data: issue } = await github.rest.issues.create({ owner, repo, title, body: fullBody });
+                      core.info(`Published: ${issue.html_url}`);
