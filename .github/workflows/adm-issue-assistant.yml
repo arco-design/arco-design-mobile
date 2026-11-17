@@ -51,8 +51,11 @@ jobs:
                           core.setFailed('issue_number must be a positive integer');
                           return;
                         }
-                        const { data: issue } = await github.rest.issues.get({ owner, repo, issue_number: issueNumber });
-                        if (issue.pull_request || issue.locked) {
+                        // Pull requests are not readable with issues permission only 仅有 issues 权限时读取 PR 会失败
+                        const issue = await github.rest.issues
+                          .get({ owner, repo, issue_number: issueNumber })
+                          .then(response => response.data, () => null);
+                        if (!issue || issue.pull_request || issue.locked) {
                           core.setFailed('target must be an unlocked issue');
                           return;
                         }
