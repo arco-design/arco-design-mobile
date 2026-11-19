@@ -73,4 +73,36 @@ describe('Keyboard', () => {
         await userEvent.click(container);
         expect(onClose).toBeCalledTimes(2);
     });
+
+    it('random order, default type, closed state and ref', () => {
+        const closeSpy = jest.fn();
+        const ref = React.createRef();
+        // 乱序键盘仍然渲染全部按键
+        // @en Random keyboard still renders all keys
+        const { rerender, unmount } = render(
+            <Keyboard visible randomOrder ref={ref} close={closeSpy} />,
+        );
+        const keys = document.querySelectorAll('.arco-keyboard-key');
+        expect(keys.length).toBe(12);
+        const numbers = [...keys]
+            .map(key => key.textContent)
+            .filter(text => text !== '' && !isNaN(Number(text)))
+            .map(Number);
+        expect(numbers.slice().sort((a, b) => a - b)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+        // 已打开的键盘切换到确认模式后，公开引用指向当前键盘节点
+        // @en After switching the open keyboard to confirm mode, the ref points to its DOM node
+        rerender(<Keyboard visible ref={ref} type="confirm" close={closeSpy} />);
+        const keyboard = screen.getByText('完成').closest('.arco-keyboard');
+        expect(keyboard).toBeInTheDocument();
+        expect(ref.current.keyboard).toBe(keyboard);
+        unmount();
+
+        // 键盘未展示时点击空白处不触发关闭
+        // @en Clicking blank space does not close when keyboard is not shown
+        closeSpy.mockClear();
+        render(<Keyboard close={closeSpy} />);
+        document.body.click();
+        expect(closeSpy).not.toBeCalled();
+    });
 });
