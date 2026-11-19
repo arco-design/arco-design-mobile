@@ -16,6 +16,17 @@ mountTest(Popover, 'Popover');
 
 const prefix = `${defaultContext.prefixCls}-popover`;
 
+function mockBodyListeners() {
+    const listeners = {};
+    jest.spyOn(document.body, 'addEventListener').mockImplementation((type, callback) => {
+        listeners[type] = callback;
+    });
+    jest.spyOn(document.body, 'removeEventListener').mockImplementation((type, callback) => {
+        if (listeners[type] === callback) delete listeners[type];
+    });
+    return listeners;
+}
+
 async function clickButton(event = 'click') {
     const btn = rtlScreen.getByRole('button');
     if (event === 'touchstart') {
@@ -51,17 +62,6 @@ function updatePopoverPosition(ref) {
     act(() => {
         updatePosition();
     });
-}
-
-function mockBodyListeners() {
-    const listeners = {};
-    jest.spyOn(document.body, 'addEventListener').mockImplementation((type, callback) => {
-        listeners[type] = callback;
-    });
-    jest.spyOn(document.body, 'removeEventListener').mockImplementation((type, callback) => {
-        if (listeners[type] === callback) delete listeners[type];
-    });
-    return listeners;
 }
 
 describe('Popover', () => {
