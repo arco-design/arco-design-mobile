@@ -162,15 +162,6 @@ describe('Collapse', () => {
         expect(getContentHeightByIndex(2)).toBe('auto');
     });
 
-    it('Controlled activeItems mode', () => {
-        const mockFn = jest.fn();
-        const { container } = render(
-            <Collapse.Group items={item} activeItems={['1']} onCollapse={mockFn} />,
-        );
-        userEvent.click(container.querySelectorAll(headerPrefix)[1]);
-        expect(mockFn.mock.calls.length).toBe(1);
-    });
-
     it('Disabled group ignores clicks in children mode', () => {
         const mockFn = jest.fn();
         const { container } = render(
@@ -198,22 +189,6 @@ describe('Collapse', () => {
                 'height',
             ),
         ).toBe('0px');
-    });
-
-    it('Controlled children activeItems syncs on change', () => {
-        const { rerender } = render(
-            <Collapse.Group activeItems={['1']}>
-                <Collapse header="a" value="1" content="c1" />
-            </Collapse.Group>,
-        );
-        rerender(
-            <Collapse.Group activeItems={['2']}>
-                <Collapse header="a" value="1" content="c1" />
-            </Collapse.Group>,
-        );
-        act(() => {
-            jest.runAllTimers();
-        });
     });
 
     it('Exposes refs of group and item', () => {

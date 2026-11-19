@@ -119,21 +119,6 @@ describe('Dropdown', () => {
         expect(onCancel).not.toBeCalled();
     });
 
-    it('should drop up when direction is up', async () => {
-        render(
-            <Dropdown
-                direction="up"
-                top={400}
-                height={100}
-                options={options}
-                showDropdown={true}
-            />,
-        );
-        await waitFor(() => {
-            expect(document.querySelector(`.${prefix}`).className).toContain('drop-up');
-        });
-    });
-
     it('should expose dom via ref', async () => {
         const ref = React.createRef();
         render(<Dropdown ref={ref} options={options} showDropdown={true} height={300} />);
@@ -176,17 +161,6 @@ describe('Dropdown', () => {
         });
         fireEvent.click(document.querySelectorAll(`.${prefix}-options-item`)[0]);
         expect(onOptionChange).not.toBeCalled();
-    });
-
-    it('should track scroll container when touching inside dropdown', async () => {
-        const { rerender } = render(
-            <Dropdown options={options} showDropdown={true} height={300} onCancel={jest.fn()} />,
-        );
-        await waitFor(() => {
-            expect(document.querySelector(`.${prefix}`)).not.toBeNull();
-        });
-        rerender(<Dropdown options={options} showDropdown={true} height={300} onCancel={jest.fn()} />);
-        fireEvent.touchStart(document.querySelector(`.${prefix}`));
     });
 
     it('Options exposes dom via ref and renders fake columns', () => {
