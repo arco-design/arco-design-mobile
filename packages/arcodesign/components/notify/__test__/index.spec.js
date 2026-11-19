@@ -87,6 +87,36 @@ describe('notify hook work correctly', () => {
 describe('notify instance methods work correctly', () => {
     jest.useFakeTimers();
 
+    it('should remove the mount after calling the updated onClose', () => {
+        const container = document.createElement('div');
+        const contentRef = React.createRef();
+        const onClose = jest.fn();
+        const updatedOnClose = jest.fn();
+        const notification = Notify.info({
+            content: <span ref={contentRef}>Notice</span>,
+            duration: 0,
+            getContainer: () => container,
+            onClose,
+        });
+        act(() => {
+            jest.runOnlyPendingTimers();
+        });
+        expect(container.childElementCount).toBe(1);
+        expect(contentRef.current).toHaveTextContent('Notice');
+
+        act(() => {
+            notification.update({ onClose: updatedOnClose });
+            notification.close();
+        });
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(updatedOnClose).toHaveBeenCalledTimes(1);
+        expect(onClose).not.toHaveBeenCalled();
+        expect(container.childElementCount).toBe(0);
+        expect(contentRef.current).toBeNull();
+    });
+
     it('should render into custom container, update and destroy on close', () => {
         const customContainer = document.createElement('div');
         document.body.appendChild(customContainer);
