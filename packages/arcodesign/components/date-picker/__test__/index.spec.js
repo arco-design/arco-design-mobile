@@ -200,7 +200,7 @@ describe('DatePicker', () => {
     });
 
     it('should process columns by columnsProcessor', () => {
-        const columnsProcessor = jest.fn(columns => columns);
+        const columnsProcessor = jest.fn(columns => [columns[0]]);
         render(
             <DatePicker
                 visible
@@ -212,8 +212,7 @@ describe('DatePicker', () => {
             />,
         );
         expect(columnsProcessor).toBeCalled();
-        // 返回原数组时列渲染不变
-        expect(document.querySelectorAll(`.${prefix}-column`).length).toBe(2);
+        expect(document.querySelectorAll(`.${prefix}-column`)).toHaveLength(1);
     });
 
     it('should render range item text by rangeItemFormat', () => {

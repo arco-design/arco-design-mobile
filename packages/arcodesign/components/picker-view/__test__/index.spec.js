@@ -416,7 +416,7 @@ describe('pickerView action correctly',()=>{
             value={mockData[2].value}
             cols={3}/>
         )
-        expect(Array.isArray(cascadeRef.current.getCellMovingStatus())).toBe(true);
+        expect(cascadeRef.current.getCellMovingStatus()).toEqual(['normal', 'normal', 'normal']);
 
         const normalRef = createRef();
         render(<PickerView
@@ -425,7 +425,7 @@ describe('pickerView action correctly',()=>{
             value={mockData[1].value}
             cascade={false}/>
         )
-        expect(normalRef.current.getCellMovingStatus()).toHaveLength(2);
+        expect(normalRef.current.getCellMovingStatus()).toEqual(['normal', 'normal']);
     })
 
     it('should get all column data and scroll in cascade and normal mode',() => {
@@ -445,7 +445,7 @@ describe('pickerView action correctly',()=>{
         expect(cascadeRef.current.getColumnValue()).toBe('北京市');
 
         const normalRef = createRef();
-        render(<PickerView
+        const { container: normalContainer } = render(<PickerView
             ref={normalRef}
             data={mockData[1].data}
             value={mockData[1].value}
@@ -454,10 +454,20 @@ describe('pickerView action correctly',()=>{
         const normalData = normalRef.current.getAllColumnData();
         expect(normalData).toHaveLength(2);
         expect(normalData[0].value).toBe('周三');
+        const selectionBar = normalContainer.querySelector(`.arco-picker-selection-bar`);
+        selectionBar.getBoundingClientRect = () => ({ height: 34 });
+        act(() => {
+            normalRef.current.updateLayout();
+        });
+        const weekdayColumn = normalContainer.querySelector(
+            `.arco-picker-column-item-wrap`,
+        );
+        weekdayColumn.style.transform = 'matrix(1, 0, 0, 1, 0, -34)';
         act(() => {
             normalRef.current.scrollToCurrentIndex();
+            jest.runOnlyPendingTimers();
         });
-        expect(normalRef.current.getColumnValue()).toBe('周三');
+        expect(normalRef.current.getColumnValue()).toBe('周二');
     })
 
     it('should reset value to initial value by resetValue',() => {
