@@ -30,6 +30,7 @@
 |contentClass|自定义内容类名|string|-|
 |contentStyle|自定义内容样式|CSSProperties|-|
 |maskTransitionType|蒙层过渡动画类名|string|"fade"|
+|contentTransitionVarType|内容过渡动画类名变量标识|string|-|
 |maskClosable|点击蒙层是否关闭菜单|boolean|true|
 |animatingClosable|执行进场动画时点击蒙层是否可关闭菜单|boolean|false|
 |mountOnEnter|是否在打开菜单时再加载内容|boolean|true|
@@ -40,12 +41,17 @@
 |onMaskClick|点击蒙层回调，maskClosable=false时也会触发|() =\> void|-|
 |onTouchMove|弹窗的touchmove回调|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> void|-|
 |onPreventTouchMove|非滚动区域或滚动到顶部及底部时的触摸事件回调|(e: TouchEvent, direction: "x" \| "y") =\> void|-|
+|getScrollContainer|内容内部滚动区域容器，在该容器中未滚动到顶部或底部时会释放滚动|() =\> HTMLElement \| HTMLElement\[\]|-|
 
 > 引用/Refs
 
 |参数|描述|类型|
 |----------|-------------|------|
+|actionList|菜单列表元素 DOM|HTMLDivElement|
 |dom|最外层元素 DOM|HTMLDivElement|
+|mask|蒙层 DOM|HTMLDivElement|
+|content|内容 DOM|HTMLDivElement|
+|setCloseScene|在关闭弹窗前修改 onClose 的 scene 参数值|(scene: string) =\> void|
 
 > 方法/Methods
 
@@ -76,6 +82,7 @@
 |locale|国际化语言包配置|ILocale|-|
 |useRtl|是否使用Rtl模式|boolean|false|
 |onDarkModeChange|当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效|(isDark: boolean) =\> void|-|
+|createRoot|React19 修改了 createRoot 的引入路径，导致组件内部无法直接引入（低react版本会找不到模块）。因此使用 react 19 的用户需从外部传入 createRoot 方法|CreateRootFnType|-|
 
 > ILocale
 

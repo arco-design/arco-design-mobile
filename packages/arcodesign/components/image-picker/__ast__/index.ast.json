@@ -320,8 +320,26 @@
         },
         "onSelectClick": {
             "defaultValue": null,
-            "description": "选图点击事件\n@en Select icon click event",
+            "description": "选图点击事件(同onUploadClick)\n@en Select icon click event(same as onUploadClick)\n@deprecated Please use onUploadClick instead",
             "name": "onSelectClick",
+            "tags": {
+                "en": "Select icon click event(same as onUploadClick)",
+                "deprecated": "Please use onUploadClick instead"
+            },
+            "descWithTags": "选图点击事件(同onUploadClick)",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/image-picker/type.ts",
+                "name": "ImagePickerProps"
+            },
+            "required": false,
+            "type": {
+                "name": "() => void"
+            }
+        },
+        "onUploadClick": {
+            "defaultValue": null,
+            "description": "选图点击事件\n@en Select icon click event",
+            "name": "onUploadClick",
             "tags": {
                 "en": "Select icon click event"
             },
@@ -455,23 +473,6 @@
             "required": false,
             "type": {
                 "name": "(index: number) => void"
-            }
-        },
-        "onUploadClick": {
-            "defaultValue": null,
-            "description": "上传文件点击事件\n@en Upload area click event",
-            "name": "onUploadClick",
-            "tags": {
-                "en": "Upload area click event"
-            },
-            "descWithTags": "上传文件点击事件",
-            "parent": {
-                "fileName": "arcom-github/packages/arcodesign/components/uploader/upload/type.ts",
-                "name": "UploadCommonProps"
-            },
-            "required": false,
-            "type": {
-                "name": "() => void"
             }
         },
         "selectAdapter": {

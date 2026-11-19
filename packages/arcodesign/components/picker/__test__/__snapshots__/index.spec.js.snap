@@ -139,7 +139,7 @@ exports[`picker demo test picker demo: node.md renders correctly 1`] = `
     class="arco-picker-linked-container"
   >
     <div
-      class="arco-cell all-border-box without-group"
+      class="arco-cell all-border-box without-group arco-cell-without-group"
     >
       <div
         class="arco-cell-inner"

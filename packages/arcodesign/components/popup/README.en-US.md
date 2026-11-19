@@ -24,6 +24,7 @@ A full-screen menu based on a modal popup, supporting all directions. By default
 |visible|Whether to display the menu (controlled)|boolean|required|
 |close|Close menu method|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> void|required|
 |maskTransitionType|Mask transition animation classname|string|"fade"|
+|contentTransitionVarType|Content transition animation classname variable identifier|string|-|
 |children|Contents of menu|ReactNode|-|
 |maskClosable|Whether to click the mask to close the menu|boolean|true|
 |animatingClosable|Whether the menu can be closed by clicking on the mask when performing the entry animation|boolean|false|
@@ -75,6 +76,7 @@ A full-screen menu based on a modal popup, supporting all directions. By default
 |locale|Internationalized language configuration|ILocale|-|
 |useRtl|Whether to use rtl|boolean|false|
 |onDarkModeChange|Triggered when the system's native dark mode changes, valid when useDarkMode=true|(isDark: boolean) =\> void|-|
+|createRoot|Users using react 19 need to pass in the createRoot method from outside|CreateRootFnType|-|
 
 > ILocale
 

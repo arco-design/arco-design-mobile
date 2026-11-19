@@ -1,6 +1,6 @@
 import { useState, useRef, useMemo, useEffect, useCallback } from 'react';
 import type { RefObject } from 'react';
-import { Promise } from 'es6-promise';
+import { Promise as ES6Promise } from 'es6-promise';
 import { PullRefreshStatus } from './model';
 
 export const useCommonState = ({
@@ -30,9 +30,9 @@ export const useCommonState = ({
         loadingRef.current = true;
         // 避免动画过快，最短加载时间
         // @en Minimum load time, avoid animation too fast
-        return Promise.all([
+        return ES6Promise.all([
             onRefresh?.(),
-            new Promise(resolve => {
+            new ES6Promise(resolve => {
                 // 最少加载一秒
                 // @en Load at least one second
                 setTimeout(() => {

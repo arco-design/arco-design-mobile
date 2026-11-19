@@ -20,7 +20,8 @@
             "experimentalObjectRestSpread": true,
             "jsx": true
         },
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
     "plugins": ["import", "react", "babel", "@typescript-eslint/eslint-plugin", "arco-mobile"],
     "globals": {
@@ -34,6 +35,7 @@
         "beforeEach": false
     },
     "rules": {
+        "arco-mobile/promise-with-polyfill": 0,
         "linebreak-style": ["error", "unix"],
         "no-console": ["error", { "allow": ["warn", "error"] }],
         "no-case-declarations": 0,
@@ -114,6 +116,8 @@
         "react/jsx-no-constructed-context-values": "warn",
         "react/no-render-return-value": 0,
         "array-callback-return": 0,
+        "@typescript-eslint/consistent-type-exports": 2,
+        "@typescript-eslint/consistent-type-imports": 2,
         "@typescript-eslint/explicit-function-return-type": 0,
         "@typescript-eslint/explicit-module-boundary-types": 0,
         "@typescript-eslint/indent": 0,

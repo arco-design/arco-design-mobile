@@ -19,11 +19,13 @@
 }
 
 .@{prefix}-fade-scale-enter-active {
-    animation: fade-scale-on .45s cubic-bezier(.2, 1.23, .25, 1) forwards;
+    animation: fade-scale-on cubic-bezier(.2, 1.23, .25, 1) forwards;
+    animation-duration: var(--builtin-transition-fade-scale-enter-duration, .45s);
 }
 
 .@{prefix}-fade-scale-exit-active {
-    animation: fade-scale-off .15s cubic-bezier(.48, .04, .52, .96) forwards;
+    animation: fade-scale-off cubic-bezier(.48, .04, .52, .96) forwards;
+    animation-duration: var(--builtin-transition-fade-scale-exit-duration, .15s);
 }
 
 .@{prefix}-dialog {

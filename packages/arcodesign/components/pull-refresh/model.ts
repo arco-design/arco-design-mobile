@@ -1,5 +1,4 @@
 import type { CSSProperties, ReactNode } from 'react';
-import { Promise } from 'es6-promise';
 
 export interface PullRefreshRef {
     /**

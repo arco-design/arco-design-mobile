@@ -16,3 +16,4 @@ Simple wrapper for react-transition-group/CSSTransition.
 |timeout|Execute animation time|number \| \{ appear?: number; enter?: number; exit?: number; \}|required|
 |mountOnEnter|Whether to reload content when it is opened|boolean|true|
 |unmountOnExit|Whether to unmount content on exit|boolean|true|
+|transitionVarType|Animation duration variable identifier|string|type 属性值|

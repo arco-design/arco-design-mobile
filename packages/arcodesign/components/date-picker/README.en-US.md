@@ -38,6 +38,7 @@ Date picker, based on the `Picker` component, supports the specified range, the 
 |contentClass|Custom content classname|string|-|
 |contentStyle|Custom content stylesheet|CSSProperties|-|
 |maskTransitionType|Mask transition animation classname|string|"fade"|
+|contentTransitionVarType|Content transition animation classname variable identifier|string|-|
 |animatingClosable|Whether the menu can be closed by clicking on the mask when performing the entry animation|boolean|false|
 |mountOnEnter|Whether to reload content when the menu is opened|boolean|true|
 |unmountOnExit|Whether to unmount content on exit|boolean|true|

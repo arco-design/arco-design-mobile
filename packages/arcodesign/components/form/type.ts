@@ -1,6 +1,5 @@
-import { IRules } from '@arco-design/mobile-utils';
-import { ReactElement, ReactNode } from 'react';
-import { Promise } from 'es6-promise';
+import type { IRules } from '@arco-design/mobile-utils';
+import type { ReactElement, ReactNode } from 'react';
 
 export type FieldValue = any;
 export type FieldItem = Record<string, FieldValue>;
@@ -257,7 +256,12 @@ export interface FormItemProps {
      * 表单项名
      * @en The form item name
      */
-    label: ReactNode;
+    label?: ReactNode;
+    /**
+     * 校验提示中的字段名（当 label 为复杂节点时推荐设置）
+     * @en The field name in the validation message (recommended when label is a complex node)
+     */
+    labelName?: string;
     /**
      * 表单项Stylesheet
      * @en The form item stylesheet
@@ -346,6 +350,11 @@ export interface IFormItemInnerProps {
      * @en Form item field
      */
     field: string;
+    /**
+     * 校验提示中的字段名
+     * @en The field name in the validation message
+     */
+    labelName?: string;
     /**
      * 表单项子节点
      * @en Form item children

@@ -127,6 +127,7 @@ string | { [x: string]: any; title: ReactNode; }
 |distance|手指滑动距离|number|必填|
 |jumpingDis|下划线已滑动的距离|number|必填|
 |tabBarStopPropagation|当前 TabBar 的触摸事件是否需要 stopPropagation|boolean|必填|
+|onUnderlineFirstShow|underline 首次展示时的回调|() =\> void|-|
 |tabs|TabBar内容数组，除必填项外也可附加其他数据，建议用 useMemo 包裹|TabData\[\]|必填|
 |disabled|是否禁用切换，包括点击TabBar切换和滑动切换|boolean|-|
 |tabBarPosition|TabBar位置|"top" \| "bottom" \| "left" \| "right"|"top"|

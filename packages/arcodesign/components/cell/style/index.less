@@ -10,15 +10,42 @@
         .onepx-border-var(top, line-color);
     }
 
-    &.without-group {
+    &-clickable {
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        touch-action: manipulation;
+        position: relative;
+
+        &.@{prefix}-cell-pressed {
+            .use-var(background-color, cell-clickable-background-color);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 100%;
+            .use-var(width, cell-horizontal-padding);
+            height: 100%;
+            background-color: inherit;
+            pointer-events: none;
+        }
+
+        &.@{prefix}-cell-pressed::after {
+            .use-var(background-color, cell-clickable-background-color);
+        }
+    }
+
+    &-without-group {
         .use-var(background-color, cell-background-color);
         .use-var(padding-left, cell-horizontal-padding);
         margin-left: 0;
+    }
 
-        &.bordered {
-            .onepx-border-var(top, line-color);
-            .onepx-border-var(bottom, line-color);
-        }
+    &-without-group.bordered {
+        .onepx-border-var(top, line-color);
+        .onepx-border-var(bottom, line-color);
     }
 
     &-inner {
@@ -63,6 +90,7 @@
     .cell-label-icon {
         .use-var-with-rtl(margin-right, cell-label-icon-gutter);
         font-size: 0;
+
         .@{prefix}-icon {
             line-height: initial;
             .use-var(font-size, cell-label-icon-font-size);
@@ -76,6 +104,7 @@
         });
         .use-var-with-rtl(margin-left, cell-arrow-gutter);
         font-size: 0;
+
         .@{prefix}-icon {
             .use-var(font-size, cell-arrow-font-size);
             .use-var(color, cell-arrow-color);

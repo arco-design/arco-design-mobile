@@ -1,18 +1,19 @@
 import React, {
     useRef,
     forwardRef,
-    Ref,
     useCallback,
     useMemo,
     useContext,
     useEffect,
     useImperativeHandle,
 } from 'react';
+import type { Ref } from 'react';
 import { cls, nextTick, defaultLocale } from '@arco-design/mobile-utils';
-import { Promise } from 'es6-promise';
+import { Promise as ES6Promise } from 'es6-promise';
 import Loading from '../loading';
 import { GlobalContext } from '../context-provider';
-import { PullRefreshRef, PullRefreshStatus, PullRefreshBasicProps } from './model';
+import type { PullRefreshRef, PullRefreshBasicProps } from './model';
+import { PullRefreshStatus } from './model';
 import { useCommonState, useAddScrollEvents, useCheckAsStart } from './hooks';
 import { setStyleWithVendor } from '../_helpers';
 
@@ -139,7 +140,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
     );
 
     const refresh = () =>
-        new Promise<void>(resolve => {
+        new ES6Promise<void>(resolve => {
             setStatus(PullRefreshStatus.Loading);
             nextTick(() => {
                 scroll(tipsHeight, 300);
@@ -154,7 +155,7 @@ export const PullRefresh = forwardRef((props: PullRefreshBasicProps, ref: Ref<Pu
                     }
                 });
             });
-        });
+        }) as Promise<void>;
     const handleTouchEnd = useCallback(() => {
         if (currentTranslateYRef.current === 0 && !ifShouldHandle()) {
             return;

@@ -33,6 +33,7 @@ exports[`slider demo test slider demo: always.md renders correctly 1`] = `
             >
               <div
                 class="arco-slider-popover"
+                style="--builtin-transition-fade-enter-duration: 300ms; --builtin-transition-fade-exit-duration: 300ms; --builtin-transition-fade-appear-duration: 300ms;"
               >
                 <div
                   class="arco-slider-popover-content"
@@ -597,6 +598,7 @@ exports[`slider demo test slider demo: range-tag.md renders correctly 1`] = `
             >
               <div
                 class="arco-slider-popover"
+                style="--builtin-transition-fade-enter-duration: 300ms; --builtin-transition-fade-exit-duration: 300ms; --builtin-transition-fade-appear-duration: 300ms;"
               >
                 <div
                   class="arco-slider-popover-content"
@@ -620,6 +622,7 @@ exports[`slider demo test slider demo: range-tag.md renders correctly 1`] = `
             >
               <div
                 class="arco-slider-popover"
+                style="--builtin-transition-fade-enter-duration: 300ms; --builtin-transition-fade-exit-duration: 300ms; --builtin-transition-fade-appear-duration: 300ms;"
               >
                 <div
                   class="arco-slider-popover-content"

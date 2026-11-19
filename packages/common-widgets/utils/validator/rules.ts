@@ -1,15 +1,16 @@
 // eslint-disable-next-line max-classes-per-file
+import { Promise as ES6Promise } from 'es6-promise';
 import { isDeepEqual, isEmptyArray, isEmptyValue } from '../is';
 import { getMsgTemplate, mergeMsgTemplate, messageTemplate } from './message';
-import {
+import type {
     ICustomValidatorFunc,
     InnerRules,
     IRules,
     IValidateMsgTemplate,
     IValidateOption,
     ValidatorError,
-    ValidatorType,
 } from './type';
+import { ValidatorType } from './type';
 
 export class BaseValidator {
     value: any;
@@ -232,7 +233,7 @@ export class ArrayValidator extends BaseValidator {
 
     deepEqual(sub: Array<any>) {
         return this.dealError(!isDeepEqual(this.value, sub), {
-            errTemplate: 'array.equal',
+            errTemplate: 'array.deepEqual',
             values: [this.field, `${JSON.stringify(sub)}`],
         });
     }
@@ -279,7 +280,7 @@ export class CustomValidator extends BaseValidator {
 
     validator(validatorTool: ICustomValidatorFunc | null) {
         if (validatorTool) {
-            return new Promise(resolve => {
+            return new ES6Promise(resolve => {
                 const validateLevel = this.rule.validateLevel || 'error';
                 const ret = validatorTool(this.value, (message: string = '') =>
                     this.addError('custom', message || ''),

@@ -22,8 +22,8 @@
 |prepend|单元格前缀内容，在单元格上方|ReactNode|-|
 |append|单元格后缀内容，在单元格下方|ReactNode|-|
 |bordered|是否有外边框|boolean|true|
+|clickable|是否启用点击态效果|boolean|false|
 |onClick|点击单元格事件回调|(e: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
-
 > 引用/Refs
 
 |参数|描述|类型|
@@ -59,8 +59,8 @@
 |prepend|单元格前缀内容，在单元格上方|ReactNode|-|
 |append|单元格后缀内容，在单元格下方|ReactNode|-|
 |bordered|是否有外边框|boolean|true|
+|clickable|是否启用点击态效果|boolean|false|
 |onClick|点击单元格事件回调|(e: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
-
 > CellGroupRef
 
 |参数|描述|类型|

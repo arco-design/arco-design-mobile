@@ -573,6 +573,19 @@
                     "en": "Triggered when the system's native dark mode changes, valid when useDarkMode=true"
                 },
                 "descWithTags": "当系统原生暗黑模式发生变化时触发，useDarkMode=true 时有效"
+            },
+            "createRoot": {
+                "name": "createRoot",
+                "required": false,
+                "description": "React19 修改了 createRoot 的引入路径，导致组件内部无法直接引入（低react版本会找不到模块）。因此使用 react 19 的用户需从外部传入 createRoot 方法\n@en Users using react 19 need to pass in the createRoot method from outside",
+                "defaultValue": null,
+                "type": {
+                    "name": "CreateRootFnType"
+                },
+                "tags": {
+                    "en": "Users using react 19 need to pass in the createRoot method from outside"
+                },
+                "descWithTags": "React19 修改了 createRoot 的引入路径，导致组件内部无法直接引入（低react版本会找不到模块）。因此使用 react 19 的用户需从外部传入 createRoot 方法"
             }
         },
         "ILocale": {

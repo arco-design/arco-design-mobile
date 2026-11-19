@@ -802,6 +802,73 @@ exports[`form demo test form demo: custom-item.md renders correctly 1`] = `
 </DocumentFragment>
 `;
 
+exports[`form demo test form demo: dynamic.md renders correctly 1`] = `
+<DocumentFragment>
+  <form
+    class="arco-form "
+  >
+    <div
+      class="arco-form-item arco-form-item-horizontal arco-form-item-warning"
+    >
+      <div
+        class="arco-form-label-item"
+      >
+        <span
+          class="arco-form-label-item-required-asterisk"
+        >
+          *
+        </span>
+        Type
+      </div>
+      <div
+        class="arco-form-item-control-wrapper"
+      >
+        <div
+          class="arco-form-item-control"
+        >
+          <div
+            class="arco-picker-linked-container"
+          >
+            <div
+              class="arco-form-picker-link-container"
+            >
+              <span
+                class="arco-form-picker-link-container-placeholder"
+              >
+                请选择
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        class="arco-button arco-button-type-primary type-primary arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+        type="button"
+      >
+        <div
+          class="arco-button-text arco-button-text-pc btn-text"
+        >
+          Submit
+        </div>
+      </button>
+      <button
+        class="arco-button arco-button-type-ghost type-ghost arco-button-size-large arco-button-size-large-is-semi size-large is-semi pc"
+        style="margin-top: 12px;"
+        type="button"
+      >
+        <div
+          class="arco-button-text arco-button-text-pc btn-text"
+        >
+          Reset
+        </div>
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
 exports[`form demo test form demo: index.md renders correctly 1`] = `
 <DocumentFragment>
   <div>

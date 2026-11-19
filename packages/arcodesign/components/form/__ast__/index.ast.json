@@ -559,7 +559,7 @@
                     },
                     "required": true,
                     "type": {
-                        "name": "Element"
+                        "name": "ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
                     }
                 },
                 "shouldUpdate": {
@@ -610,7 +610,7 @@
                     },
                     "required": false,
                     "type": {
-                        "name": "Element"
+                        "name": "ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
                     }
                 },
                 "trigger": {
@@ -743,41 +743,6 @@
                 }
             },
             "deps": {
-                "Element": {
-                    "type": {
-                        "name": "type",
-                        "required": true,
-                        "description": "",
-                        "defaultValue": null,
-                        "type": {
-                            "name": "any"
-                        },
-                        "tags": {},
-                        "descWithTags": ""
-                    },
-                    "props": {
-                        "name": "props",
-                        "required": true,
-                        "description": "",
-                        "defaultValue": null,
-                        "type": {
-                            "name": "any"
-                        },
-                        "tags": {},
-                        "descWithTags": ""
-                    },
-                    "key": {
-                        "name": "key",
-                        "required": true,
-                        "description": "",
-                        "defaultValue": null,
-                        "type": {
-                            "name": "ReactText"
-                        },
-                        "tags": {},
-                        "descWithTags": ""
-                    }
-                },
                 "IRules": "ITypeRules<ValidatorType.Number> | ITypeRules<ValidatorType.String> | ITypeRules<ValidatorType.Array> | ITypeRules<ValidatorType.Boolean> | ITypeRules<ValidatorType.Object> | ITypeRules<ValidatorType.Custom>",
                 "FormInternalComponentType": "\"Input\" | \"Textarea\" | \"Checkbox\" | \"CheckboxGroup\" | \"DatePicker\" | \"Picker\" | \"Radio\" | \"RadioGroup\" | \"Slider\" | \"Switch\" | \"ImagePicker\" | \"Rate\" | \"Stepper\"",
                 "FormItemRef": {

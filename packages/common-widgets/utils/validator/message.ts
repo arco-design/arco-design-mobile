@@ -1,5 +1,5 @@
 import { isObject } from '../is';
-import { IValidateMsgTemplate } from './type';
+import type { IValidateMsgTemplate } from './type';
 
 const defaultMessageTemplate = '%s is not a %s type';
 
@@ -37,7 +37,7 @@ export const messageTemplate: IValidateMsgTemplate = {
         min: '%s cannot be less than %s in length',
         len: '%s must be exactly %s in length',
         includes: '%s is not includes %s',
-        deepEqual: '%s is not deep equal with%s',
+        deepEqual: '%s is not deep equal with %s',
     },
     object: {
         deepEqual: '%s is not deep equal with %s',

@@ -1,11 +1,12 @@
-import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+import type { Ref } from 'react';
 import { cls, defaultLocale, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import { IconClose } from '../icon';
 import Image from '../image';
 import Grid from '../grid';
 import AddIcon from './add-icon';
-import { ImagePickerProps, ImagePickerRef, ImagePickItem } from './type';
+import type { ImagePickerProps, ImagePickerRef, ImagePickItem } from './type';
 import { useLatestRef } from '../_helpers';
 import { Upload } from '../uploader/upload';
 
@@ -41,7 +42,11 @@ const ImagePicker = forwardRef((props: ImagePickerProps, ref: Ref<ImagePickerRef
         dom: domRef.current,
     }));
 
-    const uploadFunc = new Upload({ ...props, files: images }, fileRef, cacheRef);
+    const uploadFunc = new Upload(
+        { ...props, onUploadClick: props.onUploadClick || props.onSelectClick, files: images },
+        fileRef,
+        cacheRef,
+    );
 
     const getGridData = (prefixCls, locale) => {
         const errorNode = (index: number) => {

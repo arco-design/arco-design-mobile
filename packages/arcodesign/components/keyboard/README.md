@@ -38,6 +38,7 @@
 |contentStyle|自定义内容样式|CSSProperties|-|
 |visible|是否展示菜单（受控）|boolean|必填|
 |maskTransitionType|蒙层过渡动画类名|string|"fade"|
+|contentTransitionVarType|内容过渡动画类名变量标识|string|-|
 |children|菜单内部内容|ReactNode|-|
 |maskClosable|点击蒙层是否关闭菜单|boolean|true|
 |animatingClosable|执行进场动画时点击蒙层是否可关闭菜单|boolean|false|

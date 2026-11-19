@@ -590,6 +590,7 @@ exports[`tab-bar demo test tab-bar demo: extra.md renders correctly 1`] = `
         </div>
         <div
           class="arco-badge tab-bar-badge arco-badge-absolute absolute"
+          style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
         >
           <span
             class="arco-badge-text badge-text"
@@ -629,6 +630,7 @@ exports[`tab-bar demo test tab-bar demo: extra.md renders correctly 1`] = `
         </div>
         <div
           class="arco-badge tab-bar-badge arco-badge-absolute absolute"
+          style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
         >
           <span
             class="arco-badge-text badge-text"
@@ -668,6 +670,7 @@ exports[`tab-bar demo test tab-bar demo: extra.md renders correctly 1`] = `
         </div>
         <div
           class="arco-badge tab-bar-badge arco-badge-dot dot arco-badge-absolute absolute"
+          style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
         />
       </div>
       <div

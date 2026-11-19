@@ -1,4 +1,5 @@
-import React, { useRef, forwardRef, Ref, useImperativeHandle, ReactNode } from 'react';
+import type { Ref, ReactNode } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import { cls } from '@arco-design/mobile-utils';
 import Transition from '../transition';
 import { ContextLayout } from '../context-provider';
@@ -89,7 +90,7 @@ const Badge = forwardRef((props: BadgeProps, ref: Ref<BadgeRef>) => {
         children = null,
         absolute = false,
         bordered = false,
-        timeout = 300,
+        timeout = 400,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
 

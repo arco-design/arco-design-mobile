@@ -1648,6 +1648,7 @@ exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
         >
           <div
             class="arco-badge arco-badge-dot dot arco-badge-absolute absolute"
+            style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
           />
         </div>
         <div
@@ -1668,6 +1669,7 @@ exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
         >
           <div
             class="arco-badge arco-badge-absolute absolute"
+            style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
           >
             <span
               class="arco-badge-text badge-text"
@@ -1694,6 +1696,7 @@ exports[`grid demo test grid demo: index10.md renders correctly 1`] = `
         >
           <div
             class="arco-badge arco-badge-absolute absolute"
+            style="--builtin-transition-scale-enter-duration: 400ms; --builtin-transition-scale-exit-duration: 400ms; --builtin-transition-scale-appear-duration: 400ms;"
           >
             <span
               class="arco-badge-text badge-text"

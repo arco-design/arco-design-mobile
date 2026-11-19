@@ -1667,6 +1667,18 @@
             "en": "Cell background color"
         }
     },
+    "cellClickableBackgroundColor": {
+        "cssKey": "cell-clickable-background-color",
+        "desc": "单元格点击态背景色",
+        "override": "",
+        "value": "@card-background-color",
+        "jsValue": "@global@cardBackgroundColor",
+        "staticValue": "#F7F8FA",
+        "localeDesc": {
+            "ch": "单元格点击态背景色",
+            "en": "Cell clickable background color"
+        }
+    },
     "cellContentFontSize": {
         "cssKey": "cell-content-font-size",
         "desc": "单元格内容文字大小",
@@ -2538,6 +2550,14 @@
         "value": "@dark-container-background-color",
         "jsValue": "@global@darkContainerBackgroundColor",
         "staticValue": "#232324"
+    },
+    "darkCellClickableBackgroundColor": {
+        "cssKey": "dark-cell-clickable-background-color",
+        "desc": "",
+        "override": "",
+        "value": "@dark-card-background-color",
+        "jsValue": "@global@darkCardBackgroundColor",
+        "staticValue": "hsla(0, 0%, 100%, 0.08)"
     },
     "darkCellDescColor": {
         "cssKey": "dark-cell-desc-color",

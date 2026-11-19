@@ -1,4 +1,4 @@
-import { ILocale } from '../locale';
+import type { ILocale } from '../locale';
 
 export type IFieldValue = any;
 

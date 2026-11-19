@@ -264,3 +264,131 @@ describe('Form input', () => {
         });
     });
 });
+
+
+describe('Form validate label', () => {
+    // Scenario 1: Default Scenario (labelName only)
+    it('should use labelName for display and validation when label is missing', async () => {
+        const formRef = React.createRef();
+        render(
+            <Form ref={formRef}>
+                <Form.Item labelName="Label Name Only" field="label_name_only" required>
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        // Check display
+        expect(screen.getByText('Label Name Only')).toBeInTheDocument();
+        
+        // Check validation
+        act(() => {
+            formRef.current.form.validateFields().catch(() => {});
+        });
+        await waitFor(() => {
+            expect(screen.getByText('Label Name Only 为必填项')).toBeInTheDocument();
+        });
+    });
+
+    // Scenario 2: ReactNode Customization (label + labelName)
+    it('should use label for display and labelName for validation when both provided (label is Node)', async () => {
+        const formRef = React.createRef();
+        render(
+            <Form ref={formRef}>
+                <Form.Item 
+                    label={<span>Complex Label</span>} 
+                    labelName="Label Name Validation" 
+                    field="complex_custom" 
+                    required
+                >
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        // Check display (should render ReactNode)
+        expect(screen.getByText('Complex Label')).toBeInTheDocument();
+        
+        // Check validation (should use labelName)
+        act(() => {
+            formRef.current.form.validateFields().catch(() => {});
+        });
+        await waitFor(() => {
+            expect(screen.getByText('Label Name Validation 为必填项')).toBeInTheDocument();
+        });
+    });
+
+    // Scenario 3a: String Label Only
+    it('should use string label for display and validation', async () => {
+        const formRef = React.createRef();
+        render(
+            <Form ref={formRef}>
+                <Form.Item label="String Label" field="string_label" required>
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        // Check display
+        expect(screen.getByText('String Label')).toBeInTheDocument();
+        
+        // Check validation
+        act(() => {
+            formRef.current.form.validateFields().catch(() => {});
+        });
+        await waitFor(() => {
+            expect(screen.getByText('String Label 为必填项')).toBeInTheDocument();
+        });
+    });
+
+    // Scenario 3b: ReactNode Label Only
+    it('should use ReactNode for display and field for validation when labelName missing', async () => {
+        const formRef = React.createRef();
+        render(
+            <Form ref={formRef}>
+                <Form.Item label={<span>Node Label</span>} field="node_field" required>
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        // Check display
+        expect(screen.getByText('Node Label')).toBeInTheDocument();
+        
+        // Check validation (fallback to field)
+        act(() => {
+            formRef.current.form.validateFields().catch(() => {});
+        });
+        await waitFor(() => {
+            expect(screen.getByText('node_field 为必填项')).toBeInTheDocument();
+        });
+    });
+
+    // Edge Case: String Label + Label Name
+    // Rule says: "Default scenario... prioritize labelName... used for Display"
+    // BUT "ReactNode Customization... Must provide both... label used for rendering"
+    // Since we treat provided label as "Customization/Override", label (string) should override display, but labelName should override validation?
+    // Let's verify behavior matches implementation:
+    // Display: label ?? labelName -> label
+    // Validation: labelName || label -> labelName
+    it('should use label for display and labelName for validation if both strings are provided', async () => {
+        const formRef = React.createRef();
+        render(
+            <Form ref={formRef}>
+                <Form.Item 
+                    label="Display String" 
+                    labelName="Validation String" 
+                    field="mixed_string" 
+                    required
+                >
+                    <Input />
+                </Form.Item>
+            </Form>,
+        );
+        // Check display
+        expect(screen.getByText('Display String')).toBeInTheDocument();
+        // Check validation
+        act(() => {
+            formRef.current.form.validateFields().catch(() => {});
+        });
+        await waitFor(() => {
+            expect(screen.getByText('Validation String 为必填项')).toBeInTheDocument();
+        });
+    });
+});

@@ -221,7 +221,7 @@ exports[`switch demo test switch demo: index2.md renders correctly 1`] = `
 exports[`switch demo test switch demo: index3.md renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="arco-cell all-border-box without-group"
+    class="arco-cell all-border-box without-group arco-cell-without-group"
   >
     <div
       class="arco-cell-inner"
@@ -327,7 +327,7 @@ exports[`switch demo test switch demo: index3.md renders correctly 1`] = `
 exports[`switch demo test switch demo: index4.md renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="arco-cell all-border-box without-group"
+    class="arco-cell all-border-box without-group arco-cell-without-group"
   >
     <div
       class="arco-cell-inner"
@@ -369,7 +369,7 @@ exports[`switch demo test switch demo: index4.md renders correctly 1`] = `
 exports[`switch demo test switch demo: index5.md renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="arco-cell all-border-box without-group"
+    class="arco-cell all-border-box without-group arco-cell-without-group"
   >
     <div
       class="arco-cell-inner"
@@ -406,7 +406,7 @@ exports[`switch demo test switch demo: index5.md renders correctly 1`] = `
 exports[`switch demo test switch demo: index6.md renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="arco-cell all-border-box without-group"
+    class="arco-cell all-border-box without-group arco-cell-without-group"
   >
     <div
       class="arco-cell-inner"

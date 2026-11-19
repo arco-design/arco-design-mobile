@@ -1,6 +1,6 @@
 ### FeedBack
 
-# ActionSheet 
+# ActionSheet
 
 ActionSheet Component
 
@@ -30,6 +30,7 @@ ActionSheet Component
 |contentClass|Custom content classname|string|-|
 |contentStyle|Custom content stylesheet|CSSProperties|-|
 |maskTransitionType|Mask transition animation classname|string|"fade"|
+|contentTransitionVarType|Content transition animation classname variable identifier|string|-|
 |maskClosable|Whether to click the mask to close the menu|boolean|true|
 |animatingClosable|Whether the menu can be closed by clicking on the mask when performing the entry animation|boolean|false|
 |mountOnEnter|Whether to reload content when the menu is opened|boolean|true|
@@ -40,12 +41,17 @@ ActionSheet Component
 |onMaskClick|Callback when clicking the mask , also triggered when maskClosable=false|() =\> void|-|
 |onTouchMove|Touch event callbacks for masking|(e: TouchEvent, prevented: boolean, direction: "x" \| "y") =\> void|-|
 |onPreventTouchMove|Touch event callbacks for non\-scrolling areas or when scrolling to the top and bottom|(e: TouchEvent, direction: "x" \| "y") =\> void|-|
+|getScrollContainer|Container of inner scroll area in content, scroll is released when not scrolled to the top or bottom in this container|() =\> HTMLElement \| HTMLElement\[\]|-|
 
 > Refs
 
 |Property|Description|Type|
 |----------|-------------|------|
+|actionList|The outermost element DOM|HTMLDivElement|
 |dom|The outermost element DOM|HTMLDivElement|
+|mask|Mask DOM|HTMLDivElement|
+|content|Content DOM|HTMLDivElement|
+|setCloseScene|Modify the scene of onClose before closing the popup|(scene: string) =\> void|
 
 > Methods
 
@@ -76,6 +82,7 @@ ActionSheet Component
 |locale|Internationalized language configuration|ILocale|-|
 |useRtl|Whether to use rtl|boolean|false|
 |onDarkModeChange|Triggered when the system's native dark mode changes, valid when useDarkMode=true|(isDark: boolean) =\> void|-|
+|createRoot|Users using react 19 need to pass in the createRoot method from outside|CreateRootFnType|-|
 
 > ILocale
 

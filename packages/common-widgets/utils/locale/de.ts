@@ -1,4 +1,4 @@
-import { ILocale } from './type';
+import type { ILocale } from './type';
 
 const defaultMessageTemplate = '%s ist nicht vom Typ %s';
 const localeConfig: ILocale = {

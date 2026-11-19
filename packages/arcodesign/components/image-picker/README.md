@@ -27,7 +27,8 @@
 |imageProps|透传给图片的属性|Partial\<ImageProps\>|-|
 |renderError|自定义上传失败展示|(index?: number) =\> ReactNode|-|
 |renderLoading|自定义上传中展示|(index?: number) =\> ReactNode|-|
-|onSelectClick|选图点击事件|() =\> void|-|
+|onSelectClick|选图点击事件(同onUploadClick)|() =\> void|-|
+|onUploadClick|选图点击事件|() =\> void|-|
 |upload|上传方法|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
 |onChange|已选文件列表发生变化|(fileList: ImagePickItem\[\]) =\> void|-|
 |maxSize|文件大小限制，单位为K|number|-|
@@ -35,7 +36,6 @@
 |limit|最多选择文件数，超出数量自动隐藏上传按钮，0表示不做限制|number|0|
 |onLimitExceed|选择文件数超过限制|(files: File\[\]) =\> void|-|
 |onDeleteClick|删除点击事件|(index: number) =\> void|-|
-|onUploadClick|上传文件点击事件|() =\> void|-|
 |selectAdapter|文件选择适配器|() =\> Promise\<SelectCallback\>|-|
 |onClick|文件点击|(e: MouseEvent\<HTMLElement, MouseEvent\>, file: ImagePickItem, index: number) =\> void|-|
 |onLongPress|文件长按事件|(e: TouchEvent\<HTMLElement\>, file: ImagePickItem, index: number) =\> void|-|

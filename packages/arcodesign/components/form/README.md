@@ -39,10 +39,10 @@
 |required|表单项是否必填|boolean|-|
 |disabled|表单项是否禁用|boolean|-|
 |layout|表单项布局|"horizontal" \| "vertical" \| "inline"|"horizontal"|
-|children|表单项子节点|Element|必填|
+|children|表单项子节点|ReactElement\<any, string \| ((props: any) =\> ReactElement\<any, any\>) \| (new (props: any) =\> Component\<any, any, any\>)\>|必填|
 |shouldUpdate|表单项是否刷新|IShouldUpdateFunc|-|
 |rules|表单项规则|IRules\[\]|-|
-|extra|表单项下方节点|Element|-|
+|extra|表单项下方节点|ReactElement\<any, string \| ((props: any) =\> ReactElement\<any, any\>) \| (new (props: any) =\> Component\<any, any, any\>)\>|-|
 |trigger|触发事件更新事件名称|string|"onChange"|
 |requiredIcon|自定义必填标识|ReactNode|-|
 |initialValue|表单项初始数据|any|-|
@@ -70,14 +70,6 @@
 |warnings|-|ReactNode\[\]|
 |field|-|string|
 |dom|-|HTMLDivElement|
-
-> Element
-
-|参数|描述|类型|
-|----------|-------------|------|
-|type|-|any|
-|props|-|any|
-|key|-|ReactText|
 
 > IRules
 

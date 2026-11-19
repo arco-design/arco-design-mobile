@@ -9,7 +9,7 @@
 
 <div align="center">
 
-A comprehensive React UI components library based on the [Arco Design](https://arco.design/mobile/react) system.
+A comprehensive React UI components library based on the [Arco Design](https://arco.design/mobile/react) system. Suitable for mobile H5 / WebView environments.
 
 ![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=less&logoColor=ffffff)
 ![](https://img.shields.io/badge/-Typescript-blue?logo=typescript&logoColor=white)
@@ -73,6 +73,31 @@ function App() {
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
+# Using with LLMs
+
+- Recommended: [Context7](https://context7.com/arco-design/arco-design-mobile) for up-to-date docs and code examples
+- Alternative: [GitMCP](https://gitmcp.io) or similar MCP services
+- Full guide: <https://arco.design/mobile/react/arco-design/pc/#/doc/use-llm>
+
+Quick setup (Cursor):
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+Prompt example:
+
+```text
+Create a page with a button and dialog using Arco Design Mobile use context7
+```
+
 # Useful Links
 
 * [Documentation website](https://arco.design/mobile/react)
@@ -105,9 +130,3 @@ And our former comrades:
 # License
 
 This project is [MIT licensed](./LICENSE).
-
-<br/><br/>
-
-<div align="center">
-    <a href="https://star-history.com/#arco-design/arco-design-mobile&Date"><img src="https://api.star-history.com/svg?repos=arco-design/arco-design-mobile&type=Date" style="max-width: 100%; width: 550px"/></a>
-</div>

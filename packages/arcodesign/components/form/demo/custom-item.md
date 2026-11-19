@@ -142,7 +142,7 @@ export default function FormDemo() {
                     </Checkbox.Group>
                 </Form.Item>
                 <Form.Item field="birthday" label="Birthday">
-                    <DatePicker maskClosable mode="date" />
+                    <DatePicker maskClosable mode="date" minTs={1449730183515} />
                 </Form.Item>
                 <Form.Item field="location" label="Location">
                     <Picker

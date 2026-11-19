@@ -20,6 +20,7 @@ Generic modal popup with custom internal content. By default, anti-scroll penetr
 |close|Close menu method|(e: MouseEvent\<HTMLElement, MouseEvent\>) =\> void|required|
 |maskTransitionType|Mask transition animation classname|string|"fade"|
 |contentTransitionType|Content transition animation classname|string|"fade"|
+|contentTransitionVarType|Content transition animation classname variable identifier|string|-|
 |children|Contents of menu|ReactNode|-|
 |maskTransitionTimeout|Mask animation duration|number \| \{ appear?: number; enter?: number; exit?: number; \}|300|
 |contentTransitionTimeout|Content animation duration|number \| \{ appear?: number; enter?: number; exit?: number; \}|300|
@@ -67,6 +68,7 @@ Generic modal popup with custom internal content. By default, anti-scroll penetr
 |locale|Internationalized language configuration|ILocale|-|
 |useRtl|Whether to use rtl|boolean|false|
 |onDarkModeChange|Triggered when the system's native dark mode changes, valid when useDarkMode=true|(isDark: boolean) =\> void|-|
+|createRoot|Users using react 19 need to pass in the createRoot method from outside|CreateRootFnType|-|
 
 > ILocale
 

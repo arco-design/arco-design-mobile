@@ -5,12 +5,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 exports.getRem = getRem;
-
 function getRem(px, baseFontSize) {
   var num = Math.round(px / Number(baseFontSize) * 1000000) / 1000000;
   return num ? "".concat(num, "rem") : num;
 }
-
 var tokens = {
   "prefix": "var(--prefix-mobile)",
   "prefix-mobile": "arco",
@@ -500,6 +498,8 @@ var tokens = {
   "cell-arrow-font-size": "0.24rem",
   "dark-cell-background-color": "var(--dark-container-background-color)",
   "cell-background-color": "var(--container-background-color)",
+  "dark-cell-clickable-background-color": "var(--dark-card-background-color)",
+  "cell-clickable-background-color": "var(--card-background-color)",
   "cell-font-size": "0.32rem",
   "cell-horizontal-padding": "0.32rem",
   "cell-item-height": "1.08rem",

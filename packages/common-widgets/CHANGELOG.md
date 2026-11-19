@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.23.6](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.5...@arco-design/mobile-utils@2.23.6) (2026-06-03)
+
+
+### Bug Fixes
+
+* add French (fr) locale to mobile-utils ([#367](https://github.com/arco-design/arco-design-mobile/issues/367)) ([42fd8ff](https://github.com/arco-design/arco-design-mobile/commit/42fd8ff02cb58c68c92e8fb15632ea42e4d261d2))
+
+
+
+
+
+## [2.23.5](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.4...@arco-design/mobile-utils@2.23.5) (2026-01-21)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+## [2.23.4](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.3...@arco-design/mobile-utils@2.23.4) (2025-12-10)
+
+
+### Bug Fixes
+
+* promise type ([#361](https://github.com/arco-design/arco-design-mobile/issues/361)) ([4409667](https://github.com/arco-design/arco-design-mobile/commit/4409667bad7e6dc7d8793bc2250814da55baeb68))
+
+
+
+
+
+## [2.23.3](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.2...@arco-design/mobile-utils@2.23.3) (2025-12-05)
+
+**Note:** Version bump only for package @arco-design/mobile-utils
+
+
+
+
+
+## [2.23.2](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.1...@arco-design/mobile-utils@2.23.2) (2025-09-22)
+
+
+### Bug Fixes
+
+* add new locale "it" ([#352](https://github.com/arco-design/arco-design-mobile/issues/352)) ([d36d773](https://github.com/arco-design/arco-design-mobile/commit/d36d77397aae0225d471f010205cf13ea1c96e5e))
+
+
+
+
+
+## [2.23.1](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.23.0...@arco-design/mobile-utils@2.23.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* `ImagePicker` rename `onUploadClick` ([#350](https://github.com/arco-design/arco-design-mobile/issues/350)) ([5b7f427](https://github.com/arco-design/arco-design-mobile/commit/5b7f42761af545663ba448b3a4efd927c7954ebb))
+
+
+
+
+
+# [2.23.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.22.0...@arco-design/mobile-utils@2.23.0) (2025-09-01)
+
+
+### Features
+
+* add new locales "zh-TW", "zh-HK" and "zh-YUE" ([#346](https://github.com/arco-design/arco-design-mobile/issues/346)) ([62bd07f](https://github.com/arco-design/arco-design-mobile/commit/62bd07fb798c2f1b7f99089abcaec9ff01dc172b))
+
+
+
+
+
 # [2.22.0](https://github.com/arco-design/arco-design-mobile/compare/@arco-design/mobile-utils@2.21.2...@arco-design/mobile-utils@2.22.0) (2025-06-17)
 
 

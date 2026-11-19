@@ -9,7 +9,7 @@
 
 <div align="center">
 
-基于 [Arco Design](https://arco.design/mobile/react) 的 React UI 组件库。
+基于 [Arco Design](https://arco.design/mobile/react) 的 React UI 组件库。适用于移动端 H5 / WebView 环境。
 
 
 ![](https://img.shields.io/badge/-Less-%23CC6699?style=flat-square&logo=less&logoColor=ffffff)
@@ -73,6 +73,31 @@ function App() {
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
+# 在 LLM 中使用
+
+- 推荐：[Context7](https://context7.com/arco-design/arco-design-mobile)，获取最新文档与代码示例
+- 备选：[GitMCP](https://gitmcp.io) 等同类 MCP 服务
+- 完整指南：<https://arco.design/mobile/react/arco-design/pc/#/doc/use-llm>
+
+快速配置（Cursor）：
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+提示词示例：
+
+```text
+使用 Arco Design Mobile 创建一个带按钮和弹窗的页面，使用 context7
+```
+
 # 相关链接
 
 * [官方文档](https://arco.design/mobile/react)
@@ -105,9 +130,3 @@ ReactDOM.render(<App />, document.getElementById('app'));
 # License
 
 [MIT 协议](./LICENSE)
-
-<br/><br/>
-
-<div align="center">
-    <a href="https://star-history.com/#arco-design/arco-design-mobile&Date"><img src="https://api.star-history.com/svg?repos=arco-design/arco-design-mobile&type=Date" style="max-width: 100%; width: 550px"/></a>
-</div>

@@ -19,11 +19,13 @@
 }
 
 .@{prefix}-scale-enter-active {
-    animation: scale-on .4s cubic-bezier(.3, 1.3, .3, 1) forwards;
+    animation: scale-on cubic-bezier(.3, 1.3, .3, 1) forwards;
+    animation-duration: var(--builtin-transition-scale-enter-duration, .4s);
 }
 
 .@{prefix}-scale-exit-active {
-    animation: scale-off .4s cubic-bezier(.3, 1.3, .3, 1) forwards;
+    animation: scale-off cubic-bezier(.3, 1.3, .3, 1) forwards;
+    animation-duration: var(--builtin-transition-scale-exit-duration, .4s);
 }
 
 .@{prefix}-badge {

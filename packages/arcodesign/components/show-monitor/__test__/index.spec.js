@@ -155,7 +155,7 @@ describe('ShowMonitor', () => {
                 left: 0,
             };
         });
-        jest.runAllTimers();
+        act(() => jest.runAllTimers());
         expect(ref.current.checkVisible()).toBe(false);
 
         // 滚动至出现

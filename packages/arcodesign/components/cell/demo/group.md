@@ -8,9 +8,9 @@ import { Cell } from '@arco-design/mobile-react';
 export default function CellDemo() {
     return (<>
         <Cell.Group>
-            <Cell label="List Content" showArrow />
-            <Cell label="List Content" showArrow />
-            <Cell label="List Content" showArrow />
+            <Cell label="List Content" showArrow clickable />
+            <Cell label="List Content" showArrow clickable />
+            <Cell label="List Content" showArrow clickable />
         </Cell.Group>
     </>);
 }

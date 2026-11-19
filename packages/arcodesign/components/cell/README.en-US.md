@@ -22,8 +22,8 @@ Cell, including cells and cell group, are often used to set items, forms, etc.
 |prepend|Cell prefix content, above the cell|ReactNode|-|
 |append|Cell suffix content, below the cell|ReactNode|-|
 |bordered|Whether there is a border|boolean|true|
+|clickable|Whether to enable click effect|boolean|false|
 |onClick|Callback for cell click event|(e: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
-
 > Refs
 
 |Property|Description|Type|
@@ -59,8 +59,8 @@ Cell, including cells and cell group, are often used to set items, forms, etc.
 |prepend|Cell prefix content, above the cell|ReactNode|-|
 |append|Cell suffix content, below the cell|ReactNode|-|
 |bordered|Whether there is a border|boolean|true|
+|clickable|Whether to enable click effect|boolean|false|
 |onClick|Callback for cell click event|(e: MouseEvent\<HTMLDivElement, MouseEvent\>) =\> void|-|
-
 > CellGroupRef
 
 |Property|Description|Type|

@@ -1,9 +1,10 @@
-import React, { useRef, forwardRef, Ref, useImperativeHandle } from 'react';
+import type { Ref } from 'react';
+import React, { useRef, forwardRef, useImperativeHandle, useState } from 'react';
 import { cls } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Arrow from './arrow';
 import { GroupContext } from './group';
-import { CellProps, CellRef } from './type';
+import type { CellProps, CellRef } from './type';
 
 export const Cell = forwardRef((props: CellProps, ref: Ref<CellRef>) => {
     const {
@@ -20,12 +21,32 @@ export const Cell = forwardRef((props: CellProps, ref: Ref<CellRef>) => {
         append,
         bordered = true,
         onClick,
+        clickable = false,
     } = props;
     const domRef = useRef<HTMLDivElement | null>(null);
+    const [isPressed, setIsPressed] = useState(false);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
     }));
+
+    const handleTouchStart = () => {
+        if (clickable) {
+            setIsPressed(true);
+        }
+    };
+
+    const handleTouchEnd = () => {
+        if (clickable) {
+            setIsPressed(false);
+        }
+    };
+
+    const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (onClick) {
+            onClick(e);
+        }
+    };
 
     return (
         <ContextLayout>
@@ -36,13 +57,19 @@ export const Cell = forwardRef((props: CellProps, ref: Ref<CellRef>) => {
                             className={cls(
                                 `${prefixCls}-cell`,
                                 'all-border-box',
-                                { 'without-group': !isFromGroup },
                                 { bordered },
+                                { 'without-group': !isFromGroup },
+                                { [`${prefixCls}-cell-without-group`]: !isFromGroup },
+                                { [`${prefixCls}-cell-clickable`]: clickable },
+                                { [`${prefixCls}-cell-pressed`]: isPressed },
                                 className,
                             )}
                             style={style}
                             ref={domRef}
-                            onClick={e => onClick && onClick(e)}
+                            onClick={handleClick}
+                            onTouchStart={handleTouchStart}
+                            onTouchEnd={handleTouchEnd}
+                            onTouchCancel={handleTouchEnd}
                         >
                             {prepend}
                             <div className={cls(`${prefixCls}-cell-inner`, { 'has-desc': desc })}>

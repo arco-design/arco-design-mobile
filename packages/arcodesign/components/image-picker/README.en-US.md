@@ -27,7 +27,8 @@ ImagePicker Component
 |imageProps|Attributes passed through to the image|Partial\<ImageProps\>|-|
 |renderError|Defined upload failed display|(index?: number) =\> ReactNode|-|
 |renderLoading|Defined uploading display|(index?: number) =\> ReactNode|-|
-|onSelectClick|Select icon click event|() =\> void|-|
+|onSelectClick|Select icon click event(same as onUploadClick)|() =\> void|-|
+|onUploadClick|Select icon click event|() =\> void|-|
 |upload|Upload function|(file: ImagePickItem) =\> Promise\<ImagePickItem\>|-|
 |onChange|The list of selected files changes|(fileList: ImagePickItem\[\]) =\> void|-|
 |maxSize|File size limit, in K|number|-|
@@ -35,7 +36,6 @@ ImagePicker Component
 |limit|Max pictures can choose, 0 means no restriction|number|0|
 |onLimitExceed|The number of pictures exceeds the limit|(files: File\[\]) =\> void|-|
 |onDeleteClick|Delete area click event|(index: number) =\> void|-|
-|onUploadClick|Upload area click event|() =\> void|-|
 |selectAdapter|Select adaptor|() =\> Promise\<SelectCallback\>|-|
 |onClick|click event|(e: MouseEvent\<HTMLElement, MouseEvent\>, file: ImagePickItem, index: number) =\> void|-|
 |onLongPress|long press event|(e: TouchEvent\<HTMLElement\>, file: ImagePickItem, index: number) =\> void|-|

@@ -43,14 +43,6 @@ const blurSimulator = async (inputDom, delayTime) => {
     await fireEvent.blur(inputDom, 25);
     await delay(delayTime);
 };
-const createInputDomSimulator = (inputDom, component) => {
-    const originSimulate = inputDom.simulate;
-    inputDom.simulate = (event, config) => {
-        originSimulate.call(inputDom, event, config);
-        delay(component, 25);
-    };
-    return inputDom;
-};
 
 describe('SearchBar', () => {
     beforeEach(() => {
@@ -67,7 +59,7 @@ describe('SearchBar', () => {
         expect(component.querySelectorAll(inputSelector).length).toBe(1);
         // 搜索icon被正常渲染
         expect(component.querySelectorAll(searchIconSelector).length).toBe(1);
-        const inputDom = createInputDomSimulator(component.querySelector('input'), component);
+        const inputDom = component.querySelector('input');
         await userEvent.click(inputDom);
 
         // 清除按钮被正常渲染
@@ -82,7 +74,7 @@ describe('SearchBar', () => {
         const handleCancel = jest.fn();
         const { container: component, rerender } = render(<SearchBar onCancel={handleCancel} />);
 
-        const inputDom = createInputDomSimulator(component.querySelector(inputSelector), component);
+        const inputDom = component.querySelector(inputSelector);
 
         // 测试actionBtnShowType为default的情况
         expect(component.querySelectorAll(cancelBtnSelector).length).toBe(0);
