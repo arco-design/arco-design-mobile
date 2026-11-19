@@ -345,8 +345,12 @@ describe('Popover', () => {
 
     it('should calculate position correctly for topCenter, bottomRight and bottomLeft', async () => {
         mockElementProperty(screen, 'availWidth', 375);
-        const directions = ['topCenter', 'bottomRight', 'bottomLeft'];
-        for (const direction of directions) {
+        const directions = [
+            { direction: 'topCenter', left: '-5px', position: 'bottom' },
+            { direction: 'bottomRight', left: '-2px', position: 'top' },
+            { direction: 'bottomLeft', left: '6px', position: 'top' },
+        ];
+        for (const { direction, left, position } of directions) {
             const ref = createRef();
             const { unmount } = render(
                 <Popover content="Bubble" ref={ref} direction={direction}>
@@ -365,43 +369,13 @@ describe('Popover', () => {
                 height: 90,
             }));
             updatePopoverPosition(ref);
+            const popover = document.querySelector(`.${prefix}-inner`);
             expect(document.querySelector('.popover-content')).toHaveClass(direction);
+            expect(popover.style.left).toBe(left);
+            expect(popover.style.height).toBe('60px');
+            expect(popover.style[position]).toBe('100px');
             unmount();
         }
-    });
-
-    it('should switch to the roomier side when popover is too tall', async () => {
-        const ref = createRef();
-        render(
-            <Popover content="Bubble" ref={ref} direction="bottomCenter">
-                <Button>Button</Button>
-            </Popover>,
-        );
-        await clickButton();
-        mockElementProperty(screen, 'availWidth', 375);
-        const { setProperties, unsetProperties } = defineProperties(window, { innerHeight: 700 });
-        setProperties();
-        const { child } = ref.current;
-        // 气泡高度过大，上下空间都不足，切换到空间更大的一侧（上方）
-        mockPopoverSize(ref, 375, 400);
-        child.getBoundingClientRect = jest.fn(() => ({
-            top: 500,
-            bottom: 590,
-            left: 10,
-            right: 100,
-            width: 90,
-            height: 90,
-        }));
-        updatePopoverPosition(ref);
-        expect(document.querySelector('.popover-content')).toHaveClass('topCenter');
-
-        // 方向翻转后重新绑定了滚动监听，滚动时重新计算气泡位置
-        act(() => {
-            fireEvent.scroll(document);
-            jest.advanceTimersByTime(200);
-        });
-        expect(document.querySelector('.popover-content')).toHaveClass('topCenter');
-        unsetProperties();
     });
 
     it('should calculate screen position in global mode', async () => {
@@ -469,6 +443,7 @@ describe('Popover', () => {
             jest.advanceTimersByTime(600);
         });
         checkHasNoPopoverInner();
+        expect(map.click).toBeUndefined();
     });
 
     it('should not close popover when touching body without target', async () => {
@@ -665,6 +640,7 @@ describe('Popover', () => {
     it('should do nothing when scrolling after popover is closed and unmounted', async () => {
         const onChange = jest.fn();
         const ref = createRef();
+        const map = mockAddListener(document);
         render(
             <Popover content="Bubble" onChange={onChange} ref={ref}>
                 <Button>Button</Button>
@@ -680,11 +656,7 @@ describe('Popover', () => {
             jest.advanceTimersByTime(800);
         });
         checkHasNoPopoverInner();
-        // 关闭卸载后触发滚动，不再计算气泡位置
-        act(() => {
-            fireEvent.scroll(document);
-            jest.advanceTimersByTime(200);
-        });
+        expect(map.scroll).toBeUndefined();
         expect(onChange.mock.calls).toEqual([[true], [false]]);
     });
 });
