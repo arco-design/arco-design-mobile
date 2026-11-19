@@ -898,6 +898,7 @@ describe('Carousel', () => {
             fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
             fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
             expect(onTouchStopped).toBeCalledWith(-1);
+            expect(container.querySelector(`.${prefix}-inner`).style.transform).toContain('30px');
 
             fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
             act(() => {
@@ -925,6 +926,7 @@ describe('Carousel', () => {
 
             fireEvent.touchStart(wrap, createStartTouchEventObject({ x: 100, y: 0 }));
             fireEvent.touchMove(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
+            expect(container.querySelector(`.${prefix}-inner`).style.transform).not.toContain('30px');
             fireEvent.touchEnd(wrap, createMoveTouchEventObject({ x: 160, y: 0 }));
             act(() => {
                 jest.advanceTimersByTime(600);
