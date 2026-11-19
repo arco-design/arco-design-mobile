@@ -20,23 +20,21 @@ function loadStaticImage() {
 
 describe('Image', () => {
     let onerrorRef;
-    let onloadRef;
+    let loadingImage;
     let originalImage;
+
+    function getRequestedImage() {
+        act(() => jest.runOnlyPendingTimers());
+        expect(loadingImage).toHaveAttribute('src', imgUrl);
+        return loadingImage;
+    }
+
     beforeAll(() => {
         originalImage = global.Image;
         function MockImage(...args) {
             const img = new originalImage(...args);
+            loadingImage = img;
             Object.defineProperties(img, {
-                onload: {
-                    get() {
-                        return this._onload;
-                    },
-                    set(onload) {
-                        onloadRef = onload;
-                        this._onload = onload;
-                    },
-                    configurable: true,
-                },
                 onerror: {
                     get() {
                         return this._onerror;
@@ -69,6 +67,7 @@ describe('Image', () => {
         global.Image = originalImage;
     });
     beforeEach(() => {
+        loadingImage = undefined;
         jest.useFakeTimers();
     });
     afterEach(() => {
@@ -189,8 +188,7 @@ describe('Image', () => {
         const { container, rerender } = render(
             <Image boxWidth={100} boxHeight={200} fit="preview-x" src={imgUrl} onLoad={onLoad} />,
         );
-        onloadRef();
-        act(() => jest.runAllTimers());
+        fireEvent.load(getRequestedImage());
         expect(onLoad).toBeCalled();
         const imgWrapper = container.querySelector('.image-container');
         expect(imgWrapper).toHaveClass('loaded');
@@ -208,40 +206,36 @@ describe('Image', () => {
                 onLoad={onLoad}
             />,
         );
-        ref.current.retry();
-        onloadRef();
-        act(() => jest.runAllTimers());
+        act(() => ref.current.retry());
+        fireEvent.load(getRequestedImage());
         expect(screen.getByRole('img')).toHaveClass('preview-overflow-y');
     });
 
     it('Preview-x image fits the box renders correctly', () => {
         render(<Image boxWidth={300} boxHeight={100} fit="preview-x" src={imgUrl} />);
-        onloadRef();
-        act(() => jest.runAllTimers());
+        fireEvent.load(getRequestedImage());
         expect(screen.getByRole('img')).toHaveClass('preview-fit-contain-x');
     });
 
     it('Preview-y image fits the box renders correctly', () => {
         render(<Image boxWidth={150} boxHeight={100} fit="preview-y" src={imgUrl} />);
-        onloadRef();
-        act(() => jest.runAllTimers());
+        fireEvent.load(getRequestedImage());
         expect(screen.getByRole('img')).toHaveClass('preview-fit-contain-y');
     });
 
     it('Native props are applied to the loaded image', () => {
         render(<Image src={imgUrl} nativeProps={{ referrerPolicy: 'no-referrer' }} />);
-        onloadRef();
-        act(() => jest.runAllTimers());
+        fireEvent.load(getRequestedImage());
         expect(screen.getByRole('img').referrerPolicy).toBe('no-referrer');
     });
 
-    it('Load callback still works after unmounted', () => {
-        const onLoad = jest.fn();
-        const { unmount } = render(<Image src={imgUrl} onLoad={onLoad} />);
+    it('A late load leaves the unmounted image container empty', () => {
+        const { container, unmount } = render(<Image src={imgUrl} />);
+        const imageContainer = container.querySelector('.image-container');
+        const image = getRequestedImage();
         unmount();
-        onloadRef();
-        act(() => jest.runAllTimers());
-        expect(onLoad).toBeCalled();
+        fireEvent.load(image);
+        expect(imageContainer).toBeEmptyDOMElement();
     });
 
     it('Static image with completed img element triggers load or error', () => {
