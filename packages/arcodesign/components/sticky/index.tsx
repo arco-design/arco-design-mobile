@@ -22,6 +22,9 @@ import { ContextLayout } from '../context-provider';
 import { useRefState } from '../_helpers';
 import Portal from '../portal';
 
+// Expand each sticky boundary by half a CSS pixel for fractional scroll positions.
+const STICKY_TOLERANCE = 0.5;
+
 export interface StickyRef {
     /**
      * 最外层元素 DOM
@@ -216,9 +219,6 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
             const containerTop = rectTop + borderTop;
             const containerBottom = rectBottom - borderBottom;
 
-            // 使用容差阈值避免iOS阻尼动画时的抖动问题
-            // @en Tolerance threshold to avoid jitter problem in iOS damping animation
-            const TOLERANCE = 0.5;
             const disFromTop = placeholderClientRect.top - containerTop;
             const disFromBottom = placeholderClientRect.top + calculatedHeight - containerBottom;
 
@@ -229,12 +229,12 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
             setWasSticky(Boolean(isStickyRef.current));
 
             const isTopSticky = needTop
-                ? disFromTop <= topOffset + TOLERANCE &&
-                  followBottom > containerTop + followOffset - TOLERANCE
+                ? disFromTop <= topOffset + STICKY_TOLERANCE &&
+                  followBottom > containerTop + followOffset - STICKY_TOLERANCE
                 : false;
             const isBottomSticky = needBottom
-                ? disFromBottom >= -bottomOffset - TOLERANCE &&
-                  followTop < containerBottom - followOffset + TOLERANCE
+                ? disFromBottom >= -bottomOffset - STICKY_TOLERANCE &&
+                  followTop < containerBottom - followOffset + STICKY_TOLERANCE
                 : false;
             const newStickyState = isTopSticky || isBottomSticky;
 
