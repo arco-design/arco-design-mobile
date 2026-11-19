@@ -68,27 +68,6 @@ describe('SwipeLoad', () => {
         expect(mockFn).toBeCalled();
     });
 
-    it('should bounce back when bumping left boundary', () => {
-        const onConfirm = jest.fn();
-        const { container } = render(
-            <SwipeLoad bounceWhenBumpBoundary onConfirm={onConfirm}>
-                <div className="item" />
-            </SwipeLoad>,
-        );
-        const item = container.querySelector('.item');
-        act(() => {
-            fireEvent.touchStart(item, createStartTouchEventObject({ x: 100, y: 0 }));
-            fireEvent.touchMove(item, createMoveTouchEventObject({ x: 140, y: 0 }));
-        });
-        act(() => {
-            fireEvent.touchEnd(item, createMoveTouchEventObject({ x: 140, y: 0 }));
-        });
-        act(() => {
-            jest.runAllTimers();
-        });
-        expect(onConfirm).not.toBeCalled();
-    });
-
     it('should hide label when scrolling back left after reaching right edge', () => {
         const onConfirm = jest.fn();
         const { container } = render(

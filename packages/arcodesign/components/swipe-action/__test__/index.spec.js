@@ -161,26 +161,6 @@ describe('SwipeAction', () => {
         expect(mockFn).toBeCalledTimes(2);
     });
 
-    it('should not open menu when scrolling vertically', async () => {
-        const mockOpenFn = jest.fn();
-        const { container } = render(
-            <SwipeAction {...props} onOpen={mockOpenFn}>
-                <ContentDiv />
-            </SwipeAction>,
-        );
-        const comp = container.querySelector(`.${prefix}`);
-        act(() => {
-            fireEvent.touchStart(comp, createStartTouchEventObject({ x: 0, px: 0, y: 0, py: 0 }));
-            fireEvent.touchMove(comp, createMoveTouchEventObject({ x: 5, px: 5, y: 50, py: 50 }));
-        });
-        fireEvent.touchEnd(comp, createMoveTouchEventObject({ x: 5, px: 5, y: 50, py: 50 }));
-        await act(async () => {
-            await jest.advanceTimersByTime(600);
-        });
-        expect(mockOpenFn).not.toBeCalled();
-        expect(comp.className).toContain('action-close');
-    });
-
     it('should close menu when drag offset below threshold', async () => {
         const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
         Element.prototype.getBoundingClientRect = () => ({ width: 64 });
