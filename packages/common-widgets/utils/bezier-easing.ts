@@ -5,7 +5,9 @@
  */
 
 // Math.cbrt is ES2015, fall back to Math.pow for ES5 environments
-const cbrt = Math.cbrt || ((v: number) => (v < 0 ? -Math.pow(-v, 1 / 3) : Math.pow(v, 1 / 3)));
+const cbrt =
+    (Math as Math & { cbrt?: (v: number) => number }).cbrt ||
+    ((v: number) => (v < 0 ? -Math.pow(-v, 1 / 3) : Math.pow(v, 1 / 3)));
 
 // Solves x(t) = ((2a * t + 3b) * t + 3c) * t = x for t, with x in (0, 1):
 // u = 1/t is the largest real root of x·u³ − 3c·u² − 3b·u − 2a = 0
@@ -32,7 +34,7 @@ function solveTForX(x: number, a: number, b: number, c: number) {
 }
 
 function LinearEasing(x: number) {
-    return x;
+    return Math.max(0, Math.min(1, x));
 }
 
 /**
