@@ -400,13 +400,13 @@ describe('Form validate label', () => {
 });
 
 describe('Form extra coverage', () => {
-    it('defaultFormDataMethods provides no-op fallbacks', () => {
-        expect(defaultFormDataMethods.getFieldValue('a')).toBe('a');
+    it('does not store field values or errors without a form', () => {
+        const unregister = defaultFormDataMethods.registerField('a', {});
+        defaultFormDataMethods.setFieldValue('a', 1);
+        defaultFormDataMethods.setFieldsValue({ b: 2 });
         expect(defaultFormDataMethods.getFieldsValue()).toEqual({});
         expect(defaultFormDataMethods.getFieldError('a')).toEqual([]);
-        expect(defaultFormDataMethods.setFieldValue('a', 1)).toBe(true);
-        expect(defaultFormDataMethods.setFieldsValue({ a: 1 })).toBe(true);
-        expect(typeof defaultFormDataMethods.registerField('a', {})).toBe('function');
+        expect(unregister).not.toThrow();
         const internalHooks = defaultFormDataMethods.getInternalHooks();
         expect(typeof internalHooks.registerField).toBe('function');
         expect(typeof internalHooks.setInitialValues).toBe('function');
