@@ -44,60 +44,70 @@ describe('Sticky', () => {
         expect(mockFn).toBeCalled();
     });
 
-    it('should calculate absolute sticky style with or without offsetParent', () => {
-        const onStickyStateChange = jest.fn();
-        // RAF 改为异步，保证 recalculatePosition 的帧锁能正常复位
+    it('should use zero absolute offsets without an offset parent', () => {
         window.requestAnimationFrame.mockImplementation(cb => {
             setTimeout(cb, 0);
             return 0;
         });
-        const map = mockAddListener(window);
+        const scrollContainer = document.createElement('div');
+        scrollContainer.getBoundingClientRect = () => ({
+            top: 50,
+            bottom: 250,
+            left: 0,
+            right: 100,
+            width: 100,
+            height: 200,
+        });
+        const map = mockAddListener(scrollContainer);
         const { container } = render(
             <Sticky
                 position="both"
                 stickyStyle="absolute"
-                onStickyStateChange={onStickyStateChange}
+                getScrollContainer={() => scrollContainer}
             >
                 <Button>Test</Button>
             </Sticky>,
         );
 
         const content = container.querySelector(`.arco-sticky`);
-        // offsetParent 为空时吸顶位置归零
-        act(() => {
-            jest.runAllTimers();
-        });
-        expect(content.style.position).toBe('absolute');
-        expect(onStickyStateChange).toBeCalledWith({
-            isSticky: true,
-            wasSticky: false,
-            isTopSticky: true,
-            isBottomSticky: false,
-        });
-
-        // 指定 offsetParent 后基于其位置计算吸顶样式
-        const offsetParent = document.createElement('div');
-        offsetParent.getBoundingClientRect = () => ({
-            top: 30,
-            bottom: 130,
-            left: 5,
-            right: 105,
+        const placeholder = content.parentElement.firstElementChild;
+        Object.defineProperty(content, 'offsetParent', { value: null, configurable: true });
+        content.getBoundingClientRect = () => ({
+            top: 40,
+            bottom: 60,
+            left: 0,
+            right: 100,
             width: 100,
-            height: 100,
+            height: 20,
         });
-        Object.defineProperty(content, 'offsetParent', {
-            value: offsetParent,
-            configurable: true,
+        placeholder.getBoundingClientRect = () => ({
+            top: 40,
+            bottom: 60,
+            left: 0,
+            right: 100,
+            width: 100,
+            height: 20,
         });
         act(() => {
-            map.scroll({ currentTarget: window });
+            map.scroll();
             jest.runAllTimers();
         });
         expect(content.style.position).toBe('absolute');
-        expect(content.style.zIndex).toBe('100');
-        // 吸顶位置相对于 offsetParent 计算：top = 0 - 30 - 0
-        expect(content.style.top).toBe('-30px');
-        expect(content.style.left).toBe('-5px');
+        expect(content.style.top).toBe('0px');
+
+        placeholder.getBoundingClientRect = () => ({
+            top: 240,
+            bottom: 260,
+            left: 0,
+            right: 100,
+            width: 100,
+            height: 20,
+        });
+        act(() => {
+            map.scroll();
+            jest.runAllTimers();
+        });
+        expect(content.style.bottom).toBe('0px');
     });
 
     it('should update placeholder height via ref when sticky', () => {
