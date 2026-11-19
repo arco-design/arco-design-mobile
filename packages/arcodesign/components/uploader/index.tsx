@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useImperativeHandle } from 'react';
+import React, { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import type { Ref } from 'react';
 import { cls, defaultLocale, componentWrapper } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
@@ -8,6 +8,7 @@ import { useLatestRef } from '../_helpers';
 import { IconUpload, IconDelete, IconCheck, IconFile } from '../icon';
 import Loading from '../loading';
 import { Upload } from './upload';
+import type { PressTimer } from './upload';
 
 export * from './type';
 
@@ -35,7 +36,10 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
     const fileRef = useRef<HTMLInputElement | null>(null);
     const cacheRef = useLatestRef<FileItem[]>(files as FileItem[]);
 
-    const uploadFunc = new Upload(props, fileRef, cacheRef);
+    const pressTimer = useRef<PressTimer>();
+    const uploadFunc = new Upload(props, fileRef, cacheRef, pressTimer);
+
+    useEffect(() => () => clearTimeout(pressTimer.current), []);
 
     useImperativeHandle(ref, () => ({
         dom: domRef.current,
@@ -99,6 +103,17 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                             <div
                                 className={`${prefixCls}-uploader-list-item`}
                                 key={index}
+                                onTouchStartCapture={
+                                    props.onLongPress &&
+                                    (e => {
+                                        uploadFunc.cancelLongPress();
+                                        e.persist();
+                                        uploadFunc.handleTouchStart(e, fileItem, index);
+                                    })
+                                }
+                                onTouchMoveCapture={uploadFunc.cancelLongPress}
+                                onTouchCancelCapture={uploadFunc.resetLongPress}
+                                onTouchEndCapture={uploadFunc.handleTouchEnd}
                                 onClick={e => uploadFunc.handleClick(e, fileItem, index)}
                             >
                                 <div className={`${prefixCls}-uploader-list-item-container`}>
@@ -140,7 +155,10 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                                     <Loading type="circle" radius={7} />,
                                                 )}
                                             {status === 'error' && (
-                                                <div onClick={() => uploadFunc.retryUpload(index)}>
+                                                <div
+                                                    onTouchStartCapture={uploadFunc.cancelLongPress}
+                                                    onClick={() => uploadFunc.retryUpload(index)}
+                                                >
                                                     {generateItemArea(
                                                         fileItem,
                                                         index,
@@ -155,6 +173,7 @@ const Uploader = forwardRef((props: UploaderProps, ref: Ref<UploaderRef>) => {
                                 </div>
                                 <div
                                     className={`${prefixCls}-uploader-list-item-delete`}
+                                    onTouchStartCapture={uploadFunc.cancelLongPress}
                                     onClick={() => uploadFunc.deleteFile(index)}
                                 >
                                     {(renderDeleteArea && renderDeleteArea(fileItem, index)) || (

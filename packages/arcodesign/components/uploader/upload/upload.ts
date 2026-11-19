@@ -2,6 +2,9 @@ import type React from 'react';
 import { Promise as ES6Promise } from 'es6-promise';
 import type { AdapterFile, CommonFileItem, UploadCommonProps } from './type';
 
+// A fired long press is marked with 0 until the gesture ends.
+export type PressTimer = ReturnType<typeof setTimeout> | 0;
+
 export class Upload<FileItem extends CommonFileItem = CommonFileItem> {
     props: UploadCommonProps<FileItem>;
 
@@ -9,13 +12,11 @@ export class Upload<FileItem extends CommonFileItem = CommonFileItem> {
 
     cacheRef: React.MutableRefObject<FileItem[]>;
 
-    // click && longPress
-    timeOutEvent: NodeJS.Timeout | number;
-
     constructor(
         props: UploadCommonProps<FileItem>,
         fileRef: React.MutableRefObject<HTMLInputElement | null>,
         cacheRef: React.MutableRefObject<FileItem[]>,
+        private pressTimer: React.MutableRefObject<PressTimer | undefined> = { current: undefined },
     ) {
         this.props = { ...props };
         this.fileRef = fileRef;
@@ -124,16 +125,31 @@ export class Upload<FileItem extends CommonFileItem = CommonFileItem> {
         file: FileItem,
         index: number,
     ) => {
-        clearTimeout(this.timeOutEvent);
-        if (this.timeOutEvent !== 0) {
+        this.cancelLongPress();
+        if (this.pressTimer.current !== 0) {
             this.props.onClick?.(e, file, index);
         }
     };
 
-    handleTouchStart = (e: React.TouchEvent<HTMLDivElement>, image: FileItem, index: number) => {
-        this.timeOutEvent = setTimeout(() => {
-            this.timeOutEvent = 0;
-            this.props.onLongPress?.(e, image, index);
+    cancelLongPress = () => clearTimeout(this.pressTimer.current);
+
+    resetLongPress = () => {
+        this.cancelLongPress();
+        this.pressTimer.current = undefined;
+    };
+
+    handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+        if (this.pressTimer.current === 0) {
+            // Cancel this touch's compatibility click, not the next independent click.
+            e.preventDefault();
+        }
+        this.resetLongPress();
+    };
+
+    handleTouchStart = (e: React.TouchEvent<HTMLDivElement>, file: FileItem, index: number) => {
+        this.pressTimer.current = setTimeout(() => {
+            this.pressTimer.current = 0;
+            this.props.onLongPress?.(e, file, index);
         }, 750);
     };
 }

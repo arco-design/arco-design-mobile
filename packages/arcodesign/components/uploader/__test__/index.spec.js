@@ -1,12 +1,11 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
-import { act } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import Uploader from '..';
-import { Upload, parseFile } from '../upload';
+import { parseFile } from '../upload';
 import '@testing-library/jest-dom';
 
 demoTest('uploader');
@@ -154,12 +153,19 @@ describe('Uploader', () => {
         });
     });
     it('click file list item correctly', () => {
-        const handleClick = jest.fn();
+        const onClick = jest.fn();
+        const onLongPress = jest.fn();
         const { container } = render(
-            <Uploader files={[{ file: mockFile }]} onClick={handleClick} />,
+            <Uploader files={[{ file: mockFile }]} onClick={onClick} onLongPress={onLongPress} />,
         );
-        userEvent.click(container.querySelector(`.${prefix}-list-item`));
-        expect(handleClick).toBeCalledTimes(1);
+        const row = container.querySelector(`.${prefix}-list-item`);
+        fireEvent.touchStart(row);
+        jest.advanceTimersByTime(100);
+        expect(fireEvent.touchEnd(row)).toBe(true);
+        userEvent.click(row);
+        jest.advanceTimersByTime(750);
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(onLongPress).not.toHaveBeenCalled();
     });
     it('selectAdapter', async () => {
         const handleMaxSizeExceed = jest.fn();
@@ -255,30 +261,85 @@ describe('Uploader', () => {
             expect(uploadMock).toBeCalledTimes(2);
         });
     });
-    it('long press file item correctly', () => {
-        // handleTouchStart 未在组件内绑定，直接测试 Upload 类的长按逻辑
-        const handleLongPress = jest.fn();
-        const handleClick = jest.fn();
-        const item = { file: mockFile };
-        const uploadFunc = new Upload(
-            { onClick: handleClick, onLongPress: handleLongPress, files: [item] },
-            { current: null },
-            { current: [item] },
+    it('fires one long press on the held file and skips its follow-up click', () => {
+        const onLongPress = jest.fn();
+        const onClick = jest.fn();
+        const files = [{ file: mockFile }, { file: new File([], 'held.txt') }];
+        const props = { files, onClick, onLongPress };
+        const { getByText, rerender } = render(<Uploader {...props} />);
+        const target = getByText('held.txt');
+        fireEvent.touchStart(target);
+        jest.advanceTimersByTime(749);
+        expect(onLongPress).not.toHaveBeenCalled();
+        jest.advanceTimersByTime(1);
+        expect(onLongPress).toHaveBeenCalledTimes(1);
+        expect(onLongPress).toHaveBeenCalledWith(
+            expect.objectContaining({ type: 'touchstart', target }),
+            files[1],
+            1,
         );
-        uploadFunc.handleTouchStart(null, item, 0);
-        uploadFunc.handleClick(null, item, 0);
-        expect(handleClick).toBeCalledTimes(1);
-        act(() => {
-            jest.advanceTimersByTime(1000);
-        });
-        expect(handleLongPress).toBeCalledTimes(0);
-        uploadFunc.handleTouchStart(null, item, 0);
-        act(() => {
-            jest.advanceTimersByTime(750);
-        });
-        expect(handleLongPress).toBeCalledTimes(1);
-        uploadFunc.handleClick(null, item, 0);
-        expect(handleClick).toBeCalledTimes(1);
+        rerender(<Uploader {...props} className="updated" />);
+        jest.advanceTimersByTime(750);
+        // A canceled touchend tells the browser not to synthesize a click for this touch.
+        expect(fireEvent.touchEnd(target)).toBe(false);
+        expect(onLongPress).toHaveBeenCalledTimes(1);
+        expect(onClick).not.toHaveBeenCalled();
+        fireEvent.click(target);
+        expect(onClick).toHaveBeenCalledTimes(1);
+        expect(onClick).toHaveBeenCalledWith(expect.anything(), files[1], 1);
+    });
+    it.each(['touchEnd', 'touchMove', 'touchCancel'])('cancels a pending long press on %s', end => {
+        const onLongPress = jest.fn();
+        const props = { files: [{ file: mockFile }], onLongPress };
+        const { container, rerender } = render(<Uploader {...props} />);
+        const row = container.querySelector(`.${prefix}-list-item`);
+        fireEvent.touchStart(row);
+        jest.advanceTimersByTime(749);
+        rerender(<Uploader {...props} className="updated" />);
+        expect(fireEvent[end](row)).toBe(true);
+        jest.advanceTimersByTime(750);
+        expect(onLongPress).not.toHaveBeenCalled();
+    });
+    it('keeps the file click after a hold when no long press handler is provided', () => {
+        const onClick = jest.fn();
+        const { getByText } = render(<Uploader files={[{ file: mockFile }]} onClick={onClick} />);
+        const target = getByText(mockFile.name);
+        fireEvent.touchStart(target);
+        jest.advanceTimersByTime(1000);
+        expect(fireEvent.touchEnd(target)).toBe(true);
+        fireEvent.click(target);
+        expect(onClick).toHaveBeenCalledTimes(1);
+    });
+    it.each(['delete', 'error'])('keeps the nested %s action and its click bubbling', part => {
+        const onLongPress = jest.fn();
+        const onClick = jest.fn();
+        const onDeleteClick = jest.fn();
+        const { container } = render(
+            <Uploader
+                files={[{ file: mockFile, status: 'error' }]}
+                onLongPress={onLongPress}
+                onClick={onClick}
+                onDeleteClick={onDeleteClick}
+            />,
+        );
+        const target = container.querySelector(`.${prefix}-list-item-${part}`).firstChild;
+        fireEvent.touchStart(target);
+        jest.advanceTimersByTime(1000);
+        expect(fireEvent.touchEnd(target)).toBe(true);
+        fireEvent.click(target);
+        expect(onLongPress).not.toHaveBeenCalled();
+        expect(onDeleteClick).toHaveBeenCalledWith(0);
+        expect(onClick).toHaveBeenCalledTimes(1);
+    });
+    it('cancels the pending file long press on unmount', () => {
+        const onLongPress = jest.fn();
+        const { getByText, unmount } = render(
+            <Uploader files={[{ file: mockFile }]} onLongPress={onLongPress} />,
+        );
+        fireEvent.touchStart(getByText(mockFile.name));
+        unmount();
+        jest.advanceTimersByTime(750);
+        expect(onLongPress).not.toHaveBeenCalled();
     });
     it('should reject files without a result or with a reader error', async () => {
         const withoutResult = parseFile(mockFile);
