@@ -278,28 +278,6 @@ describe('ShowMonitor', () => {
         expect(handleBeforeUnmount.checkVisible()).toBeUndefined();
     });
 
-    it('should re-listen when disabled toggles back to false (non-IO)', () => {
-        window.IntersectionObserver = undefined;
-        const onVisibleChange = jest.fn();
-        const ref = React.createRef();
-        const { rerender } = render(
-            <ShowMonitor ref={ref} throttle={0} onVisibleChange={onVisibleChange}>
-                <div>Arco</div>
-            </ShowMonitor>,
-        );
-        rerender(
-            <ShowMonitor ref={ref} throttle={0} onVisibleChange={onVisibleChange} disabled>
-                <div>Arco</div>
-            </ShowMonitor>,
-        );
-        rerender(
-            <ShowMonitor ref={ref} throttle={0} onVisibleChange={onVisibleChange}>
-                <div>Arco</div>
-            </ShowMonitor>,
-        );
-        act(() => jest.runAllTimers());
-    });
-
     it('should do nothing when getScrollContainer returns null', () => {
         window.IntersectionObserver = undefined;
         render(
@@ -331,7 +309,7 @@ describe('ShowMonitor', () => {
 
     it('should decrement listen flag when one of two overflow monitors unmounts', () => {
         window.IntersectionObserver = undefined;
-        const { unmount } = render(
+        const { rerender } = render(
             <div data-testid="wrap" style={{ height: 100, overflowY: 'auto' }}>
                 <div data-testid="content">
                     <ShowMonitor overflow throttle={0} onVisibleChange={jest.fn()}>
@@ -345,11 +323,21 @@ describe('ShowMonitor', () => {
         );
         const wrap = screen.getByTestId('wrap');
         expect(wrap.getAttribute('data-show-listened')).toBe('2');
-        unmount();
+        rerender(
+            <div data-testid="wrap" style={{ height: 100, overflowY: 'auto' }}>
+                <div data-testid="content">
+                    <ShowMonitor overflow throttle={0} onVisibleChange={jest.fn()}>
+                        <div>A</div>
+                    </ShowMonitor>
+                </div>
+            </div>,
+        );
+        expect(wrap.getAttribute('data-show-listened')).toBe('1');
     });
 
     it('should register window scroll listener when existing listeners are all overflow', () => {
         window.IntersectionObserver = undefined;
+        const addEventListener = jest.spyOn(window, 'addEventListener');
         const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
         Element.prototype.getBoundingClientRect = () => ({
             width: 375,
@@ -367,6 +355,7 @@ describe('ShowMonitor', () => {
                 </div>
             </div>,
         );
+        addEventListener.mockClear();
         // 再注册一个非 overflow 监听，此时同 key 下已有全部 overflow 的 listener
         rerender(
             <div data-testid="wrap" style={{ height: 100, overflowY: 'auto' }}>
@@ -381,6 +370,8 @@ describe('ShowMonitor', () => {
             </div>,
         );
         act(() => jest.runAllTimers());
+        expect(addEventListener).toBeCalledWith('scroll', expect.any(Function));
+        addEventListener.mockRestore();
         Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
     });
 });
