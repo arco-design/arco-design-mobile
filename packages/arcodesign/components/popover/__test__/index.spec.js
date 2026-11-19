@@ -272,7 +272,7 @@ describe('Popover', () => {
                 innerWidth: 621,
                 viewportWidth: 1000,
                 childRect: { top: 80, bottom: 124, left: 800, right: 960, width: 160, height: 44 },
-                expectedLeft: '-12px',
+                expectedLeft: '-20px',
             },
         ],
         [
@@ -283,7 +283,7 @@ describe('Popover', () => {
                 innerWidth: 621,
                 viewportWidth: 600,
                 childRect: { top: 80, bottom: 124, left: 440, right: 600, width: 160, height: 44 },
-                expectedLeft: '-42px',
+                expectedLeft: '-34px',
             },
         ],
     ])(
@@ -294,7 +294,7 @@ describe('Popover', () => {
         ) => {
             const ref = createRef();
             render(
-                <Popover content="Bubble" ref={ref} direction={direction}>
+                <Popover content="Bubble" ref={ref} direction={direction} horizontalOffset={0}>
                     <Button>Button</Button>
                 </Popover>,
             );
