@@ -4271,6 +4271,27 @@ function getCompTokens() {
          * @en Min width of the date picker range separate
          */
         datePickerRangeSeparateMinWidth: getRem(48),
+        /**
+         * 滚动区域自定义滚动条的粗细
+         * @en Thickness of the custom scrollbar of ScrollArea
+         */
+        scrollAreaScrollbarSize: getRem(4),
+        /**
+         * 滚动区域自定义滚动条与容器边缘的间距
+         * @en Gap between the custom scrollbar of ScrollArea and the edge of the container
+         */
+        scrollAreaScrollbarGutter: getRem(2),
+        /**
+         * 滚动区域滚动条滑块颜色
+         * @en Thumb color of the custom scrollbar of ScrollArea
+         */
+        scrollAreaThumbColor: 'rgba(0, 0, 0, 0.3)',
+        darkScrollAreaThumbColor: 'rgba(255, 255, 255, 0.3)',
+        /**
+         * 滚动区域滚动条显隐的过渡时长
+         * @en Fade transition duration of the custom scrollbar of ScrollArea
+         */
+        scrollAreaScrollbarFadeDuration: '0.3s',
     };
 }
 

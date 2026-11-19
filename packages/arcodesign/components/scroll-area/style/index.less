@@ -1,0 +1,112 @@
+@import '../../../style/mixin.less';
+
+.@{prefix}-scroll-area {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &-viewport {
+        flex: 1 1 auto;
+        min-width: 0;
+        min-height: 0;
+        -webkit-overflow-scrolling: touch;
+        // hide the native scrollbar, a custom one is rendered instead
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+    }
+
+    &-vertical &-viewport {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    &-horizontal &-viewport {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    &-both &-viewport {
+        overflow: auto;
+    }
+
+    &-horizontal &-content,
+    &-both &-content {
+        width: max-content;
+        min-width: 100%;
+    }
+
+    &-track {
+        position: absolute;
+        z-index: 1;
+        box-sizing: content-box;
+        pointer-events: none;
+        opacity: 0;
+        transition-property: opacity;
+        .use-var(transition-duration, scroll-area-scrollbar-fade-duration);
+
+        &-vertical {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            .use-var(width, scroll-area-scrollbar-size);
+            .use-var(padding, scroll-area-scrollbar-gutter, 0);
+        }
+
+        &-horizontal {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            .use-var(height, scroll-area-scrollbar-size);
+            .use-var(padding, scroll-area-scrollbar-gutter, '', 0);
+        }
+    }
+
+    &-rtl &-track-vertical {
+        right: auto;
+        left: 0;
+    }
+
+    // leave the corner free so that the two tracks never overlap
+    &-both &-track-vertical {
+        .use-var(bottom, scroll-area-scrollbar-size);
+    }
+
+    &-both &-track-horizontal {
+        .use-var(right, scroll-area-scrollbar-size);
+    }
+
+    &-both&-rtl &-track-horizontal {
+        right: 0;
+        .use-var(left, scroll-area-scrollbar-size);
+    }
+
+    &-scrolling &-track,
+    &-always &-track {
+        opacity: 1;
+    }
+
+    &-thumb {
+        .use-var(background-color, scroll-area-thumb-color);
+        .use-var(border-radius, scroll-area-scrollbar-size);
+        will-change: transform;
+
+        &-vertical {
+            width: 100%;
+        }
+
+        &-horizontal {
+            height: 100%;
+        }
+    }
+
+    &-rtl &-thumb-horizontal {
+        margin-left: auto;
+    }
+}

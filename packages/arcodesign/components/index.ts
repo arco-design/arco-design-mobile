@@ -43,6 +43,7 @@ export { default as Progress } from './progress';
 export { default as PullRefresh } from './pull-refresh';
 export { default as Radio } from './radio';
 export { default as Rate } from './rate';
+export { default as ScrollArea } from './scroll-area';
 export { default as SearchBar } from './search-bar';
 export { default as ShowMonitor } from './show-monitor';
 export { default as Skeleton } from './skeleton';
