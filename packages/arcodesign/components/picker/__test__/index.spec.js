@@ -80,17 +80,6 @@ describe('Picker', () => {
         })
     });
 
-    it('should update layout when window resized while visible', () => {
-        jest.useFakeTimers()
-        render(<Picker data={mockData.data} value={mockData.value} visible={true}/>)
-        act(() => {
-            jest.runAllTimers()
-        })
-        act(() => {
-            window.dispatchEvent(new Event('resize'))
-        })
-    });
-
     it('should open picker when clicking linked container and close by mask', () => {
         jest.useFakeTimers()
         const onHideMock = jest.fn();

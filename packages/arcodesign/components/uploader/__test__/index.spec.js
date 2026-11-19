@@ -6,7 +6,7 @@ import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import Uploader from '..';
-import { Upload } from '../upload';
+import { Upload, parseFile } from '../upload';
 import '@testing-library/jest-dom';
 
 demoTest('uploader');
@@ -280,19 +280,13 @@ describe('Uploader', () => {
         uploadFunc.handleClick(null, item, 0);
         expect(handleClick).toBeCalledTimes(1);
     });
-    it('should handle parse file errors', async () => {
-        function App() {
-            const [files, setFiles] = React.useState([]);
-            return <Uploader files={files} onChange={setFiles} multiple />;
-        }
-        const { container } = render(<App />);
-        await userEvent.click(container.querySelector(`.${prefix}-add`));
-        await userEvent.upload(container.querySelector('input'), [mockFile, mockFile]);
-        const [reader1, reader2] = FileReader.mock.instances;
-        reader1.onload({ target: {} });
-        reader2.onerror();
-        await waitFor(() => {
-            expect(container.querySelectorAll(`.${prefix}-list-item`).length).toBe(0);
-        });
+    it('should reject files without a result or with a reader error', async () => {
+        const withoutResult = parseFile(mockFile);
+        FileReader.mock.instances[FileReader.mock.instances.length - 1].onload({ target: {} });
+        await expect(withoutResult).rejects.toThrow('file parse error');
+
+        const readerError = parseFile(mockFile);
+        FileReader.mock.instances[FileReader.mock.instances.length - 1].onerror();
+        await expect(readerError).rejects.toThrow('file parse error');
     });
 });
