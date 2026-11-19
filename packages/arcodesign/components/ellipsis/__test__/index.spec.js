@@ -52,7 +52,7 @@ describe('Ellipsis style', () => {
 })
 
 describe('Ellipsis action', () => {
-    it('Text multi-line omission renders correctly', () => {
+    it('expands and collapses when the custom controls are clicked', () => {
         const { container } = render(
             <EllipsisDemo />
         );
@@ -61,7 +61,7 @@ describe('Ellipsis action', () => {
         const hideEllipsisBtn = container.querySelector('.hide');
         expect(hideEllipsisBtn.textContent).toBe('收起');
         userEvent.click(hideEllipsisBtn);
-        expect(container.querySelector(`.${prefix}-js-content-ellipsis`).style.display).toBe('none');
+        expect(container.querySelector('.hide')).toBeNull();
     });
 
     it('DangerousInnerHTML render correctly', async() => {
@@ -80,3 +80,118 @@ describe('Ellipsis action', () => {
         expect(container.querySelector(`.${prefix}-js-content-ellipsis`).style.display).toBe('inline');
     });
 })
+
+describe('Ellipsis js truncation', () => {
+    let computedStyleSpy;
+    beforeEach(() => {
+        computedStyleSpy = jest
+            .spyOn(window, 'getComputedStyle')
+            .mockImplementation(() => ({ getPropertyValue: () => 'normal' }));
+    });
+    afterEach(() => {
+        computedStyleSpy.mockRestore();
+    });
+
+    function mockRect(child, getHeight) {
+        Object.defineProperty(child, 'getBoundingClientRect', {
+            value: jest.fn(() => ({ height: getHeight() })),
+        });
+    }
+
+    it('should trim end-excluded characters after text truncation', () => {
+        const ref = createRef();
+        const onReflow = jest.fn();
+        const { container } = render(
+            <Ellipsis
+                text="axxxxxxxxx"
+                maxLine={1}
+                endExcludes={['x']}
+                onReflow={onReflow}
+                ref={ref}
+            />,
+        );
+        const child = container.querySelector(`.${prefix}-js`);
+        const contentEl = child.querySelector(`.${prefix}-js-content`);
+        // jsdom 未实现 innerText，截断过程写入的是元素的 innerText 属性
+        // @en jsdom does not implement innerText, truncation writes the innerText property
+        const currentText = () => String(contentEl.innerText ?? contentEl.textContent);
+        mockRect(child, () => (currentText().length > 3 ? 60 : 0));
+        ref.current.reflow();
+        expect(onReflow).toHaveBeenLastCalledWith(true, 'a');
+        expect(currentText()).toBe('a');
+    });
+
+    it('should remove overflowing single html node entirely', () => {
+        const ref = createRef();
+        const onReflow = jest.fn();
+        const { container } = render(
+            <Ellipsis
+                text="<b><i>bold text</i></b>"
+                dangerouslyUseInnerHTML
+                maxLine={1}
+                onReflow={onReflow}
+                ref={ref}
+            />,
+        );
+        const child = container.querySelector(`.${prefix}-js`);
+        const contentEl = child.querySelector(`.${prefix}-js-content`);
+        mockRect(child, () => 60);
+        ref.current.reflow();
+        expect(onReflow).toHaveBeenLastCalledWith(true, '');
+        expect(contentEl.childNodes.length).toBe(0);
+    });
+
+    it('should remove a nested inline box that exceeds maxHeight even when empty', () => {
+        const ref = createRef();
+        const onReflow = jest.fn();
+        const { container } = render(
+            <Ellipsis
+                text='<b></b><b><i style="display:inline-block;height:60px">xx</i></b>'
+                dangerouslyUseInnerHTML
+                maxHeight={20}
+                onReflow={onReflow}
+                ref={ref}
+            />,
+        );
+        const child = container.querySelector(`.${prefix}-js`);
+        const contentEl = child.querySelector(`.${prefix}-js-content`);
+        mockRect(child, () => parseFloat(contentEl.querySelector('i')?.style.height) || 0);
+        ref.current.reflow();
+        expect(contentEl.querySelector('i')).toBeNull();
+        expect(onReflow).toHaveBeenLastCalledWith(true, '');
+    });
+
+    it('should remove overflowing leaf node when finding critical node', () => {
+        const ref = createRef();
+        const onReflow = jest.fn();
+        const { container } = render(
+            <Ellipsis
+                text="<b></b><i></i>"
+                dangerouslyUseInnerHTML
+                maxLine={1}
+                onReflow={onReflow}
+                ref={ref}
+            />,
+        );
+        const child = container.querySelector(`.${prefix}-js`);
+        const contentEl = child.querySelector(`.${prefix}-js-content`);
+        mockRect(child, () => (contentEl.innerHTML.length > 0 ? 60 : 0));
+        ref.current.reflow();
+        // 首个空节点即溢出，直接移除并回调
+        // @en The first empty node overflows, remove it and callback
+        expect(onReflow).toHaveBeenLastCalledWith(true, '');
+        // 首个空节点即溢出被移除，后续节点尚未挂载
+        // @en The first empty node overflows and is removed, later nodes are not attached yet
+        expect(contentEl.childNodes.length).toBe(0);
+    });
+
+    it('should not throw when reflow is called after unmount', () => {
+        const ref = createRef();
+        const onReflow = jest.fn();
+        const { unmount } = render(<Ellipsis text="hello world" onReflow={onReflow} ref={ref} />);
+        const reflowFn = ref.current.reflow;
+        unmount();
+        expect(() => reflowFn()).not.toThrow();
+        expect(onReflow).toBeCalledTimes(1);
+    });
+});
