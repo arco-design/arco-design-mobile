@@ -141,24 +141,23 @@ describe('Ellipsis js truncation', () => {
         expect(contentEl.childNodes.length).toBe(0);
     });
 
-    it('should truncate html nodes recursively', () => {
+    it('should remove a nested inline box that exceeds maxHeight even when empty', () => {
         const ref = createRef();
         const onReflow = jest.fn();
         const { container } = render(
             <Ellipsis
-                text="<b></b><b>xx</b>"
+                text='<b></b><b><i style="display:inline-block;height:60px">xx</i></b>'
                 dangerouslyUseInnerHTML
-                maxLine={1}
+                maxHeight={20}
                 onReflow={onReflow}
                 ref={ref}
             />,
         );
         const child = container.querySelector(`.${prefix}-js`);
         const contentEl = child.querySelector(`.${prefix}-js-content`);
-        mockRect(child, () => (contentEl.textContent.length > 1 ? 60 : 0));
+        mockRect(child, () => parseFloat(contentEl.querySelector('i')?.style.height) || 0);
         ref.current.reflow();
-        // 空节点被保留，第二个节点递归截断为空
-        // @en Empty node is kept and the second node is truncated to empty recursively
+        expect(contentEl.querySelector('i')).toBeNull();
         expect(onReflow).toHaveBeenLastCalledWith(true, '');
     });
 
