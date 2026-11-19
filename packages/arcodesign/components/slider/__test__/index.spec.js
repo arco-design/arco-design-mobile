@@ -139,9 +139,18 @@ describe('Slider', () => {
 
     it('should format range values to nearest marks', () => {
         const { container } = render(
-            <Slider range useMarkOnly max={20} marks={[0, 5, 10, 15, 20]} defaultValue={[3, 12]} />,
+            <Slider
+                range
+                useMarkOnly
+                showTooltip="always"
+                max={20}
+                marks={[0, 5, 10, 15, 20]}
+                defaultValue={[3, 12]}
+            />,
         );
-        expect(container.querySelector(`.${prefix}`).getAttribute('aria-valuenow')).toBe('5');
+        expect(
+            [...container.querySelectorAll(`.${prefix}-popover-content`)].map(item => item.textContent),
+        ).toEqual(['5', '10']);
     });
 
     it('should render prefix and suffix label by custom function', () => {
@@ -157,7 +166,7 @@ describe('Slider', () => {
 
     it('should render correctly when size is undefined', () => {
         const { container } = render(<Slider size={undefined} defaultValue={20} />);
-        expect(container.querySelectorAll(`.${prefix}-line`).length).toBe(2);
+        expect(container.querySelector(`.${prefix}-line`).style.height).toBe('');
     });
 
     it('should clamp value when touch position is out of line range', async () => {
