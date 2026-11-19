@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import CountDown from '..';
+import { startTask, stopTask } from '../singleton';
 import '@testing-library/jest-dom';
 
 demoTest('count-down', { useFakeTimers: true });
@@ -116,4 +117,53 @@ describe('CountDown', () => {
         jest.useRealTimers();
     });
 
+});
+
+describe('CountDown task queue', () => {
+    beforeEach(() => {
+        jest.useFakeTimers();
+    });
+    afterEach(() => {
+        jest.restoreAllMocks();
+        jest.useRealTimers();
+    });
+
+    it('finishes simultaneous countdowns in start order on the same tick', () => {
+        const now = jest.spyOn(Date, 'now').mockReturnValue(0);
+        const onFinish = jest.fn();
+        const { getAllByText } = render(
+            <>
+                <CountDown time={1000} format="s" onFinish={() => onFinish('A')} />
+                <CountDown time={1000} format="s" onFinish={() => onFinish('B')} />
+            </>,
+        );
+        now.mockReturnValue(1000);
+        act(() => {
+            jest.advanceTimersByTime(1000);
+        });
+        expect(onFinish.mock.calls).toEqual([['A'], ['B']]);
+        expect(getAllByText('0')).toHaveLength(2);
+    });
+
+    it('skips cancelled tasks and runs new tasks on the next tick', () => {
+        const calls = [];
+        const finish = name => () => {
+            calls.push(name);
+            return false;
+        };
+        let cancelledId;
+        startTask('macro', () => {
+            calls.push('first');
+            stopTask('macro', cancelledId);
+            startTask('macro', finish('added'));
+            return false;
+        });
+        cancelledId = startTask('macro', finish('cancelled'));
+        startTask('macro', finish('last'));
+
+        jest.advanceTimersByTime(1000);
+        expect(calls).toEqual(['first', 'last']);
+        jest.advanceTimersByTime(1000);
+        expect(calls).toEqual(['first', 'last', 'added']);
+    });
 });
