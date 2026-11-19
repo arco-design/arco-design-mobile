@@ -53,6 +53,18 @@ function updatePopoverPosition(ref) {
     });
 }
 
+function mockPropertyWithRestore(target, property, value) {
+    const originalDescriptor = Object.getOwnPropertyDescriptor(target, property);
+    mockElementProperty(target, property, value);
+    return () => {
+        if (originalDescriptor) {
+            Object.defineProperty(target, property, originalDescriptor);
+        } else {
+            delete target[property];
+        }
+    };
+}
+
 describe('Popover', () => {
     beforeEach(() => {
         jest.useFakeTimers();
@@ -250,6 +262,59 @@ describe('Popover', () => {
         expect(document.querySelector('.popover-content')).toHaveClass('bottomLeft');
         unsetProperties();
     });
+
+    it.each([
+        [
+            'screen width is smaller',
+            {
+                direction: 'bottomRight',
+                screenWidth: 600,
+                innerWidth: 621,
+                viewportWidth: 1000,
+                childRect: { top: 80, bottom: 124, left: 800, right: 960, width: 160, height: 44 },
+                expectedLeft: '-20px',
+            },
+        ],
+        [
+            'mobile innerWidth is initializing',
+            {
+                direction: 'bottomLeft',
+                screenWidth: 1000,
+                innerWidth: 621,
+                viewportWidth: 600,
+                childRect: { top: 80, bottom: 124, left: 440, right: 600, width: 160, height: 44 },
+                expectedLeft: '-34px',
+            },
+        ],
+    ])(
+        'should use layout viewport width when %s',
+        async (
+            _name,
+            { direction, screenWidth, innerWidth, viewportWidth, childRect, expectedLeft },
+        ) => {
+            const ref = createRef();
+            render(
+                <Popover content="Bubble" ref={ref} direction={direction} horizontalOffset={0}>
+                    <Button>Button</Button>
+                </Popover>,
+            );
+            await clickButton();
+            const restoreProperties = [
+                mockPropertyWithRestore(screen, 'availWidth', screenWidth),
+                mockPropertyWithRestore(window, 'innerWidth', innerWidth),
+                mockPropertyWithRestore(document.documentElement, 'clientWidth', viewportWidth),
+            ];
+            try {
+                const { child } = ref.current;
+                mockPopoverSize(ref, 180, 78);
+                child.getBoundingClientRect = jest.fn(() => childRect);
+                updatePopoverPosition(ref);
+                expect(ref.current.innerPopoverDom.style.left).toBe(expectedLeft);
+            } finally {
+                restoreProperties.forEach(restore => restore());
+            }
+        },
+    );
 
     it('should support Popover.Menu', async () => {
         const onChange = jest.fn();

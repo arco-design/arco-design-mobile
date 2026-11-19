@@ -134,7 +134,7 @@ export const usePosition = (
             childRect,
             config,
         });
-        const screenWidth = screen.availWidth;
+        const screenWidth = document.documentElement.clientWidth || window.innerWidth;
 
         const [topOffset, rightOffset, bottomOffset, leftOffset] = [
             getOffset('top'),
