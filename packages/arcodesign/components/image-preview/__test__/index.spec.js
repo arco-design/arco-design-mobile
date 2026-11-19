@@ -692,4 +692,118 @@ describe('ImagePreview', () => {
         expect(onClose.mock.calls).toHaveLength(0);
         expect(document.getElementById('_ARCO_IMAGE_PREVIEW_DIV__')).toBeNull();
     });
+
+    describe('keyed ImagePreview.open', () => {
+        const openPreview = (key, config) =>
+            ImagePreview.open({
+                key,
+                images: demoImages,
+                openIndex: 0,
+                renderIndicator: (index, total) => (
+                    <span data-indicator>{`${index + 1}/${total}`}</span>
+                ),
+                ...config,
+            });
+        const host = key => document.getElementById(`_ARCO_IMAGE_PREVIEW_DIV_${key}_`);
+        const indicator = key => host(key)?.querySelector('[data-indicator]')?.textContent;
+
+        it('keeps the replacement when a pending handle closes immediately', () => {
+            const onClose = jest.fn();
+            const first = openPreview('quick', { onClose });
+            const next = openPreview('quick', { openIndex: 1 });
+            first.close();
+            pureDelay(600);
+            expect(indicator('quick')).toBe('2/3');
+            expect(onClose).not.toHaveBeenCalled();
+            next.close();
+            pureDelay(600);
+            expect(host('quick')).toBeNull();
+        });
+
+        it('ignores the old open timer and stale updates without affecting another key', () => {
+            const first = openPreview('timer');
+            const other = openPreview('other');
+            pureDelay(10);
+            const next = openPreview('timer', { openIndex: 1 });
+            pureDelay(10);
+            expect(indicator('timer')).toBeUndefined();
+            expect(indicator('other')).toBe('1/3');
+            pureDelay(10);
+            const staleIndicator = jest.fn(() => null);
+            first.update({ openIndex: 0, renderIndicator: staleIndicator });
+            expect(staleIndicator).not.toHaveBeenCalled();
+            first.close();
+            pureDelay(600);
+            expect(indicator('timer')).toBe('2/3');
+            next.close();
+            pureDelay(600);
+            expect(host('timer')).toBeNull();
+            expect(indicator('other')).toBe('1/3');
+            other.close();
+            pureDelay(600);
+            expect(host('other')).toBeNull();
+        });
+
+        it('starts a fresh preview when replacing a visible instance', () => {
+            const onClose = jest.fn();
+            const nextClose = jest.fn();
+            const first = openPreview('visible', { onClose });
+            pureDelay(600);
+            const next = openPreview('visible', { onClose: nextClose, openIndex: 1 });
+            first.close();
+            pureDelay(600);
+            expect(indicator('visible')).toBe('2/3');
+            expect(onClose).not.toHaveBeenCalled();
+            expect(nextClose).not.toHaveBeenCalled();
+            next.close();
+            pureDelay(600);
+            expect(nextClose).toHaveBeenCalledTimes(1);
+            expect(host('visible')).toBeNull();
+        });
+
+        it('lets a normal onClose reopen the same key before cleanup', () => {
+            let next;
+            const onClose = jest.fn(() => {
+                expect(host('reopen')).not.toBeNull();
+                next = openPreview('reopen', { openIndex: 1 });
+            });
+            const first = openPreview('reopen', { onClose });
+            pureDelay(600);
+            first.close();
+            expect(onClose).not.toHaveBeenCalled();
+            pureDelay(600);
+            expect(onClose).toHaveBeenCalledTimes(1);
+            expect(indicator('reopen')).toBe('2/3');
+            next.close();
+            pureDelay(600);
+            expect(host('reopen')).toBeNull();
+        });
+
+        it('keeps an already scheduled close callback from cleaning up its successor', () => {
+            const onClose = jest.fn();
+            const first = openPreview('closing', { onClose });
+            pureDelay(600);
+            act(() => first.close());
+            const next = openPreview('closing', { openIndex: 1 });
+            pureDelay(600);
+            expect(onClose).toHaveBeenCalledTimes(1);
+            expect(indicator('closing')).toBe('2/3');
+            next.close();
+            pureDelay(600);
+            expect(host('closing')).toBeNull();
+        });
+
+        it('cleans up after the updated onClose runs', () => {
+            const onClose = jest.fn();
+            const updated = jest.fn();
+            const preview = openPreview('updated', { onClose });
+            pureDelay(600);
+            preview.update({ onClose: updated });
+            preview.close();
+            pureDelay(600);
+            expect(onClose).not.toHaveBeenCalled();
+            expect(updated).toHaveBeenCalledTimes(1);
+            expect(host('updated')).toBeNull();
+        });
+    });
 });
