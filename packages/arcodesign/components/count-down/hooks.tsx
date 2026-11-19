@@ -48,8 +48,9 @@ export const useCountDown = (options: UseCountDownOptions) => {
     const tick = () => {
         taskIdRef.current = startTask(taskType, () => {
             if (countingRef.current) {
-                setRemainCallback(getCurrentRemain());
-                return remainRef.current > 0;
+                const currentRemain = getCurrentRemain();
+                setRemainCallback(currentRemain);
+                return currentRemain > 0;
             }
             return false;
         });
@@ -57,12 +58,9 @@ export const useCountDown = (options: UseCountDownOptions) => {
     // 开始
     // @en Start
     const start = (reStart = false) => {
-        if (!countingRef.current) {
-            if (reStart) {
-                endTimeRef.current = Date.now() + options.time;
-            } else {
-                endTimeRef.current = Date.now() + remainRef.current;
-            }
+        const timeToCount = reStart ? options.time : remainRef.current;
+        if (!countingRef.current && timeToCount !== 0) {
+            endTimeRef.current = Date.now() + timeToCount;
             countingRef.current = true;
             tick();
         }

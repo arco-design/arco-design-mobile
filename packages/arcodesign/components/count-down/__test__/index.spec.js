@@ -107,12 +107,13 @@ describe('CountDown', () => {
         const dateSpy = jest.spyOn(Date, 'now').mockImplementation(() => realNow);
         const onFinish = jest.fn();
         render(<CountDown time={0} format="s" autoStart onFinish={onFinish} />);
+        expect(onFinish).toBeCalledTimes(1);
         act(() => {
             jest.advanceTimersByTime(1000);
         });
-        // time=0 时挂载阶段的 reset 与首个 tick 各触发一次 onFinish
-        expect(onFinish).toBeCalledTimes(2);
+        expect(onFinish).toBeCalledTimes(1);
         dateSpy.mockRestore();
         jest.useRealTimers();
     });
+
 });
