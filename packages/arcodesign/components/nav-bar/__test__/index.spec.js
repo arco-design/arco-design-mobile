@@ -80,4 +80,24 @@ describe('NavBar actions', () => {
             fireEvent.touchEnd(comp, createMoveTouchEventObject({ x: 0, y: 200 }));
         });
     });
+
+    it('should apply custom style computed by scroll offset', () => {
+        const getComputedStyleByScroll = jest.fn(offset => ({ color: offset ? 'red' : 'blue' }));
+        const scrollRef = React.createRef();
+        const { container } = render(
+            <div ref={scrollRef}>
+                <NavBar
+                    title="title"
+                    getScrollContainer={() => scrollRef.current}
+                    getComputedStyleByScroll={getComputedStyleByScroll}
+                />
+            </div>,
+        );
+        const wrapper = container.querySelector(`.${prefix}-wrapper`);
+        expect(wrapper.style.color).toBe('blue');
+        scrollRef.current.scrollTop = 100;
+        fireEvent.scroll(scrollRef.current);
+        expect(getComputedStyleByScroll).toHaveBeenCalledWith(100);
+        expect(wrapper.style.color).toBe('red');
+    });
 });
