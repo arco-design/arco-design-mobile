@@ -93,7 +93,7 @@ describe('notify instance methods work correctly', () => {
         const onClose = jest.fn();
         const instance = Notify.success({
             content: 'Custom notification',
-            duration: 2000,
+            duration: 0,
             getContainer: () => customContainer,
             onClose,
         });
@@ -112,9 +112,11 @@ describe('notify instance methods work correctly', () => {
 
         // 关闭后容器被移除并触发onClose
         // @en Container is removed and onClose is triggered after close
-        instance.close();
         act(() => {
-            jest.runOnlyPendingTimers();
+            instance.close();
+        });
+        act(() => {
+            jest.advanceTimersByTime(300);
         });
         expect(onClose).toBeCalled();
         expect(customContainer.querySelector(`.${defaultContext.prefixCls}-notify`)).toBe(null);
