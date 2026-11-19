@@ -436,16 +436,21 @@ describe('Form extra coverage', () => {
             expect(form.isFieldTouched('foo')).toBe(true);
         });
         // innerSetFieldsValue 同时触发 onValuesChange 与 onChange
+        onValuesChange.mockClear();
+        onChange.mockClear();
         internalHooks.innerSetFieldsValue({ foo: 'bar' });
-        expect(onValuesChange).toBeCalled();
-        expect(onChange).toBeCalled();
+        expect(onValuesChange).toBeCalledTimes(1);
+        expect(onValuesChange).toBeCalledWith({ foo: 'bar' }, { foo: 'bar' });
+        expect(onChange).toBeCalledTimes(1);
+        expect(onChange).toBeCalledWith({ foo: 'bar' }, { foo: 'bar' });
         expect(form.getFieldValue('foo')).toBe('bar');
     });
 
     it('submit swallows validation failure when no onSubmitFailed provided', async () => {
         const formRef = React.createRef();
-        render(
-            <Form ref={formRef}>
+        const onSubmit = jest.fn();
+        const { container } = render(
+            <Form ref={formRef} onSubmit={onSubmit}>
                 <Form.Item field="req" required>
                     <Input />
                 </Form.Item>
@@ -456,6 +461,10 @@ describe('Form extra coverage', () => {
             await Promise.resolve();
             await Promise.resolve();
         });
+        await waitFor(() => {
+            expect(container.querySelector('.arco-form-item-error')).not.toBeNull();
+        });
+        expect(onSubmit).not.toBeCalled();
     });
 
     it('validates rules filtered by trigger on input and blur', async () => {
@@ -472,15 +481,25 @@ describe('Form extra coverage', () => {
                 >
                     <Input onBlur={onBlur} />
                 </Form.Item>
+                <Form.Item
+                    field="requiredOnBlur"
+                    rules={[{ required: true, message: 'pin required', validateTrigger: 'onBlur' }]}
+                >
+                    <Input />
+                </Form.Item>
             </Form>,
         );
-        const input = screen.getByRole('textbox');
+        const [input, requiredOnBlurInput] = screen.getAllByRole('textbox');
         userEvent.type(input, 'a');
         await waitFor(() => {
             expect(screen.getByText('digits only')).toBeInTheDocument();
         });
         fireEvent.blur(input);
-        expect(onBlur).toBeCalled();
+        expect(onBlur).toBeCalledTimes(1);
+        fireEvent.blur(requiredOnBlurInput);
+        await waitFor(() => {
+            expect(screen.getByText('pin required')).toBeInTheDocument();
+        });
     });
 
     it('supports shouldUpdate as function', async () => {
@@ -492,11 +511,12 @@ describe('Form extra coverage', () => {
                 </Form.Item>
             </Form>,
         );
+        shouldUpdate.mockClear();
         userEvent.type(screen.getByRole('textbox'), 'x');
         await waitFor(() => {
             expect(screen.getByRole('textbox').value).toBe('x');
         });
-        expect(shouldUpdate).toBeCalled();
+        expect(shouldUpdate).toHaveBeenCalledWith({ preValue: undefined, curValue: 'x' });
     });
 
     it('Form.Item exposes dom via ref', () => {
@@ -512,9 +532,10 @@ describe('Form extra coverage', () => {
     });
 
     it('switch change goes through form trigger chain', async () => {
+        const formRef = React.createRef();
         const onChange = jest.fn();
         render(
-            <Form>
+            <Form ref={formRef}>
                 <Form.Item field="sw" label="sw">
                     <Switch onChange={onChange} />
                 </Form.Item>
@@ -527,6 +548,7 @@ describe('Form extra coverage', () => {
         await waitFor(() => {
             expect(onChange).toBeCalledWith(true);
         });
+        expect(formRef.current.form.getFieldValue('sw')).toBe(true);
     });
 
     it('calls onClear when clearing input inside Form.Item', async () => {
