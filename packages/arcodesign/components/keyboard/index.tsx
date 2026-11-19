@@ -148,7 +148,9 @@ const Keyboard = forwardRef((props: KeyboardProps, ref: Ref<KeyboardRef>) => {
     }, []);
 
     useImperativeHandle(ref, () => ({
-        keyboard: keyboardRef.current,
+        get keyboard() {
+            return keyboardRef.current;
+        },
         ...popupRef.current!,
     }));
 

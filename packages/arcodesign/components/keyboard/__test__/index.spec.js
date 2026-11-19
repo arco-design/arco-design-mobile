@@ -105,4 +105,13 @@ describe('Keyboard', () => {
         document.body.click();
         expect(closeSpy).not.toBeCalled();
     });
+
+    it('exposes the keyboard node on the first visible mount', () => {
+        const ref = React.createRef();
+        render(<Keyboard visible ref={ref} />);
+
+        const keyboard = screen.getByRole('button', { name: '1' }).closest('.arco-keyboard');
+        expect(keyboard).toBeInTheDocument();
+        expect(ref.current.keyboard).toBe(keyboard);
+    });
 });
