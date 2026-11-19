@@ -9,6 +9,10 @@ import '@testing-library/jest-dom';
 
 const prefix = `${defaultContext.prefixCls}-picker`;
 const datePrefix = `${defaultContext.prefixCls}-date-picker`;
+const dateBounds = {
+    minTs: new Date(2019, 0, 1).getTime(),
+    maxTs: new Date(2021, 0, 1).getTime(),
+};
 
 demoTest('date-picker');
 
@@ -116,6 +120,7 @@ describe('DatePicker', () => {
         const onChange = jest.fn();
         render(
             <DatePicker
+                {...dateBounds}
                 visible
                 maskClosable
                 disabled={false}
@@ -161,6 +166,7 @@ describe('DatePicker', () => {
     it('should correct right time to be not earlier than left time when switching range tab', () => {
         render(
             <DatePicker
+                {...dateBounds}
                 visible
                 maskClosable
                 disabled={false}
@@ -189,6 +195,7 @@ describe('DatePicker', () => {
         const ref = React.createRef();
         render(
             <DatePicker
+                {...dateBounds}
                 ref={ref}
                 visible
                 maskClosable
@@ -203,6 +210,7 @@ describe('DatePicker', () => {
         const columnsProcessor = jest.fn(columns => [columns[0]]);
         render(
             <DatePicker
+                {...dateBounds}
                 visible
                 maskClosable
                 disabled={false}
@@ -218,6 +226,7 @@ describe('DatePicker', () => {
     it('should render range item text by rangeItemFormat', () => {
         render(
             <DatePicker
+                {...dateBounds}
                 visible
                 maskClosable
                 disabled={false}
@@ -236,6 +245,7 @@ describe('DatePicker', () => {
     it('should keep format unchanged for missing unit in rangeItemFormat', () => {
         render(
             <DatePicker
+                {...dateBounds}
                 visible
                 maskClosable
                 disabled={false}
@@ -256,6 +266,7 @@ describe('DatePicker', () => {
         const renderLinkedContainer = jest.fn(() => <div className="custom-linked">linked</div>);
         const { container } = render(
             <DatePicker
+                {...dateBounds}
                 visible
                 maskClosable
                 disabled={false}
