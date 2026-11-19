@@ -5,6 +5,7 @@ import '@testing-library/jest-dom';
 import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import Input from '..';
+import ContextProvider from '../../context-provider';
 
 demoTest('input');
 
@@ -121,5 +122,42 @@ describe('Input handle correctly', () => {
         act(() => jest.runAllTimers());
         expect(clear).toBeInTheDocument();
         expect(input.textContent).toBe('');
+    });
+
+    it('should block change while compositing on ios', () => {
+        jest.useFakeTimers();
+        const onChange = jest.fn();
+        const { container, unmount } = render(
+            <ContextProvider system="ios">
+                <Input blockChangeWhenCompositing onChange={onChange} />
+            </ContextProvider>,
+        );
+        const input = container.querySelector('input');
+        fireEvent.compositionStart(input);
+        fireEvent.change(input, { target: { value: 'a' } });
+        expect(onChange).not.toBeCalled();
+        fireEvent.compositionEnd(input);
+        expect(onChange).toBeCalledTimes(1);
+        unmount();
+    });
+
+    it('should blur then focus on click when blurBeforeFocus on android', () => {
+        jest.useFakeTimers();
+        const blurSpy = jest.spyOn(HTMLElement.prototype, 'blur');
+        const focusSpy = jest.spyOn(HTMLElement.prototype, 'focus');
+        const { container } = render(
+            <ContextProvider system="android">
+                <Input blurBeforeFocus />
+            </ContextProvider>,
+        );
+        const input = container.querySelector('input');
+        fireEvent.click(input);
+        expect(blurSpy).toBeCalledTimes(1);
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(focusSpy).toBeCalledTimes(1);
+        blurSpy.mockRestore();
+        focusSpy.mockRestore();
     });
 });
