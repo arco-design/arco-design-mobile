@@ -86,6 +86,12 @@ describe('Skeleton', () => {
 
     it('should calc offsets for gradient animation and support rtl layout', () => {
         jest.useFakeTimers();
+        const offsetLeftSpy = jest
+            .spyOn(HTMLElement.prototype, 'offsetLeft', 'get')
+            .mockReturnValue(12);
+        const offsetTopSpy = jest
+            .spyOn(HTMLElement.prototype, 'offsetTop', 'get')
+            .mockReturnValue(4);
         const gridRef = React.createRef();
         const { container } = render(
             <ContextProvider useRtl>
@@ -103,11 +109,20 @@ describe('Skeleton', () => {
         // 渐变动画的定位元素按各占位元素偏移渲染
         // @en Gradient animation items are rendered by placeholder offsets
         expect(container.querySelectorAll(`.${prefix}-animation-item`).length).toBe(5);
+        expect(container.querySelector(`.${prefix}-animation-item`).style.left).toBe('-8px');
+        offsetLeftSpy.mockRestore();
+        offsetTopSpy.mockRestore();
         jest.useRealTimers();
     });
 
     it('should calc offsets in ltr layout and skip layout calc without gradient', () => {
         jest.useFakeTimers();
+        const offsetLeftSpy = jest
+            .spyOn(HTMLElement.prototype, 'offsetLeft', 'get')
+            .mockReturnValue(12);
+        const offsetTopSpy = jest
+            .spyOn(HTMLElement.prototype, 'offsetTop', 'get')
+            .mockReturnValue(4);
         // 非渐变动画时跳过布局计算
         // @en Skip layout calc when animation is not gradient
         const { container, unmount } = render(
@@ -132,6 +147,9 @@ describe('Skeleton', () => {
             jest.runAllTimers();
         });
         expect(gradientContainer.querySelectorAll(`.${prefix}-animation-item`).length).toBe(2);
+        expect(gradientContainer.querySelector(`.${prefix}-animation-item`).style.left).toBe('-16px');
+        offsetLeftSpy.mockRestore();
+        offsetTopSpy.mockRestore();
         jest.useRealTimers();
     });
 });
