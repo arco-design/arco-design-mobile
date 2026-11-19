@@ -104,7 +104,8 @@ describe('ConfigProvider', () => {
             </ContextProvider>,
         );
         expect(legacyMql.addListener).toBeCalledWith(expect.any(Function));
+        const legacyListener = legacyMql.addListener.mock.calls[0][0];
         unmount();
-        expect(legacyMql.removeListener).toBeCalledWith(expect.any(Function));
+        expect(legacyMql.removeListener).toBeCalledWith(legacyListener);
     });
 });
