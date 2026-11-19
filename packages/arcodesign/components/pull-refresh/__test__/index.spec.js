@@ -106,42 +106,38 @@ describe('PullRefresh', () => {
         expect(component.querySelector(`.${prefix}-label`).innerHTML).toContain('刷新成功');
     });
 
-    it('should reset translate and pull status when pulling back on android type', async () => {
+    it('should cancel refresh when pulling back past the starting point on android type', () => {
+        const onRefresh = jest.fn();
+        const props = { type: 'android', loosingMinHeight: 40, onRefresh };
         const { container: component, rerender } = render(
-            <PullRefresh type="android" disabled loosingMinHeight={40}>
+            <PullRefresh {...props} disabled>
                 Pull
             </PullRefresh>,
         );
         const map = mockAddListener(component.querySelector(`.${prefix}`));
-        rerender(
-            <PullRefresh type="android" disabled={false} loosingMinHeight={40}>
-                Pull
-            </PullRefresh>,
-        );
+        rerender(<PullRefresh {...props}>Pull</PullRefresh>);
         const place = component.querySelector(`.${prefix}-place`);
+        const label = component.querySelector(`.${prefix}-label`);
 
         act(() => {
             map.touchstart(createStartTouchEventObject({ px: 100, py: 100 }));
             map.touchmove(createMoveTouchEventObject({ px: 100, py: 300 }));
         });
-        // 下拉超过 loosingHeight 后出现位移
-        expect(place.style.transform).toContain('translateY(80px)');
+        expect(place.style.transform).not.toBe('');
+        expect(label.textContent).toContain('释放即可刷新');
 
-        // 回拉到负值时位移立即停止更新（保持当前值），内部偏移量被重置
         act(() => {
             map.touchmove(createMoveTouchEventObject({ px: 100, py: 50 }));
         });
-        expect(place.style.transform).toContain('translateY(80px)');
+        expect(label.textContent).toContain('下拉即可刷新');
 
-        // 未达到释放高度时 touchend 走 reset 分支
         act(() => {
             map.touchend(createMoveTouchEventObject({ px: 100, py: 50 }));
+            jest.advanceTimersByTime(400);
         });
-        await act(async () => {
-            await jest.advanceTimersByTime(400);
-        });
+        expect(onRefresh).not.toHaveBeenCalled();
         expect(place.style.transform).toBe('');
-        expect(component.querySelector(`.${prefix}-label`).innerHTML).toContain('下拉即可刷新');
+        expect(label.textContent).toContain('下拉即可刷新');
     });
 
     it('should restore scrollTop when reset with negative scrollTop on android type', async () => {
