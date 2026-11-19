@@ -52,7 +52,7 @@ describe('Ellipsis style', () => {
 })
 
 describe('Ellipsis action', () => {
-    it('Text multi-line omission renders correctly', () => {
+    it('expands and collapses when the custom controls are clicked', () => {
         const { container } = render(
             <EllipsisDemo />
         );
@@ -61,7 +61,7 @@ describe('Ellipsis action', () => {
         const hideEllipsisBtn = container.querySelector('.hide');
         expect(hideEllipsisBtn.textContent).toBe('收起');
         userEvent.click(hideEllipsisBtn);
-        expect(container.querySelector(`.${prefix}-js-content-ellipsis`).style.display).toBe('none');
+        expect(container.querySelector('.hide')).toBeNull();
     });
 
     it('DangerousInnerHTML render correctly', async() => {
