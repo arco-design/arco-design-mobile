@@ -34,8 +34,15 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         const id = `_ARCO_IMAGE_PREVIEW_DIV_${baseProps.key || ''}_`;
         const { child: div } = appendElementById(id, baseProps.getContainer);
         let leaving = false;
-        const { render } = new ReactDOMRender(Component, div, context);
+        const renderer = new ReactDOMRender(Component, div, context);
+        const { render } = renderer;
         let dynamicProps = { ...baseProps, getContainer: () => div } as P;
+        let openTimer: number | undefined;
+
+        function cleanup() {
+            renderer.unmount();
+            removeElement(div);
+        }
 
         function update(newConfig: Config) {
             dynamicProps = {
@@ -46,7 +53,14 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         }
 
         function close() {
+            if (leaving) return;
             leaving = true;
+            if (openTimer !== undefined) {
+                clearTimeout(openTimer);
+                openTimer = undefined;
+                cleanup();
+                return;
+            }
             dynamicProps.openIndex = -1;
             render(dynamicProps);
         }
@@ -54,11 +68,12 @@ export function open<P extends OpenBaseProps>(Component: React.FunctionComponent
         dynamicProps.close = close;
         dynamicProps.onClose = () => {
             baseProps.onClose && baseProps.onClose();
-            removeElement(div);
+            cleanup();
         };
         dynamicProps.openIndex = -1;
         render(dynamicProps);
-        setTimeout(() => {
+        openTimer = window.setTimeout(() => {
+            openTimer = undefined;
             if (leaving) return;
             dynamicProps.openIndex = baseProps.openIndex;
             render(dynamicProps);

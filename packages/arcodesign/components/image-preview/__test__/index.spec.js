@@ -357,7 +357,12 @@ describe('ImagePreview', () => {
         fireEvent.touchMove(carouselEle, createMoveTouchEventObject({ x: 60, y: 0 }));
         fireEvent.touchEnd(carouselEle, createMoveTouchEventObject({ x: 60, y: 0 }));
         pureDelay(600);
-        expect(document.querySelector(`.${prefix}`)).not.toBeNull();
+        expect(
+            document.querySelectorAll(`.${carouselPrefix}-item`)[0].classList.contains('active'),
+        ).toBe(true);
+        expect(
+            document.querySelectorAll(`.${carouselPrefix}-item`)[1].classList.contains('active'),
+        ).toBe(false);
     });
 
     it('should restore long image zoom specially when double clicking overflow image', () => {
@@ -367,6 +372,7 @@ describe('ImagePreview', () => {
         };
         const view = render(<TestDemo {...props} />);
         openAndLoadImage(view, props, 0);
+        const wrapDom = document.querySelector('.preview-image-wrap');
         const carouselEle = document.querySelector(`.${carouselPrefix}`);
         const resetDblClickStatus = () => {
             fireEvent.touchStart(carouselEle, createStartTouchEventObject({ x: 100, y: 0 }));
@@ -376,12 +382,13 @@ describe('ImagePreview', () => {
         // 第一次双击放大
         fireEvent.doubleClick(document.querySelector(`.${prefix}`));
         pureDelay(300);
+        expect(wrapDom.style.transform).toContain('matrix(2');
 
         // 长图再次双击走 zoomToScreenCenter + restore 的特殊还原路径
         resetDblClickStatus();
         fireEvent.doubleClick(document.querySelector(`.${prefix}`));
         pureDelay(300);
-        expect(document.querySelector(`.${prefix}`)).not.toBeNull();
+        expect(wrapDom.style.transform).not.toContain('matrix(2');
     });
 
     it('should fix x axis when zoomed image is narrower than window', () => {
@@ -502,7 +509,8 @@ describe('ImagePreview', () => {
     });
 
     it('should ignore repeated close click during closing', () => {
-        const props = { staticLabel: true };
+        const onClose = jest.fn();
+        const props = { staticLabel: true, onClose };
         const view = render(<TestDemo {...props} />);
         openAndLoadImage(view, props, 0);
         const img = document.querySelector('.image-container img');
@@ -512,6 +520,7 @@ describe('ImagePreview', () => {
         // 关闭过程中再次点击直接忽略
         fireEvent.click(img);
         pureDelay(600);
+        expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('should ignore repeated double click', () => {
@@ -681,5 +690,6 @@ describe('ImagePreview', () => {
         // 从未真正打开过（isInitialMount 保护），不触发 onClose
         pureDelay(600);
         expect(onClose.mock.calls).toHaveLength(0);
+        expect(document.getElementById('_ARCO_IMAGE_PREVIEW_DIV__')).toBeNull();
     });
 });
