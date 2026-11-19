@@ -20,23 +20,29 @@ function loadStaticImage() {
 
 describe('Image', () => {
     let onerrorRef;
-    let onloadRef;
+    let loadingImage;
     let originalImage;
+
+    function getRequestedImage() {
+        act(() => jest.runOnlyPendingTimers());
+        expect(loadingImage).toHaveAttribute('src', imgUrl);
+        expect(typeof loadingImage.onload).toBe('function');
+        return loadingImage;
+    }
+
+    function completeRequest(image = getRequestedImage()) {
+        act(() => {
+            image.onload?.(new Event('load'));
+        });
+    }
+
     beforeAll(() => {
         originalImage = global.Image;
         function MockImage(...args) {
             const img = new originalImage(...args);
+            loadingImage = img;
             Object.defineProperties(img, {
-                onload: {
-                    get() {
-                        return this._onload;
-                    },
-                    set(onload) {
-                        onloadRef = onload;
-                        this._onload = onload;
-                    },
-                    configurable: true,
-                },
+                onload: { value: null, writable: true, configurable: true },
                 onerror: {
                     get() {
                         return this._onerror;
@@ -69,6 +75,7 @@ describe('Image', () => {
         global.Image = originalImage;
     });
     beforeEach(() => {
+        loadingImage = undefined;
         jest.useFakeTimers();
     });
     afterEach(() => {
@@ -189,8 +196,7 @@ describe('Image', () => {
         const { container, rerender } = render(
             <Image boxWidth={100} boxHeight={200} fit="preview-x" src={imgUrl} onLoad={onLoad} />,
         );
-        onloadRef();
-        act(() => jest.runAllTimers());
+        completeRequest();
         expect(onLoad).toBeCalled();
         const imgWrapper = container.querySelector('.image-container');
         expect(imgWrapper).toHaveClass('loaded');
@@ -208,9 +214,84 @@ describe('Image', () => {
                 onLoad={onLoad}
             />,
         );
-        ref.current.retry();
-        onloadRef();
-        act(() => jest.runAllTimers());
+        act(() => ref.current.retry());
+        completeRequest();
         expect(screen.getByRole('img')).toHaveClass('preview-overflow-y');
+    });
+
+    it('Preview-x image fits the box renders correctly', () => {
+        render(<Image boxWidth={300} boxHeight={100} fit="preview-x" src={imgUrl} />);
+        completeRequest();
+        expect(screen.getByRole('img')).toHaveClass('preview-fit-contain-x');
+    });
+
+    it('Preview-y image fits the box renders correctly', () => {
+        render(<Image boxWidth={150} boxHeight={100} fit="preview-y" src={imgUrl} />);
+        completeRequest();
+        expect(screen.getByRole('img')).toHaveClass('preview-fit-contain-y');
+    });
+
+    it('Native props are applied to the loaded image', () => {
+        render(<Image src={imgUrl} nativeProps={{ referrerPolicy: 'no-referrer' }} />);
+        completeRequest();
+        expect(screen.getByRole('img').referrerPolicy).toBe('no-referrer');
+    });
+
+    it('A late load leaves the unmounted image container empty', () => {
+        const { container, unmount } = render(<Image src={imgUrl} />);
+        const imageContainer = container.querySelector('.image-container');
+        const image = getRequestedImage();
+        unmount();
+        completeRequest(image);
+        expect(imageContainer).toBeEmptyDOMElement();
+    });
+
+    it('Static image with completed img element triggers load or error', () => {
+        const completeDesc = Object.getOwnPropertyDescriptor(
+            HTMLImageElement.prototype,
+            'complete',
+        );
+        const naturalWidthDesc = Object.getOwnPropertyDescriptor(
+            HTMLImageElement.prototype,
+            'naturalWidth',
+        );
+        Object.defineProperty(HTMLImageElement.prototype, 'complete', {
+            get: () => true,
+            configurable: true,
+        });
+        Object.defineProperty(HTMLImageElement.prototype, 'naturalWidth', {
+            get: () => 100,
+            configurable: true,
+        });
+        const onLoad = jest.fn();
+        const { unmount: unmount1 } = render(
+            <Image staticLabel src={imgUrl} onLoad={onLoad} />,
+        );
+        // 图片加载完成且有宽度时触发onLoad
+        // @en Trigger onLoad when image is complete and has width
+        expect(onLoad).toBeCalled();
+        unmount1();
+
+        Object.defineProperty(HTMLImageElement.prototype, 'naturalWidth', {
+            get: () => 0,
+            configurable: true,
+        });
+        const onError = jest.fn();
+        const { unmount: unmount2 } = render(
+            <Image staticLabel src={imgUrl} onError={onError} />,
+        );
+        // 图片加载完成但无宽高时触发onError
+        // @en Trigger onError when image is complete but has no width
+        expect(onError).toBeCalled();
+        unmount2();
+
+        completeDesc &&
+            Object.defineProperty(HTMLImageElement.prototype, 'complete', completeDesc);
+        naturalWidthDesc &&
+            Object.defineProperty(
+                HTMLImageElement.prototype,
+                'naturalWidth',
+                naturalWidthDesc,
+            );
     });
 });
