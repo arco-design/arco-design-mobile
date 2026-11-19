@@ -41,22 +41,26 @@ describe('ShowMonitor', () => {
                 target: ref.current.dom,
             },
         ]);
-        // mock hide
-        callback([
-            {
-                isIntersecting: false,
-                target: ref.current.dom,
-            },
+        expect(onVisibleChange.mock.calls).toEqual([[true, ref.current.dom]]);
+
+        // Recheck the still-visible element; once allows one new exposure after a reset.
+        observe.mockClear();
+        ref.current.flushVisibleStatus();
+        expect(observe).toHaveBeenCalledWith(ref.current.dom);
+        callback([{ isIntersecting: true, target: ref.current.dom }]);
+        callback([{ isIntersecting: false, target: ref.current.dom }]);
+        expect(onVisibleChange.mock.calls).toEqual([
+            [true, ref.current.dom],
+            [true, ref.current.dom],
         ]);
-        expect(onVisibleChange).toBeCalledTimes(1);
-        expect(onVisibleChange).toHaveBeenCalledWith(true, ref.current.dom);
         rerender(
             <ShowMonitor ref={ref} onVisibleChange={onVisibleChange} once disabled>
                 <div style={{ height: 20, background: '#165dff' }}>Arco</div>
             </ShowMonitor>,
         );
         ref.current.flushVisibleStatus();
-        expect(onVisibleChange).toHaveBeenLastCalledWith(true, ref.current.dom);
+        callback([{ isIntersecting: true, target: ref.current.dom }]);
+        expect(onVisibleChange).toBeCalledTimes(2);
     });
 
     it('should monitor correctly with local scroll', () => {
@@ -219,18 +223,8 @@ describe('ShowMonitor', () => {
         Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
     });
 
-    it('should re-listen via flushVisibleStatus after once emitted (non-IO)', () => {
+    it('should report a first exposure on a manual recheck without IntersectionObserver', () => {
         window.IntersectionObserver = undefined;
-        const originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
-        const originalGetClientRects = Element.prototype.getClientRects;
-        let boundingClientRect = {
-            width: 375,
-            height: 20,
-            top: 0,
-            left: 0,
-        };
-        Element.prototype.getBoundingClientRect = () => boundingClientRect;
-        Element.prototype.getClientRects = () => [{}];
         const onVisibleChange = jest.fn();
         const ref = React.createRef();
         render(
@@ -238,44 +232,34 @@ describe('ShowMonitor', () => {
                 <div>Arco</div>
             </ShowMonitor>,
         );
-        act(() => jest.runAllTimers());
-        expect(onVisibleChange).toBeCalledTimes(1);
-        // 此时 once 已触发的 listener 还在 once 队列里，flush 会先把它从 once 队列过滤掉
-        ref.current.flushVisibleStatus();
-        act(() => jest.runAllTimers());
-        expect(onVisibleChange).toBeCalledTimes(1);
-        // 滚出视口再滚回：once 再次入队并被 checkVisibleHandler 移出监听队列
-        act(() => {
-            boundingClientRect = { width: 375, height: 20, top: 1000, left: 0 };
+        const node = ref.current.dom;
+        const visibleRect = { width: 375, height: 20, top: 0, left: 0 };
+        jest.spyOn(node, 'getClientRects').mockImplementation(() => [node.getBoundingClientRect()]);
+        const measure = jest.spyOn(node, 'getBoundingClientRect').mockReturnValue({
+            ...visibleRect,
+            top: window.innerHeight + 1,
         });
-        fireEvent.scroll(window);
         act(() => jest.runAllTimers());
-        expect(onVisibleChange).toBeCalledTimes(2);
-        act(() => {
-            boundingClientRect = { width: 375, height: 20, top: 0, left: 0 };
-        });
-        fireEvent.scroll(window);
-        act(() => jest.runAllTimers());
-        expect(onVisibleChange).toBeCalledTimes(3);
-        // flushVisibleStatus 把已被移出监听队列的 listener 重新放回
+        expect(onVisibleChange).not.toHaveBeenCalled();
+
+        measure.mockReturnValue(visibleRect);
         ref.current.flushVisibleStatus();
-        act(() => jest.runAllTimers());
-        expect(onVisibleChange).toBeCalledTimes(3);
-        Element.prototype.getBoundingClientRect = originalGetBoundingClientRect;
-        Element.prototype.getClientRects = originalGetClientRects;
+        expect(onVisibleChange.mock.calls).toEqual([[true, node]]);
     });
 
-    it('checkVisible should return early when node is gone after unmount', () => {
+    it('a saved checkVisible handle should be safe to call after unmount', () => {
         window.IntersectionObserver = undefined;
+        const onVisibleChange = jest.fn();
         const ref = React.createRef();
         const { unmount } = render(
-            <ShowMonitor ref={ref} onVisibleChange={jest.fn()}>
+            <ShowMonitor ref={ref} onVisibleChange={onVisibleChange}>
                 <div>Arco</div>
             </ShowMonitor>,
         );
         const handleBeforeUnmount = ref.current;
         unmount();
-        expect(handleBeforeUnmount.checkVisible()).toBeUndefined();
+        expect(() => handleBeforeUnmount.checkVisible()).not.toThrow();
+        expect(onVisibleChange).not.toHaveBeenCalled();
     });
 
     it('should do nothing when getScrollContainer returns null', () => {
