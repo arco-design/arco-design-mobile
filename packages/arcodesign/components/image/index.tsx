@@ -1,13 +1,12 @@
 import React, {
-    ReactNode,
     forwardRef,
-    Ref,
     useImperativeHandle,
+    useCallback,
     useRef,
     useEffect,
-    CSSProperties,
     useMemo,
 } from 'react';
+import type { ReactNode, Ref, CSSProperties } from 'react';
 import { cls, defaultLocale, nextTick } from '@arco-design/mobile-utils';
 import { ContextLayout } from '../context-provider';
 import Loading from '../loading';
@@ -248,6 +247,7 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
     const retryCountRef = useRef(0);
     const loadingImageRef = useRef<HTMLImageElement | null>(null);
     const hasLoadedRef = useRef(false);
+    const cachedLoadSrcRef = useRef<string | null>(null);
     const isPreview = Boolean(fit.indexOf('preview') >= 0);
     const actualBoxWidth = boxWidth || windowWidth;
     const actualBoxHeight = boxHeight || windowHeight;
@@ -267,6 +267,16 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
         };
     }, [alt, bordered, fit, forceHttps, isPreview, position, radius, src, system]);
 
+    // DOM 节点或图片来源变化时清除上一次的缓存记录，普通重渲染保留它
+    // @en Reset the cached load when the node or image source changes, including on retry
+    const setStaticImageRef = useCallback(
+        (image: HTMLImageElement | null) => {
+            imageDomRef.current = image;
+            cachedLoadSrcRef.current = null;
+        },
+        [attrs.src, nativeProps.srcSet, nativeProps.crossOrigin],
+    );
+
     function retry() {
         loadImage(true);
     }
@@ -283,8 +293,8 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
     }, [attrs, width, height, showImage, staticLabel]);
 
     useEffect(() => {
-        // 当使用img标签时，onLoad可能加载完成前已经执行完，此时手动触发一次
-        // @en When using the img tag, onLoad may have been executed before loading is complete, and it needs to be triggered manually
+        // 图片可能在挂载前就已加载完成，但对应的原生 load 事件也可能稍后才到
+        // @en The image may already be complete while its native load event is still pending
         if (staticLabel && !hasLoadedRef.current && imageDomRef.current?.complete) {
             // 图片有宽高认为正常加载，否则认为加载错误
             // @en If the image has width and height, it is considered to be loaded normally, otherwise it is considered to be a loading error
@@ -390,11 +400,22 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
     }
 
     function handleStaticImageLoaded(evt: Event | null, image: HTMLImageElement) {
+        const loadedSrc = image.currentSrc || image.src;
+        if (evt) {
+            const cachedSrc = cachedLoadSrcRef.current;
+            cachedLoadSrcRef.current = null;
+            if (cachedSrc === loadedSrc) {
+                return;
+            }
+        } else {
+            cachedLoadSrcRef.current = loadedSrc;
+        }
         handleImageLoaded(image);
         onLoad && onLoad(evt, image);
     }
 
     function handleStaticImageError(e: React.SyntheticEvent<HTMLImageElement, Event> | null) {
+        cachedLoadSrcRef.current = null;
         const evt = e ? e.nativeEvent : null;
         if (retryCountRef.current >= retryTime) {
             changeStatus('error');
@@ -472,9 +493,9 @@ export const BaseImage = forwardRef((props: ImageProps, ref: Ref<ImageRef>) => {
                             <img
                                 {...nativeProps}
                                 {...attrs}
-                                ref={imageDomRef}
+                                ref={setStaticImageRef}
                                 onLoad={e =>
-                                    handleStaticImageLoaded(e.nativeEvent, imageDomRef.current!)
+                                    handleStaticImageLoaded(e.nativeEvent, e.currentTarget)
                                 }
                                 onError={handleStaticImageError}
                             />
