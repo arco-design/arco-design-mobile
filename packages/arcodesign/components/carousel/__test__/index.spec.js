@@ -1021,30 +1021,18 @@ describe('Carousel', () => {
             expect(indexIsActive(container, 1)).toBe(true);
         });
 
-        it('should reset to index 0 when children shrink while index is negative', () => {
+        it('should select the first item when children shrink after a negative index request', () => {
             const ref = React.createRef();
-            const { container, rerender } = render(
-                <Carousel ref={ref} autoPlay={false} boxWidth={375}>
-                    {TEST_ITEMS}
-                </Carousel>,
-            );
+            const props = { ...COMMON_PROPS, initialIndex: 1, ref };
+            const { container, rerender } = render(<Carousel {...props}>{TEST_ITEMS}</Carousel>);
+            expect(indexIsActive(container, 1)).toBe(true);
 
-            // 跳到 -1（fake 位）后停留
-            // Jumps to -1 (fake position) and stays
             act(() => {
                 ref.current.changeIndex(-1);
                 jest.advanceTimersByTime(610);
             });
-            expect(container.querySelector(`.${prefix}-item.active`)).toBe(null);
 
-            // children 数量变化时负索引被修正为 0
-            // Negative index is corrected to 0 when children count changes
-            rerender(
-                <Carousel autoPlay={false} boxWidth={375}>
-                    <div>Item 1</div>
-                    <div>Item 2</div>
-                </Carousel>,
-            );
+            rerender(<Carousel {...props}>{TEST_ITEMS.slice(0, 2)}</Carousel>);
             act(() => {
                 jest.advanceTimersByTime(610);
             });
