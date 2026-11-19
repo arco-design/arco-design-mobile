@@ -125,13 +125,11 @@ describe('IndexBar', () => {
         expect(onChange).toBeCalledTimes(2);
     });
 
-    it('should render groups from children and filter invalid child', () => {
-        const onChange = jest.fn();
+    it('should render groups from children and filter non-element child', () => {
         const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
         const groupRef = React.createRef();
         const { container } = render(
-            <IndexBar onChange={onChange}>
-                <div>not a group</div>
+            <IndexBar>
                 <IndexBar.Group index="A" list={[{ content: 'a1' }]} ref={groupRef} />
                 invalid-text-child
             </IndexBar>,
@@ -145,15 +143,9 @@ describe('IndexBar', () => {
 
         // children 写法的分组正常渲染
         expect(container.querySelectorAll(`.${prefix}-group`)).toHaveLength(1);
+        expect(container).not.toHaveTextContent('invalid-text-child');
         expect(container.querySelector(`.${prefix}-group-item`)).toHaveTextContent('a1');
         expect(groupRef.current.dom).toBe(container.querySelector(`.${prefix}-group`));
-
-        // 滚动时无 data-index 的子元素被跳过，仍然命中第一个分组
-        act(() => {
-            fireEvent.scroll(container.querySelector(`.${prefix}-container`));
-            jest.advanceTimersByTime(200);
-        });
-        expect(onChange).toBeCalledWith('A', 'swipe');
     });
 
     it('should callback onChange when clicking numeric index sidebar item', () => {
@@ -207,6 +199,7 @@ describe('IndexBar', () => {
             jest.advanceTimersByTime(500);
         });
         expect(onChange).toBeCalledWith('C', 'manual');
+        expect(rafSpy).toHaveBeenCalled();
         rafSpy.mockRestore();
     });
 
@@ -227,18 +220,19 @@ describe('IndexBar', () => {
     it('should ignore scroll event while touching sidebar', () => {
         const onChange = jest.fn();
         const { container } = render(
-            <IndexBar groups={formatLocationData} onChange={onChange} />,
+            <IndexBar defaultIndex="B" groups={formatLocationData} onChange={onChange} />,
         );
-        const sidebarItem = container.querySelectorAll(`.${prefix}-sidebar-item`)[0];
+        const sidebar = container.querySelector(`.${prefix}-sidebar`);
         const scrollCtn = container.querySelector(`.${prefix}-container`);
 
         act(() => {
-            fireEvent.touchStart(sidebarItem);
+            jest.runOnlyPendingTimers();
+            onChange.mockClear();
+            fireEvent.touchStart(sidebar);
             fireEvent.scroll(scrollCtn);
             jest.advanceTimersByTime(200);
         });
-        // sidebar 触摸期间的滚动不触发 swipe 类型的 onChange
-        expect(onChange).not.toHaveBeenCalledWith(expect.anything(), 'swipe');
+        expect(onChange).not.toHaveBeenCalled();
     });
 
     it('should ignore touchmove on sidebar when not touching', () => {

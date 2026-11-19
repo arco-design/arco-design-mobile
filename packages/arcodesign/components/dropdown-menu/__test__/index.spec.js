@@ -254,7 +254,7 @@ describe('DropdownMenu', () => {
         expect(isClassNameDom(detachedChild, 'not-exist-class')).toBe(false);
 
         detachedChild.className = `${prefixCls}-select-item`;
-        expect(isClassNameDom(detachedChild, 'arco-select-item')).toBe(true);
+        expect(isClassNameDom(detachedChild, 'select-item')).toBe(true);
         expect(isRefDom(detachedChild, { current: detachedRoot })).toBe(true);
     });
 });
