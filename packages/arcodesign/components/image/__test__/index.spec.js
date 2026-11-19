@@ -26,7 +26,14 @@ describe('Image', () => {
     function getRequestedImage() {
         act(() => jest.runOnlyPendingTimers());
         expect(loadingImage).toHaveAttribute('src', imgUrl);
+        expect(typeof loadingImage.onload).toBe('function');
         return loadingImage;
+    }
+
+    function completeRequest(image = getRequestedImage()) {
+        act(() => {
+            image.onload?.(new Event('load'));
+        });
     }
 
     beforeAll(() => {
@@ -35,6 +42,7 @@ describe('Image', () => {
             const img = new originalImage(...args);
             loadingImage = img;
             Object.defineProperties(img, {
+                onload: { value: null, writable: true, configurable: true },
                 onerror: {
                     get() {
                         return this._onerror;
@@ -188,7 +196,7 @@ describe('Image', () => {
         const { container, rerender } = render(
             <Image boxWidth={100} boxHeight={200} fit="preview-x" src={imgUrl} onLoad={onLoad} />,
         );
-        fireEvent.load(getRequestedImage());
+        completeRequest();
         expect(onLoad).toBeCalled();
         const imgWrapper = container.querySelector('.image-container');
         expect(imgWrapper).toHaveClass('loaded');
@@ -207,25 +215,25 @@ describe('Image', () => {
             />,
         );
         act(() => ref.current.retry());
-        fireEvent.load(getRequestedImage());
+        completeRequest();
         expect(screen.getByRole('img')).toHaveClass('preview-overflow-y');
     });
 
     it('Preview-x image fits the box renders correctly', () => {
         render(<Image boxWidth={300} boxHeight={100} fit="preview-x" src={imgUrl} />);
-        fireEvent.load(getRequestedImage());
+        completeRequest();
         expect(screen.getByRole('img')).toHaveClass('preview-fit-contain-x');
     });
 
     it('Preview-y image fits the box renders correctly', () => {
         render(<Image boxWidth={150} boxHeight={100} fit="preview-y" src={imgUrl} />);
-        fireEvent.load(getRequestedImage());
+        completeRequest();
         expect(screen.getByRole('img')).toHaveClass('preview-fit-contain-y');
     });
 
     it('Native props are applied to the loaded image', () => {
         render(<Image src={imgUrl} nativeProps={{ referrerPolicy: 'no-referrer' }} />);
-        fireEvent.load(getRequestedImage());
+        completeRequest();
         expect(screen.getByRole('img').referrerPolicy).toBe('no-referrer');
     });
 
@@ -234,7 +242,7 @@ describe('Image', () => {
         const imageContainer = container.querySelector('.image-container');
         const image = getRequestedImage();
         unmount();
-        fireEvent.load(image);
+        completeRequest(image);
         expect(imageContainer).toBeEmptyDOMElement();
     });
 
