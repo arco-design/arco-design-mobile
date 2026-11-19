@@ -50,4 +50,9 @@ describe('Progress', () => {
         );
         expect(component.querySelector('.progress-bar')).toHaveStyle({ background: '#FF5722' });
     });
+    it('should expose dom via ref', () => {
+        const ref = React.createRef();
+        const { container } = render(<Progress ref={ref} percentage={75} />);
+        expect(ref.current.dom).toBe(container.querySelector(`.${prefix}`));
+    });
 });
