@@ -22,6 +22,10 @@ import { ContextLayout } from '../context-provider';
 import { useRefState } from '../_helpers';
 import Portal from '../portal';
 
+// A pinned edge releases farther out so subpixel scrolling cannot toggle it at entry.
+const STICKY_ENTER_TOLERANCE = 0.5;
+const STICKY_RELEASE_TOLERANCE = 1;
+
 export interface StickyRef {
     /**
      * 最外层元素 DOM
@@ -183,7 +187,8 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
         onTopChange,
     } = props;
     const [isSticky, isStickyRef, setIsSticky] = useRefState(false);
-    const [wasSticky, wasStickyRef, setWasSticky] = useRefState(false);
+    const [wasSticky, setWasSticky] = useState(false);
+    const pinnedEdges = useRef({ top: false, bottom: false });
     const [stickyStateStyle, setStickyStateStyle] = useState<CSSProperties>({});
     const contentRef = useRef<HTMLDivElement | null>(null);
     const placeholderRef = useRef<HTMLDivElement | null>(null);
@@ -216,23 +221,31 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
             const containerTop = rectTop + borderTop;
             const containerBottom = rectBottom - borderBottom;
 
-            const disFromTop = Math.round(placeholderClientRect.top - containerTop);
-            const disFromBottom = Math.round(
-                placeholderClientRect.top + calculatedHeight - containerBottom,
-            );
+            const disFromTop = placeholderClientRect.top - containerTop;
+            const disFromBottom = placeholderClientRect.top + calculatedHeight - containerBottom;
+
             const topFollowDifference =
                 followBottom - followOffset - calculatedHeight - topOffset - containerTop;
             const bottomFollowDifference =
                 containerHeight - followTop - followOffset - calculatedHeight - bottomOffset;
+            const previous = pinnedEdges.current;
+            const previouslySticky = previous.top || previous.bottom;
+            const topTolerance = previous.top ? STICKY_RELEASE_TOLERANCE : STICKY_ENTER_TOLERANCE;
+            const bottomTolerance = previous.bottom
+                ? STICKY_RELEASE_TOLERANCE
+                : STICKY_ENTER_TOLERANCE;
+            setWasSticky(previouslySticky);
 
-            setWasSticky(Boolean(isStickyRef.current));
             const isTopSticky = needTop
-                ? disFromTop <= topOffset && followBottom > containerTop + followOffset
+                ? disFromTop <= topOffset + topTolerance &&
+                  followBottom > containerTop + followOffset - topTolerance
                 : false;
             const isBottomSticky = needBottom
-                ? disFromBottom >= -bottomOffset && followTop < containerBottom - followOffset
+                ? disFromBottom >= -bottomOffset - bottomTolerance &&
+                  followTop < containerBottom - followOffset + bottomTolerance
                 : false;
             const newStickyState = isTopSticky || isBottomSticky;
+            pinnedEdges.current = { top: isTopSticky, bottom: isBottomSticky };
 
             let stickyTop = containerTop;
             let stickyBottom = window.innerHeight - containerBottom;
@@ -294,13 +307,13 @@ const Sticky = forwardRef((props: StickyProps, ref: Ref<StickyRef>) => {
             setIsSticky(newStickyState);
             setStickyStateStyle(stickyCssStyle);
 
-            if (newStickyState !== wasStickyRef.current) {
+            if (newStickyState !== previouslySticky) {
                 onStickyStateChange &&
                     onStickyStateChange({
                         isTopSticky,
                         isBottomSticky,
                         isSticky: newStickyState,
-                        wasSticky: wasStickyRef.current,
+                        wasSticky: previouslySticky,
                     });
             }
         },

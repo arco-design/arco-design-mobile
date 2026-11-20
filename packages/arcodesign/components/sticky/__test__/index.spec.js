@@ -25,6 +25,36 @@ describe('Sticky', () => {
         jest.useRealTimers();
     });
 
+    it.each(['top', 'bottom'])(
+        'keeps the %s edge pinned through fractional scroll jitter',
+        position => {
+            window.requestAnimationFrame.mockImplementation(cb => setTimeout(cb, 0));
+            const ref = React.createRef();
+            render(<Sticky ref={ref} position={position} />);
+            const content = ref.current.dom;
+            const rect = jest.spyOn(content.previousElementSibling, 'getBoundingClientRect');
+
+            function positionAt(distance) {
+                const top = position === 'top' ? distance : window.innerHeight - distance;
+                rect.mockReturnValue({ top });
+                act(() => {
+                    ref.current.recalculatePosition();
+                    jest.runOnlyPendingTimers();
+                });
+                return content.style.position;
+            }
+
+            expect([0.49, 0.51, 0.49, 1.01, 0.51, 0.49].map(positionAt)).toEqual([
+                'fixed',
+                'fixed',
+                'fixed',
+                '',
+                '',
+                'fixed',
+            ]);
+        },
+    );
+
     it('should callback correctly when scrolled', () => {
         const mockFn = jest.fn();
         const { rerender } = render(
