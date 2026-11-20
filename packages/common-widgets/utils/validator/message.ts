@@ -50,7 +50,7 @@ export const messageTemplate: IValidateMsgTemplate = {
 
 export const getMsgTemplate = (templates: IValidateMsgTemplate, temName, values: string[]) => {
     const temNameArr = temName.split('.');
-    let theTemplate: string = defaultMessageTemplate;
+    let theTemplate: unknown = defaultMessageTemplate;
     if (temNameArr[0] in templates) {
         const firstTemplate = templates[temNameArr[0]];
         if (
@@ -63,8 +63,10 @@ export const getMsgTemplate = (templates: IValidateMsgTemplate, temName, values:
             theTemplate = firstTemplate;
         }
     }
+    // 未能解析出字符串模板时（如嵌套的 key 不存在，此时拿到的是整个父级对象），使用默认模板兜底
+    const template = typeof theTemplate === 'string' ? theTemplate : defaultMessageTemplate;
     let cur = 0;
-    return theTemplate.replace(/%s/g, curVal => (cur < values.length ? values[cur++] : curVal));
+    return template.replace(/%s/g, curVal => (cur < values.length ? values[cur++] : curVal));
 };
 
 export const mergeMsgTemplate = (originMT, newMT): IValidateMsgTemplate => {

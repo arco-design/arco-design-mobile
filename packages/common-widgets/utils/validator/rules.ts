@@ -280,13 +280,13 @@ export class CustomValidator extends BaseValidator {
 
     validator(validatorTool: ICustomValidatorFunc | null) {
         if (validatorTool) {
-            return new ES6Promise(resolve => {
+            return new ES6Promise((resolve, reject) => {
                 const validateLevel = this.rule.validateLevel || 'error';
                 const ret = validatorTool(this.value, (message: string = '') =>
                     this.addError('custom', message || ''),
                 );
                 if (ret && ret?.then) {
-                    ret.then(() => resolve({ ...this.getErrors(), validateLevel }));
+                    ret.then(() => resolve({ ...this.getErrors(), validateLevel }), reject);
                 } else {
                     resolve({ ...this.getErrors(), validateLevel });
                 }
