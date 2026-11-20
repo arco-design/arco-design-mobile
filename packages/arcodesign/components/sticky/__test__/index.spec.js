@@ -25,26 +25,35 @@ describe('Sticky', () => {
         jest.useRealTimers();
     });
 
-    it.each([
-        ['top', 0.5, 0.6],
-        ['bottom', window.innerHeight - 0.5, window.innerHeight - 0.6],
-    ])('sticks within half a pixel of the %s edge', (position, inside, outside) => {
-        window.requestAnimationFrame.mockImplementation(cb => setTimeout(cb, 0));
-        const ref = React.createRef();
-        render(<Sticky ref={ref} position={position} />);
-        const content = ref.current.dom;
-        const rect = jest.spyOn(content.previousElementSibling, 'getBoundingClientRect');
-        rect.mockReturnValue({ top: inside });
-        act(() => jest.runOnlyPendingTimers());
-        expect(content.style.position).toBe('fixed');
+    it.each(['top', 'bottom'])(
+        'keeps the %s edge pinned through fractional scroll jitter',
+        position => {
+            window.requestAnimationFrame.mockImplementation(cb => setTimeout(cb, 0));
+            const ref = React.createRef();
+            render(<Sticky ref={ref} position={position} />);
+            const content = ref.current.dom;
+            const rect = jest.spyOn(content.previousElementSibling, 'getBoundingClientRect');
 
-        rect.mockReturnValue({ top: outside });
-        act(() => {
-            ref.current.recalculatePosition();
-            jest.runOnlyPendingTimers();
-        });
-        expect(content.style.position).toBe('');
-    });
+            function positionAt(distance) {
+                const top = position === 'top' ? distance : window.innerHeight - distance;
+                rect.mockReturnValue({ top });
+                act(() => {
+                    ref.current.recalculatePosition();
+                    jest.runOnlyPendingTimers();
+                });
+                return content.style.position;
+            }
+
+            expect([0.49, 0.51, 0.49, 1.01, 0.51, 0.49].map(positionAt)).toEqual([
+                'fixed',
+                'fixed',
+                'fixed',
+                '',
+                '',
+                'fixed',
+            ]);
+        },
+    );
 
     it('should callback correctly when scrolled', () => {
         const mockFn = jest.fn();
