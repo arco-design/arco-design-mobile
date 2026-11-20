@@ -117,12 +117,30 @@ describe('Validator', () => {
         expect(errors.b[0].validateLevel).toBe('warning');
     });
 
-    it('keeps the exception in the result when first is false', async () => {
-        const errors = await validate(
-            { name: [{ validator: () => Promise.reject(new Error('boom')) }] },
+    it('keeps exceptions while continuing the remaining rules when first is false', async () => {
+        let resolveNextRule;
+        const nextRule = new Promise(resolve => {
+            resolveNextRule = resolve;
+        });
+        const validation = validate(
+            {
+                name: [
+                    { min: 2, validator: () => Promise.reject(new Error('boom')) },
+                    { validator: () => nextRule },
+                ],
+            },
             { name: 'a' },
             { first: false },
         );
+        let settled = false;
+        validation.then(() => {
+            settled = true;
+        });
+        await new Promise(resolve => setTimeout(resolve, 0));
+        expect(settled).toBe(false);
+
+        resolveNextRule();
+        const errors = await validation;
         expect(errors.name[0].message).toEqual(['boom']);
     });
 

@@ -105,6 +105,7 @@ export class Validator {
 
     singleValidate(promises: ES6Promise<any>[]) {
         let cur = 0;
+        let exception: ValidatorError | null = null;
         return new ES6Promise(resolve => {
             const validate = promise => {
                 const next = () => {
@@ -112,16 +113,15 @@ export class Validator {
                         return validate(promises[++cur]);
                     }
 
-                    return resolve({});
+                    return resolve(exception || {});
                 };
                 promise.then((errors: ValidatorError) => {
                     const hasMessage = (errors.message || [])?.length > 0;
-                    // 异常不能被忽略，即使 first 为 false 也要保留在结果中
-                    if (
-                        hasMessage &&
-                        (this.options.first || errors.errorTypes?.[0] === 'exception')
-                    ) {
+                    if (hasMessage && this.options.first) {
                         return resolve(errors);
+                    }
+                    if (errors.errorTypes?.includes('exception') && !exception) {
+                        exception = errors;
                     }
                     next();
                 });
