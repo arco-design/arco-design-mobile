@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { fireEvent, render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import demoTest from '../../../tests/demoTest';
@@ -11,12 +12,6 @@ const imgUrl = 'https://sf1-cdn-tos.toutiaostatic.com/obj/arco-mobile/_static_/l
 demoTest('image');
 
 mountTest(Image, 'Image');
-
-function loadStaticImage() {
-    const img = screen.getAllByRole('img');
-    expect(img.length).toBe(1);
-    fireEvent.load(img[0]);
-}
 
 describe('Image', () => {
     let onerrorRef;
@@ -102,8 +97,10 @@ describe('Image', () => {
                 }}
             />,
         );
-        loadStaticImage();
-        expect(onLoad).toBeCalledTimes(1);
+        const img = screen.getByRole('img');
+        const load = new Event('load');
+        fireEvent(img, load);
+        expect(onLoad.mock.calls).toEqual([[load, img]]);
     });
     // it('Fill mode renders correctly', () => {
     //     const wrapper = mount(
@@ -182,14 +179,17 @@ describe('Image', () => {
             />,
         );
         const img = screen.getByRole('img');
-        fireEvent.error(img);
-        expect(onAutoRetry).toBeCalled();
+        const error = new Event('error');
+        fireEvent(img, error);
+        expect(onAutoRetry.mock.calls).toEqual([[error]]);
         act(() => jest.runAllTimers());
         expect(onLoadError).not.toBeCalled();
         const imgNew = screen.getByRole('img');
+        expect(imgNew).not.toBe(img);
 
-        fireEvent.error(imgNew);
-        expect(onLoadError).toBeCalled();
+        const retryError = new Event('error');
+        fireEvent(imgNew, retryError);
+        expect(onLoadError.mock.calls).toEqual([[retryError]]);
     });
     it('Load image correctly', () => {
         const onLoad = jest.fn();
@@ -246,52 +246,131 @@ describe('Image', () => {
         expect(imageContainer).toBeEmptyDOMElement();
     });
 
-    it('Static image with completed img element triggers load or error', () => {
-        const completeDesc = Object.getOwnPropertyDescriptor(
-            HTMLImageElement.prototype,
-            'complete',
-        );
-        const naturalWidthDesc = Object.getOwnPropertyDescriptor(
-            HTMLImageElement.prototype,
-            'naturalWidth',
-        );
-        Object.defineProperty(HTMLImageElement.prototype, 'complete', {
-            get: () => true,
-            configurable: true,
-        });
-        Object.defineProperty(HTMLImageElement.prototype, 'naturalWidth', {
-            get: () => 100,
-            configurable: true,
-        });
-        const onLoad = jest.fn();
-        const { unmount: unmount1 } = render(
-            <Image staticLabel src={imgUrl} onLoad={onLoad} />,
-        );
-        // 图片加载完成且有宽度时触发onLoad
-        // @en Trigger onLoad when image is complete and has width
-        expect(onLoad).toBeCalled();
-        unmount1();
+    describe('a static image already complete on mount', () => {
+        let naturalWidth;
 
-        Object.defineProperty(HTMLImageElement.prototype, 'naturalWidth', {
-            get: () => 0,
-            configurable: true,
+        beforeEach(() => {
+            jest.spyOn(HTMLImageElement.prototype, 'complete', 'get').mockReturnValue(true);
+            naturalWidth = jest.spyOn(HTMLImageElement.prototype, 'naturalWidth', 'get');
+            naturalWidth.mockReturnValue(100);
         });
-        const onError = jest.fn();
-        const { unmount: unmount2 } = render(
-            <Image staticLabel src={imgUrl} onError={onError} />,
-        );
-        // 图片加载完成但无宽高时触发onError
-        // @en Trigger onError when image is complete but has no width
-        expect(onError).toBeCalled();
-        unmount2();
 
-        completeDesc &&
-            Object.defineProperty(HTMLImageElement.prototype, 'complete', completeDesc);
-        naturalWidthDesc &&
-            Object.defineProperty(
-                HTMLImageElement.prototype,
-                'naturalWidth',
-                naturalWidthDesc,
+        afterEach(() => jest.restoreAllMocks());
+
+        it('reports the cached load only once across a layout update and a native load', () => {
+            const onLoad = jest.fn();
+            const onChange = jest.fn();
+            const props = { staticLabel: true, src: imgUrl, onLoad, onChange };
+            const { rerender } = render(<Image {...props} />);
+            const img = screen.getByRole('img');
+            expect(onLoad.mock.calls).toEqual([[null, img]]);
+
+            rerender(<Image {...props} width={200} />);
+            expect(screen.getByRole('img')).toBe(img);
+            fireEvent.load(img);
+            expect(onLoad).toHaveBeenCalledTimes(1);
+            expect(onChange.mock.calls).toEqual([['loaded']]);
+
+            rerender(<Image {...props} src={`${imgUrl}?other`} />);
+            const nextImg = screen.getByRole('img');
+            const load = new Event('load');
+            fireEvent(nextImg, load);
+            expect(onLoad).toHaveBeenCalledTimes(2);
+            expect(onLoad.mock.calls[1][0]).toBe(load);
+            expect(onLoad.mock.calls[1][1]).toBe(nextImg);
+        });
+
+        it('reports the native event if it arrives before the cache check', () => {
+            const onLoad = jest.fn();
+            const load = new Event('load');
+            const container = document.createElement('div');
+            // Dispatch after the DOM commit but before act flushes the cache check in useEffect.
+            try {
+                act(() => {
+                    ReactDOM.render(<Image staticLabel src={imgUrl} onLoad={onLoad} />, container);
+                    container.querySelector('img').dispatchEvent(load);
+                });
+                const img = container.querySelector('img');
+                expect(onLoad).toHaveBeenCalledTimes(1);
+                expect(onLoad.mock.calls[0][0]).toBe(load);
+                expect(onLoad.mock.calls[0][1]).toBe(img);
+            } finally {
+                act(() => {
+                    ReactDOM.unmountComponentAtNode(container);
+                });
+            }
+        });
+
+        it('reports a native load after changing the source and returning to the cached URL', () => {
+            const onLoad = jest.fn();
+            const props = { staticLabel: true, src: imgUrl, onLoad };
+            const { rerender } = render(<Image {...props} />);
+            const img = screen.getByRole('img');
+            rerender(<Image {...props} src={`${imgUrl}?other`} />);
+            rerender(<Image {...props} />);
+            const load = new Event('load');
+            fireEvent(screen.getByRole('img'), load);
+            expect(onLoad.mock.calls).toEqual([
+                [null, img],
+                [load, screen.getByRole('img')],
+            ]);
+        });
+
+        it('reports a native load when the browser selects a different srcSet candidate', () => {
+            const larger = `${imgUrl}?large`;
+            const currentSrc = jest.spyOn(HTMLImageElement.prototype, 'currentSrc', 'get');
+            currentSrc.mockReturnValue(imgUrl);
+            const onLoad = jest.fn();
+            render(
+                <Image
+                    staticLabel
+                    src={imgUrl}
+                    nativeProps={{ srcSet: `${imgUrl} 1x, ${larger} 2x` }}
+                    onLoad={onLoad}
+                />,
             );
+            const img = screen.getByRole('img');
+            currentSrc.mockReturnValue(larger);
+            const load = new Event('load');
+            fireEvent(img, load);
+            expect(onLoad.mock.calls).toEqual([
+                [null, img],
+                [load, img],
+            ]);
+        });
+
+        it('reports a cached failure and the native load of the retry with the same URL', () => {
+            naturalWidth.mockReturnValue(0);
+            const onLoad = jest.fn();
+            const onError = jest.fn();
+            const onAutoRetry = jest.fn();
+            render(
+                <Image
+                    staticLabel
+                    src={imgUrl}
+                    retryTime={1}
+                    onLoad={onLoad}
+                    onError={onError}
+                    onAutoRetry={onAutoRetry}
+                />,
+            );
+            expect(onAutoRetry.mock.calls).toEqual([[null]]);
+            expect(onLoad).not.toHaveBeenCalled();
+            act(() => jest.runAllTimers());
+            const img = screen.getByRole('img');
+            const load = new Event('load');
+            fireEvent(img, load);
+            expect(onLoad.mock.calls).toEqual([[load, img]]);
+            expect(onError).not.toHaveBeenCalled();
+        });
+
+        it('reports an error when the completed image has no dimensions', () => {
+            naturalWidth.mockReturnValue(0);
+            const onLoad = jest.fn();
+            const onError = jest.fn();
+            render(<Image staticLabel src={imgUrl} onLoad={onLoad} onError={onError} />);
+            expect(onError.mock.calls).toEqual([[null]]);
+            expect(onLoad).not.toHaveBeenCalled();
+        });
     });
 });
