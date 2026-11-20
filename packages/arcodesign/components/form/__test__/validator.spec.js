@@ -92,4 +92,46 @@ describe('Validator', () => {
         );
         expect(errors.name).toEqual([{}]);
     });
+
+    it('keeps the validateLevel of the rule when a custom validator throws or rejects', async () => {
+        const errors = await validate(
+            {
+                a: [
+                    {
+                        validateLevel: 'warning',
+                        validator: () => {
+                            throw new Error('boom');
+                        },
+                    },
+                ],
+                b: [
+                    {
+                        validateLevel: 'warning',
+                        validator: () => Promise.reject(new Error('boom')),
+                    },
+                ],
+            },
+            { a: 'a', b: 'b' },
+        );
+        expect(errors.a[0].validateLevel).toBe('warning');
+        expect(errors.b[0].validateLevel).toBe('warning');
+    });
+
+    it('keeps the exception in the result when first is false', async () => {
+        const errors = await validate(
+            { name: [{ validator: () => Promise.reject(new Error('boom')) }] },
+            { name: 'a' },
+            { first: false },
+        );
+        expect(errors.name[0].message).toEqual(['boom']);
+    });
+
+    it('settles with a fallback message when the rejection reason cannot be stringified', async () => {
+        const errors = await validate(
+            { name: [{ validator: () => Promise.reject(Object.create(null)) }] },
+            { name: 'a' },
+        );
+        expect(errors.name[0].message).toHaveLength(1);
+        expect(errors.name[0].errorTypes).toEqual(['exception']);
+    });
 });

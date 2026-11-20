@@ -12,6 +12,8 @@ import type {
 } from './type';
 import { ValidatorType } from './type';
 
+const defaultExceptionMessage = 'Validation failed';
+
 export class BaseValidator {
     value: any;
 
@@ -280,15 +282,37 @@ export class CustomValidator extends BaseValidator {
 
     validator(validatorTool: ICustomValidatorFunc | null) {
         if (validatorTool) {
-            return new ES6Promise((resolve, reject) => {
-                const validateLevel = this.rule.validateLevel || 'error';
-                const ret = validatorTool(this.value, (message: string = '') =>
-                    this.addError('custom', message || ''),
-                );
-                if (ret && ret?.then) {
-                    ret.then(() => resolve({ ...this.getErrors(), validateLevel }), reject);
-                } else {
-                    resolve({ ...this.getErrors(), validateLevel });
+            const validateLevel = this.rule.validateLevel || 'error';
+            // 校验过程中抛出的异常（如自定义校验函数报错）按该条规则的校验失败处理，避免 Promise 一直 pending 导致回调永远不触发
+            const handleException = (err: unknown): ValidatorError => {
+                let message = defaultExceptionMessage;
+                try {
+                    message = (err instanceof Error ? err.message : String(err)) || message;
+                } catch (e) {
+                    // 如 Object.create(null) 无法转为字符串，使用兜底文案
+                }
+                return {
+                    value: this.value,
+                    message: [message],
+                    errorTypes: ['exception'],
+                    validateLevel,
+                };
+            };
+            return new ES6Promise(resolve => {
+                try {
+                    const ret = validatorTool(this.value, (message: string = '') =>
+                        this.addError('custom', message || ''),
+                    );
+                    if (ret && ret?.then) {
+                        ret.then(
+                            () => resolve({ ...this.getErrors(), validateLevel }),
+                            err => resolve(handleException(err)),
+                        );
+                    } else {
+                        resolve({ ...this.getErrors(), validateLevel });
+                    }
+                } catch (err) {
+                    resolve(handleException(err));
                 }
             });
         }

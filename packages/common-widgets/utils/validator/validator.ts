@@ -114,21 +114,17 @@ export class Validator {
 
                     return resolve({});
                 };
-                const handleErrors = (errors: ValidatorError) => {
-                    if (this.options.first && (errors.message || [])?.length > 0) {
+                promise.then((errors: ValidatorError) => {
+                    const hasMessage = (errors.message || [])?.length > 0;
+                    // 异常不能被忽略，即使 first 为 false 也要保留在结果中
+                    if (
+                        hasMessage &&
+                        (this.options.first || errors.errorTypes?.[0] === 'exception')
+                    ) {
                         return resolve(errors);
                     }
                     next();
-                };
-                // 校验过程中抛出的异常（如自定义校验函数报错）按校验失败处理，避免 Promise 一直 pending 导致回调永远不触发
-                promise.then(handleErrors, (err: unknown) =>
-                    handleErrors({
-                        value: undefined,
-                        message: [err instanceof Error ? err.message : String(err)],
-                        errorTypes: ['exception'],
-                        validateLevel: 'error',
-                    }),
-                );
+                });
             };
             validate(promises[cur]);
         });
