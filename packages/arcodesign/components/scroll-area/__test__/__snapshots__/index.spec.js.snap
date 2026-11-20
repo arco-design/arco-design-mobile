@@ -1,0 +1,863 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`scroll-area demo test scroll-area demo: both.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-scroll-area arco-scroll-area-both arco-scroll-area-always"
+    style="height: 200px; margin: 12px; border: 1px solid #e5e6eb;"
+  >
+    <div
+      class="arco-scroll-area-viewport"
+    >
+      <div
+        class="arco-scroll-area-content"
+      >
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 1: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 2: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 3: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 4: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 5: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 6: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 7: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 8: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 9: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 10: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 11: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 12: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 13: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 14: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 15: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 16: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 17: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 18: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 19: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+        <div
+          style="padding: 8px 12px; white-space: nowrap;"
+        >
+          Row 20: this line is intentionally much wider than the container so that it can be scrolled horizontally as well.
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`scroll-area demo test scroll-area demo: horizontal.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-scroll-area arco-scroll-area-horizontal"
+    style="margin: 12px; border: 1px solid #e5e6eb;"
+  >
+    <div
+      class="arco-scroll-area-viewport"
+    >
+      <div
+        class="arco-scroll-area-content"
+      >
+        <div
+          style="display: flex; padding: 12px;"
+        >
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 1
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 2
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 3
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 4
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 5
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 6
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 7
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 8
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 9
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 10
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 11
+          </div>
+          <div
+            style="flex: 0 0 auto; width: 120px; height: 56px; margin-right: 12px; line-height: 56px; text-align: center; background: rgb(242, 243, 245);"
+          >
+            Card 12
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`scroll-area demo test scroll-area demo: index.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-scroll-area arco-scroll-area-vertical"
+    style="height: 200px; margin: 12px; border: 1px solid #e5e6eb;"
+  >
+    <div
+      class="arco-scroll-area-viewport"
+    >
+      <div
+        class="arco-scroll-area-content"
+      >
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 1
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 2
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 3
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 4
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 5
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 6
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 7
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 8
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 9
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 10
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 11
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 12
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 13
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 14
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 15
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 16
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 17
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 18
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 19
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 20
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 21
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 22
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 23
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 24
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 25
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 26
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 27
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 28
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 29
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 30
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`scroll-area demo test scroll-area demo: visibility.md renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="arco-scroll-area arco-scroll-area-vertical arco-scroll-area-always"
+    style="height: 120px; margin: 12px; border: 1px solid #e5e6eb;"
+  >
+    <div
+      class="arco-scroll-area-viewport"
+    >
+      <div
+        class="arco-scroll-area-content"
+      >
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 1
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 2
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 3
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 4
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 5
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 6
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 7
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 8
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 9
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 10
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 11
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 12
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 13
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 14
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 15
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 16
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 17
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 18
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 19
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 20
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 21
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 22
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 23
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 24
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 25
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 26
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 27
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 28
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 29
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 30
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-scroll-area arco-scroll-area-vertical"
+    style="height: 120px; margin: 12px; border: 1px solid #e5e6eb;"
+  >
+    <div
+      class="arco-scroll-area-viewport"
+    >
+      <div
+        class="arco-scroll-area-content"
+      >
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 1
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 2
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 3
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 4
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 5
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 6
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 7
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 8
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 9
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 10
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 11
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 12
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 13
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 14
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 15
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 16
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 17
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 18
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 19
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 20
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 21
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 22
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 23
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 24
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 25
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 26
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 27
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 28
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 29
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 30
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="arco-scroll-area arco-scroll-area-vertical"
+    style="height: 120px; margin: 12px; border: 1px solid #e5e6eb;"
+  >
+    <div
+      class="arco-scroll-area-viewport"
+    >
+      <div
+        class="arco-scroll-area-content"
+      >
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 1
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 2
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 3
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 4
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 5
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 6
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 7
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 8
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 9
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 10
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 11
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 12
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 13
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 14
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 15
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 16
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 17
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 18
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 19
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 20
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 21
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 22
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 23
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 24
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 25
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 26
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 27
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 28
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 29
+        </div>
+        <div
+          style="padding: 8px 12px;"
+        >
+          Line 30
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

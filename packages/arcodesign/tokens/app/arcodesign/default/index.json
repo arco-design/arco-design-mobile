@@ -3663,6 +3663,14 @@
         "jsValue": "@global@darkLineColor",
         "staticValue": "#484849"
     },
+    "darkScrollAreaThumbColor": {
+        "cssKey": "dark-scroll-area-thumb-color",
+        "desc": "",
+        "override": "",
+        "value": "rgba(255, 255, 255, 0.3)",
+        "jsValue": "rgba(255, 255, 255, 0.3)",
+        "staticValue": "rgba(255, 255, 255, 0.3)"
+    },
     "darkSearchBarAssociationBackgroundColor": {
         "cssKey": "dark-search-bar-association-background-color",
         "desc": "",
@@ -8556,6 +8564,54 @@
         "localeDesc": {
             "ch": "评分图标大小",
             "en": "Rate icon size"
+        }
+    },
+    "scrollAreaScrollbarFadeDuration": {
+        "cssKey": "scroll-area-scrollbar-fade-duration",
+        "desc": "滚动区域滚动条显隐的过渡时长",
+        "override": "",
+        "value": "0.3s",
+        "jsValue": "0.3s",
+        "staticValue": "0.3s",
+        "localeDesc": {
+            "ch": "滚动区域滚动条显隐的过渡时长",
+            "en": "Fade transition duration of the custom scrollbar of ScrollArea"
+        }
+    },
+    "scrollAreaScrollbarGutter": {
+        "cssKey": "scroll-area-scrollbar-gutter",
+        "desc": "滚动区域自定义滚动条与容器边缘的间距",
+        "override": "",
+        "value": "~`pxtorem(2)`",
+        "jsValue": "@getRem@2",
+        "staticValue": "0.04rem",
+        "localeDesc": {
+            "ch": "滚动区域自定义滚动条与容器边缘的间距",
+            "en": "Gap between the custom scrollbar of ScrollArea and the edge of the container"
+        }
+    },
+    "scrollAreaScrollbarSize": {
+        "cssKey": "scroll-area-scrollbar-size",
+        "desc": "滚动区域自定义滚动条的粗细",
+        "override": "",
+        "value": "~`pxtorem(4)`",
+        "jsValue": "@getRem@4",
+        "staticValue": "0.08rem",
+        "localeDesc": {
+            "ch": "滚动区域自定义滚动条的粗细",
+            "en": "Thickness of the custom scrollbar of ScrollArea"
+        }
+    },
+    "scrollAreaThumbColor": {
+        "cssKey": "scroll-area-thumb-color",
+        "desc": "滚动区域滚动条滑块颜色",
+        "override": "",
+        "value": "rgba(0, 0, 0, 0.3)",
+        "jsValue": "rgba(0, 0, 0, 0.3)",
+        "staticValue": "rgba(0, 0, 0, 0.3)",
+        "localeDesc": {
+            "ch": "滚动区域滚动条滑块颜色",
+            "en": "Thumb color of the custom scrollbar of ScrollArea"
         }
     },
     "scrollerBuffer": {

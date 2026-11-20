@@ -1104,6 +1104,11 @@ export interface ArcodesignToken extends Record<string, string> {
     'date-picker-range-show-padding': string;
     'date-picker-range-show-min-height': string;
     'date-picker-range-separate-min-width': string;
+    'scroll-area-scrollbar-size': string;
+    'scroll-area-scrollbar-gutter': string;
+    'scroll-area-thumb-color': string;
+    'dark-scroll-area-thumb-color': string;
+    'scroll-area-scrollbar-fade-duration': string;
 }
 declare const tokens: ArcodesignToken;
 export default tokens;

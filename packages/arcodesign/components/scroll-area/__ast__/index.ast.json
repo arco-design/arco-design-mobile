@@ -1,0 +1,289 @@
+{
+    "description": "自定义滚动条样式的滚动容器，用自定义的滚动条替换浏览器原生滚动条",
+    "descriptionTags": {
+        "en": "A scrollable container that replaces the native scrollbar with a customizable one",
+        "type": "布局",
+        "type_en": "Layout",
+        "name": "滚动区域",
+        "name_en": "ScrollArea"
+    },
+    "displayName": "ScrollArea",
+    "methods": [],
+    "props": {
+        "direction": {
+            "defaultValue": {
+                "value": "\"vertical\""
+            },
+            "description": "滚动方向\n@en Scroll direction",
+            "name": "direction",
+            "tags": {
+                "en": "Scroll direction",
+                "default": "\"vertical\""
+            },
+            "descWithTags": "滚动方向",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/scroll-area/index.tsx",
+                "name": "ScrollAreaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"vertical\" | \"horizontal\" | \"both\"",
+                "value": [
+                    {
+                        "value": "\"vertical\""
+                    },
+                    {
+                        "value": "\"horizontal\""
+                    },
+                    {
+                        "value": "\"both\""
+                    }
+                ]
+            }
+        },
+        "scrollbarVisibility": {
+            "defaultValue": {
+                "value": "\"auto\""
+            },
+            "description": "滚动条的显示方式：`auto` 滚动时显示，停止滚动一段时间后隐藏；`always` 内容溢出时始终显示；`hidden` 不显示滚动条\n@en How the scrollbar is displayed: `auto` shows it while scrolling and hides it after scrolling stops for a while; `always` always shows it when the content overflows; `hidden` never shows it",
+            "name": "scrollbarVisibility",
+            "tags": {
+                "en": "How the scrollbar is displayed: `auto` shows it while scrolling and hides it after scrolling stops for a while; `always` always shows it when the content overflows; `hidden` never shows it",
+                "default": "\"auto\""
+            },
+            "descWithTags": "滚动条的显示方式：`auto` 滚动时显示，停止滚动一段时间后隐藏；`always` 内容溢出时始终显示；`hidden` 不显示滚动条",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/scroll-area/index.tsx",
+                "name": "ScrollAreaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "enum",
+                "raw": "\"auto\" | \"always\" | \"hidden\"",
+                "value": [
+                    {
+                        "value": "\"auto\""
+                    },
+                    {
+                        "value": "\"always\""
+                    },
+                    {
+                        "value": "\"hidden\""
+                    }
+                ]
+            }
+        },
+        "hideDelay": {
+            "defaultValue": {
+                "value": "1000"
+            },
+            "description": "`scrollbarVisibility` 为 `auto` 时，停止滚动后滚动条隐藏的延时，单位 ms\n@en The delay in ms before the scrollbar is hidden after scrolling stops, takes effect when `scrollbarVisibility` is `auto`",
+            "name": "hideDelay",
+            "tags": {
+                "en": "The delay in ms before the scrollbar is hidden after scrolling stops, takes effect when `scrollbarVisibility` is `auto`",
+                "default": "1000"
+            },
+            "descWithTags": "`scrollbarVisibility` 为 `auto` 时，停止滚动后滚动条隐藏的延时，单位 ms",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/scroll-area/index.tsx",
+                "name": "ScrollAreaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "number"
+            }
+        },
+        "viewportClassName": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "滚动容器（视口）的自定义类名\n@en Custom classname of the scrollable viewport",
+            "name": "viewportClassName",
+            "tags": {
+                "en": "Custom classname of the scrollable viewport",
+                "default": "\"\""
+            },
+            "descWithTags": "滚动容器（视口）的自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/scroll-area/index.tsx",
+                "name": "ScrollAreaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "viewportStyle": {
+            "defaultValue": null,
+            "description": "滚动容器（视口）的自定义样式\n@en Custom stylesheet of the scrollable viewport",
+            "name": "viewportStyle",
+            "tags": {
+                "en": "Custom stylesheet of the scrollable viewport"
+            },
+            "descWithTags": "滚动容器（视口）的自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/scroll-area/index.tsx",
+                "name": "ScrollAreaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "onScroll": {
+            "defaultValue": null,
+            "description": "滚动时的回调\n@en Callback when the viewport is scrolled",
+            "name": "onScroll",
+            "tags": {
+                "en": "Callback when the viewport is scrolled"
+            },
+            "descWithTags": "滚动时的回调",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/scroll-area/index.tsx",
+                "name": "ScrollAreaProps"
+            },
+            "required": false,
+            "type": {
+                "name": "(e: UIEvent<HTMLDivElement, UIEvent>) => void"
+            }
+        },
+        "children": {
+            "defaultValue": {
+                "value": "null"
+            },
+            "description": "自定义组件内容\n@en Custom component content",
+            "name": "children",
+            "tags": {
+                "en": "Custom component content",
+                "default": "null"
+            },
+            "descWithTags": "自定义组件内容",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "BaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "ReactNode"
+            }
+        },
+        "className": {
+            "defaultValue": {
+                "value": "\"\""
+            },
+            "description": "自定义类名\n@en Custom classname",
+            "name": "className",
+            "tags": {
+                "en": "Custom classname",
+                "default": "\"\""
+            },
+            "descWithTags": "自定义类名",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "string"
+            }
+        },
+        "style": {
+            "defaultValue": {
+                "value": "{}"
+            },
+            "description": "自定义样式\n@en Custom stylesheet",
+            "name": "style",
+            "tags": {
+                "en": "Custom stylesheet",
+                "default": "{}"
+            },
+            "descWithTags": "自定义样式",
+            "parent": {
+                "fileName": "arcom-github/packages/arcodesign/components/_helpers/type.ts",
+                "name": "SimpleBaseProps"
+            },
+            "required": false,
+            "type": {
+                "name": "CSSProperties"
+            }
+        },
+        "ref": {
+            "defaultValue": null,
+            "description": "",
+            "name": "ref",
+            "tags": {},
+            "descWithTags": "",
+            "parent": {
+                "fileName": "arcom-github/node_modules/@types/react/index.d.ts",
+                "name": "RefAttributes"
+            },
+            "required": false,
+            "type": {
+                "name": "Ref<ScrollAreaRef>"
+            }
+        }
+    },
+    "deps": {
+        "ScrollAreaRef": {
+            "dom": {
+                "name": "dom",
+                "required": true,
+                "description": "最外层 DOM 元素\n@en The outer DOM element of the component",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The outer DOM element of the component"
+                },
+                "descWithTags": "最外层 DOM 元素"
+            },
+            "viewport": {
+                "name": "viewport",
+                "required": true,
+                "description": "滚动容器（视口）DOM 元素\n@en The scrollable viewport DOM element",
+                "defaultValue": null,
+                "type": {
+                    "name": "HTMLDivElement"
+                },
+                "tags": {
+                    "en": "The scrollable viewport DOM element"
+                },
+                "descWithTags": "滚动容器（视口）DOM 元素"
+            },
+            "scrollTo": {
+                "name": "scrollTo",
+                "required": true,
+                "description": "滚动到指定位置\n@en Scroll the viewport to the given position",
+                "defaultValue": null,
+                "type": {
+                    "name": "(options: ScrollToOptions) => void"
+                },
+                "tags": {
+                    "en": "Scroll the viewport to the given position"
+                },
+                "descWithTags": "滚动到指定位置"
+            },
+            "update": {
+                "name": "update",
+                "required": true,
+                "description": "重新计算滚动条的尺寸和位置，一般无需手动调用\n@en Recalculate the size and position of the scrollbar, usually there is no need to call it manually",
+                "defaultValue": null,
+                "type": {
+                    "name": "() => void"
+                },
+                "tags": {
+                    "en": "Recalculate the size and position of the scrollbar, usually there is no need to call it manually"
+                },
+                "descWithTags": "重新计算滚动条的尺寸和位置，一般无需手动调用"
+            }
+        }
+    },
+    "depComps": {},
+    "typeNameInfo": {
+        "props": "ScrollAreaProps",
+        "ref": "ScrollAreaRef"
+    },
+    "isDefaultExport": true
+}

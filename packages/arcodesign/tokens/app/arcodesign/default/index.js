@@ -1113,7 +1113,12 @@ var tokens = {
   "date-picker-range-disabled-font-color": "var(--disabled-color)",
   "date-picker-range-show-padding": "0 0.32rem",
   "date-picker-range-show-min-height": "0.96rem",
-  "date-picker-range-separate-min-width": "0.96rem"
+  "date-picker-range-separate-min-width": "0.96rem",
+  "scroll-area-scrollbar-size": "0.08rem",
+  "scroll-area-scrollbar-gutter": "0.04rem",
+  "scroll-area-thumb-color": "rgba(0, 0, 0, 0.3)",
+  "dark-scroll-area-thumb-color": "rgba(255, 255, 255, 0.3)",
+  "scroll-area-scrollbar-fade-duration": "0.3s"
 };
 var _default = tokens;
 exports["default"] = _default;
