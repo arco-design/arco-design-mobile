@@ -210,6 +210,54 @@ describe('ScrollArea', () => {
         expect(viewport.scrollLeft).toBe(10);
     });
 
+    it('should ignore scroll events bubbling from a nested scroll area', () => {
+        const onScroll = jest.fn();
+        const onInnerScroll = jest.fn();
+        const { container } = render(
+            <ScrollArea direction="horizontal" onScroll={onScroll}>
+                <ScrollArea onScroll={onInnerScroll}>
+                    <div>content</div>
+                </ScrollArea>
+            </ScrollArea>,
+        );
+        const inner = container.querySelectorAll(`.${prefix}-viewport`)[1];
+        fireEvent.scroll(inner);
+        expect(onInnerScroll).toHaveBeenCalledTimes(1);
+        expect(onScroll).not.toHaveBeenCalled();
+    });
+
+    it('should update the scrollbar when children change without resizing the boxes', async () => {
+        const { container, viewport } = renderWithLayout({
+            ...verticalLayout,
+            scrollHeight: 100,
+        });
+        expect(container.querySelector(`.${prefix}-track`)).toBeNull();
+        mockLayout(viewport, { scrollHeight: 600 });
+        container.querySelector(`.${prefix}-content`).appendChild(document.createElement('div'));
+        await act(async () => {
+            await Promise.resolve();
+        });
+        expect(container.querySelector(`.${prefix}-thumb-vertical`)).toBeTruthy();
+    });
+
+    it('should update the scrollbar when the direction changes on rerender', () => {
+        const { container, viewport, rerender } = renderWithLayout(horizontalLayout, {
+            direction: 'horizontal',
+        });
+        mockLayout(viewport, { scrollLeft: -300 });
+        jest.spyOn(window, 'getComputedStyle').mockReturnValue({ direction: 'rtl' });
+        rerender(
+            <ScrollArea direction="horizontal" viewportStyle={{ direction: 'rtl' }}>
+                <div>content</div>
+            </ScrollArea>,
+        );
+        expect(container.querySelector(`.${prefix}`).className).toContain(`${prefix}-rtl`);
+        expect(container.querySelector(`.${prefix}-thumb-horizontal`).style.transform).toBe(
+            'translate3d(-150%, 0, 0)',
+        );
+        window.getComputedStyle.mockRestore();
+    });
+
     it('should clear the pending hide timer on unmount', () => {
         const { viewport, unmount } = renderWithLayout(verticalLayout);
         fireEvent.scroll(viewport);

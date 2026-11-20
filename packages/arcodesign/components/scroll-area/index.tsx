@@ -192,6 +192,10 @@ const ScrollArea = forwardRef((props: ScrollAreaProps, ref: Ref<ScrollAreaRef>) 
     };
 
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+        // React 16 bubbles the scroll of a nested scrollable element, keep it with its owner
+        if (e.target !== e.currentTarget) {
+            return;
+        }
         update();
         if (scrollbarVisibility === 'auto') {
             setScrolling(true);
@@ -214,8 +218,26 @@ const ScrollArea = forwardRef((props: ScrollAreaProps, ref: Ref<ScrollAreaRef>) 
         if (contentRef.current) {
             observer.observe(contentRef.current);
         }
-        return () => observer.disconnect();
+        // children changes that keep the box size (e.g. absolutely positioned ones) are not seen by ResizeObserver
+        let mutationObserver: MutationObserver | null = null;
+        if (typeof MutationObserver !== 'undefined' && viewportRef.current) {
+            mutationObserver = new MutationObserver(() => update());
+            mutationObserver.observe(viewportRef.current, {
+                childList: true,
+                subtree: true,
+                characterData: true,
+            });
+        }
+        return () => {
+            observer.disconnect();
+            mutationObserver?.disconnect();
+        };
     }, [update]);
+
+    // props like viewportStyle may change the layout (e.g. direction) without resizing anything
+    useEffect(() => {
+        update();
+    });
 
     useEffect(() => {
         if (scrollbarVisibility !== 'auto') {

@@ -22,22 +22,22 @@
         }
     }
 
-    &-vertical &-viewport {
+    &-vertical > &-viewport {
         overflow-x: hidden;
         overflow-y: auto;
     }
 
-    &-horizontal &-viewport {
+    &-horizontal > &-viewport {
         overflow-x: auto;
         overflow-y: hidden;
     }
 
-    &-both &-viewport {
+    &-both > &-viewport {
         overflow: auto;
     }
 
-    &-horizontal &-content,
-    &-both &-content {
+    &-horizontal > &-viewport > &-content,
+    &-both > &-viewport > &-content {
         width: max-content;
         min-width: 100%;
     }
@@ -68,27 +68,31 @@
         }
     }
 
-    &-rtl &-track-vertical {
+    &-rtl > &-track-vertical {
         right: auto;
         left: 0;
     }
 
-    // leave the corner free so that the two tracks never overlap
-    &-both &-track-vertical {
+    // leave the corner free (scrollbar size plus gutter) so that the two thumbs never overlap
+    &-both > &-track-vertical {
         .use-var(bottom, scroll-area-scrollbar-size);
+        .use-var(margin-bottom, scroll-area-scrollbar-gutter);
     }
 
-    &-both &-track-horizontal {
+    &-both > &-track-horizontal {
         .use-var(right, scroll-area-scrollbar-size);
+        .use-var(margin-right, scroll-area-scrollbar-gutter);
     }
 
-    &-both&-rtl &-track-horizontal {
+    &-both&-rtl > &-track-horizontal {
         right: 0;
+        margin-right: 0;
         .use-var(left, scroll-area-scrollbar-size);
+        .use-var(margin-left, scroll-area-scrollbar-gutter);
     }
 
-    &-scrolling &-track,
-    &-always &-track {
+    &-scrolling > &-track,
+    &-always > &-track {
         opacity: 1;
     }
 
@@ -106,7 +110,7 @@
         }
     }
 
-    &-rtl &-thumb-horizontal {
+    &-rtl > &-track-horizontal > &-thumb-horizontal {
         margin-left: auto;
     }
 }
