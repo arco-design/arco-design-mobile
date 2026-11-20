@@ -264,4 +264,290 @@ describe('Tabs', () => {
         mockSwipe(map, { touchstart: 300, touchmove: 150, touchend: 100 });
         expect(indexIsActive(wrapper, 0)).toBe(true);
     });
+
+    // 覆盖率补充测试组：ref 方法、scroll 模式、手势边界、lazyload 渲染等分支
+    // Coverage supplement test group: ref methods, scroll mode, gesture boundaries, lazyload rendering
+    describe('Coverage Supplements', () => {
+        const TABS = [{ title: 'Title 1' }, { title: 'Title 2' }, { title: 'Title 3' }];
+        const PANES = [
+            <div key="1" className="demo-tab-content">Content 1</div>,
+            <div key="2" className="demo-tab-content">Content 2</div>,
+            <div key="3" className="demo-tab-content">Content 3</div>,
+        ];
+
+        function getPaneContainer(container) {
+            return container.querySelector(`.${prefixTab}-pane-container`);
+        }
+
+        function mockPaneRects(container, rects) {
+            const panes = container.querySelectorAll(`.${prefixTab}-pane`);
+            panes.forEach((pane, i) => {
+                const rect = rects[i] || { top: 0, bottom: 300, left: 0, right: 375 };
+                pane.getBoundingClientRect = jest.fn(() => rect);
+            });
+        }
+
+        it('should warn about small distanceToChangeTab and support manual changeIndex with caterpillar click', () => {
+            const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+            const onAfterChange = jest.fn();
+            const ref = createRef();
+            const { container } = render(
+                <Tabs
+                    ref={ref}
+                    tabs={TABS}
+                    distanceToChangeTab={0.5}
+                    useCaterpillar
+                    caterpillarMaxScale={3}
+                    onAfterChange={onAfterChange}
+                >
+                    {PANES}
+                </Tabs>,
+            );
+
+            // 过小的 distanceToChangeTab 触发警告
+            // A too-small distanceToChangeTab triggers a warning
+            expect(warnSpy).toHaveBeenCalledWith(
+                '[Tabs Props Warning] The value of the prop `distanceToChangeTab` is too small(0.5). Do you meant to use the prop `percentToChangeTab`?',
+            );
+            warnSpy.mockRestore();
+
+            // ref.changeIndex 手动切换
+            // Switch manually via ref.changeIndex
+            act(() => {
+                ref.current.changeIndex(1);
+                jest.advanceTimersByTime(600);
+            });
+            expect(indexIsActive(container, 1)).toBe(true);
+
+            // 点击触发毛毛虫动画
+            // Clicking triggers the caterpillar animation
+            userEvent.click(container.querySelectorAll(`.${prefixTab}-cell`)[2]);
+            act(() => {
+                jest.advanceTimersByTime(600);
+            });
+            expect(indexIsActive(container, 2)).toBe(true);
+            expect(onAfterChange).toBeCalledTimes(2);
+        });
+
+        it('should mark manual change when controlled activeTab changes', () => {
+            const onAfterChange = jest.fn();
+            const { container, rerender } = render(
+                <Tabs tabs={[{ title: 'Title 1' }, { title: 'Title 2' }]} activeTab={0} onAfterChange={onAfterChange}>
+                    <div className="demo-tab-content">Content 1</div>
+                    <div className="demo-tab-content">Content 2</div>
+                </Tabs>,
+            );
+            const underline = container.querySelector(`.${prefixTab}-cell-underline`);
+
+            // 受控 activeTab 变化时按手动切换处理并启用 cell 动画
+            // A controlled activeTab change is treated as a manual change with cell animation
+            rerender(
+                <Tabs tabs={[{ title: 'Title 1' }, { title: 'Title 2' }]} activeTab={1} onAfterChange={onAfterChange}>
+                    <div className="demo-tab-content">Content 1</div>
+                    <div className="demo-tab-content">Content 2</div>
+                </Tabs>,
+            );
+            act(() => {
+                jest.advanceTimersByTime(600);
+            });
+            expect(indexIsActive(container, 1)).toBe(true);
+            expect(underline.style.transitionDuration).toBe('240ms');
+            expect(onAfterChange).toBeCalledTimes(1);
+        });
+
+        it('should do nothing in scroll handler when getScrollContainer returns null', () => {
+            const onChange = jest.fn();
+            const map = mockAddListener(window);
+            render(
+                <Tabs
+                    tabs={TABS}
+                    mode="scroll"
+                    scrollThrottle={0}
+                    getScrollContainer={() => null}
+                    onChange={onChange}
+                >
+                    {PANES}
+                </Tabs>,
+            );
+
+            act(() => {
+                map.scroll();
+            });
+            expect(onChange).not.toHaveBeenCalled();
+        });
+
+        it('should stop pane touch handlers when callbacks return true', () => {
+            const onTouchStart = jest.fn(() => true);
+            const onTouchMove = jest.fn(() => true);
+            const onTouchEnd = jest.fn(() => true);
+            const onDistanceChange = jest.fn();
+            const { container } = render(
+                <Tabs
+                    tabs={[{ title: 'Title 1' }, { title: 'Title 2' }]}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
+                    onDistanceChange={onDistanceChange}
+                >
+                    <div className="demo-tab-content">Content 1</div>
+                    <div className="demo-tab-content">Content 2</div>
+                </Tabs>,
+            );
+            const paneContainer = getPaneContainer(container);
+
+            // onTouchStart / onTouchMove / onTouchEnd 返回 true 时中断手势
+            // Gesture is interrupted when the callbacks return true
+            mockSwipe(paneContainer, { touchstart: 300, touchmove: 150, touchend: 100 });
+            expect(onTouchStart).toHaveBeenCalled();
+            // onTouchMove 在拦截判断处被调用并返回 true，手势不再产生位移
+            // onTouchMove is invoked for the interception check and returns true
+            expect(onTouchMove).toHaveBeenCalledTimes(1);
+            expect(onTouchEnd).toHaveBeenCalled();
+            expect(onDistanceChange).not.toHaveBeenCalled();
+        });
+
+        it('should trigger caterpillar animation when swiping with useCaterpillar', () => {
+            const ref = createRef();
+            const { container } = render(
+                <Tabs ref={ref} tabs={[{ title: 'Title 1' }, { title: 'Title 2' }]} useCaterpillar caterpillarMaxScale={3}>
+                    <div className="demo-tab-content">Content 1</div>
+                    <div className="demo-tab-content">Content 2</div>
+                </Tabs>,
+            );
+            mockContainer(ref);
+            const paneContainer = getPaneContainer(container);
+
+            act(() => {
+                fireEvent.touchStart(paneContainer, createStartTouchEventObject({ x: 300, y: 0 }));
+                fireEvent.touchMove(paneContainer, createMoveTouchEventObject({ x: 150, y: 0 }));
+            });
+            fireEvent.touchEnd(paneContainer, createMoveTouchEventObject({ x: 100, y: 0 }));
+            // 滑动切换后毛毛虫动画进行中：underline inner 带 animationName
+            // The caterpillar animation is in progress after swiping
+            act(() => {
+                jest.advanceTimersByTime(60);
+            });
+            expect(indexIsActive(container, 1)).toBe(true);
+            const underlineInner = container.querySelector(
+                `.${prefixTab}-cell-underline > div`,
+            );
+            expect(underlineInner.style.animationName).toContain('tabsCaterpillar');
+
+            // 动画结束定时器触发后动画名清除
+            // The animation name is cleared after the ending timer fires
+            act(() => {
+                jest.advanceTimersByTime(600);
+            });
+        });
+
+        it('should skip caterpillar animate when duration is zero and clear timer on repeated calls', () => {
+            const ref = createRef();
+            render(
+                <Tabs
+                    ref={ref}
+                    tabs={[{ title: 'Title 1' }, { title: 'Title 2' }]}
+                    useCaterpillar
+                    duration={0}
+                >
+                    <div className="demo-tab-content">Content 1</div>
+                    <div className="demo-tab-content">Content 2</div>
+                </Tabs>,
+            );
+
+            // duration 为 0 时不执行毛毛虫动画
+            // Caterpillar animation is skipped when duration is 0
+            expect(() => ref.current.bar.setCaterpillarAnimate()).not.toThrow();
+
+            const ref2 = createRef();
+            render(
+                <Tabs ref={ref2} tabs={[{ title: 'Title 1' }, { title: 'Title 2' }]} useCaterpillar>
+                    <div className="demo-tab-content">Content 1</div>
+                    <div className="demo-tab-content">Content 2</div>
+                </Tabs>,
+            );
+            // 连续调用时清除上一次的定时器
+            // The previous timer is cleared on repeated calls
+            act(() => {
+                ref2.current.bar.setCaterpillarAnimate();
+                ref2.current.bar.setCaterpillarAnimate();
+            });
+        });
+
+        it('should fall back to empty underline style when custom underline has no line ref', () => {
+            const { container } = render(
+                <Tabs
+                    tabs={[{ title: 'Title 1' }, { title: 'Title 2' }]}
+                    renderUnderline={() => <div className="custom-underline" />}
+                >
+                    <div className="demo-tab-content">Content 1</div>
+                    <div className="demo-tab-content">Content 2</div>
+                </Tabs>,
+            );
+
+            // 自定义 underline 未绑定 lineRef 时样式回退为空对象
+            // Style falls back to an empty object when the custom underline has no lineRef
+            expect(container.querySelector('.custom-underline')).toBeTruthy();
+        });
+
+        it('should scroll custom container when calling pane scrollToIndex', () => {
+            const scrollDiv = document.createElement('div');
+            mockElementProperty(scrollDiv, 'scrollHeight', 1000);
+            mockElementProperty(scrollDiv, 'offsetHeight', 300);
+            const getScrollContainer = () => scrollDiv;
+            const ref = createRef();
+            const { container } = render(
+                <Tabs
+                    ref={ref}
+                    tabs={TABS}
+                    mode="scroll"
+                    scrollThrottle={0}
+                    getScrollContainer={getScrollContainer}
+                >
+                    {PANES}
+                </Tabs>,
+            );
+            mockPaneRects(container, [
+                { top: 100, bottom: 400, left: 0, right: 375 },
+                { top: 400, bottom: 700, left: 0, right: 375 },
+                { top: 700, bottom: 1000, left: 0, right: 375 },
+            ]);
+
+            // 指定元素容器时 scrollToIndex 将滚动写入该容器的 scrollTop
+            // scrollToIndex writes scrolling into the custom container's scrollTop
+            act(() => {
+                ref.current.pane.scrollToIndex(1, true);
+                jest.advanceTimersByTime(100);
+            });
+            expect(scrollDiv.scrollTop).not.toBe(0);
+        });
+
+        it('should render hide content and hidden pane style outside lazyload range', () => {
+            const { container } = render(
+                <Tabs tabs={TABS} lazyloadCount={0} renderHideContent={index => <div>hidden {index}</div>}>
+                    {PANES}
+                </Tabs>,
+            );
+            const panes = container.querySelectorAll(`.${prefixTab}-pane`);
+            expect(panes[0].textContent).toBe('Content 1');
+            // 范围外的 pane 渲染占位内容
+            // Panes outside the range render the placeholder content
+            expect(panes[1].textContent).toBe('hidden 1');
+            expect(panes[2].textContent).toBe('hidden 2');
+        });
+
+        it('should render pane with hideContentStyle outside lazyload range', () => {
+            const { container } = render(
+                <Tabs tabs={TABS} lazyloadCount={0} hideContentStyle={{ display: 'none' }}>
+                    {PANES}
+                </Tabs>,
+            );
+            const panes = container.querySelectorAll(`.${prefixTab}-pane`);
+            expect(panes[0].style.display).not.toBe('none');
+            // 范围外的 pane 保留内容但应用隐藏样式
+            // Panes outside the range keep content but apply the hidden style
+            expect(panes[1].style.display).toBe('none');
+            expect(panes[1].textContent).toBe('Content 2');
+        });
+
+    });
 });

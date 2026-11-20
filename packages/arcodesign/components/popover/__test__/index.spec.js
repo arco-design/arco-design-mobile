@@ -5,7 +5,7 @@ import demoTest from '../../../tests/demoTest';
 import mountTest from '../../../tests/mountTest';
 import { defaultContext } from '../../context-provider';
 import { mockElementProperty, defineProperties } from '../../../tests/helpers/mockElement';
-import { eventCommonProps, mockAddListener } from '../../../tests/helpers/mockEvent';
+import { eventCommonProps } from '../../../tests/helpers/mockEvent';
 import Popover from '..';
 import Button from '../../button';
 import '@testing-library/jest-dom';
@@ -15,6 +15,17 @@ demoTest('popover', { useFakeTimers: true });
 mountTest(Popover, 'Popover');
 
 const prefix = `${defaultContext.prefixCls}-popover`;
+
+function mockBodyListeners() {
+    const listeners = {};
+    jest.spyOn(document.body, 'addEventListener').mockImplementation((type, callback) => {
+        listeners[type] = callback;
+    });
+    jest.spyOn(document.body, 'removeEventListener').mockImplementation((type, callback) => {
+        if (listeners[type] === callback) delete listeners[type];
+    });
+    return listeners;
+}
 
 async function clickButton(event = 'click') {
     const btn = rtlScreen.getByRole('button');
@@ -53,12 +64,25 @@ function updatePopoverPosition(ref) {
     });
 }
 
+function mockPropertyWithRestore(target, property, value) {
+    const originalDescriptor = Object.getOwnPropertyDescriptor(target, property);
+    mockElementProperty(target, property, value);
+    return () => {
+        if (originalDescriptor) {
+            Object.defineProperty(target, property, originalDescriptor);
+        } else {
+            delete target[property];
+        }
+    };
+}
+
 describe('Popover', () => {
     beforeEach(() => {
         jest.useFakeTimers();
     });
 
     afterEach(() => {
+        jest.restoreAllMocks();
         jest.useRealTimers();
     });
 
@@ -78,7 +102,7 @@ describe('Popover', () => {
                 <Button>Button</Button>
             </Popover>,
         );
-        const map = mockAddListener(document.body);
+        const map = mockBodyListeners();
         checkHasNoPopoverInner();
         await clickButton();
         mockPopoverSize(ref, 100, 60);
@@ -205,8 +229,8 @@ describe('Popover', () => {
         // bottom overflow
         mockPopoverSize(ref, 700, 100);
         child.getBoundingClientRect = jest.fn(() => ({
-            top: 600,
-            bottom: 690,
+            top: 500,
+            bottom: 590,
             left: 10,
             right: 100,
             width: 90,
@@ -250,6 +274,59 @@ describe('Popover', () => {
         expect(document.querySelector('.popover-content')).toHaveClass('bottomLeft');
         unsetProperties();
     });
+
+    it.each([
+        [
+            'screen width is smaller',
+            {
+                direction: 'bottomRight',
+                screenWidth: 600,
+                innerWidth: 621,
+                viewportWidth: 1000,
+                childRect: { top: 80, bottom: 124, left: 800, right: 960, width: 160, height: 44 },
+                expectedLeft: '-20px',
+            },
+        ],
+        [
+            'mobile innerWidth is initializing',
+            {
+                direction: 'bottomLeft',
+                screenWidth: 1000,
+                innerWidth: 621,
+                viewportWidth: 600,
+                childRect: { top: 80, bottom: 124, left: 440, right: 600, width: 160, height: 44 },
+                expectedLeft: '-34px',
+            },
+        ],
+    ])(
+        'should use layout viewport width when %s',
+        async (
+            _name,
+            { direction, screenWidth, innerWidth, viewportWidth, childRect, expectedLeft },
+        ) => {
+            const ref = createRef();
+            render(
+                <Popover content="Bubble" ref={ref} direction={direction} horizontalOffset={0}>
+                    <Button>Button</Button>
+                </Popover>,
+            );
+            await clickButton();
+            const restoreProperties = [
+                mockPropertyWithRestore(screen, 'availWidth', screenWidth),
+                mockPropertyWithRestore(window, 'innerWidth', innerWidth),
+                mockPropertyWithRestore(document.documentElement, 'clientWidth', viewportWidth),
+            ];
+            try {
+                const { child } = ref.current;
+                mockPopoverSize(ref, 180, 78);
+                child.getBoundingClientRect = jest.fn(() => childRect);
+                updatePopoverPosition(ref);
+                expect(ref.current.innerPopoverDom.style.left).toBe(expectedLeft);
+            } finally {
+                restoreProperties.forEach(restore => restore());
+            }
+        },
+    );
 
     it('should support Popover.Menu', async () => {
         const onChange = jest.fn();
@@ -341,5 +418,327 @@ describe('Popover', () => {
         expect(document.querySelectorAll(`.${prefix}-menu-item`)).toHaveLength(0);
         expect(onChange.mock.calls).toHaveLength(2);
         expect(onChange.mock.calls[1]).toEqual([false]);
+    });
+
+    it('should calculate position correctly for topCenter, bottomRight and bottomLeft', async () => {
+        const directions = [
+            { direction: 'topCenter', left: '-5px', position: 'bottom' },
+            { direction: 'bottomRight', left: '-2px', position: 'top' },
+            { direction: 'bottomLeft', left: '-8px', position: 'top' },
+        ];
+        for (const { direction, left, position } of directions) {
+            const ref = createRef();
+            const { unmount } = render(
+                <Popover content="Bubble" ref={ref} direction={direction} useAutoDirection={false}>
+                    <Button>Button</Button>
+                </Popover>,
+            );
+            await clickButton();
+            mockPopoverSize(ref, 100, 60);
+            const { child } = ref.current;
+            child.getBoundingClientRect = jest.fn(() => ({
+                top: 500,
+                bottom: 590,
+                left: 10,
+                right: 100,
+                width: 90,
+                height: 90,
+            }));
+            updatePopoverPosition(ref);
+            const popover = document.querySelector(`.${prefix}-inner`);
+            expect(document.querySelector('.popover-content')).toHaveClass(direction);
+            expect(popover.style.left).toBe(left);
+            expect(popover.style.height).toBe('60px');
+            expect(popover.style[position]).toBe('100px');
+            unmount();
+        }
+    });
+
+    it('should calculate screen position in global mode', async () => {
+        mockElementProperty(screen, 'availWidth', 375);
+        const ref = createRef();
+        const { rerender } = render(
+            <Popover content="Bubble" ref={ref} direction="bottomCenter" mode="global">
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        mockPopoverSize(ref, 100, 60);
+        const { child } = ref.current;
+        child.getBoundingClientRect = jest.fn(() => ({
+            top: 500,
+            bottom: 590,
+            left: 10,
+            right: 100,
+            width: 90,
+            height: 90,
+        }));
+        updatePopoverPosition(ref);
+        expect(document.querySelector(`.${prefix}-inner`)).toHaveClass('global-mode');
+        expect(document.querySelector('.popover-content')).toHaveClass('bottomCenter');
+
+        // top 方向在 global 模式下基于屏幕计算 bottom 值
+        rerender(
+            <Popover content="Bubble" ref={ref} direction="topLeft" mode="global">
+                <Button>Button</Button>
+            </Popover>,
+        );
+        act(() => {
+            jest.advanceTimersByTime(20);
+        });
+        expect(document.querySelector('.popover-content')).toHaveClass('topLeft');
+    });
+
+    it('should close popover when scrolling with touchToClose', async () => {
+        render(
+            <Popover content="Bubble" touchToClose clickSelfToClose={false}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        checkHasPopoverInner();
+        act(() => {
+            fireEvent.scroll(document);
+            jest.advanceTimersByTime(800);
+        });
+        checkHasNoPopoverInner();
+    });
+
+    it('should remove the prevented click listener after timeout', async () => {
+        render(
+            <Popover content="Bubble" touchToClose preventBodyClick clickSelfToClose={false}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        const map = mockBodyListeners();
+        await clickButton();
+        checkHasPopoverInner();
+        act(() => {
+            // 触摸外部元素后不产生 click，500ms 后自动移除阻断 click 的监听
+            map.touchstart({ targetTouches: [{ target: document.body }] });
+            jest.advanceTimersByTime(600);
+        });
+        checkHasNoPopoverInner();
+        expect(map.click).toBeUndefined();
+    });
+
+    it('should not close popover when touching body without target', async () => {
+        render(
+            <Popover content="Bubble" touchToClose clickSelfToClose={false}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        const map = mockBodyListeners();
+        await clickButton();
+        checkHasPopoverInner();
+        act(() => {
+            map.touchstart({ targetTouches: [] });
+            jest.advanceTimersByTime(100);
+        });
+        checkHasPopoverInner();
+    });
+
+    it('should do nothing when calling updatePosition before popover is open', () => {
+        const ref = createRef();
+        render(
+            <Popover content="Bubble" ref={ref}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        act(() => {
+            ref.current.updatePosition();
+        });
+        checkHasNoPopoverInner();
+    });
+
+    it('should not reopen popover before the exit animation resets position', async () => {
+        const onChange = jest.fn();
+        const ref = createRef();
+        render(
+            <Popover content="Bubble" onChange={onChange} ref={ref}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        // 打开并计算位置
+        await clickButton();
+        mockPopoverSize(ref, 100, 60);
+        updatePopoverPosition(ref);
+        expect(onChange.mock.calls).toEqual([[true]]);
+        // 关闭后 300ms 内位置未重置
+        await userEvent.click(rtlScreen.getByRole('button'));
+        act(() => {
+            jest.advanceTimersByTime(50);
+        });
+        expect(onChange.mock.calls).toEqual([[true], [false]]);
+        // 位置未重置时再次点击不会重新打开
+        await userEvent.click(rtlScreen.getByRole('button'));
+        act(() => {
+            jest.advanceTimersByTime(50);
+        });
+        expect(onChange.mock.calls).toEqual([[true], [false]]);
+        act(() => {
+            jest.advanceTimersByTime(1000);
+        });
+    });
+
+    it('should keep stale position when controlled visible toggles quickly', async () => {
+        const ref = createRef();
+        const { rerender } = render(
+            <Popover content="Bubble" visible ref={ref}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        act(() => {
+            jest.advanceTimersByTime(20);
+        });
+        mockPopoverSize(ref, 100, 60);
+        updatePopoverPosition(ref);
+        checkHasPopoverInner();
+
+        // 快速隐藏再显示，重置位置前直接沿用旧位置展示
+        rerender(
+            <Popover content="Bubble" visible={false} ref={ref}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        act(() => {
+            jest.advanceTimersByTime(50);
+        });
+        rerender(
+            <Popover content="Bubble" visible ref={ref}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        act(() => {
+            jest.advanceTimersByTime(50);
+        });
+        checkHasPopoverInner();
+        act(() => {
+            jest.advanceTimersByTime(1000);
+        });
+    });
+
+    it('should support controlled visible and expose ref in Popover.Menu', async () => {
+        const menuRef = createRef();
+        const { rerender } = render(
+            <Popover.Menu
+                visible={false}
+                menu={[{ value: 'first', text: 'Menu 1' }]}
+                ref={menuRef}
+            >
+                <Button>Button</Button>
+            </Popover.Menu>,
+        );
+        checkHasNoPopoverInner();
+        rerender(
+            <Popover.Menu visible menu={[{ value: 'first', text: 'Menu 1' }]} ref={menuRef}>
+                <Button>Button</Button>
+            </Popover.Menu>,
+        );
+        checkHasPopoverInner();
+        expect(typeof menuRef.current.updatePosition).toBe('function');
+    });
+
+    it('should close popover by scrolling when touchToClose is toggled on', async () => {
+        const { rerender } = render(
+            <Popover content="Bubble" touchToClose={false} clickSelfToClose={false}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        checkHasPopoverInner();
+        rerender(
+            <Popover content="Bubble" touchToClose clickSelfToClose={false}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        act(() => {
+            fireEvent.scroll(document);
+            jest.advanceTimersByTime(800);
+        });
+        checkHasNoPopoverInner();
+    });
+
+    it('should calculate bottom position relative to screen in global mode', async () => {
+        mockElementProperty(screen, 'availWidth', 375);
+        const ref = createRef();
+        const { rerender } = render(
+            <Popover content="Bubble" ref={ref} direction="bottomCenter" mode="global">
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        mockPopoverSize(ref, 100, 60);
+        const { child } = ref.current;
+        child.getBoundingClientRect = jest.fn(() => ({
+            top: 500,
+            bottom: 590,
+            left: 10,
+            right: 100,
+            width: 90,
+            height: 90,
+        }));
+        updatePopoverPosition(ref);
+
+        rerender(
+            <Popover content="Bubble" ref={ref} direction="topLeft" mode="global">
+                <Button>Button</Button>
+            </Popover>,
+        );
+        act(() => {
+            jest.advanceTimersByTime(20);
+        });
+        // 位置计算后气泡经 Transition 重新挂载，需要重新 mock 尺寸
+        mockPopoverSize(ref, 100, 60);
+        updatePopoverPosition(ref);
+        expect(document.querySelector('.popover-content')).toHaveClass('topLeft');
+        act(() => {
+            jest.advanceTimersByTime(1000);
+        });
+    });
+
+    it('should render without error when direction is not a preset value', async () => {
+        const ref = createRef();
+        render(
+            <Popover content="Bubble" direction="custom" ref={ref}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        mockPopoverSize(ref, 100, 60);
+        updatePopoverPosition(ref);
+        expect(document.querySelector('.popover-content')).not.toBeNull();
+        act(() => {
+            jest.advanceTimersByTime(1000);
+        });
+    });
+
+    it('should remove scroll listeners when the popover closes', async () => {
+        const onChange = jest.fn();
+        const ref = createRef();
+        const add = jest.spyOn(document, 'addEventListener');
+        const remove = jest.spyOn(document, 'removeEventListener');
+        render(
+            <Popover content="Bubble" onChange={onChange} ref={ref}>
+                <Button>Button</Button>
+            </Popover>,
+        );
+        await clickButton();
+        mockPopoverSize(ref, 100, 60);
+        updatePopoverPosition(ref);
+        checkHasPopoverInner();
+        const listeners = add.mock.calls.filter(([type]) => type === 'scroll');
+        expect(listeners.length).toBeGreaterThan(0);
+        remove.mockClear();
+
+        await userEvent.click(rtlScreen.getByRole('button'));
+        act(() => {
+            jest.advanceTimersByTime(800);
+        });
+        checkHasNoPopoverInner();
+        listeners.forEach(([, callback]) => {
+            expect(remove).toHaveBeenCalledWith('scroll', callback);
+        });
+        expect(onChange.mock.calls).toEqual([[true], [false]]);
     });
 });

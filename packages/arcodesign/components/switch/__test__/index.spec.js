@@ -66,4 +66,25 @@ describe('Switch', () => {
         rerender(<Switch />);
         expect(container.querySelector(`.${prefix}`).classList.contains('fully')).toBe(true);
     });
+    it('should callback correctly when swiped left/right and expose dom via ref', () => {
+        const mockFn = jest.fn();
+        const ref = React.createRef();
+        const { getByRole } = render(<Switch ref={ref} onChange={mockFn} />);
+        const switchElement = getByRole('switch');
+        expect(ref.current.dom).toBe(switchElement);
+
+        function swipeTo(endX) {
+            fireEvent.touchStart(switchElement, createStartTouchEventObject({ x: 100 }));
+            fireEvent.touchEnd(switchElement, createMoveTouchEventObject({ x: endX }));
+        }
+
+        swipeTo(130);
+        swipeTo(130);
+        expect(switchElement.getAttribute('aria-checked')).toBe('true');
+
+        swipeTo(70);
+        swipeTo(70);
+        expect(switchElement.getAttribute('aria-checked')).toBe('false');
+        expect(mockFn.mock.calls).toEqual([[true], [true], [false], [false]]);
+    });
 });

@@ -286,4 +286,209 @@ describe('pickerView action correctly',()=>{
         expect(mockFn).toBeCalled()
         expect(mockFn).toBeCalledTimes(1)
     })
+
+    it('should scroll with momentum when fast vertical touch move happens',() => {
+        const mockFn = jest.fn();
+        const ref = createRef();
+        const { container } = render(<PickerView
+            ref={ref}
+            data={mockData[1].data}
+            value={mockData[1].value}
+            onPickerChange={mockFn}
+            cascade={false}/>
+        )
+        // jsdom 无布局，手动设置选项高度后触发重新布局
+        const bar = container.querySelector(`.arco-picker-selection-bar`);
+        bar.getBoundingClientRect = () => ({ height: 34 });
+        act(() => {
+            ref.current.updateLayout();
+        });
+
+        // 纵向快速下滑：momentum 计算后定位到首行
+        const weekdayOne = screen.getByText('周一');
+        fireEvent.touchStart(weekdayOne, {
+            touches: [{ screenX: 100, screenY: 100, clientX: 100, clientY: 100 }],
+        });
+        fireEvent.touchMove(weekdayOne, {
+            touches: [{ screenX: 100, screenY: 500, clientX: 100, clientY: 500 }],
+            changedTouches: [{ screenX: 100, screenY: 500, clientX: 100, clientY: 500 }],
+        });
+        fireEvent.touchEnd(weekdayOne);
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(mockFn).toBeCalled();
+        expect(ref.current.getColumnValue()).toBe('周一');
+
+        // 纵向快速上滑：momentum 计算后定位到末行
+        fireEvent.touchStart(weekdayOne, {
+            touches: [{ screenX: 100, screenY: 500, clientX: 100, clientY: 500 }],
+        });
+        fireEvent.touchMove(weekdayOne, {
+            touches: [{ screenX: 100, screenY: 100, clientX: 100, clientY: 100 }],
+            changedTouches: [{ screenX: 100, screenY: 100, clientX: 100, clientY: 100 }],
+        });
+        fireEvent.touchEnd(weekdayOne);
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(ref.current.getColumnValue()).toBe('周日');
+    })
+
+    it('should not scroll when touch move is horizontal',() => {
+        const mockFn = jest.fn();
+        const ref = createRef();
+        render(<PickerView
+            ref={ref}
+            data={mockData[1].data}
+            value={mockData[1].value}
+            onPickerChange={mockFn}
+            cascade={false}/>
+        )
+        const weekdayOne = screen.getByText('周一');
+        // 横向移动距离大于纵向，不产生滚动
+        fireEvent.touchStart(weekdayOne, {
+            touches: [{ screenX: 100, screenY: 100, clientX: 100, clientY: 100 }],
+        });
+        fireEvent.touchMove(weekdayOne, {
+            touches: [{ screenX: 500, screenY: 120, clientX: 500, clientY: 120 }],
+            changedTouches: [{ screenX: 500, screenY: 120, clientX: 500, clientY: 120 }],
+        });
+        fireEvent.touchEnd(weekdayOne);
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(mockFn).not.toBeCalled();
+        expect(ref.current.getColumnValue()).toBe('周三');
+
+        // 仅 touch 未 move，不触发滚动结束逻辑
+        fireEvent.touchStart(weekdayOne, {
+            touches: [{ screenX: 100, screenY: 100, clientX: 100, clientY: 100 }],
+        });
+        fireEvent.touchEnd(weekdayOne);
+        act(() => {
+            jest.runAllTimers();
+        });
+        expect(mockFn).not.toBeCalled();
+        expect(ref.current.getColumnValue()).toBe('周三');
+    })
+
+    it('should not respond item click when clickable is false',() => {
+        const mockFn = jest.fn();
+        const ref = createRef();
+        render(<PickerView
+            ref={ref}
+            data={mockData[1].data}
+            value={mockData[1].value}
+            onPickerChange={mockFn}
+            cascade={false}
+            clickable={false}/>
+        )
+        userEvent.click(screen.getByText('周一'))
+        act(() => {
+            jest.runAllTimers()
+        })
+        expect(mockFn).not.toBeCalled();
+        expect(ref.current.getColumnValue()).toBe('周三');
+    })
+
+    it('should skip scroll of empty column when hideEmptyCols is set',() => {
+        const ref = createRef();
+        render(<PickerView
+            ref={ref}
+            data={[mockData[0].data[0], []]}
+            value={['周一']}
+            cascade={false}
+            hideEmptyCols/>
+        )
+        expect(screen.getByText('周一')).toBeInTheDocument();
+        act(() => {
+            ref.current.scrollToCurrentIndex();
+        });
+        expect(ref.current.getColumnValue()).toBe('周一');
+    })
+
+    it('should get cell moving status in cascade and normal mode',() => {
+        const cascadeRef = createRef();
+        render(<PickerView
+            ref={cascadeRef}
+            data={mockData[2].data}
+            value={mockData[2].value}
+            cols={3}/>
+        )
+        expect(cascadeRef.current.getCellMovingStatus()).toEqual(['normal', 'normal', 'normal']);
+
+        const normalRef = createRef();
+        render(<PickerView
+            ref={normalRef}
+            data={mockData[1].data}
+            value={mockData[1].value}
+            cascade={false}/>
+        )
+        expect(normalRef.current.getCellMovingStatus()).toEqual(['normal', 'normal']);
+    })
+
+    it('should get all column data and scroll in cascade and normal mode',() => {
+        const cascadeRef = createRef();
+        render(<PickerView
+            ref={cascadeRef}
+            data={mockData[2].data}
+            value={mockData[2].value}
+            cols={3}/>
+        )
+        const cascadeData = cascadeRef.current.getAllColumnData();
+        expect(Array.isArray(cascadeData)).toBe(true);
+        expect(cascadeData[0].value).toBe('北京市');
+        act(() => {
+            cascadeRef.current.scrollToCurrentIndex();
+        });
+        expect(cascadeRef.current.getColumnValue()).toBe('北京市');
+
+        const normalRef = createRef();
+        const { container: normalContainer } = render(<PickerView
+            ref={normalRef}
+            data={mockData[1].data}
+            value={mockData[1].value}
+            cascade={false}/>
+        )
+        const normalData = normalRef.current.getAllColumnData();
+        expect(normalData).toHaveLength(2);
+        expect(normalData[0].value).toBe('周三');
+        const selectionBar = normalContainer.querySelector(`.arco-picker-selection-bar`);
+        selectionBar.getBoundingClientRect = () => ({ height: 34 });
+        act(() => {
+            normalRef.current.updateLayout();
+        });
+        const weekdayColumn = normalContainer.querySelector(
+            `.arco-picker-column-item-wrap`,
+        );
+        weekdayColumn.style.transform = 'matrix(1, 0, 0, 1, 0, -34)';
+        act(() => {
+            normalRef.current.scrollToCurrentIndex();
+            jest.runOnlyPendingTimers();
+        });
+        expect(normalRef.current.getColumnValue()).toBe('周二');
+    })
+
+    it('should reset value to initial value by resetValue',() => {
+        const ref = createRef();
+        render(<PickerView
+            ref={ref}
+            data={mockData[1].data}
+            value={mockData[1].value}
+            cascade={false}/>
+        )
+        userEvent.click(screen.getByText('周一'))
+        act(() => {
+            jest.runAllTimers()
+        })
+        expect(ref.current.getColumnValue()).toBe('周一');
+        act(() => {
+            ref.current.resetValue();
+        })
+        act(() => {
+            jest.runAllTimers()
+        })
+        expect(ref.current.getColumnValue()).toBe('周三');
+    })
 })

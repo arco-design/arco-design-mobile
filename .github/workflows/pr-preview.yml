@@ -30,12 +30,11 @@ jobs:
             - name: Set ARCO_SITE_DOMAIN
               run: echo "ARCO_SITE_DOMAIN=preview-${{ github.event.number }}-arco-design-mobile.surge.sh" >> $GITHUB_ENV
 
-            - name: Build sites concurrently
+            - name: Build sites
               run: |
-                  npm run site:home &
-                  npm run site:pc &
-                  npm run site:mobile &
-                  wait
+                  npm run site:home
+                  npm run site:pc
+                  npm run site:mobile
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
 
@@ -54,9 +53,11 @@ jobs:
                   echo '<html><head><meta http-equiv="refresh" content="0; url=/mobile/react/arco-design/pc/" /></head><body></body></html>' > merged_output/index.html
 
             - name: Install Surge
+              if: github.event.pull_request.head.repo.full_name == github.repository
               run: npm install --global surge
 
             - name: Deploy to Surge
+              if: github.event.pull_request.head.repo.full_name == github.repository
               env:
                   SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
@@ -64,6 +65,7 @@ jobs:
                   surge ./merged_output ${{ env.ARCO_SITE_DOMAIN }} --token $SURGE_TOKEN
 
             - name: Create/Update PR Comment
+              if: github.event.pull_request.head.repo.full_name == github.repository
               uses: actions/github-script@v6
               env:
                   ARCO_SITE_DOMAIN: ${{ env.ARCO_SITE_DOMAIN }}
