@@ -22,7 +22,7 @@ const makeArrayRandom = (targetArray: Array<number>) => {
     const randomFn = () => {
         return Math.random() - 0.5;
     };
-    return targetArray.sort(randomFn);
+    return targetArray.slice().sort(randomFn);
 };
 
 const splitArray = (target: Array<number>) => {

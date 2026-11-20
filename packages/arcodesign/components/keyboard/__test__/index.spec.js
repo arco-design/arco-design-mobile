@@ -12,7 +12,7 @@ mountTest(Keyboard, 'Keyboard');
 
 describe('Keyboard', () => {
     it('should render correctly', () => {
-        const { rerender, container } = render(<Keyboard visible type="number" />);
+        const { rerender } = render(<Keyboard visible type="number" />);
         let button = screen.getByText('1');
         expect(button).not.toBeNull();
         rerender(<Keyboard visible type="confirm" />);
@@ -23,10 +23,27 @@ describe('Keyboard', () => {
         expect(button).not.toBeNull();
         rerender(<Keyboard visible rightColumns={<div>hello world</div>} />);
         expect(screen.getByText('hello world')).toBeInTheDocument();
-        rerender(<Keyboard visible randomOrder />);
-        const buttons = container.querySelectorAll('.arco-keyboard-key');
-        expect([...buttons].some((btn, idx) => Number(btn.textContent) !== idx)).toBeTruthy;
     });
+
+    it('keeps the default digit order on a new keyboard after a randomized keyboard', () => {
+        const digitOrder = () =>
+            screen
+                .getAllByRole('button', { name: /^\d$/ })
+                .map(key => key.textContent)
+                .join('');
+        const random = jest.spyOn(Math, 'random').mockReturnValue(0);
+        try {
+            const { unmount } = render(<Keyboard visible randomOrder />);
+            expect(digitOrder()).not.toBe('1234567890');
+            unmount();
+        } finally {
+            random.mockRestore();
+        }
+
+        render(<Keyboard visible randomOrder={false} />);
+        expect(digitOrder()).toBe('1234567890');
+    });
+
     it('onChange listener correctly', async () => {
         const onChange = jest.fn();
         const onDelete = jest.fn();
