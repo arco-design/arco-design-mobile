@@ -2,6 +2,7 @@ import { raf, cancelRaf } from './util';
 
 export interface TaskQueueItem {
     id: number;
+    cancelled?: boolean;
     callback: () => boolean; // 返回true表示要继续计时，否则停止计时
 }
 export type TaskQueueType = 'micro' | 'macro';
@@ -47,7 +48,8 @@ export function execMacroTask() {
 }
 
 export function execTask(type: TaskQueueType) {
-    taskQueue[type].forEach(item => {
+    taskQueue[type].slice().forEach(item => {
+        if (item.cancelled) return;
         const needContinue = item.callback();
         if (!needContinue) {
             stopTask(type, item.id);
@@ -59,6 +61,7 @@ export function stopTask(type: TaskQueueType, id: number) {
     const queue = taskQueue[type];
     const index = queue.findIndex(val => val.id === id);
     if (index >= 0) {
-        taskQueue[type].splice(index, 1);
+        queue[index].cancelled = true;
+        queue.splice(index, 1);
     }
 }
