@@ -1,7 +1,7 @@
 import { nextTick } from '@arco-design/mobile-utils';
-import React from 'react';
+import type React from 'react';
 import { ReactDOMRender } from '../_helpers/render';
-import { GlobalContextParams } from '../context-provider';
+import type { GlobalContextParams } from '../context-provider';
 
 export interface NotifyBaseProps {
     getContainer?: () => HTMLElement;
@@ -33,46 +33,51 @@ export function notify<P extends NotifyBaseProps>(Component: React.FC<P>, type?:
             document.body.appendChild(div);
         }
 
-        const { render, unmount } = new ReactDOMRender(Component, div, context);
-
-        function destroy() {
-            const { onClose } = config;
-            onClose && onClose();
-            unmount();
-            if (div.parentNode) {
-                div.parentNode.removeChild(div);
-            }
-        }
-
+        const renderer = new ReactDOMRender(Component, div, context);
         let dynamicProps = {
             ...config,
             close,
-            onClose: destroy,
             getContainer: () => div,
             visible: false,
         };
 
         let leaving = false;
 
+        function destroy() {
+            const { onClose } = dynamicProps;
+            try {
+                onClose?.();
+            } finally {
+                renderer.unmount();
+                if (div.parentNode) {
+                    div.parentNode.removeChild(div);
+                }
+            }
+        }
+
+        function render() {
+            renderer.render({ ...dynamicProps, onClose: destroy });
+        }
+
         function update(newConfig: Config) {
             dynamicProps = {
                 ...dynamicProps,
                 ...newConfig,
             };
-            render(dynamicProps);
+            render();
         }
 
         function close() {
             leaving = true;
             dynamicProps.visible = false;
-            render(dynamicProps);
+            render();
         }
-        render(dynamicProps);
+        render();
 
         nextTick(() => {
             if (leaving) return;
             dynamicProps.visible = true;
-            render(dynamicProps);
+            render();
         });
 
         return {
